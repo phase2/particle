@@ -1,0 +1,27 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# Dependencies #
+###################
+vendor/bundle
+.bundle
+source/bower_components
+
+# Generated files #
+###################
+*.sass-cache/
+source/css/
+
+# Styleguide specific stuff
+public/*
+!public/styleguide/
+public/styleguide/html/styleguide.html
+
+# node stuffz
+node_modules
+.idea
+
+#IDE plugins
+atlassian-ide-plugin.xml
