@@ -7,7 +7,8 @@
 ###################
 vendor/bundle
 .bundle
-source/bower_components
+pattern-lab/source/bower_components
+bower_components
 
 # Generated files #
 ###################
@@ -15,9 +16,9 @@ source/bower_components
 source/css/
 
 # Styleguide specific stuff
-public/*
-!public/styleguide/
-public/styleguide/html/styleguide.html
+pattern-lab/public/*
+!pattern-lab/public/styleguide/
+pattern-lab/public/styleguide/html/styleguide.html
 
 # node stuffz
 node_modules

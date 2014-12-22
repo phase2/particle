@@ -19,7 +19,7 @@ if (!function_exists("json_decode")) {
 }
 
 // auto-load classes
-require(__DIR__."/lib/SplClassLoader.php");
+require( __DIR__ . "/lib/SplClassLoader.php" );
 
 $loader = new SplClassLoader('PatternLab', __DIR__.'/lib');
 $loader->register();

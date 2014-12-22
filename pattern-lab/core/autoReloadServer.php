@@ -12,7 +12,7 @@
  */
 
 // auto-load classes
-require(__DIR__."/lib/SplClassLoader.php");
+require( __DIR__ . "/lib/SplClassLoader.php" );
 
 // load wrench
 $loader = new SplClassLoader('Wrench', __DIR__.'/lib');
