@@ -13,7 +13,7 @@ bower_components
 # Generated files #
 ###################
 *.sass-cache/
-source/css/
+css/
 
 # Styleguide specific stuff
 pattern-lab/public/*
