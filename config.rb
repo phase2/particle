@@ -6,12 +6,12 @@ require 'sass-globbing'
 
 # Set this to the root of your project when deployed:
 http_path = "../"
-css_dir = "source/css"
-sass_dir = "source/scss"
-images_dir = "source/images"
-javascripts_dir = "source/js"
-fonts_dir = "source/fonts"
-add_import_path "source/bower_components/eq.js/sass"
+css_dir = "css"
+sass_dir = "scss"
+images_dir = "images"
+javascripts_dir = "js"
+fonts_dir = "fonts"
+add_import_path "bower_components/eq.js/sass"
 
 # Change to production on production environment
 environment = :development
