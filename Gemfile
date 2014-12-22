@@ -11,5 +11,6 @@ gem 'toolkit', '~> 2.6'
 gem 'sass-globbing', '~> 1.1.1'
 gem 'terminal-notifier'
 gem 'compass-normalize', '~>1.4.3'
+gem 'scss-lint'
 
 # Now that you're using Bundler, you need to run `bundle exec compass watch` instead of simply `compass watch`.

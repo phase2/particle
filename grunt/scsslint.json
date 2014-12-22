@@ -1,0 +1,10 @@
+{
+  "options": {
+    "bundleExec": "<%= package.paths.drupal_us %>",
+    "config": "../.scss-lint.yml",
+    "force": true,
+    "maxBuffer": 999999,
+    "colorizeOutput": true,
+    "compact": true
+  }
+}

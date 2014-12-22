@@ -1,0 +1,7 @@
+{
+  "comment": "To override values here, make a file named 'Gruntconfig--custom.json' - it will be git ignored",
+  "openBrowserAtStart": true,
+  "patternLab": true,
+  "updateAtStart": true,
+  "buildModernizrAtStart": true
+}

@@ -7,7 +7,6 @@
 ###################
 vendor/bundle
 .bundle
-pattern-lab/source/bower_components
 bower_components
 
 # Generated files #
