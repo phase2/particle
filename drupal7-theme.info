@@ -1,0 +1,9 @@
+name = Theme Name
+core = 7.x
+
+stylesheets[screen][] = css/style.css
+
+scripts[] = js/lib/modernizr-custom.js
+scripts[] = js/bower_components/underscore/underscore.js
+scripts[] = js/bower_components/picturefill/dist/picturefill.js
+scripts[] = js/script.js

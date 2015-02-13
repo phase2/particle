@@ -168,6 +168,7 @@ module.exports = function (grunt) {
 
   // Begin Modular Config
   require('./tasks/test.js')(grunt, options);
+  require('./tasks/drupal7.js')(grunt, options);
   require('./tasks/icons.js')(grunt);
   // End Modular Config
 

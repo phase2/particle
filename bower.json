@@ -19,8 +19,6 @@
     "jquery": "~1.10.2",
     "jquery-migrate": "~1.2.1",
     "drupal": "http://cgit.drupalcode.org/drupal/plain/misc/drupal.js?h=7.x",
-    "underscore": "~1.6.0",
-    "html5shiv": "~3.7.2",
-    "respond": "~1.4.2"
+    "underscore": "~1.6.0"
   }
 }
