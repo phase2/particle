@@ -19,8 +19,8 @@ module.exports = function (grunt) {
   // Instead, let's merge the config of a full feature in, one at a time, with `grunt.config.merge`.
   
   // Begin Styles
-  var scssDir = "../scss/";
-  var scssConfigRoot = "../"; // where `config.rb` and `Gemfile` exist
+  var scssDir = "scss/";
+  var scssConfigRoot = "./"; // where `config.rb` and `Gemfile` exist
   grunt.config.merge({
     shell: {
       stylesCompile: {
@@ -86,6 +86,7 @@ module.exports = function (grunt) {
   });
   // End Pattern Lab
 
+  require('time-grunt')(grunt); // shows how long grunt tasks take ~ https://github.com/sindresorhus/time-grunt
   require("load-grunt-tasks")(grunt);
 
 };
