@@ -101,12 +101,12 @@ module.exports = function (grunt) {
     connect: { // https://www.npmjs.org/package/grunt-contrib-connect
       pl: {
         options: {
-          port: 9001,
+          port: 9005,
           useAvailablePort: true,
           base: serverDir,
           keepalive: true,
           livereload: true,
-          open: "http://0.0.0.0:9001/" + serverPath
+          open: "http://0.0.0.0:9005/" + serverPath
         }
       }
     }
