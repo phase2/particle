@@ -2,7 +2,7 @@
    Global Icons - Mixins
    ========================================================================== */
 
-@import "icons";
+@import 'icons';
 
 /* Mixin - Font Icon Base
    ========================================================================== */
@@ -11,18 +11,18 @@
  */
 
 @mixin font-icon-base() {
-  font-family:"icons";
-  display:inline-block;
-  vertical-align:middle;
-  line-height:1;
-  font-weight:normal;
-  font-style:normal;
-  speak:none;
-  text-decoration:inherit;
-  text-transform:none;
-  text-rendering:optimizeLegibility;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  @include inline-block();
+  font-family: 'icons';
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 %font-icon-base {
   @include font-icon-base();
@@ -38,11 +38,11 @@
   position: relative;
   right: 9999px;
   &:#{$pseudo} {
-    position: absolute;
     height: 100%;
+    position: absolute;
+    right: -9999px;
     text-align: center;
     top: 0;
-    right: -9999px;
   }
 }
 
@@ -57,7 +57,7 @@
  *  $size
  *  $color
  */
-
+ 
 @mixin icon(
   $icon: $icon,
   $pseudo: before,
@@ -83,7 +83,7 @@
 }
 
 // Shared styles for <i> elements
-[class*="icon--"] {
+[class*='icon--'] {
   @extend %font-icon-base;
 }
 
@@ -95,12 +95,12 @@
 }
 
 // true as second options returns only path
-$icon-path: image-url("", true) + "icons/output/fonts";
+$icon-path: image-url('', true) + 'icons/output/fonts';
 
 // Font Source Files
-@include font-face("icons", (
-  'eot': "#{$icon-path}/icons.eot",
-  'woff': "#{$icon-path}/icons.woff",
-  'ttf': "#{$icon-path}/icons.ttf",
-  'svg': "#{$icon-path}/icons.svg"
+@include font-face('icons', (
+  'eot': '#{$icon-path}/icons.eot',
+  'woff': '#{$icon-path}/icons.woff',
+  'ttf': '#{$icon-path}/icons.ttf',
+  'svg': '#{$icon-path}/icons.svg'
 ));

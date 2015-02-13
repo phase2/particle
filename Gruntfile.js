@@ -33,6 +33,14 @@ module.exports = function (grunt) {
       }
     },
     scsslint: {
+      "options": {
+        "bundleExec": scssConfigRoot,
+        "config": scssConfigRoot + ".scss-lint.yml",
+        "force": true,
+        "maxBuffer": 999999,
+        "colorizeOutput": true,
+        "compact": true
+      },
       styles: {
         src: "<%= watch.styles.files %>"
       }
@@ -42,6 +50,7 @@ module.exports = function (grunt) {
         files: scssDir + "**/*.scss",
         tasks: [
           "shell:stylesCompile",
+          "shell:livereload",
           "newer:scsslint:styles" // only lint the newly change files
         ]
       }
@@ -59,6 +68,9 @@ module.exports = function (grunt) {
     shell: {
       plBuild: {
         command: "php " + plDir + "core/builder.php --generate --nocache"
+      },
+      livereload: {
+        command: "touch .change-to-reload.txt"
       }
     },
     jsonlint: {
@@ -74,23 +86,33 @@ module.exports = function (grunt) {
         files: plDir + "source/**/*.*",
         tasks: [
           "shell:plBuild",
+          "shell:livereload",
           "newer:jsonlint:pl"
         ]
+      },
+      livereload: {
+        options: {
+          livereload: true
+        },
+        files: ".change-to-reload.txt"
       }
     },
+    // local server
     connect: { // https://www.npmjs.org/package/grunt-contrib-connect
-      options: {
-        port: 9001,
-        useAvailablePort: true,
-        base: serverDir,
-        keepalive: true,
-        livereload: true,
-        open: "http://0.0.0.0:9001/" + serverPath
+      pl: {
+        options: {
+          port: 9001,
+          useAvailablePort: true,
+          base: serverDir,
+          keepalive: true,
+          livereload: true,
+          open: "http://0.0.0.0:9001/" + serverPath
+        }
       }
     }
   });
   // End Pattern Lab
-  
+
   // Begin JS
   var jsDir = "js/";
   grunt.config.merge({
@@ -106,13 +128,14 @@ module.exports = function (grunt) {
             "!" + jsDir + "lib/**",
             "Gruntfile.js"
           ]
-        } 
+        }
       }
     },
     watch: {
       js: {
         files: "<%= jshint.js.files.src %>",
         tasks: [
+          "shell:livereload",
           "newer:jshint:js"
         ]
       }
@@ -123,13 +146,20 @@ module.exports = function (grunt) {
   // Begin Misc Config
   grunt.config.merge({
     concurrent: {
+      options: {
+        logConcurrentOutput: true
+      },
       build: {
-        options: {
-          logConcurrentOutput: true
-        },
         tasks: [
           "shell:plBuild",
-          "shell:stylesCompile"
+          "shell:stylesCompile",
+          "buildIcons"
+        ]
+      },
+      dev: {
+        tasks: [
+          "watch",
+          "connect"
         ]
       }
     }
@@ -140,18 +170,25 @@ module.exports = function (grunt) {
   require('./tasks/test.js')(grunt, options);
   require('./tasks/icons.js')(grunt);
   // End Modular Config
-  
+
 // End Config
 
 // Begin Task Aliases
   grunt.registerTask("build", [
-    "concurrent:build"
+    "concurrent:build",
+    "shell:livereload"
   ]);
-  
+
   grunt.registerTask("test", [
     "jsonlint",
     "jshint",
     "scsslint"
+  ]);
+
+  // this is ran if you do either `grunt default` or `grunt`
+  grunt.registerTask("default", [
+    "build",
+    "concurrent:dev"
   ]);
 // End Task Aliases
 
