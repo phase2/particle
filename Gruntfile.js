@@ -6,18 +6,19 @@ module.exports = function (grunt) {
     var customConfigOverrides = grunt.file.readJSON("Gruntconfig--custom.json");
     _.extend(customConfig, customConfigOverrides);
   }
-  
-  // Begin Conventions
-    // - All directory variables have trailing slash; this allows us to set it to `./` and have it all be relative to Gruntfile
-    // - Use camelCase for naming
-    // - When using comments to say a section starts, be sure to include comments to say that it has ended
-    // - Comment where it can be confusing for other developers
-  // End Conventions
-  
+
+// Begin Conventions
+  // - All directory variables have trailing slash; this allows us to set it to `./` and have it all be relative to Gruntfile
+  // - Use camelCase for naming
+  // - When using comments to say a section starts, be sure to include comments to say that it has ended
+  // - Comment where it can be confusing for other developers
+// End Conventions
+
+// Begin Config
   // First, let's initialize an empty config; this is where most people put tasks - *all* of them. 
   grunt.config.init({}); // also known as: `grunt.initConfig`
   // Instead, let's merge the config of a full feature in, one at a time, with `grunt.config.merge`.
-  
+
   // Begin Styles
   var scssDir = "scss/";
   var scssConfigRoot = "./"; // where `config.rb` and `Gemfile` exist
@@ -29,7 +30,7 @@ module.exports = function (grunt) {
     },
     scsslint: {
       styles: {
-        src: scssDir + "**/*.scss"
+        src: "<%= watch.styles.files %>"
       }
     },
     watch: {
@@ -43,9 +44,9 @@ module.exports = function (grunt) {
     }
   });
   // End Styles
-  
+
   // adding another feature to the config...
-  
+
   // Begin Pattern Lab
   var plDir = "pattern-lab/";
   var serverDir = "./";
@@ -85,6 +86,59 @@ module.exports = function (grunt) {
     }
   });
   // End Pattern Lab
+  
+  // Begin JS
+  var jsDir = "js/";
+  grunt.config.merge({
+    jshint: {
+      options: {
+        jshintrc: ".jshintrc",
+        force: true
+      },
+      js: {
+        files: {
+          src: [
+            jsDir + "**/*.js",
+            "!" + jsDir + "lib/**",
+            "Gruntfile.js"
+          ]
+        } 
+      }
+    },
+    watch: {
+      js: {
+        files: "<%= jshint.js.files.src %>",
+        tasks: [
+          "newer:jshint:js"
+        ]
+      }
+    }
+  });
+  // End JS
+
+  // Begin Misc Config
+  grunt.config.merge({
+    concurrent: {
+      build: {
+        options: {
+          logConcurrentOutput: true
+        },
+        tasks: [
+          "shell:plBuild",
+          "shell:stylesCompile"
+        ]
+      }
+    }
+  });
+  // End Misc Config
+
+// End Config
+
+// Begin Task Aliases
+  grunt.registerTask("build", [
+    "concurrent:build"
+  ]);
+// End Task Aliases
 
   require('time-grunt')(grunt); // shows how long grunt tasks take ~ https://github.com/sindresorhus/time-grunt
   require("load-grunt-tasks")(grunt);
