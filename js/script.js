@@ -1,4 +1,4 @@
 $(document).ready(function() {
 	"use strict";
-	$('body').addClass("TEST"); 
+	$("body").addClass("TEST"); 
 });

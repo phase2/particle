@@ -12,10 +12,13 @@ module.exports = function (grunt) {
   };
 
 // Begin Conventions
-  // - All directory variables have trailing slash; this allows us to set it to `./` and have it all be relative to Gruntfile
+  // - All directory variables have trailing slash like this: `../path/to/dir/` - this allows us to set it to `./` and have it all be relative to Gruntfile
   // - Use camelCase for naming
-  // - When using comments to say a section starts, be sure to include comments to say that it has ended
-  // - Comment where it can be confusing for other developers
+  // - Help other devs: 
+    // - When using comments to say a section starts, be sure to include comments to say that it has ended
+    // - Comment where it can be confusing for other developers
+    // - Use code comments todos on the same line or above issue like this: // @todo Example Todo Message
+    // - Grunt plugins config object should have a comment to the docs URL
 // End Conventions
 
 // Begin Config
