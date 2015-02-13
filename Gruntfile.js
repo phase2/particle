@@ -7,6 +7,10 @@ module.exports = function (grunt) {
     _.extend(customConfig, customConfigOverrides);
   }
 
+  var options = {
+    "test": "testing..."
+  };
+
 // Begin Conventions
   // - All directory variables have trailing slash; this allows us to set it to `./` and have it all be relative to Gruntfile
   // - Use camelCase for naming
@@ -132,11 +136,22 @@ module.exports = function (grunt) {
   });
   // End Misc Config
 
+  // Begin Modular Config
+  require('./tasks/test.js')(grunt, options);
+  require('./tasks/icons.js')(grunt);
+  // End Modular Config
+  
 // End Config
 
 // Begin Task Aliases
   grunt.registerTask("build", [
     "concurrent:build"
+  ]);
+  
+  grunt.registerTask("test", [
+    "jsonlint",
+    "jshint",
+    "scsslint"
   ]);
 // End Task Aliases
 
