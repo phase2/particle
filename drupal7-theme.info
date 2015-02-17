@@ -3,16 +3,16 @@ core = 7.x
 
 stylesheets[screen][] = css/style.css
 
-scripts[] = js/lib/modernizr-custom.js
-scripts[] = js/bower_components/underscore/underscore.js
-scripts[] = js/bower_components/picturefill/dist/picturefill.js
-scripts[] = js/script.js
-
-;wiredep for injecting bower JS & CSS isn't working yet; see tasks/drupal7.js
 ;bower:css
-
 ;endbower
 
 ;bower:js
-
+scripts[] = bower_components/jquery/jquery.js
+scripts[] = bower_components/jquery-migrate/jquery-migrate.js
+scripts[] = bower_components/drupal/index.js
+scripts[] = bower_components/underscore/underscore.js
 ;endbower
+
+scripts[] = js/lib/modernizr-custom.js
+scripts[] = js/bower_components/picturefill/dist/picturefill.js
+scripts[] = js/script.js

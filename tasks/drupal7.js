@@ -59,12 +59,10 @@ module.exports = function (grunt, options) {
       }
     },
 
-    // @todo Get WireDep working; needs to inject bower JS & CSS into Drupal 7 theme.info file
     // wiredep's job is to take assets declared by Bower and add them to the Drupal 7 theme.info file
     wiredep: {// https://github.com/stephenplusplus/grunt-wiredep
       options: {
-        directory: 'bower_components',
-        bowerJson: 'bower.json'
+        directory: 'bower_components'
       },
       drupal: {
         src: infoFile,
@@ -75,8 +73,6 @@ module.exports = function (grunt, options) {
         fileTypes: {
           info: {
             block: /(([ \t]*);\s*bower:*(\S*))(\n|\r|.)*?(;\s*endbower)/gi,
-            //block: /;\s*bower.*(\n|.)*?;\s*endbower/mi,
-            //block: /(([ \t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
             detect: {
               js: /<script.*src=['"]([^'"]+)/gi,
               css: /<link.*href=['"]([^'"]+)/gi
