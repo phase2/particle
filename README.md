@@ -2,39 +2,26 @@
 
 ## Brief Overview
 
-### One line install and setup
+### Quick install and setup
 
-    git clone git@bitbucket.org:phase2tech/pattern-lab-starter.git && cd pattern-lab-starter && bash scripts/setup-everything.sh
-  
-Already downloaded the repo? Just run this to make you've got dependencies and helpers taken care of:
-  
-    bash scripts/setup-everything.sh
+Required prerequesites: node, ruby.
 
+Make sure you have these already installed; if not, run:
 
-## Quick Start Guide
+    npm install grunt-cli --global
+    npm install bower --global
+    gem install bundler
+    
+After cloning and changing into that directory, run this to install dependencies:
 
-- To start, run `grunt` - this kicks off Dev Mode: Sass/Compass watch, Pattern Lab Watch, and auto-reload for your browser.
-  - Point your browser towards `public/index.html` to see the site
-- To build the site once, run `grunt build`
-  - Or for the non-grunters: run `bash scripts/build-on-mac.sh`
-- Edit Patterns:
-    - Open files in `source/_patterns`
-      - Atoms, Molecules, Organisms, Templates, and Pages are all found here
-- Edit Data/Content:
-    - Globally: edit `source/_data/_data.json`
-    - List Items: edit `source/_data/_listitems.json`
-    - For a component: edit the file that has the same name, but ends in `.json`
+    npm install
+    bundler install
+    bower install
+
+You may have to run that again for updates; so it may be wise to save this: `npm install && bundler install && bower install`
 
 ### Conventions to Follow
 
-- [BEM](http://bem.info) for picking class names
-- [Atomic Design](http://bradfrostweb.com/blog/post/atomic-web-design/) for how we think about breaking componets out of pages
-- [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) for how we branch and merge. Nice overview [here](https://www.atlassian.com/git/workflows#!workflow-gitflow)
-    - Work in the branch `dev` or branch off of `dev` to create a feature branch, which gets merged back into `dev` after. Working on `dev` is OK. `dev` gets merged in `master` when it's time. Hotfixes branch off of `master`, get merged back into `master` and then  `dev` and then are deleted.
-    - Naming conventions:
-        - Feature branch: `feature--name-of-feature` (always branch off of `dev`)
-        - Hotfix branch: `hotfix--name-of-fix` (always branch off of `master`)
-    - **Delete your feature branches or hotfix branches after they are merged back in**. Let's keep this branch list slim.
 - Relative links instead of root relative links for paths (where possible)
     - Use `../images/logo.png` instead of `/images/logo.png`
 
