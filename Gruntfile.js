@@ -54,7 +54,8 @@ module.exports = function (grunt) {
         tasks: [
           "shell:stylesCompile",
           "shell:livereload",
-          "newer:scsslint:styles" // only lint the newly change files
+          "newer:scsslint:styles", // only lint the newly change files
+          "newer:pattern_lab_component_builder"
         ]
       }
     }
@@ -189,6 +190,7 @@ module.exports = function (grunt) {
 
 // Begin Task Aliases
   grunt.registerTask("build", [
+    "pattern_lab_component_builder",
     "concurrent:build",
     "shell:livereload"
   ]);
