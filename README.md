@@ -9,7 +9,6 @@ Required prerequesites: node, ruby.
 Make sure you have these already installed; if not, run:
 
     npm install grunt-cli --global
-    npm install bower --global
     gem install bundler
     
 After cloning and changing into that directory, run this to install dependencies:
