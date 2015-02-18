@@ -15,10 +15,10 @@ module.exports = function (grunt) {
   // - All directory variables have trailing slash like this: `../path/to/dir/` - this allows us to set it to `./` and have it all be relative to Gruntfile
   // - Use camelCase for naming
   // - Help other devs: 
-    // - When using comments to say a section starts, be sure to include comments to say that it has ended
-    // - Comment where it can be confusing for other developers
-    // - Use code comments todos on the same line or above issue like this: // @todo Example Todo Message
-    // - Grunt plugins config object should have a comment to the docs URL
+  // - When using comments to say a section starts, be sure to include comments to say that it has ended
+  // - Comment where it can be confusing for other developers
+  // - Use code comments todos on the same line or above issue like this: // @todo Example Todo Message
+  // - Grunt plugins config object should have a comment to the docs URL
 // End Conventions
 
 // Begin Config
@@ -120,8 +120,24 @@ module.exports = function (grunt) {
           regex: "^\\$color--.*",
           allow_var_values: false
         },
-        src: 'scss/_vars.scss',
-        dest: 'pattern-lab/source/_patterns/00-atoms/01-global/00-colors.json'
+        src: scssDir + '_vars.scss',
+        dest: plDir + 'source/_patterns/00-atoms/01-global/00-colors.json'
+      },
+      fontSizes: {
+        options: {
+          regex: "^\\$font-size.*",
+          allow_var_values: false
+        },
+        src: scssDir + '_vars.scss',
+        dest: plDir + "source/_patterns/00-atoms/02-text/00-font-sizes.json"
+      },
+      breakpoints: {
+        options: {
+          regex: '^\\$bp.*',
+          allow_var_values: false
+        },
+        src: scssDir + '_vars.scss',
+        dest: plDir + "source/_patterns/01-molecules/01-layout/99-breakpoints.json"
       }
     }
   });

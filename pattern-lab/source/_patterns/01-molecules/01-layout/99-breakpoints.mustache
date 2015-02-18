@@ -1,0 +1,16 @@
+<div class="sg-breakpoints">
+  <ul class="breakpoints">
+    {{#breakpoints}}
+      <li style="left: 0; left: {{value}}">
+        <span class="label">{{name}}:<br/>{{value}}</span>
+      </li>
+    {{/breakpoints}}
+  </ul>
+  <ul class="device_widths">
+    {{#device_widths}}
+      <li style="width: 0; width: {{width}}px;">
+        <span class="label">{{name}}: {{width}}px</span>
+      </li>
+    {{/device_widths}}
+  </ul>
+</div>

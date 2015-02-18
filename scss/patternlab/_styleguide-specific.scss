@@ -8,6 +8,9 @@
  * These styles will not be your production CSS.
  */
 
+pre {
+  margin-top: 0;
+}
 
 // Style Guide color swatches 
 .sg-colors {
@@ -44,6 +47,68 @@
   }
 }
 
-pre {
-  margin-top: 0;
+.sg-breakpoints {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .breakpoints {
+    > li {
+      position: absolute;
+      border-left: solid 3px hsl(0, 0%, 35%);
+      height: 100%;
+//      > .icon--arrow--right-medium {
+//        font-size: 18px;
+//        margin-top: 100px;
+//      }
+      > .label {
+//        @include transform(rotate(90deg));
+//        @include transform-origin(bottom left);
+        display: block;
+        //        position: absolute;
+        //        bottom: 20px;
+        background: hsl(0, 0%, 35%);
+        padding: 3px;
+        color: white;
+      }
+      &:hover {
+        border-left-color: hsla(0, 0%, 35%, 0.3);
+        > .label {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  .device_widths {
+    padding-top: 20px;
+    > li {
+      border-bottom: solid 3px hsl(0, 0%, 80%);
+      text-align: right;
+      margin-bottom: 15px;
+      padding-right: 15px;
+      border-right: solid 3px hsl(0, 0%, 80%);
+    }
+  }
 }
+
+.sg-font-sizes {
+  thead {
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+  }
+  th, td {
+    text-align: left;
+    white-space: nowrap;
+    line-height: 1.5em;
+    &:first-child {
+      padding-right: 12px;
+    }
+  }
+}
+

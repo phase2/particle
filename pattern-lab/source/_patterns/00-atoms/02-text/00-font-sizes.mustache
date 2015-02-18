@@ -1,0 +1,16 @@
+<table class="sg-font-sizes">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#fontSizes}}
+    <tr class="sg-font-size">
+      <td><code>{{name}}</code> at {{value}}</td>
+      <td style="font-size: {{value}};">Lorem ipsum dolor sit amet.</td>
+    </tr>
+  {{/fontSizes}}
+  </tbody>
+</table>

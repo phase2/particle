@@ -1,0 +1,28 @@
+{
+  "fontSizes": [
+    {
+      "name": "$font-size--12px",
+      "value": "12px"
+    },
+    {
+      "name": "$font-size--14px",
+      "value": "14px"
+    },
+    {
+      "name": "$font-size--18px",
+      "value": "18px"
+    },
+    {
+      "name": "$font-size--24px",
+      "value": "24px"
+    },
+    {
+      "name": "$font-size--30px",
+      "value": "30px"
+    },
+    {
+      "name": "$font-size--36px",
+      "value": "36px"
+    }
+  ]
+}

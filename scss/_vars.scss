@@ -19,3 +19,17 @@ $color--font: $color--black;
 $color--link: $color--black;
 $color--border: $color--gray;
 $color--error: red;
+
+// Font Sizes
+$font-size--12px: 12px;
+$font-size--14px: 14px;
+$font-size--18px: 18px;
+$font-size--24px: 24px;
+$font-size--30px: 30px;
+$font-size--36px: 36px;
+
+// Breakpoints
+$bp--small: 480px;
+$bp--medium: 640px;
+$bp--large: 768px;
+$bp--xlarge: 1024px;
