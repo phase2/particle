@@ -1,0 +1,21 @@
+// Colors
+$color--white: hsl(0, 0%, 100%);
+$color--gray--white: hsl(0, 0%, 94.1%);
+$color--gray--lightest: hsl(0, 0%, 85.9%);
+$color--gray--lighter: hsl(0, 0%, 78%);
+$color--gray--light: hsl(0, 0%, 70.2%);
+$color--gray: hsl(228, 2.3%, 41.8%);
+$color--gray--dark: hsl(0, 0%, 40%);
+$color--gray--darker: hsl(0, 0%, 20%);
+$color--gray--darkest: hsl(0, 0%, 16.1%);
+$color--gray--black: hsl(0, 0%, 7.8%);
+$color--black: hsl(0, 0%, 0%);
+
+$white: $color--white;
+$black: $color--black;
+
+// Semantic Colors
+$color--font: $color--black;
+$color--link: $color--black;
+$color--border: $color--gray;
+$color--error: red;

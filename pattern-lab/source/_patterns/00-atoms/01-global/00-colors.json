@@ -1,0 +1,52 @@
+{
+  "colors": [
+    {
+      "name": "$color--white",
+      "value": "hsl(0, 0%, 100%)"
+    },
+    {
+      "name": "$color--gray--white",
+      "value": "hsl(0, 0%, 94.1%)"
+    },
+    {
+      "name": "$color--gray--lightest",
+      "value": "hsl(0, 0%, 85.9%)"
+    },
+    {
+      "name": "$color--gray--lighter",
+      "value": "hsl(0, 0%, 78%)"
+    },
+    {
+      "name": "$color--gray--light",
+      "value": "hsl(0, 0%, 70.2%)"
+    },
+    {
+      "name": "$color--gray",
+      "value": "hsl(228, 2.3%, 41.8%)"
+    },
+    {
+      "name": "$color--gray--dark",
+      "value": "hsl(0, 0%, 40%)"
+    },
+    {
+      "name": "$color--gray--darker",
+      "value": "hsl(0, 0%, 20%)"
+    },
+    {
+      "name": "$color--gray--darkest",
+      "value": "hsl(0, 0%, 16.1%)"
+    },
+    {
+      "name": "$color--gray--black",
+      "value": "hsl(0, 0%, 7.8%)"
+    },
+    {
+      "name": "$color--black",
+      "value": "hsl(0, 0%, 0%)"
+    },
+    {
+      "name": "$color--error",
+      "value": "red"
+    }
+  ]
+}

@@ -112,6 +112,16 @@ module.exports = function (grunt) {
           open: "http://0.0.0.0:9005/" + serverPath
         }
       }
+    },
+    pattern_lab_component_builder: {
+      colors: {
+        options: {
+          regex: "^\\$color--.*",
+          allow_var_values: false
+        },
+        src: 'scss/_vars.scss',
+        dest: 'pattern-lab/source/_patterns/00-atoms/01-global/00-colors.json'
+      }
     }
   });
   // End Pattern Lab
