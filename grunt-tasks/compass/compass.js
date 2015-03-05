@@ -36,4 +36,6 @@ module.exports = function (grunt, options) {
     }
   });
 
+  grunt.registerTask("stylesCompile", ['shell:stylesCompile']);
+
 };

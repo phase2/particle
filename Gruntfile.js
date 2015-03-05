@@ -133,13 +133,6 @@ module.exports = function (grunt) {
       options: {
         logConcurrentOutput: true
       },
-      build: {
-        tasks: [
-          "shell:plBuild",
-          "shell:stylesCompile",
-          "buildIcons"
-        ]
-      },
       dev: {
         tasks: [
           "watch",
@@ -152,14 +145,8 @@ module.exports = function (grunt) {
 
   // Begin Modular Config
   require('./grunt-tasks/drupal7.js')(grunt);
-  require('./grunt-tasks/compass/compass.js')(grunt, {
-    scssDir: config.scssDir,
-    scssConfigRoot: config.scssConfigRoot
-  });
-  //require('./grunt-tasks/libsass/libsass.js')(grunt, {
-  //  scssDir: config.scssDir,
-  //  scssConfigRoot: config.scssConfigRoot
-  //});
+  require('./grunt-tasks/compass/compass.js')(grunt, config);
+  //require('./grunt-tasks/libsass/libsass.js')(grunt, config);
   require('./grunt-tasks/icons.js')(grunt);
   // End Modular Config
 
@@ -168,7 +155,9 @@ module.exports = function (grunt) {
 // Begin Task Aliases
   grunt.registerTask("build", [
     "pattern_lab_component_builder",
-    "concurrent:build",
+    "stylesCompile",
+    "shell:plBuild",
+    "buildIcons",
     "shell:livereload"
   ]);
 

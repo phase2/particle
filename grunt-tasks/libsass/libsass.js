@@ -5,13 +5,19 @@ module.exports = function (grunt, options) {
   var scssConfigRoot = options.scssConfigRoot ||  "./";
   
   grunt.config.merge({
-    sass: {
-      options: {
-        sourceMap: true
+    sass: {// https://github.com/sindresorhus/grunt-sass
+      options: {// https://github.com/sass/node-sass#options
+        sourceMap: true, // @todo fix path to .scss files; see `sources` array in `style.css.map`
+        includePaths: [
+          scssDir + "**/*.scss"
+        ],
+        omitSourceMapUrl: false,
+        outFile: 'css/style.css',
+        outputStyle: 'compressed'
       },
       styles: {
         files: {
-          'css/style.css': 'scss/style.scss'
+          'css/style.css': scssDir + 'style.scss'
         }
       }
     },
@@ -34,11 +40,12 @@ module.exports = function (grunt, options) {
         tasks: [
           "sass",
           "shell:livereload",
-          "newer:scsslint:styles", // only lint the newly change files
-          "newer:pattern_lab_component_builder"
+          "newer:scsslint:styles" // only lint the newly change files
         ]
       }
     }
   });
 
+  grunt.registerTask("stylesCompile", ['sass:styles']);
+  
 };
