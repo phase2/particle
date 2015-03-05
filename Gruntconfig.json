@@ -5,5 +5,9 @@
   "updateAtStart": true,
   "buildModernizrAtStart": true,
   "scssDir": "scss/",
-  "scssConfigRoot": "./"
+  "scssConfigRoot": "./",
+  "plDir": "pattern-lab/",
+  "serverDir": "./",
+  "serverPath": "pattern-lab/public/",
+  "jsDir": "js/"
 }

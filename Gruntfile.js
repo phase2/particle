@@ -23,13 +23,10 @@ module.exports = function (grunt) {
   // Instead, let's merge the config of a full feature in, one at a time, with `grunt.config.merge`.
   
   // Begin Pattern Lab
-  var plDir = "pattern-lab/";
-  var serverDir = "./";
-  var serverPath = "pattern-lab/public/";
   grunt.config.merge({
     shell: {
       plBuild: {
-        command: "php " + plDir + "core/builder.php --generate --nocache"
+        command: "php " + config.plDir + "core/builder.php --generate --nocache"
       },
       livereload: {
         command: "touch .change-to-reload.txt"
@@ -38,14 +35,14 @@ module.exports = function (grunt) {
     jsonlint: {
       pl: {
         src: [
-          plDir + "source/_patterns/**/*.json",
-          plDir + "source/_data/*.json"
+          config.plDir + "source/_patterns/**/*.json",
+          config.plDir + "source/_data/*.json"
         ]
       }
     },
     watch: {
       pl: {
-        files: plDir + "source/**/*.*",
+        files: config.plDir + "source/**/*.*",
         tasks: [
           "shell:plBuild",
           "shell:livereload",
@@ -65,10 +62,10 @@ module.exports = function (grunt) {
         options: {
           port: 9005,
           useAvailablePort: true,
-          base: serverDir,
+          base: config.serverDir,
           keepalive: true,
           livereload: true,
-          open: "http://0.0.0.0:9005/" + serverPath
+          open: "http://0.0.0.0:9005/" + config.serverPath
         }
       }
     },
@@ -79,7 +76,7 @@ module.exports = function (grunt) {
           allow_var_values: false
         },
         src: config.scssDir + '_vars.scss',
-        dest: plDir + 'source/_patterns/00-atoms/01-global/00-colors.json'
+        dest: config.plDir + 'source/_patterns/00-atoms/01-global/00-colors.json'
       },
       fontSizes: {
         options: {
@@ -87,7 +84,7 @@ module.exports = function (grunt) {
           allow_var_values: false
         },
         src: config.scssDir + '_vars.scss',
-        dest: plDir + "source/_patterns/00-atoms/02-text/00-font-sizes.json"
+        dest: config.plDir + "source/_patterns/00-atoms/02-text/00-font-sizes.json"
       },
       breakpoints: {
         options: {
@@ -95,14 +92,13 @@ module.exports = function (grunt) {
           allow_var_values: false
         },
         src: config.scssDir + '_vars.scss',
-        dest: plDir + "source/_patterns/01-molecules/01-layout/99-breakpoints.json"
+        dest: config.plDir + "source/_patterns/01-molecules/01-layout/99-breakpoints.json"
       }
     }
   });
   // End Pattern Lab
 
   // Begin JS
-  var jsDir = "js/";
   grunt.config.merge({
     jshint: {
       options: {
@@ -112,8 +108,8 @@ module.exports = function (grunt) {
       js: {
         files: {
           src: [
-            jsDir + "**/*.js",
-            "!" + jsDir + "lib/**",
+            config.jsDir + "**/*.js",
+            "!" + config.jsDir + "lib/**",
             "Gruntfile.js"
           ]
         }
