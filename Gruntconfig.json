@@ -3,5 +3,7 @@
   "openBrowserAtStart": true,
   "patternLab": true,
   "updateAtStart": true,
-  "buildModernizrAtStart": true
+  "buildModernizrAtStart": true,
+  "scssDir": "scss/",
+  "scssConfigRoot": "./"
 }

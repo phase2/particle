@@ -1,15 +1,11 @@
 module.exports = function (grunt) {
   "use strict";
   var _ = require("underscore");
-  var customConfig = grunt.file.readJSON("Gruntconfig.json");
+  var config = grunt.file.readJSON("Gruntconfig.json");
   if (grunt.file.exists("Gruntconfig--custom.json")) {
     var customConfigOverrides = grunt.file.readJSON("Gruntconfig--custom.json");
-    _.extend(customConfig, customConfigOverrides);
+    _.extend(config, customConfigOverrides);
   }
-
-  var options = {
-    "test": "testing..."
-  };
 
 // Begin Conventions
   // - All directory variables have trailing slash like this: `../path/to/dir/` - this allows us to set it to `./` and have it all be relative to Gruntfile
@@ -25,45 +21,7 @@ module.exports = function (grunt) {
   // First, let's initialize an empty config; this is where most people put tasks - *all* of them. 
   grunt.config.init({}); // also known as: `grunt.initConfig`
   // Instead, let's merge the config of a full feature in, one at a time, with `grunt.config.merge`.
-
-  // Begin Styles
-  var scssDir = "scss/";
-  var scssConfigRoot = "./"; // where `config.rb` and `Gemfile` exist
-  grunt.config.merge({
-    shell: {
-      stylesCompile: {
-        command: "cd " + scssConfigRoot + " && bundle exec compass compile"
-      }
-    },
-    scsslint: {
-      "options": {
-        "bundleExec": scssConfigRoot,
-        "config": scssConfigRoot + ".scss-lint.yml",
-        "force": true,
-        "maxBuffer": 999999,
-        "colorizeOutput": true,
-        "compact": true
-      },
-      styles: {
-        src: "<%= watch.styles.files %>"
-      }
-    },
-    watch: {
-      styles: {
-        files: scssDir + "**/*.scss",
-        tasks: [
-          "shell:stylesCompile",
-          "shell:livereload",
-          "newer:scsslint:styles", // only lint the newly change files
-          "newer:pattern_lab_component_builder"
-        ]
-      }
-    }
-  });
-  // End Styles
-
-  // adding another feature to the config...
-
+  
   // Begin Pattern Lab
   var plDir = "pattern-lab/";
   var serverDir = "./";
@@ -120,7 +78,7 @@ module.exports = function (grunt) {
           regex: "^\\$color--.*",
           allow_var_values: false
         },
-        src: scssDir + '_vars.scss',
+        src: config.scssDir + '_vars.scss',
         dest: plDir + 'source/_patterns/00-atoms/01-global/00-colors.json'
       },
       fontSizes: {
@@ -128,7 +86,7 @@ module.exports = function (grunt) {
           regex: "^\\$font-size.*",
           allow_var_values: false
         },
-        src: scssDir + '_vars.scss',
+        src: config.scssDir + '_vars.scss',
         dest: plDir + "source/_patterns/00-atoms/02-text/00-font-sizes.json"
       },
       breakpoints: {
@@ -136,7 +94,7 @@ module.exports = function (grunt) {
           regex: '^\\$bp.*',
           allow_var_values: false
         },
-        src: scssDir + '_vars.scss',
+        src: config.scssDir + '_vars.scss',
         dest: plDir + "source/_patterns/01-molecules/01-layout/99-breakpoints.json"
       }
     }
@@ -197,9 +155,12 @@ module.exports = function (grunt) {
   // End Misc Config
 
   // Begin Modular Config
-  require('./tasks/test.js')(grunt, options);
-  require('./tasks/drupal7.js')(grunt, options);
-  require('./tasks/icons.js')(grunt);
+  require('./grunt-tasks/drupal7.js')(grunt);
+  require('./grunt-tasks/compass/compass.js')(grunt, {
+    scssDir: config.scssDir,
+    scssConfigRoot: config.scssConfigRoot
+  });
+  require('./grunt-tasks/icons.js')(grunt);
   // End Modular Config
 
 // End Config
