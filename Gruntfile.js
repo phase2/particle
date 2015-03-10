@@ -136,7 +136,6 @@ module.exports = function (grunt) {
   // Begin Modular Config
   require('./grunt-tasks/drupal7.js')(grunt, config);
   require('./grunt-tasks/compass/compass.js')(grunt, config);
-  //require('./grunt-tasks/libsass/libsass.js')(grunt, config);
   require('./grunt-tasks/icons.js')(grunt, config);
   // End Modular Config
 
