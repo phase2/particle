@@ -1,12 +1,10 @@
-module.exports = function (grunt, options) {
+module.exports = function (grunt, config) {
   "use strict";
-  var scssDir = "scss/";
-  var plDir = "pattern-lab/";
 
   // https://github.com/sapegin/grunt-webfont
   grunt.registerTask('cleanup_font_icon_build', 'Don\'t run this directly', function () {
-    grunt.file.copy(plDir + 'source/_patterns/00-atoms/04-images/icons.html', plDir + 'source/_patterns/00-atoms/04-images/icons.mustache');
-    grunt.file.delete(plDir + 'source/_patterns/00-atoms/04-images/icons.html');
+    grunt.file.copy(config.plDir + 'source/_patterns/00-atoms/04-images/icons.html', config.plDir + 'source/_patterns/00-atoms/04-images/icons.mustache');
+    grunt.file.delete(config.plDir + 'source/_patterns/00-atoms/04-images/icons.html');
   });
   grunt.registerTask('buildIcons', [
     'webfont:icons',
@@ -17,7 +15,7 @@ module.exports = function (grunt, options) {
       icons: {
         src: 'images/icons/src/*.svg',
         dest: 'images/icons/output/fonts',
-        destCss: scssDir + 'icons',
+        destCss: config.scssDir + 'icons',
         options: {
           engine: "node",
           stylesheet: 'scss',
@@ -25,7 +23,7 @@ module.exports = function (grunt, options) {
           template: 'images/icons/templates/icons.template.css',
           htmlDemo: true,
           htmlDemoTemplate: 'images/icons/templates/08-icons.html',
-          destHtml: plDir + 'source/_patterns/00-atoms/04-images/',
+          destHtml: config.plDir + 'source/_patterns/00-atoms/04-images/',
           hashes: false
         }
       }

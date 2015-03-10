@@ -1,8 +1,8 @@
-module.exports = function (grunt, options) {
+module.exports = function (grunt, config) {
   "use strict";
 
-  var scssDir = options.scssDir || "scss/";
-  var scssConfigRoot = options.scssConfigRoot ||  "./";
+  var scssDir = config.scssDir || "scss/";
+  var scssConfigRoot = config.scssConfigRoot ||  "./";
   
   grunt.config.merge({
     sass: {// https://github.com/sindresorhus/grunt-sass
