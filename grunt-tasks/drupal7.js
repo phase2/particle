@@ -1,8 +1,7 @@
-module.exports = function (grunt, options) {
+module.exports = function (grunt, config) {
   "use strict";
 
-  var plDir = "pattern-lab/";
-  var infoFile = "drupal7-theme.info";
+  var infoFile = "pattern_lab_starter.info";
 
   function getDrupalJS() {
     var drupalInfoJS = [];
@@ -43,7 +42,7 @@ module.exports = function (grunt, options) {
           }
         },
         src: getDrupalCSS(),
-        dest: plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
+        dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
       },
       footJS: {
         options: {
@@ -55,7 +54,7 @@ module.exports = function (grunt, options) {
           }
         },
         src: getDrupalJS(),
-        dest: plDir + 'source/_patterns/00-atoms/00-meta/_01-foot.mustache'
+        dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_01-foot.mustache'
       }
     },
 

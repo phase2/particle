@@ -134,10 +134,8 @@ module.exports = function (grunt) {
   // End Misc Config
 
   // Begin Modular Config
-  require('./grunt-tasks/drupal7.js')(grunt);
+  require('./grunt-tasks/drupal7.js')(grunt, config);
   require('./grunt-tasks/compass/compass.js')(grunt, config);
-  //require('./grunt-tasks/libsass/libsass.js')(grunt, config);
-  require('./grunt-tasks/icons.js')(grunt);
   // End Modular Config
 
 // End Config
@@ -147,7 +145,6 @@ module.exports = function (grunt) {
     "pattern_lab_component_builder",
     "stylesCompile",
     "shell:plBuild",
-    "buildIcons",
     "shell:livereload"
   ]);
 

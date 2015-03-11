@@ -1,4 +1,5 @@
-name = Theme Name
+name = Pattern Lab Starter
+description = A theme with Pattern Lab built in
 core = 7.x
 
 stylesheets[screen][] = css/style.css

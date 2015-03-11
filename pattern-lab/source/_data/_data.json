@@ -20,10 +20,11 @@
 			"alt" : "Person Name"
 		},
 		"rectangle": {
-			"src": "http://placeimg.com/400/300/tech",
+			"src": "../../../../images/fpo_4x3.png",
 			"alt": "Rectangle"
 		}
 	},
+  "text": "Lorem Ipsum",
 	"headline" : {
 		"short" : "Lorem ipsum dolor sit (37 characters)",
 		"medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
