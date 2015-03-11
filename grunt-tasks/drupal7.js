@@ -30,6 +30,12 @@ module.exports = function (grunt, config) {
   ]);
   
   grunt.config.merge({
+    
+    shell: {
+      drupalCC: {
+        command: "drush cc all"
+      } 
+    },
 
     // injector's job is to read the Drupal 7 theme.info file and inject those assets into PL
     injector: {
@@ -94,7 +100,10 @@ module.exports = function (grunt, config) {
     watch: {
       bower: {
         files: ['bower.json'],
-        tasks: ['injectBowerComponents']
+        tasks: [
+          'injectBowerComponents',
+          'shell:drupalCC'
+        ]
       }
     }
 
