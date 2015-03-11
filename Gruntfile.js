@@ -142,6 +142,7 @@ module.exports = function (grunt) {
 
 // Begin Task Aliases
   grunt.registerTask("build", [
+    "injectBowerComponents",
     "pattern_lab_component_builder",
     "stylesCompile",
     "shell:plBuild",
