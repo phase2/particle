@@ -1,4 +1,6 @@
-$(document).ready(function() {
-	"use strict";
-	$("body").addClass("TEST"); 
-});
+"use strict";
+(function($) {
+  $(document).ready(function () {
+    $("body").addClass("TEST");
+  });  
+})(jQuery);

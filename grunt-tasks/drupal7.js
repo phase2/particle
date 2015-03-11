@@ -23,7 +23,19 @@ module.exports = function (grunt, config) {
     return drupalInfoCSS;
   }
 
+  grunt.registerTask("injectBowerComponents", [
+    "wiredep:drupal", // add any dependencies installed via `bower install {thing} --save` to our Drupal `infoFile`
+    "injector:headCSS", // add any dependencies from the Drupal `infoFile` to our Pattern Lab
+    "injector:footJS" // do that ^ for our JS
+  ]);
+  
   grunt.config.merge({
+    
+    shell: {
+      drupalCC: {
+        command: "drush cc all"
+      } 
+    },
 
     // injector's job is to read the Drupal 7 theme.info file and inject those assets into PL
     injector: {
@@ -82,6 +94,16 @@ module.exports = function (grunt, config) {
             }
           }
         }
+      }
+    },
+    
+    watch: {
+      bower: {
+        files: ['bower.json'],
+        tasks: [
+          'injectBowerComponents',
+          'shell:drupalCC'
+        ]
       }
     }
 
