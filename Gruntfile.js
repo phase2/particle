@@ -39,13 +39,14 @@ module.exports = function (grunt) {
 // End Config
 
 // Begin Task Aliases
-  grunt.registerTask("build", [
+  grunt.registerTask("compile", [
     "injectBowerComponents",
     "pattern_lab_component_builder",
     "stylesCompile",
     "shell:plBuild",
     "shell:livereload"
   ]);
+  grunt.registerTask("build", "compile");
 
   grunt.registerTask("test", [
     "jsonlint",
@@ -55,7 +56,7 @@ module.exports = function (grunt) {
 
   // this is ran if you do either `grunt default` or `grunt`
   grunt.registerTask("default", [
-    "build",
+    "compile",
     "concurrent:dev"
   ]);
 // End Task Aliases
