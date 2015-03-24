@@ -48,7 +48,7 @@ module.exports = function (grunt) {
   ]);
   grunt.registerTask("build", "compile");
 
-  grunt.registerTask("test", [
+  grunt.registerTask("validate", [
     "jsonlint",
     "jshint",
     "scsslint"
