@@ -28,13 +28,13 @@ module.exports = function (grunt, config) {
     "injector:headCSS", // add any dependencies from the Drupal `infoFile` to our Pattern Lab
     "injector:footJS" // do that ^ for our JS
   ]);
-  
+
   grunt.config.merge({
-    
+
     shell: {
       drupalCC: {
         command: "drush cc all"
-      } 
+      }
     },
 
     // injector's job is to read the Drupal 7 theme.info file and inject those assets into PL
@@ -61,7 +61,7 @@ module.exports = function (grunt, config) {
           starttag: '<!-- start:footJS -->',
           endtag: '<!-- end:footJS -->',
           transform: function (filePath) {
-            filePath = "../../../../" + filePath; // @todo consider better pathing method 
+            filePath = "../../../../" + filePath; // @todo consider better pathing method
             return '<script src="' + filePath + '"></script>';
           }
         },
@@ -96,7 +96,7 @@ module.exports = function (grunt, config) {
         }
       }
     },
-    
+
     watch: {
       bower: {
         files: ['bower.json'],

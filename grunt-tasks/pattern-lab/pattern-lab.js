@@ -58,8 +58,16 @@ module.exports = function (grunt, config) {
           regex: "^\\$color--.*",
           allow_var_values: false
         },
-        src: scssDir + '_vars.scss',
+        src: scssDir + '00-core/_colors.scss',
         dest: plDir + 'source/_patterns/00-atoms/01-global/00-colors.json'
+      },
+      fonts: {
+        options: {
+          regex: "^\\$font--family--.*",
+          allow_var_values: false
+        },
+        src: scssDir + 'base/_03-typography.scss',
+        dest: plDir + 'source/_patterns/00-atoms/01-global/01-fonts.json'
       },
       fontSizes: {
         options: {

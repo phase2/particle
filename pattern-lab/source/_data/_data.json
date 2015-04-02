@@ -22,6 +22,10 @@
 		"rectangle": {
 			"src": "../../../../images/fpo_4x3.png",
 			"alt": "Rectangle"
+		},
+	  	"program_80x80": {
+		  	"src": "../../../../images/program_80x80.png",
+		  	"alt": "Program"
 		}
 	},
   "text": "Lorem Ipsum",

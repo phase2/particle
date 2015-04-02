@@ -22,7 +22,7 @@ pattern-lab/public/styleguide/html/styleguide.html
 
 # node stuffz
 node_modules
-.idea
 
 #IDE plugins
+.idea
 atlassian-ide-plugin.xml
