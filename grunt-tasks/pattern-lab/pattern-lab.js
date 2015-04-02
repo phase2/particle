@@ -48,7 +48,19 @@ module.exports = function (grunt, config) {
           base: serverDir,
           keepalive: true,
           livereload: true,
-          open: "http://localhost:9005/" + serverPath
+          open: "http://localhost:9005/" + serverPath,
+          middleware: function(connect, options, middlewares) {
+
+            middlewares.unshift(function(req, res, next) {
+              res.setHeader('Access-Control-Allow-Origin', '*');
+              res.setHeader('Access-Control-Allow-Credentials', true);
+              res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+              res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+              next();
+            });
+
+            return middlewares;
+          }
         }
       }
     },
