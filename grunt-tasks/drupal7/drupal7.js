@@ -1,7 +1,7 @@
 module.exports = function (grunt, config) {
   "use strict";
 
-  var infoFile = "wilsoncenterpl.info";
+  var infoFile = "pattern_lab_starter.info";
 
   function getDrupalJS() {
     var drupalInfoJS = [];
