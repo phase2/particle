@@ -48,7 +48,7 @@ module.exports = function (grunt, config) {
           base: serverDir,
           keepalive: true,
           livereload: true,
-          open: "http://0.0.0.0:9005/" + serverPath
+          open: "http://localhost:9005/" + serverPath
         }
       }
     },
