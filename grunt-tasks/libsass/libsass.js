@@ -8,7 +8,7 @@ module.exports = function (grunt, config) {
     sass: {
       options: {
         sourceMap: true,
-        outputStyle: 'expanded'
+        outputStyle: 'nested' // 'expanded' and 'compact' not supported by libsass yet
       },
       dist: {
         files: {
