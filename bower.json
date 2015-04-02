@@ -23,6 +23,7 @@
     "singularity": "~1.6.2",
     "breakpoint-sass": "~2.5.0",
     "normalize-scss": "~3.0.2",
-    "bourbon": "~4.2.2"
+    "bourbon": "~4.2.2",
+    "modernizr": "~2.8.3"
   }
 }

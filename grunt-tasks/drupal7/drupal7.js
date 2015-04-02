@@ -1,7 +1,7 @@
 module.exports = function (grunt, config) {
   "use strict";
 
-  var infoFile = "pattern_lab_starter.info";
+  var infoFile = "wilsoncenterpl.info";
 
   function getDrupalJS() {
     var drupalInfoJS = [];
@@ -26,7 +26,8 @@ module.exports = function (grunt, config) {
   grunt.registerTask("injectBowerComponents", [
     "wiredep:drupal", // add any dependencies installed via `bower install {thing} --save` to our Drupal `infoFile`
     "injector:headCSS", // add any dependencies from the Drupal `infoFile` to our Pattern Lab
-    "injector:footJS" // do that ^ for our JS
+    //"injector:footJS", // do that ^ for our JS
+    "injector:headJS"
   ]);
 
   grunt.config.merge({
@@ -67,6 +68,18 @@ module.exports = function (grunt, config) {
         },
         src: getDrupalJS(),
         dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_01-foot.mustache'
+      },
+      headJS: {
+        options: {
+          starttag: '<!-- start:headJS -->',
+          endtag: '<!-- start:headJS -->',
+          transform: function (filePath) {
+            filePath = "../../../../" + filePath; // @todo consider better pathing method
+            return '<script src="' + filePath + '"></script>';
+          }
+        },
+        src: getDrupalJS(),
+        dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
       }
     },
 

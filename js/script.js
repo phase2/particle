@@ -1,6 +1,12 @@
-"use strict";
-(function($) {
-  $(document).ready(function () {
-    $("body").addClass("TEST");
-  });  
-})(jQuery);
+(function($, Drupal, undefined) {
+  "use strict";
+
+  // A demo Drupal behavior
+  Drupal.behaviors.customBehavior = {
+    attach: function(context, settings) {
+      $('body', context).prepend('Demo drupal behavior in js/script.js');
+    }
+  };
+
+
+})(jQuery, Drupal);
