@@ -1,14 +1,38 @@
-/******************************************************************
-Stylesheet: Main Stylesheet
+/**
+ * Stylesheet: Main Stylesheet
+ *
+ */
 
-Here's where the magic happens.
-All styles that are imported here will be compiled into css/style.css
-******************************************************************/
+// Grid system, https://github.com/at-import/Singularity
+@import '../bower_components/singularity/stylesheets/singularitygs';
 
+// A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
+@import '../bower_components/breakpoint-sass/stylesheets/breakpoint';
 
-@import 'compass';
-@import 'compass/support';
-@import 'toolkit';
-@import 'breakpoint';
-@import 'singularitygs';
-@import '**/*';
+// Helpful mixins, http://bourbon.io/docs/
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+// A simple, printing reset
+@import '../bower_components/normalize-scss/normalize';
+
+// Setup and variables, our first custom file
+@import '99-imports/00-core';
+
+// Mixins and mechanisms (non printing)
+@import '99-imports/10-base';
+
+// Global elements, first printing css
+@import '99-imports/20-global';
+
+// Vendor css converted to scss that we couldn't get via bower
+@import '99-imports/30-vendor';
+
+// All the molecules and organisms (and atoms like "buttons")
+@import '99-imports/40-components';
+
+// Big layout decisions
+@import '99-imports/50-templates';
+
+// Custom pages overrides, one-offs
+@import '99-imports/60-pages';
+

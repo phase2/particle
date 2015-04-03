@@ -26,15 +26,16 @@ module.exports = function (grunt, config) {
   grunt.registerTask("injectBowerComponents", [
     "wiredep:drupal", // add any dependencies installed via `bower install {thing} --save` to our Drupal `infoFile`
     "injector:headCSS", // add any dependencies from the Drupal `infoFile` to our Pattern Lab
-    "injector:footJS" // do that ^ for our JS
+    //"injector:footJS", // do that ^ for our JS
+    "injector:headJS"
   ]);
-  
+
   grunt.config.merge({
-    
+
     shell: {
       drupalCC: {
         command: "drush cc all"
-      } 
+      }
     },
 
     // injector's job is to read the Drupal 7 theme.info file and inject those assets into PL
@@ -61,12 +62,24 @@ module.exports = function (grunt, config) {
           starttag: '<!-- start:footJS -->',
           endtag: '<!-- end:footJS -->',
           transform: function (filePath) {
-            filePath = "../../../../" + filePath; // @todo consider better pathing method 
+            filePath = "../../../../" + filePath; // @todo consider better pathing method
             return '<script src="' + filePath + '"></script>';
           }
         },
         src: getDrupalJS(),
         dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_01-foot.mustache'
+      },
+      headJS: {
+        options: {
+          starttag: '<!-- start:headJS -->',
+          endtag: '<!-- start:headJS -->',
+          transform: function (filePath) {
+            filePath = "../../../../" + filePath; // @todo consider better pathing method
+            return '<script src="' + filePath + '"></script>';
+          }
+        },
+        src: getDrupalJS(),
+        dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
       }
     },
 
@@ -96,7 +109,7 @@ module.exports = function (grunt, config) {
         }
       }
     },
-    
+
     watch: {
       bower: {
         files: ['bower.json'],

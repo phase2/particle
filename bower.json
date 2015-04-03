@@ -19,6 +19,11 @@
     "jquery": "~1.10.2",
     "jquery-migrate": "~1.2.1",
     "drupal": "http://cgit.drupalcode.org/drupal/plain/misc/drupal.js?h=7.x",
-    "underscore": "~1.6.0"
+    "lodash": "~3.6.0",
+    "singularity": "~1.6.2",
+    "breakpoint-sass": "~2.5.0",
+    "normalize-scss": "~3.0.2",
+    "bourbon": "~4.2.2",
+    "modernizr": "~2.8.3"
   }
 }
