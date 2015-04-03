@@ -1,0 +1,11 @@
+@mixin body-copy() {
+  font-family: $font--family--regular;
+}
+
+@mixin h1() {
+  font-family: $font--family--regular;
+}
+
+@mixin h2() {
+  font-family: sans-serif;
+}

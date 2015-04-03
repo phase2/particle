@@ -48,7 +48,19 @@ module.exports = function (grunt, config) {
           base: serverDir,
           keepalive: true,
           livereload: true,
-          open: "http://0.0.0.0:9005/" + serverPath
+          open: "http://localhost:9005/" + serverPath,
+          middleware: function(connect, options, middlewares) {
+
+            middlewares.unshift(function(req, res, next) {
+              res.setHeader('Access-Control-Allow-Origin', '*');
+              res.setHeader('Access-Control-Allow-Credentials', true);
+              res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+              res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+              next();
+            });
+
+            return middlewares;
+          }
         }
       }
     },
@@ -58,8 +70,16 @@ module.exports = function (grunt, config) {
           regex: "^\\$color--.*",
           allow_var_values: false
         },
-        src: scssDir + '_vars.scss',
+        src: scssDir + '00-core/_colors.scss',
         dest: plDir + 'source/_patterns/00-atoms/01-global/00-colors.json'
+      },
+      fonts: {
+        options: {
+          regex: "^\\$font--family--.*",
+          allow_var_values: false
+        },
+        src: scssDir + 'base/_03-typography.scss',
+        dest: plDir + 'source/_patterns/00-atoms/01-global/01-fonts.json'
       },
       fontSizes: {
         options: {

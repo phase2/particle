@@ -1,0 +1,9 @@
+@import url(//fonts.googleapis.com/css?family=Lato:400,700,900);
+
+body{
+  @include body-copy();
+}
+
+h1 {
+  @include h1();
+}
