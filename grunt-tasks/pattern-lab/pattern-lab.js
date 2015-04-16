@@ -70,7 +70,7 @@ module.exports = function (grunt, config) {
           regex: "^\\$color--.*",
           allow_var_values: false
         },
-        src: scssDir + '00-core/_colors.scss',
+        src: scssDir + '00-config/_colors.scss',
         dest: plDir + 'source/_patterns/00-atoms/01-global/00-colors.json'
       },
       fonts: {
@@ -78,7 +78,7 @@ module.exports = function (grunt, config) {
           regex: "^\\$font--family--.*",
           allow_var_values: false
         },
-        src: scssDir + 'base/_03-typography.scss',
+        src: scssDir + '00-config/_fonts.scss',
         dest: plDir + 'source/_patterns/00-atoms/01-global/01-fonts.json'
       },
       fontSizes: {
@@ -86,7 +86,7 @@ module.exports = function (grunt, config) {
           regex: "^\\$font-size.*",
           allow_var_values: false
         },
-        src: scssDir + '_vars.scss',
+        src: scssDir + '00-config/_fonts.scss',
         dest: plDir + "source/_patterns/00-atoms/02-text/00-font-sizes.json"
       },
       breakpoints: {
@@ -94,7 +94,7 @@ module.exports = function (grunt, config) {
           regex: '^\\$bp.*',
           allow_var_values: false
         },
-        src: scssDir + '_vars.scss',
+        src: scssDir + '00-config/_breakpoints.scss',
         dest: plDir + "source/_patterns/01-molecules/01-layout/99-breakpoints.json"
       }
     }
