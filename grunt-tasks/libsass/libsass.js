@@ -19,7 +19,7 @@ module.exports = function (grunt, config) {
     sass_globbing: {
       smacss_import: {
         files: {
-          'scss/99-imports/_00-core.scss': scssConfigRoot + scssDir + '00-core/**/*.scss',
+          'scss/99-imports/_00-config.scss': scssConfigRoot + scssDir + '00-config/**/*.scss',
           'scss/99-imports/_10-base.scss': scssConfigRoot + scssDir + '10-base/**/*.scss',
           'scss/99-imports/_20-global.scss': scssConfigRoot + scssDir + '20-global/**/*.scss',
           'scss/99-imports/_30-vendor.scss': scssConfigRoot + scssDir + '30-vendor/**/*.scss',
