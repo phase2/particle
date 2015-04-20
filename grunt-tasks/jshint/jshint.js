@@ -15,7 +15,9 @@ module.exports = function (grunt, config) {
             jsDir + "**/*.js",
             "!" + jsDir + "lib/**",
             "Gruntfile.js",
-            "grunt-tasks/**/*.js"
+            "grunt-tasks/**/*.js",
+            "!**/node_modules/**/*",
+            "!**/bower_components/**/*"
           ]
         }
       }
