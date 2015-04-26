@@ -15,10 +15,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:phase2tech/pattern-lab-starter.git"
+    "url": "git@github.com:phase2/pattern-lab-starter.git"
   },
   "keywords": [
-    "pattern-lab"
+    "pattern-lab",
+    "prototyping"
   ],
   "scripts": {
     "deps": "npm install && bower install && bundle install",
