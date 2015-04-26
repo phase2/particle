@@ -1,13 +1,27 @@
 # Pattern Lab Starter
 
-## Quick install and setup
+## Super Quick Setup
 
-Prerequisites: [node.js](http://nodejs.org), ruby.
+Use our [Yeoman Generator](https://github.com/phase2/generator-pattern-lab-starter) for the best way to spin this up for your project. Directly cloning and working on this repo is for contributors. 
 
-Make sure you have these already installed; if not, run:
+### Prerequesites 
 
-    npm install grunt-cli --global
-    gem install bundler
+You'll need [node.js](http://nodejs.org) and ruby.
+
+```bash
+npm install --global grunt-cli bower yeoman
+gem install bundler
+npm install --global generator-pattern-lab-starter
+```
+
+### Spinning it up
+
+```bash
+yo pattern-lab-starter
+yo pattern-lab-starter:extras # optional extras
+```
+
+## install and setup
     
 After cloning and changing into that directory, run this to install dependencies:
 
@@ -90,3 +104,4 @@ There are many different pieces of tech and many files that set the preferences 
 ## Font icons
 
 - After running `grunt`, see [http://localhost:9005/pattern-lab/public/?p=atoms-icons](http://localhost:9005/pattern-lab/public/?p=atoms-icons) in your browser for instructions on font icons
+
