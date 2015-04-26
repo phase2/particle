@@ -19,6 +19,7 @@ module.exports = function (grunt) {
   require('./grunt-tasks/libsass/libsass.js')(grunt, config);
   require('./grunt-tasks/jshint/jshint.js')(grunt, config);
   require('./grunt-tasks/drupal7/drupal7.js')(grunt, config);
+  require('./grunt-tasks/icons/icons.js')(grunt, config);
   // End Modular Config
 
   // Begin Misc Config
@@ -43,6 +44,7 @@ module.exports = function (grunt) {
 // Begin Task Aliases
   grunt.registerTask("compile", [
     "injectBowerComponents",
+    "icons-build",
     "pattern_lab_component_builder",
     "stylesCompile",
     "shell:plBuild",

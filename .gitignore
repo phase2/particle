@@ -1,27 +1,28 @@
-# OS generated files #
-######################
+# OS generated files
 .DS_Store
 .DS_Store?
 
-# Dependencies #
-###################
+# Dependencies
 vendor/bundle
 .bundle
 bower_components
+node_modules
 
-# Generated files #
-###################
+# Generated files
 *.sass-cache/
 css/
+scss/99-imports/*
+!scss/99-imports/README.md
+
+# Generated files: icons
 images/icons/output/
+scss/00-config/_icons.scss
+pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
 
 # Styleguide specific stuff
 pattern-lab/public/*
 !pattern-lab/public/styleguide/
 pattern-lab/public/styleguide/html/styleguide.html
-
-# node stuffz
-node_modules
 
 #IDE plugins
 .idea

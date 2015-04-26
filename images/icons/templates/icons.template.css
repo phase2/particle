@@ -1,0 +1,18 @@
+/* STOP!!! */
+/* If you are editing `source/images/icons/templates/icons.template.css` then you're good; if not, then you are editing what that file compiles to and it will get overwritten */
+/* How to use our font icon system: */
+/* 1. Add an SVG file to source/images/icons/src/ while the command `grunt` is running (which runs `grunt create_font_icons`) */
+/* 2. Give an HTML element the class name `icon--{name of file}`  */
+/* 3. OR Use this Sass Mixin: `@include icon(name of file);` */
+/* Also, you can view all icons on the Icon Atom in Pattern Lab */
+
+
+/* Content Values auto-generated from source/images/icons/src/*.svg */
+
+$icon-font-source-1: <%= fontSrc1 %>;
+$icon-font-source-2: <%= fontSrc2 %>;
+$icon-font-base-name: <%= fontBaseName %>;
+
+$font-icons: (<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+  <%= glyphs[glyphIdx] %>: "<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>",<% } %>
+);
