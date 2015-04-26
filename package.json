@@ -1,11 +1,18 @@
 {
   "name": "PatternLabStarter",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "Pattern Lab Starter",
-  "main": "public/index.html",
-  "scripts": {
-    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
+  "main": "Gruntfile.js",
+  "author": {
+    "name": "Evan Lovely",
+    "url": "https://github.com/EvanLovely"
   },
+  "contributors": [
+    {
+      "name": "Chris Bloom",
+      "url": "https:/github.com/illepic"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git@bitbucket.org:phase2tech/pattern-lab-starter.git"
@@ -13,11 +20,16 @@
   "keywords": [
     "pattern-lab"
   ],
+  "scripts": {
+    "start": "npm install && bower install && bundle install && grunt",
+    "compile": "grunt compile",
+    "predeploy": "grunt compile",
+    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
+  },
   "paths": {
     "patternlab": "",
     "drupalTheme": ""
   },
-  "author": "Phase2 Technology",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.12",
