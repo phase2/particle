@@ -38,6 +38,7 @@
     "grunt-sass-globbing": "^1.2.0",
     "grunt-scss-lint": "git://github.com/EvanLovely/grunt-scss-lint.git#master",
     "grunt-shell": "^1.1.1",
+    "grunt-webfont": "^0.5.2",
     "grunt-wiredep": "^2.0.0",
     "load-grunt-tasks": "^3.1.0",
     "lodash": "^3.6.0",

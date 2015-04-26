@@ -1,0 +1,23 @@
+/**
+ * Font application to generic DOM
+ */
+
+@font-face {
+  font-family: $icon-font-base-name;
+  src: $icon-font-source-1;
+  src: $icon-font-source-2;
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Everything with .icon--something has a base set of styles in order to view
+[class*="icon--"] {
+  @include font-icon-base;
+}
+
+// Print .icon--thingy classes using default :before for easy elements
+@each $icon-name, $icon-symbol in $font-icons {
+  .icon--#{$icon-name}:before {
+    content: map-get($font-icons, $icon-name);
+  }
+}

@@ -1,20 +1,3 @@
 {
-  "breakpoints": [
-    {
-      "name": "$bp--small",
-      "value": "480px"
-    },
-    {
-      "name": "$bp--medium",
-      "value": "640px"
-    },
-    {
-      "name": "$bp--large",
-      "value": "768px"
-    },
-    {
-      "name": "$bp--xlarge",
-      "value": "1024px"
-    }
-  ]
+  "breakpoints": []
 }
