@@ -3,6 +3,8 @@
  *
  */
 
+// Start libs
+
 // Grid system, https://github.com/at-import/Singularity
 @import '../bower_components/singularity/stylesheets/singularitygs';
 
@@ -12,8 +14,7 @@
 // Helpful mixins, http://bourbon.io/docs/
 @import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
 
-// A simple, printing reset
-@import '../bower_components/normalize-scss/normalize';
+// End libs
 
 // Setup and variables, our first custom file
 @import '99-imports/00-config';
@@ -21,11 +22,11 @@
 // Mixins and mechanisms (non printing)
 @import '99-imports/10-base';
 
-// Global elements, first printing css
-@import '99-imports/20-global';
+// Vendor css converted to scss, vendor imports of printing bower
+@import '99-imports/20-vendor';
 
-// Vendor css converted to scss that we couldn't get via bower
-@import '99-imports/30-vendor';
+// Global elements, first project printing css
+@import '99-imports/30-global';
 
 // All the molecules and organisms (and atoms like "buttons")
 @import '99-imports/40-components';

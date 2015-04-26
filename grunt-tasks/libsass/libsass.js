@@ -21,8 +21,8 @@ module.exports = function (grunt, config) {
         files: {
           'scss/99-imports/_00-config.scss': scssConfigRoot + scssDir + '00-config/**/*.scss',
           'scss/99-imports/_10-base.scss': scssConfigRoot + scssDir + '10-base/**/*.scss',
-          'scss/99-imports/_20-global.scss': scssConfigRoot + scssDir + '20-global/**/*.scss',
-          'scss/99-imports/_30-vendor.scss': scssConfigRoot + scssDir + '30-vendor/**/*.scss',
+          'scss/99-imports/_20-vendor.scss': scssConfigRoot + scssDir + '20-vendor/**/*.scss',
+          'scss/99-imports/_30-global.scss': scssConfigRoot + scssDir + '30-global/**/*.scss',
           'scss/99-imports/_40-components.scss': scssConfigRoot + scssDir + '40-components/**/*.scss',
           'scss/99-imports/_50-templates.scss': scssConfigRoot + scssDir + '50-templates/**/*.scss',
           'scss/99-imports/_60-pages.scss': scssConfigRoot + scssDir + '60-pages/**/*.scss'
