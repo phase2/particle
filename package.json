@@ -21,7 +21,8 @@
     "pattern-lab"
   ],
   "scripts": {
-    "start": "npm install && bower install && bundle install && grunt",
+    "deps": "npm install && bower install && bundle install",
+    "start": "npm run deps && grunt",
     "compile": "grunt compile",
     "predeploy": "grunt compile",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
