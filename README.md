@@ -87,6 +87,6 @@ There are many different pieces of tech and many files that set the preferences 
 - [Grunt Website](http://gruntjs.com)
 - Article by Chris Coyier: [Grunt for People Who Think Things Like Grunt are Weird and Hard ◆ 24 ways](http://24ways.org/2013/grunt-is-not-weird-and-hard/)
 
-## Sprites
+## Font icons
 
-- See /pattern-lab/public/?p=atoms-icons for instructions on icon spriting
+- After running `grunt`, see [http://localhost:9005/pattern-lab/public/?p=atoms-icons](http://localhost:9005/pattern-lab/public/?p=atoms-icons) in your browser for instructions on font icons
