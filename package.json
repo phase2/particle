@@ -26,7 +26,8 @@
     "start": "npm run deps && grunt",
     "compile": "grunt compile",
     "predeploy": "grunt compile",
-    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
+    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
+    "gh-pages": "git checkout gh-pages && git merge master --no-ff && npm run deps && npm run compile && git add --all :/ && git commit -m 'GitHub Pages Site Update' && git push && git checkout - && echo '' && echo 'Content from master merged into gh-pages, compiled, commited, and pushed. Should be live on http://phase2.github.io/pattern-lab-starter soon'"
   },
   "paths": {
     "patternlab": "",
