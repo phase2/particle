@@ -10,7 +10,7 @@ module.exports = function (grunt, config) {
         options: {
           engine: "node",
           stylesheet: 'scss',
-          relativeFontPath: '../../../../images/icons/output/fonts/',
+          relativeFontPath: '../images/icons/output/fonts/',
           template: 'images/icons/templates/icons.template.css',
           htmlDemo: true,
           htmlDemoTemplate: 'images/icons/templates/icons.html',
