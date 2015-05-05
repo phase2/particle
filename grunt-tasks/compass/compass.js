@@ -1,8 +1,6 @@
 module.exports = function (grunt, config) {
   "use strict";
-
-  var scssDir = config.scssDir || "scss/";
-  var scssConfigRoot = config.scssConfigRoot ||  "./";
+  // `config` vars set in `Gruntconfig.yml`
   
   grunt.config.merge({
     shell: {

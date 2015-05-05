@@ -1,8 +1,6 @@
 module.exports = function (grunt, config) {
   "use strict";
-
-  var scssDir = config.scssDir || "scss/";
-  var scssConfigRoot = config.scssConfigRoot ||  "./";
+  // `config` vars set in `Gruntconfig.yml`
 
   grunt.config.merge({
     sass: {
@@ -12,20 +10,20 @@ module.exports = function (grunt, config) {
       },
       dist: {
         files: {
-          'css/style.css': scssConfigRoot + scssDir + 'style.scss'
+          'css/style.css': config.scssConfigRoot + config.scssDir + 'style.scss'
         }
       }
     },
     sass_globbing: {
       smacss_import: {
         files: {
-          'scss/99-imports/_00-config.scss': scssConfigRoot + scssDir + '00-config/**/*.scss',
-          'scss/99-imports/_10-base.scss': scssConfigRoot + scssDir + '10-base/**/*.scss',
-          'scss/99-imports/_20-vendor.scss': scssConfigRoot + scssDir + '20-vendor/**/*.scss',
-          'scss/99-imports/_30-global.scss': scssConfigRoot + scssDir + '30-global/**/*.scss',
-          'scss/99-imports/_40-components.scss': scssConfigRoot + scssDir + '40-components/**/*.scss',
-          'scss/99-imports/_50-templates.scss': scssConfigRoot + scssDir + '50-templates/**/*.scss',
-          'scss/99-imports/_60-pages.scss': scssConfigRoot + scssDir + '60-pages/**/*.scss'
+          'scss/99-imports/_00-config.scss': config.scssConfigRoot + config.scssDir + '00-config/**/*.scss',
+          'scss/99-imports/_10-base.scss': config.scssConfigRoot + config.scssDir + '10-base/**/*.scss',
+          'scss/99-imports/_20-vendor.scss': config.scssConfigRoot + config.scssDir + '20-vendor/**/*.scss',
+          'scss/99-imports/_30-global.scss': config.scssConfigRoot + config.scssDir + '30-global/**/*.scss',
+          'scss/99-imports/_40-components.scss': config.scssConfigRoot + config.scssDir + '40-components/**/*.scss',
+          'scss/99-imports/_50-templates.scss': config.scssConfigRoot + config.scssDir + '50-templates/**/*.scss',
+          'scss/99-imports/_60-pages.scss': config.scssConfigRoot + config.scssDir + '60-pages/**/*.scss'
         },
         options: {
           useSingleQuotes: false
@@ -34,14 +32,14 @@ module.exports = function (grunt, config) {
     },
     //shell: {
     //  stylesCompile: {
-    //    //command: "cd " + scssConfigRoot + " && bundle exec compass compile"
+    //    //command: "cd " + config.scssConfigRoot + " && bundle exec compass compile"
     //    command: "echo hello world"
     //  }
     //},
     scsslint: {
       "options": {
-        "bundleExec": scssConfigRoot,
-        "config": scssConfigRoot + ".scss-lint.yml",
+        "bundleExec": config.scssConfigRoot,
+        "config": config.scssConfigRoot + ".scss-lint.yml",
         "force": true,
         "maxBuffer": 999999,
         "colorizeOutput": true,
@@ -53,7 +51,7 @@ module.exports = function (grunt, config) {
     },
     watch: {
       styles: {
-        files: [scssDir + "**/*.scss", "!scss/99-imports/**/*"],
+        files: [config.scssDir + "**/*.scss", "!scss/99-imports/**/*"],
         tasks: [
           //"shell:stylesCompile",
           "sass_globbing:smacss_import",

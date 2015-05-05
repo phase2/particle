@@ -36,15 +36,35 @@ If you want to use this for another project and want to add it to a different gi
 
     rm -rf .git/
 
+## Assets (CSS & JS)
 
-### Configuration
+To add either CSS or JS to Pattern Lab, use one of these methods:
 
-The main configuration file for the whole project is `Gruntconfig.json`; you'll find several important settings there, such as:
+### Bower
+
+Installing any [Bower](http://bower.io) component with the `--save` or `--save-dev` flag will get the `main` asset's `<link>` or `<script>` tags added to Pattern Lab automatically via [wiredep](https://github.com/taptapship/wiredep). So, you can search for [anything that Bower can install](http://bower.io/search/) and run:
+
+    bower install {thing} --save
+
+### Adding direct paths
+
+Adding paths to `pattern-lab-assets.yml` will get the CSS or JS added to Pattern Lab.
+
+### Editing the head or foot partial
+
+If you want the most direct access, which the two above methods inject into, then just head to one of these files:
+
+- `pattern-lab/source/_patterns/00-atoms/00-meta/_00-head.mustache`
+- `pattern-lab/source/_patterns/00-atoms/00-meta/_01-foot.mustache`
+
+## Configuration
+
+The main configuration file for the whole project is `Gruntconfig.yml`; you'll find several important settings there, such as:
 
 - directories and paths for scss, pattern lab, and javascript
 - local server settings
 
-`Gruntconfig.json` is commited with the project and shared between members of the team; however individuals can create a file called `Gruntconfig--custom.json` and override specific values there – that file is ignored by git so it can be customized per person (for example, some people like to set `openBrowserAtStart` to false).
+`Gruntconfig.yml` is commited with the project and shared between members of the team; however individuals can create a file called `Gruntconfig--custom.yml` and override specific values there – that file is ignored by git so it can be customized per person (for example, some people like to set `openBrowserAtStart` to false).
 
 There are many different pieces of tech and many files that set the preferences for each of them. Here's a list of them and where to find the config file for each.
 
