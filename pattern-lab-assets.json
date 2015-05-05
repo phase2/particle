@@ -3,6 +3,7 @@
     "css/style.css"
   ],
   "headerJS": [
+    "js/script.js"
   ],
   "footerJS": [
   ]

@@ -118,8 +118,6 @@ module.exports = function (grunt, config) {
       },
       headerCSS: {
         options: {
-          starttag: '<!-- start:headerCSS -->',
-          endtag: '<!-- end:headerCSS -->',
           transform: function (filePath) {
             filePath = "../../../../" + filePath;
             return '<link href="' + filePath + '" media="all" />';
@@ -142,8 +140,6 @@ module.exports = function (grunt, config) {
       },
       headerJS: {
         options: {
-          starttag: '<!-- start:headerJS -->',
-          endtag: '<!-- start:headerJS -->',
           transform: function (filePath) {
             filePath = "../../../../" + filePath;
             return '<script src="' + filePath + '"></script>';
