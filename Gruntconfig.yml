@@ -1,0 +1,11 @@
+# To override values here make a file named 'Gruntconfig--custom.yml' - it will be git ignored
+
+plDir: pattern-lab/
+jsDir: js/
+scssDir: scss/
+scssConfigRoot: ./
+serverDir: ./
+serverPath: pattern-lab/public/
+openBrowserAtStart: true
+updateAtStart: true
+buildModernizrAtStart: true
