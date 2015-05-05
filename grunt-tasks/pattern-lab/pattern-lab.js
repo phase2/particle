@@ -123,7 +123,7 @@ module.exports = function (grunt, config) {
         options: {
           transform: function (filePath) {
             filePath = "../../../../" + filePath;
-            return '<link href="' + filePath + '" media="all" />';
+            return '<link rel="stylesheet" href="' + filePath + '" media="all" />';
           }
         },
         src: assets.css,
