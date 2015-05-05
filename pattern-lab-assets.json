@@ -1,0 +1,12 @@
+{
+  "headerCSS": [
+    "css/style.css"
+  ],
+  "headerJS": [
+    "bower_components/modernizr/modernizr.js",
+    "bower_components/drupal/index.js"
+  ],
+  "footerJS": [
+    "bower_components/lodash/lodash.js"
+  ]
+}

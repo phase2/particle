@@ -18,7 +18,7 @@ module.exports = function (grunt) {
   //require('./grunt-tasks/compass/compass.js')(grunt, config);
   require('./grunt-tasks/libsass/libsass.js')(grunt, config);
   require('./grunt-tasks/jshint/jshint.js')(grunt, config);
-  require('./grunt-tasks/drupal7/drupal7.js')(grunt, config);
+  //require('./grunt-tasks/drupal7/drupal7.js')(grunt, config);
   require('./grunt-tasks/icons/icons.js')(grunt, config);
   // End Modular Config
 
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
 
 // Begin Task Aliases
   grunt.registerTask("compile", [
-    "injectBowerComponents",
+    "plBuild",
     "icons-build",
     "pattern_lab_component_builder",
     "stylesCompile",

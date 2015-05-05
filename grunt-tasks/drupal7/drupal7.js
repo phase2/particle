@@ -1,28 +1,6 @@
 module.exports = function (grunt, config) {
   "use strict";
 
-  var infoFile = "pattern_lab_starter.info";
-
-  function getDrupalJS() {
-    var drupalInfoJS = [];
-    var info = grunt.file.read(infoFile);
-    info.match(/^scripts.*/gm).forEach(function (line) {
-      drupalInfoJS.push(line.replace(/^script.*= /, ''));
-    });
-    //console.log(drupalInfoJS);
-    return drupalInfoJS;
-  }
-
-  function getDrupalCSS() {
-    var drupalInfoCSS = [];
-    var info = grunt.file.read(infoFile);
-    info.match(/^stylesheets.*/gm).forEach(function (line) {
-      drupalInfoCSS.push(line.replace(/^stylesheets.*= /, ''));
-    });
-    //console.log(drupalInfoCSS);
-    return drupalInfoCSS;
-  }
-
   grunt.registerTask("injectBowerComponents", [
     "wiredep:drupal", // add any dependencies installed via `bower install {thing} --save` to our Drupal `infoFile`
     "injector:headCSS", // add any dependencies from the Drupal `infoFile` to our Pattern Lab
@@ -35,51 +13,6 @@ module.exports = function (grunt, config) {
     shell: {
       drupalCC: {
         command: "drush cc all"
-      }
-    },
-
-    // injector's job is to read the Drupal 7 theme.info file and inject those assets into PL
-    injector: {
-      // https://github.com/klei/grunt-injector
-      options: {
-        addRootSlash: false,
-        ignorePath: []
-      },
-      headCSS: {
-        options: {
-          starttag: '<!-- start:headCSS -->',
-          endtag: '<!-- end:headCSS -->',
-          transform: function (filePath) {
-            filePath = "../../../../" + filePath;
-            return '<link rel="stylesheet" href="' + filePath + '" media="all" />';
-          }
-        },
-        src: getDrupalCSS(),
-        dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
-      },
-      footJS: {
-        options: {
-          starttag: '<!-- start:footJS -->',
-          endtag: '<!-- end:footJS -->',
-          transform: function (filePath) {
-            filePath = "../../../../" + filePath; // @todo consider better pathing method
-            return '<script src="' + filePath + '"></script>';
-          }
-        },
-        src: getDrupalJS(),
-        dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_01-foot.mustache'
-      },
-      headJS: {
-        options: {
-          starttag: '<!-- start:headJS -->',
-          endtag: '<!-- start:headJS -->',
-          transform: function (filePath) {
-            filePath = "../../../../" + filePath; // @todo consider better pathing method
-            return '<script src="' + filePath + '"></script>';
-          }
-        },
-        src: getDrupalJS(),
-        dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
       }
     },
 
