@@ -1,12 +1,13 @@
 module.exports = function (grunt, config) {
   "use strict";
-  // `config` vars set in `Gruntconfig.json`
+  // `config` vars set in `Gruntconfig.yml`
 
   var assets = grunt.file.readYAML("pattern-lab-assets.yml");
 
   grunt.registerTask("plBuild", [
-    "injector",
-    "wiredep",
+    "wiredep:pl",
+    "injector:plCSS",
+    "injector:plJS",
     "pattern_lab_component_builder",
     "shell:plBuild"
   ]);
@@ -108,15 +109,17 @@ module.exports = function (grunt, config) {
         dest: config.plDir + "source/_patterns/01-molecules/01-layout/99-breakpoints.json"
       }
     },
+  });
 
-    // injector's job is to read the pattern-lab-assets.json file and inject those assets into PL
+  grunt.config.merge({
+    
     injector: {
       // https://github.com/klei/grunt-injector
       options: {
         addRootSlash: false,
         ignorePath: []
       },
-      css: {
+      plCSS: {
         options: {
           transform: function (filePath) {
             filePath = "../../../../" + filePath;
@@ -126,7 +129,7 @@ module.exports = function (grunt, config) {
         src: assets.css,
         dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
       },
-      js: {
+      plJS: {
         options: {
           transform: function (filePath) {
             filePath = "../../../../" + filePath;
@@ -155,8 +158,22 @@ module.exports = function (grunt, config) {
           }
         }
       }
+    },
+    
+    watch: {
+      bower: {
+        files: 'bower.json',
+        tasks: 'wiredep:pl'
+      },
+      plAssets: {
+        files: 'pattern-lab-assets.yml',
+        tasks: [
+          'injector:plCSS',
+          'injector:plJS'
+        ]
+      }
     }
-
+    
   });
 
 };

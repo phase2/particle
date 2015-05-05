@@ -1,6 +1,6 @@
 module.exports = function (grunt, config) {
   "use strict";
-  // `config` vars set in `Gruntconfig.json`
+  // `config` vars set in `Gruntconfig.yml`
   
   grunt.config.merge({
     shell: {
