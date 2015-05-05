@@ -2,7 +2,7 @@ module.exports = function (grunt, config) {
   "use strict";
   // `config` vars set in `Gruntconfig.json`
 
-  var assets = grunt.file.readJSON("pattern-lab-assets.json");
+  var assets = grunt.file.readYAML("pattern-lab-assets.yml");
 
   grunt.registerTask("plBuild", [
     "injector",
@@ -116,36 +116,24 @@ module.exports = function (grunt, config) {
         addRootSlash: false,
         ignorePath: []
       },
-      headerCSS: {
+      css: {
         options: {
           transform: function (filePath) {
             filePath = "../../../../" + filePath;
             return '<link href="' + filePath + '" media="all" />';
           }
         },
-        src: assets.headerCSS,
+        src: assets.css,
         dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
       },
-      footerJS: {
-        options: {
-          starttag: '<!-- start:footerJS -->',
-          endtag: '<!-- end:footerJS -->',
-          transform: function (filePath) {
-            filePath = "../../../../" + filePath;
-            return '<script src="' + filePath + '"></script>';
-          }
-        },
-        src: assets.footerJS,
-        dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_01-foot.mustache'
-      },
-      headerJS: {
+      js: {
         options: {
           transform: function (filePath) {
             filePath = "../../../../" + filePath;
             return '<script src="' + filePath + '"></script>';
           }
         },
-        src: assets.headerJS,
+        src: assets.js,
         dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
       }
     },

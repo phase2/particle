@@ -1,0 +1,5 @@
+# Add file paths here to get added to Pattern Lab; any file not actually present won't get added though.
+css:
+  - css/style.css
+js:
+  - js/script.js
