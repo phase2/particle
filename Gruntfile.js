@@ -1,9 +1,9 @@
 module.exports = function (grunt) {
   "use strict";
   var _ = require("lodash");
-  var config = grunt.file.readJSON("Gruntconfig.json");
-  if (grunt.file.exists("Gruntconfig--custom.json")) {
-    var customConfigOverrides = grunt.file.readJSON("Gruntconfig--custom.json");
+  var config = grunt.file.readYAML("Gruntconfig.yml");
+  if (grunt.file.exists("Gruntconfig--custom.yml")) {
+    var customConfigOverrides = grunt.file.readYAML("Gruntconfig--custom.json");
     _.extend(config, customConfigOverrides);
   }
 
