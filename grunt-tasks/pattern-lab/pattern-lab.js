@@ -152,8 +152,15 @@ module.exports = function (grunt, config) {
               css: /<link.*href=['"]([^'"]+)/gi
             },
             replace: {
-              js: '<script src="{{filePath}}"></script>',
-              css: '<link rel="stylesheet" href="{{filePath}}" />'
+              // since we inject 5 levels deep to a partial that compiles to a place that is 4 levels deep, we need to remove 1 `../`
+              js: function (filePath) {
+                filePath = filePath.replace('../', '');
+                return '<script src="' + filePath + '"></script>';
+              },
+              css: function (filePath) {
+                filePath = filePath.replace('../', '');
+                return '<link rel="stylesheet" href="' + filePath + '" />';
+              } 
             }
           }
         }
