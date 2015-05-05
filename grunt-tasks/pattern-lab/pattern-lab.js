@@ -3,15 +3,16 @@ module.exports = function (grunt, config) {
   // `config` vars set in `Gruntconfig.json`
 
   var assets = grunt.file.readJSON("pattern-lab-assets.json");
-  
+
   grunt.registerTask("plBuild", [
     "injector",
+    "wiredep",
     "pattern_lab_component_builder",
     "shell:plBuild"
   ]);
 
   grunt.config.merge({
-    
+
     shell: {
       plBuild: {
         command: "php " + config.plDir + "core/builder.php --generate --nocache"
@@ -20,7 +21,7 @@ module.exports = function (grunt, config) {
         command: "touch .change-to-reload.txt"
       }
     },
-    
+
     jsonlint: {
       pl: {
         src: [
@@ -29,7 +30,7 @@ module.exports = function (grunt, config) {
         ]
       }
     },
-    
+
     watch: {
       pl: {
         files: config.plDir + "source/**/*.*",
@@ -46,7 +47,7 @@ module.exports = function (grunt, config) {
         files: ".change-to-reload.txt"
       }
     },
-    
+
     // local server
     connect: { // https://www.npmjs.org/package/grunt-contrib-connect
       pl: {
@@ -57,9 +58,9 @@ module.exports = function (grunt, config) {
           keepalive: true,
           livereload: true,
           open: "http://localhost:9005/" + config.serverPath,
-          middleware: function(connect, options, middlewares) {
+          middleware: function (connect, options, middlewares) {
 
-            middlewares.unshift(function(req, res, next) {
+            middlewares.unshift(function (req, res, next) {
               res.setHeader('Access-Control-Allow-Origin', '*');
               res.setHeader('Access-Control-Allow-Credentials', true);
               res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -72,7 +73,7 @@ module.exports = function (grunt, config) {
         }
       }
     },
-    
+
     pattern_lab_component_builder: {
       colors: {
         options: {
@@ -151,8 +152,27 @@ module.exports = function (grunt, config) {
         src: assets.headerJS,
         dest: config.plDir + 'source/_patterns/00-atoms/00-meta/_00-head.mustache'
       }
+    },
+
+    wiredep: {
+      pl: {
+        src: config.plDir + 'source/_patterns/00-atoms/00-meta/_0{0-head,1-foot}.mustache',
+        fileTypes: {
+          mustache: {
+            block: /(([ \t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
+            detect: {
+              js: /<script.*src=['"]([^'"]+)/gi,
+              css: /<link.*href=['"]([^'"]+)/gi
+            },
+            replace: {
+              js: '<script src="{{filePath}}"></script>',
+              css: '<link rel="stylesheet" href="{{filePath}}" />'
+            }
+          }
+        }
+      }
     }
-    
+
   });
 
 };
