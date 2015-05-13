@@ -1,17 +1,18 @@
 // Primary colors.
 $color--primary--blue: #0B81C9;
-$color--primary--black: #212323;
-$color--primary--gray: #484247;
 $color--primary--orange: #F27A22;
 
 // Secondary colors.
 $color--secondary--blue: #0E6BAC;
-$color--secondary--blue-light: #188DCF;
-$color--secondary--gray-darkest: #2E2E2E;
-$color--secondary--gray-dark: #4B4C4A;
-$color--secondary--gray: #7A7A7F;
-$color--secondary--gray-light: #85877D;
-$color--secondary--gray-lightest: #9F9F9D;
-$color--secondary--gray-white: #DADAD7;
-$color--secondary--gray-white-light: #ECECEC;
-$color--secondary--gray-white-lightest: #F4F4F4;
+
+// @todo consolidate gray color variables
+  
+$color--gray--white: hsl(0, 0%, 94.1%);
+$color--gray--lightest: hsl(0, 0%, 85.9%);
+$color--gray--lighter: hsl(0, 0%, 78%);
+$color--gray--light: hsl(0, 0%, 70.2%);
+$color--gray: hsl(228, 2.3%, 41.8%);
+$color--gray--dark: hsl(0, 0%, 40%);
+$color--gray--darker: hsl(0, 0%, 20%);
+$color--gray--darkest: hsl(0, 0%, 16.1%);
+$color--gray--black: hsl(0, 0%, 7.8%);
