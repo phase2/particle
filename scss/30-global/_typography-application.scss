@@ -7,3 +7,10 @@ body{
 h1 {
   @include h1();
 }
+
+blockquote {
+  font-style: italic;
+  border-left: solid 3px $color--gray;
+  margin-left: $spacing;
+  padding-left: $spacing;
+}
