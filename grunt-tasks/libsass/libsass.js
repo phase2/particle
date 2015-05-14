@@ -36,6 +36,19 @@ module.exports = function (grunt, config) {
     //    command: "echo hello world"
     //  }
     //},
+    autoprefixer: {
+      options: {
+        // browser query docs: https://github.com/ai/browserslist#queries
+        browsers: [
+          'last 2 versions',
+          'IE >= 9'
+        ]
+      },
+      styles: {
+        src: 'css/style.css',
+        dest: 'css/style.css'
+      }
+    },
     scsslint: {
       "options": {
         "bundleExec": config.scssConfigRoot,
@@ -64,6 +77,10 @@ module.exports = function (grunt, config) {
     }
   });
 
-  grunt.registerTask("stylesCompile", ['sass_globbing:smacss_import', 'sass']);
+  grunt.registerTask("stylesCompile", [
+    'sass_globbing:smacss_import',
+    'sass',
+    'autoprefixer:styles'
+  ]);
 
 };
