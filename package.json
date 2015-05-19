@@ -51,6 +51,7 @@
     "grunt-notify": "^0.4.1",
     "grunt-open": "^0.2.3",
     "grunt-pattern-lab-component-builder": "0.0.12",
+    "grunt-phantomcss": "git://github.com/micahgodbolt/grunt-phantomcss.git",
     "grunt-sass": "^0.18.1",
     "grunt-sass-globbing": "^1.2.0",
     "grunt-scss-lint": "git://github.com/EvanLovely/grunt-scss-lint.git#master",
@@ -59,6 +60,7 @@
     "grunt-wiredep": "^2.0.0",
     "load-grunt-tasks": "^3.1.0",
     "lodash": "^3.6.0",
+    "phantomjs": "^1.9.16",
     "time-grunt": "^1.0.0"
   }
 }

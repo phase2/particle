@@ -47,7 +47,24 @@ module.exports = function (grunt) {
         pushTo: 'origin',
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
       }
-    } 
+    },
+    phantomcss: {
+     options: {
+       mismatchTolerance: 0.05,
+       logLevel: 'error',
+       cleanupComparisonImages: true,
+     },
+     webux: {
+       options: {
+         screenshots: 'baselines',
+         results: 'results',
+         viewportSize: [1280, 800],
+       },
+       src: [
+          'pattern-lab/source/_patterns/**/*.test.js'
+       ]
+     },
+   },
   });
   // End Misc Config
 
