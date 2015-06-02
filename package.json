@@ -1,6 +1,6 @@
 {
   "name": "PatternLabStarter",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Pattern Lab Starter",
   "main": "Gruntfile.js",
   "author": {
@@ -11,6 +11,10 @@
     {
       "name": "Chris Bloom",
       "url": "https:/github.com/illepic"
+    },
+    {
+      "name": "Micah Godbolt",
+      "url": "https:/github.com/micahgodbolt"
     }
   ],
   "repository": {
@@ -42,6 +46,7 @@
     "grunt-bump": "^0.3.1",
     "grunt-cli": "^0.1.13",
     "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-connect": "^0.9.0",
     "grunt-contrib-jshint": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
@@ -51,7 +56,8 @@
     "grunt-notify": "^0.4.1",
     "grunt-open": "^0.2.3",
     "grunt-pattern-lab-component-builder": "0.0.12",
-    "grunt-sass": "^0.18.1",
+    "grunt-phantomcss": "git://github.com/micahgodbolt/grunt-phantomcss.git",
+    "grunt-sass": "^1.0.0",
     "grunt-sass-globbing": "^1.2.0",
     "grunt-scss-lint": "git://github.com/EvanLovely/grunt-scss-lint.git#master",
     "grunt-shell": "^1.1.1",
@@ -59,6 +65,7 @@
     "grunt-wiredep": "^2.0.0",
     "load-grunt-tasks": "^3.1.0",
     "lodash": "^3.6.0",
+    "phantomjs": "^1.9.16",
     "time-grunt": "^1.0.0"
   }
 }

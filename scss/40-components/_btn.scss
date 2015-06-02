@@ -1,0 +1,8 @@
+@mixin btn() {
+  border: $color--primary--blue solid 1px;
+  padding: ($spacing / 4) ($spacing / 2);
+  display: inline-block;
+}
+.btn {
+  @include btn();
+}
