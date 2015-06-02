@@ -29,5 +29,8 @@ pattern-lab/public/styleguide/html/styleguide.html
 atlassian-ide-plugin.xml
 
 # Visual Regression Testing
-pattern-lab/source/_patterns/**/baselines
+baselines
+!pattern-lab/source/_patterns/**/baselines
+pattern-lab/source/_patterns/**/baselines/*.diff.png
+pattern-lab/source/_patterns/**/baselines/*.fail.png
 pattern-lab/source/_patterns/**/results
