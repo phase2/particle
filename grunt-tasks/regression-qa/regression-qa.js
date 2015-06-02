@@ -3,6 +3,7 @@ module.exports = function (grunt, config) {
   // `config` vars set in `Gruntconfig.yml`
   
   grunt.registerTask('regressionQA', [
+    'clean:preRegressionQA',
     'phantomcss:all',
     'clean:postRegressionQA'
   ]);
@@ -28,13 +29,14 @@ module.exports = function (grunt, config) {
     },
     
     clean: {// https://www.npmjs.com/package/grunt-contrib-clean
-      //preRegressionQA: [
-      //  'baselines',
-      //  'pattern-lab/source/_patterns/**/results/*.png'
-      //],
-      postRegressionQA: [
+      preRegressionQA: [
         'baselines',
-        'pattern-lab/source/_patterns/**/baselines/*.{diff,fail}.png'
+        'pattern-lab/source/_patterns/**/results/*.{diff,fail}.png'
+      ],
+      postRegressionQA: [
+        'pattern-lab/source/_patterns/**/baselines/*.{diff,fail}.png',
+        'pattern-lab/source/_patterns/**/results/*.png',
+        '!pattern-lab/source/_patterns/**/results/*.{diff,fail}.png'
       ]
     }
 
