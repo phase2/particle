@@ -57,6 +57,23 @@ If you want the most direct access, which the two above methods inject into, the
 - `pattern-lab/source/_patterns/00-atoms/00-meta/_00-head.mustache`
 - `pattern-lab/source/_patterns/00-atoms/00-meta/_01-foot.mustache`
 
+## Visual Regression Testing
+
+**New Feature in Testing**
+
+- To run all visual regression tests, execute `grunt regressionQA`
+- To configure, edit `grunt-tasks/regression-qa/regression-qa.js`
+- To create new tests, duplicate the approach seen with files that end in `*.test.js` in `pattern-lab/source/_patterns/`
+- If you made an intentional change and are getting a failed test (because something did intentionally visually change), you need to run this from next to the `*.test.js` file:
+
+```bash
+# Assuming our test is called `atoms-buttons`
+# Delete our screen shot of the former known good
+rm baselines/atoms-buttons.png
+# Move the screen shot of the new current state into the baseline folder and rename it
+mv results/atoms-buttons.diff.png baselines/atoms-buttons.png
+```
+
 ## Configuration
 
 The main configuration file for the whole project is `Gruntconfig.yml`; you'll find several important settings there, such as:
