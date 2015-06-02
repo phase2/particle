@@ -20,6 +20,7 @@ module.exports = function (grunt) {
   require('./grunt-tasks/jshint/jshint.js')(grunt, config);
   //require('./grunt-tasks/drupal7/drupal7.js')(grunt, config);
   require('./grunt-tasks/icons/icons.js')(grunt, config);
+  require('./grunt-tasks/regression-qa/regression-qa.js')(grunt, config);
   // End Modular Config
 
   // Begin Misc Config
@@ -47,24 +48,7 @@ module.exports = function (grunt) {
         pushTo: 'origin',
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
       }
-    },
-    phantomcss: {
-     options: {
-       mismatchTolerance: 0.05,
-       logLevel: 'error',
-       cleanupComparisonImages: true
-     },
-     webux: {
-       options: {
-         screenshots: 'baselines',
-         results: 'results',
-         viewportSize: [1280, 800]
-       },
-       src: [
-          'pattern-lab/source/_patterns/**/*.test.js'
-       ]
-     }
-   }
+    }
   });
   // End Misc Config
 
