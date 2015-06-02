@@ -34,7 +34,7 @@ module.exports = function (grunt, config) {
 
     watch: {
       pl: {
-        files: config.plDir + "source/**/*.*",
+        files: config.plDir + "source/**/*.{mustache,json}",
         tasks: [
           "shell:plBuild",
           "shell:livereload",
@@ -108,7 +108,7 @@ module.exports = function (grunt, config) {
         src: config.scssDir + '00-config/_breakpoints.scss',
         dest: config.plDir + "source/_patterns/01-molecules/01-layout/99-breakpoints.json"
       }
-    },
+    }
   });
 
   grunt.config.merge({
