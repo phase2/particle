@@ -52,19 +52,19 @@ module.exports = function (grunt) {
      options: {
        mismatchTolerance: 0.05,
        logLevel: 'error',
-       cleanupComparisonImages: true,
+       cleanupComparisonImages: true
      },
      webux: {
        options: {
          screenshots: 'baselines',
          results: 'results',
-         viewportSize: [1280, 800],
+         viewportSize: [1280, 800]
        },
        src: [
           'pattern-lab/source/_patterns/**/*.test.js'
        ]
-     },
-   },
+     }
+   }
   });
   // End Misc Config
 
