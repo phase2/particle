@@ -1,8 +1,24 @@
-@mixin btn() {
-  border: $color--primary--blue solid 1px;
+@mixin btn($alt: false) {
+  background: $color--primary;
   padding: ($spacing / 4) ($spacing / 2);
   display: inline-block;
+  color: $color--gray--white;
+  text-decoration: none;
+  @if $alt {
+    background: $color--gray--white;
+    color: $color--primary;
+  }
 }
+
 .btn {
   @include btn();
+  &--alt {
+    @include btn($alt:true);
+  }
+}
+
+input[type="submit"],
+.form-submit {
+  @include btn();
+  border: 0;
 }

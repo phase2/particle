@@ -74,6 +74,18 @@ rm baselines/atoms-buttons.png
 mv results/atoms-buttons.diff.png baselines/atoms-buttons.png
 ```
 
+You can all clear all baselines out and start over by basically saying that: how the site looks now is what I want future tests to compare against by running this:
+
+```bash
+grunt testClean:all
+```
+
+Additionally, individual components can be targeted by running this:
+
+```bash
+grunt testClean:name-of-test
+```
+
 ## Configuration
 
 The main configuration file for the whole project is `Gruntconfig.yml`; you'll find several important settings there, such as:
