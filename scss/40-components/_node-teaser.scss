@@ -1,0 +1,10 @@
+.node-teaser {
+  margin-bottom: $spacing;
+  .field-type-image {
+    @include breakpoint($bp--small-up) {
+      float: left;
+      width: 33%;
+      margin-right: $spacing;
+    }
+  }
+}
