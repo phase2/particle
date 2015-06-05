@@ -71,17 +71,17 @@ module.exports = function (grunt, config) {
   // grunt test
   // grunt test:*
   // grunt test:featured-item:new
-  //grunt.registerTask('test', function (tests, isNew) {
-  //  if (tests == undefined) {
-  //    grunt.config.set('phantomcss.all.src', 'src/sass/**/*.tests.js');
-  //  }
-  //  else {
-  //    if (isNew == 'new') {
-  //      grunt.task.run('testClean:' + tests);
-  //    }
-  //    grunt.config.set('phantomcss.all.src', 'src/sass/**/' + tests + '.tests.js');
-  //  }
-  //  grunt.task.run('phantomcss');
-  //});
+  grunt.registerTask('test', function (tests, isNew) {
+    if (tests == undefined) {
+      grunt.config.set('phantomcss.all.src', config.regressionTestRoot + '**/*.test.js');
+    }
+    else {
+      if (isNew == 'new') {
+        grunt.task.run('testClean:' + tests);
+      }
+      grunt.config.set('phantomcss.all.src', config.regressionTestRoot + '**/' + tests + '.test.js');
+    }
+    grunt.task.run('phantomcss');
+  });
 
 };

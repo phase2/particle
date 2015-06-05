@@ -74,6 +74,8 @@ rm baselines/atoms-buttons.png
 mv results/atoms-buttons.diff.png baselines/atoms-buttons.png
 ```
 
+### `grunt testClean` task
+
 You can all clear all baselines out and start over by basically saying that: how the site looks now is what I want future tests to compare against by running this:
 
 ```bash
@@ -84,6 +86,19 @@ Additionally, individual components can be targeted by running this:
 
 ```bash
 grunt testClean:name-of-test
+```
+
+### `grunt test` task 
+
+Can accept two params:
+
+- `tests`: If this param is blank then a server is spun up and all tests are run. If a value is passed (i.e. `featured-item`) then `featured-item-test.js` is run by itself. Much quicker than waiting for all tests.
+- `new`: If `new` is passed in to the second param, then the associated baselines for the selected test file is deleted before running
+
+```bash
+grunt test
+grunt test:*
+grunt test:featured-item:new
 ```
 
 ## Configuration
