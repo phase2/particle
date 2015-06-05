@@ -1,6 +1,12 @@
 module.exports = function (grunt, config) {
   "use strict";
   // `config` vars set in `Gruntconfig.yml`
+  var openBrowserAtStart;
+  if (config.openBrowserAtStart) {
+    openBrowserAtStart = "http://localhost:9005/" + config.serverPath;
+  } else {
+    openBrowserAtStart = false;
+  }
 
   var assets = grunt.file.readYAML("pattern-lab-assets.yml");
 
@@ -58,7 +64,7 @@ module.exports = function (grunt, config) {
           base: config.serverDir,
           keepalive: true,
           livereload: true,
-          open: "http://localhost:9005/" + config.serverPath,
+          open: openBrowserAtStart,
           middleware: function (connect, options, middlewares) {
 
             middlewares.unshift(function (req, res, next) {

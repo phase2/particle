@@ -1,6 +1,6 @@
 {
   "name": "PatternLabStarter",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Pattern Lab Starter",
   "main": "Gruntfile.js",
   "author": {
@@ -63,6 +63,7 @@
     "grunt-shell": "^1.1.1",
     "grunt-webfont": "^0.5.2",
     "grunt-wiredep": "^2.0.0",
+    "inquirer": "^0.8.5",
     "load-grunt-tasks": "^3.1.0",
     "lodash": "^3.6.0",
     "phantomjs": "^1.9.16",
