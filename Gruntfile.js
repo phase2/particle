@@ -3,7 +3,7 @@ module.exports = function (grunt) {
   var _ = require("lodash");
   var config = grunt.file.readYAML("Gruntconfig.yml");
   if (grunt.file.exists("Gruntconfig--custom.yml")) {
-    var customConfigOverrides = grunt.file.readYAML("Gruntconfig--custom.json");
+    var customConfigOverrides = grunt.file.readYAML("Gruntconfig--custom.yml");
     _.extend(config, customConfigOverrides);
   }
 
