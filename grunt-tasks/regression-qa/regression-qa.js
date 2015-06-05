@@ -1,20 +1,23 @@
+var inq = require("inquirer");
+
 module.exports = function (grunt, config) {
   "use strict";
   // `config` vars set in `Gruntconfig.yml`
-  
+
   grunt.registerTask('regressionQA', [
     'clean:preRegressionQA',
     'phantomcss:all',
     'clean:postRegressionQA'
   ]);
-  
+
   grunt.config.merge({
 
     phantomcss: {// https://github.com/micahgodbolt/grunt-phantomcss
       options: {
         mismatchTolerance: 0.05,
         logLevel: 'error',
-        cleanupComparisonImages: true
+        cleanupComparisonImages: true,
+        rootUrl: 'http://gg.local/'
       },
       all: {
         options: {
@@ -27,7 +30,7 @@ module.exports = function (grunt, config) {
         ]
       }
     },
-    
+
     clean: {// https://www.npmjs.com/package/grunt-contrib-clean
       preRegressionQA: [
         'baselines',
@@ -50,11 +53,11 @@ module.exports = function (grunt, config) {
     if (option === 'all') {
       option = '*';
     }
-    
+
     grunt.file.expand([config.regressionTestRoot + '**/' + option + '.test.js']).forEach(function (filepath) {
       var directory;
       directory = require('path').dirname(filepath);
-      
+
       grunt.log.debug("Attempting to delete: " + directory + "/" + grunt.config.get("phantomcss.all.options.screenshots"));
       grunt.file.delete(directory + "/" + grunt.config.get("phantomcss.all.options.screenshots"));
       grunt.log.debug("Attempting to delete: " + directory + "/" + grunt.config.get("phantomcss.all.options.results"));
@@ -71,7 +74,7 @@ module.exports = function (grunt, config) {
   // grunt test
   // grunt test:*
   // grunt test:featured-item:new
-  grunt.registerTask('test', function (tests, isNew) {
+  grunt.registerTask('testitem', function (tests, isNew) {
     if (tests == undefined) {
       grunt.config.set('phantomcss.all.src', config.regressionTestRoot + '**/*.test.js');
     }
@@ -81,7 +84,32 @@ module.exports = function (grunt, config) {
       }
       grunt.config.set('phantomcss.all.src', config.regressionTestRoot + '**/' + tests + '.test.js');
     }
-    grunt.task.run('phantomcss');
+    grunt.task.run('regressionQA');
   });
 
+  grunt.registerTask('test', function () {
+    var allTests = grunt.file.expand(config.regressionTestRoot + '**/*.test.js');
+    if (allTests.length === 0) {
+      grunt.fatal('No regression test files found. Must end in `.test.js` inside the folder "' + config.regressionTestRoot + '" (which is setting in "Gruntconfig.yml")');
+    }
+    grunt.log.debug('allTests: ', allTests);
+    var done = this.async();
+    inq.prompt([{
+      type: "checkbox",
+      name: "testsToRun",
+      message: "What Visual Regression Tests do you want to run?",
+      choices: allTests,
+      validate: function (answer) {
+        if (answer.length < 1) {
+          return "You must choose at least one.";
+        }
+        return true;
+      }
+    }], function (answers) {
+      grunt.log.debug('answers: ' + JSON.stringify(answers));
+      grunt.config.set('phantomcss.all.src', answers.testsToRun);
+      grunt.task.run('regressionQA');
+      done();
+    });
+  });
 };
