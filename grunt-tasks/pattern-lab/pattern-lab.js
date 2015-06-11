@@ -22,7 +22,7 @@ module.exports = function (grunt, config) {
 
     shell: {
       plBuild: {
-        command: "touch " + serverPath + "styleguide/html/styleguide.html && php " + plDir + "core/builder.php --generate --nocache"
+        command: "mkdir -p " + config.plDir + "public/styleguide/html/ && touch " + config.plDir + "public/styleguide/html/styleguide.html && php " + config.plDir + "core/builder.php --generate --nocache"
       },
       livereload: {
         command: "touch .change-to-reload.txt"
