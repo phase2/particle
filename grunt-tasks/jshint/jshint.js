@@ -1,7 +1,6 @@
 module.exports = function (grunt, config) {
   "use strict";
-
-  var jsDir = config.jsDir || "./";
+  // `config` vars set in `Gruntconfig.yml`
 
   grunt.config.merge({
     jshint: {
@@ -12,8 +11,8 @@ module.exports = function (grunt, config) {
       js: {
         files: {
           src: [
-            jsDir + "**/*.js",
-            "!" + jsDir + "lib/**",
+            config.jsDir + "**/*.js",
+            "!" + config.jsDir + "lib/**",
             "Gruntfile.js",
             "grunt-tasks/**/*.js",
             "!**/node_modules/**/*",

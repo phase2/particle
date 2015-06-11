@@ -1,6 +1,6 @@
 {
   "name": "PatternLabStarter",
-  "version": "2.1.0",
+  "version": "2.3.2",
   "description": "Pattern Lab Starter",
   "main": "Gruntfile.js",
   "author": {
@@ -11,6 +11,10 @@
     {
       "name": "Chris Bloom",
       "url": "https:/github.com/illepic"
+    },
+    {
+      "name": "Micah Godbolt",
+      "url": "https:/github.com/micahgodbolt"
     }
   ],
   "repository": {
@@ -26,7 +30,8 @@
     "start": "npm run deps && grunt",
     "compile": "grunt compile",
     "predeploy": "grunt compile",
-    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
+    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
+    "gh-pages": "git checkout gh-pages && git merge master --no-ff && npm run deps && npm run compile && git add --all :/ && git commit -m 'GitHub Pages Site Update' && git push && git checkout - && echo '' && echo 'Content from master merged into gh-pages, compiled, commited, and pushed. Should be live on http://phase2.github.io/pattern-lab-starter soon'"
   },
   "paths": {
     "patternlab": "",
@@ -37,8 +42,11 @@
     "bower": "^1.3.12",
     "chalk": "^0.5.1",
     "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^3.0.0",
+    "grunt-bump": "^0.3.1",
     "grunt-cli": "^0.1.13",
     "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-connect": "^0.9.0",
     "grunt-contrib-jshint": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
@@ -48,14 +56,17 @@
     "grunt-notify": "^0.4.1",
     "grunt-open": "^0.2.3",
     "grunt-pattern-lab-component-builder": "0.0.12",
-    "grunt-sass": "^0.18.1",
+    "grunt-phantomcss": "git://github.com/micahgodbolt/grunt-phantomcss.git",
+    "grunt-sass": "^1.0.0",
     "grunt-sass-globbing": "^1.2.0",
     "grunt-scss-lint": "git://github.com/EvanLovely/grunt-scss-lint.git#master",
     "grunt-shell": "^1.1.1",
     "grunt-webfont": "^0.5.2",
     "grunt-wiredep": "^2.0.0",
+    "inquirer": "^0.8.5",
     "load-grunt-tasks": "^3.1.0",
     "lodash": "^3.6.0",
+    "phantomjs": "^1.9.16",
     "time-grunt": "^1.0.0"
   }
 }

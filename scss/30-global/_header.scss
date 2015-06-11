@@ -1,0 +1,11 @@
+.header {
+  position: relative;
+  border-bottom: $border;
+  @include breakpoint($bp--medium-up) {
+    .search-form {
+      position: absolute;
+      top: $spacing;
+      right: $spacing;
+    }
+  }
+}

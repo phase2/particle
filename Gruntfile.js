@@ -1,9 +1,9 @@
 module.exports = function (grunt) {
   "use strict";
   var _ = require("lodash");
-  var config = grunt.file.readJSON("Gruntconfig.json");
-  if (grunt.file.exists("Gruntconfig--custom.json")) {
-    var customConfigOverrides = grunt.file.readJSON("Gruntconfig--custom.json");
+  var config = grunt.file.readYAML("Gruntconfig.yml");
+  if (grunt.file.exists("Gruntconfig--custom.yml")) {
+    var customConfigOverrides = grunt.file.readYAML("Gruntconfig--custom.yml");
     _.extend(config, customConfigOverrides);
   }
 
@@ -18,8 +18,9 @@ module.exports = function (grunt) {
   //require('./grunt-tasks/compass/compass.js')(grunt, config);
   require('./grunt-tasks/libsass/libsass.js')(grunt, config);
   require('./grunt-tasks/jshint/jshint.js')(grunt, config);
-  require('./grunt-tasks/drupal7/drupal7.js')(grunt, config);
+  //require('./grunt-tasks/drupal7/drupal7.js')(grunt, config);
   require('./grunt-tasks/icons/icons.js')(grunt, config);
+  require('./grunt-tasks/regression-qa/regression-qa.js')(grunt, config);
   // End Modular Config
 
   // Begin Misc Config
@@ -34,6 +35,19 @@ module.exports = function (grunt) {
           "connect"
         ]
       }
+    },
+    bump: {// https://github.com/vojtajina/grunt-bump
+      options: {
+        commit: true,
+        commitMessage: 'Release v%VERSION%',
+        commitFiles: ['-a'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: false,
+        pushTo: 'origin',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+      }
     }
   });
   // End Misc Config
@@ -43,7 +57,7 @@ module.exports = function (grunt) {
 
 // Begin Task Aliases
   grunt.registerTask("compile", [
-    "injectBowerComponents",
+    "plBuild",
     "icons-build",
     "pattern_lab_component_builder",
     "stylesCompile",

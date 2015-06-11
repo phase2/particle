@@ -1,0 +1,21 @@
+.primary-nav {
+  padding: ($spacing / 2) 0;
+  >.menu {
+    @include clearfix();
+    ul {
+      margin-left: $spacing;
+    }
+    >li {
+      @include breakpoint($bp--medium-up) {
+        float: left;
+        margin-left: ($spacing / 2);
+        &:first-child {
+          margin-left: 0;
+        }
+        ul {
+          display: none;
+        }
+      }
+    }
+  }
+}

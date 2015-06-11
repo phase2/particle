@@ -36,15 +36,79 @@ If you want to use this for another project and want to add it to a different gi
 
     rm -rf .git/
 
+## Assets (CSS & JS)
 
-### Configuration
+To add either CSS or JS to Pattern Lab, use one of these methods:
 
-The main configuration file for the whole project is `Gruntconfig.json`; you'll find several important settings there, such as:
+### Bower
+
+Installing any [Bower](http://bower.io) component with the `--save` or `--save-dev` flag will get the `main` asset's `<link>` or `<script>` tags added to Pattern Lab automatically via [wiredep](https://github.com/taptapship/wiredep). So, you can search for [anything that Bower can install](http://bower.io/search/) and run:
+
+    bower install {thing} --save
+
+### Adding direct paths
+
+Adding paths to `pattern-lab-assets.yml` will get the CSS or JS added to Pattern Lab.
+
+### Editing the head or foot partial
+
+If you want the most direct access, which the two above methods inject into, then just head to one of these files:
+
+- `pattern-lab/source/_patterns/00-atoms/00-meta/_00-head.mustache`
+- `pattern-lab/source/_patterns/00-atoms/00-meta/_01-foot.mustache`
+
+## Visual Regression Testing
+
+**New Feature in Testing**
+
+- To run all visual regression tests, execute `grunt regressionQA`
+- To configure, edit `grunt-tasks/regression-qa/regression-qa.js`
+- To create new tests, duplicate the approach seen with files that end in `*.test.js` in `pattern-lab/source/_patterns/`
+- If you made an intentional change and are getting a failed test (because something did intentionally visually change), you need to run this from next to the `*.test.js` file:
+
+```bash
+# Assuming our test is called `atoms-buttons`
+# Delete our screen shot of the former known good
+rm baselines/atoms-buttons.png
+# Move the screen shot of the new current state into the baseline folder and rename it
+mv results/atoms-buttons.diff.png baselines/atoms-buttons.png
+```
+
+### `grunt testClean` task
+
+You can all clear all baselines out and start over by basically saying that: how the site looks now is what I want future tests to compare against by running this:
+
+```bash
+grunt testClean:all
+```
+
+Additionally, individual components can be targeted by running this:
+
+```bash
+grunt testClean:name-of-test
+```
+
+### `grunt test` task 
+
+Can accept two params:
+
+- `tests`: If this param is blank then a server is spun up and all tests are run. If a value is passed (i.e. `featured-item`) then `featured-item-test.js` is run by itself. Much quicker than waiting for all tests.
+- `new`: If `new` is passed in to the second param, then the associated baselines for the selected test file is deleted before running
+
+```bash
+grunt test
+grunt test:*
+grunt test:featured-item:new
+```
+
+## Configuration
+
+The main configuration file for the whole project is `Gruntconfig.yml`; you'll find several important settings there, such as:
 
 - directories and paths for scss, pattern lab, and javascript
 - local server settings
 
-`Gruntconfig.json` is commited with the project and shared between members of the team; however individuals can create a file called `Gruntconfig--custom.json` and override specific values there – that file is ignored by git so it can be customized per person (for example, some people like to set `openBrowserAtStart` to false).
+`Gruntconfig.yml` is commited with the project and shared between members of the team; however individuals can create a file called `Gruntconfig--custom.yml` and override specific values there – that file is ignored by git so it can be customized per person (for example, some people like to set `openBrowserAtStart` to false).
 
 There are many different pieces of tech and many files that set the preferences for each of them. Here's a list of them and where to find the config file for each.
 

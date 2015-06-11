@@ -1,19 +1,17 @@
 module.exports = function (grunt, config) {
   "use strict";
-
-  var scssDir = config.scssDir || "scss/";
-  var scssConfigRoot = config.scssConfigRoot ||  "./";
+  // `config` vars set in `Gruntconfig.yml`
   
   grunt.config.merge({
     shell: {
       stylesCompile: {
-        command: "cd " + scssConfigRoot + " && bundle exec compass compile"
+        command: "cd " + config.scssConfigRoot + " && bundle exec compass compile"
       }
     },
     scsslint: {
       "options": {
-        "bundleExec": scssConfigRoot,
-        "config": scssConfigRoot + ".scss-lint.yml",
+        "bundleExec": config.scssConfigRoot,
+        "config": config.scssConfigRoot + ".scss-lint.yml",
         "force": true,
         "maxBuffer": 999999,
         "colorizeOutput": true,
@@ -25,7 +23,7 @@ module.exports = function (grunt, config) {
     },
     watch: {
       styles: {
-        files: scssDir + "**/*.scss",
+        files: config.scssDir + "**/*.scss",
         tasks: [
           "shell:stylesCompile",
           "shell:livereload",
