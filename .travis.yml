@@ -1,9 +1,10 @@
 language: php
 php:
   - 5.5
-before_install: 
+install: 
   - npm install --global grunt-cli bower
   - npm install
   - bower install
   - bundle install
-script: npm run test
+script: grunt build
+
