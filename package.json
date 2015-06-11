@@ -29,6 +29,7 @@
     "deps": "npm install && bower install && bundle install",
     "start": "npm run deps && grunt",
     "compile": "grunt compile",
+    "test": "npm install && bower install && bundle install && grunt build",
     "predeploy": "grunt compile",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
     "gh-pages": "git checkout gh-pages && git merge master --no-ff && npm run deps && npm run compile && git add --all :/ && git commit -m 'GitHub Pages Site Update' && git push && git checkout - && echo '' && echo 'Content from master merged into gh-pages, compiled, commited, and pushed. Should be live on http://phase2.github.io/pattern-lab-starter soon'"
