@@ -1,10 +1,6 @@
-language: php
-php:
-  - 5.5
-install: 
-  - npm install --global grunt-cli bower
-  - npm install
-  - bower install
-  - bundle install
-script: grunt build
-
+language: node_js
+node_js:
+  - "0.12"
+before_install: 
+  - sudo apt-get update
+  - sudo apt-get install php5
