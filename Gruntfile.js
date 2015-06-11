@@ -9,10 +9,6 @@ module.exports = function (grunt) {
 
   // Begin Config
 
-  // First, let's initialize an empty config; this is where most people put tasks - *all* of them.
-  grunt.config.init({}); // also known as: `grunt.initConfig`
-  // Instead, let's merge the config of a full feature in, one at a time, with `grunt.config.merge`.
-
   // Begin Modular Config
   require('./grunt-tasks/pattern-lab/pattern-lab.js')(grunt, config);
   //require('./grunt-tasks/compass/compass.js')(grunt, config);
