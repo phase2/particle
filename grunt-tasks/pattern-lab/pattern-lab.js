@@ -9,20 +9,31 @@ module.exports = function (grunt, config) {
   }
 
   var assets = grunt.file.readYAML("pattern-lab-assets.yml");
+  
+  grunt.registerTask("plBuild", "Build Pattern Lab", function() {
+    grunt.task.run([
+      "wiredep:pl",
+      "injector:plCSS",
+      "injector:plJS",
+      "pattern_lab_component_builder"
+    ]);
+    if (!grunt.file.exists(config.plDir + "public/styleguide/html/styleguide.html")) {
+      // first run
+      grunt.log.writeln("Looks like we have a first run; copying core/styleguide over to public folder now...");
+      grunt.task.run("shell:copyPLstyleguide");
+    }
+    grunt.task.run("shell:plBuild");
+  });
 
-  grunt.registerTask("plBuild", [
-    "wiredep:pl",
-    "injector:plCSS",
-    "injector:plJS",
-    "pattern_lab_component_builder",
-    "shell:plBuild"
-  ]);
 
   grunt.config.merge({
 
     shell: {
       plBuild: {
-        command: "php " + config.plDir + "core/builder.php --generate --nocache"
+        command: "mkdir -p " + config.plDir + "public/styleguide/html/ && touch " + config.plDir + "public/styleguide/html/styleguide.html && php " + config.plDir + "core/builder.php --generate --nocache"
+      },
+      copyPLstyleguide: {
+        command: "mkdir -p " + config.plDir + "public/styleguide/ && cp -r " + config.plDir + "core/styleguide/ " + config.plDir + "public/styleguide/"
       },
       livereload: {
         command: "touch .change-to-reload.txt"

@@ -21,8 +21,6 @@ pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
 
 # Styleguide specific stuff
 pattern-lab/public/*
-!pattern-lab/public/styleguide/
-pattern-lab/public/styleguide/html/styleguide.html
 
 #IDE plugins
 .idea

@@ -1,5 +1,7 @@
 # Pattern Lab Starter
 
+[![Travis CI Badge](https://api.travis-ci.org/phase2/pattern-lab-starter.png)](https://travis-ci.org/phase2/pattern-lab-starter) 
+
 ## Super Quick Setup
 
 Use our [Yeoman Generator](https://github.com/phase2/generator-pattern-lab-starter) for the best way to spin this up for your project. Directly cloning and working on this repo is for contributors. 
