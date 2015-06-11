@@ -118,7 +118,7 @@ module.exports = function (grunt, config) {
   });
 
   grunt.config.merge({
-    
+
     injector: {
       // https://github.com/klei/grunt-injector
       options: {
@@ -166,13 +166,13 @@ module.exports = function (grunt, config) {
               css: function (filePath) {
                 filePath = filePath.replace('../', '');
                 return '<link rel="stylesheet" href="' + filePath + '" />';
-              } 
+              }
             }
           }
         }
       }
     },
-    
+
     watch: {
       bower: {
         files: 'bower.json',
@@ -186,7 +186,7 @@ module.exports = function (grunt, config) {
         ]
       }
     }
-    
+
   });
 
 };
