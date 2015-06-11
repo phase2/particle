@@ -64,6 +64,7 @@ If you want the most direct access, which the two above methods inject into, the
 - To run all visual regression tests, execute `grunt regressionQA`
 - To configure, edit `grunt-tasks/regression-qa/regression-qa.js`
 - To create new tests, duplicate the approach seen with files that end in `*.test.js` in `pattern-lab/source/_patterns/`
+    - Weird bug: all `*.test.js` files must contain an empty last line in the file or you get a "SyntaxError: Parse error"
 - If you made an intentional change and are getting a failed test (because something did intentionally visually change), you need to run this from next to the `*.test.js` file:
 
 ```bash
