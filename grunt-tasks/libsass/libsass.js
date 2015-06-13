@@ -66,9 +66,7 @@ module.exports = function (grunt, config) {
       styles: {
         files: [config.scssDir + "**/*.scss", "!scss/99-imports/**/*"],
         tasks: [
-          //"shell:stylesCompile",
-          "sass_globbing:smacss_import",
-          "sass",
+          "stylesCompile",
           "shell:livereload",
           "newer:scsslint:styles", // only lint the newly change files
           "newer:pattern_lab_component_builder"
