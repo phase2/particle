@@ -1,6 +1,14 @@
 language: node_js
 node_js:
-  - "0.12"
-before_install: 
-  - sudo apt-get update
-  - sudo apt-get install php5
+- '0.12'
+before_install:
+- sudo apt-get update
+- sudo apt-get install php5
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+  flowdock:
+    secure: 
+      - ik8EtX2KyKKNzX0qH6LG/vFksKHYxhF9iOXdOCl8ead0Vla2xiQThEgoRwPzsHfwkrrTCcolNzFHHwLLncn13AKEea+KMml6sFQn6Hi8hxywnhwCMxTdQQv9tGvoaAp8pKzB6yXsD9fdQSK4ZQuzJGCn/0A1crvnS8ZODYISpfI=
+      - RBLFcGBNV8iBA3pBGqGzq5o2Kt+X0IESDtuWnamGurhXItdd0Qh8LZwGmbcZdBuncJQ/WvC5/umCZykf0BeMOiu5TnhJKH3ett0qQT8dxJI9aykwbk/+xyCX09tQJ6jejhcDmu394SUlXYb8DBPnlmE345EVbtjFt9Wxo+ZskCo=
