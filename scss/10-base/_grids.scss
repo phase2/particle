@@ -2,12 +2,12 @@
   @include add-grid(12);
 
   .thingy-1 {
-    @include grid-span(4,1);
+    @include grid-span(4, 1);
   }
   .thingy-2 {
-    @include grid-span(4,5);
+    @include grid-span(4, 5);
   }
   .thingy-3 {
-    @include grid-span(4,9);
+    @include grid-span(4, 9);
   }
 }
