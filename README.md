@@ -1,5 +1,7 @@
 # Pattern Lab Starter
 
+[![Travis CI Badge](https://api.travis-ci.org/phase2/pattern-lab-starter.png)](https://travis-ci.org/phase2/pattern-lab-starter) 
+
 ## Super Quick Setup
 
 Use our [Yeoman Generator](https://github.com/phase2/generator-pattern-lab-starter) for the best way to spin this up for your project. Directly cloning and working on this repo is for contributors. 
@@ -64,6 +66,7 @@ If you want the most direct access, which the two above methods inject into, the
 - To run all visual regression tests, execute `grunt regressionQA`
 - To configure, edit `grunt-tasks/regression-qa/regression-qa.js`
 - To create new tests, duplicate the approach seen with files that end in `*.test.js` in `pattern-lab/source/_patterns/`
+    - Weird bug: all `*.test.js` files must contain an empty last line in the file or you get a "SyntaxError: Parse error"
 - If you made an intentional change and are getting a failed test (because something did intentionally visually change), you need to run this from next to the `*.test.js` file:
 
 ```bash

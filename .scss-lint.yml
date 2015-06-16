@@ -1,4 +1,5 @@
 # docs: https://github.com/causes/scss-lint/blob/master/lib/scss_lint/linter/README.md
+# Get the default of this file which will contain any new rules: https://github.com/brigade/scss-lint/blob/master/config/default.yml
 
 linters:
   BangFormat:

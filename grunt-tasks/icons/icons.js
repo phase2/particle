@@ -34,7 +34,9 @@ module.exports = function (grunt, config) {
 
   grunt.registerTask('icons-cleanup', function() {
     grunt.file.copy('images/icons/output/icons.html', 'pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache');
-    grunt.file.delete('images/icons/output/icons.html');
+    if (grunt.file.exists('images/icons/output/icons.html')) {
+      grunt.file.delete('images/icons/output/icons.html');
+    }
   });
   grunt.registerTask("icons-build", ['webfont:icons', 'icons-cleanup']);
 
