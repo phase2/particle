@@ -47,7 +47,7 @@ module.exports = function (grunt, config) {
 
   // grunt testClean:featured-item will remove the baseline folder adjacent to featured-item-test.js
   grunt.registerTask('testClean', function (option) {
-    if (option == undefined) {
+    if (option === "undefined") {
       grunt.fail.fatal('A test file must be specified for testClean. You can also pass "all" to remove all baselines ');
     }
     if (option === 'all') {
@@ -75,11 +75,11 @@ module.exports = function (grunt, config) {
   // grunt test:*
   // grunt test:featured-item:new
   grunt.registerTask('testitem', function (tests, isNew) {
-    if (tests == undefined) {
+    if (tests === "undefined") {
       grunt.config.set('phantomcss.all.src', config.regressionTestRoot + '**/*.test.js');
     }
     else {
-      if (isNew == 'new') {
+      if (isNew === 'new') {
         grunt.task.run('testClean:' + tests);
       }
       grunt.config.set('phantomcss.all.src', config.regressionTestRoot + '**/' + tests + '.test.js');

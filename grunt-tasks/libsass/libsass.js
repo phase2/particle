@@ -2,6 +2,12 @@ module.exports = function (grunt, config) {
   "use strict";
   // `config` vars set in `Gruntconfig.yml`
 
+  var scssLintForce = true;
+  if (grunt.option('noTestForce')) {
+    scssLintForce = false;
+  }
+
+
   grunt.config.merge({
     sass: {
       options: {
@@ -53,7 +59,7 @@ module.exports = function (grunt, config) {
       "options": {
         "bundleExec": config.scssConfigRoot,
         "config": config.scssConfigRoot + ".scss-lint.yml",
-        "force": true,
+        "force": scssLintForce,
         "maxBuffer": 999999,
         "colorizeOutput": true,
         "compact": true
