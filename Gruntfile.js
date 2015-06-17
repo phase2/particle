@@ -55,9 +55,7 @@ module.exports = function (grunt) {
   grunt.registerTask("compile", [
     "plBuild",
     "icons-build",
-    "pattern_lab_component_builder",
     "stylesCompile",
-    "shell:plBuild",
     "shell:livereload"
   ]);
   grunt.registerTask("build", "compile");

@@ -30,7 +30,7 @@ module.exports = function (grunt, config) {
 
     shell: {
       plBuild: {
-        command: "mkdir -p " + config.plDir + "public/styleguide/html/ && touch " + config.plDir + "public/styleguide/html/styleguide.html && php " + config.plDir + "core/builder.php --generate --nocache"
+        command: "php " + config.plDir + "core/builder.php --generate --nocache"
       },
       copyPLstyleguide: {
         command: "mkdir -p " + config.plDir + "public/styleguide/ && cp -r " + config.plDir + "core/styleguide/ " + config.plDir + "public/styleguide/"
