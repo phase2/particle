@@ -70,7 +70,11 @@ module.exports = function (grunt, config) {
     },
     watch: {
       styles: {
-        files: [config.scssDir + "**/*.scss", "!scss/99-imports/**/*"],
+        files: [
+          config.scssDir + "**/*.scss",
+          "!" + config.scssDir + "99-imports/**/*",
+          "!" + config.scssDir + "**/*tmp*.*"
+        ],
         tasks: [
           "stylesCompile",
           "shell:livereload",
