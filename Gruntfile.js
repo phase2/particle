@@ -68,6 +68,7 @@ module.exports = function (grunt) {
 
 // Begin Task Aliases
   grunt.registerTask("compile", [
+    "babel",
     "plBuild",
     "icons-build",
     "stylesCompile",
