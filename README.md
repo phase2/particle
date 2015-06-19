@@ -38,26 +38,11 @@ If you want to use this for another project and want to add it to a different gi
 
     rm -rf .git/
 
-## Assets (CSS & JS)
+# Features
 
-To add either CSS or JS to Pattern Lab, use one of these methods:
+## ECMAScript 6 support
 
-### Bower
-
-Installing any [Bower](http://bower.io) component with the `--save` or `--save-dev` flag will get the `main` asset's `<link>` or `<script>` tags added to Pattern Lab automatically via [wiredep](https://github.com/taptapship/wiredep). So, you can search for [anything that Bower can install](http://bower.io/search/) and run:
-
-    bower install {thing} --save
-
-### Adding direct paths
-
-Adding paths to `pattern-lab-assets.yml` will get the CSS or JS added to Pattern Lab.
-
-### Editing the head or foot partial
-
-If you want the most direct access, which the two above methods inject into, then just head to one of these files:
-
-- `pattern-lab/source/_patterns/00-atoms/00-meta/_00-head.mustache`
-- `pattern-lab/source/_patterns/00-atoms/00-meta/_01-foot.mustache`
+Use JavaScript from the future today! Any ES6 written in "js/es6/" will be compiled to "js/compiled-from-es6.js" via [Babel](https://babeljs.io) (using `grunt-babel`). If you need to compile just this, run `grunt babel`.
 
 ## Visual Regression Testing
 
@@ -103,6 +88,27 @@ grunt test
 grunt test:*
 grunt test:featured-item:new
 ```
+
+# Assets (CSS & JS)
+
+To add either CSS or JS to Pattern Lab, use one of these methods:
+
+## Bower
+
+Installing any [Bower](http://bower.io) component with the `--save` or `--save-dev` flag will get the `main` asset's `<link>` or `<script>` tags added to Pattern Lab automatically via [wiredep](https://github.com/taptapship/wiredep). So, you can search for [anything that Bower can install](http://bower.io/search/) and run:
+
+    bower install {thing} --save
+
+## Adding direct paths
+
+Adding paths to `pattern-lab-assets.yml` will get the CSS or JS added to Pattern Lab.
+
+## Editing the head or foot partial
+
+If you want the most direct access, which the two above methods inject into, then just head to one of these files:
+
+- `pattern-lab/source/_patterns/00-atoms/00-meta/_00-head.mustache`
+- `pattern-lab/source/_patterns/00-atoms/00-meta/_01-foot.mustache`
 
 ## Configuration
 
