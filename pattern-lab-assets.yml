@@ -2,4 +2,5 @@
 css:
   - css/style.css
 js:
+  - js/compiled-from-es6.js
   - js/script.js

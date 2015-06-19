@@ -44,6 +44,21 @@ module.exports = function (grunt) {
         pushTo: 'origin',
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
       }
+    },
+    babel: {// https://github.com/babel/grunt-babel
+      options: {
+        sourceMap: true
+      },
+      js: {
+        src: "js/es6/**/*.{js,jsx}",
+        dest: "js/compiled-from-es6.js"
+      }
+    },
+    watch: {
+      es6: {
+        files: "<%= babel.js.src %>",
+        tasks: "newer:babel:js"
+      }
     }
   });
   // End Misc Config
