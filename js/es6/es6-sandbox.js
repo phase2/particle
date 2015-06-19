@@ -9,4 +9,4 @@
           $("body").addClass("test-from-es6");
         }
     };
-};
+}

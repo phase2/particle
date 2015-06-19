@@ -11,5 +11,5 @@
             }
         };
     })();
-};
+}
 //# sourceMappingURL=compiled-from-es6.js.map

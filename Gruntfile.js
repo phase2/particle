@@ -13,7 +13,7 @@ module.exports = function (grunt) {
   require('./grunt-tasks/pattern-lab/pattern-lab.js')(grunt, config);
   //require('./grunt-tasks/compass/compass.js')(grunt, config);
   require('./grunt-tasks/libsass/libsass.js')(grunt, config);
-  require('./grunt-tasks/jshint/jshint.js')(grunt, config);
+  require('./grunt-tasks/js/js.js')(grunt, config, _);
   //require('./grunt-tasks/drupal7/drupal7.js')(grunt, config);
   require('./grunt-tasks/icons/icons.js')(grunt, config);
   require('./grunt-tasks/regression-qa/regression-qa.js')(grunt, config);
@@ -40,24 +40,9 @@ module.exports = function (grunt) {
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
-        push: false,
+        push: true,
         pushTo: 'origin',
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
-      }
-    },
-    babel: {// https://github.com/babel/grunt-babel
-      options: {
-        sourceMap: true
-      },
-      js: {
-        src: "js/es6/**/*.{js,jsx}",
-        dest: "js/compiled-from-es6.js"
-      }
-    },
-    watch: {
-      es6: {
-        files: "<%= babel.js.src %>",
-        tasks: "newer:babel:js"
       }
     }
   });
