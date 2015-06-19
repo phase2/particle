@@ -1,12 +1,17 @@
 module.exports = function (grunt, config) {
   "use strict";
   // `config` vars set in `Gruntconfig.yml`
+  
+  var jsHintForce = true;
+  if (grunt.option('noTestForce')) {
+    jsHintForce = false;
+  }
 
   grunt.config.merge({
     jshint: {
       options: {
         jshintrc: ".jshintrc",
-        force: true
+        force: jsHintForce
       },
       js: {
         files: {
@@ -15,8 +20,8 @@ module.exports = function (grunt, config) {
             "!" + config.jsDir + "lib/**",
             "Gruntfile.js",
             "grunt-tasks/**/*.js",
-            "!**/node_modules/**/*",
-            "!**/bower_components/**/*"
+            "!" + config.jsDir + "**/node_modules/**/*",
+            "!" + config.jsDir + "**/bower_components/**/*"
           ]
         }
       }

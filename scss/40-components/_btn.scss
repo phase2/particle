@@ -17,8 +17,10 @@
   }
 }
 
+// scss-lint:disable QualifyingElement
 input[type="submit"],
 .form-submit {
   @include btn();
   border: 0;
 }
+// scss-lint:enable QualifyingElement

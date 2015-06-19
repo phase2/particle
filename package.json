@@ -1,6 +1,6 @@
 {
   "name": "PatternLabStarter",
-  "version": "2.3.3",
+  "version": "2.3.5",
   "description": "Pattern Lab Starter",
   "main": "Gruntfile.js",
   "author": {
@@ -29,7 +29,7 @@
     "deps": "npm install && bower install && bundle install",
     "start": "npm run deps && grunt",
     "compile": "grunt compile",
-    "test": "npm install && bower install && bundle install && grunt build",
+    "test": "npm install && bower install && bundle install && grunt compile && grunt validate --noTestForce",
     "predeploy": "grunt compile",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
     "gh-pages": "git checkout gh-pages && git merge master --no-ff && npm run deps && npm run compile && git add --all :/ && git commit -m 'GitHub Pages Site Update' && git push && git checkout - && echo '' && echo 'Content from master merged into gh-pages, compiled, commited, and pushed. Should be live on http://phase2.github.io/pattern-lab-starter soon'"
@@ -44,6 +44,7 @@
     "chalk": "^0.5.1",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.0",
+    "grunt-babel": "^5.0.1",
     "grunt-bump": "^0.3.1",
     "grunt-cli": "^0.1.13",
     "grunt-concurrent": "^1.0.0",

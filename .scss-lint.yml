@@ -83,14 +83,14 @@ linters:
 
   NestingDepth:
     enabled: true
-    max_depth: 3
+    max_depth: 4
 
   PlaceholderInExtend:
     enabled: true
     severity: error
 
   PropertySortOrder:
-    enabled: true
+    enabled: false
     ignore_unspecified: false
 
   PropertySpelling:
@@ -105,7 +105,7 @@ linters:
 
   SelectorDepth:
     enabled: true
-    max_depth: 3 # deep selectors also come with a performance penalty!
+    max_depth: 4 # deep selectors also come with a performance penalty!
 
 # nice to have, depends on HTML
   SelectorFormat:
@@ -143,7 +143,7 @@ linters:
 
   StringQuotes:
     enabled: true
-    style: single_quotes
+    style: double_quotes
 
   TrailingSemicolon:
     enabled: true
@@ -177,4 +177,4 @@ linters:
 # Docs: https://github.com/causes/scss-lint/blob/master/lib/scss_lint/linter/compass/README.md
 
   Compass::*:
-    enabled: true
+    enabled: false

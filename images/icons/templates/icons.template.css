@@ -14,5 +14,5 @@ $icon-font-source-2: <%= fontSrc2 %>;
 $icon-font-base-name: <%= fontBaseName %>;
 
 $font-icons: (<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-  <%= glyphs[glyphIdx] %>: '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>',<% } %>
+  <%= glyphs[glyphIdx] %>: "<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>",<% } %>
 );

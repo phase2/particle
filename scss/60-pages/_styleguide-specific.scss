@@ -78,9 +78,11 @@ pre {
       }
       &:hover {
         border-left-color: hsla(0, 0%, 35%, 0.3);
+        // scss-lint:disable NestingDepth 
         > .label {
           opacity: 0;
         }
+        // scss-lint:enable NestingDepth 
       }
     }
   }
@@ -102,7 +104,8 @@ pre {
     text-transform: uppercase;
     border-bottom: 2px solid black;
   }
-  th, td {
+  th, 
+  td {
     text-align: left;
     white-space: nowrap;
     line-height: 1.5em;
@@ -124,49 +127,42 @@ pre {
   padding: 25px;
 }
 .icons-demo {
-  margin-bottom:40px;
+  margin-bottom: 40px;
   @media all and (min-width: 600px) {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
     column-count: 3;
-    -webkit-column-gap: 20px;
-    -moz-column-gap: 20px;
     column-gap: 20px; 
   }
   @media all and (min-width: 800px) {
-    -webkit-column-count: 5;
-    -moz-column-count: 5;
     column-count: 5;
   }
 }
 .icons__item,
 .icons__item i {
-  line-height:2em;
-  cursor:pointer;
-  overflow:hidden;
+  line-height: 2em;
+  cursor: pointer;
+  overflow: hidden;
 }
 .icons__item:hover {
-  color:#3c90be;
+  color: #3c90be;
 }
 .icons__item i {
-  display:inline-block;
-  width:32px;
-  text-align:center;
-}
-.icons__item:hover i {
-  -webkit-transform:scale(1.5);
-  transform:scale(1.5);
+  display: inline-block;
+  width: 32px;
+  text-align: center;
+  &:hover i {
+    transform: scale(1.5);
+  }
 }
 .icons-demo__footer {
-  margin-top:40px;
-  font-size:14px;
-  color:#999;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #999;
 }
 .demo-random-icon {
-  @include icon('facebook');
+  @include icon("facebook");
 }
 .demo-text-replace-icon {
-  @include icon('twitter', $text-replace: true);
+  @include icon("twitter", $text-replace: true);
   height: 16px;
   width: 16px;
 }
