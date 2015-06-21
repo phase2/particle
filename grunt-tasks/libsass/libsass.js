@@ -15,21 +15,22 @@ module.exports = function (grunt, config) {
         outputStyle: 'nested' // 'expanded' and 'compact' not supported by libsass yet
       },
       dist: {
-        files: {
-          'css/style.css': config.scssConfigRoot + config.scssDir + 'style.scss'
-        }
+        files: [{
+          src: config.scssDir + 'style.scss',
+          dest: config.scssDest
+        }]
       }
     },
     sass_globbing: {
       smacss_import: {
         files: {
-          'scss/99-imports/_00-config.scss': config.scssConfigRoot + config.scssDir + '00-config/**/*.scss',
-          'scss/99-imports/_10-base.scss': config.scssConfigRoot + config.scssDir + '10-base/**/*.scss',
-          'scss/99-imports/_20-vendor.scss': config.scssConfigRoot + config.scssDir + '20-vendor/**/*.scss',
-          'scss/99-imports/_30-global.scss': config.scssConfigRoot + config.scssDir + '30-global/**/*.scss',
-          'scss/99-imports/_40-components.scss': config.scssConfigRoot + config.scssDir + '40-components/**/*.scss',
-          'scss/99-imports/_50-templates.scss': config.scssConfigRoot + config.scssDir + '50-templates/**/*.scss',
-          'scss/99-imports/_60-pages.scss': config.scssConfigRoot + config.scssDir + '60-pages/**/*.scss'
+          'scss/99-imports/_00-config.scss': config.scssDir + '00-config/**/*.scss',
+          'scss/99-imports/_10-base.scss': config.scssDir + '10-base/**/*.scss',
+          'scss/99-imports/_20-vendor.scss': config.scssDir + '20-vendor/**/*.scss',
+          'scss/99-imports/_30-global.scss': config.scssDir + '30-global/**/*.scss',
+          'scss/99-imports/_40-components.scss': config.scssDir + '40-components/**/*.scss',
+          'scss/99-imports/_50-templates.scss': config.scssDir + '50-templates/**/*.scss',
+          'scss/99-imports/_60-pages.scss': config.scssDir + '60-pages/**/*.scss'
         },
         options: {
           useSingleQuotes: false
@@ -51,8 +52,8 @@ module.exports = function (grunt, config) {
         ]
       },
       styles: {
-        src: 'css/style.css',
-        dest: 'css/style.css'
+        src: config.scssDest,
+        dest: config.scssDest
       }
     },
     scsslint: {
