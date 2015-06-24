@@ -44,6 +44,19 @@ module.exports = function (grunt) {
         pushTo: 'origin',
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
       }
+    },
+    browserSync: {
+      dev: {
+        options: {
+          proxy: "mysite.local", // you must set URL to your localhost here 
+          //tunnel: true, // tunnel your localhost out to the internet ~ http://localtunnel.me
+          //reloadDelay: 500,
+          watchTask: true
+        },
+        bsFiles: {
+          src: "css/style.css"
+        }
+      }
     }
   });
   // End Misc Config
@@ -70,6 +83,7 @@ module.exports = function (grunt) {
   // this is ran if you do either `grunt default` or `grunt`
   grunt.registerTask("default", [
     "compile",
+    //"browserSync",
     "concurrent:dev"
   ]);
 // End Task Aliases
