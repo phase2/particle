@@ -11,6 +11,8 @@ $z-index: (
   contentBottom: 20,
 );
 
+// useage:
+// .class { z-index: z("modal"); }
 @function z($key) {
   @return map-get($z-index, $key)
 }
