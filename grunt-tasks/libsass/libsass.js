@@ -12,7 +12,8 @@ module.exports = function (grunt, config) {
     sass: {
       options: {
         sourceMap: true,
-        outputStyle: 'nested' // 'expanded' and 'compact' not supported by libsass yet
+        sourceMapEmbed: true,
+        outputStyle: 'expanded'
       },
       dist: {
         files: [{
@@ -43,17 +44,23 @@ module.exports = function (grunt, config) {
     //    command: "echo hello world"
     //  }
     //},
-    autoprefixer: {
+    postcss: {
       options: {
-        // browser query docs: https://github.com/ai/browserslist#queries
-        browsers: [
-          'last 2 versions',
-          'IE >= 9'
+        map: {
+          prev: false,
+          inline: true
+        },
+        processors: [
+          require('autoprefixer-core')({
+            browsers: [
+              'last 2 versions',
+              'IE >= 9'
+            ]
+          })
         ]
       },
       styles: {
-        src: config.scssDest,
-        dest: config.scssDest
+        src: config.scssDest
       }
     },
     scsslint: {
@@ -89,7 +96,7 @@ module.exports = function (grunt, config) {
   grunt.registerTask("stylesCompile", [
     'sass_globbing:smacss_import',
     'sass',
-    'autoprefixer:styles'
+    'postcss:styles'
   ]);
 
 };
