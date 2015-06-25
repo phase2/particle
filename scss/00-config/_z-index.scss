@@ -1,0 +1,18 @@
+$z-index: (
+  modal: 100,
+  modalBG: 90,
+  navFixed: 80,
+  tooltip: 70,
+  popover: 60,
+  dropdown: 50,
+  nav: 50,
+  contentTop: 40,
+  content: 30,
+  contentBottom: 20,
+);
+
+// useage:
+// .class { z-index: z("modal"); }
+@function z($key) {
+  @return map-get($z-index, $key)
+}

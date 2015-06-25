@@ -3,6 +3,7 @@
 plDir: pattern-lab/
 jsDir: js/
 scssDir: scss/
+scssDest: css/style.css
 scssConfigRoot: ./
 serverDir: ./
 serverPath: pattern-lab/public/
