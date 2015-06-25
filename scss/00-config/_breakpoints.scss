@@ -10,7 +10,7 @@
  */
 
 // Breakpoint will output fallback selectors in this stylesheet
-$breakpoint-no-query-fallbacks: true;
+@include breakpoint-set('no query fallbacks', true);
 
 // Sign posts
 $width-xsmall  : 400px !default;
