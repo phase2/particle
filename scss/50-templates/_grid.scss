@@ -1,0 +1,50 @@
+.g-2up {
+  .gi {
+    @include breakpoint($bp--small-up) {
+      &:nth-child(2n+1) {
+        @include grid-span(6, 1);
+        clear: both;
+      }
+      &:nth-child(2n+2) {
+        @include grid-span(6, 7);
+      }
+    }
+  }
+}
+
+.g-3up {
+  .gi {
+    @include breakpoint($bp--small-up) {
+      &:nth-child(3n+1) {
+        @include grid-span(4, 1);
+        clear: both;
+      }
+      &:nth-child(3n+2) {
+        @include grid-span(4, 5);
+      }
+      &:nth-child(3n+3) {
+        @include grid-span(4, 9);
+      }
+    }
+  }
+}
+
+.g-4up {
+  .gi {
+    @include breakpoint($bp--small-up) {
+      &:nth-child(4n+1) {
+        @include grid-span(3, 1);
+        clear: both;
+      }
+      &:nth-child(4n+2) {
+        @include grid-span(3, 4);
+      }
+      &:nth-child(4n+3) {
+        @include grid-span(3, 7);
+      }
+      &:nth-child(4n+4) {
+        @include grid-span(3, 10);
+      }
+    }
+  }
+}
