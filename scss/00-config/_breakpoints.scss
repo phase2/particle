@@ -13,13 +13,13 @@
 @include breakpoint-set('no query fallbacks', true);
 
 // Sign posts
-$width-xsmall  : 400px !default;
-$width-small   : 480px !default;
-$width-medium  : 640px !default;
-$width-large   : 768px !default;
-$width-xlarge  : 1024px !default;
-$width-xxlarge : 1280px !default;
-$width-xxxlarge : 1600px !default;
+$width-xsmall  : 400px;
+$width-small   : 480px;
+$width-medium  : 640px;
+$width-large   : 768px;
+$width-xlarge  : 1024px;
+$width-xxlarge : 1280px;
+$width-xxxlarge : 1600px;
 
 // Mobile-first queries
 // Breakpoint variables are prefixed with "$bp--"

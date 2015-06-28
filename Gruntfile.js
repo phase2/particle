@@ -51,7 +51,13 @@ module.exports = function (grunt) {
           proxy: "mysite.local", // you must set URL to your localhost here 
           //tunnel: true, // tunnel your localhost out to the internet ~ http://localtunnel.me
           //reloadDelay: 500,
-          watchTask: true
+          watchTask: true,
+          open: false,
+          ghostMode: {
+            clicks: true,
+            forms: true,
+            scroll: true
+          }
         },
         bsFiles: {
           src: "css/style.css"

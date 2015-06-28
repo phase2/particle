@@ -119,7 +119,7 @@ module.exports = function (grunt, config) {
       },
       breakpoints: {
         options: {
-          regex: '^\\$bp.*',
+          regex: '^\\$width.*',
           allow_var_values: false
         },
         src: config.scssDir + '00-config/_breakpoints.scss',

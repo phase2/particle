@@ -23,19 +23,12 @@ module.exports = function (grunt, config) {
       }
     },
     sass_globbing: {
-      smacss_import: {
-        files: {
-          'scss/99-imports/_00-config.scss': config.scssDir + '00-config/**/*.scss',
-          'scss/99-imports/_10-base.scss': config.scssDir + '10-base/**/*.scss',
-          'scss/99-imports/_20-vendor.scss': config.scssDir + '20-vendor/**/*.scss',
-          'scss/99-imports/_30-global.scss': config.scssDir + '30-global/**/*.scss',
-          'scss/99-imports/_40-components.scss': config.scssDir + '40-components/**/*.scss',
-          'scss/99-imports/_50-templates.scss': config.scssDir + '50-templates/**/*.scss',
-          'scss/99-imports/_60-pages.scss': config.scssDir + '60-pages/**/*.scss'
-        },
-        options: {
-          useSingleQuotes: false
-        }
+      options: {
+        useSingleQuotes: false
+      },
+      partials: {
+        src: config.scssDir + '**/_*.scss',
+        dest: config.scssDir + '_all-partials.scss'
       }
     },
     //shell: {
@@ -80,7 +73,6 @@ module.exports = function (grunt, config) {
       styles: {
         files: [
           config.scssDir + "**/*.scss",
-          "!" + config.scssDir + "99-imports/**/*",
           "!" + config.scssDir + "**/*tmp*.*"
         ],
         tasks: [
@@ -94,7 +86,7 @@ module.exports = function (grunt, config) {
   });
 
   grunt.registerTask("stylesCompile", [
-    'sass_globbing:smacss_import',
+    'sass_globbing',
     'sass',
     'postcss:styles'
   ]);
