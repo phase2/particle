@@ -33,6 +33,9 @@ After cloning and changing into that directory, run this to install dependencies
 
 You may have to run that again for updates; so it may be wise to save this: `npm install && bower install && bundler install`. **If you have any problems; this is the first thing to run.**
 
+Once everyting is installed, start patternlab simply by invoking grunt:
+
+    grunt
 
 If you want to use this for another project and want to add it to a different git repo; simply run:
 
