@@ -18,24 +18,4 @@
 
 // End libs
 
-// Setup and variables, our first custom file
-@import "99-imports/00-config";
-
-// Mixins and mechanisms (non printing)
-@import "99-imports/10-base";
-
-// Vendor css converted to scss, vendor imports of printing bower
-@import "99-imports/20-vendor";
-
-// Global elements, first project printing css
-@import "99-imports/30-global";
-
-// All the molecules and organisms (and atoms like "buttons")
-@import "99-imports/40-components";
-
-// Big layout decisions
-@import "99-imports/50-templates";
-
-// Custom pages overrides, one-offs
-@import "99-imports/60-pages";
-
+@import "all-partials";

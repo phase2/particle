@@ -64,7 +64,7 @@
     "grunt-phantomcss": "git://github.com/micahgodbolt/grunt-phantomcss.git",
     "grunt-postcss": "^0.5.3",
     "grunt-sass": "^1.0.0",
-    "grunt-sass-globbing": "^1.2.0",
+    "grunt-sass-globbing": "^1.3.0",
     "grunt-scss-lint": "git://github.com/EvanLovely/grunt-scss-lint.git#master",
     "grunt-shell": "^1.1.1",
     "grunt-webfont": "^0.5.2",
