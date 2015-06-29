@@ -11,19 +11,23 @@ Use our [Yeoman Generator](https://github.com/phase2/generator-pattern-lab-start
 You'll need [node.js](http://nodejs.org) and ruby.
 
 ```bash
-npm install --global grunt-cli bower yeoman
+npm install --global grunt-cli bower yo
 gem install bundler
 npm install --global generator-pattern-lab-starter
 ```
 
 ### Spinning it up
 
+First, we need to pick a folder; do one of these:
+
+1. If you have a CMS, like Drupal, you want to integrate this into, `cd` into the theme folder (can be existing or blank). So you'll be in something like `site/all/themes/my_theme_name/`.
+2. If you just want to get the front end going first, make an empty folder and `cd` into it.
+
 ```bash
 yo pattern-lab-starter
-yo pattern-lab-starter:extras # optional extras
 ```
 
-## install and setup
+## Install and setup
     
 After cloning and changing into that directory, run this to install dependencies:
 
