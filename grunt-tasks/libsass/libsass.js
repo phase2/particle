@@ -76,10 +76,10 @@ module.exports = function (grunt, config) {
           "!" + config.scssDir + "**/*tmp*.*"
         ],
         tasks: [
+          "newer:pattern_lab_component_builder",
           "stylesCompile",
           "shell:livereload",
-          "newer:scsslint:styles", // only lint the newly change files
-          "newer:pattern_lab_component_builder"
+          "newer:scsslint:styles" // only lint the newly change files
         ]
       }
     }
