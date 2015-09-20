@@ -61,7 +61,7 @@
     "grunt-notify": "^0.4.1",
     "grunt-open": "^0.2.3",
     "grunt-pattern-lab-component-builder": "0.0.12",
-    "grunt-phantomcss": "git://github.com/micahgodbolt/grunt-phantomcss.git",
+    "@micahgodbolt/grunt-phantomcss": "git://github.com/micahgodbolt/grunt-phantomcss.git",
     "grunt-postcss": "^0.5.5",
     "grunt-sass": "^1.0.0",
     "grunt-sass-globbing": "^1.3.0",
