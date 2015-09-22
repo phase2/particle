@@ -13,6 +13,7 @@ node_modules
 /css/
 scss/99-imports/*
 !scss/99-imports/README.md
+js/*.js.map
 
 # Generated files: icons
 images/icons/output/
