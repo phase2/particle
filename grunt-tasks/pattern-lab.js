@@ -66,31 +66,31 @@ module.exports = function (grunt) {
       }
     },
 
-    //// local server
-    //connect: { // https://www.npmjs.org/package/grunt-contrib-connect
-    //  pl: {
-    //    options: {
-    //      port: 9005,
-    //      useAvailablePort: true,
-    //      base: config.serverDir,
-    //      keepalive: true,
-    //      livereload: true,
-    //      open: openBrowserAtStart,
-    //      middleware: function (connect, options, middlewares) {
-    //
-    //        middlewares.unshift(function (req, res, next) {
-    //          res.setHeader('Access-Control-Allow-Origin', '*');
-    //          res.setHeader('Access-Control-Allow-Credentials', true);
-    //          res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    //          res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    //          next();
-    //        });
-    //
-    //        return middlewares;
-    //      }
-    //    }
-    //  }
-    //},
+    // local server
+    connect: { // https://www.npmjs.org/package/grunt-contrib-connect
+      pl: {
+        options: {
+          port: 9005,
+          useAvailablePort: true,
+          base: '<%= pkg.plbuild.serverDir %>',
+          keepalive: true,
+          livereload: true,
+          open: openBrowserAtStart,
+          middleware: function (connect, options, middlewares) {
+
+            middlewares.unshift(function (req, res, next) {
+              res.setHeader('Access-Control-Allow-Origin', '*');
+              res.setHeader('Access-Control-Allow-Credentials', true);
+              res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+              res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+              next();
+            });
+
+            return middlewares;
+          }
+        }
+      }
+    },
 
     pattern_lab_component_builder: {
       colors: {

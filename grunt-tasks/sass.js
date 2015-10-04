@@ -16,7 +16,7 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           src: '<%= pkg.plbuild.scssDir %>/style.scss',
-          dest: '<%= pkg.plbuild.scssDest %>/'
+          dest: '<%= pkg.plbuild.scssDest %>'
         }]
       }
     },
