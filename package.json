@@ -117,7 +117,7 @@
       },
       {
         "module": "regression-qa",
-        "enabled": false
+        "enabled": true
       }
     ]
   }
