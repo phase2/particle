@@ -1,5 +1,5 @@
 "use strict";
-{ 
+{
     let $ = jQuery;
     // A demo Drupal behavior
     Drupal.behaviors.es6Sandbox = {
@@ -8,5 +8,5 @@
           console.log(es6Message);
           $("body").addClass("test-from-es6");
         }
-    };
+    }
 }

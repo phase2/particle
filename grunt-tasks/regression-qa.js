@@ -2,7 +2,6 @@ var inq = require("inquirer");
 
 module.exports = function (grunt, config) {
   "use strict";
-  // `config` vars set in `Gruntconfig.yml`
 
   grunt.registerTask('regressionQA', [
     'clean:preRegressionQA',
@@ -26,7 +25,7 @@ module.exports = function (grunt, config) {
           viewportSize: [1280, 800]
         },
         src: [
-          config.regressionTestRoot + '**/*.test.js'
+          '<%= pkg.plbuild.regressionTestRoot %>/**/*.test.js'
         ]
       }
     },
@@ -34,12 +33,12 @@ module.exports = function (grunt, config) {
     clean: {// https://www.npmjs.com/package/grunt-contrib-clean
       preRegressionQA: [
         'baselines',
-        config.regressionTestRoot + '**/results/*.{diff,fail}.png'
+        '<%= pkg.plbuild.regressionTestRoot %>/**/results/*.{diff,fail}.png'
       ],
       postRegressionQA: [
-        config.regressionTestRoot + '**/baselines/*.{diff,fail}.png',
-        config.regressionTestRoot + '**/results/*.png',
-        '!' + config.regressionTestRoot + '**/results/*.{diff,fail}.png'
+        '<%= pkg.plbuild.regressionTestRoot %>/**/baselines/*.{diff,fail}.png',
+        '<%= pkg.plbuild.regressionTestRoot %>/**/results/*.png',
+        '!<%= pkg.plbuild.regressionTestRoot %>/**/results/*.{diff,fail}.png'
       ]
     }
 
@@ -54,7 +53,7 @@ module.exports = function (grunt, config) {
       option = '*';
     }
 
-    grunt.file.expand([config.regressionTestRoot + '**/' + option + '.test.js']).forEach(function (filepath) {
+    grunt.file.expand(['<%= pkg.plbuild.regressionTestRoot %>/**/' + option + '.test.js']).forEach(function (filepath) {
       var directory;
       directory = require('path').dirname(filepath);
 
@@ -76,21 +75,21 @@ module.exports = function (grunt, config) {
   // grunt test:featured-item:new
   grunt.registerTask('testitem', function (tests, isNew) {
     if (tests === "undefined") {
-      grunt.config.set('phantomcss.all.src', config.regressionTestRoot + '**/*.test.js');
+      grunt.config.set('phantomcss.all.src', '<%= pkg.plbuild.regressionTestRoot %>/**/*.test.js');
     }
     else {
       if (isNew === 'new') {
         grunt.task.run('testClean:' + tests);
       }
-      grunt.config.set('phantomcss.all.src', config.regressionTestRoot + '**/' + tests + '.test.js');
+      grunt.config.set('phantomcss.all.src', '<%= pkg.plbuild.regressionTestRoot %>/**/' + tests + '.test.js');
     }
     grunt.task.run('regressionQA');
   });
 
   grunt.registerTask('test', function () {
-    var allTests = grunt.file.expand(config.regressionTestRoot + '**/*.test.js');
+    var allTests = grunt.file.expand('<%= pkg.plbuild.regressionTestRoot %>/**/*.test.js');
     if (allTests.length === 0) {
-      grunt.fatal('No regression test files found. Must end in `.test.js` inside the folder "' + config.regressionTestRoot + '" (which is setting in "Gruntconfig.yml")');
+      grunt.fatal('No regression test files found. Must end in `.test.js` inside the folder "<%= pkg.plbuild.regressionTestRoot %>/" (which is setting in "package.json")');
     }
     grunt.log.debug('allTests: ', allTests);
     var done = this.async();

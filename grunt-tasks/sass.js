@@ -1,12 +1,10 @@
-module.exports = function (grunt, config) {
+module.exports = function (grunt) {
   "use strict";
-  // `config` vars set in `Gruntconfig.yml`
 
   var scssLintForce = true;
   if (grunt.option('noTestForce')) {
     scssLintForce = false;
   }
-
 
   grunt.config.merge({
     sass: {
@@ -17,8 +15,8 @@ module.exports = function (grunt, config) {
       },
       dist: {
         files: [{
-          src: config.scssDir + 'style.scss',
-          dest: config.scssDest
+          src: '<%= pkg.plbuild.scssDir %>/style.scss',
+          dest: '<%= pkg.plbuild.scssDest %>'
         }]
       }
     },
@@ -27,16 +25,10 @@ module.exports = function (grunt, config) {
         useSingleQuotes: false
       },
       partials: {
-        src: config.scssDir + '**/_*.scss',
-        dest: config.scssDir + '_all-partials.scss'
+        src: '<%= pkg.plbuild.scssDir %>/**/_*.scss',
+        dest: '<%= pkg.plbuild.scssDir %>/_all-partials.scss'
       }
     },
-    //shell: {
-    //  stylesCompile: {
-    //    //command: "cd " + config.scssConfigRoot + " && bundle exec compass compile"
-    //    command: "echo hello world"
-    //  }
-    //},
     postcss: {
       options: {
         map: {
@@ -53,13 +45,14 @@ module.exports = function (grunt, config) {
         ]
       },
       styles: {
-        src: config.scssDest
+        src: '<%= pkg.plbuild.scssDest %>'
       }
     },
+    // Replace this with node version
     scsslint: {
       "options": {
-        "bundleExec": config.scssConfigRoot,
-        "config": config.scssConfigRoot + ".scss-lint.yml",
+        "bundleExec": "<%= pkg.plbuild.scssConfigRoot %>",
+        "config": "<%= pkg.plbuild.scssConfigRoot %>/.scss-lint.yml",
         "force": scssLintForce,
         "maxBuffer": 999999,
         "colorizeOutput": true,
@@ -72,8 +65,8 @@ module.exports = function (grunt, config) {
     watch: {
       styles: {
         files: [
-          config.scssDir + "**/*.scss",
-          "!" + config.scssDir + "**/*tmp*.*"
+          "<%= pkg.plbuild.scssDir %>/**/*.scss",
+          "!<%= pkg.plbuild.scssDir %>/**/*tmp*.*"
         ],
         tasks: [
           "newer:pattern_lab_component_builder",
