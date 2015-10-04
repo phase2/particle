@@ -18,7 +18,7 @@ module.exports = function (grunt, config) {
       dist: {
         files: [{
           src: '<%= pkg.plbuild.scssDir %>/style.scss',
-          dest: config.scssDest
+          dest: '<%= pkg.plbuild.scssDest %>/'
         }]
       }
     },
@@ -27,8 +27,8 @@ module.exports = function (grunt, config) {
         useSingleQuotes: false
       },
       partials: {
-        src: config.scssDir + '**/_*.scss',
-        dest: config.scssDir + '_all-partials.scss'
+        src: '<%= pkg.plbuild.scssDir %>/**/_*.scss',
+        dest: '<%= pkg.plbuild.scssDir %>/_all-partials.scss'
       }
     },
     //shell: {
@@ -53,13 +53,13 @@ module.exports = function (grunt, config) {
         ]
       },
       styles: {
-        src: config.scssDest
+        src: '<%= pkg.plbuild.scssDest %>'
       }
     },
     scsslint: {
       "options": {
-        "bundleExec": config.scssConfigRoot,
-        "config": config.scssConfigRoot + ".scss-lint.yml",
+        "bundleExec": "<%= pkg.plbuild.scssConfigRoot %>",
+        "config": "<%= pkg.plbuild.scssConfigRoot %>/.scss-lint.yml",
         "force": scssLintForce,
         "maxBuffer": 999999,
         "colorizeOutput": true,
@@ -72,8 +72,8 @@ module.exports = function (grunt, config) {
     watch: {
       styles: {
         files: [
-          config.scssDir + "**/*.scss",
-          "!" + config.scssDir + "**/*tmp*.*"
+          "<%= pkg.plbuild.scssDir %>/**/*.scss",
+          "!<%= pkg.plbuild.scssDir %>/**/*tmp*.*"
         ],
         tasks: [
           "newer:pattern_lab_component_builder",

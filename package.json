@@ -82,6 +82,7 @@
     "openBrowserAtStart": true,
     "scssDir": "scss",
     "scssDest": "css/style.css",
+    "scssConfigRoot": "./",
     "cssDir": "css",
     "jsDir": "js",
     "plDir": "pattern-lab",
