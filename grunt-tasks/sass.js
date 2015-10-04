@@ -1,12 +1,10 @@
-module.exports = function (grunt, config) {
+module.exports = function (grunt) {
   "use strict";
-  // `config` vars set in `Gruntconfig.yml`
 
   var scssLintForce = true;
   if (grunt.option('noTestForce')) {
     scssLintForce = false;
   }
-
 
   grunt.config.merge({
     sass: {
@@ -31,12 +29,6 @@ module.exports = function (grunt, config) {
         dest: '<%= pkg.plbuild.scssDir %>/_all-partials.scss'
       }
     },
-    //shell: {
-    //  stylesCompile: {
-    //    //command: "cd " + config.scssConfigRoot + " && bundle exec compass compile"
-    //    command: "echo hello world"
-    //  }
-    //},
     postcss: {
       options: {
         map: {
@@ -56,6 +48,7 @@ module.exports = function (grunt, config) {
         src: '<%= pkg.plbuild.scssDest %>'
       }
     },
+    // Replace this with node version
     scsslint: {
       "options": {
         "bundleExec": "<%= pkg.plbuild.scssConfigRoot %>",
