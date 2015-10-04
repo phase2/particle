@@ -1,5 +1,11 @@
 module.exports = function (grunt) {
   "use strict";
+
+  // Bloom custom
+
+  // Bloom custom
+
+
   var _ = require("lodash");
   var config = grunt.file.readYAML("Gruntconfig.yml");
   if (grunt.file.exists("Gruntconfig--custom.yml")) {
@@ -48,7 +54,7 @@ module.exports = function (grunt) {
     browserSync: {
       dev: {
         options: {
-          proxy: "mysite.local", // you must set URL to your localhost here 
+          proxy: "mysite.local", // you must set URL to your localhost here
           //tunnel: true, // tunnel your localhost out to the internet ~ http://localtunnel.me
           //reloadDelay: 500,
           watchTask: true,

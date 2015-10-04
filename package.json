@@ -77,5 +77,48 @@
     "phantomjs": "^1.9.16",
     "singularitygs": "^1.6.2",
     "time-grunt": "^1.0.0"
+  },
+  "plbuild": {
+    "openBrowserAtStart": true,
+    "scssDir": "scss",
+    "cssDir": "css",
+    "jsDir": "js",
+    "plDir": "pattern-lab",
+    "iconsDir": "images/icons",
+    "serverDir": "./",
+    "serverPath": "pattern-lab/public/",
+    "updateAtStart": true,
+    "buildModernizrAtStart": true,
+    "regressionTestRoot": "pattern-lab/source/_patterns",
+    "gruntModules": [
+      {
+        "module": "pattern-lab",
+        "enabled": true
+      },
+      {
+        "module": "sass",
+        "enabled": true
+      },
+      {
+        "module": "javascript",
+        "enabled": true
+      },
+      {
+        "module": "jshint",
+        "enabled": false
+      },
+      {
+        "module": "drupal7",
+        "enabled": false
+      },
+      {
+        "module": "icons",
+        "enabled": false
+      },
+      {
+        "module": "regression-qa",
+        "enabled": false
+      }
+    ]
   }
 }
