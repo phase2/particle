@@ -3,8 +3,8 @@
 .DS_Store?
 
 # Dependencies
-vendor/bundle
 !vendor
+vendor/bundle
 .bundle
 bower_components
 node_modules
