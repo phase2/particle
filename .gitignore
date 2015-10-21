@@ -4,6 +4,7 @@
 
 # Dependencies
 vendor/bundle
+!vendor
 .bundle
 bower_components
 node_modules
