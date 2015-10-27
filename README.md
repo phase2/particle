@@ -106,9 +106,6 @@ Installing any [Bower](http://bower.io) component with the `--save` or `--save-d
 
     bower install {thing} --save
 
-## Adding direct paths
-
-Adding paths to `pattern-lab-assets.yml` will get the CSS or JS added to Pattern Lab.
 
 ## Editing the head or foot partial
 

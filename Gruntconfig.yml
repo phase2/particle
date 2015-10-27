@@ -11,3 +11,7 @@ openBrowserAtStart: true
 updateAtStart: true
 buildModernizrAtStart: true
 regressionTestRoot: pattern-lab/source/_patterns/
+features:
+  scss: true
+  patternLab: true
+  icons: true

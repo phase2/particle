@@ -5,16 +5,16 @@
 
 // Start libs
 
-@import "../node_modules/normalize.scss/normalize";
+@import "../node_modules/p2-theme-core/node_modules/normalize.scss/normalize";
 
 // Grid system, https://github.com/at-import/Singularity
-@import "../node_modules/singularitygs/stylesheets/singularitygs";
+@import "../node_modules/p2-theme-core/node_modules/singularitygs/stylesheets/singularitygs";
 
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
-@import "../node_modules/breakpoint-sass/stylesheets/breakpoint";
+@import "../node_modules/p2-theme-core/node_modules/breakpoint-sass/stylesheets/breakpoint";
 
 // Helpful mixins, http://bourbon.io/docs/
-@import "../node_modules/bourbon/app/assets/stylesheets/bourbon";
+@import "../node_modules/p2-theme-core/node_modules/bourbon/app/assets/stylesheets/bourbon";
 
 // End libs
 
