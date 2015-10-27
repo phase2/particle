@@ -9,7 +9,6 @@ module.exports = function (grunt) {
   var tasks = {};
   tasks.compile = [];
   tasks.validate = [];
-  tasks.watch = [];
   
   require('p2-theme-core')(grunt, config, tasks);
 
