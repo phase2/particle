@@ -47,6 +47,31 @@ If you want to use this for another project and want to add it to a different gi
 
 # Features
 
+## Automatic update of style elements from SCSS variables.
+
+Tired of manually changing out color swatches in the styleguide?  Fret no longer!  Simply edit the `scss/00-config/_colors.scss` file to add colors *as variables* to the scss file and they will automagically be displayed in the colors atom. Adding new colors is as simple as creating a new scss variable (e.g. $color--gray--medium: #333;) The important component is that the variable starts with `$color--`.
+
+## Icon  - SVG to font
+
+SVG icons are converted into font icons.
+
+If needed - use icon-font-template.ai found at `images/icons/`.  Insert svg into `images/icons/src/` while grunt is running.
+
+Invoking the icon in scss as below will add the demo icon to the html element bearing the `demo-icon` class.
+
+```SCSS
+.demo-icon {
+  @include icon('demo');
+}
+```
+
+See the [icon atom page](http://localhost:9005/pattern-lab/public/patterns/00-atoms-04-images-icons/00-atoms-04-images-icons.html) for more information.
+
+
+## Linting (JS, SCSS)
+
+Pattern Lab Starter lints js and scss files. Read more on js linting [here](https://www.npmjs.com/package/grunt-jsonlint) and scss [here](https://www.npmjs.com/package/grunt-scss-lint).
+
 ## ECMAScript 6 support
 
 Use JavaScript from the future today! Any ES6 written in "js/es6/" will be compiled to "js/compiled-from-es6.js" via [Babel](https://babeljs.io) (using `grunt-babel`). If you need to compile just this, run `grunt babel`.
