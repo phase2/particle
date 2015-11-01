@@ -1,1 +1,3 @@
 After you generate Pattern Lab for the first time your source files will be placed here.
+
+`_data` is where the patterns pull in data, `_patterns` is where the patterns are found.
