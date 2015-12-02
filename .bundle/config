@@ -1,0 +1,5 @@
+---
+BUNDLE_PATH: ".ruby"
+BUNDLE_BIN: ".ruby/bin"
+BUNDLE_DISABLE_SHARED_GEMS: '1'
+BUNDLE_CLEAN: true
