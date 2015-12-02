@@ -9,6 +9,7 @@ module.exports = function (grunt) {
   var tasks = {};
   tasks.compile = [];
   tasks.validate = [];
+  tasks.default = [];
   
   require('p2-theme-core')(grunt, config, tasks);
 
@@ -58,26 +59,6 @@ module.exports = function (grunt) {
         src: config.scssDir + '00-config/_breakpoints.scss',
         dest: config.plDir + "source/_patterns/01-molecules/01-layout/99-breakpoints.json"
       }
-    },
-
-    browserSync: {
-      dev: {
-        options: {
-          proxy: "mysite.local", // you must set URL to your localhost here 
-          //tunnel: true, // tunnel your localhost out to the internet ~ http://localtunnel.me
-          //reloadDelay: 500,
-          watchTask: true,
-          open: false,
-          ghostMode: {
-            clicks: true,
-            forms: true,
-            scroll: true
-          }
-        },
-        bsFiles: {
-          src: "css/style.css"
-        }
-      }
     }
   });
   // End Misc Config
@@ -93,15 +74,8 @@ module.exports = function (grunt) {
 // Begin Task Aliases
   grunt.registerTask("compile", tasks.compile);
   grunt.registerTask("build", "compile");
-
   grunt.registerTask("validate", tasks.validate);
-
-  // this is ran if you do either `grunt default` or `grunt`
-  grunt.registerTask("default", [
-    "compile",
-    //"browserSync",
-    "concurrent:dev"
-  ]);
+  grunt.registerTask("default", tasks.default);
 // End Task Aliases
   
   require("load-grunt-tasks")(grunt);
