@@ -1,9 +1,11 @@
+var merge = require('lodash.merge');
 module.exports = function (grunt) {
   "use strict";
   var config = grunt.file.readYAML("Gruntconfig.yml");
+  // `Gruntconfig--custom.yml` is git-ignored; custom per-developer settings go there
   if (grunt.file.exists("Gruntconfig--custom.yml")) {
     var customConfigOverrides = grunt.file.readYAML("Gruntconfig--custom.yml");
-    _.extend(config, customConfigOverrides);
+    merge(config, customConfigOverrides);
   }
   
   var tasks = {};
@@ -15,17 +17,6 @@ module.exports = function (grunt) {
 
   // Begin Misc Config
   grunt.config.merge({
-    concurrent: {
-      options: {
-        logConcurrentOutput: true
-      },
-      dev: {
-        tasks: [
-          "watch",
-          "connect"
-        ]
-      }
-    },
     pattern_lab_component_builder: {
       colors: {
         options: {
