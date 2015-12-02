@@ -37,7 +37,7 @@ After cloning and changing into that directory, run this to install dependencies
 
 You may have to run that again for updates; so it may be wise to save this: `npm install && bower install && bundler install`. **If you have any problems; this is the first thing to run.**
 
-Once everyting is installed, start patternlab simply by invoking grunt:
+Once everything is installed, start patternlab simply by invoking grunt:
 
     grunt
 
@@ -140,6 +140,8 @@ If you want the most direct access, which the two above methods inject into, the
 - `pattern-lab/source/_patterns/00-atoms/00-meta/_01-foot.mustache`
 
 ## Configuration
+
+All configuration is passed into another module that contains most Grunt logic: [`p2-theme-core`](https://github.com/phase2/p2-theme-core) - many PRs should go there.
 
 The main configuration file for the whole project is `Gruntconfig.yml`; you'll find several important settings there, such as:
 
