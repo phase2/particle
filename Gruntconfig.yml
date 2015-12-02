@@ -5,9 +5,21 @@ jsDir: js/
 scssDir: scss/
 scssDest: css/style.css
 scssConfigRoot: ./
-serverDir: ./
-serverPath: pattern-lab/public/
-openBrowserAtStart: true
-updateAtStart: true
 buildModernizrAtStart: true
 regressionTestRoot: pattern-lab/source/_patterns/
+features:
+  scss: true
+  patternLab: true
+  icons: true
+  browserSync: true
+browserSync:
+  port: 3050
+  watchFiles:
+    - css/style.css
+    - js/*.js
+#  domain: mysite.dev # enable when full CMS is set up
+  serverDir: ./
+  serverPath: pattern-lab/public/
+  openBrowserAtStart: false
+  # requires above to be true; allows non-default browser to open
+  #browser: Google Chrome

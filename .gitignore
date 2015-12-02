@@ -34,3 +34,7 @@ baselines
 pattern-lab/source/_patterns/**/baselines/*.diff.png
 pattern-lab/source/_patterns/**/baselines/*.fail.png
 pattern-lab/source/_patterns/**/results
+
+# Misc
+Gruntconfig--custom.yml
+
