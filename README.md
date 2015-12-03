@@ -8,11 +8,10 @@ Use our [Yeoman Generator](https://github.com/phase2/generator-pattern-lab-start
 
 ### Prerequesites 
 
-You'll need [node.js](http://nodejs.org) and ruby.
+You'll need [node.js](http://nodejs.org).
 
 ```bash
-npm install --global grunt-cli bower yo
-gem install bundler
+npm install --global grunt-cli yo
 npm install --global generator-pattern-lab-starter
 ```
 
@@ -32,10 +31,8 @@ yo pattern-lab-starter
 After cloning and changing into that directory, run this to install dependencies:
 
     npm install
-    bower install
-    bundle install
 
-You may have to run that again for updates; so it may be wise to save this: `npm install && bower install && bundler install`. **If you have any problems; this is the first thing to run.**
+You may have to run that again for updates. **If you have any problems; this is the first thing to run.**
 
 Once everything is installed, start patternlab simply by invoking grunt:
 
@@ -70,7 +67,7 @@ See the [icon atom page](http://localhost:9005/pattern-lab/public/patterns/00-at
 
 ## Linting (JS, SCSS)
 
-Pattern Lab Starter lints js and scss files. Read more on js linting [here](https://www.npmjs.com/package/grunt-jsonlint) and scss [here](https://www.npmjs.com/package/grunt-scss-lint).
+Pattern Lab Starter lints js and scss files. Read more on js linting [here](https://www.npmjs.com/package/grunt-jsonlint) and scss [here](https://github.com/sasstools/grunt-sass-lint).
 
 ## ECMAScript 6 support
 
@@ -152,8 +149,6 @@ The main configuration file for the whole project is `Gruntconfig.yml`; you'll f
 
 There are many different pieces of tech and many files that set the preferences for each of them. Here's a list of them and where to find the config file for each.
 
-- Compass/Sass: `config.rb` - [docs](http://compass-style.org/help/documentation/configuration-reference/)
-- Bundler (Ruby Gem Versions): `Gemfile` - [docs](http://bundler.io)
 - Pattern Lab: `pattern-lab/config/config.ini` - [docs](http://patternlab.io/docs/advanced-config-options.html)
 - Grunt: `Gruntfile.js` and `package.json` - [docs](http://gruntjs.com/configuring-tasks)
 - Bower (library management): `bower.json` and `.bowerrc` - [docs](http://bower.io/)

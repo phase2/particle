@@ -78,6 +78,7 @@
     "jQuery": true,
     "Drupal": true,
     "_": true,
-    "Mustache": true
+    "Mustache": true,
+    "hljs": true
   }        // additional predefined global variables
 }
