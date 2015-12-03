@@ -19,7 +19,6 @@
   text-transform: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -42,7 +41,7 @@
  * power of @content.
  */
 @mixin icon(
-  $icon: 'search', // just a default
+  $icon: "search", // just a default
   $pseudo: before,
   $text-replace: false,
   $size: inherit,

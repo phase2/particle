@@ -10,23 +10,23 @@
  */
 
 // Breakpoint will output fallback selectors in this stylesheet
-@include breakpoint-set('no query fallbacks', true);
+@include breakpoint-set("no query fallbacks", true);
 
 // Sign posts
-$width-xsmall  : 400px;
-$width-small   : 480px;
-$width-medium  : 640px;
-$width-large   : 768px;
-$width-xlarge  : 1024px;
-$width-xxlarge : 1280px;
-$width-xxxlarge : 1600px;
+$width-xsmall: 400px;
+$width-small: 480px;
+$width-medium: 640px;
+$width-large: 768px;
+$width-xlarge: 1024px;
+$width-xxlarge: 1280px;
+$width-xxxlarge: 1600px;
 
 // Mobile-first queries
 // Breakpoint variables are prefixed with "$bp--"
-$bp--xsmall-up  : $width-xsmall;   // 400px
-$bp--small-up   : $width-small;    // 480px
-$bp--medium-up  : $width-medium;   // 640px
-$bp--large-up   : $width-large;    // 768px
-$bp--xlarge-up  : $width-xlarge;   // 1024px
-$bp--xxlarge-up : $width-xxlarge;  // 1280px
+$bp--xsmall-up: $width-xsmall; // 400px
+$bp--small-up: $width-small; // 480px
+$bp--medium-up: $width-medium; // 640px
+$bp--large-up: $width-large; // 768px
+$bp--xlarge-up: $width-xlarge; // 1024px
+$bp--xxlarge-up: $width-xxlarge; // 1280px
 $bp--xxxlarge-up: $width-xxxlarge; // 1600px

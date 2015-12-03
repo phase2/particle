@@ -4,8 +4,6 @@
 
 # Dependencies
 !vendor
-vendor/bundle
-.bundle
 bower_components
 node_modules
 
@@ -37,5 +35,3 @@ pattern-lab/source/_patterns/**/results
 
 # Misc
 Gruntconfig--custom.yml
-
-.ruby

@@ -31,9 +31,9 @@
     "precompile": "npm install",
     "compile": "grunt compile",
     "pretest": "npm install",
-    "test": "grunt plBuild && grunt validate --noTestForce",
+    "test": "grunt plBuild && grunt validate",
     "predeploy": "grunt compile",
-    "postinstall": "bower install && bundle install && find node_modules/ -name \"*.info\" -type f -delete",
+    "postinstall": "bower install && find node_modules/ -name \"*.info\" -type f -delete",
     "gh-pages": "git checkout gh-pages && git merge master --no-ff && npm run deps && npm run compile && git add --all :/ && git commit -m 'GitHub Pages Site Update' && git push && git checkout - && echo '' && echo 'Content from master merged into gh-pages, compiled, commited, and pushed. Should be live on http://phase2.github.io/pattern-lab-starter soon'"
   },
   "paths": {
@@ -49,6 +49,6 @@
     "load-grunt-tasks": "^3.3.0",
     "lodash.merge": "^3.3.2",
     "time-grunt": "^1.0.0",
-    "p2-theme-core": "^3.0.0"
+    "p2-theme-core": "^4.0.0"
   }
 }
