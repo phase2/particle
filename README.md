@@ -69,10 +69,6 @@ See the [icon atom page](http://localhost:9005/pattern-lab/public/patterns/00-at
 
 Pattern Lab Starter lints js and scss files. Read more on js linting [here](https://www.npmjs.com/package/grunt-jsonlint) and scss [here](https://github.com/sasstools/grunt-sass-lint).
 
-## ECMAScript 6 support
-
-Use JavaScript from the future today! Any ES6 written in "js/es6/" will be compiled to "js/compiled-from-es6.js" via [Babel](https://babeljs.io) (using `grunt-babel`). If you need to compile just this, run `grunt babel`.
-
 ## Visual Regression Testing
 
 **New Feature in Testing**
