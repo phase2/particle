@@ -1,6 +1,6 @@
 {
   "name": "PatternLabStarter",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Pattern Lab Starter",
   "main": "Gruntfile.js",
   "author": {
@@ -26,11 +26,8 @@
     "prototyping"
   ],
   "scripts": {
-    "prestart": "npm install",
     "start": "grunt",
-    "precompile": "npm install",
     "compile": "grunt compile",
-    "pretest": "npm install",
     "test": "grunt plBuild && grunt validate",
     "predeploy": "grunt compile",
     "postinstall": "bower install && find node_modules/ -name \"*.info\" -type f -delete",
