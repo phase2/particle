@@ -26,11 +26,8 @@
     "prototyping"
   ],
   "scripts": {
-    "prestart": "npm install",
     "start": "grunt",
-    "precompile": "npm install",
     "compile": "grunt compile",
-    "pretest": "npm install",
     "test": "grunt plBuild && grunt validate",
     "predeploy": "grunt compile",
     "postinstall": "bower install && find node_modules/ -name \"*.info\" -type f -delete",
