@@ -25,7 +25,7 @@
     "start": "gulp",
     "compile": "gulp compile",
     "test": "gulp plBuild && gulp validate",
-    "postinstall": "bower install && find node_modules/ -name \"*.info\" -type f -delete"
+    "postinstall": "bower install --allow-root & find node_modules/ -name \"*.info\" -type f -delete"
   },
   "license": "MIT",
   "devDependencies": {
