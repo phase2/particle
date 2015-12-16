@@ -1,0 +1,62 @@
+css:
+  enabled: true
+  src:
+    - css/src/**/*.scss
+  dest: css/dest/
+  lint: true
+  # enables additional debugging information in the output file as CSS comments - only use when necessary
+  sourceComments: false
+  sourceMapEmbed: false
+  autoPrefixerBrowsers: # https://github.com/ai/browserslist#queries
+    - last 2 versions
+    - IE >= 9
+js:
+  enabled: true
+  src: 
+    - js/src/**/*.js
+  dest: js/dest/
+  eslint: 
+    enabled: true
+    src: 
+      - js/src/**/*.js
+      - gulpfile.js  
+patternLab:
+  enabled: true
+  dir: pattern-lab/
+icons: # https://github.com/nfroidure/gulp-iconfont
+  enabled: true
+  src: icons/src/*.svg
+  dest: icons/dest/
+  fontPathPrefix: ../dest/
+  classNamePrefix: icon
+  autohint: false
+  normalize: false
+  templates: 
+    css:
+      src: icons/templates/_icons.scss
+      dest: icons/dest/
+    demo:
+      src: icons/templates/icons.mustache
+      dest: icons/dest/
+  formats: 
+    - ttf
+    - eot
+    - woff
+    - svg
+browserSync:
+  enabled: true
+  port: 3050
+  watchFiles:
+    # - template.php
+  # domain: mysite.dev # enable when full CMS is set up
+  baseDir: ./
+  startPath: pattern-lab/public/
+  openBrowserAtStart: true
+  # requires above to be true; allows non-default browser to open
+  browser: 
+    - Google Chrome
+  # Tunnel the Browsersync server through a random Public URL
+  # -> http://randomstring23232.localtunnel.me
+  tunnel: false
+  reloadDelay: 50
+  reloadDebounce: 250

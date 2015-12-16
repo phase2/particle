@@ -164,14 +164,14 @@ pre {
   font-size: 14px;
   color: #999;
 }
-.demo-random-icon {
-  @include icon("facebook");
-}
-.demo-text-replace-icon {
-  @include icon("twitter", $text-replace: true);
-  height: 16px;
-  width: 16px;
-}
+//.demo-random-icon {
+//  @include icon("facebook");
+//}
+//.demo-text-replace-icon {
+//  @include icon("twitter", $text-replace: true);
+//  height: 16px;
+//  width: 16px;
+//}
 
 .demo .g .gi {
   text-align: center;
