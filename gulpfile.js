@@ -11,23 +11,23 @@ var tasks = {
 };
 
 if (config.browserSync.enabled) {
-  require('p2-theme-core/lib/browser-sync.gulp.js')(gulp, config, tasks);
+  require('p2-theme-core/lib/browser-sync.js')(gulp, config, tasks);
 }
 
 if (config.js.enabled) {
-  require('p2-theme-core/lib/js.gulp.js')(gulp, config, tasks);
+  require('p2-theme-core/lib/js.js')(gulp, config, tasks);
 }
 
 if (config.css.enabled) {
-  require('p2-theme-core/lib/css.gulp.js')(gulp, config, tasks);
+  require('p2-theme-core/lib/css.js')(gulp, config, tasks);
 }
 
 if (config.icons.enabled) {
-  require('p2-theme-core/lib/icons.gulp.js')(gulp, config, tasks);
+  require('p2-theme-core/lib/icons.js')(gulp, config, tasks);
 }
 
 if (config.patternLab.enabled) {
-  require('p2-theme-core/lib/pattern-lab.gulp.js')(gulp, config, tasks);
+  require('p2-theme-core/lib/pattern-lab.js')(gulp, config, tasks);
 }
 
 gulp.task('compile', tasks.compile);
