@@ -30,6 +30,10 @@ if (config.patternLab.enabled) {
   require('p2-theme-core/lib/pattern-lab.js')(gulp, config, tasks);
 }
 
+if (config.drupal.enabled) {
+  require('p2-theme-core/lib/drupal.js')(gulp, config, tasks);
+}
+
 gulp.task('compile', tasks.compile);
 gulp.task('validate', tasks.validate);
 gulp.task('watch', tasks.watch);

@@ -22,7 +22,7 @@ js:
       - gulpfile.js  
 patternLab:
   enabled: true
-  dir: pattern-lab/
+  dir: ../../pattern-lab-starter/pattern-lab/
 icons: # https://github.com/nfroidure/gulp-iconfont
   enabled: true
   src: icons/src/*.svg
@@ -43,20 +43,31 @@ icons: # https://github.com/nfroidure/gulp-iconfont
     - eot
     - woff
     - svg
-browserSync:
+browserSync: 
   enabled: true
   port: 3050
   watchFiles:
     # - template.php
   # domain: mysite.dev # enable when full CMS is set up
-  baseDir: ./
+  baseDir: ../../pattern-lab-starter
   startPath: pattern-lab/public/
   openBrowserAtStart: true
   # requires above to be true; allows non-default browser to open
   browser: 
-    - Google Chrome
+    - Google Chrome Canary
   # Tunnel the Browsersync server through a random Public URL
   # -> http://randomstring23232.localtunnel.me
   tunnel: false
   reloadDelay: 50
   reloadDebounce: 250
+drupal:
+  enabled: true
+  # when these files change
+  watch:
+    - template.php
+    - templates/**
+    - ../../modules/**/*.{php,module,inc}
+  # run this command
+  command: drush cc all
+  # in this directory
+  dir: ../../../build/html/sites/default/
