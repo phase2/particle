@@ -1,8 +1,8 @@
 css:
   enabled: true
   src:
-    - css/src/**/*.scss
-  dest: css/dest/
+    - scss/**/*.scss
+  dest: css/
   lint: true
   # enables additional debugging information in the output file as CSS comments - only use when necessary
   sourceComments: false
@@ -13,8 +13,7 @@ css:
 js:
   enabled: true
   src: 
-    - js/src/**/*.js
-  dest: js/dest/
+    - js/**/*.js
   eslint: 
     enabled: true
     src: 
@@ -22,22 +21,22 @@ js:
       - gulpfile.js  
 patternLab:
   enabled: true
-  dir: ../../pattern-lab-starter/pattern-lab/
+  dir: pattern-lab/
 icons: # https://github.com/nfroidure/gulp-iconfont
   enabled: true
-  src: icons/src/*.svg
-  dest: icons/dest/
-  fontPathPrefix: ../dest/
+  src: images/icons/*.svg
+  dest: images/icons/output/
+  fontPathPrefix: ../images/icons/output/
   classNamePrefix: icon
   autohint: false
   normalize: false
   templates: 
     css:
-      src: icons/templates/_icons.scss
-      dest: icons/dest/
+      src: images/icons/templates/_icons.scss
+      dest: scss/00-config/_icons.scss
     demo:
-      src: icons/templates/icons.mustache
-      dest: icons/dest/
+      src: images/icons/templates/icons.mustache
+      dest: pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
   formats: 
     - ttf
     - eot
@@ -49,19 +48,19 @@ browserSync:
   watchFiles:
     # - template.php
   # domain: mysite.dev # enable when full CMS is set up
-  baseDir: ../../pattern-lab-starter
+  baseDir: ./
   startPath: pattern-lab/public/
   openBrowserAtStart: true
   # requires above to be true; allows non-default browser to open
   browser: 
-    - Google Chrome Canary
+    - Google Chrome
   # Tunnel the Browsersync server through a random Public URL
   # -> http://randomstring23232.localtunnel.me
   tunnel: false
   reloadDelay: 50
   reloadDebounce: 250
 drupal:
-  enabled: true
+  enabled: false
   # when these files change
   watch:
     - template.php
