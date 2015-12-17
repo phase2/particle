@@ -14,6 +14,9 @@ js:
   enabled: true
   src: 
     - js/**/*.js
+    - '!js/all.min.js'
+  destDir: js/
+  destName: all.min.js
   eslint: 
     enabled: true
     src: 
@@ -68,7 +71,7 @@ drupal:
   watch:
     - template.php
     - templates/**
-    - ../../modules/**/*.{php,module,inc}
+    - '../../modules/**/*.{php,module,inc}'
   # run this command
   command: drush cc all
   # in this directory
