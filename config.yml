@@ -39,7 +39,7 @@ icons: # https://github.com/nfroidure/gulp-iconfont
   templates:
     css:
       src: images/icons/templates/_icons.scss
-      dest: scss/00-config/_icons.scss
+      dest: scss/00-config/
     demo:
       src: images/icons/templates/icons.mustache
       dest: pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
