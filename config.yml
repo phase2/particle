@@ -12,16 +12,16 @@ css:
     - IE >= 9
 js:
   enabled: true
-  src: 
+  src:
     - js/**/*.js
     - '!js/all.min.js'
   destDir: js/
   destName: all.min.js
-  eslint: 
+  eslint:
     enabled: true
-    src: 
+    src:
       - js/src/**/*.js
-      - gulpfile.js  
+      - gulpfile.js
 patternLab:
   enabled: true
   dir: pattern-lab/
@@ -30,25 +30,25 @@ patternLab:
   injectBower: true
 icons: # https://github.com/nfroidure/gulp-iconfont
   enabled: true
-  src: images/icons/*.svg
+  src: images/icons/src/*.svg
   dest: images/icons/output/
   fontPathPrefix: ../images/icons/output/
   classNamePrefix: icon
   autohint: false
   normalize: false
-  templates: 
+  templates:
     css:
       src: images/icons/templates/_icons.scss
       dest: scss/00-config/_icons.scss
     demo:
       src: images/icons/templates/icons.mustache
       dest: pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
-  formats: 
+  formats:
     - ttf
     - eot
     - woff
     - svg
-browserSync: 
+browserSync:
   enabled: true
   port: 3050
   watchFiles:
@@ -58,7 +58,7 @@ browserSync:
   startPath: pattern-lab/public/
   openBrowserAtStart: true
   # requires above to be true; allows non-default browser to open
-  browser: 
+  browser:
     - Google Chrome
   # Tunnel the Browsersync server through a random Public URL
   # -> http://randomstring23232.localtunnel.me
