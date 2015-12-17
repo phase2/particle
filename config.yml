@@ -22,6 +22,9 @@ js:
 patternLab:
   enabled: true
   dir: pattern-lab/
+  injectFiles:
+    - js/script.js
+  injectBower: true
 icons: # https://github.com/nfroidure/gulp-iconfont
   enabled: true
   src: images/icons/*.svg
@@ -60,7 +63,7 @@ browserSync:
   reloadDelay: 50
   reloadDebounce: 250
 drupal:
-  enabled: false
+  enabled: true
   # when these files change
   watch:
     - template.php
@@ -70,3 +73,7 @@ drupal:
   command: drush cc all
   # in this directory
   dir: ../../../build/html/sites/default/
+  inject:
+    bower: true
+    file: theme.info
+

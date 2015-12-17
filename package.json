@@ -38,5 +38,8 @@
     "gulp": "^3.9.0",
     "js-yaml": "^3.4.6",
     "p2-theme-core": "^4.0.0"
+  },
+  "dependencies": {
+    "jquery": "^1.5.1"
   }
 }
