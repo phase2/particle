@@ -24,7 +24,7 @@
   "scripts": {
     "start": "gulp",
     "compile": "gulp compile",
-    "test": "gulp plBuild && gulp validate",
+    "test": "gulp compile && gulp validate",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root"
   },
   "license": "MIT",

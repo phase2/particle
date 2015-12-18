@@ -10,6 +10,8 @@ css:
   autoPrefixerBrowsers: # https://github.com/ai/browserslist#queries
     - last 2 versions
     - IE >= 9
+  includePaths:
+    - ./node_modules
 js:
   enabled: true
   src:

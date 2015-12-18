@@ -12,6 +12,9 @@ rules:
   semi:
     - 2
     - always
+  no-unused-vars:
+    - 1
+    - args: none
 env:
   es6: true
   browser: true

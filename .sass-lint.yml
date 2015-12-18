@@ -18,16 +18,19 @@ rules:
   nesting-depth:
     - 1
     - max-depth: 4
+  no-css-comments: 0
   no-duplicate-properties: 
     - 1
     - 
       exclude:
         - src
   no-empty-rulesets: 1
+  no-extends: 1
   no-ids: 2
   no-important: 2
   no-misspelled-properties:
     - 1
+  no-vendor-prefixes: 2
   placeholder-in-extend: 2
   quotes:
     - 1

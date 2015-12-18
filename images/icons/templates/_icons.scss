@@ -1,11 +1,11 @@
 $icon-font-base-name: "<%= fontName %>";
 @font-face {
   font-family: $icon-font-base-name;
-  src: url('<%= fontPath %><%= fontName %>.eot');
-  src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
-    url('<%= fontPath %><%= fontName %>.woff') format('woff'),
-    url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
-    url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+  src: url("<%= fontPath %><%= fontName %>.eot");
+  src: url("<%= fontPath %><%= fontName %>.eot?#iefix") format("eot"),
+  url("<%= fontPath %><%= fontName %>.woff") format("woff"),
+  url("<%= fontPath %><%= fontName %>.ttf") format("truetype"),
+  url("<%= fontPath %><%= fontName %>.svg#<%= fontName %>") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -34,7 +34,6 @@ $font-icons: (<% _.each(glyphs, function(glyph) { %>
   text-decoration: inherit;
   text-transform: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
 
