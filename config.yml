@@ -1,0 +1,84 @@
+css:
+  enabled: true
+  src:
+    - scss/**/*.scss
+  dest: css/
+  lint: true
+  # enables additional debugging information in the output file as CSS comments - only use when necessary
+  sourceComments: false
+  sourceMapEmbed: false
+  autoPrefixerBrowsers: # https://github.com/ai/browserslist#queries
+    - last 2 versions
+    - IE >= 9
+  includePaths:
+    - ./node_modules
+js:
+  enabled: true
+  src:
+    - js/**/*.js
+    - '!js/all.min.js'
+  destDir: js/
+  destName: all.min.js
+  eslint:
+    enabled: true
+    src:
+      - js/src/**/*.js
+      - gulpfile.js
+patternLab:
+  enabled: true
+  dir: pattern-lab/
+  injectFiles:
+    - js/script.js
+  injectBower: true
+icons: # https://github.com/nfroidure/gulp-iconfont
+  enabled: true
+  src: images/icons/src/*.svg
+  dest: images/icons/output/
+  fontPathPrefix: ../images/icons/output/
+  classNamePrefix: icon
+  autohint: false
+  normalize: false
+  templates:
+    css:
+      src: images/icons/templates/_icons.scss
+      dest: scss/00-config/
+    demo:
+      src: images/icons/templates/icons.mustache
+      dest: pattern-lab/source/_patterns/00-atoms/04-images/
+  formats:
+    - ttf
+    - eot
+    - woff
+    - svg
+browserSync:
+  enabled: true
+  port: 3050
+  watchFiles:
+    # - template.php
+  # domain: mysite.dev # enable when full CMS is set up
+  baseDir: ./
+  startPath: pattern-lab/public/
+  openBrowserAtStart: true
+  # requires above to be true; allows non-default browser to open
+  browser:
+    - Google Chrome
+  # Tunnel the Browsersync server through a random Public URL
+  # -> http://randomstring23232.localtunnel.me
+  tunnel: false
+  reloadDelay: 50
+  reloadDebounce: 250
+drupal:
+  enabled: true
+  # when these files change
+  watch:
+    - template.php
+    - templates/**
+    - '../../modules/**/*.{php,module,inc}'
+  # run this command
+  command: drush cc all
+  # in this directory
+  dir: ../../../build/html/sites/default/
+  inject:
+    bower: true
+    file: theme.info
+

@@ -16,11 +16,12 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~1.10.2",
-    "jquery-migrate": "~1.2.1",
     "drupal": "http://cgit.drupalcode.org/drupal/plain/misc/drupal.js?h=7.x",
     "highlightjs": "~8.8.0",
     "lodash": "~3.6.0",
     "modernizr": "~2.8.3"
+  },
+  "devDependencies": {
+    "jquery": "~1.10.2"
   }
 }

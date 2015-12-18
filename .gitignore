@@ -35,3 +35,4 @@ pattern-lab/source/_patterns/**/results
 
 # Misc
 Gruntconfig--custom.yml
+js/all.min.js

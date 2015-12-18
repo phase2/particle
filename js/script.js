@@ -1,5 +1,6 @@
+/*global hljs */
 (function($, Drupal) {
-  "use strict";
+  'use strict';
 
   // A demo Drupal behavior
   Drupal.behaviors.customBehavior = {
