@@ -41,6 +41,7 @@
     "singularitygs": "^1.6.2"
   },
   "dependencies": {
+    "gulp-help": "^1.6.1",
     "jquery": "^1.5.1"
   }
 }
