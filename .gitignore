@@ -10,8 +10,6 @@ node_modules
 # Generated files
 *.sass-cache/
 /css/
-scss/99-imports/*
-!scss/99-imports/README.md
 js/*.js.map
 
 # Generated files: icons
@@ -26,13 +24,4 @@ pattern-lab/public/*
 .idea
 atlassian-ide-plugin.xml
 
-# Visual Regression Testing
-baselines
-!pattern-lab/source/_patterns/**/baselines
-pattern-lab/source/_patterns/**/baselines/*.diff.png
-pattern-lab/source/_patterns/**/baselines/*.fail.png
-pattern-lab/source/_patterns/**/results
-
-# Misc
-Gruntconfig--custom.yml
 js/all.min.js
