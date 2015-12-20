@@ -39,6 +39,7 @@ icons: # https://github.com/nfroidure/gulp-iconfont
   autohint: false
   normalize: false
   templates:
+    enabled: true
     css:
       src: images/icons/templates/_icons.scss
       dest: scss/00-config/
@@ -68,7 +69,7 @@ browserSync:
   reloadDelay: 50
   reloadDebounce: 250
 drupal:
-  enabled: false
+  enabled: true
   # when these files change
   watch:
     - template.php
@@ -77,8 +78,9 @@ drupal:
   # run this command
   command: drush cc all
   # in this directory
-  dir: ../../../build/html/sites/default/
+  dir:
   inject:
     bower: true
     file: theme.info
-
+    ignoreFiles: 
+      - lodash.js
