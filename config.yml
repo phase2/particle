@@ -69,7 +69,7 @@ browserSync:
   reloadDelay: 50
   reloadDebounce: 250
 drupal:
-  enabled: true
+  enabled: false
   # when these files change
   watch:
     - template.php
