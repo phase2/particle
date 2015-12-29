@@ -81,7 +81,7 @@ drupal:
   # in this directory
   dir:
   inject:
-    bower: true
+    bower: false
     file: theme.info
     ignoreFiles: 
       - lodash.js
