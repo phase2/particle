@@ -92,14 +92,14 @@ $font-icons: (<% _.each(glyphs, function(glyph) { %>
 //  font-style: normal;
 //}
 
-// Everything with .icon--something has a base set of styles in order to view
-[class*="icon--"] {
+// Everything with .<%= classNamePrefix %>--something has a base set of styles in order to view
+[class*="<%= classNamePrefix %>--"] {
   @include font-icon-base;
 }
 
 // Print .icon--thingy classes using default :before for easy elements
 @each $icon-name, $icon-symbol in $font-icons {
-  .icon--#{$icon-name}:before {
+  .<%= classNamePrefix %>--#{$icon-name}:before {
     content: map-get($font-icons, $icon-name);
   }
 }
