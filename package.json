@@ -22,7 +22,7 @@
     "prototyping"
   ],
   "scripts": {
-    "start": "gulp",
+    "start": "gulp compile && gulp",
     "compile": "gulp compile",
     "test": "gulp compile && gulp validate",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root"

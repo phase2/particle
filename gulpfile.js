@@ -37,6 +37,5 @@ if (config.drupal.enabled) {
 gulp.task('compile', tasks.compile);
 gulp.task('validate', tasks.validate);
 gulp.task('watch', tasks.watch);
-tasks.default.push('compile');
 tasks.default.push('watch');
 gulp.task('default', tasks.default);
