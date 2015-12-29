@@ -22,9 +22,12 @@
     "prototyping"
   ],
   "scripts": {
+    "prestart": "npm run checkDeps",
+    "precompile": "npm run checkDeps",
     "start": "gulp compile && gulp",
     "compile": "gulp compile",
     "test": "gulp compile && gulp validate",
+    "checkDeps": "node scripts/dependency-version-checker.js",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root"
   },
   "license": "MIT",
@@ -39,6 +42,7 @@
     "lodash.merge": "^3.3.2",
     "normalize.scss": "^0.1.0",
     "p2-theme-core": "^5.0.5",
+    "semver": "^5.1.0",
     "singularitygs": "^1.6.2"
   }
 }
