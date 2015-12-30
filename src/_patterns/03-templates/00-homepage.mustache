@@ -2,7 +2,7 @@
 	{{> organisms-header }}
 	<div role="main">
 		{{# emergency }}
-			{{> molecules-alert }}
+			{{> molecules-alert:error }}
 		{{/ emergency }}
 		{{# hero }}
 			{{> molecules-block-hero }}
@@ -11,7 +11,7 @@
 		<div class="g g-3up">
 			{{# touts}}
 				<div class="gi">
-					{{> molecules-inset-block }}
+					{{> molecules-block-inset }}
 				</div>
 			{{/ touts}}
 		</div><!--end 3up-->
