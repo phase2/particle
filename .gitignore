@@ -1,24 +1,19 @@
+# Compiled files
+dest/
+scss/00-config/_icons.scss
+pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
+
 # OS generated files
 .DS_Store
 .DS_Store?
 
 # Dependencies
-!vendor
 bower_components
 node_modules
 
 # Generated files
 *.sass-cache/
 
-# Generated files: icons
-scss/00-config/_icons.scss
-pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
-
-# Styleguide specific stuff
-pattern-lab/public/*
-
 #IDE plugins
 .idea
 atlassian-ide-plugin.xml
-
-dest/
