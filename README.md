@@ -55,14 +55,8 @@ Add anything to `gulpfile.js` that you want! Also, you can copy any file from `n
 
 Many of the features can be turned off, for example if we didn't want all the JS features like linting and concatenation, just toggle `enabled` under `js` in `config.yml`. So you'd just open `config.yml` and change this:
 
-```yml
+```diff
 js:
-    enabled: true
-```
-
-To this:
-
-```yml
-js:
-    enabled: false
+-    enabled: true
++    enabled: false
 ```
