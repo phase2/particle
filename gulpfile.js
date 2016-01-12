@@ -7,34 +7,14 @@ var tasks = {
   'compile': [],
   'watch': [],
   'validate': [],
+  'clean': [],
   'default': []
 };
 
-if (config.browserSync.enabled) {
-  require('p2-theme-core/lib/browser-sync.js')(gulp, config, tasks);
-}
-
-if (config.js.enabled) {
-  require('p2-theme-core/lib/js.js')(gulp, config, tasks);
-}
-
-if (config.css.enabled) {
-  require('p2-theme-core/lib/css.js')(gulp, config, tasks);
-}
-
-if (config.icons.enabled) {
-  require('p2-theme-core/lib/icons.js')(gulp, config, tasks);
-}
-
-if (config.patternLab.enabled) {
-  require('p2-theme-core/lib/pattern-lab.js')(gulp, config, tasks);
-}
-
-if (config.drupal.enabled) {
-  require('p2-theme-core/lib/drupal.js')(gulp, config, tasks);
-}
+require('p2-theme-core')(gulp, config, tasks);
 
 gulp.task('compile', tasks.compile);
+gulp.task('clean', tasks.clean);
 gulp.task('validate', tasks.validate);
 gulp.task('watch', tasks.watch);
 tasks.default.push('watch');

@@ -23,9 +23,9 @@
   ],
   "scripts": {
     "prestart": "npm run checkDeps",
+    "start": "gulp clean && gulp compile && gulp",
     "precompile": "npm run checkDeps",
-    "start": "gulp compile && gulp",
-    "compile": "gulp compile",
+    "compile": "gulp clean && gulp compile",
     "test": "gulp compile && gulp validate",
     "checkDeps": "node scripts/dependency-version-checker.js",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root"
@@ -41,7 +41,7 @@
     "js-yaml": "^3.4.6",
     "lodash.merge": "^3.3.2",
     "normalize.scss": "^0.1.0",
-    "p2-theme-core": "^5.0.5",
+    "p2-theme-core": "6.3.2",
     "semver": "^5.1.0",
     "singularitygs": "^1.6.2"
   }

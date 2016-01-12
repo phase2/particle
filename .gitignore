@@ -9,11 +9,8 @@ node_modules
 
 # Generated files
 *.sass-cache/
-/css/
-js/*.js.map
 
 # Generated files: icons
-images/icons/output/
 scss/00-config/_icons.scss
 pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
 
@@ -24,4 +21,4 @@ pattern-lab/public/*
 .idea
 atlassian-ide-plugin.xml
 
-js/all.min.js
+dest/
