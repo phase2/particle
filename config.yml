@@ -1,52 +1,79 @@
 css:
   enabled: true
   src:
-    - scss/**/*.scss
-  dest: css/
-  lint: true
+    - src/scss/**/*.scss
+    - src/patterns/**/*.scss
+  dest: dest/
+  flattenDestOutput: true
+  lint:
+    enabled: true
+    failOnError: false
+    # Add to the main src glob - useful for exclusions with `!`
+    extraSrc:
+#      - '!src/scss/00-config/02-variables/_typography.scss'
   # enables additional debugging information in the output file as CSS comments - only use when necessary
   sourceComments: false
   sourceMapEmbed: false
+  # tell the compiler whether you want 'expanded' or 'compressed' output code
+  outputStyle: expanded
   autoPrefixerBrowsers: # https://github.com/ai/browserslist#queries
     - last 2 versions
     - IE >= 9
   includePaths:
     - ./node_modules
+  sassdoc: # http://sassdoc.com
+    enabled: true
+    dest: dest/sassdoc
+    verbose: false
+    basePath: https://github.com/phase2/pattern-lab-starter/blob/master/scss
+#    exclude:
+#      - file.scss
+    theme: default
+    sort: # http://sassdoc.com/customising-the-view/#sort
+      - file
+      - group
+      - line>
 js:
   enabled: true
   src:
-    - js/**/*.js
-    - '!js/all.min.js'
-  destDir: js/
-  destName: all.min.js
+    - src/js/**/*.js
+  dest: dest/
+  destName: script.js
+  sourceMapEmbed: false
+  uglify: false
   babel: true
   eslint:
     enabled: true
     src:
-      - js/src/**/*.js
+      - src/js/**/*.js
       - gulpfile.js
 patternLab:
   enabled: true
-  dir: pattern-lab/
+  src:
+    data: src/data/
+    patternLabFiles: src/patternlab-files/
+    patterns: src/patterns/
+    patternLabCss: src/patternlab-css/
+  dest: dest/pattern-lab/
   injectFiles:
-    - js/script.js
+#    - bower_components/modernizr/modernizr.js
   injectBower: true
 icons: # https://github.com/nfroidure/gulp-iconfont
   enabled: true
-  src: images/icons/src/*.svg
-  dest: images/icons/output/
-  fontPathPrefix: ../images/icons/output/
+  src: src/images/icons/src/*.svg
+  dest: dest/
+  fontPathPrefix: ''
   classNamePrefix: icon
   autohint: false
-  normalize: false
+  normalize: true
   templates:
     enabled: true
     css:
-      src: images/icons/templates/_icons.scss
-      dest: scss/00-config/
+      src: src/images/icons/templates/_icons.scss
+      dest: src/scss/00-config/
     demo:
-      src: images/icons/templates/icons.mustache
-      dest: pattern-lab/source/_patterns/00-atoms/04-images/
+      src: src/images/icons/templates/icons.mustache
+      dest: src/patterns/00-atoms/04-images/
   formats:
     - ttf
     - eot
@@ -59,7 +86,7 @@ browserSync:
     # - template.php
   # domain: mysite.dev # enable when full CMS is set up
   baseDir: ./
-  startPath: pattern-lab/public/
+  startPath: ''
   openBrowserAtStart: true
   # requires above to be true; allows non-default browser to open
   browser:
@@ -68,20 +95,18 @@ browserSync:
   # -> http://randomstring23232.localtunnel.me
   tunnel: false
   reloadDelay: 50
-  reloadDebounce: 250
+  reloadDebounce: 750
 drupal:
   enabled: false
   # when these files change
   watch:
     - template.php
-    - templates/**
-    - '../../modules/**/*.{php,module,inc}'
+    - src/templates/**
   # run this command
   command: drush cc all
   # in this directory
-  dir:
+  dir: ./
   inject:
-    bower: false
+    bower: true
     file: theme.info
-    ignoreFiles: 
-      - lodash.js
+
