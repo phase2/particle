@@ -1,7 +1,8 @@
 # Compiled files
 dest/
-scss/00-config/_icons.scss
-pattern-lab/source/_patterns/00-atoms/04-images/icons.mustache
+src/scss/00-config/_icons.scss
+src/patterns/00-atoms/04-images/icons.mustache
+src/patternlab-css/*.css
 
 # OS generated files
 .DS_Store
