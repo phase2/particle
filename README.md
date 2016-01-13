@@ -33,19 +33,11 @@ Documentation for many of the features are found in `node_modules/p2-theme-core/
 ### Linting Config
 
 - JS: edit `.eslintrc` - [rule docs](http://eslint.org/docs/rules/)
-- Scss: edit `.scss-lint.yml` - [rule docs](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
+- Scss: edit `.sass-lint.yml` - [rule docs](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
 
 ### Babel JS Transpiling Config
 
 Edit `.babelrc` for configuration of [Babel rules](https://babeljs.io/docs/usage/options/) that transpile JS. Default allows ES6 to be transpiled to ES5. Learn about awesome [ES6 features](http://es6-features.org) here.
-
-### Contributing to `p2-theme-core`
-
-If you have an improvement, please contribute! Clone the `p2-theme-core` repo and then run this command while in this directory:
-
-    npm link ../path/to/p2-theme-core
-
-That will symlink `node_modules/p2-theme-core/` to the cloned `p2-theme-core` repo. 
 
 ## More control
 
@@ -55,14 +47,16 @@ Add anything to `gulpfile.js` that you want! Also, you can copy any file from `n
 
 Many of the features can be turned off, for example if we didn't want all the JS features like linting and concatenation, just toggle `enabled` under `js` in `config.yml`. So you'd just open `config.yml` and change this:
 
-```yml
+```diff
 js:
-    enabled: true
+-    enabled: true
++    enabled: false
 ```
 
-To this:
+### Contributing to `p2-theme-core`
 
-```yml
-js:
-    enabled: false
-```
+If you have an improvement, please contribute! Clone the `p2-theme-core` repo and then run this command while in this directory:
+
+    npm link ../path/to/p2-theme-core
+
+That will symlink `node_modules/p2-theme-core/` to the cloned `p2-theme-core` repo. 
