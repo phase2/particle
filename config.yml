@@ -53,7 +53,6 @@ patternLab:
     data: src/data/
     patternLabFiles: src/patternlab-files/
     patterns: src/patterns/
-    patternLabCss: src/patternlab-css/
   dest: dest/pattern-lab/
   injectFiles:
 #    - bower_components/modernizr/modernizr.js
