@@ -41,7 +41,7 @@
     "js-yaml": "^3.4.6",
     "lodash.merge": "^3.3.2",
     "normalize.scss": "^0.1.0",
-    "p2-theme-core": "6.4.2",
+    "p2-theme-core": "6.4.4",
     "semver": "^5.1.0",
     "singularitygs": "^1.6.2"
   }
