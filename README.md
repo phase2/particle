@@ -28,7 +28,7 @@ Using `--save` adds to Pattern Lab and Drupal; using `--save-dev` adds to just P
 
 It's almost all done in `config.yml`. End all paths with a `/` please (i.e. `path/to/dir/`). The local `gulpfile.js` passes the `config` object to [`p2-theme-core`](https://github.com/phase2/p2-theme-core) - which can be viewed at `node_modules/p2-theme-core/` (most stuff in `lib/`).
 
-Documentation for many of the features are found in `node_modules/p2-theme-core/docs/` – please help flesh them out!
+Documentation for many of the features are found in `node_modules/p2-theme-core/docs/` – those are [hosted here](http://p2-theme-core.readthedocs.org) too.
 
 ### Linting Config
 
