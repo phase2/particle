@@ -1,9 +1,9 @@
 language: node_js
 node_js:
 - '0.12'
-before_install:
-- sudo apt-get update
-- sudo apt-get install php5
+- '4.2'
+- 'node'
+script: 'npm run compile && npm test'
 notifications:
   email:
     on_success: never
