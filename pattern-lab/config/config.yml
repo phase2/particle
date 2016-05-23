@@ -1,0 +1,38 @@
+v: 2.0.0-DP1
+overrideConfig: q
+ie:
+    - DS_Store
+    - less
+    - scss
+id:
+    - scss
+    - .svn
+    - .sass-cache
+cleanPublic: 'true'
+patternStates:
+    - inprogress
+    - inreview
+    - complete
+styleGuideExcludes: ''
+cacheBusterOn: 'true'
+exportDir: export
+publicDir: public
+sourceDir: source
+ishMinimum: '240'
+ishMaximum: '2600'
+ishControlsHide:
+    - hay
+lineageMatch: '{%([ ]+)?include( |\()[&quot;\&#039;]([A-Za-z0-9-_]+)[&quot;\&#039;](\))?(.*)%}'
+lineageMatchKey: 3
+patternExtension: twig
+twigDebug: false
+twigAutoescape: html
+twigDefaultDateFormat: ''
+twigDefaultIntervalFormat: ''
+twigMacroExt: macro.twig
+twigFilterExt: filter.php
+twigFunctionExt: function.php
+twigTagExt: tag.php
+twigTestExt: test.php
+styleguideKit: pattern-lab/styleguidekit-twig-default
+styleguideKitPath: vendor/pattern-lab/styleguidekit-twig-default

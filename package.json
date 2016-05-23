@@ -30,7 +30,7 @@
     "checkDeps": "node scripts/dependency-version-checker.js",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root"
   },
-  "license": "MIT",
+  "license": "GPL-2.0+",
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",
     "bourbon": "^4.2.3",
