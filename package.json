@@ -25,20 +25,25 @@
     "start": "gulp clean && gulp compile && gulp",
     "compile": "gulp clean && gulp compile",
     "test": "gulp validate",
-    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root"
+    "new": "yo ./pattern-lab/generator/index.js",
+    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root && cd pattern-lab && composer install"
   },
-  "license": "GPL-2.0+",
-  "devDependencies": {
-    "babel-preset-es2015": "^6.3.13",
-    "bourbon": "^4.2.3",
-    "bower": "^1.3.12",
-    "breakpoint-sass": "^2.6.1",
-    "gulp": "^3.9.0",
+  "dependencies": {
+    "babel-preset-es2015": "^6.6.0",
+    "bourbon": "^4.2.7",
+    "bower": "^1.7.9",
+    "breakpoint-sass": "^2.7.0",
+    "gulp": "^3.9.1",
     "gulp-help": "^1.6.1",
-    "js-yaml": "^3.4.6",
-    "lodash.merge": "^3.3.2",
+    "js-yaml": "^3.6.0",
+    "lodash.merge": "^4.3.5",
     "normalize.scss": "^0.1.0",
-    "p2-theme-core": "~7.2.0",
-    "singularitygs": "^1.6.2"
+    "p2-theme-core": "^7.2.2",
+    "singularitygs": "^1.7.0"
+  },
+  "devDependencies": {
+    "lodash.includes": "^4.1.3",
+    "yeoman-generator": "^0.23.3",
+    "yo": "^1.8.3"
   }
 }

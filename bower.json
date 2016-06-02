@@ -15,8 +15,9 @@
     "test",
     "tests"
   ],
+  "comment": "dependencies get injected into Drupal and Pattern Lab; devDependencies only get injected into Pattern Lab",
   "dependencies": {
-    "lodash": "~3.6.0",
+    "lodash": "^4.0.0",
     "modernizr": "~2.8.3"
   },
   "devDependencies": {

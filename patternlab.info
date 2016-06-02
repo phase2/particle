@@ -1,0 +1,8 @@
+name = Pattern Lab Starter
+core = 7.x
+
+; inject:css
+; endinject
+
+; inject:js
+; endinject
