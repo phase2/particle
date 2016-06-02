@@ -2,11 +2,11 @@
   "items": [
     {
       "name": "$ff--regular",
-      "value": "'Helvetica Neue', 'HelveticaNeue', sans-serif"
+      "value": "'LatoRegular', sans-serif"
     },
     {
       "name": "$ff--alternate",
-      "value": "'HelveticaNeue Condensed', sans-serif"
+      "value": "'Helvetica', sans-serif"
     }
   ],
   "meta": {

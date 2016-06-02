@@ -1,9 +1,3 @@
-////
-/// @group fonts
-////
-
-// Font weights.
-// https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
 $fw--100: 100; // thin/hairline
 $fw--200: 200; // extra-light/ultra-light
 $fw--300: 300; // light*
@@ -15,149 +9,22 @@ $fw--800: 800; // extra-bold/ultra-bold
 $fw--900: 900; // black/heavy
 
 @font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue.ttf") format("truetype");
+  font-family: "LatoRegular";
+  src:  url("../fonts/Lato-Regular.woff2") format("woff2"),
+  url("../fonts/Lato-Regular.woff") format("woff"),
+  url("../fonts/Lato-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-Bold.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Bold.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Bold.ttf") format("truetype");
-  font-weight: $fw--700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-BoldItalic.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-BoldItalic.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-BoldItalic.ttf") format("truetype");
-  font-weight: $fw--700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "HelveticaNeue Condensed";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-CondensedBlack.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-CondensedBlack.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-CondensedBlack.ttf") format("truetype");
-  font-weight: $fw--900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HelveticaNeue Condensed";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-CondensedBold.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-CondensedBold.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-CondensedBold.ttf") format("truetype");
-  font-weight: $fw--700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-Italic.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Italic.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Italic.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-Light.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Light.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Light.ttf") format("truetype");
-  font-weight: $fw--300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-LightItalic.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-LightItalic.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-LightItalic.ttf") format("truetype");
-  font-weight: $fw--300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-Medium.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Medium.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Medium.ttf") format("truetype");
-  font-weight: $fw--500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-MediumItalic.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-MediumItalic.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-MediumItalic.ttf") format("truetype");
-  font-weight: $fw--500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-Thin.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Thin.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-Thin.ttf") format("truetype");
-  font-weight: $fw--200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-ThinItalic.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-ThinItalic.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-ThinItalic.ttf") format("truetype");
-  font-weight: $fw--200;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-UltraLight.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-UltraLight.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-UltraLight.ttf") format("truetype");
-  font-weight: $fw--100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src:  url("../fonts/HelveticaNeue/HelveticaNeue-UltraLightItalic.woff2") format("woff2"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-UltraLightItalic.woff") format("woff"),
-  url("../fonts/HelveticaNeue/HelveticaNeue-UltraLightItalic.ttf") format("truetype");
-  font-weight: $fw--100;
-  font-style: italic;
-}
-
-// Some of the font families have to be renamed to use the proper one once we have the web font provider setup.
-///
-$ff--regular: 'Helvetica Neue', 'HelveticaNeue', sans-serif;
-///
-$ff--alternate: 'HelveticaNeue Condensed', sans-serif;
+$ff--regular: 'LatoRegular', sans-serif;
+$ff--alternate: 'Helvetica', sans-serif;
 
 // Font Sizes
-///
 $fs--36px: 36px;
-///
 $fs--30px: 30px;
-///
 $fs--24px: 24px;
-///
 $fs--18px: 18px;
-///
 $fs--16px: 16px;
-///
 $fs--14px: 14px;
-///
 $fs--12px: 12px;

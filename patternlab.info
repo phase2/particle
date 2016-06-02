@@ -6,5 +6,5 @@ stylesheets[all][] = dest/style.css
 ; endinject
 
 ; inject:js
-scripts[] = dest/all.min.js
+scripts[] = dest/script.js
 ; endinject
