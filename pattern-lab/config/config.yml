@@ -25,8 +25,8 @@ ishControlsHide:
 lineageMatch: '{%([ ]+)?include( |\()[&quot;\&#039;]([A-Za-z0-9-_]+)[&quot;\&#039;](\))?(.*)%}'
 lineageMatchKey: 3
 patternExtension: twig
-twigDebug: false
-twigAutoescape: html
+twigDebug: true
+twigAutoescape: false
 twigDefaultDateFormat: ''
 twigDefaultIntervalFormat: ''
 twigMacroExt: macro.twig
