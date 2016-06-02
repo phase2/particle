@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "572e97f5123649c58a599c4aa263789a",
-    "content-hash": "3decb0e5511ca2314164d392c7b89f92",
+    "hash": "f2b48348add6b40d5583b3ff7ac2455f",
+    "content-hash": "756b633568d8466ed10940f311358d0c",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -334,16 +334,16 @@
         },
         {
             "name": "pattern-lab/core",
-            "version": "v2.1.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pattern-lab/patternlab-php-core.git",
-                "reference": "964db90e24757b048b3b03cd9b7a3da4d495f1b5"
+                "reference": "585924c97ce492810b12e355eb073d895eaee7ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pattern-lab/patternlab-php-core/zipball/964db90e24757b048b3b03cd9b7a3da4d495f1b5",
-                "reference": "964db90e24757b048b3b03cd9b7a3da4d495f1b5",
+                "url": "https://api.github.com/repos/pattern-lab/patternlab-php-core/zipball/585924c97ce492810b12e355eb073d895eaee7ae",
+                "reference": "585924c97ce492810b12e355eb073d895eaee7ae",
                 "shasum": ""
             },
             "require": {
@@ -389,7 +389,7 @@
                 "style guide",
                 "styleguide"
             ],
-            "time": "2016-05-21 02:15:04"
+            "time": "2016-06-01 18:26:32"
         },
         {
             "name": "pattern-lab/drupal-twig-components",
@@ -512,16 +512,16 @@
         },
         {
             "name": "pattern-lab/styleguidekit-assets-default",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pattern-lab/styleguidekit-assets-default.git",
-                "reference": "5f93b1c632709ab7e6a211b1dcec1e957ba9c2ba"
+                "reference": "92a1c9f3b70a67d18287403ef51fa9e181ab9006"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-assets-default/zipball/5f93b1c632709ab7e6a211b1dcec1e957ba9c2ba",
-                "reference": "5f93b1c632709ab7e6a211b1dcec1e957ba9c2ba",
+                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-assets-default/zipball/92a1c9f3b70a67d18287403ef51fa9e181ab9006",
+                "reference": "92a1c9f3b70a67d18287403ef51fa9e181ab9006",
                 "shasum": ""
             },
             "require": {
@@ -587,7 +587,7 @@
                 "pattern lab",
                 "styleguide"
             ],
-            "time": "2016-05-19 03:35:50"
+            "time": "2016-05-23 18:43:05"
         },
         {
             "name": "pattern-lab/styleguidekit-twig-default",
@@ -986,16 +986,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.24.0",
+            "version": "v1.24.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8"
+                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
-                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
+                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
                 "shasum": ""
             },
             "require": {
@@ -1043,7 +1043,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-01-25 21:22:18"
+            "time": "2016-05-30 09:11:59"
         }
     ],
     "packages-dev": [
