@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "name": "$bp--xsmall",
+      "value": "380px"
+    },
+    {
+      "name": "$bp--small",
+      "value": "500px"
+    },
+    {
+      "name": "$bp--medium",
+      "value": "640px"
+    },
+    {
+      "name": "$bp--large",
+      "value": "768px"
+    },
+    {
+      "name": "$bp--xlarge",
+      "value": "1024px"
+    },
+    {
+      "name": "$bp--xxlarge",
+      "value": "1250px"
+    },
+    {
+      "name": "$bp--xxxlarge",
+      "value": "1600px"
+    }
+  ],
+  "meta": {
+    "description": "To add to these items, use Sass variables that start with <code>$bp--</code> in <code>pattern-lab/source/_patterns/00-base/breakpoints/_breakpoints.scss</code>"
+  }
+}

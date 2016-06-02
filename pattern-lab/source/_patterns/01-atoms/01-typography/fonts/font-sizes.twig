@@ -1,0 +1,9 @@
+<ul style="list-style: none;">
+  {% for item in items %}
+    <p>
+      <div style="font-size: {{ item.value }};">{{ headline.short }}</div>
+      <div>{{item.value}}: <code>{{item.name}}</code></div>
+    </p>
+
+  {% endfor %}
+</ul>

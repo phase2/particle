@@ -1,0 +1,10 @@
+{% for item in items %}
+  <div style="margin: 5px;">
+    <div style="height: {{ item.value }}; width: {{ item.value }}; outline: solid 1px black; display: inline-block; margin-right: 5px;"></div>
+    <span>{{ item.value }} : <code>{{ item.name }}</code></span>
+  </div>
+{% endfor %}
+
+{% if meta %}
+  <p> <small>{{ meta.description }}</small> </p>
+{% endif %}

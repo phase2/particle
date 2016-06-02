@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "name": "$ff--regular",
+      "value": "'Helvetica Neue', 'HelveticaNeue', sans-serif"
+    },
+    {
+      "name": "$ff--alternate",
+      "value": "'HelveticaNeue Condensed', sans-serif"
+    }
+  ],
+  "meta": {
+    "description": "To add to these items, use Sass variables that start with <code>$ff--</code> in <code>pattern-lab/source/_patterns/01-atoms/01-typography/fonts/_fonts.scss</code>"
+  }
+}

@@ -1,0 +1,11 @@
+<figure class="caption-block">
+  <div class="caption-block__image"><img src="{{ img.landscape }}" alt=""></div>
+  <figcaption class="caption-block__caption">
+    {% if title %}<h3 class="caption-block__title">{{ title }}</h3>{% endif %}
+    <div class="caption-block__body">
+      {% block body %}
+        <p>{{ excerpt.medium }}</p>
+      {% endblock %}
+    </div>
+  </figcaption>
+</figure>

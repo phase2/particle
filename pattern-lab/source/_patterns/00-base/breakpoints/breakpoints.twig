@@ -1,0 +1,20 @@
+<div class="sg-breakpoints">
+  <ul class="breakpoints">
+    {% for item in items %}
+      <li style="left: 0; left: {{item.value}}">
+        <span class="label">{{item.name}}:<br/>{{item.value}}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  <ul class="device_widths">
+    {% for device in device_widths %}
+      <li style="width: 0; width: {{device.width}}px;">
+        <span class="label">{{device.name}}: {{device.width}}px</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+<br>
+{% if meta %}
+  <p> <small>{{ meta.description }}</small> </p>
+{% endif %}

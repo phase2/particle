@@ -1,0 +1,34 @@
+@mixin button($alt: false) {
+  @include a-link($link: $c-white, $hover: $c-white, $deco--hover: "none");
+  background-color: $c-red;
+  border-radius: $spacing--sm;
+  font-family: $ff--regular;
+  font-weight: $fw--700;
+  padding: ($spacing--sm * 3) ($spacing--l * 3);
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  @if $alt {
+    background: $c-gray--light;
+    color: $c-red;
+  }
+}
+
+.button {
+  @include button();
+  &--alt {
+    @include button($alt: true);
+  }
+}
+
+a.button {
+  // needed to override base theme CSS
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="submit"],
+.form-submit {
+  @include button();
+  border: 0;
+}

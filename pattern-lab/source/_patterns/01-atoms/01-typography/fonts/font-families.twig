@@ -1,0 +1,23 @@
+{% for item in items %}
+  <div>
+    <div style="font-family: {{ item.value }};">{{ item.value }}</div>
+    <div>
+      <pre><code>
+.class {
+  font-family: {{ item.name }};
+}
+      </code></pre>
+    </div>
+
+    <h6>Normal</h6>
+    <div style="font-family: {{ item.value }}; font-size: 2em;">{{ excerpt.short }}</div>
+
+    <h6>Bold</h6>
+    <div style="font-family: {{ item.value }}; font-size: 2em; font-weight: bold;">{{ excerpt.short }}</div>
+
+    <h6>Italic</h6>
+    <div style="font-family: {{ item.value }}; font-size: 2em; font-style: italic;">{{ excerpt.short }}</div>
+
+  </div>
+  <hr>
+{% endfor %}

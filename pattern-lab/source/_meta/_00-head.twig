@@ -4,17 +4,15 @@
 		<title>{{ title }}</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width" />
-		
-		<link rel="stylesheet" href="../../css/style.css?{{ cacheBuster }}" media="all" />
-		
+
 		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
 		{{ patternLabHead | raw }}
 		<!-- End Pattern Lab -->
-    
+
     <!-- inject:css -->
-    <link rel="stylesheet" href="../../../../dest/style.css">
     <!-- endinject -->
-		
+    <link rel="stylesheet" href="../../../../pattern-lab/source/styleguide/custom-styleguide-specific.css">
+
 	</head>
 	<body class="{{ bodyClass }}">
-	
+

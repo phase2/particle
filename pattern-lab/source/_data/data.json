@@ -1,75 +1,131 @@
 {
-	"key": "value",
-	"key2": "use this for variables you want to load globally",
-	"title": "Nullizzle shizznit velizzle, hizzle, suscipit own yo', gravida vizzle, arcu.",
-	"img": {
-		"avatar": {
-			"src": "http://placeimg.com/100/100/people",
-			"alt": "Avatar"
-		},
-		"square": {
-			"src": "http://placeimg.com/300/300/nature",
-			"alt": "Square"
-		},
-		"rectangle": {
-			"src": "http://placeimg.com/400/300/tech",
-			"alt": "Rectangle"
-		},
-		"landscape-4x3": {
-			"src": "http://placeimg.com/400/300/tech",
-			"alt": "4x3 Image"
-		},
-		"landscape-16x9": {
-			"src": "http://placeimg.com/640/360/tech",
-			"alt": "16x9 Image"
-		}
-	},
-	"headline": {
-		"short": "Lorizzle pimpin' dolizzle sit amet I",
-		"medium": "Rizzle adipiscing elizzle. Nullam sapien velizzle, shit volutpizzle, my"
-	},
-	"excerpt": {
-		"short": "Shizz fo shizzle mah nizzle fo rizzle, mah home g-dizzle, gravida vizzle, arcu. Pellentesque crunk tortizzle. Sed erizzle. Black izzle sheezy telliv.",
-		"medium": "Izzle crazy tempizzle sizzle. We gonna chung gangsta get down get down fo shizzle turpizzle. Away break it down black. Pellentesque bling bling rhoncus fo shizzle. In hac the bizzle platea dictumst. Black dapibizzle. Crackalackin.",
-		"long": "Curabitizzle fo shizzle diam quizzle nisi nizzle mollizzle. Suspendisse boofron. Morbi odio. Sure pizzle. Crazy orci. Shut the shizzle up maurizzle get down get down, check out this a, go to hizzle sit amizzle, malesuada izzle, pede. Pellentesque gravida. Vestibulizzle check it out mi, volutpat izzle, shiz sed, shiznit sempizzle, da bomb. Funky fresh in ipsum. Da bomb volutpat felis vizzle daahng dawg. Crizzle quis dope izzle fo shizzle my ni."
-	},
-	"description": "Fizzle crazy tortor. Sed rizzle. Ass pimpin' dolor dapibizzle turpis tempizzle fo shizzle my nizzle. Maurizzle pellentesque its fo rizzle izzle turpis. Get down get down we gonna chung nizzle. Shizzlin dizzle eleifend rhoncizzle break it down. In yo ghetto platea dictumst. Bling bling dapibizzle. Curabitur break yo neck, yall fo, pretizzle eu, go to hizzle dope, own yo' vitae, nunc. Bizzle suscipizzle. Ass semper velit sizzle fo.",
-	"url": "http://lorizzle.nl/",
-	"name": {
-		"first": "Junius",
-		"firsti": "J",
-		"middle": "Marius",
-		"middlei": "M",
-		"last": "Koolen",
-		"lasti": "K"
-	},
-	"year": {
-		"long": "2013",
-		"short": "13"
-	},
-	"month": {
-		"long": "January",
-		"short": "Jan",
-		"digit": "01"
-	},
-	"dayofweek": {
-		"long": "Sunday",
-		"short": "Sun"
-	},
-	"day": {
-		"long": "01",
-		"short": "1",
-		"ordinal": "st"
-	},
-	"hour": {
-		"long": "06",
-		"short": "6",
-		"military": "06",
-		"ampm": "am"
-	},
-	"minute": {
-		"long": "20",
-		"short": "20"
-	},
-	"seconds": "31"
+  "key": "value",
+  "key2": "use this for variables you want to load globally",
+  "title": "Title Here",
+  "text": "Text",
+  "img": {
+    "avatar": "http://placeimg.com/600/600/people",
+    "square": "http://placeimg.com/600/600/nature",
+    "rectangle": "http://placeimg.com/1200/900/tech",
+    "landscape": "http://placeimg.com/1200/900/tech",
+    "landscapeWide": "http://placeimg.com/1280/640/tech"
+  },
+  "headline": {
+    "short": "Lorem ipsum dolor sit amet, consectetur",
+    "medium": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+  },
+  "excerpt": {
+    "short": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "medium": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "long": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "url": "http://example.com",
+  "name": {
+    "first": "Junius",
+    "firsti": "J",
+    "middle": "Marius",
+    "middlei": "M",
+    "last": "Koolen",
+    "lasti": "K"
+  },
+  "year": {
+    "long": "2013",
+    "short": "13"
+  },
+  "month": {
+    "long": "January",
+    "short": "Jan",
+    "digit": "01"
+  },
+  "dayofweek": {
+    "long": "Sunday",
+    "short": "Sun"
+  },
+  "day": {
+    "long": "01",
+    "short": "1",
+    "ordinal": "st"
+  },
+  "hour": {
+    "long": "06",
+    "short": "6",
+    "military": "06",
+    "ampm": "am"
+  },
+  "minute": {
+    "long": "20",
+    "short": "20"
+  },
+  "seconds": "31",
+  "device_widths": [
+    {
+      "name": "iPhone Portrait",
+      "width": 320
+    },
+    {
+      "name": "Galaxy Nexus Portrait",
+      "width": 360
+    },
+    {
+      "name": "iPhone 6 Portrait",
+      "width": 375
+    },
+    {
+      "name": "iPhone 6 Plus Portrait",
+      "width": 414
+    },
+    {
+      "name": "Galaxy Note 3 Portrait",
+      "width": 540
+    },
+    {
+      "name": "iPhone Landscape",
+      "width": 568
+    },
+    {
+      "name": "Google Nexus 7 Portrait",
+      "width": 604
+    },
+    {
+      "name": "Galaxy Nexus Landscape",
+      "width": 640
+    },
+    {
+      "name": "iPhone 6 Landscape",
+      "width": 667
+    },
+    {
+      "name": "iPhone 6 Plus Landscape",
+      "width": 738
+    },
+    {
+      "name": "iPad Portrait",
+      "width": 768
+    },
+    {
+      "name": "Galaxy Note 3 Landscape",
+      "width": 960
+    },
+    {
+      "name": "Google Nexus 7 Landscape",
+      "width": 966
+    },
+    {
+      "name": "iPad Landscape",
+      "width": 1024
+    },
+    {
+      "name": "11\" MacBook Air",
+      "width": 1366
+    },
+    {
+      "name": "13\" MacBook Air",
+      "width": 1440
+    },
+    {
+      "name": "21.5\" iMac",
+      "width": 1980
+    }
+  ]
 }
