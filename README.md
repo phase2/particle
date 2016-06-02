@@ -1,6 +1,9 @@
-# Setup
+## QuickStart
 
     npm install
+    npm start
+
+That's it.
 
 ## Commands
 
@@ -15,6 +18,14 @@ Start up watches and local server:
 Run Tests:
 
     npm run test
+
+Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by running:
+
+    npm run new
+
+---
+
+# Details
 
 ## Assets
 
@@ -38,6 +49,10 @@ Documentation for many of the features are found in `node_modules/p2-theme-core/
 ### Babel JS Transpiling Config
 
 Edit `.babelrc` for configuration of [Babel rules](https://babeljs.io/docs/usage/options/) that transpile JS. Default allows ES6 to be transpiled to ES5. Learn about awesome [ES6 features](http://es6-features.org) here.
+
+---
+
+# Deeper Details
 
 ## More control
 
