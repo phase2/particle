@@ -1,17 +1,13 @@
 css:
   enabled: true
   src:
-    - src/scss/**/*.scss
-    - src/patterns/**/*.scss
+    - scss/**/*.scss
+    - pattern-lab/source/_patterns/**/*.scss
   dest: dest/
   flattenDestOutput: true
   lint:
-    enabled: true
-    failOnError: false
-    # Add to the main src glob - useful for exclusions with `!`
-    extraSrc:
-#      - '!src/scss/00-config/02-variables/_typography.scss'
-  # enables additional debugging information in the output file as CSS comments - only use when necessary
+    enabled: false
+    failOnError: true
   sourceComments: false
   sourceMapEmbed: false
   # tell the compiler whether you want 'expanded' or 'compressed' output code
@@ -36,30 +32,61 @@ css:
 js:
   enabled: true
   src:
-    - src/js/**/*.js
+    - js/**/*.js
   dest: dest/
-  destName: script.js
+  destName: all.min.js
   sourceMapEmbed: false
   uglify: false
   babel: true
   eslint:
     enabled: true
     src:
-      - src/js/**/*.js
+      - js/**/*.js
       - gulpfile.js
 patternLab:
-  enabled: true
-  src:
-    data: src/data/
-    patternLabFiles: src/patternlab-files/
-    patterns: src/patterns/
-  dest: dest/pattern-lab/
-  injectFiles:
-#    - bower_components/modernizr/modernizr.js
+  enabled: false
+  configFile: pattern-lab/config/config.yml
+  watchedExtensions:
+    - twig
+    - json
+    - yaml
+    - yml
+    - md
+    - jpg
+    - jpeg
+    - png
+# injectFiles:
+ #   - ../../modules/**/*.css
   injectBower: true
-icons: # https://github.com/nfroidure/gulp-iconfont
+  scssToJson:
+    -
+      src: pattern-lab/source/_patterns/00-base/01-colors/_color-vars.scss
+      dest: pattern-lab/source/_patterns/00-base/01-colors/colors.json
+      lineStartsWith: $c-
+      allowVarValues: false
+    -
+      src: pattern-lab/source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
+      dest: pattern-lab/source/_patterns/01-atoms/01-typography/fonts/font-sizes.json
+      lineStartsWith: $fs--
+      allowVarValues: false
+    -
+      src: pattern-lab/source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
+      dest: pattern-lab/source/_patterns/01-atoms/01-typography/fonts/font-families.json
+      lineStartsWith: $ff--
+      allowVarValues: false
+    -
+      src: pattern-lab/source/_patterns/00-base/breakpoints/_breakpoints.scss
+      dest: pattern-lab/source/_patterns/00-base/breakpoints/breakpoints.json
+      lineStartsWith: $bp--
+      allowVarValues: false
+    -
+      src: pattern-lab/source/_patterns/00-base/spacing/_spacing.scss
+      dest: pattern-lab/source/_patterns/00-base/spacing/spacing.json
+      lineStartsWith: $spacing--
+      allowVarValues: false
+icons:
   enabled: true
-  src: src/images/icons/src/*.svg
+  src: images/icons/src/*.svg
   dest: dest/
   fontPathPrefix: ''
   classNamePrefix: icon
@@ -68,11 +95,11 @@ icons: # https://github.com/nfroidure/gulp-iconfont
   templates:
     enabled: true
     css:
-      src: src/images/icons/templates/_icons.scss
-      dest: src/scss/00-config/
+      src: images/icons/templates/_icons.scss
+      dest: scss/00-config/
     demo:
-      src: src/images/icons/templates/icons.mustache
-      dest: src/patterns/00-atoms/04-images/
+      src: images/icons/templates/icons.twig
+      dest: pattern-lab/source/_patterns/01-atoms/images/
   formats:
     - ttf
     - eot
@@ -85,8 +112,8 @@ browserSync:
     # - template.php
   # domain: mysite.dev # enable when full CMS is set up
   baseDir: ./
-  startPath: ''
-  openBrowserAtStart: true
+  startPath: pattern-lab/public/
+  openBrowserAtStart: false
   # requires above to be true; allows non-default browser to open
   browser:
     - Google Chrome
@@ -96,16 +123,12 @@ browserSync:
   reloadDelay: 50
   reloadDebounce: 750
 drupal:
-  enabled: false
-  # when these files change
+  enabled: true
   watch:
-    - template.php
-    - src/templates/**
-  # run this command
+    - templates/**
   command: drush cc all
   # in this directory
   dir: ./
   inject:
     bower: true
-    file: theme.info
-
+    file: patternlab.info
