@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: solid 3px $c-border;
+  margin-left: $spacing--l;
+  padding-left: $spacing--l;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// All last children
+:last-child {
+  margin-bottom: 0;
+}
+
+// all last children with a class
+[class]:last-child {
+  margin-bottom: 0;
+}
+

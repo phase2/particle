@@ -1,3 +1,5 @@
+@include add-grid(12);
+@include add-gutter(0);
 $grid-gutter: 1rem;
 
 /// Smart Grid
