@@ -3,6 +3,8 @@
   "key2": "use this for variables you want to load globally",
   "title": "Title Here",
   "text": "Text",
+  "site_title": "Site Title",
+  "site_slogan": "Site Slogan",
   "img": {
     "avatar": "http://placeimg.com/600/600/people",
     "square": "http://placeimg.com/600/600/nature",

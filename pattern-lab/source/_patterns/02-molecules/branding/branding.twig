@@ -1,0 +1,19 @@
+<aside class="branding">
+  {% if site_logo %}
+    <div class="branding__logo">
+      <a href="{{ url }}" title="{{ 'Home'|t }}" rel="home">
+        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+      </a>
+    </div>
+  {% endif %}
+
+  {% if site_name %}
+    <h2 class="branding__name">
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+    </h2>
+  {% endif %}
+
+  {% if site_slogan %}
+    <h6 class="branding__slogan">{{ site_slogan }}</h6>
+  {% endif %}
+</aside>
