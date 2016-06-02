@@ -34,7 +34,7 @@ js:
   src:
     - js/**/*.js
   dest: dest/
-  destName: all.min.js
+  destName: script.js
   sourceMapEmbed: false
   uglify: false
   babel: true
@@ -44,7 +44,7 @@ js:
       - js/**/*.js
       - gulpfile.js
 patternLab:
-  enabled: false
+  enabled: true
   configFile: pattern-lab/config/config.yml
   watchedExtensions:
     - twig

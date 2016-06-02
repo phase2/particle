@@ -4,9 +4,6 @@
 
 files:
   include: 'scss/**/*.scss'
-  ignore: 
-    - 'scss/**/*tmp*.*'
-    - 'scss/00-config/_icons.scss'
 options:
   formatter: stylish
   merge-default-rules: false

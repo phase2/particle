@@ -45,8 +45,17 @@ a {
 }
 
 blockquote {
-  color: $callout-module-text;
+  font-style: italic;
+  border-left: solid 3px $c-border;
+  margin-left: $spacing--l;
+  padding-left: $spacing--l;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 hr {
   border-style: solid;

@@ -2,7 +2,7 @@
 /// PRECISE CONTROL OVER RESPONSIVE TYPOGRAPHY FOR SASS
 /// Indrek Paas @indrekpaas
 /// Inspired by Mike Riethmuller's Precise control over responsive typography
-/// @see http://madebymike.com.au/writing/precise-control-responsive-typography/
+/// @link http://madebymike.com.au/writing/precise-control-responsive-typography/
 /// @param $properties
 /// @param $min-vw
 /// @param $max-vw
@@ -72,7 +72,7 @@
 
 /// Mixin - Local Base
 /// Set HTML font sizing base for global/local sizing (rem/em).
-/// @see https://css-tricks.com/rem-global-em-local/
+/// @link https://css-tricks.com/rem-global-em-local/
 @mixin local-base() {
   font-size: 1rem; // 16px (default)
 }

@@ -2,7 +2,9 @@ name = Pattern Lab Starter
 core = 7.x
 
 ; inject:css
+stylesheets[all][] = dest/style.css
 ; endinject
 
 ; inject:js
+scripts[] = dest/all.min.js
 ; endinject
