@@ -1,0 +1,91 @@
+@include add-grid(12);
+@include add-gutter(0);
+$grid-gutter: 1rem;
+
+/// Smart Grid
+/// Include in a parent element to layout all children
+/// @param $row-items [4] - How many items per row
+/// @param $gutter [1rem] - Space between Items
+@mixin smart-grid($row-items: 4, $gutter: $grid-gutter) {
+  $column: (100% / $row-items);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  > * {
+    margin-bottom: $gutter;
+    @if $row-items > 1 {
+      width: calc(#{$column} - (#{$gutter} / 2));
+    } @else {
+      width: 100%;
+    }
+  }
+}
+
+.grid-demo {
+  counter-reset: grid-item;
+  > * {
+    counter-increment: grid-item;
+    &:after {
+      content: counter(grid-item);
+      margin-left: 3px;
+    }
+    &:nth-child(odd) {
+      border: dashed 1px red;
+    }
+    &:nth-child(even) {
+      border: dashed 1px orange;
+    }
+  }
+}
+
+.smart-grid {
+  $smart-grid-sizes: 2, 3, 4, 5, 6;
+  > * {
+    margin-bottom: 1rem;
+  }
+  @each $size in $smart-grid-sizes {
+    @include breakpoint($bp--small) {
+      &[data-row-items-small="#{$size}"] {
+        @include smart-grid($row-items: $size, $gutter: 42px);
+      }
+    }
+  }
+  @each $size in $smart-grid-sizes {
+    @include breakpoint($bp--medium) {
+      &[data-row-items-medium="#{$size}"] {
+        @include smart-grid($row-items: $size, $gutter: 42px);
+      }
+    }
+  }
+  @each $size in $smart-grid-sizes {
+    @include breakpoint($bp--large) {
+      &[data-row-items-large="#{$size}"] {
+        @include smart-grid($row-items: $size, $gutter: 42px);
+      }
+    }
+  }
+  @each $size in $smart-grid-sizes {
+    @include breakpoint($bp--xlarge) {
+      &[data-row-items-xlarge="#{$size}"] {
+        @include smart-grid($row-items: $size, $gutter: 42px);
+      }
+    }
+  }
+}
+
+.grid--2-1 {
+  @include breakpoint($bp--medium) {
+    display: flex;
+    justify-content: space-between;
+  }
+  > * {
+    @include breakpoint($bp--medium) {
+      &:nth-child(odd) {
+        width: calc(66.66% - (#{$grid-gutter} / 2));
+      }
+      &:nth-child(even) {
+        width: calc(33.33% - (#{$grid-gutter} / 2));
+      }
+    }
+  }
+}

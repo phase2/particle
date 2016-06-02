@@ -1,0 +1,30 @@
+$fw--100: 100; // thin/hairline
+$fw--200: 200; // extra-light/ultra-light
+$fw--300: 300; // light*
+$fw--400: 400; // normal/regular/book/roman*
+$fw--500: 500; // medium
+$fw--600: 600; // semi-bold/demi-bold
+$fw--700: 700; // bold*
+$fw--800: 800; // extra-bold/ultra-bold
+$fw--900: 900; // black/heavy
+
+@font-face {
+  font-family: "LatoRegular";
+  src:  url("../fonts/Lato-Regular.woff2") format("woff2"),
+  url("../fonts/Lato-Regular.woff") format("woff"),
+  url("../fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$ff--regular: 'LatoRegular', sans-serif;
+$ff--alternate: 'Helvetica', sans-serif;
+
+// Font Sizes
+$fs--36px: 36px;
+$fs--30px: 30px;
+$fs--24px: 24px;
+$fs--18px: 18px;
+$fs--16px: 16px;
+$fs--14px: 14px;
+$fs--12px: 12px;

@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "name": "$fs--36px",
+      "value": "36px"
+    },
+    {
+      "name": "$fs--30px",
+      "value": "30px"
+    },
+    {
+      "name": "$fs--24px",
+      "value": "24px"
+    },
+    {
+      "name": "$fs--18px",
+      "value": "18px"
+    },
+    {
+      "name": "$fs--16px",
+      "value": "16px"
+    },
+    {
+      "name": "$fs--14px",
+      "value": "14px"
+    },
+    {
+      "name": "$fs--12px",
+      "value": "12px"
+    }
+  ],
+  "meta": {
+    "description": "To add to these items, use Sass variables that start with <code>$fs--</code> in <code>pattern-lab/source/_patterns/01-atoms/01-typography/fonts/_fonts.scss</code>"
+  }
+}

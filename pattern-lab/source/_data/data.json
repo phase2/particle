@@ -1,0 +1,133 @@
+{
+  "key": "value",
+  "key2": "use this for variables you want to load globally",
+  "title": "Title Here",
+  "text": "Text",
+  "site_title": "Site Title",
+  "site_slogan": "Site Slogan",
+  "img": {
+    "avatar": "http://placeimg.com/600/600/people",
+    "square": "http://placeimg.com/600/600/nature",
+    "rectangle": "http://placeimg.com/1200/900/tech",
+    "landscape": "http://placeimg.com/1200/900/tech",
+    "landscapeWide": "http://placeimg.com/1280/640/tech"
+  },
+  "headline": {
+    "short": "Lorem ipsum dolor sit amet, consectetur",
+    "medium": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+  },
+  "excerpt": {
+    "short": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "medium": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "long": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "url": "http://example.com",
+  "name": {
+    "first": "Junius",
+    "firsti": "J",
+    "middle": "Marius",
+    "middlei": "M",
+    "last": "Koolen",
+    "lasti": "K"
+  },
+  "year": {
+    "long": "2013",
+    "short": "13"
+  },
+  "month": {
+    "long": "January",
+    "short": "Jan",
+    "digit": "01"
+  },
+  "dayofweek": {
+    "long": "Sunday",
+    "short": "Sun"
+  },
+  "day": {
+    "long": "01",
+    "short": "1",
+    "ordinal": "st"
+  },
+  "hour": {
+    "long": "06",
+    "short": "6",
+    "military": "06",
+    "ampm": "am"
+  },
+  "minute": {
+    "long": "20",
+    "short": "20"
+  },
+  "seconds": "31",
+  "device_widths": [
+    {
+      "name": "iPhone Portrait",
+      "width": 320
+    },
+    {
+      "name": "Galaxy Nexus Portrait",
+      "width": 360
+    },
+    {
+      "name": "iPhone 6 Portrait",
+      "width": 375
+    },
+    {
+      "name": "iPhone 6 Plus Portrait",
+      "width": 414
+    },
+    {
+      "name": "Galaxy Note 3 Portrait",
+      "width": 540
+    },
+    {
+      "name": "iPhone Landscape",
+      "width": 568
+    },
+    {
+      "name": "Google Nexus 7 Portrait",
+      "width": 604
+    },
+    {
+      "name": "Galaxy Nexus Landscape",
+      "width": 640
+    },
+    {
+      "name": "iPhone 6 Landscape",
+      "width": 667
+    },
+    {
+      "name": "iPhone 6 Plus Landscape",
+      "width": 738
+    },
+    {
+      "name": "iPad Portrait",
+      "width": 768
+    },
+    {
+      "name": "Galaxy Note 3 Landscape",
+      "width": 960
+    },
+    {
+      "name": "Google Nexus 7 Landscape",
+      "width": 966
+    },
+    {
+      "name": "iPad Landscape",
+      "width": 1024
+    },
+    {
+      "name": "11\" MacBook Air",
+      "width": 1366
+    },
+    {
+      "name": "13\" MacBook Air",
+      "width": 1440
+    },
+    {
+      "name": "21.5\" iMac",
+      "width": 1980
+    }
+  ]
+}

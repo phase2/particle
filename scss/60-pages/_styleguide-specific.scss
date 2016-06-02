@@ -29,7 +29,7 @@ pre {
       height: 25px;
       //float: left;
       //width: 100%;
-      outline: dotted 1px hsl(0, 0%, 50%);
+      border: dotted 1px hsl(0, 0%, 50%);
     }
     .sg-info {
       line-height: 1;
@@ -54,6 +54,8 @@ pre {
 }
 
 .sg-breakpoints {
+  overflow: hidden;
+  position: relative;
   ul {
     margin: 0;
     padding: 0;
@@ -84,11 +86,11 @@ pre {
       }
       &:hover {
         border-left-color: hsla(0, 0%, 35%, 0.3);
-        // scss-lint:disable NestingDepth 
+        // scss-lint:disable NestingDepth
         > .label {
           opacity: 0;
         }
-        // scss-lint:enable NestingDepth 
+        // scss-lint:enable NestingDepth
       }
     }
   }
@@ -110,7 +112,7 @@ pre {
     text-transform: uppercase;
     border-bottom: 2px solid black;
   }
-  th, 
+  th,
   td {
     text-align: left;
     white-space: nowrap;
@@ -123,7 +125,7 @@ pre {
 
 .demo__block {
   height: 200px;
-  background-color: rgba($color--gray, 0.5);
+  background-color: rgba($c-gray, 0.5);
 }
 
 // Icons
@@ -133,45 +135,35 @@ pre {
   padding: 25px;
 }
 .icons-demo {
-  margin-bottom: 40px;
-  @media all and (min-width: 600px) {
-    column-count: 3;
-    column-gap: 20px; 
-  }
-  @media all and (min-width: 800px) {
-    column-count: 5;
-  }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
-.icons__item,
-.icons__item i {
+
+.icons__item {
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
+  padding: 0.3em;
+  margin: 0 0.5em 0.5em 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   line-height: 2em;
-  cursor: pointer;
   overflow: hidden;
+  &:last-child {
+    margin-bottom: 0.5em;
+  }
 }
-.icons__item:hover {
-  color: #3c90be;
-}
+
 .icons__item i {
   display: inline-block;
   width: 32px;
   text-align: center;
-  &:hover i {
-    transform: scale(1.5);
-  }
 }
-.icons-demo__footer {
-  margin-top: 40px;
-  font-size: 14px;
-  color: #999;
-}
-//.demo-random-icon {
-//  @include icon("facebook");
-//}
-//.demo-text-replace-icon {
-//  @include icon("twitter", $text-replace: true);
-//  height: 16px;
-//  width: 16px;
-//}
 
 .demo .g .gi {
   text-align: center;

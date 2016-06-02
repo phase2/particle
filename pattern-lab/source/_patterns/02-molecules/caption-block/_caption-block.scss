@@ -1,0 +1,16 @@
+.caption-block {
+  @include local-base();
+  margin: 0;
+
+  &__image {
+
+  }
+  &__content {
+    font-size: 1em; // 16px (default)
+    line-height: 1.35em;
+
+    @include breakpoint($bp--medium) {
+      line-height: 1.5em;
+    }
+  }
+}

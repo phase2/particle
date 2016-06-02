@@ -1,0 +1,22 @@
+/**
+ * Breakpoint Configuration
+ * @see https://github.com/Team-Sass/breakpoint/wiki
+ *
+ * Usage:
+ * display: none; // hidden for mobile
+ * @include breakpoint($bp--small-up) {
+ *   display: block; // shown above 400
+ * }
+ */
+
+// Breakpoint will output fallback selectors in this stylesheet
+@include breakpoint-set("no query fallbacks", true);
+
+// Sign posts
+$bp--xsmall: 380px;
+$bp--small: 500px;
+$bp--medium: 640px;
+$bp--large: 768px;
+$bp--xlarge: 1024px;
+$bp--xxlarge: 1250px;
+$bp--xxxlarge: 1600px;

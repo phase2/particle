@@ -1,0 +1,14 @@
+<div class="grid--2-1
+  {%- if classes %} {{ classes }}{% endif -%}
+  {%- if demoItems %} grid-demo{% endif -%}"
+>
+  {% block gridItems %}
+    {% if demoItems %}
+      {% set items = 1..demoItems %}
+    {% endif %}
+    {% for item in items %}
+      <div></div>
+    {% endfor %}
+  {% endblock %}
+
+</div>

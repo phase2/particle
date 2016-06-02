@@ -1,8 +1,6 @@
 # Compiled files
 dest/
-src/scss/00-config/_icons.scss
-src/patterns/00-atoms/04-images/icons.mustache
-src/patternlab-css/*.css
+scss/00-config/_icons.scss
 
 # OS generated files
 .DS_Store
@@ -18,3 +16,4 @@ node_modules
 #IDE plugins
 .idea
 atlassian-ide-plugin.xml
+

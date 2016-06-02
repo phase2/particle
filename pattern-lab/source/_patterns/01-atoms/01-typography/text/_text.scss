@@ -1,0 +1,85 @@
+/// Mixin - Body Copy
+/// @param $alt
+@mixin body-copy($alt: false) {
+  font-family: $ff--regular;
+  @if $alt {
+    font-family: $ff--alternate;
+  }
+}
+
+/// Mixin - Set Link Colors & Decoration
+/// @param $link
+/// @param $hover
+/// @param $deco
+/// @param $deco--hover
+@mixin a-link($link: $c-red, $hover: $c-red, $deco: "none", $deco--hover: "underline") {
+  &:link,
+  &:visited {
+    color: $link;
+    text-decoration: $deco;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    color: $hover;
+    text-decoration: $deco--hover;
+  }
+}
+
+/// This will adjust the base HTML font size fluidly between the xsmall and
+/// xxlarge breakpoints to a font size between 14px minimum to 18px maximum.
+html {
+  @include fluid-type(font-size, $bp--xsmall, $bp--xxlarge, 14px, 18px);
+}
+
+body {
+  @include body-copy;
+}
+
+p {
+  margin: 0 0 $spacing--sm;
+}
+
+a {
+  @include a-link;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: solid 3px $c-border;
+  margin-left: $spacing--l;
+  padding-left: $spacing--l;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+hr {
+  border-style: solid;
+  border-width: 1px 0 0;
+  color: currentColor;
+}
+
+.font-secondary {
+  @include body-copy($alt: true);
+}
+
+// inline code wrappers, Markdown style
+code {
+  &:before {
+    content: '`';
+  }
+  &:after {
+    content: '`';
+  }
+  // don't show it when in a block of code
+  pre & {
+    &:after,
+    &:before {
+      content: '';
+    }
+  }
+}
