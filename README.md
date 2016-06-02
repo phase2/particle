@@ -3,21 +3,30 @@
     npm install
     npm start
 
+If you're using Drupal 8, get the [Component Libraries module](https://www.drupal.org/project/components):
+
+    drush dl components
+    drush en components -y
+
 That's it.
 
 ## Commands
 
-Compile the site:
+Compile everything:
 
     npm run compile
 
-Start up watches and local server:
+Start up watches and local server after compiling:
 
-    npm run start
+```bash
+    npm run start # or `npm start`
+```
 
 Run Tests:
 
-    npm run test
+```bash
+    npm run test # or `npm test`
+```
 
 Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by running:
 
@@ -26,6 +35,12 @@ Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by 
 ---
 
 # Details
+
+## Drupal 8 
+
+From your Drupal Twig templates in `templates/` you can `{% include %}`, `{% extends %}`, and `{% embed %}` your Pattern Lab Twig template files. Each of the top level folders has a Twig Namespace like `@organisms` and then you append the path down to the file like below.
+
+    {% include "@organisms/path/to/file.twig" %}
 
 ## Assets
 
