@@ -10,6 +10,14 @@ If you're using Drupal 8, get the [Component Libraries module](https://www.drupa
 
 That's it.
 
+## Orientation
+
+- `source/_patterns/` - contains all Pattern Lab templates and the majority of the Sass files.
+- `scss/` - Sass files that aren't really tied to a component, so not in the above location.
+- `js/` - all js files here and transpiled by Babel and combined into a single `dest/script.js` file.
+- `images/icons/src/` - all SVGs here are combined into font icons and have classes and Sass mixins made for each based on file name. See `atoms/images/icons` in Pattern Lab.
+- `dest/sassdoc/` - Open this in a browser to see documentation on all Sass thanks to [SassDoc](http://sassdoc.com).
+
 ## Commands
 
 Compile everything:
@@ -41,10 +49,6 @@ Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by 
 From your Drupal Twig templates in `templates/` you can `{% include %}`, `{% extends %}`, and `{% embed %}` your Pattern Lab Twig template files. Each of the top level folders has a Twig Namespace like `@organisms` and then you append the path down to the file like below.
 
     {% include "@organisms/path/to/file.twig" %}
-
-Say we made a Card molecule and we wanted to use that in the node teaser. It come together like this:
-
-
 
 ## Assets
 
