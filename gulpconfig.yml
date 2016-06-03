@@ -113,8 +113,8 @@ browserSync:
   watchFiles:
     # - template.php
   # domain: mysite.dev # enable when full CMS is set up
-  baseDir: ../../
-  startPath: dev-tools/pattern-lab-starter/pattern-lab/public/
+  baseDir: ./
+  startPath: pattern-lab/public/
   openBrowserAtStart: false
   # requires above to be true; allows non-default browser to open
   browser:
@@ -133,4 +133,4 @@ drupal:
   dir: ./
   inject:
     bower: true
-    file: patternlab.info
+    file: patternlab.info.yml
