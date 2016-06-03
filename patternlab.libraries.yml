@@ -1,4 +1,8 @@
 core:
   css:
     theme:
-      dest/style.css: {}
+      dest/style.css:
+        preprocess: true
+  js:
+    dest/script.js:
+      preprocess: true

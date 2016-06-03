@@ -8,12 +8,21 @@ core: 8.x
 libraries:
   - patternlab/core
 
+regions:
+  header: Header
+  content: Content  # the content region is required
+  sidebar_first: 'Sidebar first'
+  footer: Footer
+
 # MUST install `components` module: `drush dl components && drush en components -y`
 # For compatibility with Pattern Lab templates; this list must
 # always be the folders immediately under the `$sourceDir` patterns folder
 # `$sourceDir` = defined in `pattern-lab/config/config.yml` under `sourceDir
 # patterns folder = `$sourceDir` + `_patterns/`
 component-libraries:
+  base:
+    paths:
+      - source/_patterns/00-base
   atoms:
     paths:
       - source/_patterns/01-atoms
