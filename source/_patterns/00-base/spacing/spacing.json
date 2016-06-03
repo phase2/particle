@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "name": "$spacing--sm",
+      "value": "5px"
+    },
+    {
+      "name": "$spacing--l",
+      "value": "20px"
+    }
+  ],
+  "meta": {
+    "description": "To add to these items, use Sass variables that start with <code>$spacing--</code> in <code>source/_patterns/00-base/spacing/_spacing.scss</code>"
+  }
+}

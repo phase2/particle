@@ -17,7 +17,7 @@ styleGuideExcludes: ''
 cacheBusterOn: 'true'
 exportDir: export
 publicDir: public
-sourceDir: source
+sourceDir: ../source
 ishMinimum: '240'
 ishMaximum: '2600'
 ishControlsHide:

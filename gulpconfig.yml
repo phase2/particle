@@ -2,7 +2,7 @@ css:
   enabled: true
   src:
     - scss/**/*.scss
-    - pattern-lab/source/_patterns/**/*.scss
+    - source/_patterns/**/*.scss
   dest: dest/
   flattenDestOutput: true
   lint:
@@ -55,33 +55,35 @@ patternLab:
     - jpg
     - jpeg
     - png
-# injectFiles:
+#  injectFiles:
+#    - source/styleguide/styleguide.js
+#    - source/styleguide/custom-styleguide-specific.css
  #   - ../../modules/**/*.css
   injectBower: true
   scssToJson:
     -
-      src: pattern-lab/source/_patterns/00-base/01-colors/_color-vars.scss
-      dest: pattern-lab/source/_patterns/00-base/01-colors/colors.json
+      src: source/_patterns/00-base/01-colors/_color-vars.scss
+      dest: source/_patterns/00-base/01-colors/colors.json
       lineStartsWith: $c-
       allowVarValues: false
     -
-      src: pattern-lab/source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
-      dest: pattern-lab/source/_patterns/01-atoms/01-typography/fonts/font-sizes.json
+      src: source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
+      dest: source/_patterns/01-atoms/01-typography/fonts/font-sizes.json
       lineStartsWith: $fs--
       allowVarValues: false
     -
-      src: pattern-lab/source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
-      dest: pattern-lab/source/_patterns/01-atoms/01-typography/fonts/font-families.json
+      src: source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
+      dest: source/_patterns/01-atoms/01-typography/fonts/font-families.json
       lineStartsWith: $ff--
       allowVarValues: false
     -
-      src: pattern-lab/source/_patterns/00-base/breakpoints/_breakpoints.scss
-      dest: pattern-lab/source/_patterns/00-base/breakpoints/breakpoints.json
+      src: source/_patterns/00-base/breakpoints/_breakpoints.scss
+      dest: source/_patterns/00-base/breakpoints/breakpoints.json
       lineStartsWith: $bp--
       allowVarValues: false
     -
-      src: pattern-lab/source/_patterns/00-base/spacing/_spacing.scss
-      dest: pattern-lab/source/_patterns/00-base/spacing/spacing.json
+      src: source/_patterns/00-base/spacing/_spacing.scss
+      dest: source/_patterns/00-base/spacing/spacing.json
       lineStartsWith: $spacing--
       allowVarValues: false
 icons:
@@ -99,7 +101,7 @@ icons:
       dest: scss/00-config/
     demo:
       src: images/icons/templates/icons.twig
-      dest: pattern-lab/source/_patterns/01-atoms/images/
+      dest: source/_patterns/01-atoms/images/
   formats:
     - ttf
     - eot
@@ -111,8 +113,8 @@ browserSync:
   watchFiles:
     # - template.php
   # domain: mysite.dev # enable when full CMS is set up
-  baseDir: ./
-  startPath: pattern-lab/public/
+  baseDir: ../../
+  startPath: dev-tools/pattern-lab-starter/pattern-lab/public/
   openBrowserAtStart: false
   # requires above to be true; allows non-default browser to open
   browser:

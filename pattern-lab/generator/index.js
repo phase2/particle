@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var includes = require('lodash.includes');
 var path = require('path');
 var fs = require('fs');
-var plBase = ('./pattern-lab/source/_patterns');
+var plBase = ('./source/_patterns');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {

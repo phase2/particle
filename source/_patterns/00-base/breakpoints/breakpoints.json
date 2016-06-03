@@ -30,6 +30,6 @@
     }
   ],
   "meta": {
-    "description": "To add to these items, use Sass variables that start with <code>$bp--</code> in <code>pattern-lab/source/_patterns/00-base/breakpoints/_breakpoints.scss</code>"
+    "description": "To add to these items, use Sass variables that start with <code>$bp--</code> in <code>source/_patterns/00-base/breakpoints/_breakpoints.scss</code>"
   }
 }
