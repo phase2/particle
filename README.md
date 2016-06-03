@@ -42,6 +42,10 @@ From your Drupal Twig templates in `templates/` you can `{% include %}`, `{% ext
 
     {% include "@organisms/path/to/file.twig" %}
 
+Say we made a Card molecule and we wanted to use that in the node teaser. It come together like this:
+
+
+
 ## Assets
 
 Get front end libraries injected into Drupal theme info file and Pattern Lab with:

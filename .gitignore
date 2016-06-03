@@ -17,3 +17,4 @@ node_modules
 .idea
 atlassian-ide-plugin.xml
 
+source/styleguide/css

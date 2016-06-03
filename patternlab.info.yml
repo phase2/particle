@@ -16,16 +16,16 @@ libraries:
 component-libraries:
   atoms:
     paths:
-      - pattern-lab/source/_patterns/01-atoms
+      - source/_patterns/01-atoms
   molecules:
     paths:
-      - pattern-lab/source/_patterns/02-molecules
+      - source/_patterns/02-molecules
   organisms:
     paths:
-      - pattern-lab/source/_patterns/03-organisms
+      - source/_patterns/03-organisms
   templates:
     paths:
-      - pattern-lab/source/_patterns/04-templates
+      - source/_patterns/04-templates
   pages:
     paths:
-      - pattern-lab/source/_patterns/05-pages
+      - source/_patterns/05-pages
