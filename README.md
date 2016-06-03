@@ -24,23 +24,27 @@ That's it.
 
 Compile everything:
 
-    npm run compile
+```bash
+npm run compile
+```
 
 Start up watches and local server after compiling:
 
 ```bash
-    npm run start # or `npm start`
+npm run start # or `npm start`
 ```
 
 Run Tests:
 
 ```bash
-    npm run test # or `npm test`
+npm run test # or `npm test`
 ```
 
 Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by running:
 
-    npm run new
+```bash
+npm run new
+```
 
 ---
 
