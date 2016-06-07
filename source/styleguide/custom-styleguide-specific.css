@@ -9,6 +9,8 @@
  */
 .sg-pattern-example {
   padding-bottom: 5px;
+  /* `position: fixed;` elements will be relative to this ~ http://stackoverflow.com/a/15885486 */
+  transform: translateZ(0);
 }
 
 .sg-pattern-desc {
