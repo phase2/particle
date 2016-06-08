@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
+[![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter) [![Docs](https://readthedocs.org/projects/pattern-lab-starter/badge/?version=master)](http://pattern-lab-starter.readthedocs.io/en/master/?badge=master)
 
 ## QuickStart
 
@@ -48,4 +48,4 @@ npm run new
 
 ---
 
-**Please see the `docs/` folder for more details!**
+**Please see the `docs/` folder for more details!** - Docs folder is also [hosted here](http://pattern-lab-starter.readthedocs.io/en/master).
