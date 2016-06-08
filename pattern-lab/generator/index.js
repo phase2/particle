@@ -33,13 +33,13 @@ module.exports = yeoman.Base.extend({
       choices: [
         'twig',
         'scss',
-        'yml',
         'json',
+        'yml',
         'md'
       ],
       default: [
         'twig',
-        'yml',
+        'json',
         'scss'
       ]
     }, {
