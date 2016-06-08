@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
-
 ## QuickStart
 
     npm install
@@ -45,7 +43,3 @@ Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by 
 ```bash
 npm run new
 ```
-
----
-
-**Please see the `docs/` folder for more details!**
