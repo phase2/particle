@@ -80,3 +80,20 @@
 .local-base {
   @include local-base();
 }
+
+/// Word Wrap fix for long spaceless strings
+/// @see https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/// Ellipsis fix for long spaceless strings
+/// @see https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
