@@ -1,8 +1,10 @@
-'use strict';
-(function ($) {
-  // @todo refactor to use drupal.js in Pattern Lab
-  $(document).ready(function() {
-    $('html').addClass('js');
-  });
-})(jQuery);
+(function($, Drupal) {
+  'use strict';
 
+  Drupal.behaviors.plStarter = {
+    attach: function(context, settings) {
+      $('html', context).addClass('js');
+    }
+  };
+
+})(jQuery, Drupal);
