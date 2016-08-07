@@ -12,7 +12,7 @@
 /// @param $hover
 /// @param $deco
 /// @param $deco--hover
-@mixin a-link($link: $c-red, $hover: $c-red, $deco: "none", $deco--hover: "underline") {
+@mixin a-link($link: $c-red, $hover: $c-red, $deco: none, $deco--hover: underline) {
   &:link,
   &:visited {
     color: $link;
