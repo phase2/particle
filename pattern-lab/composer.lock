@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e76d5bb920ec51e511b8c78497ecb9b5",
-    "content-hash": "45728063350c800a99116d00a48014fc",
+    "hash": "74877c35e83d92797edd373fa704cfce",
+    "content-hash": "cbe59e4745fca1844358899fe993a6ef",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -465,20 +465,17 @@
         },
         {
             "name": "pattern-lab/styleguidekit-assets-default",
-            "version": "v2.1.0",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pattern-lab/styleguidekit-assets-default.git",
-                "reference": "92a1c9f3b70a67d18287403ef51fa9e181ab9006"
+                "reference": "5ab3fe693a2657bc2cfde9dfca0eeb7946cc9ba4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-assets-default/zipball/92a1c9f3b70a67d18287403ef51fa9e181ab9006",
-                "reference": "92a1c9f3b70a67d18287403ef51fa9e181ab9006",
+                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-assets-default/zipball/5ab3fe693a2657bc2cfde9dfca0eeb7946cc9ba4",
+                "reference": "5ab3fe693a2657bc2cfde9dfca0eeb7946cc9ba4",
                 "shasum": ""
-            },
-            "require": {
-                "pattern-lab/core": "^2.0.0"
             },
             "type": "patternlab-styleguidekit",
             "extra": {
@@ -486,24 +483,7 @@
                     "dist": {
                         "publicDir": [
                             {
-                                "bower_components/*": "styleguide/bower_components/*"
-                            },
-                            {
-                                "css/patternlab/*": "styleguide/css/*"
-                            },
-                            {
-                                "fonts/*": "styleguide/fonts/*"
-                            },
-                            {
-                                "html/index.html": "index.html"
-                            },
-                            {
-                                "js/*": "styleguide/js/*"
-                            }
-                        ],
-                        "sourceDir": [
-                            {
-                                "css/custom/*": "styleguide/css/*"
+                                "*": "*"
                             }
                         ]
                     },
@@ -540,26 +520,24 @@
                 "pattern lab",
                 "styleguide"
             ],
-            "time": "2016-05-23 18:43:05"
+            "time": "2016-07-22 23:24:21"
         },
         {
             "name": "pattern-lab/styleguidekit-twig-default",
-            "version": "v2.0.1",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pattern-lab/styleguidekit-twig-default.git",
-                "reference": "a7c1fe6b6bc0541cbfea1fa515fb97e174df5297"
+                "reference": "7b38bfe2fb60cde3850cfe8f4f948cdc206d7188"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-twig-default/zipball/a7c1fe6b6bc0541cbfea1fa515fb97e174df5297",
-                "reference": "a7c1fe6b6bc0541cbfea1fa515fb97e174df5297",
+                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-twig-default/zipball/7b38bfe2fb60cde3850cfe8f4f948cdc206d7188",
+                "reference": "7b38bfe2fb60cde3850cfe8f4f948cdc206d7188",
                 "shasum": ""
             },
             "require": {
-                "pattern-lab/core": "^2.0.0",
-                "pattern-lab/patternengine-twig": "^2.0.0",
-                "pattern-lab/styleguidekit-assets-default": "^2.0.0"
+                "pattern-lab/styleguidekit-assets-default": "^3.0.0"
             },
             "type": "patternlab-styleguidekit",
             "notification-url": "https://packagist.org/downloads/",
@@ -586,7 +564,7 @@
                 "styleguide",
                 "twig"
             ],
-            "time": "2016-05-19 01:29:49"
+            "time": "2016-07-04 01:24:27"
         },
         {
             "name": "seld/jsonlint",

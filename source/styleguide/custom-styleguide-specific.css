@@ -13,18 +13,6 @@
   transform: translateZ(0);
 }
 
-.sg-pattern-desc {
-  border: dashed #ccc 1px;
-  border-radius: 3px;
-  margin: 10px;
-  padding: 5px;
-  display: none;
-}
-
-.sg-pattern-desc.js-ran {
-  display: block;
-}
-
 .sg-pattern-desc img {
   border: solid #ddd 1px;
   padding: 3px;
