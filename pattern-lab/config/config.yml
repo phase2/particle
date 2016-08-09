@@ -1,4 +1,4 @@
-v: 2.0.0-DP1
+v: 2.6.0
 overrideConfig: false
 ie:
     - DS_Store
@@ -18,6 +18,8 @@ cacheBusterOn: 'true'
 exportDir: export
 publicDir: public
 sourceDir: ../source
+defaultPattern: all
+defaultShowPatternInfo: false
 ishMinimum: '240'
 ishMaximum: '2600'
 ishControlsHide:
