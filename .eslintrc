@@ -118,7 +118,7 @@ rules:
   space-before-function-paren:
     - 2
     -
-      anonymous: "always"
+      anonymous: "never"
       named: "never"
   space-in-parens:
     - 2
