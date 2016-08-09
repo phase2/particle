@@ -2,47 +2,58 @@
   "items": [
     {
       "name": "$c-red",
-      "value": "hsl(352, 92%, 38%)"
+      "value": "hsl(352, 92%, 38%)",
+      "comment": "Primary Color. Used for links"
     },
     {
       "name": "$c-blue",
-      "value": "hsl(208, 100%, 50%)"
+      "value": "hsl(208, 100%, 50%)",
+      "comment": ""
     },
     {
       "name": "$c-white",
-      "value": "white"
+      "value": "white",
+      "comment": ""
     },
     {
       "name": "$c-gray--lightest",
-      "value": "hsl(0, 0%, 89%)"
+      "value": "hsl(0, 0%, 89%)",
+      "comment": ""
     },
     {
       "name": "$c-gray--lighter",
-      "value": "hsl(0, 0%, 80%)"
+      "value": "hsl(0, 0%, 80%)",
+      "comment": ""
     },
     {
       "name": "$c-gray--light",
-      "value": "hsl(0, 0%, 60%)"
+      "value": "hsl(0, 0%, 60%)",
+      "comment": ""
     },
     {
       "name": "$c-gray",
-      "value": "hsl(0, 0%, 48%)"
+      "value": "hsl(0, 0%, 48%)",
+      "comment": ""
     },
     {
       "name": "$c-gray--dark",
-      "value": "hsl(0, 0%, 40%)"
+      "value": "hsl(0, 0%, 40%)",
+      "comment": ""
     },
     {
       "name": "$c-gray--darker",
-      "value": "hsl(0, 0%, 20%)"
+      "value": "hsl(0, 0%, 20%)",
+      "comment": ""
     },
     {
       "name": "$c-gray--darkest",
-      "value": "hsl(0, 0%, 16.1%)"
+      "value": "hsl(0, 0%, 16.1%)",
+      "comment": ""
     },
     {
       "name": "$c-black",
-      "value": "black"
+      "value": "black",
+      "comment": ""
     }
   ],
   "meta": {

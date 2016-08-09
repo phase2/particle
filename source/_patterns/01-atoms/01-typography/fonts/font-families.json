@@ -2,11 +2,13 @@
   "items": [
     {
       "name": "$ff--regular",
-      "value": "'LatoRegular', sans-serif"
+      "value": "'LatoRegular', sans-serif",
+      "comment": ""
     },
     {
       "name": "$ff--alternate",
-      "value": "'Helvetica', sans-serif"
+      "value": "'Helvetica', sans-serif",
+      "comment": ""
     }
   ],
   "meta": {

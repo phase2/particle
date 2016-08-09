@@ -2,31 +2,38 @@
   "items": [
     {
       "name": "$bp--xsmall",
-      "value": "380px"
+      "value": "380px",
+      "comment": ""
     },
     {
       "name": "$bp--small",
-      "value": "500px"
+      "value": "500px",
+      "comment": ""
     },
     {
       "name": "$bp--medium",
-      "value": "640px"
+      "value": "640px",
+      "comment": ""
     },
     {
       "name": "$bp--large",
-      "value": "768px"
+      "value": "768px",
+      "comment": ""
     },
     {
       "name": "$bp--xlarge",
-      "value": "1024px"
+      "value": "1024px",
+      "comment": ""
     },
     {
       "name": "$bp--xxlarge",
-      "value": "1250px"
+      "value": "1250px",
+      "comment": ""
     },
     {
       "name": "$bp--xxxlarge",
-      "value": "1600px"
+      "value": "1600px",
+      "comment": ""
     }
   ],
   "meta": {

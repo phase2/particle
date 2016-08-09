@@ -5,6 +5,7 @@
       <div class="sg-info">
         <span>{{item.value}}</span> <br/>
         <code>{{item.name}}</code>
+        {% if item.comment %}<div class="comment">{{ item.comment }}</div>{% endif %}
       </div>
     </li>
   {% endfor %}
