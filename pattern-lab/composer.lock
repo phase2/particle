@@ -346,16 +346,16 @@
         },
         {
             "name": "pattern-lab/drupal-twig-components",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pattern-lab/plugin-drupal-twig-components.git",
-                "reference": "e249d8d141d08830ebfa8b893a74aaae7146263f"
+                "reference": "994703e93235c087cd120e8e44b3814471899b4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pattern-lab/plugin-drupal-twig-components/zipball/e249d8d141d08830ebfa8b893a74aaae7146263f",
-                "reference": "e249d8d141d08830ebfa8b893a74aaae7146263f",
+                "url": "https://api.github.com/repos/pattern-lab/plugin-drupal-twig-components/zipball/994703e93235c087cd120e8e44b3814471899b4c",
+                "reference": "994703e93235c087cd120e8e44b3814471899b4c",
                 "shasum": ""
             },
             "type": "patternlab-plugin",
@@ -398,7 +398,7 @@
                 "pattern lab",
                 "twig"
             ],
-            "time": "2016-04-29 21:04:30"
+            "time": "2016-08-10 17:12:49"
         },
         {
             "name": "pattern-lab/patternengine-twig",
