@@ -27,7 +27,8 @@
     "pattern-lab/patternengine-twig": "^2.0.0",
     "pattern-lab/styleguidekit-twig-default": "^3.0.0",
     "pattern-lab/drupal-twig-components": "^2.0.0",
-    "aleksip/plugin-data-transform": "^1.0.0"
+    "aleksip/plugin-data-transform": "^1.0.0",
+    "pattern-lab/plugin-faker": "^2.0"
   },
   "scripts": {
     "post-install-cmd": [

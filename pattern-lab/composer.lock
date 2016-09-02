@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "74877c35e83d92797edd373fa704cfce",
-    "content-hash": "cbe59e4745fca1844358899fe993a6ef",
+    "hash": "e73f6be5c2d5b998248e57203b5c9688",
+    "content-hash": "3002c89ca6e716101bc2042f2a033939",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -180,6 +180,54 @@
                 "iterator"
             ],
             "time": "2015-04-14 22:21:58"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3|^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": []
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2016-04-29 12:21:54"
         },
         {
             "name": "kevinlebrun/colors.php",
@@ -462,6 +510,63 @@
                 "twig"
             ],
             "time": "2016-05-19 03:02:14"
+        },
+        {
+            "name": "pattern-lab/plugin-faker",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pattern-lab/plugin-php-faker.git",
+                "reference": "1892e8937e5b149068f098c17b214dc3860ef237"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pattern-lab/plugin-php-faker/zipball/1892e8937e5b149068f098c17b214dc3860ef237",
+                "reference": "1892e8937e5b149068f098c17b214dc3860ef237",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "^1.0.0",
+                "pattern-lab/core": "^2.3.0",
+                "php": ">=5.4"
+            },
+            "type": "patternlab-plugin",
+            "extra": {
+                "patternlab": {
+                    "config": {
+                        "plugins": {
+                            "faker": {
+                                "enabled": true,
+                                "locale": "en_US"
+                            }
+                        }
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PatternLab\\Faker": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Olsen",
+                    "email": "dmolsen@gmail.com",
+                    "homepage": "http://dmolsen.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Faker Support for Pattern Lab",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "faker",
+                "pattern lab"
+            ],
+            "time": "2016-07-03 01:00:15"
         },
         {
             "name": "pattern-lab/styleguidekit-assets-default",

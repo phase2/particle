@@ -1,18 +1,18 @@
 v: 2.6.0
 overrideConfig: false
 ie:
-    - DS_Store
-    - less
-    - scss
+  - DS_Store
+  - less
+  - scss
 id:
-    - scss
-    - .svn
-    - .sass-cache
+  - scss
+  - .svn
+  - .sass-cache
 cleanPublic: 'true'
 patternStates:
-    - inprogress
-    - inreview
-    - complete
+  - inprogress
+  - inreview
+  - complete
 styleGuideExcludes: ''
 cacheBusterOn: 'true'
 exportDir: export
@@ -23,7 +23,7 @@ defaultShowPatternInfo: false
 ishMinimum: '240'
 ishMaximum: '2600'
 ishControlsHide:
-    - hay
+  - hay
 lineageMatch: '{%([ ]+)?include( |\()[&quot;\&#039;]([A-Za-z0-9-_]+)[&quot;\&#039;](\))?(.*)%}'
 lineageMatchKey: 3
 patternExtension: twig
@@ -38,3 +38,7 @@ twigTagExt: tag.php
 twigTestExt: test.php
 styleguideKit: pattern-lab/styleguidekit-twig-default
 styleguideKitPath: vendor/pattern-lab/styleguidekit-twig-default
+plugins:
+  faker:
+    enabled: true
+    locale: en_US

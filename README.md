@@ -50,6 +50,27 @@ npm run new
 
 # Details
 
+## Pattern Lab
+
+### Dummy data using `Faker`
+
+[`Faker`](https://github.com/fzaninotto/Faker) generates fake data and the [Faker plugin for Pattern Lab](https://github.com/pattern-lab/plugin-php-faker) is used here. This generates *different* fake content for each compile, and allows [translated content](https://github.com/pattern-lab/plugin-php-faker#locales) as well.
+
+**Faker only works in the global data files** found in `source/_data/` currently until [this bug](https://github.com/pattern-lab/plugin-php-faker/issues/2) is fixed.
+
+Use it like this in `source/_data/data.json`:
+
+```json
+{
+  "description": "Faker.paragraph",
+  "text": "Faker.words(3, true)",
+  "byline": "Faker.sentence",
+  "intro": "Faker.sentences(2, true)"
+}
+```
+
+The formatters (things like `.paragraph`, `.words`, etc) can accept options, when you see `Faker.words(3, true)` that means give me 3 random words and I'd like them as a string and not an array of strings. All the [formatters and their options are documented here](https://github.com/fzaninotto/Faker#formatters) - there's tons: numbers, address, names, dates, and more.
+
 ## Configuration
 
 It's almost all done in `gulpconfig.yml`. End all paths with a `/` please (i.e. `path/to/dir/`). The local `gulpfile.js` passes the `config` object to [`p2-theme-core`](https://github.com/phase2/p2-theme-core) - which can be viewed at `node_modules/p2-theme-core/` (most stuff in `lib/`).
