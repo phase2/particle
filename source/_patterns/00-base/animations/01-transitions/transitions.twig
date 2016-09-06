@@ -1,0 +1,40 @@
+<div class="demo-transition transition-opacity"><strong>Opacity</strong> (Hover to see effect)</div>
+<div class="demo-transition transition-move"><strong>Move</strong> (Hover to see effect)</div>
+
+<strong>Values:</strong>
+<ul>
+  {% for item in items %}
+    <li><code>{{ item.name }}: {{ item.value }};</code> {{ item.comment }}</li>
+  {% endfor %}
+</ul>
+
+<style>
+  .demo-transition {
+    background: #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .demo-transition.transition-opacity:hover {
+    opacity: 0;
+  }
+  .demo-transition.transition-move {
+    position: relative;
+  }
+  .demo-transition.transition-move:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 3px;
+    top: 0;
+    left: 8px;
+    bottom: 0;
+    background: black;
+  }
+  .demo-transition.transition-move:hover:after {
+    left: calc(100% - 8px);
+  }
+</style>

@@ -21,7 +21,7 @@ css:
     enabled: true
     dest: dest/sassdoc
     verbose: false
-    basePath: https://github.com/phase2/pattern-lab-starter/blob/master/scss
+    basePath: https://github.com/phase2/pattern-lab-starter/blob/master/source/_patterns
 #    exclude:
 #      - file.scss
     theme: default
@@ -61,31 +61,30 @@ patternLab:
  #   - ../../modules/**/*.css
   injectBower: true
   scssToJson:
-    -
-      src: source/_patterns/00-base/01-colors/_color-vars.scss
+    - src: source/_patterns/00-base/01-colors/_color-vars.scss
       dest: source/_patterns/00-base/01-colors/colors.json
       lineStartsWith: $c-
       allowVarValues: false
-    -
-      src: source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
+    - src: source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
       dest: source/_patterns/01-atoms/01-typography/fonts/font-sizes.json
       lineStartsWith: $fs--
       allowVarValues: false
-    -
-      src: source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
+    - src: source/_patterns/01-atoms/01-typography/fonts/_fonts.scss
       dest: source/_patterns/01-atoms/01-typography/fonts/font-families.json
       lineStartsWith: $ff--
       allowVarValues: false
-    -
-      src: source/_patterns/00-base/breakpoints/_breakpoints.scss
+    - src: source/_patterns/00-base/breakpoints/_breakpoints.scss
       dest: source/_patterns/00-base/breakpoints/breakpoints.json
       lineStartsWith: $bp--
       allowVarValues: false
-    -
-      src: source/_patterns/00-base/spacing/_spacing.scss
+    - src: source/_patterns/00-base/spacing/_spacing.scss
       dest: source/_patterns/00-base/spacing/spacing.json
       lineStartsWith: $spacing--
       allowVarValues: false
+    - src: source/_patterns/00-base/animations/01-transitions/_transitions.scss
+      dest: source/_patterns/00-base/animations/01-transitions/transitions.json
+      lineStartsWith: $trans-
+      allowVarValues: true
 icons:
   enabled: true
   src: images/icons/src/*.svg

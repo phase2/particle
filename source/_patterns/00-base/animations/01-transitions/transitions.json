@@ -1,0 +1,37 @@
+{
+  "items": [
+    {
+      "name": "$trans-opacity__time",
+      "value": "0.3s",
+      "comment": ""
+    },
+    {
+      "name": "$trans-opacity__function",
+      "value": "ease-in",
+      "comment": ""
+    },
+    {
+      "name": "$trans-opacity",
+      "value": "$trans-opacity__time $trans-opacity__function",
+      "comment": "convenience variable for using both"
+    },
+    {
+      "name": "$trans-move__time",
+      "value": "0.3s",
+      "comment": ""
+    },
+    {
+      "name": "$trans-move__function",
+      "value": "ease-in",
+      "comment": ""
+    },
+    {
+      "name": "$trans-move",
+      "value": "$trans-opacity__time $trans-move__function",
+      "comment": "convenience variable for using both"
+    }
+  ],
+  "meta": {
+    "description": "To add to these items, use Sass variables that start with <code>$trans-</code> in <code>source/_patterns/00-base/animations/01-transitions/_transitions.scss</code>"
+  }
+}
