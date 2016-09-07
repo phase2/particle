@@ -1,11 +1,13 @@
 $icon-font-base-name: "icons";
+
 @font-face {
   font-family: $icon-font-base-name;
   src: url("icons.eot");
-  src: url("icons.eot?#iefix") format("eot"),
-  url("icons.woff") format("woff"),
-  url("icons.ttf") format("truetype"),
-  url("icons.svg#icons") format("svg");
+  src: /* stylelint-disable-line declaration-colon-space-after */
+    url("icons.eot?#iefix") format("eot"),
+    url("icons.woff") format("woff"),
+    url("icons.ttf") format("truetype"),
+    url("icons.svg#icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -38,11 +40,10 @@ $font-icons: (
   text-rendering: optimizeLegibility;
 }
 
-
 @mixin font-icon-replace($pseudo) {
   position: relative;
   right: 9999px;
-  &:#{$pseudo} {
+  &:#{$pseudo} { /* stylelint-disable-line */
     position: absolute;
     height: 100%;
     text-align: center;
@@ -65,11 +66,13 @@ $font-icons: (
   $color: inherit,
   $block: false
 ) {
-  &:#{$pseudo} {
+  &:#{$pseudo} { /* stylelint-disable-line */
+
     @include font-icon-base();
     content: map-get($font-icons, $icon);
     font-size: $size;
     color: $color;
+
     @content;
   }
   // Replace text with icon, like classic sprites
@@ -101,7 +104,7 @@ $font-icons: (
 
 // Print .icon--thingy classes using default :before for easy elements
 @each $icon-name, $icon-symbol in $font-icons {
-  .icon--#{$icon-name}:before {
+  .icon--#{$icon-name}::before {
     content: map-get($font-icons, $icon-name);
   }
 }

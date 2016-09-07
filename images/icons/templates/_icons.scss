@@ -1,11 +1,13 @@
 $icon-font-base-name: "{{ fontName }}";
+
 @font-face {
   font-family: $icon-font-base-name;
   src: url("{{ fontPath }}{{ fontName }}.eot");
-  src: url("{{ fontPath }}{{ fontName }}.eot?#iefix") format("eot"),
-  url("{{ fontPath }}{{ fontName }}.woff") format("woff"),
-  url("{{ fontPath }}{{ fontName }}.ttf") format("truetype"),
-  url("{{ fontPath }}{{ fontName }}.svg#{{ fontName }}") format("svg");
+  src: /* stylelint-disable-line declaration-colon-space-after */
+    url("{{ fontPath }}{{ fontName }}.eot?#iefix") format("eot"),
+    url("{{ fontPath }}{{ fontName }}.woff") format("woff"),
+    url("{{ fontPath }}{{ fontName }}.ttf") format("truetype"),
+    url("{{ fontPath }}{{ fontName }}.svg#{{ fontName }}") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -36,11 +38,10 @@ $font-icons: ({% _.each(glyphs, function(glyph) { %}
   text-rendering: optimizeLegibility;
 }
 
-
 @mixin font-icon-replace($pseudo) {
   position: relative;
   right: 9999px;
-  &:#{$pseudo} {
+  &:#{$pseudo} { /* stylelint-disable-line */
     position: absolute;
     height: 100%;
     text-align: center;
@@ -63,11 +64,13 @@ $font-icons: ({% _.each(glyphs, function(glyph) { %}
   $color: inherit,
   $block: false
 ) {
-  &:#{$pseudo} {
+  &:#{$pseudo} { /* stylelint-disable-line */
+
     @include font-icon-base();
     content: map-get($font-icons, $icon);
     font-size: $size;
     color: $color;
+
     @content;
   }
   // Replace text with icon, like classic sprites
@@ -99,7 +102,7 @@ $font-icons: ({% _.each(glyphs, function(glyph) { %}
 
 // Print .icon--thingy classes using default :before for easy elements
 @each $icon-name, $icon-symbol in $font-icons {
-  .{{ classNamePrefix }}--#{$icon-name}:before {
+  .{{ classNamePrefix }}--#{$icon-name}::before {
     content: map-get($font-icons, $icon-name);
   }
 }
