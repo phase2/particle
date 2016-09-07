@@ -133,7 +133,23 @@ Documentation for many of the features are found in `node_modules/p2-theme-core/
 ### Linting Config
 
 - JS: edit `.eslintrc` - [rule docs](http://eslint.org/docs/rules/)
-- Scss: edit `.sass-lint.yml` - [rule docs](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
+- Scss: edit `.stylelintrc.js` - [docs](http://stylelint.io/user-guide/)
+
+#### Disabling Stylelint rules for a certain section
+
+You can [use comments to turn off certain rules](http://stylelint.io/user-guide/configuration/#turning-rules-off-from-within-your-css) easily:
+
+```scss
+// stylelint-disable selector-no-id, declaration-no-important
+#id {
+  color: pink !important;
+}
+// stylelint-enable
+
+.class {
+  color: pink !important; // stylelint-disable-line declaration-no-important
+}
+```
 
 ### Babel JS Transpiling Config
 

@@ -23,8 +23,10 @@
 
 a.button {
   // needed to override base theme CSS
+  // stylelint-disable property-no-vendor-prefix
   -moz-appearance: none;
   -webkit-appearance: none;
+  // stylelint-enable property-no-vendor-prefix
 }
 
 input[type="submit"],

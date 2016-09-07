@@ -6,7 +6,7 @@ css:
   dest: dest/
   flattenDestOutput: true
   lint:
-    enabled: false
+    enabled: true
     failOnError: true
   sourceComments: false
   sourceMapEmbed: false

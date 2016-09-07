@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "lodash.includes": "^4.1.3",
+    "stylelint-scss": "^1.3.4",
     "yeoman-generator": "^0.23.3",
     "yo": "^1.8.3"
   }

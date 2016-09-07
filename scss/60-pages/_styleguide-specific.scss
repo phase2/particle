@@ -85,12 +85,12 @@ pre {
         color: white;
       }
       &:hover {
+        // stylelint-disable max-nesting-depth, selector-max-specificity
         border-left-color: hsla(0, 0%, 35%, 0.3);
-        // scss-lint:disable NestingDepth
         > .label {
           opacity: 0;
         }
-        // scss-lint:enable NestingDepth
+        // stylelint-enable max-nesting-depth, selector-max-specificity
       }
     }
   }
@@ -134,20 +134,14 @@ pre {
   margin: 0 auto;
   padding: 25px;
 }
+
 .icons-demo {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .icons__item {
-  -webkit-flex: auto;
-      -ms-flex: auto;
-          flex: auto;
+  flex: auto;
   padding: 0.3em;
   margin: 0 0.5em 0.5em 0;
   border: 1px solid #ddd;
