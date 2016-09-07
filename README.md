@@ -165,7 +165,11 @@ Using `--save` adds to Pattern Lab and Drupal; using `--save-dev` adds to just P
 
 ## Gulp
 
-The `npm run` commands above basically trigger gulp without having to install a global dependency. For fine grained control of tasks, install gulp globally with `npm install --global gulp` and then run `gulp help` for a list of all available tasks.
+Gulp 4 is used and the `npm run` commands above basically trigger gulp without having to install a global dependency. If you want to run specific gulp tasks, run `npm run gulp -- OPTIONS TASKS`. The `--` passes whatever comes after to the `gulp` command. Here's some examples of what you can do:
+
+- `npm run gulp -- --help` - See the help menu
+- `npm run gulp -- css` - Compile CSS
+- `npm run gulp -- pl` - Compile PL
 
 Add anything to `gulpfile.js` that you want! Also, you can copy any file from `node_modules/p2-theme-core/lib/` into your repo and use it as a starting point (may need to install packages from `p2-theme-core` too.)
 
@@ -176,6 +180,13 @@ js:
 -    enabled: true
 +    enabled: false
 ```
+
+Also, if you're still getting the annoying (but not harmful) warnings about `graceful-fs`, run `npm update -g npm`.
+
+### Helpful Gulp 4 resources
+
+- [Gulp 4 Docs](https://github.com/gulpjs/gulp/tree/4.0/docs)
+- [Gulp 4 Readme](https://github.com/gulpjs/gulp/blob/4.0/README.md)
 
 ## Drupal 8 Integration
 

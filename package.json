@@ -19,6 +19,7 @@
     "start": "gulp clean && gulp compile && gulp",
     "compile": "gulp clean && gulp compile",
     "test": "gulp validate",
+    "gulp": "gulp",
     "new": "yo ./pattern-lab/generator/index.js",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root && cd pattern-lab && composer install --no-interaction"
   },
@@ -27,12 +28,11 @@
     "bourbon": "^4.2.7",
     "bower": "^1.7.9",
     "breakpoint-sass": "^2.7.0",
-    "gulp": "^3.9.1",
-    "gulp-help": "^1.6.1",
+    "gulp": "gulpjs/gulp#4.0",
     "js-yaml": "^3.6.0",
     "lodash.merge": "^4.3.5",
     "normalize.scss": "^0.1.0",
-    "p2-theme-core": "^8.1.0",
+    "p2-theme-core": "phase2/p2-theme-core#gulp4",
     "singularitygs": "^1.7.0"
   },
   "devDependencies": {
