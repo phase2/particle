@@ -1,5 +1,11 @@
 [![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
 
+# Prerequisites
+
+- [Node](https://nodejs.org) v4 OR v6 (the two [LTS](https://github.com/nodejs/LTS) versions)
+- PHP 5.4, 5.5, 5.6, OR 7 (5.3 might work, no promises)
+- [`composer`](https://getcomposer.org)
+
 # QuickStart
 
 ```bash
