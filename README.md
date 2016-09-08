@@ -48,6 +48,12 @@ Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by 
 npm run new
 ```
 
+To update node and composer dependencies (if you see messages about Pattern Lab wanting to Merge or Replace files, merge them):
+
+```bash
+npm run update
+```
+
 ## Orientation
 
 - source/
