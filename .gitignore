@@ -1,6 +1,6 @@
 # Compiled files
 dest/
-scss/00-config/_icons.scss
+source/_patterns/01-atoms/images/_icons.scss
 
 # OS generated files
 .DS_Store
