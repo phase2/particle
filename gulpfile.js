@@ -13,9 +13,15 @@ var tasks = {
 
 require('p2-theme-core')(gulp, config, tasks);
 
-gulp.task('compile', gulp.parallel(tasks.compile));
 gulp.task('clean', gulp.parallel(tasks.clean));
+gulp.task('compile', gulp.series(
+  'clean',
+  gulp.parallel(tasks.compile)
+));
 gulp.task('validate', gulp.parallel(tasks.validate));
 gulp.task('watch', gulp.parallel(tasks.watch));
 tasks.default.push('watch');
-gulp.task('default', gulp.parallel(tasks.default));
+gulp.task('default', gulp.series(
+  'compile',
+  gulp.parallel(tasks.default)
+));

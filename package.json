@@ -16,8 +16,8 @@
     "prototyping"
   ],
   "scripts": {
-    "start": "gulp clean && gulp compile && gulp",
-    "compile": "gulp clean && gulp compile",
+    "start": "gulp",
+    "compile": "gulp compile",
     "test": "gulp validate",
     "gulp": "gulp",
     "new": "yo ./pattern-lab/generator/index.js",
