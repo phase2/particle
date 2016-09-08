@@ -9,20 +9,4 @@
 @import "bourbon/app/assets/stylesheets/bourbon";
 // End libs
 
-@import "00-config/**/*.scss";
-@import "../source/_patterns/00-base/**/*.scss";
-@import "../source/_patterns/01-atoms/**/*.scss";
-@import "10-base/**/*.scss";
-@import "20-global/**/*.scss";
-@import "30-layouts/**/*.scss";
-// Component Location A
-@import "../source/_patterns/02-molecules/**/*.scss";
-@import "../source/_patterns/03-organisms/**/*.scss";
-// Component Location B
-@import "40-components/**/*.scss";
-@import "../source/_patterns/04-templates/**/*.scss";
-@import "../source/_patterns/05-pages/**/*.scss";
-@import "60-pages/**/*.scss";
-@import "70-utilities/**/*.scss";
-@import "90-shame/**/*.scss";
-
+@import "../source/**/*.scss";

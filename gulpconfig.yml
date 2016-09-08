@@ -3,6 +3,7 @@ css:
   src:
     - scss/**/*.scss
     - source/_patterns/**/*.scss
+    - source/styleguide/*.scss
   dest: dest/
   flattenDestOutput: true
   lint:
@@ -100,7 +101,7 @@ icons:
     enabled: true
     css:
       src: images/icons/templates/_icons.scss
-      dest: scss/00-config/
+      dest: source/_patterns/01-atoms/images/
     demo:
       src: images/icons/templates/icons.twig
       dest: source/_patterns/01-atoms/images/

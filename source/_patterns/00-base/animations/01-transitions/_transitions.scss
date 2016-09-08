@@ -10,7 +10,7 @@ $trans-move__function: ease-in;
 ///   transition: left $trans-move;
 $trans-move: $trans-opacity__time $trans-move__function; // convenience variable for using both
 
-.demo-animate {
+.demo-transition {
   &.transition-opacity {
     transition: opacity $trans-opacity;
   }
