@@ -67,6 +67,16 @@ npm run new
 - templates/ - Drupal twig templates. These often will `include`, `embed`, or `extend` the Twig templates found in Pattern Lab like this: `{% include "@molecules/branding/branding.twig" with { url: path('<front>') } %}`. We keep the components in Pattern Lab "pure" and ignorant of Drupal's data model and use these templates to map the data between the two. Think of these as the Presenter templates in the [Model View Presenter](https://en.wikipedia.org/wiki/Model–view–presenter) approach. Also, Drupal Twig templates that have nothing to do with Pattern Lab go here.
 - gulpconfig.yml - Configuration for all the gulp tasks, a ton can be controlled here.
 
+### IDE/Text Editor Setup
+
+- Install an EditorConfig plugin
+- Ignore the indexing of these directories:
+  - `node_modules/`
+  - `bower_components/`
+  - `dest/`
+  - `pattern-lab/public/`
+  - `pattern-lab/vendor/`
+
 ---
 
 # Details
