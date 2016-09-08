@@ -33,6 +33,7 @@ js:
   enabled: true
   src:
     - js/**/*.js
+    - source/_patterns/**/*.js
   dest: dest/
   destName: script.js
   sourceMapEmbed: false
@@ -42,7 +43,9 @@ js:
     enabled: true
     src:
       - js/**/*.js
-      - gulpfile.js
+      - source/_patterns/**/*.js
+      - .eslintrc.js
+      - .stylelintrc.js
 patternLab:
   enabled: true
   configFile: pattern-lab/config/config.yml

@@ -165,7 +165,7 @@ Using `--save` adds to Pattern Lab and Drupal; using `--save-dev` adds to just P
 
 ## Gulp
 
-Gulp 4 is used and the `npm run` commands above basically trigger gulp without having to install a global dependency. If you want to run specific gulp tasks, run `npm run gulp -- OPTIONS TASKS`. The `--` passes whatever comes after to the `gulp` command. Here's some examples of what you can do:
+Gulp 4 is used and the `npm run` commands above basically trigger gulp without having to install a global dependency. If you want to run specific gulp tasks, run `npm run gulp -- OPTIONS TASKS`. The `--` passes whatever comes after to the `gulp` command. Run `npm run gulp -- --tasks` to see the whole list, here's some examples of what you can do:
 
 - `npm run gulp -- --help` - See the help menu
 - `npm run gulp -- css` - Compile CSS
