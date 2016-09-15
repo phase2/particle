@@ -64,6 +64,7 @@ patternLab:
 #    - source/styleguide/custom-styleguide-specific.css
  #   - ../../modules/**/*.css
   injectBower: true
+  bowerBasePath: ./
   scssToJson:
     - src: source/_patterns/00-base/01-colors/_color-vars.scss
       dest: source/_patterns/00-base/01-colors/colors.json
