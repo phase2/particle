@@ -36,6 +36,8 @@ Start up watches and local server after compiling:
 npm run start # or `npm start`
 ```
 
+> Protip: any config option from `gulpconfig.yml` can be overwritten with `npm start -- --js.enabled=''`, or by including options in your own `~/.p2-theme-corerc` file. See [`rc`](https://www.npmjs.com/package/rc) for more details.
+
 Run Tests:
 
 ```bash
