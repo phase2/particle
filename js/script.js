@@ -1,10 +1,7 @@
-(function($, Drupal) {
-  'use strict';
-
+(function mainThemeScript($, Drupal) {
   Drupal.behaviors.plStarter = {
-    attach: function(context, settings) {
+    attach(context) {
       $('html', context).addClass('js');
-    }
+    },
   };
-
-})(jQuery, Drupal);
+}(jQuery, Drupal));
