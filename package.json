@@ -16,10 +16,12 @@
     "prototyping"
   ],
   "scripts": {
-    "start": "gulp clean && gulp compile && gulp",
-    "compile": "gulp clean && gulp compile",
+    "start": "gulp",
+    "compile": "gulp compile",
     "test": "gulp validate",
-    "new": "yo ./pattern-lab/generator/index.js",
+    "gulp": "gulp",
+    "update": "npm update && cd pattern-lab && composer update",
+    "new": "yo ./scripts/new-component/index.js",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root && cd pattern-lab && composer install --no-interaction"
   },
   "dependencies": {
@@ -27,16 +29,17 @@
     "bourbon": "^4.2.7",
     "bower": "^1.7.9",
     "breakpoint-sass": "^2.7.0",
-    "gulp": "^3.9.1",
-    "gulp-help": "^1.6.1",
+    "gulp": "gulpjs/gulp#4.0",
     "js-yaml": "^3.6.0",
     "lodash.merge": "^4.3.5",
     "normalize.scss": "^0.1.0",
-    "p2-theme-core": "^8.1.0",
+    "p2-theme-core": "phase2/p2-theme-core#feature/gulp4",
+    "rc": "^1.1.6",
     "singularitygs": "^1.7.0"
   },
   "devDependencies": {
     "lodash.includes": "^4.1.3",
+    "stylelint-scss": "^1.3.4",
     "yeoman-generator": "^0.23.3",
     "yo": "^1.8.3"
   }

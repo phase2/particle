@@ -10,13 +10,10 @@ $fw--900: 900; // black/heavy
 
 @font-face {
   font-family: "LatoRegular";
-  src:  url("../fonts/Lato-Regular.woff2") format("woff2"),
-  url("../fonts/Lato-Regular.woff") format("woff"),
-  url("../fonts/Lato-Regular.ttf") format("truetype");
+  src: url("../fonts/Lato-Regular.woff2") format("woff2"), url("../fonts/Lato-Regular.woff") format("woff"), url("../fonts/Lato-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
 $ff--regular: 'LatoRegular', sans-serif;
 $ff--alternate: 'Helvetica', sans-serif;
 

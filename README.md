@@ -1,5 +1,11 @@
 [![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
 
+# Prerequisites
+
+- [Node](https://nodejs.org) v4 OR v6 (the two [LTS](https://github.com/nodejs/LTS) versions)
+- PHP 5.4, 5.5, 5.6, OR 7 (5.3 might work, no promises)
+- [`composer`](https://getcomposer.org)
+
 # QuickStart
 
 ```bash
@@ -30,6 +36,8 @@ Start up watches and local server after compiling:
 npm run start # or `npm start`
 ```
 
+> Protip: any config option from `gulpconfig.yml` can be overwritten with `npm start -- --js.enabled=''`, or by including options in your own `~/.p2-theme-corerc` file. See [`rc`](https://www.npmjs.com/package/rc) for more details.
+
 Run Tests:
 
 ```bash
@@ -40,6 +48,12 @@ Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by 
 
 ```bash
 npm run new
+```
+
+To update node and composer dependencies (if you see messages about Pattern Lab wanting to Merge or Replace files, merge them):
+
+```bash
+npm run update
 ```
 
 ## Orientation
@@ -66,6 +80,16 @@ npm run new
 - dest/ - Many compiled assets end up in here like CSS, JS, Font Icons, and any doc systems like [SassDoc](http://sassdoc.com).
 - templates/ - Drupal twig templates. These often will `include`, `embed`, or `extend` the Twig templates found in Pattern Lab like this: `{% include "@molecules/branding/branding.twig" with { url: path('<front>') } %}`. We keep the components in Pattern Lab "pure" and ignorant of Drupal's data model and use these templates to map the data between the two. Think of these as the Presenter templates in the [Model View Presenter](https://en.wikipedia.org/wiki/Model–view–presenter) approach. Also, Drupal Twig templates that have nothing to do with Pattern Lab go here.
 - gulpconfig.yml - Configuration for all the gulp tasks, a ton can be controlled here.
+
+### IDE/Text Editor Setup
+
+- Install an EditorConfig plugin
+- Ignore the indexing of these directories:
+  - `node_modules/`
+  - `bower_components/`
+  - `dest/`
+  - `pattern-lab/public/`
+  - `pattern-lab/vendor/`
 
 ---
 
@@ -133,7 +157,23 @@ Documentation for many of the features are found in `node_modules/p2-theme-core/
 ### Linting Config
 
 - JS: edit `.eslintrc` - [rule docs](http://eslint.org/docs/rules/)
-- Scss: edit `.sass-lint.yml` - [rule docs](https://github.com/sasstools/sass-lint/tree/master/docs/rules)
+- Scss: edit `.stylelintrc.js` - [docs](http://stylelint.io/user-guide/)
+
+#### Disabling Stylelint rules for a certain section
+
+You can [use comments to turn off certain rules](http://stylelint.io/user-guide/configuration/#turning-rules-off-from-within-your-css) easily:
+
+```scss
+// stylelint-disable selector-no-id, declaration-no-important
+#id {
+  color: pink !important;
+}
+// stylelint-enable
+
+.class {
+  color: pink !important; // stylelint-disable-line declaration-no-important
+}
+```
 
 ### Babel JS Transpiling Config
 
@@ -149,7 +189,11 @@ Using `--save` adds to Pattern Lab and Drupal; using `--save-dev` adds to just P
 
 ## Gulp
 
-The `npm run` commands above basically trigger gulp without having to install a global dependency. For fine grained control of tasks, install gulp globally with `npm install --global gulp` and then run `gulp help` for a list of all available tasks.
+Gulp 4 is used and the `npm run` commands above basically trigger gulp without having to install a global dependency. If you want to run specific gulp tasks, run `npm run gulp -- OPTIONS TASKS`. The `--` passes whatever comes after to the `gulp` command. Run `npm run gulp -- --tasks` to see the whole list, here's some examples of what you can do:
+
+- `npm run gulp -- --help` - See the help menu
+- `npm run gulp -- css` - Compile CSS
+- `npm run gulp -- pl` - Compile PL
 
 Add anything to `gulpfile.js` that you want! Also, you can copy any file from `node_modules/p2-theme-core/lib/` into your repo and use it as a starting point (may need to install packages from `p2-theme-core` too.)
 
@@ -160,6 +204,13 @@ js:
 -    enabled: true
 +    enabled: false
 ```
+
+Also, if you're still getting the annoying (but not harmful) warnings about `graceful-fs`, run `npm update -g npm`.
+
+### Helpful Gulp 4 resources
+
+- [Gulp 4 Docs](https://github.com/gulpjs/gulp/tree/4.0/docs)
+- [Gulp 4 Readme](https://github.com/gulpjs/gulp/blob/4.0/README.md)
 
 ## Drupal 8 Integration
 

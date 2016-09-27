@@ -34,7 +34,7 @@ module.exports = yeoman.Base.extend({
         'twig',
         'scss',
         'json',
-        'yml',
+        'js',
         'md'
       ],
       default: [
@@ -52,6 +52,7 @@ module.exports = yeoman.Base.extend({
 
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
+      props.dashlessName = props.name.replace(/-/g, '');
       this.props = props;
     }.bind(this));
   },
@@ -77,18 +78,18 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if (includes(this.props.files, 'yml')) {
-      this.fs.copyTpl(
-        this.templatePath('pattern.yml'),
-        this.destinationPath(path.join(destPath, this.props.name + '.yml')),
-        this.props
-      );
-    }
-
     if (includes(this.props.files, 'json')) {
       this.fs.copyTpl(
         this.templatePath('pattern.json'),
         this.destinationPath(path.join(destPath, this.props.name + '.json')),
+        this.props
+      );
+    }
+
+    if (includes(this.props.files, 'js')) {
+      this.fs.copyTpl(
+        this.templatePath('pattern.js'),
+        this.destinationPath(path.join(destPath, this.props.name + '.js')),
         this.props
       );
     }
