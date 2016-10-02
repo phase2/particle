@@ -24,6 +24,8 @@ gulp.task('validate', gulp.parallel(tasks.validate));
 gulp.task('watch', gulp.parallel(tasks.watch));
 tasks.default.push('watch');
 gulp.task('default', gulp.series(
+  'startup:start',
   'compile',
-  gulp.parallel(tasks.default)
+  gulp.parallel(tasks.default),
+  'startup:stop'
 ));
