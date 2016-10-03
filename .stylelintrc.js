@@ -1,4 +1,6 @@
 'use strict';
+// Docs: http://stylelint.io
+// Style lint rule detail: https://github.com/stylelint/stylelint/tree/master/src/rules/RULE-NAME
 
 module.exports = {
   plugins: [
