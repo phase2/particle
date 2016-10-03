@@ -33,7 +33,7 @@
     "js-yaml": "^3.6.0",
     "lodash.merge": "^4.3.5",
     "normalize.scss": "^0.1.0",
-    "p2-theme-core": "^9.0.0",
+    "p2-theme-core": "^9.0.3",
     "rc": "^1.1.6",
     "singularitygs": "^1.7.0"
   },

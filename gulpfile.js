@@ -18,7 +18,7 @@ require('p2-theme-core')(gulp, config, tasks);
 gulp.task('clean', gulp.parallel(tasks.clean));
 gulp.task('compile', gulp.series(
   'clean',
-  gulp.parallel(tasks.compile)
+  gulp.series(tasks.compile)
 ));
 gulp.task('validate', gulp.parallel(tasks.validate));
 gulp.task('watch', gulp.parallel(tasks.watch));
