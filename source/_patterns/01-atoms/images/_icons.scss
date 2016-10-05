@@ -1,20 +1,14 @@
-$icon-font-base-name: "{{ fontName }}";
-
 @font-face {
   font-family: $icon-font-base-name;
-  src: url("{{ fontPath }}{{ fontName }}.eot");
+  src: url("#{$icon-font-path}#{$icon-font-base-name}.eot");
   src: /* stylelint-disable-line declaration-colon-space-after */
-    url("{{ fontPath }}{{ fontName }}.eot?#iefix") format("eot"),
-    url("{{ fontPath }}{{ fontName }}.woff") format("woff"),
-    url("{{ fontPath }}{{ fontName }}.ttf") format("truetype"),
-    url("{{ fontPath }}{{ fontName }}.svg#{{ fontName }}") format("svg");
+    url("#{$icon-font-path}#{$icon-font-base-name}.eot?#iefix") format("eot"),
+    url("#{$icon-font-path}#{$icon-font-base-name}.woff") format("woff"),
+    url("#{$icon-font-path}#{$icon-font-base-name}.ttf") format("truetype"),
+    url("#{$icon-font-path}#{$icon-font-base-name}.svg#icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
-
-$font-icons: ({% _.each(glyphs, function(glyph) { %}
-  {{ glyph.name }}: "\{{ glyph.content }}",{% }); %}
-);
 
 /**
  * Mixin - Icon
@@ -95,14 +89,14 @@ $font-icons: ({% _.each(glyphs, function(glyph) { %}
 //  font-style: normal;
 //}
 
-// Everything with .{{ classNamePrefix }}--something has a base set of styles in order to view
-[class*="{{ classNamePrefix }}--"] {
+// Everything with .icon--something has a base set of styles in order to view
+[class*="#{$icon-font-class-prefix}--"] {
   @include font-icon-base;
 }
 
 // Print .icon--thingy classes using default :before for easy elements
 @each $icon-name, $icon-symbol in $font-icons {
-  .{{ classNamePrefix }}--#{$icon-name}::before {
+  .#{$icon-font-class-prefix}--#{$icon-name}::before {
     content: map-get($font-icons, $icon-name);
   }
 }
