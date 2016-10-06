@@ -35,7 +35,8 @@
   }
 }
 
-/// Main Icon mixin
+/// Main Icon mixin.
+/// See the [Icons in Pattern Lab](../../pattern-lab/public/?p=atoms-icons).
 /// @param {String} $icon - Machine name of icon (filename).
 /// @param {String} $pseudo [before] - `before` | `after` The pseudo element to place the icon in.
 /// @todo Allow `$pseudo: false` to be declared so we don't have to use a pseudo element if we don't want to.
@@ -43,7 +44,6 @@
 /// @param {String} $size [inherit]
 /// @param {String} $color [inherit]
 /// @param {Bool} $block [false] - If `display: block` should be applied.
-/// @link http://localhost:3050/pattern-lab/public/?p=atoms-icons
 /// @example scss
 /// .class {
 ///   @include icon('close');
