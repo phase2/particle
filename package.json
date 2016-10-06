@@ -31,7 +31,7 @@
     "breakpoint-sass": "^2.7.0",
     "gulp": "gulpjs/gulp#4.0",
     "normalize.scss": "^0.1.0",
-    "p2-theme-core": "^9.0.3",
+    "p2-theme-core": "^9.1.0",
     "rc": "^1.1.6",
     "singularitygs": "^1.7.0"
   },
