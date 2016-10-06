@@ -22,7 +22,7 @@ css:
     enabled: true
     dest: dest/sassdoc
     verbose: false
-    basePath: https://github.com/phase2/pattern-lab-starter/blob/master/source/_patterns
+    basePath: https://github.com/phase2/pattern-lab-starter/blob/<branch_name>/source/_patterns
 #    exclude:
 #      - file.scss
     theme: default
@@ -134,7 +134,4 @@ drupal:
     - templates/**
   command: drush cc all
   # in this directory
-  dir: ./
-  inject:
-    bower: true
-    file: patternlab.info.yml
+  dir: './'
