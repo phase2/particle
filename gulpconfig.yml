@@ -102,7 +102,7 @@ icons:
   templates:
     enabled: true
     css:
-      src: images/icons/templates/_icons.scss
+      src: images/icons/templates/_icons-settings.scss
       dest: source/_patterns/01-atoms/images/
     demo:
       src: images/icons/templates/icons.twig
