@@ -5,7 +5,9 @@
 
 //
 // Start libs
-// All found at the include path /bower_components
+// All found at the include paths declared in `gulpconfig.js` under `css.includePaths`.
+// Usually it's `['./bower_components', './node_modules']`
+// Add more libs with `bower install --save {NAME-OF-LIB}`
 //
 
 // Better style reset, https://github.com/JohnAlbin/normalize-scss
