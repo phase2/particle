@@ -185,7 +185,16 @@ Get front end libraries injected into Drupal theme info file and Pattern Lab wit
 
     bower install {project-name} --save
 
-Using `--save` adds to Pattern Lab and Drupal; using `--save-dev` adds to just Pattern Lab. Automatic injection for Drupal currently only works in Drupal 7; manually add it in Drupal 8.
+Using `--save` shows it's intention to be used in Pattern Lab and Drupal; using `--save-dev` shows it's just for Pattern Lab. All assets `<link>` or `<script>` tag will be automatically injected for Pattern Lab into the header and footer twig files found in `source/_meta/`. 
+
+### Sass Libraries
+
+Sass libraries are installed using bower as well; you can see how we import them in the main scss file. These are the ones available:
+
+- [Normalize](https://github.com/JohnAlbin/normalize-scss) - Better style reset
+- [Singularity Grid System](https://github.com/at-import/Singularity) - Grid system
+- [Breakpoint](http://breakpoint-sass.com) - A cleaner way to do breakpoints/media queries
+- [Bourbon](http://bourbon.io/docs) - Helpful mixins
 
 ## Gulp
 
