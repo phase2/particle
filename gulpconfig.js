@@ -26,6 +26,7 @@ module.exports = {
     ],
     includePaths: [
       './node_modules',
+      './bower_components',
     ],
     // http://sassdoc.com
     sassdoc: {
