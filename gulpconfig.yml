@@ -18,6 +18,7 @@ css:
     - IE >= 9
   includePaths:
     - ./node_modules
+    - ./bower_components
   sassdoc: # http://sassdoc.com
     enabled: true
     dest: dest/sassdoc
