@@ -1,12 +1,23 @@
+//
 // Start libs
-// Better style reset
-@import "normalize.scss/normalize.scss";
+// All found at the include path /bower_components
+//
+
+// Better style reset, https://github.com/JohnAlbin/normalize-scss
+@import "normalize-scss/sass/normalize"; // "_" included in name here to differentiate from css in folder
 // Grid system, https://github.com/at-import/Singularity
-@import "singularitygs/stylesheets/singularitygs";
-// A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
+@import "singularity/stylesheets/singularitygs";
+// A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/,
 @import "breakpoint-sass/stylesheets/breakpoint";
 // Helpful mixins, http://bourbon.io/docs/
 @import "bourbon/app/assets/stylesheets/bourbon";
-// End libs
 
+//
+// End libs
+//
+
+//
+// Start _patterns includes
+// Run through the entire patterns collection, finding all scss files included therein
+//
 @import "../source/**/*.scss";

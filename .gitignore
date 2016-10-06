@@ -5,6 +5,7 @@ source/_patterns/01-atoms/images/_icons-settings.scss
 # OS generated files
 .DS_Store
 .DS_Store?
+npm-debug.log
 
 # Dependencies
 bower_components
