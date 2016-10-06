@@ -30,8 +30,6 @@
     "bower": "^1.7.9",
     "breakpoint-sass": "^2.7.0",
     "gulp": "gulpjs/gulp#4.0",
-    "js-yaml": "^3.6.0",
-    "lodash.merge": "^4.3.5",
     "normalize.scss": "^0.1.0",
     "p2-theme-core": "^9.0.3",
     "rc": "^1.1.6",
