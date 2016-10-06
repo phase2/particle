@@ -9,7 +9,7 @@
 //
 
 // Better style reset, https://github.com/JohnAlbin/normalize-scss
-@import "normalize-scss/sass/normalize"; // "_" included in name here to differentiate from css in folder
+@import "normalize-scss/sass/normalize";
 // Grid system, https://github.com/at-import/Singularity
 @import "singularity/stylesheets/singularitygs";
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/,
