@@ -5,7 +5,6 @@ source/_patterns/01-atoms/images/_icons-settings.scss
 # OS generated files
 .DS_Store
 .DS_Store?
-npm-debug.log
 
 # Dependencies
 bower_components
@@ -19,3 +18,7 @@ node_modules
 atlassian-ide-plugin.xml
 
 source/styleguide/css
+
+# Errors
+npm-debug.log
+php_errors.log

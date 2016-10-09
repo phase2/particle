@@ -165,6 +165,7 @@ module.exports = {
     tunnel: false,
     reloadDelay: 50,
     reloadDebounce: 750,
+    rewriteRules: [],
   },
   drupal: {
     enabled: false,
