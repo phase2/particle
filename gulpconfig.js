@@ -14,7 +14,7 @@ module.exports = {
       // in addition to linting `css.src`, this is added.
       extraSrc: [],
     },
-    // enables additional debugging information in the output file as CSS comments - only use when necessary
+    // additional debugging info in comment of the output CSS - only use when necessary
     sourceComments: false,
     sourceMapEmbed: false,
     // tell the compiler whether you want 'expanded' or 'compressed' output code
@@ -60,8 +60,8 @@ module.exports = {
       src: [
         'js/**/*.js',
         'source/_patterns/**/*.js',
-        '.eslintrc.js',
-        '.stylelintrc.js',
+        '.*.js',
+        '*.js',
       ],
     },
   },

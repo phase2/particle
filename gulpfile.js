@@ -1,16 +1,18 @@
 'use strict';
-var gulp = require('gulp');
+const gulp = require('gulp');
 // `rc` allows all config options to be overridden with CLI flags like `--js.enabled=''` or in `~/.p2-theme-corerc` files, among many others: https://www.npmjs.com/package/rc
-var config = require('rc')('p2-theme-core', require('./gulpconfig.js'));
-var tasks = {
-  'compile': [],
-  'watch': [],
-  'validate': [],
-  'clean': [],
-  'default': []
+const config = require('rc')('p2-theme-core', require('./gulpconfig.js'));
+const themeCore = require('p2-theme-core');
+
+const tasks = {
+  compile: [],
+  watch: [],
+  validate: [],
+  clean: [],
+  default: [],
 };
 
-require('p2-theme-core')(gulp, config, tasks);
+themeCore(gulp, config, tasks);
 
 gulp.task('clean', gulp.parallel(tasks.clean));
 gulp.task('compile', gulp.series(
