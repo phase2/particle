@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e73f6be5c2d5b998248e57203b5c9688",
-    "content-hash": "3002c89ca6e716101bc2042f2a033939",
+    "hash": "e38759cb09f748c2681564dfd23b337b",
+    "content-hash": "8df47b4e1d37b3f04052d6e5443a0a7d",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -180,6 +180,60 @@
                 "iterator"
             ],
             "time": "2015-04-14 22:21:58"
+        },
+        {
+            "name": "evanlovely/plugin-twig-namespaces",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EvanLovely/plugin-twig-namespaces.git",
+                "reference": "d12f8d6ff2624ea81beccb134b315587350a6fca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EvanLovely/plugin-twig-namespaces/zipball/d12f8d6ff2624ea81beccb134b315587350a6fca",
+                "reference": "d12f8d6ff2624ea81beccb134b315587350a6fca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "patternlab-plugin",
+            "extra": {
+                "patternlab": {
+                    "config": {
+                        "plugins": {
+                            "twigNamespaces": {
+                                "enabled": false,
+                                "roots": []
+                            }
+                        }
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PatternLab\\TwigNamespaces": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evan Lovely",
+                    "homepage": "http://evanlovely.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Twig Namespaces for Pattern Lab",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "pattern lab",
+                "twig"
+            ],
+            "time": "2016-10-12 16:53:30"
         },
         {
             "name": "fzaninotto/faker",
