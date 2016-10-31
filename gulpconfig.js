@@ -89,24 +89,24 @@ module.exports = {
       sets: [
         {
           namespace: 'base',
-          paths: ['source/_patterns/00-base']
+          paths: ['source/_patterns/00-base'],
         }, {
           namespace: 'atoms',
-          paths: ['source/_patterns/01-atoms']
+          paths: ['source/_patterns/01-atoms'],
         }, {
           namespace: 'molecules',
-          paths: ['source/_patterns/02-molecules']
+          paths: ['source/_patterns/02-molecules'],
         }, {
           namespace: 'organisms',
-          paths: ['source/_patterns/03-organisms']
+          paths: ['source/_patterns/03-organisms'],
         }, {
           namespace: 'templates',
-          paths: ['source/_patterns/04-templates']
+          paths: ['source/_patterns/04-templates'],
         }, {
           namespace: 'pages',
-          paths: ['source/_patterns/05-pages']
+          paths: ['source/_patterns/05-pages'],
         },
-      ]
+      ],
     },
     scssToJson: [
       {
