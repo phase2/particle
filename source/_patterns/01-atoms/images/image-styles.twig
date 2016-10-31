@@ -1,0 +1,4 @@
+{% for imageStyleName, imageStyleSetting in imageStyles %}
+  {% include "@atoms/_img.twig" with {imageStyleName: imageStyleName} %}
+  <br> <br>
+{% endfor %}

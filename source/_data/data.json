@@ -1,15 +1,9 @@
 {
+  "pl": true,
   "title": "Faker.words(2, true)",
   "text": "Faker.words(3, true)",
   "site_title": "Faker.words(2, true)",
   "site_slogan": "Faker.words(5, true)",
-  "img": {
-    "avatar": "http://placeimg.com/600/600/people",
-    "square": "http://placeimg.com/600/600/nature",
-    "rectangle": "http://placeimg.com/1200/900/tech",
-    "landscape": "http://placeimg.com/1200/900/tech",
-    "landscapeWide": "http://placeimg.com/1280/640/tech"
-  },
   "headline": {
     "short": "Faker.words(3, true)",
     "medium": "Faker.words(7, true)"

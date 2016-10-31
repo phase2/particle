@@ -32,6 +32,7 @@
     "domready": "^1.0.8",
     "jquery": "^2.1.4",
     "underscore": "^1.8.3",
-    "drupal": "http://cgit.drupalcode.org/drupal/plain/core/misc/drupal.js?h=8.1.7"
+    "drupal": "http://cgit.drupalcode.org/drupal/plain/core/misc/drupal.js?h=8.1.7",
+    "holderjs": "^2.9.4"
   }
 }

@@ -1,0 +1,35 @@
+{# if we're in pattern lab and there's no specific `img`, let's do a placeholder image #}
+{% if pl and not img %}
+  {# default image style is `medium` #}
+  {% set imageStyleName = imageStyleName|default('medium') %}
+
+  {# `imageStyles` defined in `_data/imageStyles.yaml` #}
+  {% set imageStyle = imageStyles[imageStyleName] %}
+
+  {% set imageText = imageStyle.width ~ 'x' ~ imageStyle.height %}
+
+  {# if there's no height, let's randomly get one somewhere between .75 and 1.25 times the width, in increments of 10 #}
+  {% if not imageStyle.height %}
+    {% set height = random(range(imageStyle.width * 0.75, imageStyle.width * 1.25, 10)) %}
+    {% set imageStyle = imageStyle|merge({height: height}) %}
+    {% set imageText = imageStyle.width ~ 'wide, height varies' %}
+  {% endif %}
+
+  {# holder.js options #}
+  {% set options = {
+    theme: 'gray',
+    auto: 'yes',
+    size: '8',
+    lineWrap: '.9',
+    text: imageStyleName ~ ' \n (' ~ imageText ~ ')'
+  } %}
+
+  <img data-src="holder.js/{{ imageStyle.width }}x{{ imageStyle.height }}?{{ options|url_encode }}"{% if class %} class="{{ class }}"{% endif %}>
+{% else %}
+  {# Is `img` an object or string? #}
+  {% if img is iterable %}
+      <img src="{{ img.src }}" alt="{{ img.alt }}"{% if class %} class="{{ class }}"{% endif %}>
+    {% else %}
+      <img src="{{ img }}"{% if class %} class="{{ class }}"{% endif %}>
+  {% endif %}
+{% endif %}
