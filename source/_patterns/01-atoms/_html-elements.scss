@@ -8,6 +8,11 @@ img {
   vertical-align: middle;
 }
 
+// IE 11 fix ~ http://stackoverflow.com/a/26207036
+main {
+  display: block;
+}
+
 // All last children
 :last-child {
   margin-bottom: 0;
