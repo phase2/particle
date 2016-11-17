@@ -6,5 +6,7 @@ core:
   js:
     dest/script.js:
       preprocess: true
+  # see all in Drupal's `core/core.libraries.yml`
   dependencies:
     - core/jquery
+    - core/drupal
