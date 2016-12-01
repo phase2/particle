@@ -1,6 +1,6 @@
 # Compiled files
 dest/
-source/_patterns/01-atoms/images/_icons.scss
+source/_patterns/01-atoms/images/_icons-settings.scss
 
 # OS generated files
 .DS_Store
@@ -18,3 +18,7 @@ node_modules
 atlassian-ide-plugin.xml
 
 source/styleguide/css
+
+# Errors
+npm-debug.log
+php_errors.log

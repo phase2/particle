@@ -1,0 +1,5 @@
+{
+  "generator-new-component": {
+    "comment": "This file indicates the working directory from where this runs and is needed in case a parent directory contains a `.yo-rc.json` file too - which would cause it to run from there instead."
+  }
+}

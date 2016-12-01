@@ -9,6 +9,8 @@ module.exports = {
     domready: true,
   },
   rules: {
+    'no-comma-dangle': [0],
+    'strict': [0],
     'no-param-reassign': [1, {
       props: false,
     }],

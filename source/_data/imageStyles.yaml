@@ -1,0 +1,10 @@
+imageStyles:
+  thumbnail:
+    width: 100
+    height: 100
+  small:
+    width: 400
+  medium:
+    width: 800
+  large:
+    width: 1600

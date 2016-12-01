@@ -5,22 +5,16 @@
 } %}
   {% block gridItems %}
 
-    {% embed "@molecules/caption-block/caption-block.twig" with {
-      title: "Block 1",
-      img: {
-        landscape: "http://placeimg.com/640/360/tech"
-      }
+    {% embed "@molecules/caption-block.twig" with {
+      title: "Block 1"
     } %}
       {% block body %}
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       {% endblock %}
     {% endembed %}
 
-    {% embed "@molecules/caption-block/caption-block.twig" with {
-      title: "Block 2",
-      img: {
-        landscape: img.square
-      }
+    {% embed "@molecules/caption-block.twig" with {
+      title: "Block 2"
     } %}
       {% block body %}
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -28,7 +22,7 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed "@molecules/caption-block/caption-block.twig" with {
+    {% embed "@molecules/caption-block.twig" with {
       title: "Block 3"
     } %}
       {% block body %}
