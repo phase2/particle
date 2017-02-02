@@ -21,15 +21,23 @@
     auto: 'yes',
     size: '8',
     lineWrap: '.9',
-    text: imageStyleName ~ ' \n (' ~ imageText ~ ')'
+    text: imageStyleName ~ ' \n (' ~ imageText ~ ')',
   } %}
 
-  <img data-src="holder.js/{{ imageStyle.width }}x{{ imageStyle.height }}?{{ options|url_encode }}"{% if class %} class="{{ class }}"{% endif %}>
+  {% set imgSrc = 'holder.js/' ~ imageStyle.width ~ 'x' ~ imageStyle.height|round ~ '?' ~ options|url_encode %}
+  {% if bg %}
+    <div data-background-src="?{{ imgSrc }}" class="bg-img holderjs {{ class }}"></div>
+  {% else %}
+    <img data-src="{{ imgSrc }}"{% if class %} class="{{ class }}"{% endif %}>
+  {% endif %}
 {% else %}
   {# Is `img` an object or string? #}
-  {% if img is iterable %}
-      <img src="{{ img.src }}" alt="{{ img.alt }}"{% if class %} class="{{ class }}"{% endif %}>
-    {% else %}
-      <img src="{{ img }}"{% if class %} class="{{ class }}"{% endif %}>
+  {% set imgSrc = img is iterable ? img.src : img %}
+  {% set imgAlt = img is iterable ? img.alt : '' %}
+
+  {% if bg %}
+    <div style="background-image: url({{ imgSrc }});" class="bg-img {{ class }}"></div>
+  {% else %}
+    <img src="{{ imgSrc }}" alt="{{ imgAlt }}" {% if class %} class="{{ class }}"{% endif %}>
   {% endif %}
 {% endif %}
