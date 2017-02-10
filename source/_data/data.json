@@ -1,6 +1,9 @@
 {
   "pl": true,
-  "title": "Faker.words(2, true)",
+  "img_src": "../../../../images/image1.jpg",
+  "img_alt": "This is a computer",
+  "title": "Magna",
+  "subtitle": "this is subtitle",
   "text": "Faker.words(3, true)",
   "site_title": "Faker.words(2, true)",
   "site_slogan": "Faker.words(5, true)",

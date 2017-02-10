@@ -32,12 +32,14 @@ component-libraries:
   molecules:
     paths:
       - source/_patterns/02-molecules
+      - source/_patterns/02-molecules/box-thumbnail
       - source/_patterns/02-molecules/branding
       - source/_patterns/02-molecules/caption-block
   organisms:
     paths:
       - source/_patterns/03-organisms
       - source/_patterns/03-organisms/grids/caption-grid-block
+      - source/_patterns/03-organisms/grids/thumbnail-grid
       - source/_patterns/03-organisms/site/site-footer
       - source/_patterns/03-organisms/site/site-header
   templates:
