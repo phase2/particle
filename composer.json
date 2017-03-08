@@ -1,0 +1,13 @@
+{
+  "name": "phase2/pattern-lab-starter",
+  "type": "drupal-theme",
+  "description": "Pattern Lab Starter Theme",
+  "keywords": ["Drupal", "Pattern Lab"],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/phase2/pattern-lab-starter",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/components": "*",
+    "php": "^5.4 || ^7.0"
+  }
+}
