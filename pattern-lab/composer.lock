@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e38759cb09f748c2681564dfd23b337b",
-    "content-hash": "8df47b4e1d37b3f04052d6e5443a0a7d",
+    "content-hash": "95949f58fb1e59c55437794cf43c8861",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -67,54 +66,7 @@
                 "tar",
                 "zip"
             ],
-            "time": "2016-02-15 22:46:40"
-        },
-        {
-            "name": "aleksip/plugin-data-transform",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aleksip/plugin-data-transform.git",
-                "reference": "c621f261da3e3c965138bafc5395909d88bb1a6a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aleksip/plugin-data-transform/zipball/c621f261da3e3c965138bafc5395909d88bb1a6a",
-                "reference": "c621f261da3e3c965138bafc5395909d88bb1a6a",
-                "shasum": ""
-            },
-            "require": {
-                "pattern-lab/core": "^2.6.3",
-                "pattern-lab/patternengine-twig": "^2.0.0",
-                "php": ">=5.5.9",
-                "twig/twig": "<1.25"
-            },
-            "type": "patternlab-plugin",
-            "autoload": {
-                "psr-0": {
-                    "aleksip\\DataTransformPlugin\\": "src/",
-                    "Drupal\\Component\\Render\\": "src/",
-                    "Drupal\\Component\\Utility\\": "src/",
-                    "Drupal\\Core\\Template\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Aleksi Peebles"
-                }
-            ],
-            "description": "Data Transform Plugin for Pattern Lab PHP",
-            "homepage": "https://github.com/aleksip/plugin-data-transform",
-            "keywords": [
-                "drupal",
-                "pattern lab",
-                "plugin"
-            ],
-            "time": "2016-09-24 11:36:24"
+            "time": "2016-02-15T22:46:40+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -180,7 +132,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2015-04-14 22:21:58"
+            "time": "2015-04-14T22:21:58+00:00"
         },
         {
             "name": "evanlovely/plugin-twig-namespaces",
@@ -234,7 +186,7 @@
                 "pattern lab",
                 "twig"
             ],
-            "time": "2016-10-12 16:53:30"
+            "time": "2016-10-12T16:53:30+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -282,7 +234,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-04-29 12:21:54"
+            "time": "2016-04-29T12:21:54+00:00"
         },
         {
             "name": "kevinlebrun/colors.php",
@@ -333,7 +285,7 @@
                 "console",
                 "shell"
             ],
-            "time": "2016-04-12 20:58:34"
+            "time": "2016-04-12T20:58:34+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -384,7 +336,7 @@
             "keywords": [
                 "markdown"
             ],
-            "time": "2016-10-29 18:58:20"
+            "time": "2016-10-29T18:58:20+00:00"
         },
         {
             "name": "pattern-lab/core",
@@ -445,7 +397,7 @@
                 "style guide",
                 "styleguide"
             ],
-            "time": "2016-07-22 03:00:05"
+            "time": "2016-07-22T03:00:05+00:00"
         },
         {
             "name": "pattern-lab/drupal-twig-components",
@@ -501,7 +453,7 @@
                 "pattern lab",
                 "twig"
             ],
-            "time": "2016-09-07 19:28:17"
+            "time": "2016-09-07T19:28:17+00:00"
         },
         {
             "name": "pattern-lab/patternengine-twig",
@@ -564,7 +516,7 @@
                 "pattern lab",
                 "twig"
             ],
-            "time": "2016-10-12 21:51:54"
+            "time": "2016-10-12T21:51:54+00:00"
         },
         {
             "name": "pattern-lab/plugin-faker",
@@ -621,7 +573,7 @@
                 "faker",
                 "pattern lab"
             ],
-            "time": "2016-07-03 01:00:15"
+            "time": "2016-07-03T01:00:15+00:00"
         },
         {
             "name": "pattern-lab/styleguidekit-assets-default",
@@ -680,7 +632,7 @@
                 "pattern lab",
                 "styleguide"
             ],
-            "time": "2016-08-26 13:55:13"
+            "time": "2016-08-26T13:55:13+00:00"
         },
         {
             "name": "pattern-lab/styleguidekit-twig-default",
@@ -724,7 +676,7 @@
                 "styleguide",
                 "twig"
             ],
-            "time": "2016-07-04 01:24:27"
+            "time": "2016-07-04T01:24:27+00:00"
         },
         {
             "name": "seld/jsonlint",
@@ -770,7 +722,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2016-09-14 15:17:56"
+            "time": "2016-09-14T15:17:56+00:00"
         },
         {
             "name": "shudrum/array-finder",
@@ -810,7 +762,7 @@
             ],
             "description": "ArrayFinder component",
             "homepage": "https://github.com/Shudrum/ArrayFinder",
-            "time": "2016-02-01 12:23:32"
+            "time": "2016-02-01T12:23:32+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -870,7 +822,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-13 06:28:43"
+            "time": "2016-10-13T06:28:43+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -919,7 +871,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-18 04:30:12"
+            "time": "2016-10-18T04:30:12+00:00"
         },
         {
             "name": "symfony/finder",
@@ -968,7 +920,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-28 00:11:12"
+            "time": "2016-09-28T00:11:12+00:00"
         },
         {
             "name": "symfony/process",
@@ -1017,7 +969,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-29 14:13:09"
+            "time": "2016-09-29T14:13:09+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1066,7 +1018,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-24 18:41:13"
+            "time": "2016-10-24T18:41:13+00:00"
         },
         {
             "name": "twig/twig",
@@ -1127,7 +1079,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-09-01 17:50:53"
+            "time": "2016-09-01T17:50:53+00:00"
         }
     ],
     "packages-dev": [],
