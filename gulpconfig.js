@@ -200,9 +200,10 @@ module.exports = {
     // when these files change
     watch: [
       'templates/**',
+      '*.theme',
     ],
     // run this command
-    command: 'drush cc all',
+    command: 'drush cache-rebuild',
     // in this directory
     dir: './',
   },
