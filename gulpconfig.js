@@ -68,6 +68,10 @@ module.exports = {
       ],
     },
   },
+  webpack: {
+    enabled: true,
+    config: require('./webpack.config.js'),
+  },
   patternLab: {
     enabled: true,
     configFile: 'pattern-lab/config/config.yml',
@@ -83,10 +87,10 @@ module.exports = {
     ],
     injectFiles: [
       'source/styleguide/custom-styleguide-specific.css',
-      'bower_components/underscore/underscore.js',
-      'bower_components/jquery-once/jquery.once.js',
-      'bower_components/holderjs/holder.js',
-      'bower_components/drupal/index.js',
+      // 'bower_components/underscore/underscore.js',
+      // 'bower_components/jquery-once/jquery.once.js',
+      // 'bower_components/holderjs/holder.js',
+      // 'bower_components/drupal/index.js',
     ],
     bowerBasePath: './',
     twigNamespaces: {
