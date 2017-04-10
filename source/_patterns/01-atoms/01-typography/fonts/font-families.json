@@ -1,12 +1,12 @@
 {
   "items": [
     {
-      "name": "$ff--regular",
+      "name": "$ff--lato",
       "value": "'LatoRegular', sans-serif",
       "comment": ""
     },
     {
-      "name": "$ff--alternate",
+      "name": "$ff--helvetica",
       "value": "'Helvetica', sans-serif",
       "comment": ""
     }
