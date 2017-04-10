@@ -5,7 +5,8 @@
 /// @group layout
 ////
 
-$grid-gutter: 2%;
+// % should not be used here as Firefox doesn't like it
+$grid-gutter: $spacing--m;
 ///
 $grid-columns: 12;
 $grid-sizes: 1, 2, 3, 4, 6;
@@ -87,8 +88,14 @@ $grid-sizes: 1, 2, 3, 4, 6;
 }
 
 .smart-grid {
-  >* {
-    margin-bottom: $grid-gutter;
+  > * {
+    margin-bottom: $spacing--m;
+    &:last-child {
+      margin-bottom: $spacing--m;
+    }
+    &[class]:last-child {
+      margin-bottom: $spacing--m;
+    }
   }
   @each $size in $grid-sizes {
     @include breakpoint($bp--xsmall) {
