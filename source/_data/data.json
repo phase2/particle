@@ -1,5 +1,6 @@
 {
   "pl": true,
+  "bodyClass": "pl",
   "title": "Faker.words(2, true)",
   "text": "Faker.words(3, true)",
   "site_title": "Faker.words(2, true)",

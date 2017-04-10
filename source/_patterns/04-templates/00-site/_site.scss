@@ -1,0 +1,8 @@
+.site {
+  @include site-container();
+  &__header {}
+  &__page {
+
+  }
+  &__footer {}
+}

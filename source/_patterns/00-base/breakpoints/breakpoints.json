@@ -12,22 +12,22 @@
     },
     {
       "name": "$bp--medium",
-      "value": "640px",
+      "value": "700px",
       "comment": ""
     },
     {
       "name": "$bp--large",
-      "value": "768px",
+      "value": "900px",
       "comment": ""
     },
     {
       "name": "$bp--xlarge",
-      "value": "1024px",
+      "value": "1100px",
       "comment": ""
     },
     {
       "name": "$bp--xxlarge",
-      "value": "1250px",
+      "value": "1300px",
       "comment": ""
     },
     {
