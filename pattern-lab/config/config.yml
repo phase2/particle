@@ -79,6 +79,7 @@ plugins:
       templates:
         paths:
           - ../source/_patterns/04-templates
+          - ../source/_patterns/04-templates/00-site
           - ../source/_patterns/04-templates/content-types
       pages:
         paths:

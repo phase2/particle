@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "name": "$spacing--sm",
+      "name": "$spacing--s",
       "value": "5px",
       "comment": ""
     },
