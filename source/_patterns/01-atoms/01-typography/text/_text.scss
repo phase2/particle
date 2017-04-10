@@ -29,7 +29,7 @@
 // This will adjust the base HTML font size fluidly between the xsmall and
 // xxlarge breakpoints to a font size between 14px minimum to 18px maximum.
 html {
-  @include fluid-type(font-size, $bp--xsmall, $bp--xxlarge, 14px, 18px);
+  // @include fluid-type(font-size, $bp--xsmall, $bp--xxlarge, 14px, 18px);
 }
 
 body {
