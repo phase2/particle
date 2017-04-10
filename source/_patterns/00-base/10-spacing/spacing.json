@@ -6,6 +6,11 @@
       "comment": ""
     },
     {
+      "name": "$spacing--m",
+      "value": "10px",
+      "comment": ""
+    },
+    {
       "name": "$spacing--l",
       "value": "20px",
       "comment": ""

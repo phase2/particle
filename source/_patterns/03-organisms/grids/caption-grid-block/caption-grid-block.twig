@@ -9,7 +9,7 @@
       title: "Block 1"
     } %}
       {% block body %}
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>{{ random(paragraphs) }}</p>
       {% endblock %}
     {% endembed %}
 
@@ -17,8 +17,8 @@
       title: "Block 2"
     } %}
       {% block body %}
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>{{ random(paragraphs) }}</p>
+        <p>{{ random(paragraphs) }}</p>
       {% endblock %}
     {% endembed %}
 
@@ -26,7 +26,7 @@
       title: "Block 3"
     } %}
       {% block body %}
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>{{ random(paragraphs) }}</p>
       {% endblock %}
     {% endembed %}
 
