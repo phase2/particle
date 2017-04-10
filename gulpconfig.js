@@ -110,20 +110,20 @@ module.exports = {
     },
     scssToJson: [
       {
-        src: 'source/_patterns/00-base/01-colors/_color-vars.scss',
-        dest: 'source/_patterns/00-base/01-colors/colors.json',
+        src: 'source/_patterns/00-base/05-colors/_color-vars.scss',
+        dest: 'source/_patterns/00-base/05-colors/colors.json',
         lineStartsWith: '$c-',
         allowVarValues: false,
       },
       {
-        src: 'source/_patterns/01-atoms/01-typography/fonts/_fonts.scss',
-        dest: 'source/_patterns/01-atoms/01-typography/fonts/font-sizes.json',
+        src: 'source/_patterns/00-base/15-typography/fonts/_fonts.scss',
+        dest: 'source/_patterns/00-base/15-typography/fonts/font-sizes.json',
         lineStartsWith: '$fs--',
         allowVarValues: false,
       },
       {
-        src: 'source/_patterns/01-atoms/01-typography/fonts/_fonts.scss',
-        dest: 'source/_patterns/01-atoms/01-typography/fonts/font-families.json',
+        src: 'source/_patterns/00-base/15-typography/fonts/_fonts.scss',
+        dest: 'source/_patterns/00-base/15-typography/fonts/font-families.json',
         lineStartsWith: '$ff--',
         allowVarValues: false,
       },
@@ -134,8 +134,8 @@ module.exports = {
         allowVarValues: false,
       },
       {
-        src: 'source/_patterns/00-base/spacing/_spacing.scss',
-        dest: 'source/_patterns/00-base/spacing/spacing.json',
+        src: 'source/_patterns/00-base/10-spacing/_spacing.scss',
+        dest: 'source/_patterns/00-base/10-spacing/spacing.json',
         lineStartsWith: '$spacing--',
         allowVarValues: false,
       },

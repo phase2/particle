@@ -57,6 +57,6 @@
     }
   ],
   "meta": {
-    "description": "To add to these items, use Sass variables that start with <code>$c-</code> in <code>source/_patterns/00-base/01-colors/_color-vars.scss</code>"
+    "description": "To add to these items, use Sass variables that start with <code>$c-</code> in <code>source/_patterns/00-base/05-colors/_color-vars.scss</code>"
   }
 }
