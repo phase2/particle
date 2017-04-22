@@ -8,6 +8,8 @@
 
 # QuickStart
 
+[Download this repo](https://github.com/phase2/pattern-lab-starter/archive/master.zip), rename folder to `patternlab` and place in themes directory if integrating with Drupal 8, and then `cd` into folder before running below commands. To name it something else, see [docs/setup.md](docs/setup.md).
+
 ```bash
 npm install # or `yarn install` if you want 3x the speed
 npm start
