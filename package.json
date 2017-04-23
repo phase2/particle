@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "start": "gulp",
-    "compile": "gulp compile",
+    "compile": "NODE_ENV=production gulp compile",
     "test": "gulp validate",
     "gulp": "gulp",
     "update": "npm update && cd pattern-lab && composer update",
@@ -26,12 +26,13 @@
     "bower": "bower"
   },
   "dependencies": {
-    "babel-preset-es2015": "^6.6.0",
-    "bower": "^1.7.9",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "bower": "^1.8.0",
     "gulp": "gulpjs/gulp#4.0",
-    "p2-theme-core": "^9.3.1",
-    "stylelint-scss": "^1.3.4",
-    "rc": "^1.1.6"
+    "p2-theme-core": "^9.4.3",
+    "rc": "^1.2.0",
+    "stylelint-scss": "^1.4.3"
   },
   "devDependencies": {
     "lodash.includes": "^4.1.3",
