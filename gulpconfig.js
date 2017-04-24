@@ -57,7 +57,7 @@ module.exports = {
     babel: true,
     // Will bundle all bower JS dependencies (not devDeps)
     // creates a `bower_components.min.js` file in `js.dest`.
-    bundleBower: true,
+    bundleBower: false,
     eslint: {
       enabled: true,
       src: [
@@ -81,8 +81,13 @@ module.exports = {
       'jpeg',
       'png',
     ],
-    injectFiles: [],
-    injectBower: true,
+    injectFiles: [
+      'source/styleguide/custom-styleguide-specific.css',
+      'bower_components/underscore/underscore.js',
+      'bower_components/jquery-once/jquery.once.js',
+      'bower_components/holderjs/holder.js',
+      'bower_components/drupal/index.js',
+    ],
     bowerBasePath: './',
     twigNamespaces: {
       addToDrupalThemeFile: true,
