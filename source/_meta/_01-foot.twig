@@ -2,6 +2,11 @@
 	<!--DO NOT REMOVE-->
 	{{ patternLabFoot | raw }}
 
+  <!-- Faking Drupal -->
+  <script src="../../../../bower_components/domready/ready.js?cacheBuster={{ cacheBuster }}"></script>
+  <script src="../../../../bower_components/drupal/index.js?cacheBuster={{ cacheBuster }}"></script>
+  <script src="../../../../bower_components/drupalinit/index.js?cacheBuster={{ cacheBuster }}"></script>
+
   <!-- inject:js -->
   <script src="../../../../dest/bower--devDeps.min.js?cacheBuster={{ cacheBuster }}"></script>
   <script src="../../../../dest/script.js?cacheBuster={{ cacheBuster }}"></script>
