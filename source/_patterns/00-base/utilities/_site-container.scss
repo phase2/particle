@@ -1,0 +1,53 @@
+$site-max-width: $bp--xxlarge;
+$site-padding: $spacing--s;
+
+/// Site container
+/// @param {bool} $padding [true] - Add left and right padding.
+/// @param {bool} $center [true] - Center using `margin: 0 auto`.
+/// @param {bool} $useWidth [false] - Use `width` instead of `max-width`.
+@mixin site-container($padding: true, $useWidth: false, $center: true) {
+  @if $center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @if $padding {
+    padding-left: $site-padding;
+    padding-right: $site-padding;
+  }
+  @include breakpoint($site-max-width + ($site-padding * 2)) {
+    @if $useWidth {
+      width: $site-max-width;
+    } @else {
+      max-width: $site-max-width;
+    }
+  }
+}
+
+
+/// Mixin - Full Width, even outside container
+/// @param {bool} $undo [false]
+/// @link https://css-tricks.com/full-width-containers-limited-width-parents/ Source
+@mixin full-width($undo: false) {
+  @if $undo {
+    margin-left: 0;
+    margin-right: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    width: auto;
+    max-width: 100%;
+  } @else {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}
+
+/// @group utilities
+.u-full-width {
+  @include full-width();
+}

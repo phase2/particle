@@ -1,0 +1,65 @@
+$fs--h1: 52px !default;
+$fs--h2: $fs--xxl !default;
+$fs--h3: $fs--xl !default;
+$fs--h4: $fs--l !default;
+$fs--h5: $fs--m !default;
+$fs--h6: $fs--s !default;
+
+@mixin heading() {
+  font-family: $ff--heading;
+}
+
+@mixin h1() {
+  @include heading();
+  font-size: $fs--h1;
+}
+
+@mixin h2() {
+  @include heading();
+  font-size: $fs--h2;
+}
+
+@mixin h3() {
+  @include heading();
+  font-size: $fs--h3;
+}
+
+@mixin h4() {
+  @include heading();
+  font-size: $fs--h4;
+}
+
+@mixin h5() {
+  @include heading();
+  font-size: $fs--h5;
+}
+
+@mixin h6() {
+  @include heading();
+  font-size: $fs--h6;
+}
+
+h1, .h1 {
+  @include h1();
+  color: $c-red;
+}
+
+h2, .h2 {
+  @include h2();
+}
+
+h3, .h3 {
+  @include h3();
+}
+
+h4, .h4 {
+  @include h4();
+}
+
+h5, .h5 {
+  @include h5();
+}
+
+h6, .h6 {
+  @include h6();
+}
