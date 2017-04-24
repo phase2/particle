@@ -11,6 +11,9 @@ regions:
   sidebar_first: Sidebar first
   footer: Footer
 component-libraries:
+  svgs:
+    paths:
+      - images/svgs
   base:
     paths:
       - source/_patterns/00-base

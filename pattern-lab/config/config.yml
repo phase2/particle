@@ -47,6 +47,9 @@ plugins:
   twigNamespaces:
     enabled: true
     namespaces:
+      svgs:
+        paths:
+          - ../images/svgs
       base:
         paths:
           - ../source/_patterns/00-base

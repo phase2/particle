@@ -71,6 +71,27 @@ Afterwards, you'll need to add them to Drupal and Pattern Lab:
 
 Using `--save` shows it's intention to be used in Pattern Lab and Drupal; using `--save-dev` shows it's just for Pattern Lab.
 
+### Icons and SVGs
+
+Two systems exists for flexibility: SVGs as HTML elements, and SVGs compiled into Font Icons.
+
+#### SVG Elements
+
+Useful for larger, less frequently used vector images that potentially could be multi-color or able to animate.
+
+1. Place `file.svg` in `images/svgs/` and possible minify yourself.
+2. Use it in Twig templates like so: `{{ source('@svgs/file.svg') }}` ([info on `source`](http://twig.sensiolabs.org/doc/1.x/functions/source.html))
+
+#### SVG => Font Icons
+
+Useful for small, frequently used icons that are a single color which is changeable via CSS.
+
+1. Place `file.svg` in `images/icons/src/`
+2. See it automatically appear in Pattern Lab at "Atoms > Images > Icons".
+3. Use either way:
+    - HTML class: `icon--file`
+    - Sass Mixin: `@include icon(file)`
+
 ### Sass Libraries
 
 Sass libraries are installed using bower as well; you can see how we import them in the main scss file. These are the ones available:
