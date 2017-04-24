@@ -81,13 +81,7 @@ module.exports = {
       'jpeg',
       'png',
     ],
-    injectFiles: [
-      'source/styleguide/custom-styleguide-specific.css',
-      'bower_components/underscore/underscore.js',
-      'bower_components/jquery-once/jquery.once.js',
-      'bower_components/holderjs/holder.js',
-      'bower_components/drupal/index.js',
-    ],
+    injectFiles: [],
     bowerBasePath: './',
     twigNamespaces: {
       addToDrupalThemeFile: true,

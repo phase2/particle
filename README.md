@@ -58,6 +58,28 @@ To update node and composer dependencies (if you see messages about Pattern Lab 
 npm run update
 ```
 
+## Assets
+
+Get front end libraries downloaded with Bower like so:
+
+    bower install {project-name} --save
+
+Afterwards, you'll need to add them to Drupal and Pattern Lab:
+
+1. Pattern Lab: Go to `source/_meta/` and in `_00-head.twig` or `01-foot.twig`, add the `<link>` or `<script>` tags needed.
+2. Drupal: Add them to the appropriate library in the `*.libraries.yml` file and attach them where needed.
+
+Using `--save` shows it's intention to be used in Pattern Lab and Drupal; using `--save-dev` shows it's just for Pattern Lab.
+
+### Sass Libraries
+
+Sass libraries are installed using bower as well; you can see how we import them in the main scss file. These are the ones available:
+
+- [Normalize](https://github.com/JohnAlbin/normalize-scss) - Better style reset
+- [Singularity Grid System](https://github.com/at-import/Singularity) - Grid system
+- [Breakpoint](http://breakpoint-sass.com) - A cleaner way to do breakpoints/media queries
+- [Bourbon](http://bourbon.io/docs) - Helpful mixins
+
 ## Orientation
 
 - source/
@@ -180,23 +202,6 @@ You can [use comments to turn off certain rules](http://stylelint.io/user-guide/
 ### Babel JS Transpiling Config
 
 Edit `.babelrc` for configuration of [Babel rules](https://babeljs.io/docs/usage/options/) that transpile JS. Default allows ES6 to be transpiled to ES5. Learn about awesome [ES6 features](http://es6-features.org) here.
-
-## Assets
-
-Get front end libraries injected into Drupal theme info file and Pattern Lab with:
-
-    bower install {project-name} --save
-
-Using `--save` shows it's intention to be used in Pattern Lab and Drupal; using `--save-dev` shows it's just for Pattern Lab. All assets `<link>` or `<script>` tag will be automatically injected for Pattern Lab into the header and footer twig files found in `source/_meta/`. 
-
-### Sass Libraries
-
-Sass libraries are installed using bower as well; you can see how we import them in the main scss file. These are the ones available:
-
-- [Normalize](https://github.com/JohnAlbin/normalize-scss) - Better style reset
-- [Singularity Grid System](https://github.com/at-import/Singularity) - Grid system
-- [Breakpoint](http://breakpoint-sass.com) - A cleaner way to do breakpoints/media queries
-- [Bourbon](http://bourbon.io/docs) - Helpful mixins
 
 ## Gulp
 
