@@ -2,7 +2,7 @@
 
 # Prerequisites
 
-- [Node](https://nodejs.org) v4 OR v6 (the two [LTS](https://github.com/nodejs/LTS) versions)
+- [Node](https://nodejs.org) v6 + (v4 might work, no promises)
 - PHP 5.4, 5.5, 5.6, OR 7 (5.3 might work, no promises)
 - [`composer`](https://getcomposer.org)
 
