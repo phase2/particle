@@ -8,11 +8,12 @@ $fw--700: 700; // bold*
 $fw--800: 800; // extra-bold/ultra-bold
 $fw--900: 900; // black/heavy
 
+// Place a `.ttf`, `.woff`, & `.woff2` in `$font-directory`
 $font-faces: (
-  (
-    "name": "LatoRegular",
-    "filename": "Lato-Regular"
-  ),
+  //(
+  //  "name": "LatoRegular",
+  //  "filename": "Lato-Regular"
+  //),
 ) !default;
 
 // Child themes can add to Fonts with `$extra-font-faces`
