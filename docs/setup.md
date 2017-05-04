@@ -137,7 +137,7 @@ If we want to change the `site_slogan`, we could do the following in our `block-
 %}
 ```
 
-#### Using preprocess to handle varaibles to pass to Pattern Lab template
+#### Using preprocess to handle variables to pass to Pattern Lab template
 
 Now, the above example showed how to just override the variables in our original Pattern Lab template with _something_ provided by a drupal template. 
 
