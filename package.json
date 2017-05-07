@@ -23,7 +23,7 @@
     "update": "npm update && cd pattern-lab && composer update",
     "new": "yo ./scripts/new-component/index.js",
     "setup": "bower install --allow-root && cd pattern-lab && composer install --no-interaction && npm run compile",
-    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root && cd pattern-lab && composer install --no-interaction",
+    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
     "bower": "bower"
   },
   "dependencies": {
