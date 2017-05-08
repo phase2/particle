@@ -12,7 +12,7 @@
 
 ```bash
 npm install # or `yarn install` if you want 3x the speed
-npm setup
+npm run setup
 npm start
 ```
 
