@@ -22,7 +22,8 @@
     "gulp": "gulp",
     "update": "npm update && cd pattern-lab && composer update",
     "new": "yo ./scripts/new-component/index.js",
-    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete && bower install --allow-root && cd pattern-lab && composer install --no-interaction",
+    "setup": "bower install --allow-root && cd pattern-lab && composer install --no-interaction",
+    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
     "bower": "bower"
   },
   "dependencies": {
