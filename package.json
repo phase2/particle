@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "start": "gulp",
-    "compile": "gulp compile",
+    "compile": "NODE_ENV=production gulp compile",
     "test": "gulp validate",
     "gulp": "gulp",
     "update": "npm update && cd pattern-lab && composer update",
