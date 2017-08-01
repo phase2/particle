@@ -22,14 +22,15 @@
     "gulp": "gulp",
     "update": "npm update && cd pattern-lab && composer update",
     "new": "yo ./scripts/new-component/index.js",
-    "setup": "bower install --allow-root && cd pattern-lab && composer install --no-interaction",
-    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
-    "bower": "bower"
+    "setup": "cd pattern-lab && composer install --no-interaction",
+    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.24.0",
-    "bower": "^1.8.0",
+    "breakpoint-sass": "^2.7.1",
     "gulp": "gulpjs/gulp#4.0",
+    "holderjs": "^2.9.4",
+    "jquery": "^3.2.1",
     "p2-theme-core": "^9.3.1",
     "rc": "^1.2.0",
     "stylelint-scss": "^1.4.3"

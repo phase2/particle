@@ -26,7 +26,6 @@ module.exports = {
     ],
     includePaths: [
       './node_modules',
-      './bower_components',
     ],
     // http://sassdoc.com
     sassdoc: {
@@ -55,9 +54,6 @@ module.exports = {
     sourceMapEmbed: false,
     uglify: false,
     babel: true,
-    // Will bundle all bower JS dependencies (not devDeps)
-    // creates a `bower_components.min.js` file in `js.dest`.
-    bundleBower: false,
     eslint: {
       enabled: true,
       src: [
@@ -81,8 +77,6 @@ module.exports = {
       'jpeg',
       'png',
     ],
-    injectFiles: [],
-    bowerBasePath: './',
     twigNamespaces: {
       addToDrupalThemeFile: true,
       sets: [
