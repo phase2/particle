@@ -77,8 +77,6 @@ module.exports = {
       'jpeg',
       'png',
     ],
-    injectFiles: [],
-    bowerBasePath: './',
     twigNamespaces: {
       addToDrupalThemeFile: true,
       sets: [
