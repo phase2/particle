@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "babel-preset-es2015": "^6.24.0",
+    "bootstrap": "^4.0.0-alpha.6",
     "breakpoint-sass": "^2.7.1",
     "gulp": "gulpjs/gulp#4.0",
     "holderjs": "^2.9.4",

@@ -1,7 +1,7 @@
 .page {
   display: block; // IE doesn't like `<main>`
   &--has-sidebar {
-    @include breakpoint($bp--xlarge) {
+    @include media-breakpoint-up(xl) {
       display: flex;
       justify-content: space-between;
       .page__content {

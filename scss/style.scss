@@ -10,8 +10,8 @@
 // Add more libs with `npm install --save {NAME-OF-LIB}`
 //
 
-// A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/,
-@import "breakpoint-sass/stylesheets/breakpoint";
+// Import bootstrap 4 grid only, https://v4-alpha.getbootstrap.com/layout/grid/
+@import "bootstrap/scss/bootstrap-grid.scss";
 
 //
 // End libs
