@@ -6,8 +6,15 @@ php:
 #  - 7.0
   - 7.1
 env:
+  - CXX=g++-4.8
 #  - TRAVIS_NODE_VERSION="6"
   - TRAVIS_NODE_VERSION="6"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 before_install:
   - composer self-update
   - composer clear-cache
@@ -21,6 +28,7 @@ install:
   - npm run setup
 before_script:
   - php --version
+  - composer --version
   - node --version
   - npm --version
 script: 'npm run compile && npm test'
