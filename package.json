@@ -31,7 +31,7 @@
     "gulp": "gulpjs/gulp#4.0",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
-    "p2-theme-core": "^9.3.1",
+    "p2-theme-core": "phase2/p2-theme-core#epic/v10",
     "rc": "^1.2.0",
     "stylelint-scss": "^1.4.3"
   },
