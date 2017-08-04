@@ -13,10 +13,7 @@
     {# If the public directory is at `pattern-lab/public/` then you'll `../../../../` to get the root of the theme. #}
     {# If the public directory is at `pattern-lab-public/` then you'll `../../../` to get the root of the theme. #}
 
-    {# Gulp tools will auto-inject what is compiled into the `dest/` directory (usually just aggregated JS & CSS), and anything in `config.patternLab.injectFiles` here: #}
-    <!-- inject:css -->
     <link rel="stylesheet" href="../../../../dest/style.css?cacheBuster={{ cacheBuster }}">
-    <!-- endinject -->
 
     <!-- Pattern Lab only dependencies -->
     <link rel="stylesheet" href="../../../../source/styleguide/custom-styleguide-specific.css">
