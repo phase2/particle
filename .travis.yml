@@ -7,7 +7,7 @@ php:
   - 7.1
 env:
 #  - TRAVIS_NODE_VERSION="6"
-  - TRAVIS_NODE_VERSION="8"
+  - TRAVIS_NODE_VERSION="6"
 before_install:
   - composer self-update
   - composer clear-cache
