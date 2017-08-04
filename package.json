@@ -26,16 +26,16 @@
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
   },
   "dependencies": {
-    "babel-preset-es2015": "^6.24.0",
     "breakpoint-sass": "^2.7.1",
-    "gulp": "gulpjs/gulp#4.0",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
-    "p2-theme-core": "phase2/p2-theme-core#epic/v10",
-    "rc": "^1.2.0",
-    "stylelint-scss": "^1.4.3"
   },
   "devDependencies": {
+    "stylelint-scss": "^1.4.3"
+    "rc": "^1.2.0",
+    "babel-preset-es2015": "^6.24.0",
+    "p2-theme-core": "phase2/p2-theme-core#epic/v10",
+    "gulp": "gulpjs/gulp#4.0",
     "lodash.includes": "^4.1.3",
     "yeoman-generator": "^0.23.3",
     "yo": "^1.8.3"
