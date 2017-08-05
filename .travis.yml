@@ -16,12 +16,12 @@ addons:
       - g++-4.8
 before_install:
   - composer self-update
-  - composer clear-cache
   - . $HOME/.nvm/nvm.sh
   - nvm install $TRAVIS_NODE_VERSION
   - nvm use $TRAVIS_NODE_VERSION
   - npm install -g npm5
 install:
+  - composer clear-cache
   - npm install
   - npm run setup
 before_script:
