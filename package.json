@@ -3,6 +3,7 @@
   "version": "9.7.0",
   "description": "Pattern Lab Starter",
   "main": "gulpfile.js",
+  "license": "GPL-2.0",
   "author": {
     "name": "Evan Lovely",
     "url": "https://github.com/EvanLovely"
@@ -22,7 +23,7 @@
     "gulp": "gulp",
     "update": "npm update && cd pattern-lab && composer update",
     "new": "yo ./scripts/new-component/index.js",
-    "setup": "cd pattern-lab && composer install --no-interaction",
+    "setup": "cd pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
   },
   "dependencies": {
