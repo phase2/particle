@@ -40,7 +40,7 @@
     }
   ],
   "require": {
-    "php": ">=5.5.9",
+    "php": ">=5.6.5",
     "pattern-lab/core": "^2.7.0",
     "pattern-lab/patternengine-twig": "^2.0.0",
     "pattern-lab/styleguidekit-assets-default": "^3.0.0",
