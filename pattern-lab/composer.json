@@ -21,10 +21,29 @@
       "PatternLab": "core/src/"
     }
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/patternlab-php-core"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/patternengine-php-twig"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/styleguidekit-assets-default"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/styleguidekit-twig-default"
+    }
+  ],
   "require": {
     "php": ">=5.5.9",
     "pattern-lab/core": "^2.7.0",
     "pattern-lab/patternengine-twig": "^2.0.0",
+    "pattern-lab/styleguidekit-assets-default": "^3.0.0",
     "pattern-lab/styleguidekit-twig-default": "^3.0.0",
     "pattern-lab/drupal-twig-components": "^2.0.0",
     "pattern-lab/plugin-faker": "^2.0",
