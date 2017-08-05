@@ -3,6 +3,7 @@
   "version": "9.7.0",
   "description": "Pattern Lab Starter",
   "main": "gulpfile.js",
+  "license": "GPL-2.0",
   "author": {
     "name": "Evan Lovely",
     "url": "https://github.com/EvanLovely"
