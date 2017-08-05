@@ -9,13 +9,14 @@
   {# If the public directory is at `pattern-lab/public/` then you'll `../../../../` to get the root of the theme. #}
   {# If the public directory is at `pattern-lab-public/` then you'll `../../../` to get the root of the theme. #}
 
-  <script src="../../../../node_modules/jquery/dist/jquery.js"></script>
+  {#<script src="../../../../node_modules/jquery/dist/jquery.js"></script>#}
 
   <!-- Pattern Lab only dependencies -->
-  <script src="../../../../node_modules/holderjs/holder.js"></script>
+  {#<script src="../../../../node_modules/holderjs/holder.js"></script>#}
   <!-- END:Pattern Lab only dependencies -->
 
-  <script src="../../../../dest/script.js?cacheBuster={{ cacheBuster }}"></script>
+  {#<script src="../../../../dest/script.js?cacheBuster={{ cacheBuster }}"></script>#}
+  <script src="../../../../dest/pattern-lab.js?cacheBuster={{ cacheBuster }}"></script>
 
 	</body>
 </html>

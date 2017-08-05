@@ -24,15 +24,18 @@
     "update": "npm update && cd pattern-lab && composer update",
     "new": "yo ./scripts/new-component/index.js",
     "setup": "cd pattern-lab && composer install --no-interaction --ignore-platform-reqs",
-    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
+    "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
+    "webpack": "webpack"
   },
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
     "p2-theme-core": "github:phase2/p2-theme-core#epic/v10",
-    "rc": "^1.2.0"
+    "rc": "^1.2.0",
+    "webpack": "^3.4.1"
   },
   "devDependencies": {
     "stylelint-scss": "^1.4.3",

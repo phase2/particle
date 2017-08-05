@@ -44,7 +44,7 @@ module.exports = {
     },
   },
   js: {
-    enabled: true,
+    enabled: false,
     src: [
       'js/**/*.js',
       'source/_patterns/**/*.js',
