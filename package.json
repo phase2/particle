@@ -27,11 +27,11 @@
   },
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
+    "gulp": "github:gulpjs/gulp#4.0",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
-    "rc": "^1.2.0",
-    "gulp": "gulpjs/gulp#4.0",
-    "p2-theme-core": "phase2/p2-theme-core#epic/v10"
+    "p2-theme-core": "github:phase2/p2-theme-core#epic/v10",
+    "rc": "^1.2.0"
   },
   "devDependencies": {
     "stylelint-scss": "^1.4.3",
