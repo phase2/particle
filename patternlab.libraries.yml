@@ -4,9 +4,15 @@ core:
       dest/style.css:
         preprocess: true
   js:
-    dest/script.js:
+    dest/vendor.js:
+      preprocess: true
+    dest/drupal-theme.js:
       preprocess: true
   # see all in Drupal's `core/core.libraries.yml`
   dependencies:
-    - core/jquery
+    - patternlab/j-dash
     - core/drupal
+# jQuery and lodash rolled together in one library
+j-dash:
+  js:
+    dest/j-dash.js: { minified: true, weight: -20 }

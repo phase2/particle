@@ -5,6 +5,11 @@ base theme: stable
 core: 8.x
 libraries:
   - patternlab/core
+libraries-override:
+  # Provide own jQuery from theme
+  core/jquery: patternlab/j-dash
+  # Lodash replaces underscore and is included in j-dash
+  core/underscore: false
 regions:
   header: Header
   content: Content
