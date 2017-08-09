@@ -4,7 +4,7 @@ core:
       dest/style.css:
         preprocess: true
   js:
-    dest/vendor.js:
+    dest/common.js:
       preprocess: true
     dest/drupal-theme.js:
       preprocess: true
