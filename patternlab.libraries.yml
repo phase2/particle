@@ -1,7 +1,9 @@
 core:
   css:
     theme:
-      dest/style.css:
+      dest/design-system-styles.css:
+        preprocess: true
+      dest/drupal-theme-styles.css:
         preprocess: true
   js:
     dest/design-system.js:

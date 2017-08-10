@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     'j-dash': './source/design-system/j-dash-window.js',
     'pattern-lab': './source/design-system/pattern-lab.js',
-    'drupal-theme': './js/drupal-theme.js',
+    'drupal-theme': './theme-system/drupal-theme.js',
   },
   output: {
     filename: '[name].js',
@@ -28,7 +28,7 @@ module.exports = {
         minChunks: 2,
       },
     ),
-    new ExtractTextPlugin({ // define where to save the file
+    new ExtractTextPlugin({
       filename: '[name].styles.css',
       allChunks: true,
     }),

@@ -1,7 +1,13 @@
+/**
+ * Apply the Design System app to a Drupal behavior
+ */
+
 import $ from 'jquery';
 import _ from 'lodash';
 
 import designSystem from '../source/design-system/design-system';
+
+require('./scss/drupal-styles.scss');
 
 console.log('drupal-theme ran');
 
@@ -18,5 +24,6 @@ Drupal.behaviors.designSystem = {
     designSystem.forEach((component) => {
       component.enable(context, settings);
     });
+
   },
 };

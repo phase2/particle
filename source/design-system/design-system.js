@@ -1,4 +1,5 @@
-require('../../scss/style.scss');
+require('./_00-config.scss');
+
 
 const components = [];
 

@@ -1,6 +1,10 @@
+/**
+ * Apply all our design system components to the DOM
+ */
+
 import $ from 'jquery';
 
-import { card } from './design-system';
+import designSystem from './design-system';
 
 const $context = $(document);
 
