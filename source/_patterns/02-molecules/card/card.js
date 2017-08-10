@@ -1,7 +1,8 @@
 import $ from 'jquery';
-import _ from 'lodash';
 
-// require('./_card.scss');
+// require('../general/typography.scss');
+require('./_card.scss');
+
 const defaultSettings = { height: '200px' };
 
 export default {

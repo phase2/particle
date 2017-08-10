@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import designSystem from './design-system';
+import { card } from './design-system';
 
 const $context = $(document);
 

@@ -1,3 +1,5 @@
+require('../../scss/style.scss');
+
 const components = [];
 
 // Components

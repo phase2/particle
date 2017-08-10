@@ -1,7 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports ={
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+module.exports = {
   entry: {
     'j-dash': './source/design-system/j-dash-window.js',
     'pattern-lab': './source/design-system/pattern-lab.js',
@@ -11,12 +13,24 @@ module.exports ={
     filename: '[name].js',
     path: path.resolve(__dirname, 'dest'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.(sass|scss)$/,
+        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+      }
+    ],
+  },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(
       {
-        names: ['common', 'j-dash'],
+        names: ['design-system', 'j-dash'],
         minChunks: 2,
       },
     ),
+    new ExtractTextPlugin({ // define where to save the file
+      filename: '[name].styles.css',
+      allChunks: true,
+    }),
   ],
 };

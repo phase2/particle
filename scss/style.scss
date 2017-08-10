@@ -11,7 +11,7 @@
 //
 
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/,
-@import "breakpoint-sass/stylesheets/breakpoint";
+//@import "breakpoint-sass/stylesheets/breakpoint";
 
 //
 // End libs
@@ -21,4 +21,9 @@
 // Start _patterns includes
 // Run through the entire patterns collection, finding all scss files included therein
 //
-@import "../source/**/*.scss";
+//@import "../source/**/*.scss";
+
+
+body {
+  background: red;
+}
