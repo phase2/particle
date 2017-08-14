@@ -6,8 +6,8 @@ core: 8.x
 libraries:
   - patternlab/core
 libraries-override:
-  core/jquery: patternlab/j-dash
-  core/underscore: false
+  core/jquery: patternlab/jquery
+  core/underscore: patternlab/lodash
 regions:
   header: Header
   content: Content

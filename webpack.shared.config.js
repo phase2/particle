@@ -4,14 +4,14 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: {
-    'j-dash': './source/design-system/j-dash-window.js',
-    'pattern-lab': './source/design-system/pattern-lab.js',
-    'drupal-theme': './theme-system/drupal-theme.js',
-  },
+  // Commented out here since the specifics are different per PL or Drupal
+  // entry: { 'entry-name': './path/to/entry.js', },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dest'),
+  },
+  devServer: {
+    contentBase: './'
   },
   module: {
     rules: [
@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(
       {
-        names: ['design-system', 'j-dash'],
+        name: 'commons',
         minChunks: 2,
       },
     ),

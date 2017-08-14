@@ -1,6 +1,6 @@
 {
   "name": "PatternLabStarter",
-  "version": "9.7.0",
+  "version": "10.0.0",
   "description": "Pattern Lab Starter",
   "main": "gulpfile.js",
   "license": "GPL-2.0",
@@ -25,10 +25,11 @@
     "new": "yo ./scripts/new-component/index.js",
     "setup": "cd pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete",
-    "webpack": "webpack"
+    "webpack-pl": "webpack --display-entrypoints --config webpack.pl.config.js",
+    "webpack-drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
+    "webpack-dev-server": "webpack-dev-server --open"
   },
   "dependencies": {
-    "breakpoint-sass": "^2.7.1",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
@@ -42,9 +43,11 @@
     "webpack": "^3.4.1"
   },
   "devDependencies": {
-    "stylelint-scss": "^1.4.3",
     "babel-preset-es2015": "^6.24.0",
     "lodash.includes": "^4.1.3",
+    "stylelint-scss": "^1.4.3",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-merge": "^4.1.0",
     "yeoman-generator": "^0.23.3",
     "yo": "^1.8.3"
   }

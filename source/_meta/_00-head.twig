@@ -13,10 +13,10 @@
     {# If the public directory is at `pattern-lab/public/` then you'll `../../../../` to get the root of the theme. #}
     {# If the public directory is at `pattern-lab-public/` then you'll `../../../` to get the root of the theme. #}
 
-    <link rel="stylesheet" href="../../../../dest/style.css?cacheBuster={{ cacheBuster }}">
+    <link rel="stylesheet" href="{{ paths.pl_theme_root }}/dest/commons.styles.css?cacheBuster={{ cacheBuster }}">
 
     <!-- Pattern Lab only dependencies -->
-    <link rel="stylesheet" href="../../../../source/styleguide/custom-styleguide-specific.css">
+    <link rel="stylesheet" href="{{ paths.pl_theme_root }}/source/styleguide/custom-styleguide-specific.css">
     <!-- END: Pattern Lab only dependencies -->
 
   </head>

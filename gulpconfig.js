@@ -2,9 +2,9 @@ module.exports = {
   css: {
     enabled: true,
     src: [
-      'scss/**/*.scss',
-      'source/_patterns/**/*.scss',
-      'source/styleguide/*.scss',
+      // 'scss/**/*.scss',
+      // 'source/_patterns/**/*.scss',
+      // 'source/styleguide/*.scss',
     ],
     dest: 'dest/',
     flattenDestOutput: true,
@@ -44,7 +44,7 @@ module.exports = {
     },
   },
   js: {
-    enabled: false,
+    enabled: true,
     src: [
       'js/**/*.js',
       'source/_patterns/**/*.js',

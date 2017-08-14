@@ -1,4 +1,8 @@
 import $ from 'jquery';
+import _ from 'lodash';
+
+const blerp = _.map([1, 2, 3], num => num * 2);
+console.log('blerp from card');
 
 // require('../general/typography.scss');
 require('./_card.scss');
