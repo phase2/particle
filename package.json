@@ -27,7 +27,7 @@
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "^4.0.0-beta",
     "breakpoint-sass": "^2.7.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "holderjs": "^2.9.4",
