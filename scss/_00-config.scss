@@ -4,4 +4,22 @@
 // usually does not produce any markup, just variables and maps
 //
 
-$example-var: white;
+// Import _breakpoints.scss so it can be used for bootstrap grid.
+@import "../source/_patterns/00-base/breakpoints/_breakpoints.scss";
+
+// Bootstrap Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: $bp--xs,
+  sm: $bp--sm,
+  md: $bp--md,
+  lg: $bp--lg,
+  xl: $bp--xl,
+  xxl: $bp--xxl
+) !default;
+
+// Bootstrap gutter.
+$grid-gutter-width-base: 30px;

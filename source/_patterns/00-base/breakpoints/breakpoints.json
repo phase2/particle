@@ -1,37 +1,32 @@
 {
   "items": [
     {
-      "name": "$bp--xsmall",
-      "value": "380px",
+      "name": "$bp--xs",
+      "value": "0px",
       "comment": ""
     },
     {
-      "name": "$bp--small",
-      "value": "500px",
+      "name": "$bp--sm",
+      "value": "576px",
       "comment": ""
     },
     {
-      "name": "$bp--medium",
-      "value": "700px",
+      "name": "$bp--md",
+      "value": "768px",
       "comment": ""
     },
     {
-      "name": "$bp--large",
-      "value": "900px",
+      "name": "$bp--lg",
+      "value": "992px",
       "comment": ""
     },
     {
-      "name": "$bp--xlarge",
-      "value": "1100px",
+      "name": "$bp--xl",
+      "value": "1200px",
       "comment": ""
     },
     {
-      "name": "$bp--xxlarge",
-      "value": "1300px",
-      "comment": ""
-    },
-    {
-      "name": "$bp--xxxlarge",
+      "name": "$bp--xxl",
       "value": "1600px",
       "comment": ""
     }

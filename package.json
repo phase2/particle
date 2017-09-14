@@ -27,10 +27,12 @@
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-beta",
     "breakpoint-sass": "^2.7.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
     "p2-theme-core": "github:phase2/p2-theme-core#epic/v10",
     "rc": "^1.2.0"
   },
