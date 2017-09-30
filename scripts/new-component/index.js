@@ -1,5 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
+var _ = require('lodash');
 var includes = require('lodash.includes');
 var path = require('path');
 var fs = require('fs');
@@ -35,12 +36,13 @@ module.exports = yeoman.Base.extend({
         'scss',
         'json',
         'js',
-        'md'
+        'md',
+        'yml'
       ],
       default: [
         'twig',
-        'json',
-        'scss'
+        'scss',
+        'yml'
       ]
     }, {
       name: 'name',
@@ -53,6 +55,8 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       props.dashlessName = props.name.replace(/-/g, '');
+      props.underscoreName = props.name.replace(/-/g, '_');
+      props.camelCaseName = _.camelCase(props.name);
       this.props = props;
     }.bind(this));
   },
@@ -98,6 +102,14 @@ module.exports = yeoman.Base.extend({
       this.fs.copyTpl(
         this.templatePath('pattern.md'),
         this.destinationPath(path.join(destPath, this.props.name + '.md')),
+        this.props
+      );
+    }
+
+    if (includes(this.props.files, 'yml')) {
+      this.fs.copyTpl(
+        this.templatePath('pattern.yml'),
+        this.destinationPath(path.join(destPath, this.props.name + '.yml')),
         this.props
       );
     }

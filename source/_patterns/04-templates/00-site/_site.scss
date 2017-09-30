@@ -1,5 +1,7 @@
 .site {
-  @include site-container();
+  // Bootstrap 4 mixins for container.
+  @include make-container();
+  @include make-container-max-widths();
   &__header {}
   &__page {
 

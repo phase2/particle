@@ -16,7 +16,7 @@ regions:
 component-libraries:
   svgs:
     paths:
-      - images/svgs
+      - source/svg
   base:
     paths:
       - source/_patterns/00-base

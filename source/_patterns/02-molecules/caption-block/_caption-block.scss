@@ -14,7 +14,7 @@
     font-size: 1em; // 16px (default)
     line-height: 1.35em;
 
-    @include breakpoint($bp--medium) {
+    @include media-breakpoint-up(md) {
       line-height: 1.5em;
     }
   }

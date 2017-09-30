@@ -1,28 +1,5 @@
-$site-max-width: $bp--xxlarge;
+$site-max-width: $bp--xxl;
 $site-padding: $spacing--s;
-
-/// Site container
-/// @param {bool} $padding [true] - Add left and right padding.
-/// @param {bool} $center [true] - Center using `margin: 0 auto`.
-/// @param {bool} $useWidth [false] - Use `width` instead of `max-width`.
-@mixin site-container($padding: true, $useWidth: false, $center: true) {
-  @if $center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @if $padding {
-    padding-left: $site-padding;
-    padding-right: $site-padding;
-  }
-  @include breakpoint($site-max-width + ($site-padding * 2)) {
-    @if $useWidth {
-      width: $site-max-width;
-    } @else {
-      max-width: $site-max-width;
-    }
-  }
-}
-
 
 /// Mixin - Full Width, even outside container
 /// @param {bool} $undo [false]

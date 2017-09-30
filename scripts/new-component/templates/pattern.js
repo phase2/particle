@@ -1,5 +1,5 @@
-(function <%= dashlessName %>Script($, Drupal) {
-  Drupal.behaviors.<%= dashlessName %> = {
+(function <%= camelCaseName %>Script($, Drupal) {
+  Drupal.behaviors.<%= camelCaseName %> = {
     attach(context) {
 
     },
