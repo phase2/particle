@@ -143,7 +143,7 @@ module.exports = {
   // https://github.com/nfroidure/gulp-iconfont
   icons: {
     enabled: true,
-    src: 'images/icons/src/*.svg',
+    src: 'source/icons/src/*.svg',
     dest: 'dest/',
     fontPathPrefix: '',
     classNamePrefix: 'icon',
@@ -152,11 +152,11 @@ module.exports = {
     templates: {
       enabled: true,
       css: {
-        src: 'images/icons/templates/_icons-settings.scss',
+        src: 'source/icons/templates/_icons-settings.scss',
         dest: 'source/_patterns/01-atoms/images/',
       },
       demo: {
-        src: 'images/icons/templates/icons.twig',
+        src: 'source/icons/templates/icons.twig',
         dest: 'source/_patterns/01-atoms/images/',
       },
     },
