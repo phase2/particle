@@ -9,25 +9,22 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dest'),
-    publicPath: 'temp/',
+    publicPath: '/temp',
   },
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'pattern-lab', 'public'),
   },
-  // target: 'node',
   module: {
     rules: [
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: "babel-loader",
-      //   include: path.resolve(__dirname, 'source'),
-      // },
       {
         test: /\.(sass|scss)$/,
         include: path.resolve(__dirname, 'source'),
-        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
+        // use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
+        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        })),
       }
     ],
   },
