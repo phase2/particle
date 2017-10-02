@@ -33,6 +33,23 @@ gulp.task('default', gulp.series(
   gulp.parallel(tasks.default)
 ));
 
+
+let wpds = null;
+function reloadWebpackDevServerPage() {
+
+  console.log('reload top');
+  // console.log(wpds);
+
+  if (wpds === null) {
+    return false;
+  }
+
+  console.log('reload!');
+  // wpds.sockWrite(wpds.sockets, 'invalid');
+  wpds.sockWrite(wpds.sockets, 'hash', "");
+  // wpds.invalidate();
+  return true;
+}
 gulp.task('webpack:dev', () => {
 
   // Absolute requirements for Hot Module Reloading in this Dev Server
@@ -42,7 +59,7 @@ gulp.task('webpack:dev', () => {
     'webpack/hot/dev-server',
   );
 
-  new WebpackDevServer(webpack(wpconfig), {
+  wpds = new WebpackDevServer(webpack(wpconfig), {
     // ie http://localhost:8080/temp
     publicPath: `${localhost}${wpconfig.output.publicPath}`,
     // ie pattern-lab/public
@@ -53,11 +70,26 @@ gulp.task('webpack:dev', () => {
     stats: {
       colors: true,
     }
-  }).listen(8080, 'localhost', function (err, result) {
+  });
+
+  // wpds.app.get('/reload', function(req, res) {
+  //   console.log('hello');
+  //   res.sendStatus(200);
+  // });
+
+  wpds.listen(8080, 'localhost', function (err, result) {
     if (err) {
       return console.log(err);
     }
 
     console.log(`Listening at ${localhost}`);
   });
+
+  // console.log(wpds);
+  gulp.watch('pattern-lab/public/patterns/**/*.html').on('change', reloadWebpackDevServerPage);
+
 });
+
+// gulp.task('webpack:test-html-change', () => {
+//
+// });
