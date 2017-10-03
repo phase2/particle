@@ -38,19 +38,25 @@ gulp.task('default', gulp.series(
 let wpds = null;
 
 // Trigger a full reload of the Webpack Dev Server page
-function reloadWebpackDevServerPage() {
+function reloadWebpackDevServer() {
 
   if (wpds === null) {
     return false;
   }
 
-  console.log('reload!');
+  console.log('Reload Webpack Dev Server!');
 
   wpds.sockWrite(wpds.sockets, 'hash', "");
   wpds.sockWrite(wpds.sockets, 'ok');
   return true;
 }
-gulp.task('webpack:dev', () => {
+
+/**
+ * Starts up the Webpack Dev Server and does the config adjustments that this
+ * command does:
+ *   webpack-dev-server --hot --inline --progress
+ */
+gulp.task('webpack:server', (cb) => {
 
   // Absolute requirements for Hot Module Reloading in this Dev Server
   wpconfig.plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -74,17 +80,21 @@ gulp.task('webpack:dev', () => {
 
   wpds.listen(8080, 'localhost', function (err, result) {
     if (err) {
-      return console.log(err);
+      cb(err);
+      return false;
     }
 
     console.log(`Listening at ${localhost}`);
+    cb();
+    return true;
   });
-
-  // console.log(wpds);
-  gulp.watch('pattern-lab/public/patterns/**/*.html').on('change', reloadWebpackDevServerPage);
-
 });
 
-// gulp.task('webpack:test-html-change', () => {
-//
-// });
+/**
+ * Watch the known PL output changes
+ */
+gulp.task('webpack:watch-html', () => {
+  gulp.watch('pattern-lab/public/patterns/**/*.html').on('change', reloadWebpackDevServer);
+});
+
+gulp.task('webpack:dev', gulp.series(['webpack:server', 'webpack:watch-html']));
