@@ -7,6 +7,7 @@ const themeCore = require('p2-theme-core');
 
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
+
 const wpconfig = require('./webpack.pl.config');
 const localhost = 'http://localhost:8080';
 
@@ -33,21 +34,20 @@ gulp.task('default', gulp.series(
   gulp.parallel(tasks.default)
 ));
 
-
+// Hold a reference to Webpack Dev Server when it is created
 let wpds = null;
-function reloadWebpackDevServerPage() {
 
-  console.log('reload top');
-  // console.log(wpds);
+// Trigger a full reload of the Webpack Dev Server page
+function reloadWebpackDevServerPage() {
 
   if (wpds === null) {
     return false;
   }
 
   console.log('reload!');
-  // wpds.sockWrite(wpds.sockets, 'invalid');
+
   wpds.sockWrite(wpds.sockets, 'hash', "");
-  // wpds.invalidate();
+  wpds.sockWrite(wpds.sockets, 'ok');
   return true;
 }
 gulp.task('webpack:dev', () => {
@@ -71,11 +71,6 @@ gulp.task('webpack:dev', () => {
       colors: true,
     }
   });
-
-  // wpds.app.get('/reload', function(req, res) {
-  //   console.log('hello');
-  //   res.sendStatus(200);
-  // });
 
   wpds.listen(8080, 'localhost', function (err, result) {
     if (err) {
