@@ -17,4 +17,4 @@ import designSystem from './design-system';
 //   component.enable($context);
 // });
 
-console.log('hello from pattern-lab.js ads');
+console.log('hello from pattern-lab.js blerp');

@@ -168,7 +168,7 @@ module.exports = {
     ],
   },
   browserSync: {
-    enabled: true,
+    enabled: false,
     port: 3050,
     watchFiles: [],
     // enable when full CMS is set up
