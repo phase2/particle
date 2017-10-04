@@ -5,7 +5,7 @@ const pl = {
   entry: {
     // 'design-system': './source/design-system/design-system.js',
     'pattern-lab': [
-      './source/design-system/pattern-lab.js',
+      './source/pattern-lab.js',
     ],
   },
 };

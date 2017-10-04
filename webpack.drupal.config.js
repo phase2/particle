@@ -4,7 +4,7 @@ const shared = require('./webpack.shared.config');
 const drupal = {
   entry: {
     'drupal-theme': [
-      './theme-system/drupal-theme.js',
+      './drupal/drupal-theme.js',
     ],
   },
   externals: {

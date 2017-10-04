@@ -21,7 +21,7 @@ module.exports = {
         test: /\.(sass|scss)$/,
         include: [
           path.resolve(__dirname, 'source'),
-          path.resolve(__dirname, 'theme-system'),
+          path.resolve(__dirname, 'drupal'),
         ],
         // use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({

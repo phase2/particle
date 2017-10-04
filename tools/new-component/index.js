@@ -1,7 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var _ = require('lodash');
-var includes = require('lodash.includes');
+import { includes } from 'lodash';
 var path = require('path');
 var fs = require('fs');
 var plBase = ('./source/_patterns');

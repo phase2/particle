@@ -5,7 +5,7 @@
 import $ from 'jquery';
 import _ from 'lodash';
 
-import designSystem from '../source/design-system/design-system';
+import designSystem from '../source/design-system';
 
 require('./scss/_drupal-styles.scss');
 
