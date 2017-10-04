@@ -19,7 +19,10 @@ module.exports = {
     rules: [
       {
         test: /\.(sass|scss)$/,
-        include: path.resolve(__dirname, 'source'),
+        include: [
+          path.resolve(__dirname, 'source'),
+          path.resolve(__dirname, 'theme-system'),
+        ],
         // use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',

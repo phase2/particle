@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 import designSystem from '../source/design-system/design-system';
 
-require('./scss/drupal-styles.scss');
+require('./scss/_drupal-styles.scss');
 
 console.log('drupal-theme ran');
 
