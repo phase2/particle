@@ -54,9 +54,44 @@
       "name": "$c-black",
       "value": "black",
       "comment": ""
+    },
+    {
+      "name": "$c-test",
+      "value": "red",
+      "comment": ""
+    },
+    {
+      "name": "$c-test2",
+      "value": "yellow",
+      "comment": ""
+    },
+    {
+      "name": "$c-test3",
+      "value": "green",
+      "comment": ""
+    },
+    {
+      "name": "$c-blue2",
+      "value": "#00bbff",
+      "comment": ""
+    },
+    {
+      "name": "$c-blue3",
+      "value": "#00bbfE",
+      "comment": ""
+    },
+    {
+      "name": "$c-green",
+      "value": "magenta",
+      "comment": ""
+    },
+    {
+      "name": "$c-orange",
+      "value": "orange",
+      "comment": ""
     }
   ],
   "meta": {
-    "description": "To add to these items, use Sass variables that start with <code>$c-</code> in <code>source/_patterns/00-base/05-colors/_color-vars.scss</code>"
+    "description": "To add to these items, use Sass variables that start with <code>$c-</code> in <code>./source/_patterns/00-base/05-colors/_colors.scss</code>"
   }
 }

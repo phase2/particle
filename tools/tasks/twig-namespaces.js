@@ -87,7 +87,6 @@ function getTwigNamespaceConfig(workingDir) {
 
 /**
  * Writes the twig pattern namespacing to the Drupal theme's .info file.
- * @param done
  */
 function addTwigNamespaceConfigToDrupal(done) {
   const twigNamespaceConfig = getTwigNamespaceConfig(path.dirname(namespaceOptions.themeFile));
@@ -98,7 +97,6 @@ function addTwigNamespaceConfigToDrupal(done) {
 
   Object.assign(drupalThemeFile['component-libraries'], twigNamespaceConfig);
   const newThemeFile = yaml.safeDump(drupalThemeFile);
-
   fs.writeFileSync(namespaceOptions.themeFile, newThemeFile, 'utf8');
 
   console.log('add twig namespaces to drupal theme .info.yml');
@@ -107,7 +105,6 @@ function addTwigNamespaceConfigToDrupal(done) {
 
 /**
  * Writes the twig pattern namespacing to Pattern Lab's config.yml.
- * @param done
  */
 function addTwigNamespaceConfigToPl(done) {
   const twigNamespaceConfig = getTwigNamespaceConfig(plRoot);
@@ -142,7 +139,7 @@ function addTwigNamespaceConfigToPl(done) {
  * Gulp task for auto-namespacing.
  */
 module.exports = function(gulp) {
-  gulp.task('twigNamespaces', (done) => {
+  gulp.task('twig-namespaces', (done) => {
     addTwigNamespaceConfigToPl(() => {
       if (namespaceOptions.twigNamespaces.addToDrupalThemeFile) {
         addTwigNamespaceConfigToDrupal(done);

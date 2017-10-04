@@ -3,7 +3,7 @@ const gulp = require('gulp');
 const url = require('url');
 
 // Add in gulp tasks we would like.
-require('./tools/tasks/twig-namespacing')(gulp);
+require('./tools/tasks/twig-namespaces')(gulp);
 require('./tools/tasks/scss-to-json')(gulp);
 
 
@@ -93,7 +93,7 @@ gulp.task('webpack:server:pl-html-updated', (cb) => {
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
-    'twigNamespaces',
+    // 'twig-namespaces',
     // 'scss-to-json',
     shell.task('php ./tools/pattern-lab/core/console --generate', { ignoreErrors: true }),
   ]));

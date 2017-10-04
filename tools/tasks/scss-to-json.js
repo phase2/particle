@@ -4,48 +4,44 @@ const _ = require('lodash');
 
 scssToJsonOptions = [
   {
-    src: 'source/_patterns/00-base/05-colors/_color-vars.scss',
-    dest: 'source/_patterns/00-base/05-colors/colors.json',
+    src: './source/_patterns/00-base/05-colors/_colors.scss',
+    dest: './source/_patterns/00-base/05-colors/colors.json',
     lineStartsWith: '$c-',
     allowVarValues: false,
   },
   {
-    src: 'source/_patterns/00-base/15-typography/fonts/_fonts.scss',
-    dest: 'source/_patterns/00-base/15-typography/fonts/font-sizes.json',
+    src: './source/_patterns/00-base/15-typography/fonts/_fonts.scss',
+    dest: './source/_patterns/00-base/15-typography/fonts/font-sizes.json',
     lineStartsWith: '$fs--',
     allowVarValues: false,
   },
   {
-    src: 'source/_patterns/00-base/15-typography/fonts/_fonts.scss',
-    dest: 'source/_patterns/00-base/15-typography/fonts/font-families.json',
+    src: './source/_patterns/00-base/15-typography/fonts/_fonts.scss',
+    dest: './source/_patterns/00-base/15-typography/fonts/font-families.json',
     lineStartsWith: '$ff--',
     allowVarValues: false,
   },
   {
-    src: 'source/_patterns/00-base/breakpoints/_breakpoints.scss',
-    dest: 'source/_patterns/00-base/breakpoints/breakpoints.json',
+    src: './source/_patterns/00-base/breakpoints/_breakpoints.scss',
+    dest: './source/_patterns/00-base/breakpoints/breakpoints.json',
     lineStartsWith: '$bp--',
     allowVarValues: false,
   },
   {
-    src: 'source/_patterns/00-base/10-spacing/_spacing.scss',
-    dest: 'source/_patterns/00-base/10-spacing/spacing.json',
+    src: './source/_patterns/00-base/10-spacing/_spacing.scss',
+    dest: './source/_patterns/00-base/10-spacing/spacing.json',
     lineStartsWith: '$spacing--',
     allowVarValues: false,
   },
-  {
-  src: 'source/_patterns/00-base/animations/01-transitions/_transitions.scss',
-  dest: 'source/_patterns/00-base/animations/01-transitions/transitions.json',
-  lineStartsWith: '$trans-',
-  allowVarValues: true,
-  }
 ];
 
 // turns scss files full of variables into json files that PL can iterate on
 function scssToJson(done) {
   scssToJsonOptions.forEach((pair) => {
     const scssVarList = _.filter(fs.readFileSync(pair.src, 'utf8').split('\n'), item => _.startsWith(item, pair.lineStartsWith));
+
     // console.log(scssVarList, item.src);
+
     let varsAndValues = _.map(scssVarList, (item) => {
       // assuming `item` is `$color-gray: hsl(0, 0%, 50%); // main gray color`
       const x = item.split(':');
@@ -68,6 +64,7 @@ function scssToJson(done) {
       },
     }, null, '  '));
   });
+  done();
 }
 
 /**
