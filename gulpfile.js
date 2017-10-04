@@ -1,4 +1,5 @@
 const path = require('path');
+const url = require('url');
 
 const gulp = require('gulp');
 const shell = require('gulp-shell');
@@ -81,7 +82,7 @@ gulp.task('webpack:server', (cb) => {
   // Make a new server and store a reference to it so we can interact with it later
   wpds = new WebpackDevServer(webpack(wpconfig), {
     // ie http://localhost:8080/temp
-    publicPath: `${localhost}${wpconfig.output.publicPath}`,
+    publicPath: url.resolve(localhost, wpconfig.output.publicPath),
     // ie pattern-lab/public
     contentBase: path.resolve(__dirname, 'pattern-lab', 'public'),
     hot: true,
