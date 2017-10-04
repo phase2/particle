@@ -39,6 +39,7 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-shell": "^0.6.3",
     "node-sass": "^4.5.3",
     "p2-theme-core": "github:phase2/p2-theme-core#epic/v10",
     "rc": "^1.2.0",

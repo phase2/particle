@@ -1,6 +1,8 @@
-'use strict';
-const gulp = require('gulp');
 const path = require('path');
+
+const gulp = require('gulp');
+const shell = require('gulp-shell');
+
 // `rc` allows all config options to be overridden with CLI flags like `--js.enabled=''` or in `~/.p2-theme-corerc` files, among many others: https://www.npmjs.com/package/rc
 const config = require('rc')('p2-theme-core', require('./gulpconfig.js'));
 const themeCore = require('p2-theme-core');
@@ -114,7 +116,12 @@ gulp.task('webpack:server:pl-html-updated', (cb) => {
  * Watch known PL files and compile to html
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
-  gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series('pl'));
+  // gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series('pl'));
+
+  gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series(shell.task([
+    'php ./pattern-lab/core/console --generate',
+  ])));
+
   cb();
 });
 
