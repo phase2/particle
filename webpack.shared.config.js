@@ -36,11 +36,11 @@ module.exports = {
       {
         name: 'commons',
         minChunks: 2,
-      },
+      }
     ),
     new ExtractTextPlugin({
       filename: '[name].styles.css',
       allChunks: true,
-    }),
+    })
   ],
 };

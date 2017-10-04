@@ -66,7 +66,7 @@ module.exports = {
   },
   patternLab: {
     enabled: true,
-    configFile: 'pattern-lab/config/config.yml',
+    configFile: 'tools/pattern-lab/config/config.yml',
     watchedExtensions: [
       'twig',
       'json',
@@ -76,68 +76,6 @@ module.exports = {
       'jpg',
       'jpeg',
       'png',
-    ],
-    twigNamespaces: {
-      addToDrupalThemeFile: true,
-      sets: [
-        {
-          namespace: 'base',
-          paths: ['source/_patterns/00-base'],
-        }, {
-          namespace: 'atoms',
-          paths: ['source/_patterns/01-atoms'],
-        }, {
-          namespace: 'molecules',
-          paths: ['source/_patterns/02-molecules'],
-        }, {
-          namespace: 'organisms',
-          paths: ['source/_patterns/03-organisms'],
-        }, {
-          namespace: 'templates',
-          paths: ['source/_patterns/04-templates'],
-        }, {
-          namespace: 'pages',
-          paths: ['source/_patterns/05-pages'],
-        },
-      ],
-    },
-    scssToJson: [
-      {
-        src: 'source/_patterns/00-base/05-colors/_color-vars.scss',
-        dest: 'source/_patterns/00-base/05-colors/colors.json',
-        lineStartsWith: '$c-',
-        allowVarValues: false,
-      },
-      {
-        src: 'source/_patterns/00-base/15-typography/fonts/_fonts.scss',
-        dest: 'source/_patterns/00-base/15-typography/fonts/font-sizes.json',
-        lineStartsWith: '$fs--',
-        allowVarValues: false,
-      },
-      {
-        src: 'source/_patterns/00-base/15-typography/fonts/_fonts.scss',
-        dest: 'source/_patterns/00-base/15-typography/fonts/font-families.json',
-        lineStartsWith: '$ff--',
-        allowVarValues: false,
-      },
-      {
-        src: 'source/_patterns/00-base/breakpoints/_breakpoints.scss',
-        dest: 'source/_patterns/00-base/breakpoints/breakpoints.json',
-        lineStartsWith: '$bp--',
-        allowVarValues: false,
-      },
-      {
-        src: 'source/_patterns/00-base/10-spacing/_spacing.scss',
-        dest: 'source/_patterns/00-base/10-spacing/spacing.json',
-        lineStartsWith: '$spacing--',
-        allowVarValues: false,
-      },
-      {
-        src: 'source/_patterns/00-base/animations/01-transitions/_transitions.scss',
-        dest: 'source/_patterns/00-base/animations/01-transitions/transitions.json',
-        lineStartsWith: '$trans-',
-        allowVarValues: true,
-      },
     ],
   },
   // https://github.com/nfroidure/gulp-iconfont
