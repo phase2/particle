@@ -21,7 +21,7 @@
     "compile": "NODE_ENV=production gulp compile",
     "test": "gulp validate",
     "gulp": "gulp",
-    "update": "npm update && cd pattern-lab && composer update",
+    "update": "npm update && cd ./tools/pattern-lab && composer update",
     "new": "yo ./tools/new-component/index.js",
     "setup": "cd ./tools/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "webpack-pl": "webpack --display-entrypoints --config webpack.pl.config.js",

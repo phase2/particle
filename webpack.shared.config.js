@@ -8,12 +8,12 @@ module.exports = {
   // entry: { 'entry-name': './path/to/entry.js', },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dest'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/temp',
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, 'pattern-lab', 'public'),
+    contentBase: path.resolve(__dirname, 'dist/public'),
   },
   module: {
     rules: [

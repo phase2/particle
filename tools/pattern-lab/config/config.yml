@@ -16,7 +16,7 @@ patternStates:
 styleGuideExcludes: ''
 cacheBusterOn: 'true'
 exportDir: export
-publicDir: public
+publicDir: ../../dist/public/
 sourceDir: ../../source/
 defaultPattern: all
 defaultShowPatternInfo: false

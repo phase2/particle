@@ -59,7 +59,7 @@ gulp.task('webpack:server', (cb) => {
     // ie http://localhost:8080/temp
     publicPath: url.resolve(localhost, wpconfig.output.publicPath),
     // ie pattern-lab/public
-    contentBase: path.resolve(__dirname, 'tools/pattern-lab', 'public'),
+    contentBase: path.resolve(__dirname, 'dist/', 'public'),
     hot: true,
     historyApiFallback: true,
     inline: true,

@@ -1,5 +1,5 @@
 # Compiled files
-dest/
+dist/public/
 source/_patterns/01-atoms/images/_icons-settings.scss
 
 # OS generated files

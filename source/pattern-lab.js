@@ -10,7 +10,6 @@ import designSystem from './design-system';
 // Adds pattern lab only styles, ie color swatches.
 require('./styleguide/_styleguide-specific.scss');
 
-
 const blerp = _.map([1, 3, 4], (num => num * 2));
 console.log('blerp from pl.js', blerp);
 

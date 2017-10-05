@@ -74,21 +74,6 @@
       "name": "$c-blue2",
       "value": "#00bbff",
       "comment": ""
-    },
-    {
-      "name": "$c-blue3",
-      "value": "#00bbfE",
-      "comment": ""
-    },
-    {
-      "name": "$c-green",
-      "value": "magenta",
-      "comment": ""
-    },
-    {
-      "name": "$c-orange",
-      "value": "orange",
-      "comment": ""
     }
   ],
   "meta": {
