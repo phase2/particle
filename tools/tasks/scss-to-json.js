@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const fs = require('fs');
 const _ = require('lodash');
 
-scssToJsonOptions = [
+const scssToJsonOptions = [
   {
     src: './source/_patterns/00-base/05-colors/_colors.scss',
     dest: './source/_patterns/00-base/05-colors/colors.json',
@@ -70,10 +70,14 @@ function scssToJson(done) {
 /**
  * Gulp task for converting sass variables to json for PL consumption.
  */
-module.exports = function(gulp) {
-  gulp.task('scss-to-json', (done) => {
-    scssToJson(() => {
-      done();
+module.exports = {
+  scssToJson: function(gulp) {
+    gulp.task('scss-to-json', (done) => {
+      scssToJson(() => {
+        console.log('sass to json ran');
+        done();
+      });
     });
-  });
+  },
+  scssToJsonOptions
 };

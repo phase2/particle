@@ -74,6 +74,11 @@
       "name": "$c-blue2",
       "value": "#00bbff",
       "comment": ""
+    },
+    {
+      "name": "$c-blue3",
+      "value": "magenta",
+      "comment": ""
     }
   ],
   "meta": {

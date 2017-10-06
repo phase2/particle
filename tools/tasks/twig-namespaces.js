@@ -138,13 +138,16 @@ function addTwigNamespaceConfigToPl(done) {
 /**
  * Gulp task for auto-namespacing.
  */
-module.exports = function(gulp) {
-  gulp.task('twig-namespaces', (done) => {
-    addTwigNamespaceConfigToPl(() => {
-      if (namespaceOptions.twigNamespaces.addToDrupalThemeFile) {
-        addTwigNamespaceConfigToDrupal(done);
-      }
-      done();
+module.exports = {
+  twigNamespaces: function(gulp) {
+    gulp.task('twig-namespaces', (done) => {
+      addTwigNamespaceConfigToPl(() => {
+        if (namespaceOptions.twigNamespaces.addToDrupalThemeFile) {
+          addTwigNamespaceConfigToDrupal(done);
+        }
+        done();
+      });
     });
-  });
+  },
+  namespaceOptions
 };

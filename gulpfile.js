@@ -1,11 +1,15 @@
 const path = require('path');
 const gulp = require('gulp');
 const url = require('url');
+const _ = require('lodash');
 
-// Add in gulp tasks we would like.
-require('./tools/tasks/twig-namespaces')(gulp);
-require('./tools/tasks/scss-to-json')(gulp);
+// Add in gulp tasks we would like, originally defined in ./tools/tasks/
+const scssToJson = require('./tools/tasks/scss-to-json');
+const scssToJsonWatchers = _.uniq(_.map(scssToJson.scssToJsonOptions, 'src'));
+scssToJson.scssToJson(gulp);
 
+const twigNamespaces = require('./tools/tasks/twig-namespaces');
+twigNamespaces.twigNamespaces(gulp);
 
 // Webpack Config
 const shell = require('gulp-shell');
@@ -89,14 +93,22 @@ gulp.task('webpack:server:pl-html-updated', (cb) => {
 });
 
 /**
- * Watch known PL files and compile to html.
+ * Watch known PL files and compile to html. twig-namespaces ensures that /tools/pattern-lab/config.yml &
+ * ./theme.info.yml are updated with all pattern namespaces for error-free compiling.
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
-  gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
-    // 'twig-namespaces',
-    // 'scss-to-json',
+  gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', gulp.series([
+    'twig-namespaces',
     shell.task('php ./tools/pattern-lab/core/console --generate', { ignoreErrors: true }),
   ]));
+  cb();
+});
+
+/**
+ * Watch config-related scss files to generate json for PL example patterns.
+ */
+gulp.task('webpack:watch:scss-to-json', (cb) => {
+  gulp.watch(scssToJsonWatchers).on('change', gulp.series(['scss-to-json']));
   cb();
 });
 
@@ -106,5 +118,6 @@ gulp.task('webpack:watch:pl-source', (cb) => {
 gulp.task('webpack:dev', gulp.series([
   'webpack:server',
   'webpack:server:pl-html-updated',
+  'webpack:watch:scss-to-json',
   'webpack:watch:pl-source',
 ]));
