@@ -9,6 +9,7 @@ module.exports = {
     domready: true,
   },
   rules: {
+    'no-console': [0], // turned off for now while we are console.logging everywhere.
     'no-comma-dangle': [0],
     'strict': [0],
     'no-param-reassign': [1, {
