@@ -23,7 +23,7 @@ let wpds = null;
 
 // Trigger a full reload of the Webpack Dev Server page
 function reloadWebpackDevServer(cb) {
-  // Bail if there is now WPDS for some reason
+  // Bail if there is not a WPDS for some reason
   if (wpds === null) {
     cb();
     return false;
@@ -97,10 +97,10 @@ gulp.task('webpack:server:pl-html-updated', (cb) => {
  * ./theme.info.yml are updated with all pattern namespaces for error-free compiling.
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
-  gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', gulp.series([
+  gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([
     'twig-namespaces',
     shell.task('php ./tools/pattern-lab/core/console --generate', { ignoreErrors: true }),
-  ]));
+  ]), 300));
   cb();
 });
 
@@ -108,7 +108,7 @@ gulp.task('webpack:watch:pl-source', (cb) => {
  * Watch config-related scss files to generate json for PL example patterns.
  */
 gulp.task('webpack:watch:scss-to-json', (cb) => {
-  gulp.watch(scssToJsonWatchers).on('change', gulp.series(['scss-to-json']));
+  gulp.watch(scssToJsonWatchers).on('change', _.debounce(gulp.series(['scss-to-json']), 300));
   cb();
 });
 

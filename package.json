@@ -40,8 +40,6 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-shell": "^0.6.3",
     "node-sass": "^4.5.3",
-    "p2-theme-core": "github:phase2/p2-theme-core#epic/v10",
-    "rc": "^1.2.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "stylelint-scss": "^1.4.3",
