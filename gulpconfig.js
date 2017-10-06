@@ -27,21 +27,6 @@ module.exports = {
     includePaths: [
       './node_modules',
     ],
-    // http://sassdoc.com
-    sassdoc: {
-      enabled: true,
-      dest: 'dest/sassdoc',
-      verbose: false,
-      basePath: 'https://github.com/phase2/pattern-lab-starter/blob/master/source/_patterns',
-      exclude: [],
-      theme: 'default',
-      // http://sassdoc.com/customising-the-view/#sort
-      sort: [
-        'file',
-        'group',
-        'line>',
-      ],
-    },
   },
   js: {
     enabled: true,

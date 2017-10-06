@@ -2,26 +2,29 @@ const path = require('path');
 const gulp = require('gulp');
 const url = require('url');
 const _ = require('lodash');
-
-// Add in gulp tasks we would like, originally defined in ./tools/tasks/
-const scssToJson = require('./tools/tasks/scss-to-json');
-const scssToJsonWatchers = _.uniq(_.map(scssToJson.scssToJsonOptions, 'src'));
-scssToJson.scssToJson(gulp);
-
-const twigNamespaces = require('./tools/tasks/twig-namespaces');
-twigNamespaces.twigNamespaces(gulp);
-
-// Webpack Config
-const shell = require('gulp-shell');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
+
+// Add desired gulp tasks, originally defined in ./tools/tasks/
+const scssToJson = require('./tools/tasks/scss-to-json');
+const scssToJsonWatchers = _.uniq(_.map(scssToJson.scssToJsonOptions, 'src'));
+const twigNamespaces = require('./tools/tasks/twig-namespaces');
+const plCompile = require('./tools/tasks/pl-compile');
+
+scssToJson.scssToJson(gulp);
+twigNamespaces.twigNamespaces(gulp);
+plCompile.plCompile(gulp);
+
+// Webpack Config
 const wpconfig = require('./webpack.pl.config');
 const localhost = 'http://localhost:8080';
+let wpds = null; // Hold a reference to Webpack Dev Server when it is created
 
-// Hold a reference to Webpack Dev Server when it is created
-let wpds = null;
-
-// Trigger a full reload of the Webpack Dev Server page
+/**
+ * Triggers a full reload of the Webpack Dev Server page.
+ * @param cb
+ * @returns {boolean}
+ */
 function reloadWebpackDevServer(cb) {
   // Bail if there is not a WPDS for some reason
   if (wpds === null) {
@@ -45,7 +48,7 @@ function reloadWebpackDevServer(cb) {
  *   webpack-dev-server --hot --inline --progress
  *
  * Note the absolute requirements for Hot Module Reloading in this Dev Server:
- *  - HtModuleReplacement plugin
+ *  - HotModuleReplacementPlugin
  *  - Added entry points
  */
 gulp.task('webpack:server', (cb) => {
@@ -99,7 +102,7 @@ gulp.task('webpack:server:pl-html-updated', (cb) => {
 gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([
     'twig-namespaces',
-    shell.task('php ./tools/pattern-lab/core/console --generate', { ignoreErrors: true }),
+    'pl-compile',
   ]), 300));
   cb();
 });

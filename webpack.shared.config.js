@@ -13,7 +13,7 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist/public'),
+    contentBase: path.resolve(__dirname, 'dist', 'public'),
   },
   module: {
     rules: [
