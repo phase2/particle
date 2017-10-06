@@ -14,6 +14,10 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist', 'public'),
+    overlay: {
+      errors: true,
+      warnings: true,
+    },
   },
   module: {
     rules: [
@@ -28,19 +32,25 @@ module.exports = {
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader'],
         })),
-      }
+      },
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        options: {
+          emitWarning: true,
+        },
+      },
     ],
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin(
-      {
-        name: 'commons',
-        minChunks: 2,
-      }
-    ),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'commons',
+      minChunks: 2,
+    }),
     new ExtractTextPlugin({
       filename: '[name].styles.css',
       allChunks: true,
-    })
+    }),
   ],
 };

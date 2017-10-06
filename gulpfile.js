@@ -7,16 +7,17 @@ const WebpackDevServer = require('webpack-dev-server');
 
 // Add desired gulp tasks, originally defined in ./tools/tasks/
 const scssToJson = require('./tools/tasks/scss-to-json');
-const scssToJsonWatchers = _.uniq(_.map(scssToJson.scssToJsonOptions, 'src'));
 const twigNamespaces = require('./tools/tasks/twig-namespaces');
 const plCompile = require('./tools/tasks/pl-compile');
 
+const scssToJsonWatchers = _.uniq(_.map(scssToJson.scssToJsonOptions, 'src'));
 scssToJson.scssToJson(gulp);
 twigNamespaces.twigNamespaces(gulp);
 plCompile.plCompile(gulp);
 
 // Webpack Config
 const wpconfig = require('./webpack.pl.config');
+
 const localhost = 'http://localhost:8080';
 let wpds = null; // Hold a reference to Webpack Dev Server when it is created
 
@@ -35,7 +36,7 @@ function reloadWebpackDevServer(cb) {
   console.log('Reload Webpack Dev Server!');
 
   // Nukes the "state" hash
-  wpds.sockWrite(wpds.sockets, 'hash', "");
+  wpds.sockWrite(wpds.sockets, 'hash', '');
   // Then sends the signal that compares the previous hash, causing a FULL refresh
   wpds.sockWrite(wpds.sockets, 'ok');
   cb();
@@ -52,13 +53,12 @@ function reloadWebpackDevServer(cb) {
  *  - Added entry points
  */
 gulp.task('webpack:server', (cb) => {
-
   // Add HotModuleReplacementPlugin to the end of the webpack plugins
   wpconfig.plugins.push(new webpack.HotModuleReplacementPlugin());
   // Set these new entry points required for Hot Module replacement
   wpconfig.entry['pattern-lab'].unshift(
     `webpack-dev-server/client?${localhost}/`,
-    'webpack/hot/dev-server'
+    'webpack/hot/dev-server',
   );
 
   // Make a new server and store a reference to it so we can interact with it later
@@ -72,10 +72,10 @@ gulp.task('webpack:server', (cb) => {
     inline: true,
     stats: {
       colors: true,
-    }
+    },
   });
 
-  wpds.listen(8080, 'localhost', function (err, result) {
+  wpds.listen(8080, 'localhost', (err) => {
     if (err) {
       cb(err);
       return false;
@@ -96,8 +96,9 @@ gulp.task('webpack:server:pl-html-updated', (cb) => {
 });
 
 /**
- * Watch known PL files and compile to html. twig-namespaces ensures that /tools/pattern-lab/config.yml &
- * ./theme.info.yml are updated with all pattern namespaces for error-free compiling.
+ * Watch known PL files and compile to html. twig-namespaces ensures that
+ * ./tools/pattern-lab/config.yml & ./theme.info.yml are updated with all
+ * pattern namespaces for error-free compiling.
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([

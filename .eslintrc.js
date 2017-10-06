@@ -15,5 +15,6 @@ module.exports = {
       props: false,
     }],
     'react/require-extension': [0],
+    'import/no-extraneous-dependencies': ["error", {"devDependencies": true}],
   }
 };

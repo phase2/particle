@@ -1,6 +1,5 @@
 require('./scss/_config.scss');
 
-
 const components = [];
 
 // Components
