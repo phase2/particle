@@ -1,8 +1,8 @@
-const gulp = require('gulp');
 const path = require('path');
 const fs = require('fs');
 const yaml = require('js-yaml');
 const glob = require('glob');
+const _ = require('lodash');
 
 // Pattern Lab Config
 const namespaceOptions = {
@@ -37,32 +37,6 @@ const namespaceOptions = {
 const plRoot = path.join(namespaceOptions.configFile, '../..');
 
 /**
- * Flatten Array
- * @param arrayOfArrays {Array[]}
- * @returns {Array}
- */
-function flattenArray(arrayOfArrays) {
-  return [].concat.apply([], arrayOfArrays);
-}
-
-/**
- * Make an array unique by removing duplicate entries.
- * @param item {Array}
- * @returns {Array}
- */
-function uniqueArray(item) {
-  const u = {};
-  const newArray = [];
-  for (let i = 0, l = item.length; i < l; ++i) {
-    if (!{}.hasOwnProperty.call(u, item[i])) {
-      newArray.push(item[i]);
-      u[item[i]] = 1;
-    }
-  }
-  return newArray;
-}
-
-/**
  * Get the correct folder structure for each pattern.
  * @param workingDir
  * @returns {{}}
@@ -79,7 +53,7 @@ function getTwigNamespaceConfig(workingDir) {
       return results;
     });
     twigNamespaceConfig[namespaceSet.namespace] = {
-      paths: uniqueArray(flattenArray(pathArray)),
+      paths: _.uniq(_.flatMap(pathArray)),
     };
   });
   return twigNamespaceConfig;
@@ -91,9 +65,7 @@ function getTwigNamespaceConfig(workingDir) {
 function addTwigNamespaceConfigToDrupal(done) {
   const twigNamespaceConfig = getTwigNamespaceConfig(path.dirname(namespaceOptions.themeFile));
 
-  let drupalThemeFile = yaml.safeLoad(
-    fs.readFileSync(namespaceOptions.themeFile, 'utf8')
-  );
+  const drupalThemeFile = yaml.safeLoad(fs.readFileSync(namespaceOptions.themeFile, 'utf8'));
 
   Object.assign(drupalThemeFile['component-libraries'], twigNamespaceConfig);
   const newThemeFile = yaml.safeDump(drupalThemeFile);
@@ -109,9 +81,7 @@ function addTwigNamespaceConfigToDrupal(done) {
 function addTwigNamespaceConfigToPl(done) {
   const twigNamespaceConfig = getTwigNamespaceConfig(plRoot);
 
-  let plConfig = yaml.safeLoad(
-    fs.readFileSync(namespaceOptions.configFile, 'utf8')
-  );
+  const plConfig = yaml.safeLoad(fs.readFileSync(namespaceOptions.configFile, 'utf8'));
 
   if (!plConfig.plugins) {
     Object.assign(plConfig, {
@@ -139,7 +109,7 @@ function addTwigNamespaceConfigToPl(done) {
  * Gulp task for auto-namespacing.
  */
 module.exports = {
-  twigNamespaces: function(gulp) {
+  twigNamespaces: (gulp) => {
     gulp.task('twig-namespaces', (done) => {
       addTwigNamespaceConfigToPl(() => {
         if (namespaceOptions.twigNamespaces.addToDrupalThemeFile) {
@@ -149,5 +119,5 @@ module.exports = {
       });
     });
   },
-  namespaceOptions
+  namespaceOptions,
 };

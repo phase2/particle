@@ -1,4 +1,3 @@
-const gulp = require('gulp');
 const fs = require('fs');
 const _ = require('lodash');
 
@@ -71,7 +70,7 @@ function scssToJson(done) {
  * Gulp task for converting sass variables to json for PL consumption.
  */
 module.exports = {
-  scssToJson: function(gulp) {
+  scssToJson: (gulp) => {
     gulp.task('scss-to-json', (done) => {
       scssToJson(() => {
         console.log('sass to json ran');
@@ -79,5 +78,5 @@ module.exports = {
       });
     });
   },
-  scssToJsonOptions
+  scssToJsonOptions,
 };
