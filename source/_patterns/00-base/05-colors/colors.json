@@ -57,12 +57,7 @@
     },
     {
       "name": "$c-test",
-      "value": "red",
-      "comment": ""
-    },
-    {
-      "name": "$c-blue",
-      "value": "blue",
+      "value": "orange",
       "comment": ""
     }
   ],

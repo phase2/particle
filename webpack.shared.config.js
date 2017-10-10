@@ -11,8 +11,8 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/temp/',
-    hotUpdateChunkFilename: 'hot/hot-update.js',
-    hotUpdateMainFilename: 'hot/hot-update.json'
+    // hotUpdateChunkFilename: 'hot/hot-update.js',
+    // hotUpdateMainFilename: 'hot/hot-update.json'
   },
   devtool: 'source-map',
   devServer: {

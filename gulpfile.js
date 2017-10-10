@@ -91,7 +91,7 @@ gulp.task('webpack:server', (cb) => {
  * Watch the known PL output changes (latest-change.text in public)
  */
 gulp.task('webpack:server:pl-html-updated', (cb) => {
-  gulp.watch('./tools/pattern-lab/public/latest-change.txt').on('change', gulp.series(reloadWebpackDevServer));
+  gulp.watch('./dist/public/latest-change.txt').on('change', _.debounce(gulp.series(reloadWebpackDevServer)), 1500);
   cb();
 });
 
@@ -104,8 +104,7 @@ gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([
     'twig-namespaces',
     'pl-compile',
-    reloadWebpackDevServer,
-  ]), 1500));
+  ]), 300));
   cb();
 });
 
@@ -122,7 +121,7 @@ gulp.task('webpack:watch:scss-to-json', (cb) => {
  */
 gulp.task('webpack:dev', gulp.series([
   'webpack:server',
-  'webpack:server:pl-html-updated',
   'webpack:watch:scss-to-json',
   'webpack:watch:pl-source',
+  'webpack:server:pl-html-updated',
 ]));
