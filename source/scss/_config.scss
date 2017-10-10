@@ -21,6 +21,8 @@
 //  xxl: $bp--xxl
 //) !default;
 
+//@import "../_patterns/00-base/05-colors/_colors.scss";
+
 // Bootstrap gutter.
 $grid-gutter-width-base: 30px;
 
@@ -29,5 +31,5 @@ $grid-gutter-width-base: 30px;
 }
 
 body {
-  background: red;
+  background: grey;
 }

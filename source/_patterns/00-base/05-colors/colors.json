@@ -61,23 +61,8 @@
       "comment": ""
     },
     {
-      "name": "$c-test2",
-      "value": "yellow",
-      "comment": ""
-    },
-    {
-      "name": "$c-test3",
-      "value": "green",
-      "comment": ""
-    },
-    {
-      "name": "$c-blue2",
-      "value": "#00bbff",
-      "comment": ""
-    },
-    {
-      "name": "$c-blue3",
-      "value": "magenta",
+      "name": "$c-blue",
+      "value": "blue",
       "comment": ""
     }
   ],

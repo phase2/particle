@@ -6,10 +6,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   // Commented out here since the specifics are different per PL or Drupal
   // entry: { 'entry-name': './path/to/entry.js', },
+  entry: {},
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/temp',
+    publicPath: '/temp/',
+    hotUpdateChunkFilename: 'hot/hot-update.js',
+    hotUpdateMainFilename: 'hot/hot-update.json'
   },
   devtool: 'source-map',
   devServer: {
@@ -52,5 +55,7 @@ module.exports = {
       filename: '[name].styles.css',
       allChunks: true,
     }),
+    // Named files instead of chunk IDs for HMR.
+    new webpack.NamedModulesPlugin(),
   ],
 };

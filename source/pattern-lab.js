@@ -21,3 +21,10 @@ designSystem.forEach((component) => {
 });
 
 console.log('hello from pattern-lab.js blerp');
+
+
+if (module.hot) {
+  module.hot.accept('./design-system.js', () => {
+    console.log('design system updated! HOT!');
+  });
+}

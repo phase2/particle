@@ -6,14 +6,14 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 // Add desired gulp tasks, originally defined in ./tools/tasks/
-const scssToJson = require('./tools/tasks/scss-to-json');
-const twigNamespaces = require('./tools/tasks/twig-namespaces');
-const plCompile = require('./tools/tasks/pl-compile');
+const scssTask = require('./tools/tasks/scss-to-json');
+const namespaceTask = require('./tools/tasks/twig-namespaces');
+const compileTask = require('./tools/tasks/pl-compile');
 
-const scssToJsonWatchers = _.uniq(_.map(scssToJson.scssToJsonOptions, 'src'));
-scssToJson.scssToJson(gulp);
-twigNamespaces.twigNamespaces(gulp);
-plCompile.plCompile(gulp);
+const scssToJsonWatchers = _.uniq(_.map(scssTask.scssToJsonOptions, 'src'));
+scssTask.scssToJson(gulp);
+namespaceTask.twigNamespaces(gulp);
+compileTask.plCompile(gulp);
 
 // Webpack Config
 const wpconfig = require('./webpack.pl.config');
@@ -57,8 +57,8 @@ gulp.task('webpack:server', (cb) => {
   wpconfig.plugins.push(new webpack.HotModuleReplacementPlugin());
   // Set these new entry points required for Hot Module replacement
   wpconfig.entry['pattern-lab'].unshift(
-    `webpack-dev-server/client?${localhost}/`,
     'webpack/hot/dev-server',
+    `webpack-dev-server/client?${localhost}/`,
   );
 
   // Make a new server and store a reference to it so we can interact with it later
@@ -104,7 +104,8 @@ gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([
     'twig-namespaces',
     'pl-compile',
-  ]), 300));
+    reloadWebpackDevServer,
+  ]), 1500));
   cb();
 });
 
