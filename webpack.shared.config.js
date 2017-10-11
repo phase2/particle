@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   // Commented out here since the specifics are different per PL or Drupal
@@ -34,7 +35,22 @@ module.exports = {
         // use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader'],
+          use: [
+            {
+              loader: 'css-loader',
+              options: { importLoaders: 1 }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: () => [ autoprefixer() ]
+              }
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ]
         })),
       },
       {

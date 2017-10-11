@@ -29,12 +29,17 @@
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
     "lint:js": "eslint ./source/ ./tools/tasks/ gulpfile.js webpack.*.js --cache"
   },
+  "browserslist": [
+    "last 2 versions",
+    "IE >= 10"
+  ],
   "dependencies": {
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "autoprefixer": "^7.1.5",
     "css-hot-loader": "^1.3.2",
     "css-loader": "^0.28.7",
     "eslint": "^4.8.0",
@@ -48,6 +53,7 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "js-yaml": "^3.10.0",
     "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.7",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "stylelint": "^8.2.0",
