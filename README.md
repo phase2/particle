@@ -203,7 +203,7 @@ Documentation for many of the features are found in `node_modules/p2-theme-core/
 ### Linting Config
 
 - JS: edit `.eslintrc` - [rule docs](http://eslint.org/docs/rules/)
-- Scss: edit `.stylelintrc.js` - [docs](http://stylelint.io/user-guide/)
+- Scss: edit `.stylelintrc` - [docs](http://stylelint.io/user-guide/)
 
 #### Disabling Stylelint rules for a certain section
 

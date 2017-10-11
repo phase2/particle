@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -57,5 +58,6 @@ module.exports = {
     }),
     // Named files instead of chunk IDs for HMR.
     new webpack.NamedModulesPlugin(),
+    new StyleLintPlugin(),
   ],
 };
