@@ -111,10 +111,10 @@ gulp.task('webpack:watch:pl-source', (cb) => {
     '!source/_patterns/00-base/breakpoints/breakpoints.json',
     '!source/_patterns/00-base/10-spacing/spacing.json'
     // end ignore
-  ]).on('change', gulp.series([
+  ]).on('change', _.debounce(gulp.series([
     'twig-namespaces',
     'pl-compile',
-  ]));
+  ]), 300));
   cb();
 });
 
@@ -123,10 +123,10 @@ gulp.task('webpack:watch:pl-source', (cb) => {
  */
 gulp.task('webpack:watch:scss-to-json', (cb) => {
   gulp.watch(scssToJsonWatchers)
-    .on('change', gulp.series([
+    .on('change', _.debounce(gulp.series([
       'scss-to-json',
       'pl-compile',
-    ]));
+    ]), 300));
   cb();
 });
 
