@@ -8,10 +8,9 @@ function compile(done) {
       console.log(stderr);
       return false;
     }
+    done();
     return true;
   });
-
-  done();
 }
 
 /**

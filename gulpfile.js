@@ -26,22 +26,22 @@ let wpds = null; // Hold a reference to Webpack Dev Server when it is created
  * @param cb
  * @returns {boolean}
  */
-function reloadWebpackDevServer(cb) {
-  // Bail if there is not a WPDS for some reason
-  if (wpds === null) {
-    cb();
-    return false;
-  }
-
-  console.log('Reload Webpack Dev Server!');
-
-  // Nukes the "state" hash
-  wpds.sockWrite(wpds.sockets, 'hash', '');
-  // Then sends the signal that compares the previous hash, causing a FULL refresh
-  wpds.sockWrite(wpds.sockets, 'ok');
-  cb();
-  return true;
-}
+// function reloadWebpackDevServer(cb) {
+//   // Bail if there is not a WPDS for some reason
+//   if (wpds === null) {
+//     cb();
+//     return false;
+//   }
+//
+//   console.log('Reload Webpack Dev Server!');
+//
+//   // Nukes the "state" hash
+//   wpds.sockWrite(wpds.sockets, 'hash', 'asdfadsfads');
+//   // Then sends the signal that compares the previous hash, causing a FULL refresh
+//   wpds.sockWrite(wpds.sockets, 'ok');
+//   cb();
+//   return true;
+// }
 
 /**
  * Starts up the Webpack Dev Server and does the config adjustments that this
@@ -66,12 +66,14 @@ gulp.task('webpack:server', (cb) => {
     // ie http://localhost:8080/temp
     publicPath: url.resolve(localhost, wpconfig.output.publicPath),
     // ie pattern-lab/public
-    contentBase: path.resolve(__dirname, 'dist/', 'public'),
+    contentBase: path.resolve(__dirname, 'dist/', 'public/'),
+    watchContentBase: true,
     hot: true,
     historyApiFallback: true,
     inline: true,
     stats: {
       colors: true,
+      chunks: false,
     },
   });
 
@@ -88,33 +90,17 @@ gulp.task('webpack:server', (cb) => {
 });
 
 /**
- * Watch the known PL output changes (latest-change.text in public)
- */
-gulp.task('webpack:server:pl-html-updated', (cb) => {
-  gulp.watch('./dist/public/latest-change.txt').on('change', _.debounce(gulp.series(reloadWebpackDevServer)), 1000);
-  cb();
-});
-
-/**
  * Watch known PL files and compile to html. twig-namespaces ensures that
  * ./tools/pattern-lab/config.yml & ./theme.info.yml are updated with all
  * pattern namespaces for error-free compiling.
+ *
+ * @TODO: FIX SASS TO JSON TO ONLY WRITE FILE CHANGED, NOT ALL 5
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
-  gulp.watch([
-    'source/**/*.{twig,json,yml,yaml,md}',
-
-    // ignore sass-to-json files (return to this)
-    '!source/_patterns/00-base/05-colors/colors.json',
-    '!source/_patterns/00-base/15-typography/fonts/font-sizes.json',
-    '!source/_patterns/00-base/15-typography/fonts/font-families.json',
-    '!source/_patterns/00-base/breakpoints/breakpoints.json',
-    '!source/_patterns/00-base/10-spacing/spacing.json'
-    // end ignore
-  ]).on('change', _.debounce(gulp.series([
+  gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', gulp.series([
     'twig-namespaces',
     'pl-compile',
-  ]), 300));
+  ]));
   cb();
 });
 
@@ -123,10 +109,10 @@ gulp.task('webpack:watch:pl-source', (cb) => {
  */
 gulp.task('webpack:watch:scss-to-json', (cb) => {
   gulp.watch(scssToJsonWatchers)
-    .on('change', _.debounce(gulp.series([
+    .on('change', gulp.series([
       'scss-to-json',
       'pl-compile',
-    ]), 300));
+    ]));
   cb();
 });
 
@@ -137,5 +123,4 @@ gulp.task('webpack:dev', gulp.series([
   'webpack:server',
   'webpack:watch:scss-to-json',
   'webpack:watch:pl-source',
-  'webpack:server:pl-html-updated',
 ]));
