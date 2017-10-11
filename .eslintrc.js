@@ -6,7 +6,9 @@ module.exports = {
     Drupal: true,
     jQuery: true,
     _: true,
-    domready: true,
+  },
+  "env": {
+    "browser": true,
   },
   rules: {
     'no-console': [0], // turned off for now while we are console.logging everywhere.

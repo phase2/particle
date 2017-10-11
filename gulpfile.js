@@ -91,7 +91,7 @@ gulp.task('webpack:server', (cb) => {
  * Watch the known PL output changes (latest-change.text in public)
  */
 gulp.task('webpack:server:pl-html-updated', (cb) => {
-  gulp.watch('./dist/public/latest-change.txt').on('change', _.debounce(gulp.series(reloadWebpackDevServer)), 1500);
+  gulp.watch('./dist/public/latest-change.txt').on('change', _.debounce(gulp.series(reloadWebpackDevServer)), 1000);
   cb();
 });
 
@@ -101,10 +101,20 @@ gulp.task('webpack:server:pl-html-updated', (cb) => {
  * pattern namespaces for error-free compiling.
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
-  gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([
+  gulp.watch([
+    'source/**/*.{twig,json,yml,yaml,md}',
+
+    // ignore sass-to-json files (return to this)
+    '!source/_patterns/00-base/05-colors/colors.json',
+    '!source/_patterns/00-base/15-typography/fonts/font-sizes.json',
+    '!source/_patterns/00-base/15-typography/fonts/font-families.json',
+    '!source/_patterns/00-base/breakpoints/breakpoints.json',
+    '!source/_patterns/00-base/10-spacing/spacing.json'
+    // end ignore
+  ]).on('change', gulp.series([
     'twig-namespaces',
     'pl-compile',
-  ]), 300));
+  ]));
   cb();
 });
 
@@ -112,7 +122,11 @@ gulp.task('webpack:watch:pl-source', (cb) => {
  * Watch config-related scss files to generate json for PL example patterns.
  */
 gulp.task('webpack:watch:scss-to-json', (cb) => {
-  gulp.watch(scssToJsonWatchers).on('change', _.debounce(gulp.series(['scss-to-json']), 300));
+  gulp.watch(scssToJsonWatchers)
+    .on('change', gulp.series([
+      'scss-to-json',
+      'pl-compile',
+    ]));
   cb();
 });
 

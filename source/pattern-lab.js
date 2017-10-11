@@ -15,10 +15,3 @@ designSystem.forEach((component) => {
   component.enable($context);
   console.log(component);
 });
-
-//
-// if (module.hot) {
-//   module.hot.accept('./design-system.js', () => {
-//     console.log('design system updated! HOT!');
-//   });
-// }
