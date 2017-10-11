@@ -8,13 +8,10 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   // Commented out here since the specifics are different per PL or Drupal
   // entry: { 'entry-name': './path/to/entry.js', },
-  entry: {},
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/temp/',
-    // hotUpdateChunkFilename: 'hot/hot-update.js',
-    // hotUpdateMainFilename: 'hot/hot-update.json'
   },
   devtool: 'source-map',
   devServer: {
@@ -61,6 +58,16 @@ module.exports = {
           emitWarning: true,
         },
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+      }
     ],
   },
   plugins: [
