@@ -1,103 +1,73 @@
+/**
+ * Import libraries
+ */
 const path = require('path');
 const gulp = require('gulp');
 const url = require('url');
 const _ = require('lodash');
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
 
-// Add desired gulp tasks, originally defined in ./tools/tasks/
+/**
+ * Sass-to-JSON
+ */
 const scssTask = require('./tools/tasks/scss-to-json');
-const namespaceTask = require('./tools/tasks/twig-namespaces');
-
-// const compileTask = require('./tools/tasks/pl-compile');
-
 const scssToJsonWatchers = _.uniq(_.map(scssTask.scssToJsonOptions, 'src'));
 scssTask.scssToJson(gulp);
+
+/**
+ * Twig namespaces work
+ */
+const namespaceTask = require('./tools/tasks/twig-namespaces');
 namespaceTask.twigNamespaces(gulp);
 
-// Pattern Lab raw compile function
+/**
+ * Pattern Lab raw compile function
+ */
+// Config: Path to Pattern Lab installation.
 const plPath = path.resolve(__dirname, 'tools/pattern-lab');
+// PL compilation function, loaded up with the the PL path
 const plCompile = require('./tools/tasks/pl-compile')(plPath);
-
-// Webpack Config
-const wpconfig = require('./webpack.pl.config');
-
-const localhost = 'http://localhost:8080';
-let wpds = null; // Hold a reference to Webpack Dev Server when it is created
-
-/**
- * Triggers a full reload of the Webpack Dev Server page.
- * @param cb
- * @returns {boolean}
- */
-// function reloadWebpackDevServer(cb) {
-//   // Bail if there is not a WPDS for some reason
-//   if (wpds === null) {
-//     cb();
-//     return false;
-//   }
-//
-//   console.log('Reload Webpack Dev Server!');
-//
-//   // Nukes the "state" hash
-//   wpds.sockWrite(wpds.sockets, 'hash', 'asdfadsfads');
-//   // Then sends the signal that compares the previous hash, causing a FULL refresh
-//   wpds.sockWrite(wpds.sockets, 'ok');
-//   cb();
-//   return true;
-// }
-
-/**
- * Starts up the Webpack Dev Server and does the config adjustments that this
- * command does:
- *   webpack-dev-server --hot --inline --progress
- *
- * Note the absolute requirements for Hot Module Reloading in this Dev Server:
- *  - HotModuleReplacementPlugin
- *  - Added entry points
- */
-gulp.task('webpack:server', (cb) => {
-  // Add HotModuleReplacementPlugin to the end of the webpack plugins
-  wpconfig.plugins.push(new webpack.HotModuleReplacementPlugin());
-  // Set these new entry points required for Hot Module replacement
-  wpconfig.entry['pattern-lab'].unshift(
-    'webpack/hot/dev-server',
-    `webpack-dev-server/client?${localhost}/`,
-  );
-
-  // Make a new server and store a reference to it so we can interact with it later
-  wpds = new WebpackDevServer(webpack(wpconfig), {
-    // ie http://localhost:8080/temp
-    publicPath: url.resolve(localhost, wpconfig.output.publicPath),
-    // ie pattern-lab/public
-    contentBase: path.resolve(__dirname, 'dist/', 'public/'),
-    watchContentBase: true,
-    hot: true,
-    historyApiFallback: true,
-    inline: true,
-    stats: {
-      colors: true,
-      chunks: false,
-    },
-  });
-
-  wpds.listen(8080, 'localhost', (err) => {
-    if (err) {
-      cb(err);
-      return false;
-    }
-
-    console.log(`Listening at ${localhost}`);
-    cb();
-    return true;
-  });
-});
 
 /**
  * Compile Pattern Lab completely
  */
 gulp.task('compile:pl', (cb) => {
   plCompile(cb);
+});
+
+/**
+ * Webpack config and setup
+ */
+// URL to visit to see local PL
+const localhost = 'http://localhost:8080';
+// Import webpack config for PL
+const wpconfig = require('./webpack.pl.config');
+// Webpack Dev Server config used for local development
+const serverconfig = {
+  // ie http://localhost:8080/temp
+  publicPath: url.resolve(localhost, wpconfig.output.publicPath),
+  // ie dist/public
+  contentBase: path.resolve(__dirname, 'dist/', 'public/'),
+  // Refresh if anything in dist/public changes
+  watchContentBase: true,
+  // Inject css/js into page without full refresh
+  hot: true,
+  // Finds default index.html files at folder root
+  historyApiFallback: true,
+  // Injects all the webpack dev server code right in the page
+  inline: true,
+  stats: {
+    colors: true,
+  },
+};
+// Load up the function that will be used to start a webpack dev server
+// This does NOT start the server, that requires the gulp task below.
+const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, localhost, serverconfig);
+
+/**
+ * Starts up the Webpack Dev Server with our config from aove
+ */
+gulp.task('webpack:server', (cb) => {
+  webpackdevserver(cb);
 });
 
 /**
