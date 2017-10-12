@@ -42,14 +42,14 @@ const plRoot = path.join(namespaceOptions.configFile, '../..');
  * @returns {{}}
  */
 function getTwigNamespaceConfig(workingDir) {
-  workingDir = workingDir || process.cwd();
+  const localWorkingDir = workingDir || process.cwd();
   const twigNamespaceConfig = {};
   namespaceOptions.twigNamespaces.sets.forEach((namespaceSet) => {
     const pathArray = namespaceSet.paths.map((pathBase) => {
-      const results = glob.sync(path.join(pathBase, '**/*.twig')).map((pathItem) => {
-        return path.relative(workingDir, path.dirname(pathItem));
-      });
-      results.unshift(path.relative(workingDir, pathBase));
+      const results = glob.sync(path.join(pathBase, '**/*.twig')).map(pathItem => (
+        path.relative(localWorkingDir, path.dirname(pathItem))
+      ));
+      results.unshift(path.relative(localWorkingDir, pathBase));
       return results;
     });
     twigNamespaceConfig[namespaceSet.namespace] = {

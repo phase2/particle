@@ -35,19 +35,19 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              options: { importLoaders: 1 }
+              options: { importLoaders: 1 },
             },
             {
               loader: 'postcss-loader',
               options: {
                 ident: 'postcss',
-                plugins: () => [ autoprefixer() ]
-              }
+                plugins: () => [autoprefixer()],
+              },
             },
             {
-              loader: 'sass-loader'
-            }
-          ]
+              loader: 'sass-loader',
+            },
+          ],
         })),
       },
       {
@@ -64,15 +64,15 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-        }
+        },
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
-        }
-      }
+          name: '[name].[ext]?[hash]',
+        },
+      },
     ],
   },
   plugins: [

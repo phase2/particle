@@ -11,6 +11,7 @@ const _ = require('lodash');
  * are updated with all pattern namespaces for error-free compiling.
  */
 const namespaceTask = require('./tools/tasks/twig-namespaces');
+
 namespaceTask.twigNamespaces(gulp);
 
 /**
@@ -41,7 +42,7 @@ const serverconfig = {
   contentBase: path.resolve(__dirname, 'dist/', 'public/'), // ie dist/public
   watchContentBase: true, // Refresh if anything in dist/public changes
   hot: true, // Inject css/js into page without full refresh
-  historyApiFallback: true,  // Finds default index.html files at folder root
+  historyApiFallback: true, // Finds default index.html files at folder root
   inline: true, // Injects all the webpack dev server code right in the page
   stats: {
     colors: true, // Colored terminal output.
@@ -100,9 +101,7 @@ const scssToJsonWatchers = _.uniq(_.map(scssConfigs, 'src'));
  * Watch config-related scss files to generate json for PL example patterns.
  */
 gulp.task('webpack:watch:scss-to-json', (cb) => {
-  gulp.watch(scssToJsonWatchers).on('change', (path) => {
-    scssToJson(path)
-  });
+  gulp.watch(scssToJsonWatchers).on('change', scssPath => (scssToJson(scssPath)));
   cb();
 });
 
@@ -119,35 +118,35 @@ gulp.task('compile:all-scss-to-json', (cb) => {
  * Watch known PL files and compile to html.
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
-  gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series(
+  gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
     'twig-namespaces',
-    'compile:pl'
-  ));
+    'compile:pl',
+  ]));
   cb();
 });
 
 /**
  * Standalone compile tasks for non-webpack assets
  */
-gulp.task('compile', gulp.series(
+gulp.task('compile', gulp.series([
   'compile:all-scss-to-json',
   'twig-namespaces',
-  'compile:pl'
-));
+  'compile:pl',
+]));
 
 /**
  * Active server watching via webpack dev server for non-webpack assets.
  */
-gulp.task('webpack:dev', gulp.series(
+gulp.task('webpack:dev', gulp.series([
   'webpack:server',
   'webpack:watch:scss-to-json',
-  'webpack:watch:pl-source'
-));
+  'webpack:watch:pl-source',
+]));
 
 /**
  * Kicking off cold should compile all the non-webpack assets, start webpack:dev
  */
-gulp.task('default', gulp.series(
+gulp.task('default', gulp.series([
   'compile',
-  'webpack:dev'
-));
+  'webpack:dev',
+]));

@@ -13,18 +13,20 @@ let wpds = null; // Hold a reference to Webpack Dev Server when it is created
  *  - Added entry points
  */
 module.exports = function startWebpackDevServer(webpackConfig, localhost, devServerConfig) {
-
   return (cb) => {
+    const localWebpackConfig = webpackConfig;
+
     // Add HotModuleReplacementPlugin to the end of the webpack plugins
-    webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
-    // Set these new entry points required for Hot Module replacement
-    webpackConfig.entry['pattern-lab'].unshift(
-      'webpack/hot/dev-server',
-      `webpack-dev-server/client?${localhost}/`
-    );
+    localWebpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+    // Set these new entry points required for Hot Module replacement, prepended
+    // with the original entry point
+    localWebpackConfig.entry['pattern-lab'] = [
+      ...webpackConfig.entry['pattern-lab'],
+      ...['webpack/hot/dev-server', `webpack-dev-server/client?${localhost}/`],
+    ];
 
     // Make a new server and store a reference to it so we can interact with it later
-    wpds = new WebpackDevServer(webpack(webpackConfig), devServerConfig);
+    wpds = new WebpackDevServer(webpack(localWebpackConfig), devServerConfig);
 
     wpds.listen(8080, 'localhost', (err) => {
       if (err) {
