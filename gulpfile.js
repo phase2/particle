@@ -7,13 +7,14 @@ const url = require('url');
 const _ = require('lodash');
 
 /**
- * Twig namespaces work
+ * Twig-namespaces ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
+ * are updated with all pattern namespaces for error-free compiling.
  */
 const namespaceTask = require('./tools/tasks/twig-namespaces');
 namespaceTask.twigNamespaces(gulp);
 
 /**
- * Pattern Lab raw compile function
+ * Pattern Lab raw compile function.
  */
 // Config: Path to Pattern Lab installation.
 const plPath = path.resolve(__dirname, 'tools/pattern-lab');
@@ -21,33 +22,29 @@ const plPath = path.resolve(__dirname, 'tools/pattern-lab');
 const plCompile = require('./tools/tasks/pl-compile')(plPath);
 
 /**
- * Compile Pattern Lab completely
+ * Compile Pattern Lab completely.
  */
 gulp.task('compile:pl', plCompile);
 
 /**
- * Webpack config and setup
+ * Webpack config and setup.
  */
 // URL to visit to see local PL
 const localhost = 'http://localhost:8080';
 // Import webpack config for PL
 const wpconfig = require('./webpack.pl.config');
-// Webpack Dev Server config used for local development
+// Webpack Dev Server config used for local development.
+// See all available config options:
+// https://webpack.js.org/configuration/dev-server/#devserver
 const serverconfig = {
-  // ie http://localhost:8080/temp
-  publicPath: url.resolve(localhost, wpconfig.output.publicPath),
-  // ie dist/public
-  contentBase: path.resolve(__dirname, 'dist/', 'public/'),
-  // Refresh if anything in dist/public changes
-  watchContentBase: true,
-  // Inject css/js into page without full refresh
-  hot: true,
-  // Finds default index.html files at folder root
-  historyApiFallback: true,
-  // Injects all the webpack dev server code right in the page
-  inline: true,
+  publicPath: url.resolve(localhost, wpconfig.output.publicPath), // ie http://localhost:8080/temp
+  contentBase: path.resolve(__dirname, 'dist/', 'public/'), // ie dist/public
+  watchContentBase: true, // Refresh if anything in dist/public changes
+  hot: true, // Inject css/js into page without full refresh
+  historyApiFallback: true,  // Finds default index.html files at folder root
+  inline: true, // Injects all the webpack dev server code right in the page
   stats: {
-    colors: true,
+    colors: true, // Colored terminal output.
   },
 };
 // Load up the function that will be used to start a webpack dev server
@@ -95,6 +92,8 @@ const scssConfigs = [
   },
 ];
 const scssToJson = require('./tools/tasks/scss-to-json')(scssConfigs);
+// This line uniquely sets the sass files to be watched, as indicated by the 'src' key.
+// Uniquely, because _fonts.scss is watched for two different variable strings.
 const scssToJsonWatchers = _.uniq(_.map(scssConfigs, 'src'));
 
 /**
@@ -108,7 +107,7 @@ gulp.task('webpack:watch:scss-to-json', (cb) => {
 });
 
 /**
- * Manual compile all scss-to-json configs
+ * Manual compile all scss-to-json configs.
  */
 gulp.task('compile:all-scss-to-json', (cb) => {
   // Loop through each config and compile it
@@ -117,9 +116,7 @@ gulp.task('compile:all-scss-to-json', (cb) => {
 });
 
 /**
- * Watch known PL files and compile to html. twig-namespaces ensures that
- * ./tools/pattern-lab/config.yml & ./theme.info.yml are updated with all
- * pattern namespaces for error-free compiling.
+ * Watch known PL files and compile to html.
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series(
