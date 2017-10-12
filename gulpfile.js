@@ -97,10 +97,10 @@ gulp.task('webpack:server', (cb) => {
  * @TODO: FIX SASS TO JSON TO ONLY WRITE FILE CHANGED, NOT ALL 5
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
-  gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', gulp.series([
+  gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([
     'twig-namespaces',
     'pl-compile',
-  ]));
+  ]), 300));
   cb();
 });
 
