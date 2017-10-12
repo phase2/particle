@@ -49,12 +49,8 @@
       "value": "blue"
     },
     {
-      "name": "$c-test2",
-      "value": "$c-red"
-    },
-    {
       "name": "$c-test3",
-      "value": "blue"
+      "value": "orange"
     }
   ],
   "meta": {

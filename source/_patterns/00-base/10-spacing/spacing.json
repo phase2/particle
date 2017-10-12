@@ -2,18 +2,15 @@
   "items": [
     {
       "name": "$spacing--s",
-      "value": "5px",
-      "comment": ""
+      "value": "5px"
     },
     {
       "name": "$spacing--m",
-      "value": "10px",
-      "comment": ""
+      "value": "10px"
     },
     {
       "name": "$spacing--l",
-      "value": "20px",
-      "comment": ""
+      "value": "20px"
     }
   ],
   "meta": {

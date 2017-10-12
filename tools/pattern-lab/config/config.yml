@@ -8,6 +8,8 @@ id:
   - scss
   - .svn
   - .sass-cache
+  - fonts
+  - icons
 cleanPublic: 'true'
 patternStates:
   - inprogress

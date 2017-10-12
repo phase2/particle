@@ -59,7 +59,6 @@ const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, l
  */
 gulp.task('webpack:server', webpackdevserver);
 
-
 /**
  * Sass-to-JSON
  */
@@ -101,11 +100,19 @@ const scssToJsonWatchers = _.uniq(_.map(scssConfigs, 'src'));
 /**
  * Watch config-related scss files to generate json for PL example patterns.
  */
-
 gulp.task('webpack:watch:scss-to-json', (cb) => {
   gulp.watch(scssToJsonWatchers).on('change', (path) => {
     scssToJson(path)
   });
+  cb();
+});
+
+/**
+ * Manual compile all scss-to-json configs
+ */
+gulp.task('compile:all-scss-to-json', (cb) => {
+  // Loop through each config and compile it
+  _.forEach(scssConfigs, (item) => { scssToJson(item.src); });
   cb();
 });
 
@@ -123,10 +130,27 @@ gulp.task('webpack:watch:pl-source', (cb) => {
 });
 
 /**
- * Wire tasks together
+ * Standalone compile tasks for non-webpack assets
  */
-gulp.task('webpack:dev', gulp.series([
+gulp.task('compile', gulp.series(
+  'compile:all-scss-to-json',
+  'twig-namespaces',
+  'compile:pl'
+));
+
+/**
+ * Active server watching via webpack dev server for non-webpack assets.
+ */
+gulp.task('webpack:dev', gulp.series(
   'webpack:server',
   'webpack:watch:scss-to-json',
   'webpack:watch:pl-source',
-]));
+));
+
+/**
+ * Kicking off cold should compile all the non-webpack assets, start webpack:dev
+ */
+gulp.task('default', gulp.series(
+  'compile',
+  'webpack:dev',
+));

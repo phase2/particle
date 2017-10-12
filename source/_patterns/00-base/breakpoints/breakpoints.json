@@ -2,33 +2,27 @@
   "items": [
     {
       "name": "$bp--xs",
-      "value": "0px",
-      "comment": ""
+      "value": "0px"
     },
     {
       "name": "$bp--sm",
-      "value": "576px",
-      "comment": ""
+      "value": "576px"
     },
     {
       "name": "$bp--md",
-      "value": "768px",
-      "comment": ""
+      "value": "768px"
     },
     {
       "name": "$bp--lg",
-      "value": "992px",
-      "comment": ""
+      "value": "992px"
     },
     {
       "name": "$bp--xl",
-      "value": "1200px",
-      "comment": ""
+      "value": "1200px"
     },
     {
       "name": "$bp--xxl",
-      "value": "1600px",
-      "comment": ""
+      "value": "1600px"
     }
   ],
   "meta": {
