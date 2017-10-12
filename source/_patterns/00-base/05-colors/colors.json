@@ -50,11 +50,11 @@
     },
     {
       "name": "$c-test2",
-      "value": "blue"
+      "value": "$c-red"
     },
     {
       "name": "$c-test3",
-      "value": "yellow"
+      "value": "blue"
     }
   ],
   "meta": {

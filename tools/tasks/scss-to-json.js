@@ -27,16 +27,16 @@ module.exports = function scssToJson(scssConfigs) {
       // Build our vars array
       const demoVars = _(rendered.vars.global)
         // Only grab vars that start with our config'd prefix string
-        .pickBy((item, key) => {
-          return key.startsWith(scssConfig.lineStartsWith);
-        })
+        .pickBy((item, key) => key.startsWith(scssConfig.lineStartsWith))
         // Turn these key:objects into array of objects
         .map((item, key) => {
           return {
             name: key,
-            value: item.declarations[0].expression // @TODO: var resolution (sassExtract can help here)
+            value: item.declarations[0].expression, // @TODO: var resolution (sassExtract can help here)
           };
-        });
+        })
+        // Filter out $var values. @TODO: revisit this given that sassExtract can resolve vars
+        .filter(item => !scssConfig.allowVarValues && !item.value.startsWith('$'));
 
       // Write it out to json in the format our twig files expect
       fs.writeFileSync(scssConfig.dest, JSON.stringify({
