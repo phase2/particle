@@ -58,6 +58,7 @@
     "js-yaml": "^3.10.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.7",
+    "sass-extract": "^1.0.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "stylelint": "^8.2.0",

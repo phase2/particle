@@ -7,13 +7,6 @@ const url = require('url');
 const _ = require('lodash');
 
 /**
- * Sass-to-JSON
- */
-const scssTask = require('./tools/tasks/scss-to-json');
-const scssToJsonWatchers = _.uniq(_.map(scssTask.scssToJsonOptions, 'src'));
-scssTask.scssToJson(gulp);
-
-/**
  * Twig namespaces work
  */
 const namespaceTask = require('./tools/tasks/twig-namespaces');
@@ -30,9 +23,7 @@ const plCompile = require('./tools/tasks/pl-compile')(plPath);
 /**
  * Compile Pattern Lab completely
  */
-gulp.task('compile:pl', (cb) => {
-  plCompile(cb);
-});
+gulp.task('compile:pl', plCompile);
 
 /**
  * Webpack config and setup
@@ -66,34 +57,68 @@ const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, l
 /**
  * Starts up the Webpack Dev Server with our config from aove
  */
-gulp.task('webpack:server', (cb) => {
-  webpackdevserver(cb);
+gulp.task('webpack:server', webpackdevserver);
+
+
+/**
+ * Sass-to-JSON
+ */
+const scssConfigs = [
+  {
+    src: './source/_patterns/00-base/05-colors/_colors.scss',
+    dest: './source/_patterns/00-base/05-colors/colors.json',
+    lineStartsWith: '$c-',
+    allowVarValues: false,
+  },
+  {
+    src: './source/_patterns/00-base/15-typography/fonts/_fonts.scss',
+    dest: './source/_patterns/00-base/15-typography/fonts/font-sizes.json',
+    lineStartsWith: '$fs--',
+    allowVarValues: false,
+  },
+  {
+    src: './source/_patterns/00-base/15-typography/fonts/_fonts.scss',
+    dest: './source/_patterns/00-base/15-typography/fonts/font-families.json',
+    lineStartsWith: '$ff--',
+    allowVarValues: false,
+  },
+  {
+    src: './source/_patterns/00-base/breakpoints/_breakpoints.scss',
+    dest: './source/_patterns/00-base/breakpoints/breakpoints.json',
+    lineStartsWith: '$bp--',
+    allowVarValues: false,
+  },
+  {
+    src: './source/_patterns/00-base/10-spacing/_spacing.scss',
+    dest: './source/_patterns/00-base/10-spacing/spacing.json',
+    lineStartsWith: '$spacing--',
+    allowVarValues: false,
+  },
+];
+const scssToJson = require('./tools/tasks/scss-to-json')(scssConfigs);
+const scssToJsonWatchers = _.uniq(_.map(scssConfigs, 'src'));
+
+/**
+ * Watch config-related scss files to generate json for PL example patterns.
+ */
+
+gulp.task('webpack:watch:scss-to-json', (cb) => {
+  gulp.watch(scssToJsonWatchers).on('change', (path) => {
+    scssToJson(path)
+  });
+  cb();
 });
 
 /**
  * Watch known PL files and compile to html. twig-namespaces ensures that
  * ./tools/pattern-lab/config.yml & ./theme.info.yml are updated with all
  * pattern namespaces for error-free compiling.
- *
- * @TODO: FIX SASS TO JSON TO ONLY WRITE FILE CHANGED, NOT ALL 5
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
-  gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([
+  gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series(
     'twig-namespaces',
     'compile:pl',
-  ]), 300));
-  cb();
-});
-
-/**
- * Watch config-related scss files to generate json for PL example patterns.
- */
-gulp.task('webpack:watch:scss-to-json', (cb) => {
-  gulp.watch(scssToJsonWatchers)
-    .on('change', gulp.series([
-      'scss-to-json',
-      'compile:pl',
-    ]));
+  ));
   cb();
 });
 
