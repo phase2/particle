@@ -121,7 +121,7 @@ gulp.task('compile:all-scss-to-json', (cb) => {
 gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series(
     'twig-namespaces',
-    'compile:pl',
+    'compile:pl'
   ));
   cb();
 });
@@ -141,7 +141,7 @@ gulp.task('compile', gulp.series(
 gulp.task('webpack:dev', gulp.series(
   'webpack:server',
   'webpack:watch:scss-to-json',
-  'webpack:watch:pl-source',
+  'webpack:watch:pl-source'
 ));
 
 /**
@@ -149,5 +149,5 @@ gulp.task('webpack:dev', gulp.series(
  */
 gulp.task('default', gulp.series(
   'compile',
-  'webpack:dev',
+  'webpack:dev'
 ));
