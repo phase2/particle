@@ -1,27 +1,24 @@
 const exec = require('child_process').exec;
 
-function compile(done) {
-  exec('php ./tools/pattern-lab/core/console --generate', (err, stdout, stderr) => {
-    console.log(stdout);
-
-    if (err) {
-      console.log(stderr);
-      return false;
-    }
-    done();
-    return true;
-  });
-}
-
 /**
- * Gulp task for auto-namespacing.
+ * Compile Pattern Lab
+ * @param plPath Full path to PL
+ * @returns {function(*)} A compile function that takes a callback
  */
-module.exports = {
-  plCompile: (gulp) => {
-    gulp.task('pl-compile', (done) => {
-      compile(() => {
+module.exports = function plCompile(plPath) {
+  // Note returns a function with the plPath in closure
+  return (done) => {
+    exec(`php ${plPath}/core/console --generate`, (err, stdout, stderr) => {
+      console.log(stdout);
+
+      if (err) {
+        console.log(stderr);
         done();
-      });
+        return false;
+      }
+
+      done();
+      return true;
     });
-  },
+  };
 };

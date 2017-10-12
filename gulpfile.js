@@ -8,12 +8,16 @@ const WebpackDevServer = require('webpack-dev-server');
 // Add desired gulp tasks, originally defined in ./tools/tasks/
 const scssTask = require('./tools/tasks/scss-to-json');
 const namespaceTask = require('./tools/tasks/twig-namespaces');
-const compileTask = require('./tools/tasks/pl-compile');
+
+// const compileTask = require('./tools/tasks/pl-compile');
 
 const scssToJsonWatchers = _.uniq(_.map(scssTask.scssToJsonOptions, 'src'));
 scssTask.scssToJson(gulp);
 namespaceTask.twigNamespaces(gulp);
-compileTask.plCompile(gulp);
+
+// Pattern Lab raw compile function
+const plPath = path.resolve(__dirname, 'tools/pattern-lab');
+const plCompile = require('./tools/tasks/pl-compile')(plPath);
 
 // Webpack Config
 const wpconfig = require('./webpack.pl.config');
@@ -90,6 +94,13 @@ gulp.task('webpack:server', (cb) => {
 });
 
 /**
+ * Compile Pattern Lab completely
+ */
+gulp.task('compile:pl', (cb) => {
+  plCompile(cb);
+});
+
+/**
  * Watch known PL files and compile to html. twig-namespaces ensures that
  * ./tools/pattern-lab/config.yml & ./theme.info.yml are updated with all
  * pattern namespaces for error-free compiling.
@@ -99,7 +110,7 @@ gulp.task('webpack:server', (cb) => {
 gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}').on('change', _.debounce(gulp.series([
     'twig-namespaces',
-    'pl-compile',
+    'compile:pl',
   ]), 300));
   cb();
 });
@@ -111,7 +122,7 @@ gulp.task('webpack:watch:scss-to-json', (cb) => {
   gulp.watch(scssToJsonWatchers)
     .on('change', gulp.series([
       'scss-to-json',
-      'pl-compile',
+      'compile:pl',
     ]));
   cb();
 });
