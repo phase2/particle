@@ -20,7 +20,7 @@ module.exports = function startWebpackDevServer(webpackConfig, localhost, devSer
     // Set these new entry points required for Hot Module replacement
     webpackConfig.entry['pattern-lab'].unshift(
       'webpack/hot/dev-server',
-      `webpack-dev-server/client?${localhost}/`,
+      `webpack-dev-server/client?${localhost}/`
     );
 
     // Make a new server and store a reference to it so we can interact with it later
