@@ -13,4 +13,9 @@ $c-black: black;
 
 $c-test: blue;
 $c-test2: $c-red;
-$c-test3: green;
+$c-test3: orange;
+
+
+.verify-output {
+  color: red;
+}

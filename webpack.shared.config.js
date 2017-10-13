@@ -16,13 +16,6 @@ module.exports = {
     publicPath: '/temp/',
   },
   devtool: 'source-map',
-  devServer: {
-    contentBase: path.resolve(__dirname, 'dist', 'public'),
-    overlay: {
-      errors: true,
-      warnings: true,
-    },
-  },
   module: {
     rules: [
       {

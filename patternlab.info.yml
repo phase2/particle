@@ -35,6 +35,7 @@ component-libraries:
     paths:
       - source/_patterns/02-molecules
       - source/_patterns/02-molecules/card
+      - source/_patterns/02-molecules/card/demo
   organisms:
     paths:
       - source/_patterns/03-organisms

@@ -1,6 +1,4 @@
 import card from './_patterns/02-molecules/card/card';
-// import button from './source/_patterns/01-molecules/button/button';
-// import blerp from './source/_patterns/02-molecules/blerp/blerp';
 import homepage from './_patterns/05-pages/homepage';
 
 

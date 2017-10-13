@@ -46,6 +46,19 @@ const serverconfig = {
   inline: true, // Injects all the webpack dev server code right in the page
   stats: {
     colors: true, // Colored terminal output.
+    hash: true,
+    version: true,
+    timings: false,
+    assets: true,
+    chunks: false,
+    modules: false,
+    reasons: false,
+    children: false,
+    source: true,
+    errors: true,
+    errorDetails: true,
+    warnings: true,
+    publicPath: true
   },
 };
 // Load up the function that will be used to start a webpack dev server
@@ -65,31 +78,26 @@ const scssConfigs = [
     src: './source/_patterns/00-base/05-colors/_colors.scss',
     dest: './source/_patterns/00-base/05-colors/colors.json',
     lineStartsWith: '$c-',
-    allowVarValues: false,
   },
   {
     src: './source/_patterns/00-base/15-typography/fonts/_fonts.scss',
     dest: './source/_patterns/00-base/15-typography/fonts/font-sizes.json',
     lineStartsWith: '$fs--',
-    allowVarValues: false,
   },
   {
     src: './source/_patterns/00-base/15-typography/fonts/_fonts.scss',
     dest: './source/_patterns/00-base/15-typography/fonts/font-families.json',
     lineStartsWith: '$ff--',
-    allowVarValues: false,
   },
   {
     src: './source/_patterns/00-base/breakpoints/_breakpoints.scss',
     dest: './source/_patterns/00-base/breakpoints/breakpoints.json',
     lineStartsWith: '$bp--',
-    allowVarValues: false,
   },
   {
     src: './source/_patterns/00-base/10-spacing/_spacing.scss',
     dest: './source/_patterns/00-base/10-spacing/spacing.json',
     lineStartsWith: '$spacing--',
-    allowVarValues: false,
   },
 ];
 const scssToJson = require('./tools/tasks/scss-to-json')(scssConfigs);
