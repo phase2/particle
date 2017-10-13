@@ -29,7 +29,7 @@
     "webpack-pl": "webpack --display-entrypoints --config webpack.pl.config.js",
     "webpack-drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
-    "lint:js": "eslint ./source/ ./drupal/ ./tools/tasks/ gulpfile.js webpack.*.js --cache",
+    "lint:js": "eslint ./source/ ./drupal/ ./tools/tasks/ gulpfile.js webpack.*.js --cache"
   },
   "browserslist": [
     "last 2 versions",
