@@ -4,7 +4,6 @@
 const path = require('path');
 const gulp = require('gulp');
 const url = require('url');
-const _ = require('lodash');
 
 /**
  * Twig-namespaces ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
@@ -58,7 +57,7 @@ const serverconfig = {
     errors: true,
     errorDetails: true,
     warnings: true,
-    publicPath: true
+    publicPath: true,
   },
 };
 // Load up the function that will be used to start a webpack dev server
@@ -73,52 +72,46 @@ gulp.task('webpack:server', webpackdevserver);
 /**
  * Sass-to-JSON
  */
-const scssConfigs = [
+const sassVars = [
   {
-    src: './source/_patterns/00-base/05-colors/_colors.scss',
-    dest: './source/_patterns/00-base/05-colors/colors.json',
     lineStartsWith: '$c-',
+    nameSpace: 'colors',
   },
   {
-    src: './source/_patterns/00-base/15-typography/fonts/_fonts.scss',
-    dest: './source/_patterns/00-base/15-typography/fonts/font-sizes.json',
     lineStartsWith: '$fs--',
+    nameSpace: 'fontSizes',
   },
   {
-    src: './source/_patterns/00-base/15-typography/fonts/_fonts.scss',
-    dest: './source/_patterns/00-base/15-typography/fonts/font-families.json',
     lineStartsWith: '$ff--',
+    nameSpace: 'fontFamilies',
   },
   {
-    src: './source/_patterns/00-base/breakpoints/_breakpoints.scss',
-    dest: './source/_patterns/00-base/breakpoints/breakpoints.json',
     lineStartsWith: '$bp--',
+    nameSpace: 'breakpoints',
   },
   {
-    src: './source/_patterns/00-base/10-spacing/_spacing.scss',
-    dest: './source/_patterns/00-base/10-spacing/spacing.json',
     lineStartsWith: '$spacing--',
+    nameSpace: 'spacing',
   },
 ];
-const scssToJson = require('./tools/tasks/scss-to-json')(scssConfigs);
-// This line uniquely sets the sass files to be watched, as indicated by the 'src' key.
-// Uniquely, because _fonts.scss is watched for two different variable strings.
-const scssToJsonWatchers = _.uniq(_.map(scssConfigs, 'src'));
+
+/**
+ * Gulp sass-to-json
+ */
+const sass2json = require('./tools/tasks/gulp-sass2json');
+
+/**
+ * Watch all base scss files, pull off the vars we want to json
+ */
+gulp.task('compile:scss-to-json', () => gulp.src('./source/_patterns/00-base/**/*.scss')
+  .pipe(sass2json('baseScssVars.json', { sassVars }))
+  .pipe(gulp.dest('./source/_data/')));
 
 /**
  * Watch config-related scss files to generate json for PL example patterns.
  */
 gulp.task('webpack:watch:scss-to-json', (cb) => {
-  gulp.watch(scssToJsonWatchers).on('change', scssPath => (scssToJson(scssPath)));
-  cb();
-});
-
-/**
- * Manual compile all scss-to-json configs.
- */
-gulp.task('compile:all-scss-to-json', (cb) => {
-  // Loop through each config and compile it
-  _.forEach(scssConfigs, (item) => { scssToJson(item.src); });
+  gulp.watch('./source/_patterns/00-base/**/*.scss', gulp.series('compile:scss-to-json'));
   cb();
 });
 
@@ -137,7 +130,7 @@ gulp.task('webpack:watch:pl-source', (cb) => {
  * Standalone compile tasks for non-webpack assets
  */
 gulp.task('compile', gulp.series([
-  'compile:all-scss-to-json',
+  'compile:scss-to-json',
   'twig-namespaces',
   'compile:pl',
 ]));

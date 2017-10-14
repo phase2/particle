@@ -14,5 +14,5 @@ $z-index: (
 // useage:
 // .class { z-index: z("modal"); }
 @function z($key) {
-  @return map-get($z-index, $key)
+  @return map-get($z-index, $key);
 }

@@ -1,6 +1,7 @@
 # Compiled files
 dist/
 source/_patterns/01-atoms/images/_icons-settings.scss
+source/_data/baseScssVars.json
 
 # OS generated files
 .DS_Store

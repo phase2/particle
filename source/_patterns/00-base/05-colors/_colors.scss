@@ -2,7 +2,7 @@ $c-red: hsl(352, 92%, 38%); // Primary Color. Used for links
 $c-blue: hsl(208, 100%, 50%);
 
 $c-white: white;
-$c-gray--lightest: hsl(0, 0%, 89%);
+$c-gray--lightest: hsla(0, 0%, 89%, .5);
 $c-gray--lighter: hsl(0, 0%, 80%);
 $c-gray--light: hsl(0, 0%, 60%);
 $c-gray: hsl(0, 0%, 48%);
@@ -13,7 +13,7 @@ $c-black: black;
 
 $c-test: blue;
 $c-test2: $c-red;
-$c-test3: orange;
+$c-test3: pink;
 
 
 .verify-output {

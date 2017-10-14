@@ -60,7 +60,6 @@ plugins:
           - ../../source/_patterns/00-base/15-typography/text
           - ../../source/_patterns/00-base/breakpoints
           - ../../source/_patterns/00-base/grids
-          - ../../source/_patterns/00-base/utilities/borders
       atoms:
         paths:
           - ../../source/_patterns/01-atoms
@@ -70,7 +69,6 @@ plugins:
         paths:
           - ../../source/_patterns/02-molecules
           - ../../source/_patterns/02-molecules/card
-          - ../../source/_patterns/02-molecules/card/demo
       organisms:
         paths:
           - ../../source/_patterns/03-organisms

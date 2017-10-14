@@ -1,15 +1,15 @@
+<h1>Colors</h1>
 <ul class="sg-colors">
-  {% for item in items %}
+  {% for colorVarName, colorVarData in baseScssVars if '$c-' in colorVarName %}
+    {% set rgba = colorVarData.value %}
     <li>
-      <div class="sg-swatch" style="background: {{item.value}};"></div>
+      <div class="sg-swatch" style='background: {{ "rgba(#{rgba.r}, #{rgba.g}, #{rgba.b}, #{rgba.a})" }};'></div>
       <div class="sg-info">
-        <span>{{item.value}}</span> <br/>
-        <code>{{item.name}}</code>
-        {% if item.comment %}<div class="comment">{{ item.comment }}</div>{% endif %}
+        <span>{{ colorVarData.declarations[0].expression }}</span> <br/>
+        <code>{{ colorVarName }}</code>
       </div>
     </li>
   {% endfor %}
 </ul>
-{% if meta %}
-  <p> <small>{{ meta.description }}</small> </p>
-{% endif %}
+
+<p>To add to these items, use Sass variables that start with $c- in _colors.scss</p>

@@ -1,9 +1,12 @@
+@import '../05-colors/_colors.scss';
+@import '../10-spacing/_spacing.scss';
+
 ////
 /// @group layout
 ////
 
 // % should not be used here as Firefox doesn't like it
-$grid-gutter: $grid-gutter-width-base;
+$grid-gutter: 30px;
 ///
 $grid-columns: 12;
 $grid-sizes: 1, 2, 3, 4, 6;
@@ -95,39 +98,44 @@ $grid-sizes: 1, 2, 3, 4, 6;
     }
   }
   @each $size in $grid-sizes {
-    @include media-breakpoint-up(xs) {
-      &[data-row-items-xsmall="#{$size}"] {
-        @include smart-grid($row-items: $size);
-      }
-    }
+    // @TODO: where is this mixin?
+    //@include media-breakpoint-up(xs) {
+    //  &[data-row-items-xsmall="#{$size}"] {
+    //    @include smart-grid($row-items: $size);
+    //  }
+    //}
   }
   @each $size in $grid-sizes {
-    @include media-breakpoint-up(sm) {
-      &[data-row-items-small="#{$size}"] {
-        @include smart-grid($row-items: $size);
-      }
-    }
+    // @TODO: where is this mixin?
+    //@include media-breakpoint-up(sm) {
+    //  &[data-row-items-small="#{$size}"] {
+    //    @include smart-grid($row-items: $size);
+    //  }
+    //}
   }
   @each $size in $grid-sizes {
-    @include media-breakpoint-up(md) {
-      &[data-row-items-medium="#{$size}"] {
-        @include smart-grid($row-items: $size);
-      }
-    }
+    // @TODO: where is this mixin?
+    //@include media-breakpoint-up(md) {
+    //  &[data-row-items-medium="#{$size}"] {
+    //    @include smart-grid($row-items: $size);
+    //  }
+    //}
   }
   @each $size in $grid-sizes {
-    @include media-breakpoint-up(lg) {
-      &[data-row-items-large="#{$size}"] {
-        @include smart-grid($row-items: $size);
-      }
-    }
+    // @TODO: where is this mixin?
+    //@include media-breakpoint-up(lg) {
+    //  &[data-row-items-large="#{$size}"] {
+    //    @include smart-grid($row-items: $size);
+    //  }
+    //}
   }
   @each $size in $grid-sizes {
-    @include media-breakpoint-up(xl) {
-      &[data-row-items-xlarge="#{$size}"] {
-        @include smart-grid($row-items: $size);
-      }
-    }
+    // @TODO: where is this mixin?
+    //@include media-breakpoint-up(xl) {
+    //  &[data-row-items-xlarge="#{$size}"] {
+    //    @include smart-grid($row-items: $size);
+    //  }
+    //}
   }
 }
 
@@ -139,18 +147,20 @@ $grid-sizes: 1, 2, 3, 4, 6;
 }
 
 .grid--2-1 {
-  @include media-breakpoint-up(md) {
-    display: flex;
-    justify-content: space-between;
-  }
+  // @TODO: where is this mixin?
+  //@include media-breakpoint-up(md) {
+  //  display: flex;
+  //  justify-content: space-between;
+  //}
   > * {
-    @include media-breakpoint-up(md) {
-      &:nth-child(odd) {
-        width: calc(66.66% - (#{$grid-gutter} / 2));
-      }
-      &:nth-child(even) {
-        width: calc(33.33% - (#{$grid-gutter} / 2));
-      }
-    }
+    // @TODO: where is this mixin?
+    //@include media-breakpoint-up(md) {
+    //  &:nth-child(odd) {
+    //    width: calc(66.66% - (#{$grid-gutter} / 2));
+    //  }
+    //  &:nth-child(even) {
+    //    width: calc(33.33% - (#{$grid-gutter} / 2));
+    //  }
+    //}
   }
 }
