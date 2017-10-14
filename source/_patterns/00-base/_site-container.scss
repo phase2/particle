@@ -1,5 +1,5 @@
-@import '../breakpoints/_breakpoints.scss';
-@import '../10-spacing/spacing.scss';
+@import 'breakpoints';
+@import 'spacing';
 
 $site-max-width: $bp--xxl;
 $site-padding: $spacing--s;
