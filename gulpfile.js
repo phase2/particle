@@ -73,26 +73,11 @@ gulp.task('webpack:server', webpackdevserver);
  * Sass-to-JSON
  */
 const sassVars = [
-  {
-    lineStartsWith: '$c-',
-    nameSpace: 'colors',
-  },
-  {
-    lineStartsWith: '$fs--',
-    nameSpace: 'fontSizes',
-  },
-  {
-    lineStartsWith: '$ff--',
-    nameSpace: 'fontFamilies',
-  },
-  {
-    lineStartsWith: '$bp--',
-    nameSpace: 'breakpoints',
-  },
-  {
-    lineStartsWith: '$spacing--',
-    nameSpace: 'spacing',
-  },
+  { lineStartsWith: '$c-', },
+  { lineStartsWith: '$fs--', },
+  { lineStartsWith: '$ff--', },
+  { lineStartsWith: '$bp--', },
+  { lineStartsWith: '$spacing--', },
 ];
 
 /**
