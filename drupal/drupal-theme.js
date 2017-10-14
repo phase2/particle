@@ -20,10 +20,8 @@ _.forEach([1, 2, 3, 4], (num) => {
 
 Drupal.behaviors.designSystem = {
   attach(context, settings) {
-
     designSystem.forEach((component) => {
       component.enable(context, settings);
     });
-
   },
 };

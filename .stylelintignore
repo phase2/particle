@@ -1,2 +1,4 @@
 # Ignore any path/file using .gitignore syntax, ie:
 # scss/vendor
+
+tools/pattern-lab/vendor

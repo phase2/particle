@@ -2,41 +2,34 @@
   "items": [
     {
       "name": "$fs--xxl",
-      "value": "36px",
-      "comment": ""
+      "value": "72px"
     },
     {
       "name": "$fs--xl",
-      "value": "20px",
-      "comment": ""
+      "value": "20px"
     },
     {
       "name": "$fs--l",
-      "value": "18px",
-      "comment": ""
+      "value": "18px"
     },
     {
       "name": "$fs--m",
-      "value": "16px",
-      "comment": ""
+      "value": "16px"
     },
     {
       "name": "$fs--s",
-      "value": "14px",
-      "comment": ""
+      "value": "14px"
     },
     {
       "name": "$fs--xs",
-      "value": "12px",
-      "comment": ""
+      "value": "12px"
     },
     {
       "name": "$fs--xxs",
-      "value": "10px",
-      "comment": ""
+      "value": "10px"
     }
   ],
   "meta": {
-    "description": "To add to these items, use Sass variables that start with <code>$fs--</code> in <code>source/_patterns/00-base/15-typography/fonts/_fonts.scss</code>"
+    "description": "To add to these items, use Sass variables that start with <code>$fs--</code> in <code>./source/_patterns/00-base/15-typography/fonts/_fonts.scss</code>"
   }
 }
