@@ -34,3 +34,7 @@ body {
   //background: $c-red;
   background: purple;
 }
+
+.card__title:before {
+  font-icon: url('../icons/src/close.svg');
+}

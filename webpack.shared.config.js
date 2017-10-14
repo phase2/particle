@@ -3,7 +3,9 @@ const webpack = require('webpack');
 
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+
 
 module.exports = {
   // Commented out here since the specifics are different per PL or Drupal
@@ -41,7 +43,10 @@ module.exports = {
               loader: 'postcss-loader',
               options: {
                 ident: 'postcss',
-                plugins: () => [autoprefixer()],
+                plugins: (loader) => [
+                  autoprefixer(),
+                  new IconfontWebpackPlugin(loader)
+                ],
               },
             },
             {
