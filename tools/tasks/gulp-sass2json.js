@@ -14,7 +14,6 @@ module.exports = function SassToJson(fileName, opt) {
   if (!fileName) {
     throw new Error('sass-to-json: missing file options');
   }
-
   // Options from caller
   const options = opt || {};
   // Pull off a search array like ['$c-', '$ff--', etc ]
@@ -35,9 +34,9 @@ module.exports = function SassToJson(fileName, opt) {
       return;
     }
 
-    // set latest file if not already set,
+    // Set latest file if not already set,
     // or if the current file was modified more recently.
-    if ((!latestMod || vinylFile.stat) && (vinylFile.stat.mtime > latestMod)) {
+    if (!latestMod || (vinylFile.stat && vinylFile.stat.mtime > latestMod)) {
       latestFile = vinylFile;
       latestMod = vinylFile.stat && vinylFile.stat.mtime;
     }
@@ -73,7 +72,6 @@ module.exports = function SassToJson(fileName, opt) {
         // We are constantly merging the new values into the old values
         sassVars.baseScssVars = _.assign(sassVars.baseScssVars, pickVars);
 
-
         // 2. set new contents
         // * contents can only be a Buffer, Stream, or null
         // * This allows us to modify the vinyl file in memory and prevents the
@@ -89,6 +87,7 @@ module.exports = function SassToJson(fileName, opt) {
       callback();
       return;
     }
+
     // A dumb file holder
     const outputFile = latestFile.clone({ contents: false });
     outputFile.path = path.join(latestFile.base, fileName);

@@ -103,7 +103,8 @@ const sass2json = require('./tools/tasks/gulp-sass2json');
 /**
  * Watch all base scss files, pull off the vars we want to json
  */
-gulp.task('compile:scss-to-json', () => gulp.src('./source/_patterns/00-base/**/*.scss')
+gulp.task('compile:scss-to-json', () => gulp
+  .src('./source/_patterns/00-base/**/*.scss')
   .pipe(sass2json('baseScssVars.json', { sassVars }))
   .pipe(gulp.dest('./source/_data/')));
 
