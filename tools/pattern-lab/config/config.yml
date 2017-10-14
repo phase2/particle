@@ -62,6 +62,7 @@ plugins:
         paths:
           - ../../source/_patterns/01-atoms
           - ../../source/_patterns/01-atoms/buttons
+          - ../../source/_patterns/01-atoms/buttons/demo
           - ../../source/_patterns/01-atoms/images
       molecules:
         paths:
