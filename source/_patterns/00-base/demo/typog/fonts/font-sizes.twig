@@ -1,9 +1,12 @@
 <ul style="list-style: none;">
-  {% for item in items %}
-    <p>
-      <div style="font-size: {{ item.value }};">{{ headline.short }}</div>
-      <div>{{item.value}}: <code>{{item.name}}</code></div>
-    </p>
+  {% for fsVarName, fsVarData in baseScssVars if '$fs--' in fsVarName %}
+    {% set value = fsVarData.value ~ fsVarData.unit %}
+
+    <div style="font-size: {{ value }};">{{ headline.short }}</div>
+    <div>{{ value }}: <code>{{ fsVarName }}</code></div>
 
   {% endfor %}
 </ul>
+
+<p>To add to these items, use Sass variables that start with $fs-- in
+  _fonts.scss</p>
