@@ -1,0 +1,24 @@
+{% for ffVarName, ffVarData in baseScssVars if '$ff--' in ffVarName %}
+  {% set value = ffVarData.declarations[0].expression %}
+  <div>
+    <div style="font-family: {{ value }};">{{ value }}</div>
+    <div>
+      <pre><code>
+.class {
+  font-family: {{ ffVarName }};
+}
+      </code></pre>
+    </div>
+
+    <h6>Normal</h6>
+    <div style="font-family: {{ value }}; font-size: 2em;">{{ excerpt.short }}</div>
+
+    <h6>Bold</h6>
+    <div style="font-family: {{ value }}; font-size: 2em; font-weight: bold;">{{ excerpt.short }}</div>
+
+    <h6>Italic</h6>
+    <div style="font-family: {{ value }}; font-size: 2em; font-style: italic;">{{ excerpt.short }}</div>
+
+  </div>
+  <hr>
+{% endfor %}
