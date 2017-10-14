@@ -70,32 +70,6 @@ const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, l
 gulp.task('webpack:server', webpackdevserver);
 
 /**
- * Sass-to-JSON
- */
-const sassVars = [
-  {
-    lineStartsWith: '$c-',
-    nameSpace: 'colors',
-  },
-  {
-    lineStartsWith: '$fs--',
-    nameSpace: 'fontSizes',
-  },
-  {
-    lineStartsWith: '$ff--',
-    nameSpace: 'fontFamilies',
-  },
-  {
-    lineStartsWith: '$bp--',
-    nameSpace: 'breakpoints',
-  },
-  {
-    lineStartsWith: '$spacing--',
-    nameSpace: 'spacing',
-  },
-];
-
-/**
  * Gulp sass-to-json
  */
 const sass2json = require('./tools/tasks/gulp-sass2json');
@@ -105,7 +79,15 @@ const sass2json = require('./tools/tasks/gulp-sass2json');
  */
 gulp.task('compile:scss-to-json', () => gulp
   .src('./source/_patterns/00-base/**/*.scss')
-  .pipe(sass2json('baseScssVars.json', { sassVars }))
+  .pipe(sass2json('baseScssVars.json', {
+    sassVars: [
+      { lineStartsWith: '$c-' },
+      { lineStartsWith: '$fs--' },
+      { lineStartsWith: '$ff--' },
+      { lineStartsWith: '$bp--' },
+      { lineStartsWith: '$spacing--' },
+    ],
+  }))
   .pipe(gulp.dest('./source/_data/')));
 
 /**

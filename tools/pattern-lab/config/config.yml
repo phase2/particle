@@ -52,16 +52,17 @@ plugins:
       base:
         paths:
           - ../../source/_patterns/00-base
-          - ../../source/_patterns/00-base/15-typography/fonts
-          - ../../source/_patterns/00-base/15-typography/headings
-          - ../../source/_patterns/00-base/15-typography/lists
-          - ../../source/_patterns/00-base/15-typography/text
           - ../../source/_patterns/00-base/demo
-          - ../../source/_patterns/00-base/grids
+          - ../../source/_patterns/00-base/demo/grids
+          - ../../source/_patterns/00-base/demo/typog/fonts
+          - ../../source/_patterns/00-base/demo/typog/headings
+          - ../../source/_patterns/00-base/demo/typog/lists
+          - ../../source/_patterns/00-base/demo/typog/text
       atoms:
         paths:
           - ../../source/_patterns/01-atoms
           - ../../source/_patterns/01-atoms/buttons
+          - ../../source/_patterns/01-atoms/buttons/demo
           - ../../source/_patterns/01-atoms/images
       molecules:
         paths:
