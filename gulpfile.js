@@ -6,14 +6,6 @@ const gulp = require('gulp');
 const url = require('url');
 
 /**
- * Twig-namespaces ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
- * are updated with all pattern namespaces for error-free compiling.
- */
-const namespaceTask = require('./tools/tasks/twig-namespaces');
-
-namespaceTask.twigNamespaces(gulp);
-
-/**
  * Pattern Lab raw compile function.
  */
 // Config: Path to Pattern Lab installation.
@@ -25,6 +17,64 @@ const plCompile = require('./tools/tasks/pl-compile')(plPath);
  * Compile Pattern Lab completely.
  */
 gulp.task('compile:pl', plCompile);
+
+/**
+ * Twig-namespaces ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
+ * are updated with all pattern namespaces for error-free compiling.
+ */
+const namespaceTask = require('./tools/tasks/twig-namespaces');
+
+namespaceTask.twigNamespaces(gulp);
+
+/**
+ * Gulp namespace
+ */
+const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
+
+gulp.task('compile:twig-namespaces', () => {
+  return gulp.src('./source/_patterns/**/*.twig')
+    .pipe(twigNamespaces({
+      outputs: [
+        {
+          src: './patternlab.info.yml',
+          atKey: 'component-libraries',
+          relativeToSource: './',
+        },
+        {
+          src: './tools/pattern-lab/config/config.yml',
+          atKey: 'plugins:twigNamespaces:namespaces',
+          relativeToSource: '../../'
+        }
+      ]
+    }))
+    .pipe(gulp.dest('./test/'));
+});
+
+/**
+ * Gulp sass-to-json, pull off the vars we want to json
+ */
+const sass2json = require('./tools/tasks/gulp-sass2json');
+
+gulp.task('compile:scss-to-json', () => gulp
+  .src('./source/_patterns/00-base/**/*.scss')
+  .pipe(sass2json('baseScssVars.json', {
+    sassVars: [
+      { lineStartsWith: '$c-' },
+      { lineStartsWith: '$fs--' },
+      { lineStartsWith: '$ff--' },
+      { lineStartsWith: '$bp--' },
+      { lineStartsWith: '$spacing--' },
+    ],
+  }))
+  .pipe(gulp.dest('./source/_data/')));
+
+/**
+ * Watch config-related scss files to generate json for PL example patterns.
+ */
+gulp.task('webpack:watch:scss-to-json', (cb) => {
+  gulp.watch('./source/_patterns/00-base/**/*.scss', gulp.series('compile:scss-to-json'));
+  cb();
+});
 
 /**
  * Webpack config and setup.
@@ -68,35 +118,6 @@ const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, l
  * Starts up the Webpack Dev Server with our config from aove
  */
 gulp.task('webpack:server', webpackdevserver);
-
-/**
- * Gulp sass-to-json
- */
-const sass2json = require('./tools/tasks/gulp-sass2json');
-
-/**
- * Watch all base scss files, pull off the vars we want to json
- */
-gulp.task('compile:scss-to-json', () => gulp
-  .src('./source/_patterns/00-base/**/*.scss')
-  .pipe(sass2json('baseScssVars.json', {
-    sassVars: [
-      { lineStartsWith: '$c-' },
-      { lineStartsWith: '$fs--' },
-      { lineStartsWith: '$ff--' },
-      { lineStartsWith: '$bp--' },
-      { lineStartsWith: '$spacing--' },
-    ],
-  }))
-  .pipe(gulp.dest('./source/_data/')));
-
-/**
- * Watch config-related scss files to generate json for PL example patterns.
- */
-gulp.task('webpack:watch:scss-to-json', (cb) => {
-  gulp.watch('./source/_patterns/00-base/**/*.scss', gulp.series('compile:scss-to-json'));
-  cb();
-});
 
 /**
  * Watch known PL files and compile to html.
