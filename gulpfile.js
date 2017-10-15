@@ -34,16 +34,42 @@ const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
 gulp.task('compile:twig-namespaces', () => {
   return gulp.src('./source/_patterns/**/*.twig')
     .pipe(twigNamespaces({
+      sets: {
+        base: {
+          root: 'source/_patterns/00-base',
+          ignore: '/demo',
+        },
+        atoms: {
+          root: 'source/_patterns/01-atoms',
+          ignore: '/demo',
+        },
+        molecules: {
+          root: 'source/_patterns/02-molecules',
+          ignore: '/demo',
+        },
+        organisms: {
+          root: 'source/_patterns/03-organisms',
+          ignore: '/demo',
+        },
+        templates: {
+          root: 'source/_patterns/04-templates',
+          ignore: '/demo',
+        },
+        pages: {
+          root: 'source/_patterns/05-pages',
+          ignore: '/demo',
+        },
+      },
       outputs: [
         {
-          src: './patternlab.info.yml',
+          configFile: './patternlab.info.yml',
           atKey: 'component-libraries',
-          relativeToSource: './',
+          pathRelativeToDir: './',
         },
         {
-          src: './tools/pattern-lab/config/config.yml',
+          configFile: './tools/pattern-lab/config/config.yml',
           atKey: 'plugins:twigNamespaces:namespaces',
-          relativeToSource: '../../'
+          pathRelativeToDir: './tools/pattern-lab',
         }
       ]
     }))
