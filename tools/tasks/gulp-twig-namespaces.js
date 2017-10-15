@@ -7,6 +7,7 @@ const fs = require('fs');
 /**
  * Provide twig namespaces to any yaml file based on config
  * See https://github.com/contra/gulp-concat/blob/master/index.js for inspiration
+ * @TODO: better docs about options here
  * @param opt
  * @returns {*}
  */

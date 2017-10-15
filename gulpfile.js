@@ -27,7 +27,22 @@ const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
 gulp.task('compile:twig-namespaces', () => gulp
   .src('./source/_patterns/**/*.twig')
   .pipe(twigNamespaces({
-    // Namespaces and required information
+    // Which files to read and overwrite with namespace info
+    outputs: [
+      {
+        // Note: PL will NOT compile unless the namespaces are explicitly declared
+        configFile: './tools/pattern-lab/config/config.yml',
+        atKey: 'plugins.twigNamespaces.namespaces',
+        pathRelativeToDir: './tools/pattern-lab',
+      },
+      {
+        // The component-libraries module wants to know about our namespaces
+        configFile: './patternlab.info.yml',
+        atKey: 'component-libraries',
+        pathRelativeToDir: './',
+      },
+    ],
+    // What are the top-level namespace paths, and which sub paths should we ignore?
     sets: {
       base: {
         root: 'source/_patterns/00-base',
@@ -54,19 +69,6 @@ gulp.task('compile:twig-namespaces', () => gulp
         ignore: '/demo',
       },
     },
-    // Which files to read and overwrite with namespace info
-    outputs: [
-      {
-        configFile: './patternlab.info.yml',
-        atKey: 'component-libraries',
-        pathRelativeToDir: './',
-      },
-      {
-        configFile: './tools/pattern-lab/config/config.yml',
-        atKey: 'plugins.twigNamespaces.namespaces',
-        pathRelativeToDir: './tools/pattern-lab',
-      },
-    ],
   }))
   .pipe(gulp.dest('./')));
 
