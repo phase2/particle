@@ -1,15 +1,16 @@
 const path = require('path');
 const through = require('through2');
 const _ = require('lodash');
+const yaml = require('js-yaml');
+const fs = require('fs');
 
 /**
- * Parse a sass file, discover all Sass vars, write to json
+ * Provide twig namespaces to any yaml file based on config
  * See https://github.com/contra/gulp-concat/blob/master/index.js for inspiration
  * @param opt
  * @returns {*}
  */
 module.exports = function SassToJson(opt) {
-
   // Options from caller
   const options = opt || {};
 
@@ -29,8 +30,6 @@ module.exports = function SassToJson(opt) {
     return _.assign(result, namespace);
   }, {});
 
-  console.log(namespaces);
-
   const filefolders = [];
 
   // Check last file modified
@@ -45,32 +44,20 @@ module.exports = function SassToJson(opt) {
       return;
     }
 
-    // Set latest file if not already set,
-    // or if the current file was modified more recently.
+    // Set latest file if not already set, or if the current file was modified more recently.
     if (!latestMod || (vinylFile.stat && vinylFile.stat.mtime > latestMod)) {
       latestFile = vinylFile;
       latestMod = vinylFile.stat && vinylFile.stat.mtime;
     }
 
+    // Get the proper path of this file, given:
     // cwd: /Users/illepic/dev/pattern-lab-starter
     // base: /Users/illepic/dev/pattern-lab-starter/source/_patterns/
     // path: /Users/illepic/dev/pattern-lab-starter/source/_patterns/00-base/demo/grids/_smart-grid.twig
-    // console.log(vinylFile.path);
-    // console.log(path.dirname(path.relative(options.outputs[0].pathRelativeToDir, vinylFile.path)));
-
-    // i.e. source/_patterns/00-base/demo/typog/text
+    //
+    // Want output like: i.e. source/_patterns/00-base/demo/typog/text
     filefolders.push(path.dirname(path.relative(vinylFile.cwd, vinylFile.path)));
 
-    // 1. clone new vinyl file for manipulation
-    // (See https://github.com/wearefractal/vinyl for vinyl attributes and functions)
-    // const transformedFile = vinylFile.clone();
-    // const rawScss = transformedFile.contents.toString('utf8');
-
-    // 2. set new contents
-    // * contents can only be a Buffer, Stream, or null
-    // * This allows us to modify the vinyl file in memory and prevents the
-    // * need to write back to the file system.
-    // transformedFile.contents = new Buffer(JSON.stringify({hello: test}));
     callback();
   }
 
@@ -80,17 +67,15 @@ module.exports = function SassToJson(opt) {
       return;
     }
 
-    console.log(namespaces);
+    // console.log(namespaces);
 
     //
     const namespacesFull = _.reduce(options.sets, (result, namePath, name) => {
-      const originalPaths = result[name].paths;
-
       result[name].paths = _(filefolders)
         // Only file paths that contain our namespace (ie atoms) path (ie source/_patterns/01-atoms)
         .filter(filefolder => filefolder.includes(namePath.root) && !filefolder.includes(namePath.ignore))
         // Add in the paths that were here before
-        .concat(originalPaths)
+        .concat(result[name].paths)
         // 01-atoms should come before 01-atoms/blerp
         .sortBy(pathString => pathString.length)
         // Remove dupes
@@ -102,27 +87,37 @@ module.exports = function SassToJson(opt) {
 
     }, namespaces);
 
-    console.log(namespacesFull);
+    // Now we read config yaml from the filesystem, mutate it, write it back
 
-    // NOW READ CONFIG FILES AND MESS WITH THEIR NAMESPACE KEY
+    // Return an array of Buffer files from the "outputs" config
+    const bufferFiles = _.map(options.outputs, (output) => {
 
-    // A dumb file holder
-    const outputFile = latestFile.clone({ contents: false });
-    // Base appears to be removed when gulp.dest() runs. SO ADD IT.
-    outputFile.path = path.join(latestFile.base, options.outputs[0].configFile);
+      // UPDATE namespacesFull since we need to account for pathRelativeToDir
+      const tempPaths = namespacesFull.molecules.paths;
+      console.log(path.relative(output.pathRelativeToDir, tempPaths[0]));
+      // const namespacesFullCustom = _.reduce(namespacesFull, (result, collection, name) => {
+      //
+      // }, );
 
-    // Include our final json output
-    outputFile.contents = Buffer.from('blerp');
+      // Read the yaml right off the filesystem. Yes, it's sync. Makes this sane.
+      const configFile = yaml.safeLoad(fs.readFileSync(output.configFile, 'utf8'));
+      // The 'atKey' is in the lodash _.set() path format. Place the entire object we've been building
+      _.set(configFile, output.atKey, namespacesFull);
 
-    // This apparently make the file available to write
-    this.push(outputFile);
+      // Make a new file using a clone of one we have lying around.
+      const outputFile = latestFile.clone({ contents: false });
+      // Base appears to be removed when gulp.dest() runs. SO ADD IT.
+      outputFile.path = path.join(latestFile.base, output.configFile);
+      // Write it out in buffer safe way
+      outputFile.contents = Buffer.from(yaml.safeDump(configFile));
 
-    // Testing writing multiple to output
-    const outputFileAgain = latestFile.clone({ contents: false });
-    outputFileAgain.contents = Buffer.from('blerp derp');
-    outputFileAgain.path = path.join(latestFile.base, options.outputs[1].configFile);
-    // console.log(outputFileAgain.path);
-    this.push(outputFileAgain);
+      return outputFile;
+    });
+
+    // Push these files on to the array used by gulp.dest()
+    bufferFiles.forEach(bufferFile => {
+      this.push(bufferFile);
+    });
 
     callback();
   }

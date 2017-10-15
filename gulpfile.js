@@ -19,21 +19,15 @@ const plCompile = require('./tools/tasks/pl-compile')(plPath);
 gulp.task('compile:pl', plCompile);
 
 /**
- * Twig-namespaces ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
+ * Gulp namespace, ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
  * are updated with all pattern namespaces for error-free compiling.
- */
-const namespaceTask = require('./tools/tasks/twig-namespaces');
-
-namespaceTask.twigNamespaces(gulp);
-
-/**
- * Gulp namespace
  */
 const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
 
 gulp.task('compile:twig-namespaces', () => {
   return gulp.src('./source/_patterns/**/*.twig')
     .pipe(twigNamespaces({
+      // Namespaces and required information
       sets: {
         base: {
           root: 'source/_patterns/00-base',
@@ -60,6 +54,7 @@ gulp.task('compile:twig-namespaces', () => {
           ignore: '/demo',
         },
       },
+      // Which files to read and overwrite with namespace info
       outputs: [
         {
           configFile: './patternlab.info.yml',
@@ -68,12 +63,12 @@ gulp.task('compile:twig-namespaces', () => {
         },
         {
           configFile: './tools/pattern-lab/config/config.yml',
-          atKey: 'plugins:twigNamespaces:namespaces',
+          atKey: 'plugins.twigNamespaces.namespaces',
           pathRelativeToDir: './tools/pattern-lab',
         }
       ]
     }))
-    .pipe(gulp.dest('./test/'));
+    .pipe(gulp.dest('./'));
 });
 
 /**
@@ -150,7 +145,7 @@ gulp.task('webpack:server', webpackdevserver);
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
-    'twig-namespaces',
+    'compile:twig-namespaces',
     'compile:pl',
   ]));
   cb();
@@ -161,7 +156,7 @@ gulp.task('webpack:watch:pl-source', (cb) => {
  */
 gulp.task('compile', gulp.series([
   'compile:scss-to-json',
-  'twig-namespaces',
+  'compile:twig-namespaces',
   'compile:pl',
 ]));
 
