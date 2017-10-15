@@ -24,52 +24,51 @@ gulp.task('compile:pl', plCompile);
  */
 const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
 
-gulp.task('compile:twig-namespaces', () => {
-  return gulp.src('./source/_patterns/**/*.twig')
-    .pipe(twigNamespaces({
-      // Namespaces and required information
-      sets: {
-        base: {
-          root: 'source/_patterns/00-base',
-          ignore: '/demo',
-        },
-        atoms: {
-          root: 'source/_patterns/01-atoms',
-          ignore: '/demo',
-        },
-        molecules: {
-          root: 'source/_patterns/02-molecules',
-          ignore: '/demo',
-        },
-        organisms: {
-          root: 'source/_patterns/03-organisms',
-          ignore: '/demo',
-        },
-        templates: {
-          root: 'source/_patterns/04-templates',
-          ignore: '/demo',
-        },
-        pages: {
-          root: 'source/_patterns/05-pages',
-          ignore: '/demo',
-        },
+gulp.task('compile:twig-namespaces', () => gulp
+  .src('./source/_patterns/**/*.twig')
+  .pipe(twigNamespaces({
+    // Namespaces and required information
+    sets: {
+      base: {
+        root: 'source/_patterns/00-base',
+        ignore: '/demo',
       },
-      // Which files to read and overwrite with namespace info
-      outputs: [
-        {
-          configFile: './patternlab.info.yml',
-          atKey: 'component-libraries',
-          pathRelativeToDir: './',
-        },
-        {
-          configFile: './tools/pattern-lab/config/config.yml',
-          atKey: 'plugins.twigNamespaces.namespaces',
-          pathRelativeToDir: './tools/pattern-lab',
-        }
-      ]
-    }))
-    .pipe(gulp.dest('./'));
-});
+      atoms: {
+        root: 'source/_patterns/01-atoms',
+        ignore: '/demo',
+      },
+      molecules: {
+        root: 'source/_patterns/02-molecules',
+        ignore: '/demo',
+      },
+      organisms: {
+        root: 'source/_patterns/03-organisms',
+        ignore: '/demo',
+      },
+      templates: {
+        root: 'source/_patterns/04-templates',
+        ignore: '/demo',
+      },
+      pages: {
+        root: 'source/_patterns/05-pages',
+        ignore: '/demo',
+      },
+    },
+    // Which files to read and overwrite with namespace info
+    outputs: [
+      {
+        configFile: './patternlab.info.yml',
+        atKey: 'component-libraries',
+        pathRelativeToDir: './',
+      },
+      {
+        configFile: './tools/pattern-lab/config/config.yml',
+        atKey: 'plugins.twigNamespaces.namespaces',
+        pathRelativeToDir: './tools/pattern-lab',
+      },
+    ],
+  }))
+  .pipe(gulp.dest('./')));
 
 /**
  * Gulp sass-to-json, pull off the vars we want to json
@@ -144,6 +143,7 @@ gulp.task('webpack:server', webpackdevserver);
  * Watch known PL files and compile to html.
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
+  // @TODO: check if changed file is in path that already exists before namespacing
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
     'compile:twig-namespaces',
     'compile:pl',
