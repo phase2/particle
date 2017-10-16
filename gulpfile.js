@@ -6,14 +6,6 @@ const gulp = require('gulp');
 const url = require('url');
 
 /**
- * Twig-namespaces ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
- * are updated with all pattern namespaces for error-free compiling.
- */
-const namespaceTask = require('./tools/tasks/twig-namespaces');
-
-namespaceTask.twigNamespaces(gulp);
-
-/**
  * Pattern Lab raw compile function.
  */
 // Config: Path to Pattern Lab installation.
@@ -25,6 +17,86 @@ const plCompile = require('./tools/tasks/pl-compile')(plPath);
  * Compile Pattern Lab completely.
  */
 gulp.task('compile:pl', plCompile);
+
+/**
+ * Gulp namespace, ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
+ * are updated with all pattern namespaces for error-free compiling.
+ */
+const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
+
+gulp.task('compile:twig-namespaces', () => gulp
+  .src('./source/_patterns/**/*.twig')
+  .pipe(twigNamespaces({
+    // Which files to read and overwrite with namespace info
+    outputs: [
+      {
+        // Note: PL will NOT compile unless the namespaces are explicitly declared
+        configFile: './tools/pattern-lab/config/config.yml',
+        atKey: 'plugins.twigNamespaces.namespaces',
+        pathRelativeToDir: './tools/pattern-lab',
+      },
+      {
+        // The component-libraries module wants to know about our namespaces
+        configFile: './patternlab.info.yml',
+        atKey: 'component-libraries',
+        pathRelativeToDir: './',
+      },
+    ],
+    // What are the top-level namespace paths, and which sub paths should we ignore?
+    sets: {
+      base: {
+        root: 'source/_patterns/00-base',
+        ignore: '/demo',
+      },
+      atoms: {
+        root: 'source/_patterns/01-atoms',
+        ignore: '/demo',
+      },
+      molecules: {
+        root: 'source/_patterns/02-molecules',
+        ignore: '/demo',
+      },
+      organisms: {
+        root: 'source/_patterns/03-organisms',
+        ignore: '/demo',
+      },
+      templates: {
+        root: 'source/_patterns/04-templates',
+        ignore: '/demo',
+      },
+      pages: {
+        root: 'source/_patterns/05-pages',
+        ignore: '/demo',
+      },
+    },
+  }))
+  .pipe(gulp.dest('./')));
+
+/**
+ * Gulp sass-to-json, pull off the vars we want to json
+ */
+const sass2json = require('./tools/tasks/gulp-sass2json');
+
+gulp.task('compile:scss-to-json', () => gulp
+  .src('./source/_patterns/00-base/**/*.scss')
+  .pipe(sass2json('baseScssVars.json', {
+    sassVars: [
+      { lineStartsWith: '$c-' },
+      { lineStartsWith: '$fs--' },
+      { lineStartsWith: '$ff--' },
+      { lineStartsWith: '$bp--' },
+      { lineStartsWith: '$spacing--' },
+    ],
+  }))
+  .pipe(gulp.dest('./source/_data/')));
+
+/**
+ * Watch config-related scss files to generate json for PL example patterns.
+ */
+gulp.task('webpack:watch:scss-to-json', (cb) => {
+  gulp.watch('./source/_patterns/00-base/**/*.scss', gulp.series('compile:scss-to-json'));
+  cb();
+});
 
 /**
  * Webpack config and setup.
@@ -70,40 +142,12 @@ const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, l
 gulp.task('webpack:server', webpackdevserver);
 
 /**
- * Gulp sass-to-json
- */
-const sass2json = require('./tools/tasks/gulp-sass2json');
-
-/**
- * Watch all base scss files, pull off the vars we want to json
- */
-gulp.task('compile:scss-to-json', () => gulp
-  .src('./source/_patterns/00-base/**/*.scss')
-  .pipe(sass2json('baseScssVars.json', {
-    sassVars: [
-      { lineStartsWith: '$c-' },
-      { lineStartsWith: '$fs--' },
-      { lineStartsWith: '$ff--' },
-      { lineStartsWith: '$bp--' },
-      { lineStartsWith: '$spacing--' },
-    ],
-  }))
-  .pipe(gulp.dest('./source/_data/')));
-
-/**
- * Watch config-related scss files to generate json for PL example patterns.
- */
-gulp.task('webpack:watch:scss-to-json', (cb) => {
-  gulp.watch('./source/_patterns/00-base/**/*.scss', gulp.series('compile:scss-to-json'));
-  cb();
-});
-
-/**
  * Watch known PL files and compile to html.
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
+  // @TODO: check if changed file is in path that already exists before namespacing
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
-    'twig-namespaces',
+    'compile:twig-namespaces',
     'compile:pl',
   ]));
   cb();
@@ -114,7 +158,7 @@ gulp.task('webpack:watch:pl-source', (cb) => {
  */
 gulp.task('compile', gulp.series([
   'compile:scss-to-json',
-  'twig-namespaces',
+  'compile:twig-namespaces',
   'compile:pl',
 ]));
 

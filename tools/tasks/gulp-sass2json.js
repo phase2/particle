@@ -1,5 +1,5 @@
-const through = require('through2');
 const path = require('path');
+const through = require('through2');
 const sassExtract = require('sass-extract');
 const _ = require('lodash');
 
