@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const shared = require('./webpack.shared.config');
 
@@ -15,19 +16,19 @@ const drupal = {
     // short-circuits all Vue.js warning code
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
-      }
+        NODE_ENV: '"production"',
+      },
     }),
     // minify with dead-code elimination
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ]
+      minimize: true,
+    }),
+  ],
 };
 
 module.exports = merge(shared, drupal);
