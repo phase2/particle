@@ -17,6 +17,7 @@ component-libraries:
   base:
     paths:
       - source/_patterns/00-base
+      - source/_patterns/00-base/grids
   atoms:
     paths:
       - source/_patterns/01-atoms
