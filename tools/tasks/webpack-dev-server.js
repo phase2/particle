@@ -16,19 +16,23 @@ let wpds = null; // Hold a reference to Webpack Dev Server when it is created
 module.exports = function startWebpackDevServer(webpackConfig, devServerConfig) {
   return (cb) => {
     const localWebpackConfig = webpackConfig;
+    const {
+      entry: { 'pattern-lab' : plEntry }, // ./source/pattern-lab.js
+      output: { publicPath: publicPath } // /temp/
+    } = webpackConfig;
 
     const localDevServerConfig = devServerConfig;
     const { host, port } = localDevServerConfig;
     const localHost = `http://${host}:${port}`;
     // Ensure our public path is how we access these assets, ie http://localhost:8080/temp
-    localDevServerConfig.publicPath = url.resolve(localHost, localWebpackConfig.output.publicPath);
+    localDevServerConfig.publicPath = url.resolve(localHost, publicPath);
 
     // Add HotModuleReplacementPlugin to the end of the webpack plugins
     localWebpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
     // Set these new entry points required for Hot Module replacement, prepended
     // with the original entry point
     localWebpackConfig.entry['pattern-lab'] = [
-      ...webpackConfig.entry['pattern-lab'],
+      ...plEntry,
       ...['webpack/hot/dev-server', `webpack-dev-server/client?${localHost}`],
     ];
 
