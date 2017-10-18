@@ -17,8 +17,8 @@ module.exports = function startWebpackDevServer(webpackConfig, devServerConfig) 
   return (cb) => {
     const localWebpackConfig = webpackConfig;
     const {
-      entry: { 'pattern-lab' : plEntry }, // ./source/pattern-lab.js
-      output: { publicPath: publicPath } // /temp/
+      entry: { 'pattern-lab': plEntry }, // ./source/pattern-lab.js
+      output: { publicPath }, // /temp/
     } = webpackConfig;
 
     const localDevServerConfig = devServerConfig;
