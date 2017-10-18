@@ -68,7 +68,7 @@ module.exports = function SassToJson(opt) {
       const namespaces = _.reduce(options.sets, (result, namePath, name) => {
         // Paths per namespace are unique to the ouput yaml files they will go into
         const paths = _(filefolders)
-          // Only file paths that in our namespace (ie atoms) path (ie source/_patterns/01-atoms)
+          // Only file paths in our namespace (ie atoms) path (ie source/_patterns/01-atoms)
           .filter(folderPath =>
             folderPath.includes(namePath.root) && !folderPath.includes(namePath.ignore))
           // 01-atoms should come before 01-atoms/blerp

@@ -3,7 +3,6 @@
  */
 const path = require('path');
 const gulp = require('gulp');
-const url = require('url');
 
 /**
  * Pattern Lab raw compile function.
@@ -101,15 +100,14 @@ gulp.task('webpack:watch:scss-to-json', (cb) => {
 /**
  * Webpack config and setup.
  */
-// URL to visit to see local PL
-const localhost = 'http://localhost:8080';
 // Import webpack config for PL
 const wpconfig = require('./webpack.pl.config');
 // Webpack Dev Server config used for local development.
 // See all available config options:
 // https://webpack.js.org/configuration/dev-server/#devserver
 const serverconfig = {
-  publicPath: url.resolve(localhost, wpconfig.output.publicPath), // ie http://localhost:8080/temp
+  host: '0.0.0.0',
+  port: '8080',
   contentBase: path.resolve(__dirname, 'dist/', 'public/'), // ie dist/public
   watchContentBase: true, // Refresh if anything in dist/public changes
   hot: true, // Inject css/js into page without full refresh
@@ -134,7 +132,7 @@ const serverconfig = {
 };
 // Load up the function that will be used to start a webpack dev server
 // This does NOT start the server, that requires the gulp task below.
-const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, localhost, serverconfig);
+const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, serverconfig);
 
 /**
  * Starts up the Webpack Dev Server with our config from aove
