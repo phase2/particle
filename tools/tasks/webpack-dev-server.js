@@ -38,6 +38,7 @@ module.exports = function startWebpackDevServer(webpackConfig, devServerConfig) 
 
     // Make a new server and store a reference to it so we can interact with it later
     wpds = new WebpackDevServer(webpack(localWebpackConfig), localDevServerConfig);
+    wpds.disableHostCheck = true;
 
     wpds.listen(port, host, (err) => {
       if (err) {
