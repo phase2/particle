@@ -13,7 +13,6 @@ const crypto = require('crypto');
  *  - Added entry points
  */
 function startWebpackDevServer(webpackConfig, devServerConfig) {
-
   return (cb) => {
     const localWebpackConfig = webpackConfig;
     const {
@@ -50,7 +49,6 @@ function startWebpackDevServer(webpackConfig, devServerConfig) {
     });
 
     return wpds;
-
   };
 }
 
