@@ -109,10 +109,9 @@ const serverconfig = {
   host: '0.0.0.0',
   port: '8080',
   contentBase: path.resolve(__dirname, 'dist/', 'public/'), // ie dist/public
-  watchContentBase: true, // Refresh if anything in dist/public changes
   hot: true, // Inject css/js into page without full refresh
   historyApiFallback: true, // Finds default index.html files at folder root
-  inline: true, // Injects all the webpack dev server code right in the page
+  inline: true, // Injects all the webpack dev server code right in the page,
   stats: {
     colors: true, // Colored terminal output.
     hash: true,
@@ -130,14 +129,32 @@ const serverconfig = {
     publicPath: true,
   },
 };
-// Load up the function that will be used to start a webpack dev server
-// This does NOT start the server, that requires the gulp task below.
-const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, serverconfig);
+
+// Scope a holder to our webpack dev server here
+let wpds = null;
+// Destructure the args off of webpack-dev-server library
+const {
+  startWebpackDevServer, // Load up the function that will be used to start a webpack dev server
+  refreshWebpackDevServer, // Refresh an instance of a webpack dev server
+} = require('./tools/tasks/webpack-dev-server');
 
 /**
- * Starts up the Webpack Dev Server with our config from aove
+ * Starts up the Webpack Dev Server, lots going on here:
+ * 1. Instantiate a webpack dev server with all config it needs
+ * 2. Once instantiated, send it the callback that every gulp function requires
+ * 3. Return all this to an actual instance of the server we can play with in other tasks
  */
-gulp.task('webpack:server', webpackdevserver);
+gulp.task('webpack:server', (cb) => {
+  wpds = startWebpackDevServer(wpconfig, serverconfig)(cb);
+});
+
+/**
+ * Refresh an active instance of webpack dev server
+ */
+gulp.task('webpack:refresh-server', (cb) => {
+  // Note: wpds lives in scope above this.
+  refreshWebpackDevServer(wpds, cb);
+});
 
 /**
  * Watch known PL files and compile to html.
@@ -147,6 +164,7 @@ gulp.task('webpack:watch:pl-source', (cb) => {
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
     'compile:twig-namespaces',
     'compile:pl',
+    'webpack:refresh-server',
   ]));
   cb();
 });

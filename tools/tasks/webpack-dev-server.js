@@ -1,8 +1,7 @@
 const url = require('url');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-
-let wpds = null; // Hold a reference to Webpack Dev Server when it is created
+const crypto = require('crypto');
 
 /**
  * Starts up the Webpack Dev Server and does the config adjustments that this
@@ -13,13 +12,14 @@ let wpds = null; // Hold a reference to Webpack Dev Server when it is created
  *  - HotModuleReplacementPlugin
  *  - Added entry points
  */
-module.exports = function startWebpackDevServer(webpackConfig, devServerConfig) {
+function startWebpackDevServer(webpackConfig, devServerConfig) {
+
   return (cb) => {
     const localWebpackConfig = webpackConfig;
     const {
       entry: { 'pattern-lab': plEntry }, // ./source/pattern-lab.js
       output: { publicPath }, // /temp/
-    } = webpackConfig;
+    } = localWebpackConfig;
 
     const localDevServerConfig = devServerConfig;
     const { host, port } = localDevServerConfig;
@@ -37,18 +37,35 @@ module.exports = function startWebpackDevServer(webpackConfig, devServerConfig) 
     ];
 
     // Make a new server and store a reference to it so we can interact with it later
-    wpds = new WebpackDevServer(webpack(localWebpackConfig), localDevServerConfig);
+    const wpds = new WebpackDevServer(webpack(localWebpackConfig), localDevServerConfig);
     wpds.disableHostCheck = true;
 
     wpds.listen(port, host, (err) => {
       if (err) {
         cb(err);
-        return false;
       }
 
       console.info(`Listening at ${localHost}`);
       cb();
-      return true;
     });
+
+    return wpds;
+
   };
+}
+
+/**
+ * Take an instance of webpack dev server, send it random state. Causes reload.
+ * @param server
+ * @param cb
+ */
+function refreshWebpackDevServer(server, cb) {
+  server.sockWrite(server.sockets, 'hash', crypto.randomBytes(20).toString('hex'));
+  server.sockWrite(server.sockets, 'ok');
+  cb();
+}
+
+module.exports = {
+  startWebpackDevServer,
+  refreshWebpackDevServer,
 };
