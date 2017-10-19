@@ -53,17 +53,29 @@ function startWebpackDevServer(webpackConfig, devServerConfig) {
 }
 
 /**
- * Take an instance of webpack dev server, send it random state. Causes reload.
- * @param server
+ * Take in config for webpack and webpack dev server, plus a call back, and set an active server
+ * on the object
+ * @param wpconfig
+ * @param serverconfig
  * @param cb
  */
-function refreshWebpackDevServer(server, cb) {
-  server.sockWrite(server.sockets, 'hash', crypto.randomBytes(20).toString('hex'));
-  server.sockWrite(server.sockets, 'ok');
+function start(wpconfig, serverconfig, cb) {
+  this.webpackdevserver = startWebpackDevServer(wpconfig, serverconfig)(cb);
+}
+
+/**
+ * Reload the active server within the scope of this function.  webpack dev server determines
+ * whether it needs to do a "hard reload" or "hot reload" based on comparing current state hash to
+ * new state hash. We just send over junk and webpack dev server goes "oh snap, hard reload time!"
+ * @param cb
+ */
+function reload(cb) {
+  this.webpackdevserver.sockWrite(this.webpackdevserver.sockets, 'hash', crypto.randomBytes(20).toString('hex'));
+  this.webpackdevserver.sockWrite(this.webpackdevserver.sockets, 'ok');
   cb();
 }
 
 module.exports = {
-  startWebpackDevServer,
-  refreshWebpackDevServer,
+  start,
+  reload,
 };

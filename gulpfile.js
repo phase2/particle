@@ -102,8 +102,7 @@ gulp.task('webpack:watch:scss-to-json', (cb) => {
  */
 // Import webpack config for PL
 const wpconfig = require('./webpack.pl.config');
-// Webpack Dev Server config used for local development.
-// See all available config options:
+// Webpack Dev Server config used for local development. See all available config options:
 // https://webpack.js.org/configuration/dev-server/#devserver
 const serverconfig = {
   host: '0.0.0.0',
@@ -129,31 +128,24 @@ const serverconfig = {
     publicPath: true,
   },
 };
-
-// Scope a holder to our webpack dev server here
-let wpds = null;
-// Destructure the args off of webpack-dev-server library
-const {
-  startWebpackDevServer, // Load up the function that will be used to start a webpack dev server
-  refreshWebpackDevServer, // Refresh an instance of a webpack dev server
-} = require('./tools/tasks/webpack-dev-server');
+// Hold a webpack dev server that we can start and reload
+const devserver = require('./tools/tasks/webpack-dev-server');
 
 /**
- * Starts up the Webpack Dev Server, lots going on here:
- * 1. Instantiate a webpack dev server with all config it needs
- * 2. Once instantiated, send it the callback that every gulp function requires
- * 3. Return all this to an actual instance of the server we can play with in other tasks
+ * Starts up the Webpack Dev Server, requires:
+ * 1. webpack config
+ * 2. webpack dev server config
+ * 3. callback (that gulp provides to every task)
  */
 gulp.task('webpack:server', (cb) => {
-  wpds = startWebpackDevServer(wpconfig, serverconfig)(cb);
+  devserver.start(wpconfig, serverconfig, cb);
 });
 
 /**
  * Refresh an active instance of webpack dev server
  */
 gulp.task('webpack:refresh-server', (cb) => {
-  // Note: wpds lives in scope above this.
-  refreshWebpackDevServer(wpds, cb);
+  devserver.reload(cb);
 });
 
 /**
