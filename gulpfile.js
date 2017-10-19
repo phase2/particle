@@ -110,7 +110,7 @@ const serverconfig = {
   contentBase: path.resolve(__dirname, 'dist/', 'public/'), // ie dist/public
   hot: true, // Inject css/js into page without full refresh
   historyApiFallback: true, // Finds default index.html files at folder root
-  inline: true, // Injects all the webpack dev server code right in the page,
+  inline: true, // Injects all the webpack dev server code right in the page
   stats: {
     colors: true, // Colored terminal output.
     hash: true,
@@ -149,7 +149,7 @@ gulp.task('webpack:refresh-server', (cb) => {
 });
 
 /**
- * Watch known PL files and compile to html.
+ * Watch known PL files and compile to html. Reload server
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
   // @TODO: check if changed file is in path that already exists before namespacing
