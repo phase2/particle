@@ -38,9 +38,11 @@
     "IE >= 10"
   ],
   "dependencies": {
+    "bootstrap": "^4.0.0-beta",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "popper.js": "^1.12.5"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
