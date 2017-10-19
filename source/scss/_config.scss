@@ -22,6 +22,7 @@
 //) !default;
 
 @import "../_patterns/00-base/colors";
+@import "~bootstrap/scss/bootstrap";
 
 // Bootstrap gutter.
 $grid-gutter-width-base: 30px;

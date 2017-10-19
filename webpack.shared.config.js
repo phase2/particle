@@ -82,6 +82,12 @@ module.exports = {
       filename: '[name].styles.css',
       allChunks: true,
     }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
+    }),
     // Named files instead of chunk IDs for HMR.
     new webpack.NamedModulesPlugin(),
     new StyleLintPlugin(),
