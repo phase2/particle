@@ -102,14 +102,12 @@ gulp.task('webpack:watch:scss-to-json', (cb) => {
  */
 // Import webpack config for PL
 const wpconfig = require('./webpack.pl.config');
-// Webpack Dev Server config used for local development.
-// See all available config options:
+// Webpack Dev Server config used for local development. See all available config options:
 // https://webpack.js.org/configuration/dev-server/#devserver
 const serverconfig = {
   host: '0.0.0.0',
   port: '8080',
   contentBase: path.resolve(__dirname, 'dist/', 'public/'), // ie dist/public
-  watchContentBase: true, // Refresh if anything in dist/public changes
   hot: true, // Inject css/js into page without full refresh
   historyApiFallback: true, // Finds default index.html files at folder root
   inline: true, // Injects all the webpack dev server code right in the page
@@ -130,23 +128,35 @@ const serverconfig = {
     publicPath: true,
   },
 };
-// Load up the function that will be used to start a webpack dev server
-// This does NOT start the server, that requires the gulp task below.
-const webpackdevserver = require('./tools/tasks/webpack-dev-server')(wpconfig, serverconfig);
+// Hold a webpack dev server that we can start and reload
+const devserver = require('./tools/tasks/webpack-dev-server');
 
 /**
- * Starts up the Webpack Dev Server with our config from aove
+ * Starts up the Webpack Dev Server, requires:
+ * 1. webpack config
+ * 2. webpack dev server config
+ * 3. callback (that gulp provides to every task)
  */
-gulp.task('webpack:server', webpackdevserver);
+gulp.task('webpack:server', (cb) => {
+  devserver.start(wpconfig, serverconfig, cb);
+});
 
 /**
- * Watch known PL files and compile to html.
+ * Refresh an active instance of webpack dev server
+ */
+gulp.task('webpack:refresh-server', (cb) => {
+  devserver.reload(cb);
+});
+
+/**
+ * Watch known PL files and compile to html. Reload server
  */
 gulp.task('webpack:watch:pl-source', (cb) => {
   // @TODO: check if changed file is in path that already exists before namespacing
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
     'compile:twig-namespaces',
     'compile:pl',
+    'webpack:refresh-server',
   ]));
   cb();
 });

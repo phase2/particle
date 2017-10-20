@@ -1,8 +1,7 @@
 const url = require('url');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-
-let wpds = null; // Hold a reference to Webpack Dev Server when it is created
+const crypto = require('crypto');
 
 /**
  * Starts up the Webpack Dev Server and does the config adjustments that this
@@ -13,13 +12,13 @@ let wpds = null; // Hold a reference to Webpack Dev Server when it is created
  *  - HotModuleReplacementPlugin
  *  - Added entry points
  */
-module.exports = function startWebpackDevServer(webpackConfig, devServerConfig) {
+function startWebpackDevServer(webpackConfig, devServerConfig) {
   return (cb) => {
     const localWebpackConfig = webpackConfig;
     const {
       entry: { 'pattern-lab': plEntry }, // ./source/pattern-lab.js
       output: { publicPath }, // /temp/
-    } = webpackConfig;
+    } = localWebpackConfig;
 
     const localDevServerConfig = devServerConfig;
     const { host, port } = localDevServerConfig;
@@ -37,18 +36,46 @@ module.exports = function startWebpackDevServer(webpackConfig, devServerConfig) 
     ];
 
     // Make a new server and store a reference to it so we can interact with it later
-    wpds = new WebpackDevServer(webpack(localWebpackConfig), localDevServerConfig);
+    const wpds = new WebpackDevServer(webpack(localWebpackConfig), localDevServerConfig);
     wpds.disableHostCheck = true;
 
     wpds.listen(port, host, (err) => {
       if (err) {
         cb(err);
-        return false;
       }
 
       console.info(`Listening at ${localHost}`);
       cb();
-      return true;
     });
+
+    return wpds;
   };
+}
+
+/**
+ * Take in config for webpack and webpack dev server, plus a call back, and set an active server
+ * on the object
+ * @param wpconfig
+ * @param serverconfig
+ * @param cb
+ */
+function start(wpconfig, serverconfig, cb) {
+  this.webpackdevserver = startWebpackDevServer(wpconfig, serverconfig)(cb);
+}
+
+/**
+ * Reload the active server within the scope of this function.  webpack dev server determines
+ * whether it needs to do a "hard reload" or "hot reload" based on comparing current state hash to
+ * new state hash. We just send over junk and webpack dev server goes "oh snap, hard reload time!"
+ * @param cb
+ */
+function reload(cb) {
+  this.webpackdevserver.sockWrite(this.webpackdevserver.sockets, 'hash', crypto.randomBytes(20).toString('hex'));
+  this.webpackdevserver.sockWrite(this.webpackdevserver.sockets, 'ok');
+  cb();
+}
+
+module.exports = {
+  start,
+  reload,
 };
