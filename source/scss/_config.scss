@@ -21,8 +21,14 @@
 //  xxl: $bp--xxl
 //) !default;
 
+//bootstrap setup
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+
+//custom
 @import "../_patterns/00-base/colors";
-@import "~bootstrap/scss/bootstrap";
+
+@import "~bootstrap/scss/variables";
 
 // Bootstrap gutter.
 $grid-gutter-width-base: 30px;
@@ -34,8 +40,4 @@ $grid-gutter-width-base: 30px;
 body {
   //background: $c-red;
   background: purple;
-}
-
-.card__title:before {
-  font-icon: url('../icons/src/close.svg');
 }

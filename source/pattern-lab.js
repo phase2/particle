@@ -2,7 +2,6 @@
  * Apply all our design system components to the DOM
  */
 import $ from 'jquery';
-import 'bootstrap';
 
 import designSystem from './design-system';
 

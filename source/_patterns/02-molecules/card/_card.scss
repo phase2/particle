@@ -1,4 +1,12 @@
 @import '../../00-base/colors';
+@import '../../../scss/config';
+
+// To change default bootstrap card variables, SEE ~bootstrap/scss/variables
+// Add bootstrap variables here
+$card-border-width: 1px;
+
+@import '~bootstrap/scss/card';
+// Add custom code here
 
 .card {
   background: $c-blue;
