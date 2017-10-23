@@ -6,17 +6,18 @@ const reporter = require('pa11y-reporter-cli'); // As pa11y 5 stabilizes, we can
 const _ = require('lodash');
 const through = require('through2');
 
-// Grab project root pa11y.json as object, decorate with some boilerplate pa11y logging
-const pa11yConfig = _.assign(
-  JSON.parse(fs.readFileSync(path.join(process.cwd(), 'pa11y.json'))),
-  {
-    log: {
-      debug: console.log,
-      error: console.error,
-      info: console.log,
-    },
+// Grab project root pa11y.json as object
+const pallyJson = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'pa11y.json')));
+// Custom logging tools for pa11y
+const logConfig = {
+  log: {
+    debug: console.log,
+    error: console.error,
+    info: console.log,
   },
-);
+};
+// Smash them together
+const pa11yConfig = _.assign(pallyJson, logConfig);
 
 /**
  * Run pa11y testing one after the next
