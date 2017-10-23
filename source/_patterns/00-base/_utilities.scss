@@ -8,6 +8,8 @@
 /// @param $max-vw
 /// @param $min-value
 /// @param $max-value
+@import "~bootstrap/scss/utilities";
+
 @mixin fluid-type ($properties, $min-vw, $max-vw, $min-value, $max-value) {
   @each $property in $properties {
     #{$property}: $min-value;
