@@ -32,11 +32,11 @@ function pa11yConsecutive() {
     }
     pa11y(vinylFile.path, pa11yConfig)
       .then((result) => {
-        console.log(reporter.results(result));
+        pa11yConfig.log.info(reporter.results(result));
         callback();
       })
       .catch((error) => {
-        console.error(error.message);
+        pa11yConfig.log.error(error.message);
         callback();
       });
   }
@@ -73,12 +73,12 @@ function pa11yParallel() {
     Promise.all(_.map(filePaths, filePath => pa11y(filePath, pa11yConfig)))
       .then((results) => {
         results.forEach((result) => {
-          console.log(reporter.results(result));
+          pa11yConfig.log.info(reporter.results(result));
         });
         callback();
       })
       .catch((error) => {
-        console.error(error.message);
+        pa11yConfig.log.error(error.message);
         callback();
       });
   }
