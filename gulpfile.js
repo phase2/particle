@@ -100,7 +100,7 @@ gulp.task('webpack:watch:scss-to-json', (cb) => {
 /**
  * Accessibility test a subset of generated HTML files
  */
-const { pa11yConcurrent } = require('./tools/tasks/gulp-pa11y');
+const { pa11yConsecutive } = require('./tools/tasks/gulp-pa11y');
 
 gulp.task('test:accessibility', () => gulp
   .src([
@@ -108,7 +108,7 @@ gulp.task('test:accessibility', () => gulp
     '!dist/public/patterns/**/*.markup-only.html', // Except the fragment pages
     '!dist/public/patterns/**/index.html', // Except the aggregate, auto-generated pages
   ])
-  .pipe(pa11yConcurrent()));
+  .pipe(pa11yConsecutive()));
 
 /**
  * Webpack config and setup.

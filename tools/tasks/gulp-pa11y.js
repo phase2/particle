@@ -23,7 +23,7 @@ const pa11yConfig = _.assign(pallyJson, logConfig);
  * Run pa11y testing one after the next
  * @returns {*}
  */
-function pa11yConcurrent() {
+function pa11yConsecutive() {
   function bufferContents(vinylFile, encoding, callback) {
     // ignore empty files
     if (vinylFile.isNull()) {
@@ -87,6 +87,6 @@ function pa11yParallel() {
 }
 
 module.exports = {
-  pa11yConcurrent,
+  pa11yConsecutive,
   pa11yParallel,
 };
