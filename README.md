@@ -2,7 +2,7 @@
 
 # Prerequisites
 
-- [Node](https://nodejs.org) v6 + (v4 might work, no promises)
+- [Node](https://nodejs.org) v6, v8 is required for pa11y testing
 - PHP 5.4, 5.5, 5.6, OR 7 (5.3 might work, no promises)
 - [`composer`](https://getcomposer.org)
 

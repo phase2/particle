@@ -21,7 +21,7 @@
     "compile": "NODE_ENV=production gulp compile",
     "compile:pl": "webpack --display-entrypoints --config webpack.pl.config.js && gulp compile",
     "compile:drupal": "",
-    "test": "gulp validate",
+    "test": "gulp test",
     "gulp": "gulp",
     "update": "npm update && cd ./tools/pattern-lab && composer update",
     "new": "yo ./tools/new-component/index.js",
@@ -31,7 +31,8 @@
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
     "lint:js": "eslint ./source/ ./drupal/ ./tools/tasks/ gulpfile.js webpack.*.js --cache",
     "lint:scss": "stylelint '{source,drupal}/**/*.scss'",
-    "lint": "npm run lint:js && npm run lint:scss"
+    "lint": "npm run lint:js && npm run lint:scss",
+    "pa11y": "pa11y"
   },
   "browserslist": [
     "last 2 versions",
@@ -62,6 +63,8 @@
     "iconfont-webpack-plugin": "^1.1.0",
     "js-yaml": "^3.10.0",
     "node-sass": "^4.5.3",
+    "pa11y": "^5.0.0-beta.2",
+    "pa11y-reporter-cli": "^1.0.0",
     "postcss-loader": "^2.0.7",
     "sass-extract": "^1.0.1",
     "sass-loader": "^6.0.6",
