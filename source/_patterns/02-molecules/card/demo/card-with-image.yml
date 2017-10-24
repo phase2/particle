@@ -1,0 +1,6 @@
+card:
+  title: Card title
+  text: Card text. Card text. Card text. Card text. Card text. Card text.
+  button_text: Button Text!
+  button_type: primary
+  cardimage: imageurl/here

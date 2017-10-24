@@ -1,0 +1,9 @@
+{#
+  Button!
+
+
+  button_type: String: primary|secondary, See getbootstrap.com/components/buttons
+  button_text: String
+#}
+
+<button type="button" class="btn btn-{{ button_type|default('primary') }}">{{ button_text }}</button>

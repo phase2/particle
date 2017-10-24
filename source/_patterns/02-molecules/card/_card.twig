@@ -1,0 +1,23 @@
+{#
+
+  Schema:
+  card: Object
+    title: String
+    text: String
+#}
+
+<div class="card" style="width: 20rem;">
+  <img class="card-img-top" src=" {{ card.image }}" alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title">{{ card.title }}</h4>
+    <p class="card-text">{{ card.text  }}</p>
+    {#<a href="#" class="btn btn-primary">Go somewhere</a>#}
+    <div>
+      {% include "@atoms/button/_button.twig" with {
+        button_text: card.button_text,
+        button_type: card.button_type,
+      } only %}
+    </div>
+  </div>
+</div>
+

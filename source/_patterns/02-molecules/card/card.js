@@ -5,4 +5,6 @@ require('./_card.scss');
 
 export default {
   name: 'card',
+  enable: () => {},
+  disable: () => {},
 };

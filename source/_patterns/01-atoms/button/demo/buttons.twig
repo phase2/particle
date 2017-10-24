@@ -1,0 +1,20 @@
+{% extends '@base/pl-demo-container.twig' %}
+
+
+{% block main %}
+
+  <h1>Primary Button</h1>
+  {% include '@atoms/button/_button.twig' with {
+    button_type: 'primary',
+    button_text: 'Primary Primary',
+  } only %}
+
+  <h1>Secondary Button</h1>
+  {% include '@atoms/button/_button.twig' with {
+    button_type: 'secondary',
+    button_text: 'Primary Secondary',
+  } only %}
+
+
+
+{% endblock main %}
