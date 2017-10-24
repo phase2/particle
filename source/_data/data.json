@@ -6,6 +6,7 @@
   "bodyClass": "pl",
   "title": "Faker.words(2, true)",
   "text": "Faker.words(3, true)",
+  "cardimage" : "Faker.imageURL(318, 180, 'abstract', true, 'Some Text', true)",
   "site_title": "Faker.words(2, true)",
   "site_slogan": "Faker.words(5, true)",
   "headline": {

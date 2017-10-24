@@ -1,3 +1,11 @@
-<div class="card">
-    <h2 class="card__title">Card title from twig</h2>
+<div class="card" style="width: 20rem;">
+    <img class="card-img-top" src=" {{ cardimage }}" alt="Card image cap">
+    <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        {#<a href="#" class="btn btn-primary">Go somewhere</a>#}
+        <div>
+          {% include "@atoms/buttons/primary/primary.twig" %}
+        </div>
+    </div>
 </div>

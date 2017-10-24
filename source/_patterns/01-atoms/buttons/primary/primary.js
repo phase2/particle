@@ -1,8 +1,8 @@
 // import $ from 'jquery';
 // might be good to force in some jquery here
 
-require('./_card.scss');
+require('./primary.scss');
 
 export default {
-  name: 'card',
+  name: 'button_primary',
 };

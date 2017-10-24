@@ -23,12 +23,17 @@
 
 //bootstrap setup
 @import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/print";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
 
 //custom
 @import "../_patterns/00-base/colors";
 
-@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/utilities";
+
 
 // Bootstrap gutter.
 $grid-gutter-width-base: 30px;
