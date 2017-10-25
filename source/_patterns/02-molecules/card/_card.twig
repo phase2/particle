@@ -6,17 +6,51 @@
     text: String
 #}
 
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" src=" {{ card.image }}" alt="Card image cap">
+<div class="card " style="{{ card_width|default('width: 20rem;') }}">
+  {% if card_header %}
+  <div class="card-header">
+    {{ card_header }}
+  </div>
+  {% endif %}
+  {% if card_image_location and card_image %}
+  <img class="{{ card_image_location }}" src=" {{ card_image }}" alt="Card image cap">
+  {% endif %}
+  {% if card_image_overlay %}
+  <div class="card-img-overlay">
+    <p>{{ card_image_overlay }}</p>
+  </div>
+  {% endif %}
   <div class="card-body">
-    <h4 class="card-title">{{ card.title }}</h4>
-    <p class="card-text">{{ card.text  }}</p>
-    {#<a href="#" class="btn btn-primary">Go somewhere</a>#}
+    <h4 class="card-title">{{ card_title }}</h4>
+    {% if card_subtitle %}
+    <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
+    {% endif %}
+    {% if card_text %}
+    <p class="card-text">{{ card_text  }}</p>
+    {% endif %}
+    {% if card_link %}
+    <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
+    {% endif %}
+    {% if card_list %}
+      <ul class="list-group list-group-flush">
+      {% for list_item in card_list %}
+        <li class="list-group-item">{{ list_item }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% if button_text and button_type %}
     <div>
       {% include "@atoms/button/_button.twig" with {
-        button_text: card.button_text,
-        button_type: card.button_type,
+        button_text: button_text,
+        button_type: button_type,
       } only %}
     </div>
+    {% endif %}
+    {% if card_footer %}
+    <div class="card-footer">
+      {{ card_footer }}
+    </div>
+    {% endif %}
   </div>
 </div>
+
