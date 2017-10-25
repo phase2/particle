@@ -1,20 +1,50 @@
-{% extends '@base/pl-demo-container.twig' %}
-
-
-{% block main %}
-
-  <h1>Primary Button</h1>
-  {% include '@atoms/button/_button.twig' with {
-    button_type: 'primary',
-    button_text: 'Primary Primary',
-  } only %}
-
-  <h1>Secondary Button</h1>
-  {% include '@atoms/button/_button.twig' with {
-    button_type: 'secondary',
-    button_text: 'Primary Secondary',
-  } only %}
-
-
-
-{% endblock main %}
+<h1>Button colors</h1>
+{% include '@atoms/button/_button.twig' with button_primary %}
+{% include '@atoms/button/_button.twig' with button_secondary %}
+{% include '@atoms/button/_button.twig' with button_success %}
+{% include '@atoms/button/_button.twig' with button_danger %}
+{% include '@atoms/button/_button.twig' with button_warning %}
+{% include '@atoms/button/_button.twig' with button_info %}
+{% include '@atoms/button/_button.twig' with button_light %}
+{% include '@atoms/button/_button.twig' with button_dark %}
+<br>
+<br>
+<h1>Button tags</h1>
+{% include '@atoms/button/_button.twig' with button_element_a %}
+{% include '@atoms/button/_button.twig' with button_type_submit %}
+{% include '@atoms/button/_button.twig' with button_element_input_type_button %}
+{% include '@atoms/button/_button.twig' with button_element_input_type_submit %}
+{% include '@atoms/button/_button.twig' with button_element_input_type_reset %}
+<br>
+<br>
+<h1>Button outline</h1>
+{% include '@atoms/button/_button.twig' with button_secondary_outline %}
+{% include '@atoms/button/_button.twig' with button_success_outline %}
+{% include '@atoms/button/_button.twig' with button_danger_outline %}
+{% include '@atoms/button/_button.twig' with button_warning_outline %}
+{% include '@atoms/button/_button.twig' with button_info_outline %}
+{% include '@atoms/button/_button.twig' with button_light_outline %}
+{% include '@atoms/button/_button.twig' with button_dark_outline %}
+<br>
+<br>
+<h1>Button size</h1>
+{% include '@atoms/button/_button.twig' with button_large %}
+{% include '@atoms/button/_button.twig' with button_small %}
+<br>
+<br>
+<h1>Button block</h1>
+{% include '@atoms/button/_button.twig' with button_block_level %}
+<br>
+<br>
+<h1>Button state</h1>
+{% include '@atoms/button/_button.twig' with button_active_state %}
+{% include '@atoms/button/_button.twig' with button_inactive_state %}
+<br>
+<br>
+<h1>Button disable</h1>
+{% include '@atoms/button/_button.twig' with button_enabled_state %}
+{% include '@atoms/button/_button.twig' with button_disabled_state %}
+<br>
+<br>
+<h1>button toggle</h1>
+{% include '@atoms/button/_button.twig' with button_toggleable %}
