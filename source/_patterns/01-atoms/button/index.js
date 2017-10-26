@@ -6,7 +6,7 @@ require('./button.scss');
 
 export default {
   button: [button],
-  name: 'button_primary',
+  name: 'button',
   enable: () => {},
   disable: () => {},
 };

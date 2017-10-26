@@ -1,116 +1,98 @@
-button_primary:
-  button_color: primary
-  button_text: Primary
-button_secondary:
-  button_color: secondary
-  button_text: Secondary
-button_success:
-  button_color: success
-  button_text: Success
-button_danger:
-  button_color: danger
-  button_text: Danger
-button_warning:
-  button_color: warning
-  button_text: Warning
-button_info:
-  button_color: info
-  button_text: Info
-button_light:
-  button_color: light
-  button_text: Light
-button_dark:
-  button_color: dark
-  button_text: Dark
+colors:
+  - button_color: primary
+    button_text: Primary
+  - button_color: secondary
+    button_text: Secondary
+  - button_color: success
+    button_text: Success
+  - button_color: danger
+    button_text: Danger
+  - button_color: warning
+    button_text: Warning
+  - button_color: info
+    button_text: Info
+  - button_color: light
+    button_text: Light
+  - button_color: dark
+    button_text: Dark
 
-button_element_a:
-  button_color: primary
-  button_element: a
-  button_link: #
-  button_text: Link
-button_type_submit:
-  button_color: primary
-  button_element: button
-  button_type: submit
-  button_text: Button
-button_element_input_type_button:
-  button_color: primary
-  button_element: input
-  button_type: button
-  button_value: input
-button_element_input_type_submit:
-  button_color: primary
-  button_element: input
-  button_type: submit
-  button_value: submit
-button_element_input_type_reset:
-  button_color: primary
-  button_element: input
-  button_type: reset
-  button_value: reset
+elements:
+  - button_color: success
+    button_element: a
+    button_link: #
+    button_text: Link
+  - button_color: success
+    button_element: button
+    button_type: submit
+    button_text: Button
+  - button_color: success
+    button_element: input
+    button_type: button
+    button_value: input
+  - button_color: success
+    button_element: input
+    button_type: submit
+    button_value: submit
+  - button_color: success
+    button_element: input
+    button_type: reset
+    button_value: reset
 
-button_primary_outline:
-  button_color: primary
-  button_text: Primary
-  button_outline: TRUE
-button_secondary_outline:
-  button_color: secondary
-  button_text: Secondary
-  button_outline: TRUE
-button_success_outline:
-  button_color: success
-  button_text: Success
-  button_outline: TRUE
-button_danger_outline:
-  button_color: danger
-  button_text: Danger
-  button_outline: TRUE
-button_warning_outline:
-  button_color: warning
-  button_text: Warning
-  button_outline: TRUE
-button_info_outline:
-  button_color: info
-  button_text: Info
-  button_outline: TRUE
-button_light_outline:
-  button_color: light
-  button_text: Light
-  button_outline: TRUE
-button_dark_outline:
-  button_color: dark
-  button_text: Dark
-  button_outline: TRUE
+outlines:
+  - button_color: primary
+    button_text: Primary
+    button_outline: TRUE
+  - button_color: secondary
+    button_text: Secondary
+    button_outline: TRUE
+  - button_color: success
+    button_text: Success
+    button_outline: TRUE
+  - button_color: danger
+    button_text: Danger
+    button_outline: TRUE
+  - button_color: warning
+    button_text: Warning
+    button_outline: TRUE
+  - button_color: info
+    button_text: Info
+    button_outline: TRUE
+  - button_color: light
+    button_text: Light
+    button_outline: TRUE
+  - button_color: dark
+    button_text: Dark
+    button_outline: TRUE
 
-button_large:
-  button_size: lg
-  button_text: Large Button
-button_small:
-  button_size: sm
-  button_text: Small Button
-  button_color: secondary
+sizes:
+  - button_size: lg
+    button_text: Large Button
 
-button_block_level:
+  - button_size: sm
+    button_text: Small Button
+    button_color: secondary
+
+block_level:
   button_block: TRUE
   button_text: Block level button
+  button_color: danger
 
-button_active_state:
-  button_active: FALSE
-  button_text: Inactive State
-button_inactive_state:
-  button_active: TRUE
-  button_text: Active state
+states:
+  - button_active: FALSE
+    button_text: Inactive State
+    button_color: info
+  - button_active: TRUE
+    button_text: Active state
+    button_color: info
+  - button_disabled: FALSE
+    button_text: Enabled state
+    button_color: warning
+  - button_disabled: TRUE
+    button_text: Disabled state
+    button_color: warning
 
-button_enabled_state:
-  button_disabled: FALSE
-  button_text: Enabled state
-button_disabled_state:
-  button_disabled: TRUE
-  button_text: Disabled state
-  button_color: secondary
-
-button_toggleable:
+toggleable:
   button_toggle: TRUE
   button_text: Toggleable button
-  button_color: success
+  button_color: dark
 
