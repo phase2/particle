@@ -1,3 +1,7 @@
+{% extends '@base/grids/grid-1-up.twig' %}
+
+{% block main %}
+
 <h1>Button colors</h1>
 {% include '@atoms/button/_button.twig' with button_primary %}
 {% include '@atoms/button/_button.twig' with button_secondary %}
@@ -48,3 +52,5 @@
 <br>
 <h1>button toggle</h1>
 {% include '@atoms/button/_button.twig' with button_toggleable %}
+
+{% endblock main %}

@@ -1,3 +1,5 @@
+
+
 $c-red: hsl(352, 92%, 38%); // Primary Color. Used for links
 $c-blue: hsl(208, 100%, 50%);
 
@@ -16,6 +18,8 @@ $c-test2: $c-red;
 $c-test3: pink;
 
 
-.verify-output {
-  color: red;
-}
+// Bootstrap overrides
+$theme-colors: (
+  "primary": #0074d9,
+  "danger": pink,
+);

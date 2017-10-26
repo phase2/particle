@@ -1,3 +1,5 @@
+// Mixins
+
 /// Mixin - Fluid Type
 /// PRECISE CONTROL OVER RESPONSIVE TYPOGRAPHY FOR SASS
 /// Indrek Paas @indrekpaas
@@ -67,17 +69,6 @@
     left: auto;
     transform: none;
   }
-}
-
-/// Mixin - Local Base
-/// Set HTML font sizing base for global/local sizing (rem/em).
-/// @link https://css-tricks.com/rem-global-em-local/
-@mixin local-base() {
-  font-size: 1rem; // 16px (default)
-}
-
-.local-base {
-  @include local-base();
 }
 
 /// Word Wrap fix for long spaceless strings
