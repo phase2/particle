@@ -25,7 +25,7 @@ class="btn btn-{% if button_outline == TRUE  %}outline-{% endif %}{{ button_colo
   {% if button_active %} active {% endif %}"
 {% if button_active == TRUE  %} aria-pressed="true" {% endif %}
   {% if button_toggle == TRUE  %} data-toggle="button" {% endif %}
-  {% if button_link == TRUE  %} href="{{ button_link }}" {% endif %}
+  {% if button_link  %} href="{{ button_link }}" {% endif %}
   {% if button_value == TRUE  %} value="{{ button_value }}" {% endif %}
   {% if button_disabled == TRUE  %} disabled {% endif %}>
 {{ button_text }}

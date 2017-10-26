@@ -30,11 +30,15 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              options: { importLoaders: 1 },
+              options: {
+                importLoaders: 1,
+                sourceMap: true,
+              },
             },
             {
               loader: 'postcss-loader',
               options: {
+                sourceMap: true,
                 ident: 'postcss',
                 plugins: loader => [
                   autoprefixer(),
@@ -44,6 +48,9 @@ module.exports = {
             },
             {
               loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+              }
             },
           ],
         })),

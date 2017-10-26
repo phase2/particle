@@ -21,8 +21,8 @@ component-libraries:
   atoms:
     paths:
       - source/_patterns/01-atoms
-      - source/_patterns/01-atoms/images
       - source/_patterns/01-atoms/button
+      - source/_patterns/01-atoms/images
   molecules:
     paths:
       - source/_patterns/02-molecules

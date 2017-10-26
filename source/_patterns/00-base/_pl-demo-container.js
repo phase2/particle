@@ -1,1 +1,1 @@
-require('../../scss/_config.scss');
+require('./_config.scss');

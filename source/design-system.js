@@ -1,7 +1,7 @@
-import './scss/_config.scss';
+// import './_patterns/00-base/_config.scss';
 
 // All of bootstrap
-// import './scss/_vendor.scss';
+import './scss/_vendor.scss';
 
 // import card from './_patterns/02-molecules/card/card';
 // import homepage from './_patterns/05-pages/homepage';
