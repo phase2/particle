@@ -1,8 +1,10 @@
 @import '../../../scss/config';
 
-// To change default bootstrap card variables, SEE ~bootstrap/scss/variables
-// Add bootstrap variables here
+// To change default bootstrap card variables, 
+// copy from ~bootstrap/scss/variables to here
 
-@import "~bootstrap/scss/_buttons";
+// $btn-border-radius: 20px;
+@import "~bootstrap/scss/buttons";
+
+
 // Add custom code here
-
