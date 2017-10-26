@@ -19,7 +19,7 @@ colors:
 elements:
   - button_color: success
     button_element: a
-    button_link: #
+    button_link: 'https://github.com/phase2/pattern-lab-starter'
     button_text: Link
   - button_color: success
     button_element: button
@@ -65,10 +65,9 @@ outlines:
     button_outline: TRUE
 
 sizes:
-  - button_size: lg
+  - button_size: btn-lg
     button_text: Large Button
-
-  - button_size: sm
+  - button_size: btn-sm
     button_text: Small Button
     button_color: secondary
 
@@ -95,4 +94,4 @@ toggleable:
   button_toggle: TRUE
   button_text: Toggleable button
   button_color: dark
-
+  button_link: herpderp.com

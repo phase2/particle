@@ -17,16 +17,45 @@
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
 
-<{{ button_element|default('button') }}
+{% if button_color is empty %}
+  {% set button_color = 'primary' %}
+{% endif %}
+
+{% if button_element is empty %}
+  {% set button_element = 'button' %}
+{% endif %}
+
+{% if button_outline %}
+  {% set button_color = ('btn-outline-' ~ button_color) %}
+{% else %}
+  {% set button_color = ('btn-' ~ button_color) %}
+{% endif %}
+
+{% set classes = [
+  button_color ? button_color,
+  button_block ? 'btn-block',
+  button_size ? button_size,
+  button_active ? 'active',
+] %}
+
+{% if button_link %}
+  {% set button_link = ('href="' ~ button_link ~ '"') %}
+{% endif %}
+{% if button_value %}
+  {% set button_value = ('value="' ~ button_value ~ '"') %}
+{% endif %}
+
+{% set attributes = [
+  button_active ? 'aria-pressed="true"',
+  button_toggle ? 'data-toggle="button"',
+  button_link ? button_link,
+  button_value ? button_value,
+  button_disabled ? 'disabled',
+] %}
+
+<{{ button_element }}
 type="{{ button_type }}"
-class="btn btn-{% if button_outline == TRUE  %}outline-{% endif %}{{ button_color|default('primary') }}
-  {% if button_size %} btn-{{ button_size }}{% endif %}
-  {% if button_block %} btn-block{% endif %}
-  {% if button_active %} active {% endif %}"
-{% if button_active == TRUE  %} aria-pressed="true" {% endif %}
-  {% if button_toggle == TRUE  %} data-toggle="button" {% endif %}
-  {% if button_link == TRUE  %} href="{{ button_link }}" {% endif %}
-  {% if button_value == TRUE  %} value="{{ button_value }}" {% endif %}
-  {% if button_disabled == TRUE  %} disabled {% endif %}>
+class="btn {{ classes|join(' ') }}"
+{{ attributes|join(' ') }}>
 {{ button_text }}
-</{{ button_element|default('button') }}>
+</{{ button_element }}>
