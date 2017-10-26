@@ -17,45 +17,21 @@
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
 
-{% if button_color is empty %}
-  {% set button_color = 'primary' %}
-{% endif %}
-
-{% if button_element is empty %}
-  {% set button_element = 'button' %}
-{% endif %}
-
-{% if button_outline %}
-  {% set button_color = ('btn-outline-' ~ button_color) %}
-{% else %}
-  {% set button_color = ('btn-' ~ button_color) %}
-{% endif %}
-
 {% set classes = [
-  button_color ? button_color,
-  button_block ? 'btn-block',
+'btn',
+  button_color ? 'btn-' ~ button_color : 'btn-primary',
+  button_outline ? 'btn-outline-' ~ button_color,
   button_size ? button_size,
+  button_block ? 'btn-block',
   button_active ? 'active',
-] %}
+] | join(' ') | trim  %}
 
-{% if button_link %}
-  {% set button_link = ('href="' ~ button_link ~ '"') %}
-{% endif %}
-{% if button_value %}
-  {% set button_value = ('value="' ~ button_value ~ '"') %}
-{% endif %}
-
-{% set attributes = [
+{% set attributes  = [
   button_active ? 'aria-pressed="true"',
   button_toggle ? 'data-toggle="button"',
-  button_link ? button_link,
-  button_value ? button_value,
+  button_link ? 'href=' ~ button_link,
+  button_value ? 'value=' ~ button_value,
   button_disabled ? 'disabled',
-] %}
+] | sort | join(' ') | trim %}
 
-<{{ button_element }}
-type="{{ button_type }}"
-class="btn {{ classes|join(' ') }}"
-{{ attributes|join(' ') }}>
-{{ button_text }}
-</{{ button_element }}>
+<{{ button_element }} type="{{ button_type }}" class="{{ classes }}" {{ attributes }}> {{ button_text }} </{{ button_element }}>

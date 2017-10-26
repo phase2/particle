@@ -1,3 +1,4 @@
+button_element: button
 colors:
   - button_color: primary
     button_text: Primary
@@ -28,15 +29,15 @@ elements:
   - button_color: success
     button_element: input
     button_type: button
-    button_value: input
+    button_value: Input
   - button_color: success
     button_element: input
     button_type: submit
-    button_value: submit
+    button_value: Submit
   - button_color: success
     button_element: input
     button_type: reset
-    button_value: reset
+    button_value: Reset
 
 outlines:
   - button_color: primary
