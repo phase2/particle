@@ -16,6 +16,9 @@
 
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
+{% if button_element is empty %}
+  {% set button_element = 'button' %}
+{% endif %}
 
 {% set classes = [
 'btn',

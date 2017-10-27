@@ -1,19 +1,34 @@
 {#
+  Card!
 
-  Schema:
-  card: Object
-    title: String
-    text: String
+  card_width: String: inline syle tag to set the width of the card. If left empty the card will fill the width of it's parent element
+  card_header: String: the header on the card
+  card_image_location: String: card-img-top|card-img-top indicates where the image is
+  card_image: String: the path to the image
+  card_image_alt: String: the alt text for the image
+  card_image_overlay: String: the text overlay for an image (may require additional utilities)
+  card_title: String: the title on the cared
+  card_subtitle: String: the subtitle on the card
+  card_text: String: the text on the card
+  card_link: String: the path to another URL
+  card_link_text: String: the link's text
+  card_list: Number: the number of items in the list
+  list_item: Loop variable: do not set
+  button_text: String: Display text on the button
+  button_color: String: primary|secondary|success|danger|warning|info|light|dark
+  card_footer: String: the text on the footer
+
+  see https://getbootstrap.com/docs/4.0/components/card/ for more details
 #}
 
-<div class="card " style="{{ card_width|default('width: 20rem;') }}">
+<div class="card w-25 ">
   {% if card_header %}
   <div class="card-header">
     {{ card_header }}
   </div>
   {% endif %}
   {% if card_image_location and card_image %}
-  <img class="{{ card_image_location }}" src=" {{ card_image }}" alt="Card image cap">
+  <img class="{{ card_image_location }}" src="{{ card_image }}" alt="{{ card_image_alt }}">
   {% endif %}
   {% if card_image_overlay %}
   <div class="card-img-overlay">
@@ -42,7 +57,7 @@
     <div>
       {% include "@atoms/button/_button.twig" with {
         button_text: button_text,
-        button_type: button_type,
+        button_color: button_color,
       } only %}
     </div>
     {% endif %}
