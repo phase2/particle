@@ -1,4 +1,3 @@
-button_element: button
 colors:
   - button_color: primary
     button_text: Primary
@@ -66,9 +65,9 @@ outlines:
     button_outline: TRUE
 
 sizes:
-  - button_size: btn-lg
+  - button_size: lg
     button_text: Large Button
-  - button_size: btn-sm
+  - button_size: sm
     button_text: Small Button
     button_color: secondary
 

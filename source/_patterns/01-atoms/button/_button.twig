@@ -16,18 +16,17 @@
 
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
-{% if button_element is empty %}
-  {% set button_element = 'button' %}
-{% endif %}
+
+{% set button_element = button_element ? button_element : 'button' %}
 
 {% set classes = [
 'btn',
   button_color ? 'btn-' ~ button_color : 'btn-primary',
   button_outline ? 'btn-outline-' ~ button_color,
-  button_size ? button_size,
+  button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
   button_active ? 'active',
-] | join(' ') | trim  %}
+] | join(' ') %}
 
 {% set attributes  = [
   button_active ? 'aria-pressed="true"',
@@ -35,6 +34,6 @@
   button_link ? 'href=' ~ button_link,
   button_value ? 'value=' ~ button_value,
   button_disabled ? 'disabled',
-] | sort | join(' ') | trim %}
+] | sort | join(' ') %}
 
 <{{ button_element }} type="{{ button_type }}" class="{{ classes }}" {{ attributes }}> {{ button_text }} </{{ button_element }}>

@@ -14,8 +14,9 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-//this is super unclear to me, it seems like both of these are essential to getting bootstrap working
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/utilities";
+// Temporarily importing all of bootstrap until utilities file is properly set up
+@import"~bootstrap/scss/utilities";
+@import"~bootstrap/scss/print";
+@import"~bootstrap/scss/reboot";
 
 
