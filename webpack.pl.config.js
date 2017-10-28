@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const shared = require('./webpack.shared.config');
+const webpack = require('webpack');
 
 // Webpack Entry Points
 const pl = {
@@ -9,6 +10,14 @@ const pl = {
       './source/pattern-lab.js',
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      pl: JSON.stringify(true)
+    }),
+    // new webpack.ProvidePlugin({
+    //   'window.Holder': 'holderjs',
+    // }),
+  ]
 };
 
 module.exports = merge(shared, pl);

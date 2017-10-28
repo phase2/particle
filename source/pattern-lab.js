@@ -1,6 +1,7 @@
 /**
  * Apply all our design system components to the DOM
  */
+
 import $ from 'jquery';
 
 // Full design system
@@ -8,6 +9,8 @@ import designSystem from './design-system';
 
 // PL needs grids regardless of if the component requires it
 import './_patterns/01-atoms/grid';
+
+// Pull in holder.js for only PL
 
 // Adds PL-only styles, ie color swatches.
 import './styleguide/_styleguide-specific.scss';
