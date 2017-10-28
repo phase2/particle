@@ -44,7 +44,7 @@ module.exports = function SassToJson(opt) {
     // base: /Users/illepic/dev/pattern-lab-starter/source/_patterns/
     // path: /Users/illepic/dev/pattern-lab-starter/source/_patterns/00-base/demo/grid/_grid.twig
     //
-    // Want output like: i.e. source/_patterns/00-base/demo/typog/text
+    // Want output like: i.e. source/_patterns/00-base/demo/type/text
     filefolders.push(path.dirname(path.relative(vinylFile.cwd, vinylFile.path)));
 
     callback();

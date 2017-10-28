@@ -1,41 +1,48 @@
-{% extends '@atoms/grid/grid-1-up.twig' %}
+{% extends '@atoms/grid/_grid-1-up.twig' %}
 
 {% block column_1 %}
 
-<h1>Button colors</h1>
-{% for color in colors %}
-  {% include '@atoms/button/_button.twig' with color %}
-{% endfor %}
-<br>
-<br>
-<h1>Button tags</h1>
-{% for element in elements %}
-  {% include '@atoms/button/_button.twig' with element %}
-{% endfor %}
-<br>
-<br>
-<h1>Button outline</h1>
-{% for outline in outlines %}
-  {% include '@atoms/button/_button.twig' with outline %}
-{% endfor %}
-<br>
-<br>
-<h1>Button size</h1>
-{% for size in sizes %}
-  {% include '@atoms/button/_button.twig' with size %}
-{% endfor %}
-<br>
-<br>
-<h1>Button block</h1>
-{% include '@atoms/button/_button.twig' with block_level %}
-<br>
-<br>
-<h1>Button state</h1>
-{% for state in states %}
-  {% include '@atoms/button/_button.twig' with state %}
-{% endfor %}
-<br>
-<br>
-<h1>button toggle</h1>
-{% include '@atoms/button/_button.twig' with toggleable %}
+  <h1>Button colors</h1>
+  {% for color in colors %}
+    {% include '@atoms/button/_button.twig' with color %}
+  {% endfor %}
+  <br>
+  <br>
+
+  <h1>Button tags</h1>
+  {% for element in elements %}
+    {% include '@atoms/button/_button.twig' with element %}
+  {% endfor %}
+  <br>
+  <br>
+
+  <h1>Button outline</h1>
+  {% for outline in outlines %}
+    {% include '@atoms/button/_button.twig' with outline %}
+  {% endfor %}
+  <br>
+  <br>
+
+  <h1>Button size</h1>
+  {% for size in sizes %}
+    {% include '@atoms/button/_button.twig' with size %}
+  {% endfor %}
+  <br>
+  <br>
+
+  <h1>Button block</h1>
+  {% include '@atoms/button/_button.twig' with block_level %}
+  <br>
+  <br>
+
+  <h1>Button state</h1>
+  {% for state in states %}
+    {% include '@atoms/button/_button.twig' with state %}
+  {% endfor %}
+  <br>
+  <br>
+
+  <h1>button toggle</h1>
+  {% include '@atoms/button/_button.twig' with toggleable %}
+
 {% endblock column_1 %}

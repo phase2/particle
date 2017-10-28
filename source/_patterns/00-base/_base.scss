@@ -1,8 +1,16 @@
 @import 'config';
 
+// Bootstrap css-printing output
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/print';
 @import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/type';
-//
 @import '~bootstrap/scss/utilities';
+
+// Custom css-printing output
+@import 'type';
+
+// Continue css-generating Bootstrap until we can wrap
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
