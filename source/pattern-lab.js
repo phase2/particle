@@ -14,14 +14,16 @@ import './_patterns/01-atoms/grid';
 // Adds PL-only styles, ie color swatches.
 import './styleguide/_styleguide-specific.scss';
 
+// Send each component the $(document) as its context
 const $context = $(document);
+// Configure PL-specific settings here
 const settings = {
   // card wants to know if it should enable holder.js.
   // BUILD_TARGET is either 'pl' or 'drupal', and comes from webpack
   enableHolder: BUILD_TARGET === 'pl',
 };
 
-// Let's just execute everything and pass in $(document)
+// Let's just execute everything and pass in $(document), settings
 _.forEach(designSystem, (component, name) => {
   component.enable($context, settings);
   console.log(name);

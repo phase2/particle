@@ -6,7 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-
 module.exports = {
   // Commented out here since the specifics are different per PL or Drupal
   // entry: { 'entry-name': './path/to/entry.js', },
@@ -53,6 +52,11 @@ module.exports = {
               loader: 'sass-loader',
               options: {
                 sourceMap: true,
+                includePaths: [
+                  path.resolve(__dirname, './'),
+                  path.resolve(__dirname, './source/'),
+                  path.resolve(__dirname, './source/_patterns'),
+                ]
               },
             },
           ],
