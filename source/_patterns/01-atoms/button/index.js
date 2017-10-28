@@ -1,12 +1,17 @@
-// import $ from 'jquery';
-// might be good to force in some jquery here
-import button from 'bootstrap/js/src/button';
+// Import button js from Bootstrap
+import { Button } from 'bootstrap/js/src';
 
-require('./button.scss');
+// Import our custom sass, includes Bootstrap sass
+import base from '../../00-base/base';
+import './button.scss';
+
+// Custom logic for buttons here
 
 export default {
-  button: [button],
-  name: 'button_primary',
-  enable: () => {},
+  name: 'button',
+  deps: [base, Button],
+  enable: () => {
+    console.log('Button js ran!');
+  },
   disable: () => {},
 };

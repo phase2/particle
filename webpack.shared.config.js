@@ -33,6 +33,9 @@ module.exports = {
               options: {
                 importLoaders: 1,
                 sourceMap: true,
+                // minimize: {
+                //   discardDuplicates: true,
+                // }
               },
             },
             {

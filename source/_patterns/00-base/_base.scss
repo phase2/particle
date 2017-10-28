@@ -1,16 +1,7 @@
+@import 'config';
+
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/print';
+@import '~bootstrap/scss/reboot';
 //
-// Place global config here like Bootstrap's _variables.scss.
-// This kind of config is often required prior to importing any libraries (ie Bootstrap Sass), and
-// usually does not produce any CSS, just variables and maps
-//
-
-// Custom
-@import "colors";
-@import 'functions';
-@import 'mixins';
-
-// Bootstrap
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
+@import '~bootstrap/scss/utilities';

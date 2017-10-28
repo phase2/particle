@@ -1,9 +1,3 @@
-@import 'breakpoints';
-@import 'spacing';
-
-$site-max-width: $bp--xxl;
-$site-padding: $spacing--s;
-
 /// Mixin - Full Width, even outside container
 /// @param {bool} $undo [false]
 /// @link https://css-tricks.com/full-width-containers-limited-width-parents/ Source
