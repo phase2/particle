@@ -1,7 +1,7 @@
 
 // Full components: js + scss
 import button from './_patterns/01-atoms/button';
-import card from './_patterns/02-molecules/card/card';
+import card from './_patterns/02-molecules/card';
 // import homepage from './_patterns/05-pages/homepage';
 
 // All of bootstrap

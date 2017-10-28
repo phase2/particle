@@ -3,7 +3,8 @@ import { Button } from 'bootstrap/js/src';
 
 // Import our custom sass, includes Bootstrap sass
 import base from '../../00-base/base';
-import './button.scss';
+import './_button.scss';
+
 
 // Custom logic for buttons here
 
