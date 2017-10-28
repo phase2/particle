@@ -42,7 +42,7 @@ module.exports = function SassToJson(opt) {
     // Get the proper path of this file, given:
     // cwd: /Users/illepic/dev/pattern-lab-starter
     // base: /Users/illepic/dev/pattern-lab-starter/source/_patterns/
-    // path: /Users/illepic/dev/pattern-lab-starter/source/_patterns/00-base/demo/grids/_grid.twig
+    // path: /Users/illepic/dev/pattern-lab-starter/source/_patterns/00-base/demo/grid/_grid.twig
     //
     // Want output like: i.e. source/_patterns/00-base/demo/typog/text
     filefolders.push(path.dirname(path.relative(vinylFile.cwd, vinylFile.path)));

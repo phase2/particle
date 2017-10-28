@@ -1,6 +1,6 @@
-{% extends '@base/grids/grid-1-up.twig' %}
+{% extends '@atoms/grid/grid-1-up.twig' %}
 
-{% block main %}
+{% block column_1 %}
 
 <h1>Button colors</h1>
 {% for color in colors %}
@@ -38,4 +38,4 @@
 <br>
 <h1>button toggle</h1>
 {% include '@atoms/button/_button.twig' with toggleable %}
-{% endblock main %}
+{% endblock column_1 %}

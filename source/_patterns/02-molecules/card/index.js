@@ -1,5 +1,6 @@
 
 // Module dependencies
+import base from '../../00-base/base';
 import button from '../../01-atoms/button';
 
 // Module styles
@@ -7,7 +8,7 @@ import './_card.scss';
 
 export default {
   name: 'card',
-  deps: [button],
+  deps: [base, button],
   enable: () => {},
   disable: () => {},
 };

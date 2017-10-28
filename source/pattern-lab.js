@@ -3,10 +3,14 @@
  */
 import $ from 'jquery';
 
+// Full design system
 import designSystem from './design-system';
 
-// Adds pattern lab only styles, ie color swatches.
-require('./styleguide/_styleguide-specific.scss');
+// PL needs grids regardless of if the component requires it
+import './_patterns/01-atoms/grid';
+
+// Adds PL-only styles, ie color swatches.
+import './styleguide/_styleguide-specific.scss';
 
 const $context = $(document);
 
