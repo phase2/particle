@@ -3,7 +3,7 @@
 
   card_width: String: inline syle tag to set the width of the card. If left empty the card will fill the width of it's parent element
   card_header: String: the header on the card
-  card_image_location: String: card-img-top|card-img-top indicates where the image is
+  card_image_location: String: top|bottom indicates where the image is
   card_image: String: the path to the image
   card_image_alt: String: the alt text for the image
   card_image_overlay: String: the text overlay for an image (may require additional utilities)
@@ -23,49 +23,70 @@
 
 <div class="card">
   {% if card_header %}
-  <div class="card-header">
-    {{ card_header }}
-  </div>
+    <div class="card-header">
+      {{ card_header }}
+    </div>
   {% endif %}
-  {% if card_image_location and card_image %}
-  <img class="{{ card_image_location }}" src="{{ card_image }}" alt="{{ card_image_alt }}">
+
+  {% if card_image_location == 'top' %}
+
+    {# if `card_image` is null, this falls back to a holderjs placeholder #}
+    {% include '@atoms/image/_image.twig' with {
+      imageStyleName: 'card',
+      class: 'card-img-top',
+      img: card_image,
+    } %}
+
   {% endif %}
+
   {% if card_image_overlay %}
-  <div class="card-img-overlay">
-    <p>{{ card_image_overlay }}</p>
-  </div>
+    <div class="card-img-overlay">
+      <p>{{ card_image_overlay }}</p>
+    </div>
   {% endif %}
   <div class="card-body">
     <h4 class="card-title">{{ card_title }}</h4>
     {% if card_subtitle %}
-    <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
     {% endif %}
     {% if card_text %}
-    <p class="card-text">{{ card_text  }}</p>
+      <p class="card-text">{{ card_text }}</p>
     {% endif %}
     {% if card_link %}
-    <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
+      <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
     {% endif %}
     {% if card_list %}
       <ul class="list-group list-group-flush">
-      {% for list_item in card_list %}
-        <li class="list-group-item">{{ list_item }}</li>
-      {% endfor %}
+        {% for list_item in card_list %}
+          <li class="list-group-item">{{ list_item }}</li>
+        {% endfor %}
       </ul>
     {% endif %}
     {% if button_text and button_type %}
-    <div>
-      {% include "@atoms/button/_button.twig" with {
-        button_text: button_text,
-        button_color: button_color,
-      } only %}
-    </div>
+      <div>
+        {% include "@atoms/button/_button.twig" with {
+          button_text: button_text,
+          button_color: button_color,
+        } only %}
+      </div>
     {% endif %}
     {% if card_footer %}
-    <div class="card-footer">
-      {{ card_footer }}
-    </div>
+      <div class="card-footer">
+        {{ card_footer }}
+      </div>
     {% endif %}
   </div>
+
+  {% if card_image_location == 'bottom' %}
+
+    {# if `card_image` is null, this falls back to a holderjs placeholder #}
+    {% include '@atoms/image/_image.twig' with {
+      imageStyleName: 'card',
+      class: 'card-img-bottom',
+      img: card_image,
+    } %}
+
+  {% endif %}
+
 </div>
 

@@ -28,7 +28,7 @@
   {% if bg %}
     <div data-background-src="?{{ imgSrc }}" class="bg-img holderjs {{ class }}"></div>
   {% else %}
-    <img data-src="{{ imgSrc }}"{% if class %} class="{{ class }}"{% endif %}>
+    <img data-src="{{ imgSrc }}"{% if class %} class="{{ class }}"{% endif %} alt="A placeholder image">
   {% endif %}
 {% else %}
   {# Is `img` an object or string? #}
