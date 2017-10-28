@@ -6,11 +6,12 @@
 .test {
   background: purple;
 }
+@import '../../00-base/base';
 
 // To change default bootstrap card variables, 
 // copy from ~bootstrap/scss/variables to here
 
-//$btn-border-radius: 20px;
+$btn-border-radius: 0.25rem;
 @import "~bootstrap/scss/buttons";
 
 // Add custom code here

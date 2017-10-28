@@ -9,6 +9,7 @@ import card from './_patterns/02-molecules/card/card';
 
 const components = [];
 
+// components.push(card);
 components.push(button);
 components.push(card);
 // components.push(homepage);

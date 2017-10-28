@@ -17,16 +17,23 @@
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
 
-<{{ button_element|default('button') }}
-type="{{ button_type }}"
-class="btn btn-{% if button_outline == TRUE  %}outline-{% endif %}{{ button_color|default('primary') }}
-  {% if button_size %} btn-{{ button_size }}{% endif %}
-  {% if button_block %} btn-block{% endif %}
-  {% if button_active %} active {% endif %}"
-{% if button_active == TRUE  %} aria-pressed="true" {% endif %}
-  {% if button_toggle == TRUE  %} data-toggle="button" {% endif %}
-  {% if button_link  %} href="{{ button_link }}" {% endif %}
-  {% if button_value == TRUE  %} value="{{ button_value }}" {% endif %}
-  {% if button_disabled == TRUE  %} disabled {% endif %}>
-{{ button_text }}
-</{{ button_element|default('button') }}>
+{% set button_element = button_element ? button_element : 'button' %}
+
+{% set classes = [
+'btn',
+  button_color ? 'btn-' ~ button_color : 'btn-primary',
+  button_outline ? 'btn-outline-' ~ button_color,
+  button_size ? 'btn-' ~ button_size,
+  button_block ? 'btn-block',
+  button_active ? 'active',
+] | join(' ') %}
+
+{% set attributes  = [
+  button_active ? 'aria-pressed="true"',
+  button_toggle ? 'data-toggle="button"',
+  button_link ? 'href=' ~ button_link,
+  button_value ? 'value=' ~ button_value,
+  button_disabled ? 'disabled',
+] | sort | join(' ') %}
+
+<{{ button_element }} type="{{ button_type }}" class="{{ classes }}" {{ attributes }}> {{ button_text }} </{{ button_element }}>
