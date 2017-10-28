@@ -3,6 +3,7 @@
  */
 
 import $ from 'jquery';
+import _ from 'lodash';
 
 // Full design system
 import designSystem from './design-system';
@@ -10,15 +11,19 @@ import designSystem from './design-system';
 // PL needs grids regardless of if the component requires it
 import './_patterns/01-atoms/grid';
 
-// Pull in holder.js for only PL
-
 // Adds PL-only styles, ie color swatches.
 import './styleguide/_styleguide-specific.scss';
 
 const $context = $(document);
+const settings = {
+  // card wants to know if it should enable holder.js.
+  // BUILD_TARGET is either 'pl' or 'drupal', and comes from webpack
+  enableHolder: BUILD_TARGET === 'pl',
+};
 
 // Let's just execute everything and pass in $(document)
-designSystem.forEach((component) => {
-  component.enable($context);
+_.forEach(designSystem, (component, name) => {
+  component.enable($context, settings);
+  console.log(name);
   console.log(component);
 });

@@ -5,13 +5,17 @@
 import button from './_patterns/01-atoms/button';
 import image from './_patterns/01-atoms/image';
 import card from './_patterns/02-molecules/card';
-// import homepage from './_patterns/05-pages/homepage';
 
-const components = [];
+// Export as a plain ol' object if we need
+export default {
+  button,
+  image,
+  card,
+};
 
-components.push(button);
-components.push(image);
-components.push(card);
-// components.push(homepage);
-
-export default components;
+// Provide each individually
+export {
+  button,
+  image,
+  card,
+};

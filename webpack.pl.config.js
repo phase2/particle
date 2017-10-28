@@ -12,9 +12,9 @@ const pl = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      BUILD_TARGET: JSON.stringify('pl')
+      BUILD_TARGET: JSON.stringify('pl'),
     }),
-  ]
+  ],
 };
 
 module.exports = merge(shared, pl);

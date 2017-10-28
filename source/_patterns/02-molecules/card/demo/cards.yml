@@ -29,11 +29,7 @@ bottom_card:
   card_subtitle: Card subtitle
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
   button_text: Go somewhere
-#  button_type: primary
   card_image_location: bottom
-#  card_header: Header
-#  card_link: 'https://github.com/phase2/pattern-lab-starter'
-#  card_link_text: 'Pattern Lab'
   card_image:
     src: https://placekitten.com/g/318/180
     alt: A kitten looking cute

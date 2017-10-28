@@ -16,4 +16,11 @@ module.exports = {
     'react/require-extension': [0],
     'import/no-extraneous-dependencies': ["error", {"devDependencies": true}],
   },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: 'webpack.shared.config.js'
+      }
+    }
+  }
 };
