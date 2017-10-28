@@ -56,7 +56,7 @@ module.exports = {
                   path.resolve(__dirname, './'),
                   path.resolve(__dirname, './source/'),
                   path.resolve(__dirname, './source/_patterns'),
-                ]
+                ],
               },
             },
           ],
