@@ -1,15 +1,26 @@
+///
+/// Base **GENERATED** styles that all components should safely share
+/// WARNING: Do NOT include this file on other .scss files. It WILL duplicate output
+/// Instead, import as a dependency in a component's .js file. From @molecules/card:
+/// ```js
+/// import base from '../../00-base';
+/// import button from '../../01-atoms/button';
+/// ```
+/// This guarantees both de-duplication and existence of required, generated CSS.
+///
+
 @import 'config';
 
-// Bootstrap css-printing output
+// Bootstrap CSS-generating output
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/print';
 @import '~bootstrap/scss/reboot';
 @import '~bootstrap/scss/utilities';
 
-// Custom css-printing output
+// Custom CSS-generating output
 @import 'type';
 
-// Continue css-generating Bootstrap until we can wrap
+// Continue CSS-generating Bootstrap until we can wrap
 @import "~bootstrap/scss/images";
 @import "~bootstrap/scss/code";
 @import "~bootstrap/scss/tables";
