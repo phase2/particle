@@ -18,12 +18,10 @@
 @import '~bootstrap/scss/print';
 @import '~bootstrap/scss/reboot';
 @import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/code';
 
 // Custom CSS-generating output
 @import 'type';
-
-// Continue CSS-generating Bootstrap until we can wrap each
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/transitions";
+@import 'forms';
+@import 'tables';
+@import 'transitions';

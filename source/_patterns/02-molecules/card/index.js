@@ -16,7 +16,7 @@ export default {
   deps: [base, image, button],
   enable: () => {
     // Holder is only provided to PL, not Drupal. Like jQuery it's an IIFE
-    if (pl) {
+    if (BUILD_TARGET === 'pl') {
       require('holderjs'); // eslint-disable-line global-require
     }
   },

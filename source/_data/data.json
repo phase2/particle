@@ -1,5 +1,6 @@
 {
   "pl": true,
+  "BUILD_TARGET": "pl",
   "paths": {
     "pl_theme_root": "../../../.."
   },

@@ -12,11 +12,8 @@ const pl = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      pl: JSON.stringify(true)
+      BUILD_TARGET: JSON.stringify('pl')
     }),
-    // new webpack.ProvidePlugin({
-    //   'window.Holder': 'holderjs',
-    // }),
   ]
 };
 

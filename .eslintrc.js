@@ -6,6 +6,7 @@ module.exports = {
     Drupal: true,
     jQuery: true,
     _: true,
+    BUILD_TARGET: true,
   },
   env: {
     "browser": true,

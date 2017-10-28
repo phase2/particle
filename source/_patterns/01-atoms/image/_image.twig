@@ -1,5 +1,5 @@
 {# if we're in pattern lab and there's no specific `img`, let's do a placeholder image #}
-{% if pl and not img %}
+{% if BUILD_TARGET == 'pl' and not img %}
   {# default image style is `medium` #}
   {% set imageStyleName = imageStyleName|default('medium') %}
 
