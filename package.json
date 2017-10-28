@@ -31,7 +31,7 @@
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
     "lint:js": "eslint ./source/ ./drupal/ ./tools/tasks/ gulpfile.js webpack.*.js --cache",
     "lint:scss": "stylelint '{source,drupal}/**/*.scss'",
-    "lint": "npm run lint:js && npm run lint:scss",
+    "lint": "npm run lint:js & npm run lint:scss",
     "pa11y": "pa11y"
   },
   "browserslist": [
