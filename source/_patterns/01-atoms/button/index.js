@@ -2,7 +2,7 @@
 import { Button } from 'bootstrap/js/src';
 
 // Import dependent base js/scss (See
-import base from '../../00-base';
+import base from 'base';
 
 // Import our custom sass, includes Bootstrap sass
 import './_button.scss';

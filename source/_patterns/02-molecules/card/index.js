@@ -2,11 +2,10 @@
  * Card
  */
 
-
 // Module dependencies
-import base from '../../00-base';
-import image from '../../01-atoms/image';
-import button from '../../01-atoms/button';
+import base from 'base';
+import image from 'atoms/image';
+import button from 'atoms/button';
 
 // Module styles
 import './_card.scss';

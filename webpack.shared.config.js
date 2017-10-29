@@ -111,15 +111,14 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new StyleLintPlugin(),
   ],
-  // resolve: {
-  //   alias: {
-  //     source: path.resolve(__dirname, './source/'),
-  //     base: path.resolve(__dirname, './source/_patterns/00-base/'),
-  //     atoms: path.resolve(__dirname, './source/_patterns/01-atoms/'),
-  //     molecules: path.resolve(__dirname, './source/_patterns/02-molecules/'),
-  //     organisms: path.resolve(__dirname, './source/_patterns/03-organisms/'),
-  //     templates: path.resolve(__dirname, './source/_patterns/04-templates/'),
-  //     pages: path.resolve(__dirname, './source/_patterns/05-pages/'),
-  //   },
-  // },
+  resolve: {
+    alias: {
+      base: path.resolve(__dirname, './source/_patterns/00-base/'),
+      atoms: path.resolve(__dirname, './source/_patterns/01-atoms/'),
+      molecules: path.resolve(__dirname, './source/_patterns/02-molecules/'),
+      organisms: path.resolve(__dirname, './source/_patterns/03-organisms/'),
+      templates: path.resolve(__dirname, './source/_patterns/04-templates/'),
+      pages: path.resolve(__dirname, './source/_patterns/05-pages/'),
+    },
+  },
 };

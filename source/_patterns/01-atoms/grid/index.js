@@ -1,4 +1,4 @@
-import base from '../../00-base';
+import base from 'base';
 
 import './_grid.scss';
 
