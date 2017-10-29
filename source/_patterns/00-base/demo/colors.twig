@@ -7,13 +7,10 @@
     </div>
     {% for colorName, colorValue in scssColors %}
 
-      {# Break up rgb string into array #}
-      {% set rgb = colorValue|replace({'rgb(': '', ')': ''})|split(', ') %}
-      {# Get luminence, per ITU-R BT.709 #}
-      {% set luma = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2] %}
+      {% set luma = colorValue|rgba_string|luma %}
 
       <div class="col-sm-3">
-        <div class="card mb-3 {% if luma < 200  %} text-white{% endif %} bg-{{ colorName }}">
+        <div class="card mb-3 {% if luma < 200  %}text-white{% endif %} bg-{{ colorName }}">
           <div class="card-header">{{ colorValue }}</div>
           <div class="card-body">
             <h4 class="card-title">{{ colorName }}</h4>
