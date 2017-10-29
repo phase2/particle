@@ -39,6 +39,7 @@
     "IE >= 10"
   ],
   "dependencies": {
+    "@theme-tools/sass-export-data": "^1.0.0",
     "bootstrap": "^4.0.0-beta.2",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",

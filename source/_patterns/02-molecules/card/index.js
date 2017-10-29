@@ -4,10 +4,9 @@
 
 
 // Module dependencies
-// import base from '../../00-base';
-// import image from '../../01-atoms/image';
-// import button from '../../01-atoms/button';
-import { base, image, button } from 'source/design-system';
+import base from '../../00-base';
+import image from '../../01-atoms/image';
+import button from '../../01-atoms/button';
 
 // Module styles
 import './_card.scss';

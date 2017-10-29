@@ -5,6 +5,10 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const sassExportData = require('@theme-tools/sass-export-data')({
+  name: 'export_data',
+  path: path.resolve(__dirname, 'source/_data/'),
+});
 
 module.exports = {
   // Commented out here since the specifics are different per PL or Drupal
@@ -52,11 +56,12 @@ module.exports = {
               loader: 'sass-loader',
               options: {
                 sourceMap: true,
-                includePaths: [
-                  path.resolve(__dirname, './'),
-                  path.resolve(__dirname, './source/'),
-                  path.resolve(__dirname, './source/_patterns'),
-                ],
+                // includePaths: [
+                //   path.resolve(__dirname, './'), // @import 'source/_patterns/00-base/base';
+                //   path.resolve(__dirname, './source/'), // @import '_patterns/00-base/base';
+                //   path.resolve(__dirname, './source/_patterns'), // @import '00-base/base';
+                // ],
+                functions: sassExportData,
               },
             },
           ],
@@ -106,15 +111,15 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new StyleLintPlugin(),
   ],
-  resolve: {
-    alias: {
-      source: path.resolve(__dirname, './source/'),
-      base: path.resolve(__dirname, './source/_patterns/00-base/'),
-      atoms: path.resolve(__dirname, './source/_patterns/01-atoms/'),
-      molecules: path.resolve(__dirname, './source/_patterns/02-molecules/'),
-      organisms: path.resolve(__dirname, './source/_patterns/03-organisms/'),
-      templates: path.resolve(__dirname, './source/_patterns/04-templates/'),
-      pages: path.resolve(__dirname, './source/_patterns/05-pages/'),
-    },
-  },
+  // resolve: {
+  //   alias: {
+  //     source: path.resolve(__dirname, './source/'),
+  //     base: path.resolve(__dirname, './source/_patterns/00-base/'),
+  //     atoms: path.resolve(__dirname, './source/_patterns/01-atoms/'),
+  //     molecules: path.resolve(__dirname, './source/_patterns/02-molecules/'),
+  //     organisms: path.resolve(__dirname, './source/_patterns/03-organisms/'),
+  //     templates: path.resolve(__dirname, './source/_patterns/04-templates/'),
+  //     pages: path.resolve(__dirname, './source/_patterns/05-pages/'),
+  //   },
+  // },
 };

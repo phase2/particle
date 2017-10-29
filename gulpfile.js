@@ -132,7 +132,7 @@ const serverconfig = {
     assets: true,
     chunks: false,
     modules: false,
-    reasons: false,
+    reasons: true,
     children: false,
     source: true,
     errors: true,

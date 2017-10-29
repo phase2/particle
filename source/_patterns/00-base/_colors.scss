@@ -16,7 +16,6 @@ $c-test2: $c-red;
 $c-test3: pink;
 
 // Bootstrap overrides
-//$theme-colors: (
-//"primary": #0074d9,
-//"danger": pink,
-//);
+$theme-colors: (
+  test: pink,
+);
