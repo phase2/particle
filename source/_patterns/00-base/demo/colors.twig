@@ -1,30 +1,29 @@
-<h1>Colors</h1>
-{{ a }}
-<ul class="sg-colors">
-  {% for colorVarName, colorVarData in baseScssVars if '$c-' in colorVarName %}
-    {% set rgba = colorVarData.value %}
-    <li>
-      <div class="sg-swatch" style='background: {{ "rgba(#{rgba.r}, #{rgba.g}, #{rgba.b}, #{rgba.a})" }};'></div>
-      <div class="sg-info">
-        <span>{{ colorVarData.declarations[0].expression }}</span> <br/>
-        <code>{{ colorVarName }}</code>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12">
+      <h1>Colors</h1>
+      <p>To add to these items, add and override colors in <code>_colors.scss:$theme-colors()</code>.</p>
+    </div>
+    {% for colorName, colorValue in scssColors %}
+
+      {# Break up rgb string into array #}
+      {% set rgb = colorValue|replace({'rgb(': '', ')': ''})|split(', ') %}
+      {# Get luminence, per ITU-R BT.709 #}
+      {% set luma = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2] %}
+
+      <div class="col-sm-3">
+        <div class="card mb-3 {% if luma < 200  %} text-white{% endif %} bg-{{ colorName }}">
+          <div class="card-header">{{ colorValue }}</div>
+          <div class="card-body">
+            <h4 class="card-title">{{ colorName }}</h4>
+            <p class="card-text">Usage:</p>
+            <pre><code>$theme-colors({{ colorName }});</code></pre>
+            <p>Luminance: <code>{{ luma }}</code></p>
+          </div>
+        </div>
       </div>
-    </li>
-  {% endfor %}
-</ul>
+    {% endfor %}
 
-{#<ul class="sg-colors">#}
-  {#{% for colorVarName, colorVarData in baseScssVars if '$c-' in colorVarName %}#}
-    {#{% set rgba = colorVarData.value %}#}
-    {#<li>#}
-      {#<div class="sg-swatch" style='background: {{ "rgba(#{rgba.r}, #{rgba.g}, #{rgba.b}, #{rgba.a})" }};'></div>#}
-      {#<div class="sg-info">#}
-        {#<span>{{ colorVarData.declarations[0].expression }}</span> <br/>#}
-        {#<code>{{ colorVarName }}</code>#}
-      {#</div>#}
-    {#</li>#}
-  {#{% endfor %}#}
-{#</ul>#}
-
-
-<p>To add to these items, use Sass variables that start with $c- in _colors.scss</p>
+  </div>
+</div>

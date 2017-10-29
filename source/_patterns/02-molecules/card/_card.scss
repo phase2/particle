@@ -1,10 +1,6 @@
 // All component Sass needs non-printing base config
 @import '../../00-base/config';
 
-.test {
-  background: purple;
-}
-
 // To change default bootstrap card variables, SEE ~bootstrap/scss/variables
 // Add bootstrap variables here
 $card-border-width: 1px;
@@ -12,6 +8,3 @@ $card-border-width: 1px;
 @import '~bootstrap/scss/card';
 
 // Add custom code here
-.p2-button {
-  background: pink;
-}

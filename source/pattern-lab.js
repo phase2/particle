@@ -13,6 +13,7 @@ import './_patterns/01-atoms/grid';
 
 // Adds PL-only styles, ie color swatches.
 import './styleguide/_styleguide-specific.scss';
+import './styleguide/_scss2json.scss';
 
 // Send each component the $(document) as its context
 const $context = $(document);

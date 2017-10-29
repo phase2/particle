@@ -1,0 +1,3 @@
+@import '../_patterns/00-base/config';
+
+@include export-data('scssColors.json', (scssColors: $theme-colors));
