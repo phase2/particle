@@ -1,0 +1,9 @@
+// All component Sass needs non-printing base config
+@import '../../00-base/config';
+
+// To change default bootstrap card variables, SEE ~bootstrap/scss/variables
+// Add bootstrap variables here
+
+@import '~bootstrap/scss/jumbotron';
+
+// Add custom code here

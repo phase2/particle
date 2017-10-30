@@ -1,0 +1,9 @@
+basic_jumbotron:
+  jumbotron_title: Jumbotron Title
+  jumbotron_subtitle: Jumbotron Subtitle
+  jumbotron_text: Some quick example text to build on the jumbotron title and make up the bulk of the jumbotron's content.
+  jumbotron_link: 'https://github.com/phase2/pattern-lab-starter'
+  jumbotron_link_text: 'Pattern Lab'
+  button_text: Button
+  button_color: primary
+  button_size: lg

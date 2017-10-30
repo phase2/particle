@@ -1,0 +1,31 @@
+{#
+  Jumbotron
+
+  jumbotron_title: String: The title of the Jumbotron
+  jumbotron_subtitle: String: The Subtitle of the Jumbotron
+  jumbotron_text: String: The text of the Jumbotron.
+  jumbotron_link: String: the path to another URL
+  jumbotron_link_text: String: the link's text
+  button_text: String: Display text on the button
+  button_color: String: primary|secondary|success|danger|warning|info|light|dark
+
+  see https://getbootstrap.com/docs/4.0/components/jumbotron/ for more details
+#}
+
+<div class="jumbotron">
+  <h1 class="display-3">{{ jumbotron_title }}</h1>
+  <p class="lead">{{ jumbotron_subtitle }}</p>
+  <hr class="my-4">
+  <p>{{ jumbotron_text }}</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{  }}" role="button">{{ button_text }}</a>
+
+    {% include "@atoms/button/_button.twig" with {
+      button_text: button_text,
+      button_color: button_color,
+      button_size: lg,
+    } only %}
+
+
+  </p>
+</div>
