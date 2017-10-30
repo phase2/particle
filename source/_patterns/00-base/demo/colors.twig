@@ -7,6 +7,8 @@
     </div>
     {% for colorName, colorValue in scssColors %}
 
+      {# The custom Twig filters `rgba_string` and `luma` are found in _twig-components/filters/.
+       Feel free to add filters, but ensure that your implementing system is provided them. #}
       {% set luma = colorValue|rgba_string|luma %}
 
       <div class="col-sm-3">

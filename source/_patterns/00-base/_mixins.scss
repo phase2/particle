@@ -5,11 +5,11 @@
 /// @param $var - What to turn into JSON
 /// @example scss
 ///   @include export-data-to-lib('filename.json', $sass-map);
-@mixin export-data($filename, $var) {
-  @debug 'export-data called';
+@mixin export-data($filename, $var, $options: ()) {
+  //@debug 'export-data called';
   // The `export_data` function is a custom function added to Sass.
   // The `$data` var is weird, but needed.
-  $data: export_data($filename, $var);
+  $data: export_data($filename, $var, $options);
 };
 
 /// Mixin - Fluid Type

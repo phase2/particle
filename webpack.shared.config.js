@@ -56,9 +56,8 @@ module.exports = {
               loader: 'sass-loader',
               options: {
                 sourceMap: true,
+                // Revisit the real or imagined performance hit here
                 // includePaths: [
-                //   path.resolve(__dirname, './'), // @import 'source/_patterns/00-base/base';
-                //   path.resolve(__dirname, './source/'), // @import '_patterns/00-base/base';
                 //   path.resolve(__dirname, './source/_patterns'), // @import '00-base/base';
                 // ],
                 functions: sassExportData,
