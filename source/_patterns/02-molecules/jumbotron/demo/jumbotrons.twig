@@ -1,8 +1,11 @@
-{% include '@molecules/jumbotron/_jumbotron.twig' with basic_jumbotron %}
+<div class="container">
 
+  {% block jumbo_basic %}
+    {% include '@molecules/jumbotron/_jumbotron.twig' with basic_jumbotron %}
+  {% endblock %}
 
+  {% block jumbo_fluid %}
+    {% include '@molecules/jumbotron/_jumbotron.twig' with fluid_jumbotron %}
+  {% endblock %}
 
-
-
-
-{#{% include '@molecules/jumbotron/_jumbotron.twig' with fluid_jumbotron %}#}
+</div>
