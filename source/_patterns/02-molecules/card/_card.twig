@@ -1,7 +1,10 @@
 {#
   Card!
 
-  card_width: String: inline syle tag to set the width of the card. If left empty the card will fill the width of it's parent element
+  card_width: Integer: 25|50|75 If left empty the card will fill the width of it's parent element
+  card_background: String: primary|secondary|succes|danger|warning|info|light|dark background color
+  card_border: String: primary|secondary|succes|danger|warning|info|light|dark border color
+  text_alignment: String: center|right|left|jusfify
   card_header: String: the header on the card
   card_image_location: String: top|bottom indicates where the image is
   card_image: Object:
@@ -11,6 +14,7 @@
   card_title: String: the title on the cared
   card_subtitle: String: the subtitle on the card
   card_text: String: the text on the card
+  text_color: String: primary|secondary|succes|danger|warning|info|light|dark text color
   card_link: String: the path to another URL
   card_link_text: String: the link's text
   card_list: Number: the number of items in the list
@@ -22,7 +26,15 @@
   see https://getbootstrap.com/docs/4.0/components/card/ for more details
 #}
 
-<div class="card">
+{% set classes = [
+  card_width ? 'w-' ~ card_width,
+  text_alignment ? 'text-' ~ text_alignment,
+  text_color ? 'text-' ~ text_color,
+  card_background ? 'bg-' ~ card_background,
+  card_border ? 'border-' ~ card_border
+] | join(' ')%}
+
+<div class="card {{ classes }}">
   {% if card_header %}
     <div class="card-header">
       {{ card_header }}
@@ -51,7 +63,7 @@
       <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
     {% endif %}
     {% if card_text %}
-      <p class="card-text">{{ card_text }}</p>
+      <p class="card-text {{ text_color }}">{{ card_text }}</p>
     {% endif %}
     {% if card_link %}
       <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
@@ -63,7 +75,7 @@
         {% endfor %}
       </ul>
     {% endif %}
-    {% if button_text and button_type %}
+    {% if button_text and button_color %}
       <div>
         {% include "@atoms/button/_button.twig" with {
           button_text: button_text,
@@ -71,12 +83,12 @@
         } only %}
       </div>
     {% endif %}
-    {% if card_footer %}
-      <div class="card-footer">
-        {{ card_footer }}
-      </div>
-    {% endif %}
   </div>
+  {% if card_footer %}
+    <div class="card-footer">
+      {{ card_footer }}
+    </div>
+  {% endif %}
 
   {% if card_image_location == 'bottom' %}
 

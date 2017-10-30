@@ -1,15 +1,50 @@
 <div class="container">
-{% embed '@atoms/grid/_grid-3-up.twig' %}
-  {% block column_1 %}
-    {% include '@molecules/card/_card.twig' with basic_card %}
-  {% endblock column_1 %}
-
-  {% block column_2 %}
+  <h1>Text</h1>
+ <p>Variables: <code>card_title, card_text, card_subtitle, text_alignment, card_link, card_link_text, text_color</code></p>
+  <div class="card-deck">
+    {% include '@molecules/card/_card.twig' with text_card_1 %}
+    {% include '@molecules/card/_card.twig' with text_card_2 %}
+    {% include '@molecules/card/_card.twig' with text_card_3 %}
+  </div>
+  <br>
+  <h1>Images</h1>
+  <p>Variables: <code>card_image, card_image_location, card_image_overlay</code></p>
+  <div class="card-deck">
+    {% include '@molecules/card/_card.twig' with top_image %}
+    {% include '@molecules/card/_card.twig' with bottom_image %}
+    {% include '@molecules/card/_card.twig' with overlay_image %}
+  </div>
+  <br>
+  <h1>Width</h1>
+  <p>Variables: <code>card_width</code></p>
+    {% include '@molecules/card/_card.twig' with card_width_1 %}
+    {% include '@molecules/card/_card.twig' with card_width_2 %}
+    {% include '@molecules/card/_card.twig' with card_width_3 %}
+  <br>
+  <h1>Structure</h1>
+  <p>Variables: <code>card_header, card_footer, card_list, button_text, button_color</code></p>
+  <div class="card-deck">
+    {% include '@molecules/card/_card.twig' with header_card %}
+    {% include '@molecules/card/_card.twig' with footer_card %}
     {% include '@molecules/card/_card.twig' with list_card %}
-  {% endblock column_2 %}
-
-  {% block column_3 %}
-    {% include '@molecules/card/_card.twig' with bottom_card %}
-  {% endblock column_3 %}
-{% endembed %}
+  </div>
+  <br>
+  <h1>Background</h1>
+  <p>Variables: <code>card_background</code></p>
+  <div class="card-deck">
+    {% include '@molecules/card/_card.twig' with card_background_1 %}
+    {% include '@molecules/card/_card.twig' with card_background_2 %}
+    {% include '@molecules/card/_card.twig' with card_background_3 %}
+    {% include '@molecules/card/_card.twig' with card_background_4 %}
+  </div>
+  <br>
+  <h1>Border</h1>
+  <p>Variables: <code>card_border</code></p>
+  <div class="card-deck">
+    {% include '@molecules/card/_card.twig' with card_border_1 %}
+    {% include '@molecules/card/_card.twig' with card_border_2 %}
+    {% include '@molecules/card/_card.twig' with card_border_3 %}
+    {% include '@molecules/card/_card.twig' with card_border_4 %}
+  </div>
+  <br>
 </div>

@@ -24,6 +24,7 @@ component-libraries:
       - source/_patterns/01-atoms/icons
       - source/_patterns/01-atoms/image
       - source/_patterns/01-atoms/button
+      - source/_patterns/01-atoms/list-item
   molecules:
     paths:
       - source/_patterns/02-molecules
