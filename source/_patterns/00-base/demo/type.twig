@@ -42,16 +42,70 @@
   {% endfor %}
 </ul>
 
-<p>To add to these items, use Sass variables that start with $fs-- in
+  <p>To add to these items, use Sass variables that start with $fs-- in
   _fonts.scss</p>
+<hr>
 
 <h1>Headings</h1>
-<h1 contenteditable>h1 {{ headline.short }}</h1>
-<h2 contenteditable>h2 {{ headline.short }}</h2>
-<h3 contenteditable>h3 {{ headline.short }}</h3>
-<h4 contenteditable>h4 {{ headline.short }}</h4>
-<h5 contenteditable>h5 {{ headline.short }}</h5>
-<h6 contenteditable>h6 {{ headline.short }}</h6>
+{#
+  These are heading styles, including both element and classed version.
+  Use the element version in markup following Accessibility best practices.
+  Use the class version to match font styling of heading.
+  See https://webaim.org/techniques/semanticstructure/
+#}
+  <h1 contenteditable>h1 {{ headline.short }}</h1>
+  <h2 contenteditable>h2 {{ headline.short }}</h2>
+  <h3 contenteditable>h3 {{ headline.short }}</h3>
+  <h4 contenteditable>h4 {{ headline.short }}</h4>
+  <h5 contenteditable>h5 {{ headline.short }}</h5>
+  <h6 contenteditable>h6 {{ headline.short }}</h6>
+
+  <p class="my-4">You can use these as either the element or as a class. For example:</p>
+  <pre>
+    <code>
+      &lt;h1 contenteditable&gt;h1. {{ headline.short }}&lt;/h1&gt;
+      &lt;h2 contenteditable&gt;h2. {{ headline.short }}&lt;/h2&gt;
+      &lt;h3 contenteditable&gt;h3. {{ headline.short }}&lt;/h3&gt;
+      &lt;h4 contenteditable&gt;h4. {{ headline.short }}&lt;/h4&gt;
+      &lt;h5 contenteditable&gt;h5. {{ headline.short }}&lt;/h5&gt;
+      &lt;h6 contenteditable&gt;h6. {{ headline.short }}&lt;/h6&gt;
+    </code>
+    <code>
+      &lt;p class=".h1"&gt;h1. {{ headline.short }}&lt;/p&gt;
+      &lt;p class=".h2"&gt;h2. {{ headline.short }}&lt;/p&gt;
+      &lt;p class=".h3"&gt;h3. {{ headline.short }}&lt;/p&gt;
+      &lt;p class=".h4"&gt;h4. {{ headline.short }}&lt;/p&gt;
+      &lt;p class=".h5"&gt;h5. {{ headline.short }}&lt;/p&gt;
+      &lt;p class=".h6"&gt;h6. {{ headline.short }}&lt;/p&gt;
+    </code>
+  </pre>
+<hr>
+
+<h1>Display headings</h1>
+  <h1 class="display-1">{{ headline.short }}</h1>
+  <h1 class="display-2">{{ headline.short }}</h1>
+  <h1 class="display-3">{{ headline.short }}</h1>
+  <h1 class="display-4">{{ headline.short }}</h1>
+
+  <p class="my-4">Bootstrap style for larger headlines. For example:</p>
+  <pre>
+    <code>
+      &lt;h1 class="display-1"&gt;{{ headline.short }}&lt;/h1&gt;
+      &lt;h1 class="display-2"&gt;{{ headline.short }}&lt;/h1&gt;
+      &lt;h1 class="display-3"&gt;{{ headline.short }}&lt;/h1&gt;
+      &lt;h1 class="display-4"&gt;{{ headline.short }}&lt;/h1&gt;
+    </code>
+  </pre>
+<hr>
+
+<h1>Paragraph Lead</h1>
+  <p class="lead">A paragraph <code>p</code> class to help text standout. {{ excerpt.medium }}</p>
+  <pre>
+    <code>
+      &lt;p class="lead"&gt;{{ excerpt.short }}&lt;/p&gt;
+    </code>
+  </pre>
+  <hr>
 
 <h1>Lists</h1>
 <div class="list--unordered">
@@ -68,6 +122,7 @@
     <li>This is the last list item</li>
   </ul>
 </div>
+<hr>
 
 <div class="list--ordered">
   <ol>
