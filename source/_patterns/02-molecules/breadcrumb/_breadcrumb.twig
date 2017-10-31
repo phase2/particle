@@ -1,0 +1,15 @@
+{#
+
+Implement JS for active and aria-current
+<li class="breadcrumb-item active" aria-current="page">Home</li>
+
+#}
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    {% if breadcrumb_items %}
+      {% for breadcrumb_item in breadcrumb_items %}
+        <li class="breadcrumb-item"><a href="{{ breadcrumb_link }}">{{ breadcrumb_title }}</a></li>
+      {% endfor %}
+    {% endif %}
+  </ol>
+</nav>
