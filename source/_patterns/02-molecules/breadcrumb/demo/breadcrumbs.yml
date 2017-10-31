@@ -1,3 +1,7 @@
 breadcrumb_items:
   - breadcrumb_title: Home
     breadcrumb_link: '/'
+  - breadcrumb_title: Library
+    breadcrumb_link: '/library'
+  - breadcrumb_title: Data
+    breadcrumb_link: '/data'

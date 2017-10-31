@@ -1,14 +1,17 @@
 {#
+  Breadcrumb!
 
-Implement JS for active and aria-current
-<li class="breadcrumb-item active" aria-current="page">Home</li>
+  breadcrumb_title: String: The title of the breadcrumb
+  breadcrumb_link: String: The URL of the breadcrumb
 
+  see https://getbootstrap.com/docs/4.0/components/breadcrumb/ for more details
 #}
+
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
     {% if breadcrumb_items %}
-      {% for breadcrumb_item in breadcrumb_items %}
-        <li class="breadcrumb-item"><a href="{{ breadcrumb_link }}">{{ breadcrumb_title }}</a></li>
+      {% for item in breadcrumb_items %}
+        <li class="breadcrumb-item"><a href="{{ item.breadcrumb_link }}">{{ item.breadcrumb_title }}</a></li>
       {% endfor %}
     {% endif %}
   </ol>
