@@ -9,7 +9,6 @@
   card_image_location: String: top|bottom indicates where the image is
   card_image: Object:
     src: String: Path to image
-    alt: Alt text for image
   card_image_overlay: String: the text overlay for an image (may require additional utilities)
   card_title: String: the title on the cared
   card_subtitle: String: the subtitle on the card
@@ -19,6 +18,8 @@
   card_link_text: String: the link's text
   card_list: Number: the number of items in the list
   list_item: Loop variable: do not set
+  button_element: String: button|a|input choose the element type for your button
+  button_link: String: the URL the button will lead to
   button_text: String: Display text on the button
   button_color: String: primary|secondary|success|danger|warning|info|light|dark
   card_footer: String: the text on the footer
@@ -31,7 +32,8 @@
   text_alignment ? 'text-' ~ text_alignment,
   text_color ? 'text-' ~ text_color,
   card_background ? 'bg-' ~ card_background,
-  card_border ? 'border-' ~ card_border
+  card_border ? 'border-' ~ card_border,
+  'mb-3 '
 ] | join(' ')%}
 
 <div class="card {{ classes }}">
@@ -68,22 +70,24 @@
     {% if card_link %}
       <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
     {% endif %}
-    {% if card_list %}
-      <ul class="list-group list-group-flush">
-        {% for list_item in card_list %}
-          <li class="list-group-item">{{ list_item }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
     {% if button_text and button_color %}
       <div>
         {% include "@atoms/button/_button.twig" with {
+          button_element: button_element,
           button_text: button_text,
           button_color: button_color,
+          button_link: button_link,
         } only %}
       </div>
     {% endif %}
   </div>
+  {% if card_list %}
+    <ul class="list-group list-group-flush">
+      {% for list_item in card_list %}
+        <li class="list-group-item">{{ list_item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
   {% if card_footer %}
     <div class="card-footer">
       {{ card_footer }}
