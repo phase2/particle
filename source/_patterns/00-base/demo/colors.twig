@@ -30,7 +30,8 @@
   <div class="row border">
     <div class="col-sm-10 offset-1">
       {% for colorName, colorValue in scssColors %}
-        <p class="p-3 mb-2 text-{{ colorName }} {% if colorName == 'light'%}bg-dark{% endif %}">text-{{ colorName }}: <code>&lt;p class="text-{{ colorName }}"&gt;text-{{ colorName }}&lt;/p&gt;</code></p>
+        {% set luma = colorValue|rgba_string|luma %}
+        <p class="p-3 mb-2 text-{{ colorName }} {% if luma > 200%}bg-dark{% endif %}">text-{{ colorName }}: <code>&lt;p class="text-{{ colorName }}"&gt;text-{{ colorName }}&lt;/p&gt;</code></p>
       {% endfor %}
     </div>
   </div>
@@ -46,7 +47,8 @@
       <br>
       <div class="row">
         {% for colorName, colorValue in scssColors %}
-          <div class="p-3 mb-2 col-sm-10  offset-1 bg-{{ colorName }} {{ ('light' in colorName) ? 'text-black' : 'text-white' }}">
+          {% set luma = colorValue|rgba_string|luma %}
+          <div class="p-3 mb-2 col-sm-10  offset-1 bg-{{ colorName }} {{ (luma < 200) ? 'text-white' }}">
             bg-{{ colorName }}: <br><code>&lt;div class="p-3 mb-2 col-sm-6 bg-{{ colorName }} {{ ('light' in colorName) ? 'text-black' : 'text-white' }}"&gt;bg-{{ colorName }}&lt;/div&gt;</code>
           </div>
           <br>
