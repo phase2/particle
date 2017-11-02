@@ -3,58 +3,59 @@
     {% block column_1 %}
 
       <h1>Button colors</h1>
-      {% for color in colors %}
-        {% include '@atoms/button/_button.twig' with color %}
-      {% endfor %}
-      <br>
-      <br>
-
+      <div class="mb-3">
+        {% for color in colors %}
+          {% include '@atoms/button/_button.twig' with color %}
+        {% endfor %}
+      </div>
       <h1>Button tags</h1>
-      {% for element in elements %}
-        {% include '@atoms/button/_button.twig' with element %}
-      {% endfor %}
-      <br>
-      <br>
+      <div class="mb-3">
+        {% for element in elements %}
+          {% include '@atoms/button/_button.twig' with element %}
+        {% endfor %}
+      </div>
 
       <h1>Button outline</h1>
-      {% for outline in outlines %}
-        {% include '@atoms/button/_button.twig' with outline %}
-      {% endfor %}
-      <br>
-      <br>
+      <div class="mb-3">
+        {% for outline in outlines %}
+          {% include '@atoms/button/_button.twig' with outline %}
+        {% endfor %}
+      </div>
 
       <h1>Button size</h1>
-      {% for size in sizes %}
-        {% include '@atoms/button/_button.twig' with size %}
-      {% endfor %}
-      <br>
-      <br>
-
+      <div class="mb-3">
+        {% for size in sizes %}
+          {% include '@atoms/button/_button.twig' with size %}
+        {% endfor %}
+      </div>
 
       <h1>Button block</h1>
-      {% embed '@atoms/grid/_grid-3-up.twig' %}
-        {% block  column_1 %}
-          {% include '@atoms/button/_button.twig' with block_level_1 %}
-        {% endblock column_1 %}
-        {% block  column_2 %}
-          {% include '@atoms/button/_button.twig' with block_level_2 %}
-        {% endblock column_2 %}
-        {% block  column_3 %}
-          {% include '@atoms/button/_button.twig' with block_level_3 %}
-        {% endblock column_3 %}
-      {% endembed %}
-      <br>
-      <br>
+      <div class="mb-3">
+        {% embed '@atoms/grid/_grid-3-up.twig' %}
+          {% block  column_1 %}
+            {% include '@atoms/button/_button.twig' with block_level_1 %}
+          {% endblock column_1 %}
+          {% block  column_2 %}
+            {% include '@atoms/button/_button.twig' with block_level_2 %}
+          {% endblock column_2 %}
+          {% block  column_3 %}
+            {% include '@atoms/button/_button.twig' with block_level_3 %}
+          {% endblock column_3 %}
+        {% endembed %}
+      </div>
 
       <h1>Button state</h1>
-      {% for state in states %}
-        {% include '@atoms/button/_button.twig' with state %}
-      {% endfor %}
-      <br>
-      <br>
+      <div class="mb-3">
+        {% for state in states %}
+          {% include '@atoms/button/_button.twig' with state %}
+        {% endfor %}
+      </div>
 
       <h1>button toggle</h1>
-      {% include '@atoms/button/_button.twig' with toggleable %}
+      <div class="mb-3">
+        {% include '@atoms/button/_button.twig' with toggleable %}
+      </div>
+
     {% endblock column_1 %}
   {% endembed %}
 </div>
