@@ -1,0 +1,124 @@
+/// Mixins
+
+/// Export Sass Data to JSON in `path/to/export/folder/` folder
+/// @param {String} $filename - ie `mystuff.json`
+/// @param $var - What to turn into JSON
+/// @example scss
+///   @include export-data-to-lib('filename.json', $sass-map);
+@mixin export-data($filename, $var, $options: ()) {
+  //@debug 'export-data called';
+  // The `export_data` function is a custom function added to Sass.
+  // The `$data` var is weird, but needed.
+  $data: export_data($filename, $var, $options);
+};
+
+/// Mixin - Fluid Type
+/// PRECISE CONTROL OVER RESPONSIVE TYPOGRAPHY FOR SASS
+/// Indrek Paas @indrekpaas
+/// Inspired by Mike Riethmuller's Precise control over responsive typography
+/// @link http://madebymike.com.au/writing/precise-control-responsive-typography/
+/// @param $properties
+/// @param $min-vw
+/// @param $max-vw
+/// @param $min-value
+/// @param $max-value
+
+@mixin fluid-type ($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+/// Strip unit
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/// Center.
+/// Center an element vertically or horizontally in its container,
+/// and optionally horizontally. Option to undo.
+/// @param $horizonally-center - center horizontally
+/// @param $vertically-center - center vertically
+/// @param $absolute-positioning - position absolutely, rather than relatively
+/// @param $undo - undo vertical centering on an element it was previously applied to
+@mixin center($horizontally: true, $vertically: true, $absolute: false, $undo: false) {
+  display: inline-block;
+  @if ($absolute) {
+    position: absolute;
+  } @else {
+    position: relative;
+  }
+  @if ($horizontally == true and $vertically == true) {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  @if ($vertically == true and $horizontally == false) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @if ($horizontally == true and $vertically == false) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @if ($undo) {
+    position: static;
+    left: auto;
+    transform: none;
+  }
+}
+
+/// Word Wrap fix for long spaceless strings
+/// @link https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/// Ellipsis fix for long spaceless strings
+/// @link https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/// Mixin - Full Width, even outside container
+/// @param {bool} $undo [false]
+/// @link https://css-tricks.com/full-width-containers-limited-width-parents/ Source
+@mixin full-width($undo: false) {
+  @if $undo {
+    margin-left: 0;
+    margin-right: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    width: auto;
+    max-width: 100%;
+  } @else {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}

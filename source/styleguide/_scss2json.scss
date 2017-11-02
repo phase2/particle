@@ -1,0 +1,3 @@
+@import '../_patterns/00-base/config';
+$test-var: 20rem;
+@include export-data('scssColors.json', (scssColors: $theme-colors, test: $test-var));

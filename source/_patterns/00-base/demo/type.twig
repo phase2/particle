@@ -1,0 +1,141 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+
+{% block column_1 %}
+
+<h1>Font Families</h1>
+
+{% for ffVarName, ffVarData in baseScssVars if '$ff--' in ffVarName %}
+  {% set value = ffVarData.declarations[0].expression %}
+  <div>
+    <div style="font-family: {{ value }};">{{ value }}</div>
+    <div>
+      <pre><code>
+.class {
+  font-family: {{ ffVarName }};
+}
+      </code></pre>
+    </div>
+
+    <h6>Normal</h6>
+    <div style="font-family: {{ value }}; font-size: 2em;">{{ excerpt.short }}</div>
+
+    <h6>Bold</h6>
+    <div style="font-family: {{ value }}; font-size: 2em; font-weight: bold;">{{ excerpt.short }}</div>
+
+    <h6>Italic</h6>
+    <div style="font-family: {{ value }}; font-size: 2em; font-style: italic;">{{ excerpt.short }}</div>
+
+  </div>
+  <hr>
+{% endfor %}
+
+
+<h1>Font Sizes</h1>
+
+<ul style="list-style: none;">
+  {% for fsVarName, fsVarData in baseScssVars if '$fs--' in fsVarName %}
+    {% set value = fsVarData.value ~ fsVarData.unit %}
+
+    <div style="font-size: {{ value }};">{{ headline.short }}</div>
+    <div>{{ value }}: <code>{{ fsVarName }}</code></div>
+
+  {% endfor %}
+</ul>
+
+<p>To add to these items, use Sass variables that start with $fs-- in
+  _fonts.scss</p>
+
+<h1>Headings</h1>
+<h1 contenteditable>h1 {{ headline.short }}</h1>
+<h2 contenteditable>h2 {{ headline.short }}</h2>
+<h3 contenteditable>h3 {{ headline.short }}</h3>
+<h4 contenteditable>h4 {{ headline.short }}</h4>
+<h5 contenteditable>h5 {{ headline.short }}</h5>
+<h6 contenteditable>h6 {{ headline.short }}</h6>
+
+<h1>Lists</h1>
+<div class="list--unordered">
+  <ul>
+    <li>This is a list item in an <b>Unordered List</b></li>
+    <li>An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line. </li>
+    <li>
+      Lists can be nested inside of each other
+      <ul>
+        <li>This is a nested list item</li>
+        <li>This is another nested list item in an unordered list</li>
+      </ul>
+    </li>
+    <li>This is the last list item</li>
+  </ul>
+</div>
+
+<div class="list--ordered">
+  <ol>
+    <li>This is a list item in an <b>Ordered List</b></li>
+    <li>An ordered list is a list in which the sequence of items is important. An ordered list does not necessarily contain sequence characters.</li>
+    <li>
+      Lists can be nested inside of each other
+      <ol>
+        <li>This is a nested list item</li>
+        <li>This is another nested list item in an ordered list</li>
+      </ol>
+    </li>
+    <li>This is the last list item</li>
+  </ol>
+</div>
+
+<div class="list--definition">
+  <dl>
+    <dt><b>Definition List</b></dt>
+    <dd>A number of connected items or names written or printed consecutively, typically one below the other.</dd>
+    <dt>This is a term.</dt>
+    <dd>This is the definition of that term, which both live in a <code>dl</code>.</dd>
+    <dt>Here is another term.</dt>
+    <dd>And it gets a definition too, which is this line.</dd>
+    <dt>Here is term that shares a definition with the term below.</dt>
+    <dd>And it gets a definition too, which is this line.</dd>
+  </dl>
+</div>
+
+<h1>Text</h1>
+<p><b>Paragraph One</b> {{ excerpt.short }}</p>
+<hr>
+<p><b>Paragraph Two</b> after an <code>hr</code> {{ excerpt.medium }}</p>
+
+<h1>Header 1</h1>
+<p><b>Paragraph</b> following an <code>h1</code> {{ description }}</p>
+
+<h2>Header 2</h2>
+<p><b>Paragraph</b> following an <code>h2</code> {{ description }}</p>
+
+<h3>Header 3</h3>
+<p><b>Paragraph</b> following an <code>h3</code> {{ description }}</p>
+
+<h4>Header 4</h4>
+<p><b>Paragraph</b> following an <code>h4</code> {{ description }}</p>
+
+<h5>Header 5</h5>
+<p><b>Paragraph</b> following an <code>h5</code> {{ description }}</p>
+
+<h6>Header 6</h6>
+<p><b>Paragraph</b> following an <code>h6</code> {{ description }}</p>
+
+<p><a href="#">This is a text link.</a></p>
+
+<p><i>Italic text is used for stylistic purposes</i> in <code>i</code></p>
+
+<p><em>This text has added emphasis</em> in <code>em</code></p>
+
+<p><b>Bolded text is used for stylistic purposes</b> in <code>b</code></p>
+
+<p><strong>Strong is used to indicate strong importance</strong> in <code>strong</code></p>
+
+<p>This text is <sup>superscript</sup></p>
+
+<p>This text is <sub>subscript</sub></p>
+
+<blockquote>
+  <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text, and typically distinguished visually using indentation and a different typeface or smaller size quotation.</p>
+</blockquote>
+
+{% endblock column_1 %}

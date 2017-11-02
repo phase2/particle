@@ -5,7 +5,10 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-
+const sassExportData = require('@theme-tools/sass-export-data')({
+  name: 'export_data',
+  path: path.resolve(__dirname, 'source/_data/'),
+});
 
 module.exports = {
   // Commented out here since the specifics are different per PL or Drupal
@@ -15,7 +18,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/temp/',
   },
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {
@@ -30,11 +33,18 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              options: { importLoaders: 1 },
+              options: {
+                importLoaders: 1,
+                sourceMap: true,
+                // minimize: {
+                //   discardDuplicates: true,
+                // }
+              },
             },
             {
               loader: 'postcss-loader',
               options: {
+                sourceMap: true,
                 ident: 'postcss',
                 plugins: loader => [
                   autoprefixer(),
@@ -44,6 +54,14 @@ module.exports = {
             },
             {
               loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+                // Revisit the real or imagined performance hit here
+                // includePaths: [
+                //   path.resolve(__dirname, './source/_patterns'), // @import '00-base/base';
+                // ],
+                functions: sassExportData,
+              },
             },
           ],
         })),
@@ -82,8 +100,25 @@ module.exports = {
       filename: '[name].styles.css',
       allChunks: true,
     }),
+    new webpack.ProvidePlugin({
+      // Bootstrap is dependant on jQuery and Popper, they must explicitly be provided by webpack.
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
+    }),
     // Named files instead of chunk IDs for HMR.
     new webpack.NamedModulesPlugin(),
     new StyleLintPlugin(),
   ],
+  resolve: {
+    alias: {
+      base: path.resolve(__dirname, './source/_patterns/00-base/'),
+      atoms: path.resolve(__dirname, './source/_patterns/01-atoms/'),
+      molecules: path.resolve(__dirname, './source/_patterns/02-molecules/'),
+      organisms: path.resolve(__dirname, './source/_patterns/03-organisms/'),
+      templates: path.resolve(__dirname, './source/_patterns/04-templates/'),
+      pages: path.resolve(__dirname, './source/_patterns/05-pages/'),
+    },
+  },
 };

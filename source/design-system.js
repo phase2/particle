@@ -1,14 +1,24 @@
-import card from './_patterns/02-molecules/card/card';
-import homepage from './_patterns/05-pages/homepage';
+/**
+ * The kitchen sink of all design components
+ */
 
+import button from 'atoms/button';
+import image from 'atoms/image';
+import listItem from 'atoms/list-item';
+import card from 'molecules/card';
 
-require('./scss/_config.scss');
+// Export as a plain ol' object if we need
+export default {
+  button,
+  image,
+  listItem,
+  card,
+};
 
-const components = [];
-
-components.push(card);
-components.push(homepage);
-
-export default components;
-
-console.log('hello from design-system.js');
+// Provide each individually
+export {
+  button,
+  image,
+  listItem,
+  card,
+};

@@ -1,5 +1,10 @@
-@import '../../00-base/colors';
+// All component Sass needs non-printing base config
+@import '../../00-base/config';
 
-.card {
-  background: $c-blue;
-}
+// To change default bootstrap card variables, SEE ~bootstrap/scss/variables
+// Add bootstrap variables here
+$card-border-width: 1px;
+
+@import '~bootstrap/scss/card';
+
+// Add custom code here
