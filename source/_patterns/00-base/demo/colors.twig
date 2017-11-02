@@ -49,7 +49,7 @@
         {% for colorName, colorValue in scssColors %}
           {% set luma = colorValue|rgba_string|luma %}
           <div class="p-3 mb-2 col-sm-10  offset-1 bg-{{ colorName }} {{ (luma < 200) ? 'text-white' }}">
-            bg-{{ colorName }}: <br><code>&lt;div class="p-3 mb-2 col-sm-6 bg-{{ colorName }} {{ ('light' in colorName) ? 'text-black' : 'text-white' }}"&gt;bg-{{ colorName }}&lt;/div&gt;</code>
+            bg-{{ colorName }}: <br><code>&lt;div class="p-3 mb-2 col-sm-6 bg-{{ colorName }}{{ (luma < 200) ? 'text-white' }}"&gt;bg-{{ colorName }}&lt;/div&gt;</code>
           </div>
           <br>
         {% endfor %}
