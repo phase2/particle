@@ -23,6 +23,52 @@
         </div>
       </div>
     {% endfor %}
-
   </div>
+
+  <h2>Text Color</h2>
+  <p>Colors can also be used with text classes. <code>_colors.scss:$theme-colors()</code> is again the go-to here. <code>text-white</code> and <code>text-black</code> are available by default.</p>
+  <div class="row border">
+    <div class="col-sm-11 offset-sm-1">
+      {% for colorName, colorValue in scssColors %}
+        <p class="text-{{ colorName }} {% if colorName == 'light'%}bg-dark{% endif %}">text-{{ colorName }}</p>
+      {% endfor %}
+    </div>
+    <div class="bg-light col-sm-12">
+      <pre>
+        <code>
+          {% for colorName, colorValue in scssColors %}
+            &lt;p class="text-{{ colorName }}"&gt;text-{{ colorName }}&lt;/p&gt;
+          {% endfor %}
+        </code>
+      </pre>
+    </div>
+  </div>
+  <br>
+  <h2>Background Colors</h2>
+  <p>
+    Similar to the contextual text color classes, easily set the background of an element to any contextual class.
+    Anchor components will darken on hover, just like the text classes.
+    Background utilities do not set color, so in some cases you’ll want to use <code>.text-*</code> utilities.
+  </p>
+  <div class="row border">
+    <div class="col-sm-12">
+      <br>
+      <div class="row">
+        {% for colorName, colorValue in scssColors %}
+          <div class="p-3 mb-2 col-sm-3 bg-{{ colorName }} {{ ('light' in colorName) ? 'text-black' : 'text-white' }}">bg-{{ colorName }}</div>
+          <br>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="bg-light col-sm-12">
+      <pre>
+        <code>
+          {% for colorName, colorValue in scssColors %}
+            &lt;div class="p-3 mb-2 col-sm-3 bg-{{ colorName }} {{ ('light' in colorName) ? 'text-black' : 'text-white' }}"&gt;bg-{{ colorName }}&lt;/div&gt;
+          {% endfor %}
+        </code>
+      </pre>
+    </div>
+  </div>
+
 </div>
