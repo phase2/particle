@@ -39,7 +39,7 @@
     "IE >= 10"
   ],
   "dependencies": {
-    "@theme-tools/sass-export-data": "^1.0.0",
+    "@theme-tools/sass-export-data": "^1.0.1",
     "bootstrap": "^4.0.0-beta.2",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
@@ -78,8 +78,8 @@
     "stylelint-webpack-plugin": "^0.9.0",
     "through2": "^2.0.3",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3",
-    "webpack-merge": "^4.1.0",
+    "webpack-dev-server": "^2.9.4",
+    "webpack-merge": "^4.1.1",
     "yeoman-generator": "^0.23.3",
     "yo": "^1.8.3"
   }
