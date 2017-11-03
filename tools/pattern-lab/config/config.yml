@@ -59,10 +59,12 @@ plugins:
           - ../../source/_patterns/01-atoms/icons
           - ../../source/_patterns/01-atoms/image
           - ../../source/_patterns/01-atoms/button
+          - ../../source/_patterns/01-atoms/list-item
       molecules:
         paths:
           - ../../source/_patterns/02-molecules
           - ../../source/_patterns/02-molecules/card
+          - ../../source/_patterns/02-molecules/jumbotron
       organisms:
         paths:
           - ../../source/_patterns/03-organisms

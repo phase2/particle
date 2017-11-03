@@ -1,35 +1,181 @@
-basic_card:
-  card_title: Card title
-  card_subtitle: Card subtitle
-  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
-  button_text: Go somewhere
-  button_type: primary
-  card_image_location: top
-  card_header: Header
-  card_link: 'https://github.com/phase2/pattern-lab-starter'
-  card_link_text: 'Pattern Lab'
-  #  card_image is commented out to allow holderjs placeholder
-  #  card_image: kitten.jpg
+helper_card_main:
+  card_title: Cards
+  card_text: 'Each card has at least the <code>card_title</code> and <code>card_text</code> variables in use and will have a card like this one above it explaining the other variables it is using. Also, each row is demonstrating a different feature of the bootstrap grid system.'
+  text_alignment: center
+  text_color: light
+  card_background: secondary
 
+helper_card_text:
+  card_title: Text
+  card_text: 'Variables: <code>card_subtitle, text_alignment, card_link, card_link_text, text_color</code> <p>Grid: This row is using the standard hand-coded <code>class="col-sm"</code> bootstrap system</p>'
+  text_color: light
+  card_background: secondary
+  button_element: a
+  button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works'
+  button_text: More Info
+  button_color: primary
+
+helper_card_text_2:
+  card_text: 'Grid: This row uses the pattern lab "grid-3" atom located in <code>source/_patterns/01-atoms/grid</code>'
+  text_color: light
+  card_background: secondary
+
+helper_card_width:
+  card_title: Width
+  card_text: 'Variables: <code>card_width</code><p>Grid: This row is occupying the whole container by using the <code>col-sm-12</code> class.'
+  text_color: light
+  card_background: secondary
+  button_element: a
+  button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works'
+  button_text: More Info
+  button_color: primary
+
+helper_card_image:
+  card_title: Image
+  card_text: 'Variables: <code>card_image, card_image_location, card_image_overlay</code><p>Grid: This row is using the  <code>card-deck</code> class which is unique to cards. It sets all of its cards to an equal width and height.</p>'
+  text_color: light
+  card_background: secondary
+  button_element: a
+  button_link: 'https://getbootstrap.com/docs/4.0/components/card/#card-decks'
+  button_text: More Info
+  button_color: primary
+
+helper_card_structure:
+  card_title: Structure
+  card_text: 'Variables: <code>card_header, card_footer, button_text, button_color, card_list</code><p>Grid: This row is using the <code>card-group</code> class which is unique to cards. It renders cards as a single, attached element with equal width and height columns.</p>'
+  text_color: light
+  card_background: secondary
+  button_element: a
+  button_link: 'https://getbootstrap.com/docs/4.0/components/card/#card-groups'
+  button_text: More Info
+  button_color: primary
+
+helper_card_colors:
+  card_title: Background and Border
+  card_text: 'Variables: <code>card_background, card_border</code><p>Grid: This row is using the <code>card-columns</code> class which is unique to cards. It renders cards in the optimal position based on vertical space. </p>'
+  text_color: light
+  card_background: secondary
+  button_element: a
+  button_link: 'https://getbootstrap.com/docs/4.0/components/card/#card-columns'
+  button_text: More Info
+  button_color: primary
+
+text_card_1:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_subtitle: Card subtitle
+
+text_card_2:
+  text_alignment: center
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_subtitle: Card subtitle
+  card_link: 'https://github.com/phase2/pattern-lab-starter'
+  card_link_text: 'Card link'
+
+text_card_3:
+  text_alignment: right
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  text_color: danger
+
+card_width_1:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_width: 25
+
+card_width_2:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_width: 50
+
+card_width_3:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_width: 75
+
+top_image:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_image_location: top
+#  #  card_image is commented out to allow holderjs placeholder
+
+bottom_image:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_image_location: bottom
+#  #  card_image is commented out to allow holderjs placeholder
+
+overlay_image:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_image_overlay: Hi! I'm an overlay!
+  card_image_location: top
+#  #  card_image is commented out to allow holderjs placeholder
+
+header_card:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_header: Header
+
+footer_card:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  button_text: I'm a button!
+  button_color: danger
+  card_footer: Footer
 
 list_card:
-  card_title: Card title
+  card_title: Card Title
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
-  card_image_location: top
-  card_image_overlay: Hi I'm an overlay!
   card_list:
     - Cras justo odio
     - Dapibus ac facilisis in
     - Vestibulum at eros
-  #  card_image is commented out to allow holderjs placeholder
-  #  card_image: kitten.jpg
 
-bottom_card:
-  card_title: Card title
-  card_subtitle: Card subtitle
+card_background_1:
+  card_title: Card Title
+  card_text: These cards have variable body length
+  card_background: primary
+  text_color: white
+
+card_background_2:
+  card_title: Card Title
+  card_text: In order to show off bootstrap's column functionality
+  card_background: secondary
+  text_color: white
+
+card_background_3:
+  card_title: Card Title
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
-  button_text: Go somewhere
-  card_image_location: bottom
-  card_image:
-    src: https://placekitten.com/g/318/180
-    alt: A kitten looking cute
+  card_background: success
+  text_color: white
+
+card_background_4:
+  card_title: Card Title
+  card_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet facilisis erat. Suspendisse ultrices sed massa a faucibus. Vivamus scelerisque eleifend dui, ut consectetur tellus rutrum in. Nullam lobortis, ex vel rutrum volutpat, magna eros tristique nisi, quis bibendum urna erat consequat sapien.
+  card_background: danger
+  text_color: white
+
+card_border_1:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_border: warning
+  text_color: warning
+
+card_border_2:
+  card_title: Card Title
+  card_text: I'm using a lot of extra words and characters in this sentence to make sure it takes at least three lines!
+  card_border: info
+  text_color: info
+
+card_border_3:
+  card_title: Card Title
+  card_text: This card takes two lines. Oops, not quite enough characters, heres some more.
+  card_border: light
+
+card_border_4:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_border: dark
+  text_color: dark
