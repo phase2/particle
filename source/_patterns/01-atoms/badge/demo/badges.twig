@@ -15,10 +15,10 @@
         <p>Note: Badges scale to match the size of the immediate parent element </p>
         {% for i in 1..5 %}
           <h{{ i }}>
-        {% include '@atoms/badge/_badge.twig' with {
-          badge_text: 'Badge',
-          badge_color: 'primary',
-        } %}
+          {% include '@atoms/badge/_badge.twig' with {
+            badge_text: 'Badge',
+            badge_color: 'primary',
+          } %}
           </h{{ i }}>
         {% endfor %}
       </div>
