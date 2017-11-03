@@ -1,87 +1,108 @@
-{% extends '@atoms/grid/_grid-1-up.twig' %}
+{#
+  Typography!
 
-{% block column_1 %}
+  This is a demo file for our typography.
 
-<h1>Font Families</h1>
+  See https://getbootstrap.com/docs/4.0/content/typography/ for more!
 
-{% for ffVarName, ffVarData in baseScssVars if '$ff--' in ffVarName %}
-  {% set value = ffVarData.declarations[0].expression %}
-  <div>
-    <div style="font-family: {{ value }};">{{ value }}</div>
-    <div>
-      <pre><code>
+#}
+
+<div class="container">
+  {% embed '@atoms/grid/_grid-1-up.twig' %}
+    {% block column_1 %}
+      <h1>Font Families</h1>
+
+      {% for ffVarName, ffVarData in baseScssVars if '$ff--' in ffVarName %}
+        {% set value = ffVarData.declarations[0].expression %}
+        <div>
+          <div style="font-family: {{ value }};">{{ value }}</div>
+          <div>
+      <pre class="bg-light"><code>
 .class {
   font-family: {{ ffVarName }};
 }
       </code></pre>
-    </div>
+          </div>
 
-    <h6>Normal</h6>
-    <div style="font-family: {{ value }}; font-size: 2em;">{{ excerpt.short }}</div>
+          <h6>Normal</h6>
+          <div style="font-family: {{ value }}; font-size: 2em;">{{ excerpt.short }}</div>
 
-    <h6>Bold</h6>
-    <div style="font-family: {{ value }}; font-size: 2em; font-weight: bold;">{{ excerpt.short }}</div>
+          <h6>Bold</h6>
+          <div style="font-family: {{ value }}; font-size: 2em; font-weight: bold;">{{ excerpt.short }}</div>
 
-    <h6>Italic</h6>
-    <div style="font-family: {{ value }}; font-size: 2em; font-style: italic;">{{ excerpt.short }}</div>
+          <h6>Italic</h6>
+          <div style="font-family: {{ value }}; font-size: 2em; font-style: italic;">{{ excerpt.short }}</div>
 
-  </div>
-  <hr>
-{% endfor %}
+        </div>
+        <hr>
+      {% endfor %}
+
+      <h1>Font Sizes</h1>
+
+      <ul style="list-style: none;">
+        {% for fsVarName, fsVarData in baseScssVars if '$fs--' in fsVarName %}
+          {% set value = fsVarData.value ~ fsVarData.unit %}
+
+          <div style="font-size: {{ value }};">{{ headline.short }}</div>
+          <div>{{ value }}: <code>{{ fsVarName }}</code></div>
+
+        {% endfor %}
+      </ul>
+
+      <p>To add to these items, use Sass variables that start with $fs-- in
+        _fonts.scss</p>
+      <hr>
+
+      <h1>Headings</h1>
+      {#
+        These are heading styles, including both element and classed version.
+        Use the element version in markup following Accessibility guidelines.
+        Use the class version to match font styling of heading.
+        See https://webaim.org/techniques/semanticstructure/
+      #}
+      <table class="table table-responsive-sm">
+        <thead>
+          <tr>
+            <th scope="col">Header</th>
+            <th scope="col">Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in range(1, 6) %}
+            <tr>
+              <th scope="row"><h{{ i }} contenteditable>{{ headline.short }}</h{{ i }}></th>
+              <td><code>&lt;h{{ i }} contenteditable&gt;h1. {{ headline.short }}&lt;/h{{ i }}&gt;</code></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p class="my-4">You can use these as either the element or as a class. For example:</p>
+      <table class="table table-responsive-sm">
+        <thead>
+        <tr>
+          <th scope="col">Header</th>
+          <th scope="col">Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in range(1, 6) %}
+          <tr>
+            <th scope="row"><p class="h{{ i }}">{{ headline.short }}</p{{ i }}></th>
+            <td><code>&lt;p class="h{{ i }}"&gt;p{{ i }}. {{ headline.short }}&lt;/p&gt;</code></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <hr>
 
 
-<h1>Font Sizes</h1>
+    {% endblock column_1 %}
+  {% endembed %}
+{# End Container #}
+</div>
 
-<ul style="list-style: none;">
-  {% for fsVarName, fsVarData in baseScssVars if '$fs--' in fsVarName %}
-    {% set value = fsVarData.value ~ fsVarData.unit %}
 
-    <div style="font-size: {{ value }};">{{ headline.short }}</div>
-    <div>{{ value }}: <code>{{ fsVarName }}</code></div>
 
-  {% endfor %}
-</ul>
-
-  <p>To add to these items, use Sass variables that start with $fs-- in
-  _fonts.scss</p>
-<hr>
-
-<h1>Headings</h1>
-{#
-  These are heading styles, including both element and classed version.
-  Use the element version in markup following Accessibility guidelines.
-  Use the class version to match font styling of heading.
-  See https://webaim.org/techniques/semanticstructure/
-#}
-  <h1 contenteditable>h1 {{ headline.short }}</h1>
-  <h2 contenteditable>h2 {{ headline.short }}</h2>
-  <h3 contenteditable>h3 {{ headline.short }}</h3>
-  <h4 contenteditable>h4 {{ headline.short }}</h4>
-  <h5 contenteditable>h5 {{ headline.short }}</h5>
-  <h6 contenteditable>h6 {{ headline.short }}</h6>
-
-  <p class="my-4">You can use these as either the element or as a class. For example:</p>
-  <pre class="bg-light">
-    <code>
-      &lt;h1 contenteditable&gt;h1. {{ headline.short }}&lt;/h1&gt;
-      &lt;h2 contenteditable&gt;h2. {{ headline.short }}&lt;/h2&gt;
-      &lt;h3 contenteditable&gt;h3. {{ headline.short }}&lt;/h3&gt;
-      &lt;h4 contenteditable&gt;h4. {{ headline.short }}&lt;/h4&gt;
-      &lt;h5 contenteditable&gt;h5. {{ headline.short }}&lt;/h5&gt;
-      &lt;h6 contenteditable&gt;h6. {{ headline.short }}&lt;/h6&gt;
-    </code>
-  </pre>
-  <pre class="bg-light">
-    <code>
-      &lt;p class=".h1"&gt;h1. {{ headline.short }}&lt;/p&gt;
-      &lt;p class=".h2"&gt;h2. {{ headline.short }}&lt;/p&gt;
-      &lt;p class=".h3"&gt;h3. {{ headline.short }}&lt;/p&gt;
-      &lt;p class=".h4"&gt;h4. {{ headline.short }}&lt;/p&gt;
-      &lt;p class=".h5"&gt;h5. {{ headline.short }}&lt;/p&gt;
-      &lt;p class=".h6"&gt;h6. {{ headline.short }}&lt;/p&gt;
-    </code>
-  </pre>
-<hr>
 
 <h1>Display headings</h1>
   <h1 class="display-1">{{ headline.short }}</h1>
@@ -195,4 +216,4 @@
   <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text, and typically distinguished visually using indentation and a different typeface or smaller size quotation.</p>
 </blockquote>
 
-{% endblock column_1 %}
+
