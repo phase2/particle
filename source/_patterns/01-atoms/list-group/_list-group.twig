@@ -1,14 +1,12 @@
 {#
   List-group:
 
+  parent_element: String: ul|ol|div the html element that will contain the list
+  list_id: String: a unique id for the list
   item_element: String: li|a|div the html element that the item will use
   item_classes: Array: accepts active, disabled, list-group-item-action, list-group-item-(color). See https://getbootstrap.com/docs/4.0/components/list-group/#with-badges for examples. See https://getbootstrap.com/docs/4.0/utilities/flex/ for flex options
   item_text: String: the text of the list item
   badge: Array: Accepts badge_element, badge_pill, badge_color, badge_link, and badge_text. See source/_patterns/01-atoms/badge/_badge.twig for structure
-
-  REEVALUATE DOCS AFTER MAKING EXAMPLES
-  SERIOUSLY THIS IS AAWWWWL WRONG
-
 #}
 
 {% set parent_element = parent_element ?: 'ul' %}
@@ -36,9 +34,5 @@
   {% endfor %}
 </{{ parent_element }}>
 
-{#To do#}
-{#check if order of classes matters#}
-{#make examples #}
-{#add JS behaviors#}
 
 
