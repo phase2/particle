@@ -80,7 +80,7 @@
       <table class="table table-responsive-sm">
         <thead>
         <tr>
-          <th scope="col">Header</th>
+          <th scope="col">Paragraph</th>
           <th scope="col">Code</th>
         </tr>
         </thead>
@@ -95,125 +95,118 @@
       </table>
       <hr>
 
+      <h1>Display headings</h1>
+      <p class="my-4">Bootstrap style for larger headlines. For example:</p>
+
+      <table class="table table-responsive-sm">
+        <thead>
+        <tr>
+          <th scope="col">Display Heading</th>
+          <th scope="col">Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in range(1, 4) %}
+          <tr>
+            <th scope="row"><h1 class="display-{{ i }}">{{ title }}</h1></th>
+            <td><code>&lt;h1 class="display-{{ i }}"&gt;{{ title }}&lt;/h1&gt;</code></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <hr>
+
+      <h1>Text Styles</h1>
+
+      {# Paragraph Lead from Bootstrap#}
+      <p class="py-2 h2">Lead</p>
+      <div class="border">
+        <p class="lead">A paragraph <code>p</code> class to help text standout. {{ excerpt.medium }}</p>
+        <pre class="bg-light" style="margin: 0; padding: 0;">
+          <code>
+&lt;p class="lead"&gt;
+  {{ excerpt.short }}
+&lt;/p&gt;</code>
+        </pre>
+      </div>
+
+      <p class="py-2 h2">Paragraphs</p>
+      <p><b>Paragraph One</b> {{ description }}</p>
+      <hr>
+      <p><b>Paragraph Two</b> after an <code>hr</code> {{ description }}</p>
+
+      <p class="py-2 h2">Header + Paragraphs</p>
+      {% for i in range(1, 6)  %}
+        <h{{ i }}>Header {{ i }}</h{{ i }}>
+        <p><b>Paragraph</b> following an <code>h{{ i }}</code>{{ description }}</p>
+      {% endfor %}
+
+      <p class="py-2 h2">Misc</p>
+      <p><a href="#">This is a text link.</a></p>
+
+      <p><i>Italic text is used for stylistic purposes</i> in <code>i</code></p>
+
+      <p><em>This text has added emphasis</em> in <code>em</code></p>
+
+      <p><b>Bolded text is used for stylistic purposes</b> in <code>b</code></p>
+
+      <p><strong>Strong is used to indicate strong importance</strong> in <code>strong</code></p>
+
+      <p>This text is <sup>superscript</sup></p>
+
+      <p>This text is <sub>subscript</sub></p>
+
+      <blockquote>
+        <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text, and typically distinguished visually using indentation and a different typeface or smaller size quotation.</p>
+      </blockquote>
+
+      <p class="p-2 h3">Lists</p>
+      <div class="list--unordered">
+        <ul>
+          <li>This is a list item in an <b>Unordered List</b></li>
+          <li>An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line. </li>
+          <li>
+            Lists can be nested inside of each other
+            <ul>
+              <li>This is a nested list item</li>
+              <li>This is another nested list item in an unordered list</li>
+            </ul>
+          </li>
+          <li>This is the last list item</li>
+        </ul>
+      </div>
+      <hr>
+
+      <div class="list--ordered">
+        <ol>
+          <li>This is a list item in an <b>Ordered List</b></li>
+          <li>An ordered list is a list in which the sequence of items is important. An ordered list does not necessarily contain sequence characters.</li>
+          <li>
+            Lists can be nested inside of each other
+            <ol>
+              <li>This is a nested list item</li>
+              <li>This is another nested list item in an ordered list</li>
+            </ol>
+          </li>
+          <li>This is the last list item</li>
+        </ol>
+      </div>
+
+      <div class="list--definition">
+        <dl>
+          <dt><b>Definition List</b></dt>
+          <dd>A number of connected items or names written or printed consecutively, typically one below the other.</dd>
+          <dt>This is a term.</dt>
+          <dd>This is the definition of that term, which both live in a <code>dl</code>.</dd>
+          <dt>Here is another term.</dt>
+          <dd>And it gets a definition too, which is this line.</dd>
+          <dt>Here is term that shares a definition with the term below.</dt>
+          <dd>And it gets a definition too, which is this line.</dd>
+        </dl>
+      </div>
+
 
     {% endblock column_1 %}
   {% endembed %}
 {# End Container #}
 </div>
-
-
-
-
-<h1>Display headings</h1>
-  <h1 class="display-1">{{ headline.short }}</h1>
-  <h1 class="display-2">{{ headline.short }}</h1>
-  <h1 class="display-3">{{ headline.short }}</h1>
-  <h1 class="display-4">{{ headline.short }}</h1>
-
-  <p class="my-4">Bootstrap style for larger headlines. For example:</p>
-  <pre class="bg-light">
-    <code>
-      &lt;h1 class="display-1"&gt;{{ headline.short }}&lt;/h1&gt;
-      &lt;h1 class="display-2"&gt;{{ headline.short }}&lt;/h1&gt;
-      &lt;h1 class="display-3"&gt;{{ headline.short }}&lt;/h1&gt;
-      &lt;h1 class="display-4"&gt;{{ headline.short }}&lt;/h1&gt;
-    </code>
-  </pre>
-<hr>
-
-<h1>Paragraph Lead</h1>
-  <p class="lead">A paragraph <code>p</code> class to help text standout. {{ excerpt.medium }}</p>
-  <pre class="bg-light">
-    <code>
-      &lt;p class="lead"&gt;{{ excerpt.short }}&lt;/p&gt;
-    </code>
-  </pre>
-  <hr>
-
-<h1>Lists</h1>
-<div class="list--unordered">
-  <ul>
-    <li>This is a list item in an <b>Unordered List</b></li>
-    <li>An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line. </li>
-    <li>
-      Lists can be nested inside of each other
-      <ul>
-        <li>This is a nested list item</li>
-        <li>This is another nested list item in an unordered list</li>
-      </ul>
-    </li>
-    <li>This is the last list item</li>
-  </ul>
-</div>
-<hr>
-
-<div class="list--ordered">
-  <ol>
-    <li>This is a list item in an <b>Ordered List</b></li>
-    <li>An ordered list is a list in which the sequence of items is important. An ordered list does not necessarily contain sequence characters.</li>
-    <li>
-      Lists can be nested inside of each other
-      <ol>
-        <li>This is a nested list item</li>
-        <li>This is another nested list item in an ordered list</li>
-      </ol>
-    </li>
-    <li>This is the last list item</li>
-  </ol>
-</div>
-
-<div class="list--definition">
-  <dl>
-    <dt><b>Definition List</b></dt>
-    <dd>A number of connected items or names written or printed consecutively, typically one below the other.</dd>
-    <dt>This is a term.</dt>
-    <dd>This is the definition of that term, which both live in a <code>dl</code>.</dd>
-    <dt>Here is another term.</dt>
-    <dd>And it gets a definition too, which is this line.</dd>
-    <dt>Here is term that shares a definition with the term below.</dt>
-    <dd>And it gets a definition too, which is this line.</dd>
-  </dl>
-</div>
-
-<h1>Text</h1>
-<p><b>Paragraph One</b> {{ excerpt.short }}</p>
-<hr>
-<p><b>Paragraph Two</b> after an <code>hr</code> {{ excerpt.medium }}</p>
-
-<h1>Header 1</h1>
-<p><b>Paragraph</b> following an <code>h1</code> {{ description }}</p>
-
-<h2>Header 2</h2>
-<p><b>Paragraph</b> following an <code>h2</code> {{ description }}</p>
-
-<h3>Header 3</h3>
-<p><b>Paragraph</b> following an <code>h3</code> {{ description }}</p>
-
-<h4>Header 4</h4>
-<p><b>Paragraph</b> following an <code>h4</code> {{ description }}</p>
-
-<h5>Header 5</h5>
-<p><b>Paragraph</b> following an <code>h5</code> {{ description }}</p>
-
-<h6>Header 6</h6>
-<p><b>Paragraph</b> following an <code>h6</code> {{ description }}</p>
-
-<p><a href="#">This is a text link.</a></p>
-
-<p><i>Italic text is used for stylistic purposes</i> in <code>i</code></p>
-
-<p><em>This text has added emphasis</em> in <code>em</code></p>
-
-<p><b>Bolded text is used for stylistic purposes</b> in <code>b</code></p>
-
-<p><strong>Strong is used to indicate strong importance</strong> in <code>strong</code></p>
-
-<p>This text is <sup>superscript</sup></p>
-
-<p>This text is <sub>subscript</sub></p>
-
-<blockquote>
-  <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text, and typically distinguished visually using indentation and a different typeface or smaller size quotation.</p>
-</blockquote>
-
-
