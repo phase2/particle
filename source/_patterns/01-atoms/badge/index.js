@@ -1,13 +1,13 @@
 /**
- * List-Item
+ * Badge
  */
 
 import 'base';
 
 // Module styles
-import './_list-item.scss';
+import './_badge.scss';
 
-export const name = 'list-item';
+export const name = 'badge';
 
 export function disable() {}
 

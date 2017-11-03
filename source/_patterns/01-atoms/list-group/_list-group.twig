@@ -1,0 +1,44 @@
+{#
+  List-group:
+
+  item_element: String: li|a|div the html element that the item will use
+  item_classes: Array: accepts active, disabled, list-group-item-action, list-group-item-(color). See https://getbootstrap.com/docs/4.0/components/list-group/#with-badges for examples. See https://getbootstrap.com/docs/4.0/utilities/flex/ for flex options
+  item_text: String: the text of the list item
+  badge: Array: Accepts badge_element, badge_pill, badge_color, badge_link, and badge_text. See source/_patterns/01-atoms/badge/_badge.twig for structure
+
+  REEVALUATE DOCS AFTER MAKING EXAMPLES
+  SERIOUSLY THIS IS AAWWWWL WRONG
+
+#}
+
+{% set parent_element = parent_element ?: 'ul' %}
+
+<{{ parent_element }} class="list-group mb-3" id="{{ list_id }}">
+  {% for item in items %}
+
+  {# Note: ?: won't work in PHP5 #}
+  {% set element = item.item_element ?: 'li' %}
+
+  {% set classes = [
+  'list-group-item',
+  ] | merge(item.item_classes | default([])) | join(' ') %}
+
+  {% set attributes = [
+  ] | merge(item.item_attributes | default([])) | join(' ')%}
+
+  <{{element}} class="{{ classes }}" {{ item_id }}{{ attributes }}>
+    {{ item.item_text }}
+    {% if item.badge %}
+      {% include '@atoms/badge/_badge.twig' with item.badge %}
+    {% endif %}
+    </{{element}}>
+
+  {% endfor %}
+</{{ parent_element }}>
+
+{#To do#}
+{#check if order of classes matters#}
+{#make examples #}
+{#add JS behaviors#}
+
+

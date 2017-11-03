@@ -1,0 +1,109 @@
+badge_helper:
+  card_title: Badges
+  card_text: "
+             <p><code>badge_element</code> String: span|a choose the element type for your badge. If you use an link element make sure to enter a value for badge_link</p>
+             <p><code>badge_pill</code> Boolean: TRUE|FALSE make badges more rounded</p>
+             <p><code>badge_color</code> String: primary|secondary|success|danger|warning|info|light|dark the color of the badge</p>
+             <p><code>badge_link</code> String: the URL the badge will lead to. Make sure to set badge_element to 'a'</p>
+             <p><code>badge_text</code> String: display text on the badge</p>"
+  text_color: light
+  card_background: secondary
+
+sizes:
+  - badge_color: primary
+    badge_text: Badge
+    badge_size: h1
+  - badge_color: primary
+    badge_text: Badge
+    badge_size: h2
+  - badge_color: primary
+    badge_text: Badge
+    badge_size: h3
+  - badge_color: primary
+    badge_text: Badge
+    badge_size: h4
+  - badge_color: primary
+    badge_text: Badge
+    badge_size: h5
+  - badge_color: primary
+    badge_text: Badge
+    badge_size: h6
+
+button_badge:
+  button_color: primary
+  button_text: Notifications
+colors:
+  - badge_color: primary
+    badge_text: Primary
+  - badge_color: secondary
+    badge_text: Secondary
+  - badge_color: success
+    badge_text: Success
+  - badge_color: danger
+    badge_text: Danger
+  - badge_color: warning
+    badge_text: Warning
+  - badge_color: info
+    badge_text: Info
+  - badge_color: light
+    badge_text: Light
+  - badge_color: dark
+    badge_text: Dark
+pills:
+  - badge_color: primary
+    badge_text: Primary
+    badge_pill: TRUE
+  - badge_color: secondary
+    badge_text: Secondary
+    badge_pill: TRUE
+  - badge_color: success
+    badge_text: Success
+    badge_pill: TRUE
+  - badge_color: danger
+    badge_text: Danger
+    badge_pill: TRUE
+  - badge_color: warning
+    badge_text: Warning
+    badge_pill: TRUE
+  - badge_color: info
+    badge_text: Info
+    badge_pill: TRUE
+  - badge_color: light
+    badge_text: Light
+    badge_pill: TRUE
+  - badge_color: dark
+    badge_text: Dark
+    badge_pill: TRUE
+links:
+  - badge_color: primary
+    badge_text: Primary
+    badge_element: a
+    badge_link: 'https://github.com/phase2/pattern-lab-starter'
+  - badge_color: secondary
+    badge_text: Secondary
+    badge_element: a
+    badge_link: 'https://github.com/phase2/pattern-lab-starter'
+  - badge_color: success
+    badge_text: Success
+    badge_element: a
+    badge_link: 'https://github.com/phase2/pattern-lab-starter'
+  - badge_color: danger
+    badge_text: Danger
+    badge_element: a
+    badge_link: 'https://github.com/phase2/pattern-lab-starter'
+  - badge_color: warning
+    badge_text: Warning
+    badge_element: a
+    badge_link: 'https://github.com/phase2/pattern-lab-starter'
+  - badge_color: info
+    badge_text: Info
+    badge_element: a
+    badge_link: 'https://github.com/phase2/pattern-lab-starter'
+  - badge_color: light
+    badge_text: Light
+    badge_element: a
+    badge_link: 'https://github.com/phase2/pattern-lab-starter'
+  - badge_color: dark
+    badge_text: Dark
+    badge_element: a
+    badge_link: 'https://github.com/phase2/pattern-lab-starter'
