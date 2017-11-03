@@ -5,8 +5,13 @@
 @import '../_patterns/00-base/config';
 
 // Customized Sass Mapping
+// Pulled from Bootstrap's _variables.scss
+$font-families: (
+  "$font-family-base": $font-family-base,
+  "$font-family-monospace": $font-family-monospace
+);
+
 $font-sizes: (
-  // Font sizes pulled from Bootstrap's _variables.scss
   base: $font-size-base,
   lg: $font-size-lg,
   sm: $font-size-sm
@@ -25,8 +30,7 @@ $font-weights: (
 // Include your Customized Sass Maps here to JSONIFY
 @include export-data('scssVariables.json', (
   scssColors: $theme-colors, // Colors generated from Bootstrap's
-  fontFamily: $font-family-base, // Font Family generated from Bootstraps's _variables.scss
-  fontMono: $font-family-monospace, // Font Mono generated from Bootstrap's _variables.scss
+  fontFamilies: $font-families,
   fontSizes: $font-sizes,
   fontWeights: $font-weights,
 ));
