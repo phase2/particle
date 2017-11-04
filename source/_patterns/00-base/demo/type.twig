@@ -12,11 +12,15 @@
     {% block column_1 %}
 
       <h1>Font Families</h1>
+      <p class="lead">
+        Font families can be added via <code>_type.scss</code> and imported to this list via <code>styleguide/_scss2json.scss</code>.
+      </p>
       {% for key, family in fontFamilies %}
+        {% set family_value = family|join(', ') %}
         <div class="my-3 border">
-          <div class="my-3 p-2" style="font-family: {{ family|join(', ') }};">
-            <p>Family: {{ key }}</p>
-            <p>Fonts: {{ family|join(', ') }}</p>
+          <div class="my-3 p-2" style="font-family: {{ family_value }};">
+            <h2>Family: {{ key }}</h2>
+            <p><b>Fonts</b>: {{ family_value }}</p>
           </div>
           <pre class="bg-light">
             <code>
@@ -24,7 +28,24 @@
     font-family: {{ key }};
   }
             </code></pre>
+          <div class="p-2">
+            <p class="h3">Regular</p>
+              <div style="font-family: {{ family_value }}; font-size: 1.4em;">{{ excerpt.short }}</div>
+
+            <p class="h3">Bold</p>
+              <div style="font-family: {{ family_value }}; font-size: 1.4em; font-weight: bold;">{{ excerpt.short }}</div>
+
+            <p class="h3">Italic</p>
+              <div style="font-family: {{ family_value }}; font-size: 1.4em; font-style: italic;">{{ excerpt.short }}</div>
+          </div>
         </div>
+
+
+
+
+
+
+
       {% endfor %}
 
 
