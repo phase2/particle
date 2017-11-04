@@ -39,16 +39,19 @@
               <div style="font-family: {{ family_value }}; font-size: 1.4em; font-style: italic;">{{ excerpt.short }}</div>
           </div>
         </div>
-
-
-
-
-
-
-
       {% endfor %}
 
-
+    <h1>Font Sizes</h1>
+    <p class="lead">
+      Font sizes can be added via <code>_type.scss</code> and imported to this list via <code>styleguide/_scss2json.scss</code>.
+    <div class="p-2 border">
+      <ul style="list-style: none">
+        {% for key, size in fontSizes|sort %}
+        <div style="font-size: {{ size }};">{{ key|capitalize }}: <code>{{ size }}</code></div>
+        <p>{{ headline.medium }}</p>
+        {% endfor %}
+      </ul>
+    </div>
 
     <h1>Headings</h1>
       <p class="lead">
