@@ -3,7 +3,7 @@
 
 // Import our custom sass
 // import './_iconfont.scss';
-import './_test-icon.scss';
+import './scss/_icon.scss';
 
 // Custom logic for buttons here
 

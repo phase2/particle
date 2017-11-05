@@ -121,14 +121,15 @@ module.exports = {
     new IconfontPlugin({
       svgs: path.resolve(__dirname, './source/_patterns/01-atoms/icon/svg/**/*.svg'),
       fonts: path.resolve(__dirname, './source/_patterns/01-atoms/icon/font/'),
-      styles: path.resolve(__dirname, './source/_patterns/01-atoms/icon/_iconfont.scss'),
-      template: path.resolve(__dirname, './source/_patterns/01-atoms/icon/templates/template.scss-mixins.njk'),
+      styles: path.resolve(__dirname, './source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
+      template: path.resolve(__dirname, './source/_patterns/01-atoms/icon/templates/template.icon-map-generated.njk'),
+      fontName: 'iconfont',
       // cssFontPath: what is actually output in css
-      cssFontPath: './font/',
+      // cssFontPath: './font/',
     }),
     new webpack.WatchIgnorePlugin([
       path.resolve(__dirname, './source/_patterns/01-atoms/icon/font/'),
-      path.resolve(__dirname, './source/_patterns/01-atoms/icon/_iconfont.scss'),
+      path.resolve(__dirname, './source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
     ]),
   ],
   resolve: {
