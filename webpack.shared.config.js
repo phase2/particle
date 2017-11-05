@@ -46,9 +46,8 @@ module.exports = {
               options: {
                 sourceMap: true,
                 ident: 'postcss',
-                plugins: loader => [
+                plugins: () => [
                   autoprefixer(),
-                  // new IconfontWebpackPlugin(loader),
                 ],
               },
             },
@@ -93,10 +92,6 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader',
       },
-      // {
-      //   loader: 'base64-font-loader',
-      //   test: /\.(woff|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      // },
     ],
   },
   plugins: [
@@ -117,16 +112,17 @@ module.exports = {
     }),
     // Named files instead of chunk IDs for HMR.
     new webpack.NamedModulesPlugin(),
+    // Yell at us while writing Sass
     new StyleLintPlugin(),
+    // Iconfont generation from SVGs
     new IconfontPlugin({
       svgs: path.resolve(__dirname, './source/_patterns/01-atoms/icon/svg/**/*.svg'),
       fonts: path.resolve(__dirname, './source/_patterns/01-atoms/icon/font/'),
       styles: path.resolve(__dirname, './source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
       template: path.resolve(__dirname, './source/_patterns/01-atoms/icon/templates/template.icon-map-generated.njk'),
       fontName: 'iconfont',
-      // cssFontPath: what is actually output in css
-      // cssFontPath: './font/',
     }),
+    // Ignore generated output if generated output is on a dependency chain (causes endless loop)
     new webpack.WatchIgnorePlugin([
       path.resolve(__dirname, './source/_patterns/01-atoms/icon/font/'),
       path.resolve(__dirname, './source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),

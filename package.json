@@ -64,7 +64,6 @@
     "file-loader": "^1.1.5",
     "glob": "^7.1.2",
     "gulp": "github:gulpjs/gulp#4.0",
-    "iconfont-webpack-plugin": "^1.1.0",
     "js-yaml": "^3.10.0",
     "node-sass": "^4.6.0",
     "pa11y": "^5.0.0-beta.2",
