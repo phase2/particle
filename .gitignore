@@ -2,10 +2,9 @@
 dist/
 source/_patterns/01-atoms/images/_icons-settings.scss
 source/_patterns/01-atoms/icon/font/
-source/_patterns/01-atoms/icon/scss/_iconfont-map-generated.scss
+source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss
 source/_data/baseScssVars.json
 source/_data/scss*.json
-
 
 # OS generated files
 .DS_Store
