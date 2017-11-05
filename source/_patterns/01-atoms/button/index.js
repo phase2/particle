@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // Import button js from Bootstrap
 import { Button } from 'bootstrap/js/src';
 
@@ -12,8 +14,8 @@ import './_button.scss';
 export default {
   name: 'button',
   deps: [base, Button],
-  enable() {
-    console.log('Button js ran!');
+  enable($context) {
+    $('#blah', $context).button('toggle');
   },
   disable() {},
 };
