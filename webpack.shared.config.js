@@ -121,6 +121,7 @@ module.exports = {
       styles: path.resolve(__dirname, './source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
       template: path.resolve(__dirname, './source/_patterns/01-atoms/icon/templates/template.icon-map-generated.njk'),
       fontName: 'iconfont',
+      normalize: true,
     }),
     // Ignore generated output if generated output is on a dependency chain (causes endless loop)
     new webpack.WatchIgnorePlugin([
