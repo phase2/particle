@@ -120,7 +120,7 @@ const wpconfig = require('./webpack.pl.config');
 const serverconfig = {
   host: '0.0.0.0',
   port: '8080',
-  contentBase: path.resolve(__dirname, 'dist/', 'public/'), // ie dist/public
+  contentBase: path.resolve(__dirname, 'dist/'), // ie dist/pl
   hot: true, // Inject css/js into page without full refresh
   historyApiFallback: true, // Finds default index.html files at folder root
   inline: true, // Injects all the webpack dev server code right in the page

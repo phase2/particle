@@ -10,8 +10,9 @@
   src: /* stylelint-disable-line declaration-colon-space-after */
     url("#{$icon-font-path}#{$icon-font-base-name}.eot#iefix") format("eot"),
     url("#{$icon-font-path}#{$icon-font-base-name}.woff") format("woff"),
-    url("#{$icon-font-path}#{$icon-font-base-name}.ttf") format("truetype"),
-    url("#{$icon-font-path}#{$icon-font-base-name}.svg##{$icon-font-base-name}") format("svg");
+    url("#{$icon-font-path}#{$icon-font-base-name}.ttf") format("truetype");
+  // Leaving out svg for the time being
+  //url("#{$icon-font-path}#{$icon-font-base-name}.svg##{$icon-font-base-name}") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -39,3 +40,5 @@
     content: map-get($font-icons, $icon-name);
   }
 }
+
+
