@@ -39,7 +39,7 @@
     "IE >= 10"
   ],
   "dependencies": {
-    "@theme-tools/sass-export-data": "^1.0.0",
+    "@theme-tools/sass-export-data": "^1.0.1",
     "bootstrap": "^4.0.0-beta.2",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
@@ -66,7 +66,7 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "iconfont-webpack-plugin": "^1.1.0",
     "js-yaml": "^3.10.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.6.0",
     "pa11y": "^5.0.0-beta.2",
     "pa11y-reporter-cli": "^1.0.0",
     "postcss-loader": "^2.0.8",
@@ -77,9 +77,11 @@
     "stylelint-scss": "^1.4.3",
     "stylelint-webpack-plugin": "^0.9.0",
     "through2": "^2.0.3",
+    "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3",
-    "webpack-merge": "^4.1.0",
+    "webpack-dev-server": "^2.9.4",
+    "webpack-iconfont-plugin": "0.0.2",
+    "webpack-merge": "^4.1.1",
     "yeoman-generator": "^0.23.3",
     "yo": "^1.8.3"
   }

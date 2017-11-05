@@ -3,12 +3,12 @@ const webpack = require('webpack');
 
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const IconfontWebpackPlugin = require('iconfont-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const sassExportData = require('@theme-tools/sass-export-data')({
   name: 'export_data',
   path: path.resolve(__dirname, 'source/_data/'),
 });
+const IconfontPlugin = require('webpack-iconfont-plugin');
 
 module.exports = {
   // Commented out here since the specifics are different per PL or Drupal
@@ -48,7 +48,7 @@ module.exports = {
                 ident: 'postcss',
                 plugins: loader => [
                   autoprefixer(),
-                  new IconfontWebpackPlugin(loader),
+                  // new IconfontWebpackPlugin(loader),
                 ],
               },
             },
@@ -89,6 +89,14 @@ module.exports = {
           name: '[name].[ext]?[hash]',
         },
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader',
+      },
+      // {
+      //   loader: 'base64-font-loader',
+      //   test: /\.(woff|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      // },
     ],
   },
   plugins: [
@@ -110,6 +118,18 @@ module.exports = {
     // Named files instead of chunk IDs for HMR.
     new webpack.NamedModulesPlugin(),
     new StyleLintPlugin(),
+    new IconfontPlugin({
+      svgs: path.resolve(__dirname, './source/_patterns/01-atoms/icon/svg/**/*.svg'),
+      fonts: path.resolve(__dirname, './source/_patterns/01-atoms/icon/font/'),
+      styles: path.resolve(__dirname, './source/_patterns/01-atoms/icon/_iconfont.scss'),
+      template: path.resolve(__dirname, './source/_patterns/01-atoms/icon/templates/template.scss-mixins.njk'),
+      // cssFontPath: what is actually output in css
+      cssFontPath: './font/',
+    }),
+    new webpack.WatchIgnorePlugin([
+      path.resolve(__dirname, './source/_patterns/01-atoms/icon/font/'),
+      path.resolve(__dirname, './source/_patterns/01-atoms/icon/_iconfont.scss'),
+    ]),
   ],
   resolve: {
     alias: {

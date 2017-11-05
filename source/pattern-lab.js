@@ -6,7 +6,7 @@ import $ from 'jquery';
 import _ from 'lodash';
 
 // Full design system
-import designSystem from './design-system';
+import ds from './design-system';
 
 // PL needs grids regardless of if the component requires it
 import './_patterns/01-atoms/grid';
@@ -25,7 +25,7 @@ const settings = {
 };
 
 // Let's just execute everything and pass in $(document), settings
-_.forEach(designSystem, (component, name) => {
+_.forEach(ds, (component, name) => {
   component.enable($context, settings);
   console.log(name);
   console.log(component);
