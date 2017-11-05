@@ -1,3 +1,39 @@
+/* Sass Variables to Map to JSON */
+
+// Import Everything from Base.
+// This includes Bootstrap
 @import '../_patterns/00-base/config';
-$test-var: 20rem;
-@include export-data('scssColors.json', (scssColors: $theme-colors, test: $test-var));
+
+// Customized Sass Mapping
+// Pulled from Bootstrap's _variables.scss
+$font-families: (
+  "$font-family-base": $font-family-base,
+  "$font-family-monospace": $font-family-monospace
+);
+
+$font-sizes: (
+  base: $font-size-base,
+  lg: $font-size-lg,
+  sm: $font-size-sm
+);
+
+$font-weights: (
+  light: $font-weight-light,
+  normal: $font-weight-normal,
+  bold: $font-weight-bold
+);
+
+// Import your Customized Variables here, example:
+//@import '../_patterns/01-atoms/button/_button.scss';
+
+// Exports Data to source/_data/scssVariables.json
+// Include your Customized Sass Maps here to JSONIFY
+@include export-data('scssVariables.json', (
+  scssColors: $theme-colors, // Colors generated from Bootstrap's
+  fontFamilies: $font-families,
+  fontSizes: $font-sizes,
+  fontWeights: $font-weights,
+));
+
+// Add font sizes, font faces, typog variables, colors,
+// Check Sass to JSON task
