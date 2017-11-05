@@ -19,17 +19,23 @@
             parameters for pseudo position, text-replacement, size, color, and
             block display. See <code>@atoms/icon/scss/_icon-mixins.scss</code>
             for more detail.</p>
-          <p>All SVGs added to the svg folder must be on a 512px x 512px
-            canvas. Adding new SVGs to the folder requires restarting the webpack dev server.</p>
+          <h4>Considerations</h4>
+          <ul>
+            <li>It is recommended that all SVGs be on the same size canvas (512px x 512px). All glyphs are scaled up to the size of the largest glyph otherwise.</li>
+            <li>Adding new SVGs to the folder requires restarting the webpack dev server.</li>
+            <li>Font icons inherit the color of their parent text.</li>
+            <li>The generated font named <strong>{{ scssIcons.fontname }}</strong> will be <a href="https://github.com/webpack-contrib/url-loader">base64 inlined</a> into the output CSS.</li>
+          </ul>
         </div>
       </div>
 
-      <div class="row align-items-center" style="min-height: 10rem;">
+      <div class="d-flex align-items-center flex-wrap" style="min-height: 10rem;">
         {% for icon, glyph in scssIcons.icons %}
-          <div class="d-flex col justify-content-center align-items-center p-3">
-            <i class="{{ scssIcons.prefix }}{{ icon }} p-1"></i>
-            <i class="{{ scssIcons.prefix }}{{ icon }} p-1 text-danger" style="font-size: 1.5rem;"></i>
-            <i class="{{ scssIcons.prefix }}{{ icon }} p-1 bg-dark text-white" style="font-size: 2rem;"></i>
+          <div class="col p-3 text-center">
+            <i class="{{ scssIcons.prefix }}{{ icon }}"></i>
+            <i class="{{ scssIcons.prefix }}{{ icon }} text-primary" style="font-size: 1.5rem;"></i>
+            <i class="{{ scssIcons.prefix }}{{ icon }} bg-dark text-white" style="font-size: 2rem;"></i>
+            <p class="w-100 pt-3" style="white-space: nowrap;"><code>{{ icon }}</code></p>
           </div>
         {% endfor %}
       </div>

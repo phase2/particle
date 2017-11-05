@@ -82,7 +82,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]',
@@ -90,7 +90,11 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader',
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
       },
     ],
   },
