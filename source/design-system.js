@@ -7,6 +7,7 @@ import image from 'atoms/image';
 import listItem from 'atoms/list-item';
 import card from 'molecules/card';
 import breadcrumb from 'molecules/breadcrumb';
+import jumbotron from 'molecules/jumbotron';
 
 // Export as a plain ol' object if we need
 export default {
@@ -15,6 +16,7 @@ export default {
   listItem,
   card,
   breadcrumb,
+  jumbotron,
 };
 
 // Provide each individually
@@ -24,4 +26,5 @@ export {
   listItem,
   card,
   breadcrumb,
+  jumbotron,
 };

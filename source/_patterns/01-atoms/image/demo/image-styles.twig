@@ -5,8 +5,9 @@
       <h1>Image styles</h1>
 
       {% for imageStyleName, imageStyleSetting in imageStyles %}
-        {% include "@atoms/image/_image.twig" with { imageStyleName: imageStyleName } %}
-        <br> <br>
+        <div class="mb-3">
+          {% include "@atoms/image/_image.twig" with { imageStyleName: imageStyleName } %}
+        </div>
       {% endfor %}
 
     {% endblock %}

@@ -101,6 +101,7 @@ module.exports = {
       allChunks: true,
     }),
     new webpack.ProvidePlugin({
+      // Bootstrap is dependant on jQuery and Popper, they must explicitly be provided by webpack.
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
