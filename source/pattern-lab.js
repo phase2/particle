@@ -5,11 +5,12 @@
 import $ from 'jquery';
 import _ from 'lodash';
 
-// Full design system
-import ds from './design-system';
+// PL-only components, regardless of design system
+import 'atoms/grid';
+import 'atoms/image/demo';
 
-// PL needs grids regardless of if the component requires it
-import './_patterns/01-atoms/grid';
+// Full design system. May dupe the above, but Webpack don't care.
+import ds from './design-system';
 
 // Adds PL-only styles, ie color swatches.
 import './styleguide/_styleguide-specific.scss';
@@ -28,5 +29,5 @@ const settings = {
 _.forEach(ds, (component, name) => {
   component.enable($context, settings);
   console.log(name);
-  console.log(component);
+  // console.log(component);
 });
