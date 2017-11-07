@@ -6,7 +6,9 @@
 
       {% for imageStyleName, imageStyleSetting in imageStyles %}
         <div class="mb-3">
-          {% include "@atoms/image/_image.twig" with { imageStyleName: imageStyleName } %}
+          {% include "@atoms/_image.twig" with {
+            imageStyleName: imageStyleName
+          } %}
         </div>
       {% endfor %}
 

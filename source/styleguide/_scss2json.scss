@@ -6,18 +6,18 @@
 
 // Customized Sass Mapping
 // Pulled from Bootstrap's _variables.scss
-$font-families: (
+$font-families-demo: (
   "$font-family-base": $font-family-base,
   "$font-family-monospace": $font-family-monospace
 );
 
-$font-sizes: (
+$font-sizes-demo: (
   base: $font-size-base,
   lg: $font-size-lg,
   sm: $font-size-sm
 );
 
-$font-weights: (
+$font-weights-demo: (
   light: $font-weight-light,
   normal: $font-weight-normal,
   bold: $font-weight-bold
@@ -26,13 +26,24 @@ $font-weights: (
 // Import your Customized Variables here, example:
 //@import '../_patterns/01-atoms/button/_button.scss';
 
+// Include icons settings
+@import '../_patterns/01-atoms/icon/scss/icon-mixins';
+
+$icons-demo: (
+  prefix: $icon-font-class-prefix,
+  fontname: $icon-font-base-name,
+  icons: $font-icons,
+);
+
+
 // Exports Data to source/_data/scssVariables.json
 // Include your Customized Sass Maps here to JSONIFY
 @include export-data('scssVariables.json', (
   scssColors: $theme-colors, // Colors generated from Bootstrap's
-  fontFamilies: $font-families,
-  fontSizes: $font-sizes,
-  fontWeights: $font-weights,
+  fontFamilies: $font-families-demo,
+  fontSizes: $font-sizes-demo,
+  fontWeights: $font-weights-demo,
+  scssIcons: $icons-demo,
 ));
 
 // Add font sizes, font faces, typog variables, colors,

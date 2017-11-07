@@ -3,6 +3,7 @@
   in a .container div. We leave this up to the implementor manually for flexibility.
 #}
 
+{% if container %}<div class="container">{% endif %}
 <div class="row">
   <div class="col-sm-3">
     {% block column_1 %}
@@ -29,3 +30,4 @@
   </div>
 
 </div>
+{% if container %}</div>{% endif %}

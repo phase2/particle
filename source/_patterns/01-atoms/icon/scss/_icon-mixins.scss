@@ -1,14 +1,13 @@
-@font-face {
-  font-family: $icon-font-base-name;
-  src: url("#{$icon-font-path}#{$icon-font-base-name}.eot?cachebust=#{random(99999)}");
-  src: /* stylelint-disable-line declaration-colon-space-after */
-    url("#{$icon-font-path}#{$icon-font-base-name}.eot?cachebust=#{random(99999)}#iefix") format("eot"),
-    url("#{$icon-font-path}#{$icon-font-base-name}.woff?cachebust=#{random(99999)}") format("woff"),
-    url("#{$icon-font-path}#{$icon-font-base-name}.ttf?cachebust=#{random(99999)}") format("truetype"),
-    url("#{$icon-font-path}#{$icon-font-base-name}.svg?cachebust=#{random(99999)}#icons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+///
+/// Include this file for all non-printing vars involving icons
+///
+
+// $icon-font-base-name and $font-icons come from here:
+@import 'icon-map-generated';
+
+$icon-font-path: '../font/';
+$icon-font-class-prefix: 'icon--';
+
 
 @mixin font-icon-base() {
   font-family: $icon-font-base-name;
@@ -20,7 +19,9 @@
   speak: none;
   text-decoration: inherit;
   text-transform: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: auto;
+  font-size: inherit;
+  transform: translate(0, 0);
 }
 
 @mixin font-icon-replace($pseudo) {
@@ -72,29 +73,5 @@
   // Get around fighting with line-heights
   @if $block {
     display: block;
-  }
-}
-
-/**
- * Font application to generic DOM
- */
-
-//@font-face {
-//  font-family: $icon-font-base-name;
-//  src: $icon-font-source-1;
-//  src: $icon-font-source-2;
-//  font-weight: normal;
-//  font-style: normal;
-//}
-
-// Everything with .icon--something has a base set of styles in order to view
-[class*="#{$icon-font-class-prefix}--"] {
-  @include font-icon-base;
-}
-
-// Print .icon--thingy classes using default :before for easy elements
-@each $icon-name, $icon-symbol in $font-icons {
-  .#{$icon-font-class-prefix}--#{$icon-name}::before {
-    content: map-get($font-icons, $icon-name);
   }
 }
