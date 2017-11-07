@@ -61,6 +61,7 @@ plugins:
           - ../../source/_patterns/01-atoms/image
           - ../../source/_patterns/01-atoms/button
           - ../../source/_patterns/01-atoms/list-item
+          - ../../source/_patterns/01-atoms/breadcrumb
       molecules:
         paths:
           - ../../source/_patterns/02-molecules

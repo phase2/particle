@@ -2,6 +2,7 @@
  * The kitchen sink of all design components
  */
 
+import breadcrumb from 'atoms/breadcrumb';
 import button from 'atoms/button';
 import image from 'atoms/image';
 import icon from 'atoms/icon';
@@ -11,6 +12,7 @@ import jumbotron from 'molecules/jumbotron';
 
 // Plain ol' object in ES6 object shorthand syntax
 const designSystem = {
+  breadcrumb,
   button,
   image,
   icon,
