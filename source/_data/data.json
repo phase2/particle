@@ -2,7 +2,7 @@
   "pl": true,
   "BUILD_TARGET": "pl",
   "paths": {
-    "pl_theme_root": "../../../.."
+    "assets": "../../../assets"
   },
   "bodyClass": "pl",
   "title": "Faker.words(2, true)",

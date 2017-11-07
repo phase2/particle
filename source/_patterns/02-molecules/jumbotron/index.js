@@ -13,7 +13,6 @@ import './_jumbotron.scss';
 export default {
   name: 'jumbotron',
   deps: [base, image, button],
-  enable() {
-  },
+  enable() {},
   disable() {},
 };

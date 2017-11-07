@@ -44,7 +44,7 @@ function startWebpackDevServer(webpackConfig, devServerConfig) {
         cb(err);
       }
 
-      console.info(`Listening at ${localHost}`);
+      console.info(`Listening at ${localHost}. PL located at ${localHost}/pl`);
       cb();
     });
 

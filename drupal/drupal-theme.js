@@ -5,7 +5,7 @@
 import $ from 'jquery';
 import _ from 'lodash';
 
-import designSystem from '../source/design-system';
+import ds from '../source/design-system';
 
 require('./scss/_drupal-styles.scss');
 
@@ -20,7 +20,7 @@ _.forEach([1, 2, 3, 4], (num) => {
 
 Drupal.behaviors.designSystem = {
   attach(context, settings) {
-    designSystem.forEach((component) => {
+    ds.forEach((component) => {
       component.enable(context, settings);
     });
   },
