@@ -458,6 +458,93 @@
     &lt;/table&gt;</code></pre>
     </div>
 
+    <h3 class="py-2">Small table</h3>
+    <p>Add <code>.table-sm</code> to make tables more compact by cutting cell padding in half.</p>
+    <div class="p-4 border">
+      <table class="table table-sm">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          {% for header in table_header %}
+            <th scope="col">{{ header }}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-sm"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+{% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+{% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+{% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+{% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+
+      <table class="table table-dark table-sm">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          {% for header in table_header %}
+            <th scope="col">{{ header }}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-dark table-sm"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+{% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+{% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+{% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+{% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
 
 
 
