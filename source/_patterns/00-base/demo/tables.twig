@@ -505,12 +505,12 @@
 
       <table class="table table-dark table-sm">
         <thead>
-        <tr>
-          <th scope="col">#</th>
-          {% for header in table_header %}
-            <th scope="col">{{ header }}</th>
-          {% endfor %}
-        </tr>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
         </thead>
         <tbody>
         {% for content in table_content %}
@@ -546,9 +546,47 @@
     &lt;/table&gt;</code></pre>
     </div>
 
-
-
-
+    <h3 class="py-2">Contextual classes</h3>
+    <p>Use contextual classes to color table rows or individual cells.</p>
+    <div class="p-4 border">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Row Code</th>
+            <th scope="col">Cell Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for colorName, colorValue in scssColors %}
+            <tr class="table-{{ colorName }}">
+              <th scope="row">{{ colorName }}</th>
+              <td><code>&lt;tr class="table-{{ colorName }}"&gt;...&lt;/tr&gt;</code></td>
+              <td><code>&lt;td class="table-{{ colorName }}"&gt;...&lt;/td&gt;</code></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p>Regular table background variants are not available with the dark table, however, you may use text or background utilities to achieve similar styles.</p>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col">Row Code</th>
+          <th scope="col">Cell Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for colorName, colorValue in scssColors %}
+          <tr class="bg-{{ colorName }}">
+            <th scope="row">{{ colorName }}</th>
+            <td><code>&lt;tr class="bg-{{ colorName }}"&gt;...&lt;/tr&gt;</code></td>
+            <td><code>&lt;td class="bg-{{ colorName }}"&gt;...&lt;/td&gt;</code></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
   {% endblock column_1 %}
 {% endembed %}
