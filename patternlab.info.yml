@@ -25,12 +25,12 @@ component-libraries:
       - source/_patterns/01-atoms/image
       - source/_patterns/01-atoms/button
       - source/_patterns/01-atoms/list-item
+      - source/_patterns/01-atoms/breadcrumb
   molecules:
     paths:
       - source/_patterns/02-molecules
       - source/_patterns/02-molecules/card
       - source/_patterns/02-molecules/jumbotron
-      - source/_patterns/02-molecules/breadcrumb
   organisms:
     paths:
       - source/_patterns/03-organisms
