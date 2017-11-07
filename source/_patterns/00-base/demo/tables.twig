@@ -1,0 +1,63 @@
+{#
+  Tables!
+  table_header: Array: A list of table headers from _data/tables.yaml
+  table_content: Array: A list of table content from _data/tables.yaml
+  see https://getbootstrap.com/docs/4.0/content/tables/
+#}
+
+{# @TODO Presented without container pending Grid update, embed should be "with container" post merge #}
+<div class="container">
+  {% embed '@atoms/grid/_grid-1-up.twig' %}
+    {% block column_1 %}
+      <h1>Tables</h1>
+      <p class="lead">Documentation and examples for opt-in styling of tables (given their prevelant use in JavaScript plugins) with Bootstrap.</p>
+      <h2>Examples</h2>
+
+      <div class="border">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+          </thead>
+          <tbody>
+          {% for content in table_content %}
+            <tr>
+              <th scope="row">{{ loop.index }}</th>
+              <td>{{ content.first_name }}</td>
+              <td>{{ content.last_name }}</td>
+              <td>@{{ content.username }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <pre class="bg-light">
+        <code>
+  &lt;div class="border"&gt;
+    &lt;table class="table"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+            &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+          &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+          {% for content in table_content %}
+            &lt;tr&gt;
+            &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+            &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+            &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+            &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+            &lt;/tr&gt;
+          {% endfor %}
+          &lt;/tbody&gt;
+  &lt;/table&gt;</code></pre>
+      </div>
+    {% endblock column_1 %}
+  {% endembed %}
+</div>
