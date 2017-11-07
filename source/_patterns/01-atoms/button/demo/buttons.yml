@@ -1,68 +1,28 @@
-colors:
-  - button_color: primary
-    button_text: Primary
-  - button_color: secondary
-    button_text: Secondary
-  - button_color: success
-    button_text: Success
-  - button_color: danger
-    button_text: Danger
-  - button_color: warning
-    button_text: Warning
-  - button_color: info
-    button_text: Info
-  - button_color: light
-    button_text: Light
-  - button_color: dark
-    button_text: Dark
+button_helper:
+  card_text: Use Bootstrap's custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+  text_color: light
+  card_background: secondary
+  button_element: a
+  button_text: More Info
+  button_color: primary
+  button_link: 'https://getbootstrap.com/docs/4.0/components/buttons/'
 
 elements:
-  - button_color: success
-    button_element: a
+  - button_element: a
     button_link: 'https://github.com/phase2/pattern-lab-starter'
     button_text: Link
-  - button_color: success
-    button_element: button
+  - button_element: button
     button_type: submit
     button_text: Button
-  - button_color: success
-    button_element: input
+  - button_element: input
     button_type: button
     button_value: Input
-  - button_color: success
-    button_element: input
+  - button_element: input
     button_type: submit
     button_value: Submit
-  - button_color: success
-    button_element: input
+  - button_element: input
     button_type: reset
     button_value: Reset
-
-outlines:
-  - button_color: primary
-    button_text: Primary
-    button_outline: TRUE
-  - button_color: secondary
-    button_text: Secondary
-    button_outline: TRUE
-  - button_color: success
-    button_text: Success
-    button_outline: TRUE
-  - button_color: danger
-    button_text: Danger
-    button_outline: TRUE
-  - button_color: warning
-    button_text: Warning
-    button_outline: TRUE
-  - button_color: info
-    button_text: Info
-    button_outline: TRUE
-  - button_color: light
-    button_text: Light
-    button_outline: TRUE
-  - button_color: dark
-    button_text: Dark
-    button_outline: TRUE
 
 sizes:
   - button_size: lg

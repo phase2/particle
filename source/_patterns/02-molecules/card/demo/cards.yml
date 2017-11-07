@@ -1,7 +1,5 @@
 helper_card_main:
-  card_title: Cards
-  card_text: 'Each card has at least the <code>card_title</code> and <code>card_text</code> variables in use and will have a card like this one above it explaining the other variables it is using. Also, each row is demonstrating a different feature of the bootstrap grid system.'
-  text_alignment: center
+  card_text: "<p>Bootstrap's cards provide a flexible and extensible content container with multiple variants and options.</p><p>Each card has at least the <code>card_title</code> and <code>card_text</code> variables in use and will have a card like this one above it explaining the other variables it is using. Also, each row is demonstrating a different feature of the bootstrap grid system.</p>"
   text_color: light
   card_background: secondary
 

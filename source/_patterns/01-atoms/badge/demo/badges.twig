@@ -1,53 +1,69 @@
 <div class="container">
-  <div class="row">
-    {% embed '@atoms/grid/_grid-1-up.twig' %}
-      {% block column_1 %}
-        {% include '@molecules/card/_card.twig' with badge_helper %}
+  {% embed '@atoms/grid/_grid-1-up.twig' %}
+    {% block column_1 %}
+      <h1 class="text-center">Badges</h1>
+      {% include '@molecules/card/_card.twig' with badge_helper %}
 
-        <div class="mb-3">
-          <h1>Badge Sizes</h1>
-          <p>Note: Badges scale to match the size of the immediate parent element </p>
-          {% for size in sizes %}
-            <{{ size.badge_size }}>{% include '@atoms/badge/_badge.twig' with size %}</{{ size.badge_size }}>
-          {% endfor %}
-        </div>
+      <div class="mb-3">
+        <h1>Badge Sizes</h1>
+        <p>Note: Badges scale to match the size of the immediate parent element </p>
+        {% for i in 1..5 %}
+          <h{{ i }}>
+        {% include '@atoms/badge/_badge.twig' with {
+          badge_text: 'Badge',
+          badge_color: 'primary',
+        } %}
+          </h{{ i }}>
+        {% endfor %}
+      </div>
 
-        <div class="mb-3">
-          <h1>Badge Button</h1>
-          {% embed '@atoms/button/_button.twig' with {
+      <div class="mb-3">
+        <h1>Badge Button</h1>
+        {% embed '@atoms/button/_button.twig' with {
           button_color: 'primary',
           button_text: 'Notifications',
-          }%}
-            {% block right %}
-              {% include '@atoms/badge/_badge.twig' with {
-                badge_text: '4',
-                badge_color: 'light',
-              } %}
-            {% endblock right %}
-          {% endembed %}
-        </div>
+        }%}
+        {% block right %}
+          {% include '@atoms/badge/_badge.twig' with {
+            badge_text: '4',
+            badge_color: 'light',
+          } %}
+        {% endblock right %}
+        {% endembed %}
+      </div>
 
-        <div class="mb3">
-          <h1>Badge Colors</h1>
-          {% for color in colors %}
-            {% include '@atoms/badge/_badge.twig' with color %}
-          {% endfor %}
-        </div>
+      <div class="mb3">
+        <h1>Badge Colors</h1>
+        {% for name, rgb in scssColors %}
+          {% include '@atoms/badge/_badge.twig' with {
+            badge_color: name,
+            badge_text: name,
+          } %}
+        {% endfor %}
+      </div>
 
-        <div class="mb-3">
-          <h1>Pill Badges</h1>
-          {% for pill in pills %}
-            {% include '@atoms/badge/_badge.twig' with pill %}
-          {% endfor %}
-        </div>
+      <div class="mb-3">
+        <h1>Pill Badges</h1>
+        {% for name, rgb in scssColors %}
+          {% include '@atoms/badge/_badge.twig' with {
+            badge_color: name,
+            badge_text: name,
+            badge_pill: TRUE,
+          } %}
+        {% endfor %}
+      </div>
 
-        <div class="mb-3">
-          <h1>Badge Links</h1>
-          {% for link in links %}
-            {% include '@atoms/badge/_badge.twig' with link %}
-          {% endfor %}
-        </div>
-      {% endblock column_1 %}
-    {% endembed %}
-  </div>
+      <div class="mb-3">
+        <h1>Badge Links</h1>
+        {% for name, rgb in scssColors %}
+          {% include '@atoms/badge/_badge.twig' with {
+            badge_color: name,
+            badge_text: name,
+            badge_element: 'a',
+            badge_link: 'https://github.com/phase2/pattern-lab-starter',
+          } %}
+        {% endfor %}
+      </div>
+    {% endblock column_1 %}
+  {% endembed %}
 </div>
