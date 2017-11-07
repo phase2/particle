@@ -102,6 +102,95 @@
       &lt;/table&gt;</code></pre>
     </div>
 
+    <h3 class="p-2">Table Head Options:</h3>
+    <p>Similar to tables and dark tables, use the modifier classes <code>.thead-light</code> or <code>.thead-dark</code> to make <code>&lt;thead&gt;</code>s appear light or dark gray.</p>
+    <div class="border">
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          {% for header in table_header %}
+            <th scope="col">{{ header }}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table"&gt;
+      &lt;thead class="thead-dark"&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+{% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+{% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+{% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+{% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <div class="border">
+      <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          {% for header in table_header %}
+            <th scope="col">{{ header }}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table"&gt;
+      &lt;thead class="thead-light"&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+{% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+{% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+{% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+{% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
 
 
 
