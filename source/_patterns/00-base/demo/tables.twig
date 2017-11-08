@@ -578,10 +578,9 @@
         </thead>
         <tbody>
         {% for colorName, colorValue in scssColors %}
-          {#{% set luma = colorValue|rgba_string|luma %}#}
+          {% set luma = colorValue|rgba_string|luma %}
           <tr class="bg-{{ colorName }}">
-            {#<th {{ (luma < 200) ? class='text-white' }} scope="row">{{ colorName }}</th>#}
-            <th>Yar</th>
+            <th {{ (luma < 200) ? "class='text-white'" }} scope="row">{{ colorName }}</th>
             <td><code>&lt;tr class="bg-{{ colorName }}"&gt;...&lt;/tr&gt;</code></td>
             <td><code>&lt;td class="bg-{{ colorName }}"&gt;...&lt;/td&gt;</code></td>
           </tr>
