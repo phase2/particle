@@ -1,5 +1,5 @@
 /**
- * Icons
+ * Icon
  *
  * Relies on generated sass.
  */
