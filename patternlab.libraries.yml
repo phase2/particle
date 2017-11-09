@@ -4,7 +4,7 @@ core:
     theme:
       dist/assets/design-system-styles.css:
         preprocess: true
-      dist/assets/drupal-theme-styles.css:
+      dist/assets/drupal-theme.styles.css:
         preprocess: true
   js:
     dist/assets/design-system.js:
