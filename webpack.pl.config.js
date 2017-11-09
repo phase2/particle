@@ -5,9 +5,8 @@ const webpack = require('webpack');
 // Webpack Entry Points
 const pl = {
   entry: {
-    // 'design-system': './source/design-system/design-system.js',
-    'pattern-lab': [
-      './source/pattern-lab.js',
+    'app-pl': [
+      './app-pl/index.js',
     ],
   },
   plugins: [

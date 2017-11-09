@@ -16,7 +16,7 @@ function startWebpackDevServer(webpackConfig, devServerConfig) {
   return (cb) => {
     const localWebpackConfig = webpackConfig;
     const {
-      entry: { 'pattern-lab': plEntry }, // ./source/pattern-lab.js
+      entry: { 'app-pl': plEntry }, // ./source/pattern-lab.js
       output: { publicPath }, // /temp/
     } = localWebpackConfig;
 

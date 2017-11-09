@@ -4,8 +4,8 @@ const webpack = require('webpack');
 
 const drupal = {
   entry: {
-    'drupal-theme': [
-      './drupal/drupal-theme.js',
+    'app-drupal': [
+      './app-drupal/index.js',
     ],
   },
   externals: {
