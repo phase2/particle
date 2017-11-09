@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const shared = require('./webpack.shared.config');
+const webpack = require('webpack');
 
 const drupal = {
   entry: {
@@ -18,6 +19,7 @@ const drupal = {
       'process.env': {
         NODE_ENV: '"production"',
       },
+      BUILD_TARGET: JSON.stringify('drupal'),
     }),
     // minify with dead-code elimination
     new webpack.optimize.UglifyJsPlugin({

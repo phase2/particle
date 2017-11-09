@@ -42,9 +42,9 @@ module.exports = function SassToJson(opt) {
     // Get the proper path of this file, given:
     // cwd: /Users/illepic/dev/pattern-lab-starter
     // base: /Users/illepic/dev/pattern-lab-starter/source/_patterns/
-    // path: /Users/illepic/dev/pattern-lab-starter/source/_patterns/00-base/demo/grids/_-grid.twig
+    // path: /Users/illepic/dev/pattern-lab-starter/source/_patterns/00-base/demo/grid/_grid.twig
     //
-    // Want output like: i.e. source/_patterns/00-base/demo/typog/text
+    // Want output like: i.e. source/_patterns/00-base/demo/type/text
     filefolders.push(path.dirname(path.relative(vinylFile.cwd, vinylFile.path)));
 
     callback();
@@ -68,7 +68,7 @@ module.exports = function SassToJson(opt) {
       const namespaces = _.reduce(options.sets, (result, namePath, name) => {
         // Paths per namespace are unique to the ouput yaml files they will go into
         const paths = _(filefolders)
-          // Only file paths that in our namespace (ie atoms) path (ie source/_patterns/01-atoms)
+          // Only file paths in our namespace (ie atoms) path (ie source/_patterns/01-atoms)
           .filter(folderPath =>
             folderPath.includes(namePath.root) && !folderPath.includes(namePath.ignore))
           // 01-atoms should come before 01-atoms/blerp

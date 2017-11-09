@@ -1,14 +1,15 @@
+# @TODO: THIS IS NEEDS LOTS OF WORK, THESE PATHS MAY BE NO LONGER CORRECT
 core:
   css:
     theme:
-      dest/design-system-styles.css:
+      dist/assets/design-system-styles.css:
         preprocess: true
-      dest/drupal-theme-styles.css:
+      dist/assets/drupal-theme-styles.css:
         preprocess: true
   js:
-    dest/design-system.js:
+    dist/assets/design-system.js:
       preprocess: true
-    dest/drupal-theme.js:
+    dist/assets/drupal-theme.js:
       preprocess: true
   # see all in Drupal's `core/core.libraries.yml`
   dependencies:
@@ -16,6 +17,7 @@ core:
     - core/drupal
 # Replace core's libraries with our theme's updated versions.
 # Override defined inside of patternlab.info.yml
+# @TODO: GET THESE PULLED OUT VIA WEBPACK
 jquery:
   js:
     node_modules/jquery/dist/jquery.min.js: { minified: true, weight: -20 }

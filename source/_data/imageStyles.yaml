@@ -2,6 +2,9 @@ imageStyles:
   thumbnail:
     width: 100
     height: 100
+  card:
+    width: 318
+    height: 180
   small:
     width: 400
   medium:

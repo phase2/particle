@@ -1,0 +1,39 @@
+{#
+  Button!
+
+  button_element: String: button|a|input choose the element type for your button
+  button_type: String: the html 'type' attribute
+  button_outline: Boolean: True|False, remove all background colors and images from a button
+  button_color: String: primary|secondary|success|danger|warning|info|light|dark
+  button_size: String: lg|sm set whether the button is large or small
+  button_block:  Boolean: True|False set button to occupy the full width the parent element
+  button_active: Boolean: True|False set button to appear pressed
+  button_toggle: Boolean: True|False set button to be toggleable
+  button_link: String: the URL the button will lead to
+  button_value: String: the html 'value' attribute
+  button_disabled: Boolean: True|False set button to appear disabled
+  button_text: String: Display text on the button
+
+  See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
+#}
+
+{% set button_element = button_element ? button_element : 'button' %}
+
+{% set classes = [
+'btn',
+  button_color ? 'btn-' ~ button_color : 'btn-primary',
+  button_outline ? 'btn-outline-' ~ button_color,
+  button_size ? 'btn-' ~ button_size,
+  button_block ? 'btn-block',
+  button_active ? 'active',
+] | join(' ') %}
+
+{% set attributes  = [
+  button_active ? 'aria-pressed="true"',
+  button_toggle ? 'data-toggle="button"',
+  button_link ? 'href=' ~ button_link,
+  button_value ? 'value=' ~ button_value,
+  button_disabled ? 'disabled',
+] | sort | join(' ') %}
+
+<{{ button_element }} type="{{ button_type }}" class="{{ classes }}" {{ attributes }}> {{ button_text }} </{{ button_element }}>

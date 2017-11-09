@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html class="{{ htmlClass }}">
+<html class="{{ htmlClass }}" lang="en">
 	<head>
 		<title>{{ title }}</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width" />
 
+		<link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-32x32.png" sizes="32x32">
+
 		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
 		{{ patternLabHead | raw }}
 		<!-- End Pattern Lab -->
 
-    {# Relative paths should prepend `../../` on top of what you think is necessary to get from the location of the `publicDir` to the root of the theme. #}
-    {# If the public directory is at `pattern-lab/public/` then you'll `../../../../` to get the root of the theme. #}
-    {# If the public directory is at `pattern-lab-public/` then you'll `../../../` to get the root of the theme. #}
-
-    {#<link rel="stylesheet" href="{{ paths.pl_theme_root }}/dest/commons.styles.css?cacheBuster={{ cacheBuster }}">#}
-    <link rel="stylesheet" href="/temp/pattern-lab.styles.css">
-
-    <!-- Pattern Lab only dependencies -->
-    {#<link rel="stylesheet" href="{{ paths.pl_theme_root }}/source/styleguide/custom-styleguide-specific.css">#}
-    <link rel="stylesheet" href="/styleguide/custom-styleguide-specific.css">
-    <!-- END: Pattern Lab only dependencies -->
+    <link rel="stylesheet" href="{{ paths.assets }}/pattern-lab.styles.css">
 
   </head>
 	<body class="{{ bodyClass }}">

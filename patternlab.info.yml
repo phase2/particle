@@ -20,13 +20,18 @@ component-libraries:
   atoms:
     paths:
       - source/_patterns/01-atoms
-      - source/_patterns/01-atoms/images
-      - source/_patterns/01-atoms/buttons
+      - source/_patterns/01-atoms/grid
+      - source/_patterns/01-atoms/icon
+      - source/_patterns/01-atoms/image
+      - source/_patterns/01-atoms/button
+      - source/_patterns/01-atoms/list-item
+      - source/_patterns/01-atoms/breadcrumb
   molecules:
     paths:
       - source/_patterns/02-molecules
       - source/_patterns/02-molecules/card
       - source/_patterns/02-molecules/vue-card
+      - source/_patterns/02-molecules/jumbotron
   organisms:
     paths:
       - source/_patterns/03-organisms

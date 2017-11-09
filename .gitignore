@@ -1,11 +1,15 @@
 # Compiled files
 dist/
 source/_patterns/01-atoms/images/_icons-settings.scss
+source/_patterns/01-atoms/icon/font/
+source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss
 source/_data/baseScssVars.json
 
 # OS generated files
 .DS_Store
 .DS_Store?
+._.DS_Store
+._.DS_Store?
 
 # Dependencies
 bower_components
@@ -14,6 +18,7 @@ node_modules
 # Generated files
 *.sass-cache/
 .eslintcache
+*unison.*
 
 #IDE plugins
 .idea

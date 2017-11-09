@@ -4,6 +4,7 @@ ie:
   - DS_Store
   - less
   - scss
+  - js
 id:
   - scss
   - .svn
@@ -18,7 +19,7 @@ patternStates:
 styleGuideExcludes: ''
 cacheBusterOn: 'true'
 exportDir: export
-publicDir: ../../dist/public/
+publicDir: ../../dist/pl/
 sourceDir: ../../source/
 defaultPattern: all
 defaultShowPatternInfo: false
@@ -55,13 +56,21 @@ plugins:
       atoms:
         paths:
           - ../../source/_patterns/01-atoms
-          - ../../source/_patterns/01-atoms/images
-          - ../../source/_patterns/01-atoms/buttons
+          - ../../source/_patterns/01-atoms/grid
+          - ../../source/_patterns/01-atoms/icon
+          - ../../source/_patterns/01-atoms/image
+          - ../../source/_patterns/01-atoms/button
+          - ../../source/_patterns/01-atoms/list-item
+          - ../../source/_patterns/01-atoms/breadcrumb
       molecules:
         paths:
           - ../../source/_patterns/02-molecules
           - ../../source/_patterns/02-molecules/card
+<<<<<<< HEAD
           - ../../source/_patterns/02-molecules/vue-card
+=======
+          - ../../source/_patterns/02-molecules/jumbotron
+>>>>>>> c1bcf4adfa84a744c109f4e749840301cc93c254
       organisms:
         paths:
           - ../../source/_patterns/03-organisms
