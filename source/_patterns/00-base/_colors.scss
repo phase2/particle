@@ -1,6 +1,4 @@
 // Custom colors
-
-<<<<<<< HEAD
 $c-white: white;
 $c-gray--lightest: hsla(0, 0%, 89%, .5);
 $c-gray--lighter: hsl(0, 0%, 80%);
@@ -11,19 +9,8 @@ $c-gray--darker: hsl(0, 0%, 20%);
 $c-gray--darkest: hsl(0, 0%, 16.1%);
 $c-black: black;
 
-$c-test: blue;
-$c-test2: $c-red;
-$c-test3: pink;
-$c-orange: orange;
-
-
-.verify-output {
-  color: red;
-}
-=======
 // Bootstrap overrides
 // Add colors to $theme-colors var here. Find other vars to override at ~bootstrap/scss/_variables.scss
 $theme-colors: (
   test: pink,
 );
->>>>>>> c1bcf4adfa84a744c109f4e749840301cc93c254
