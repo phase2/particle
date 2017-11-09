@@ -11,7 +11,7 @@ import 'base';
 // Import custom sass, includes Bootstrap sass
 import './_button.scss';
 
-export const name = 'card';
+export const name = 'button';
 
 export function disable() {}
 
