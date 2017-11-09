@@ -2,15 +2,16 @@
  * Breadcrumb
  */
 
-// Module dependencies
-import base from 'base';
+// Custom
+import 'base';
 
 // Module styles
 import './_breadcrumb.scss';
 
-export default {
-  name: 'breadcrumb',
-  deps: [base],
-  enable() {},
-  disable() {},
-};
+export const name = 'breadcrumb';
+
+export function disable() {}
+
+export function enable() {}
+
+export default enable;

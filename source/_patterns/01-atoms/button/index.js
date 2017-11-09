@@ -1,9 +1,14 @@
+/**
+ * Button
+ */
+
 import $ from 'jquery';
 import 'bootstrap/js/src/button';
 
+// Custom
 import 'base';
 
-// Import our custom sass, includes Bootstrap sass
+// Import custom sass, includes Bootstrap sass
 import './_button.scss';
 
 export const name = 'card';

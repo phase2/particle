@@ -72,32 +72,6 @@ gulp.task('compile:twig-namespaces', () => gulp
   .pipe(gulp.dest('./')));
 
 /**
- * Gulp sass-to-json, pull off the vars we want to json
- */
-// const sass2json = require('./tools/tasks/gulp-sass2json');
-//
-// gulp.task('compile:scss-to-json', () => gulp
-//   .src('./source/_patterns/00-base/**/*.scss')
-//   .pipe(sass2json('baseScssVars.json', {
-//     sassVars: [
-//       { lineStartsWith: '$c-' },
-//       { lineStartsWith: '$fs--' },
-//       { lineStartsWith: '$ff--' },
-//       { lineStartsWith: '$bp--' },
-//       { lineStartsWith: '$spacing--' },
-//     ],
-//   }))
-//   .pipe(gulp.dest('./source/_data/')));
-
-/**
- * Watch config-related scss files to generate json for PL example patterns.
- */
-// gulp.task('webpack:watch:scss-to-json', (cb) => {
-//   gulp.watch('./source/_patterns/00-base/**/*.scss', gulp.series('compile:scss-to-json'));
-//   cb();
-// });
-
-/**
  * Accessibility test a subset of generated HTML files
  */
 const { pa11yConsecutive } = require('./tools/tasks/gulp-pa11y');
@@ -178,7 +152,6 @@ gulp.task('webpack:watch:pl-source', (cb) => {
  * Standalone compile tasks for non-webpack assets
  */
 gulp.task('compile', gulp.series([
-  // 'compile:scss-to-json',
   'compile:twig-namespaces',
   'compile:pl',
 ]));
@@ -195,7 +168,6 @@ gulp.task('test', gulp.parallel([
  */
 gulp.task('webpack:dev', gulp.series([
   'webpack:server',
-  // 'webpack:watch:scss-to-json',
   'webpack:watch:pl-source',
 ]));
 

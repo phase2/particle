@@ -1,37 +1,23 @@
 /**
+ * Design System
  * The kitchen sink of all design components
  */
 
-// import breadcrumb from 'atoms/breadcrumb';
-// import button from 'atoms/button';
-// import image from 'atoms/image';
-// import icon from 'atoms/icon';
-// import listItem from 'atoms/list-item';
-// import card from 'molecules/card';
-// import jumbotron from 'molecules/jumbotron';
-
-// Plain ol' object in ES6 object shorthand syntax
-// const designSystem = {
-//   breadcrumb,
-//   button,
-//   image,
-//   icon,
-//   listItem,
-//   card,
-//   jumbotron,
-// };
-
-// Provide each individually, allows for e.g.
-// import { card } from './design-system';
-// export { designSystem };
-
-// Default export, allows for e.g.
-// import designSystem from './design-system';
-// export default designSystem;
-
+import * as breadcrumb from 'atoms/breadcrumb';
 import * as button from 'atoms/button';
+import * as image from 'atoms/image';
+import * as icon from 'atoms/icon';
+import * as listItem from 'atoms/list-item';
+import * as card from 'molecules/card';
+import * as jumbotron from 'molecules/jumbotron';
 
 export default {
+  breadcrumb,
   button,
+  image,
+  icon,
+  listItem,
+  card,
+  jumbotron,
 };
 

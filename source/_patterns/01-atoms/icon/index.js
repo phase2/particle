@@ -1,13 +1,16 @@
-// Import our custom sass
+/**
+ * Icons
+ *
+ * Relies on generated sass.
+ */
+
+// Import custom sass
 import './scss/_icon.scss';
 
-// Custom logic for buttons here
+export const name = 'icon';
 
-export default {
-  name: 'icon',
-  deps: [],
-  enable() {
-    console.log('Icon js ran!');
-  },
-  disable() {},
-};
+export function disable() {}
+
+export function enable() {}
+
+export default enable;
