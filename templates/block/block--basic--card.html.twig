@@ -23,11 +23,31 @@
  *   displayed after the main title tag that appears in the template.
  *
  * @see template_preprocess_block()
+ *
+ * @see @molecules/_card.twig for full list of variables.
  */
 #}
 
+{#
+/**
+ * This file is an example of using a Block as a Card View Mode.
+ *
+ * Create a Card View Mode in Drupal to use.
+ * See patternlab_theme_suggestions_block_alter()
+ *
+ */
+#}
+
+{% set data = {
+    card_width: 75,
+    card_background: 'test'
+  }
+%}
+
 {% include '@molecules/_card.twig'
   with {
+    card_width: (data.card_width) ? data.card_width : 25,
+    card_background: (data.card_background) ? data.card_background : 'primary',
     card_title: label,
     card_text: content.body
   }
