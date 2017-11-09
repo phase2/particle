@@ -27,7 +27,9 @@ const settings = {
 
 // Let's just execute everything and pass in $(document), settings
 _.forEach(ds, (component, name) => {
-  component.enable($context, settings);
+  if (name !== 'vueComponents') {
+    component.enable($context, settings);
+  }
   console.log(name);
   // console.log(component);
 });

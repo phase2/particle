@@ -66,6 +66,7 @@ plugins:
         paths:
           - ../../source/_patterns/02-molecules
           - ../../source/_patterns/02-molecules/card
+          - ../../source/_patterns/02-molecules/vue-card
           - ../../source/_patterns/02-molecules/jumbotron
       organisms:
         paths:

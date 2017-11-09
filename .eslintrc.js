@@ -13,6 +13,7 @@ module.exports = {
   },
   rules: {
     'no-console': [0], // turned off for now while we are console.logging everywhere.
+    'no-shadow': ["error", {"allow": ["state"]}], // for vuex state getter functions.
     'react/require-extension': [0],
     'import/no-extraneous-dependencies': ["error", {"devDependencies": true}],
   },
