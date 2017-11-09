@@ -16,7 +16,7 @@ function startWebpackDevServer(webpackConfig, devServerConfig) {
   return (cb) => {
     const localWebpackConfig = webpackConfig;
     const {
-      entry: { 'app-pl': plEntry }, // ./source/pattern-lab.js
+      entry: { 'app-pl': plEntry }, // ./app-pl/index.js
       output: { publicPath }, // /temp/
     } = localWebpackConfig;
 
@@ -30,7 +30,7 @@ function startWebpackDevServer(webpackConfig, devServerConfig) {
     localWebpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
     // Set these new entry points required for Hot Module replacement, prepended
     // with the original entry point
-    localWebpackConfig.entry['pattern-lab'] = [
+    localWebpackConfig.entry['app-pl'] = [
       ...plEntry,
       ...['webpack/hot/dev-server', `webpack-dev-server/client?${localHost}`],
     ];
