@@ -35,12 +35,17 @@
  * Create a Card View Mode in Drupal to use.
  * See patternlab_theme_suggestions_block_alter()
  *
+ * text_card for example.
+ *
  */
 #}
 
 {% set text_card = {
     card_width: (card_width) ? card_width : 50,
+    text_alignment: (text_alignment) ? text_alignment : 'center',
+    text_color: (text_color) ? text_color : 'white',
     card_background: (card_background) ? card_background : 'primary',
+    card_border: (card_border) ? card_border : 'primary',
     card_title: label,
     card_text: content.body,
     card_subtitle: (content.subtitle) ? : ''
