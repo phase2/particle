@@ -1,5 +1,7 @@
 /**
- * Import libraries
+ * Gulp tasks for non-webpack concerns
+ * 
+ * The following tasks do rote work that isn't covered in webpack asset bundling
  */
 const path = require('path');
 const gulp = require('gulp');
@@ -36,9 +38,9 @@ gulp.task('compile:twig-namespaces', () => gulp
       },
       {
         // The component-libraries module wants to know about our namespaces
-        configFile: './patternlab.info.yml',
+        configFile: './app-drupal/patternlab.info.yml',
         atKey: 'component-libraries',
-        pathRelativeToDir: './',
+        pathRelativeToDir: './app-drupal/',
       },
     ],
     // What are the top-level namespace paths, and which sub paths should we ignore?
