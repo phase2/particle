@@ -10,7 +10,7 @@
  */
 #}
 
-{% set branding_img = {
+{% set img = {
   src: (pl) ? paths.assets ~ site_logo : site_logo,
   alt: 'The Site Logo for ' ~ site_name,
 } %}
@@ -19,7 +19,7 @@
   {% if site_logo %}
     <div class="branding__site-logo">
       <a href="{{ url }}" title="{{ 'Home'|t }}" rel="home">
-        {% include '@atoms/_image.twig' with branding_img %}
+        {% include '@atoms/_image.twig' with img %}
       </a>
     </div>
   {% endif %}
