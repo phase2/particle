@@ -1,0 +1,593 @@
+{#
+  Tables!
+  table_header: Array: A list of table headers from _data/tables.yaml
+  table_content: Array: A list of table content from _data/tables.yaml
+  see https://getbootstrap.com/docs/4.0/content/tables/
+#}
+
+{% embed '@atoms/grid/_grid-1-up.twig' with { container: true } %}
+  {% block column_1 %}
+    <h1>Tables</h1>
+    <p class="lead">Documentation and examples for opt-in styling of tables (given their prevelant use in JavaScript plugins) with Bootstrap.</p>
+    <h2>Examples</h2>
+    <h3 class="py-2">Basic</h3>
+
+    <div class="p-4 border">
+      <table class="table">
+        <caption>List of Users: This is a <code>&lt;caption&gt;&lt;/caption&gt;</code></caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+        <pre class="bg-light"><code>
+    &lt;table class="table"&gt;
+      &lt;caption&gt;List of Users&lt;/caption&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+            &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+          &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <h3 class="py-2">Dark Basic</h3>
+    <p>As easy as adding the <code>table-dark</code> class to the table!</p>
+    <div class="p-4 border">
+      <table class="table table-dark">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          {% for header in table_header %}
+            <th scope="col">{{ header }}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-dark"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <h3 class="py-2">Table Head Options</h3>
+    <p>Similar to tables and dark tables, use the modifier classes <code>.thead-light</code> or <code>.thead-dark</code> to make <code>&lt;thead&gt;</code>s appear light or dark gray.</p>
+    <div class="p-4 border">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table"&gt;
+      &lt;thead class="thead-dark"&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <div class="p-4 border">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table"&gt;
+      &lt;thead class="thead-light"&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <h3 class="py-2">Striped Rows</h3>
+    <p>Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</p>
+    <div class="p-4 border">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-striped"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-dark table-striped"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <h3 class="py-2">Bordered table</h3>
+    <p>Add <code>.table-bordered</code> for borders on all sides of the table and cells.</p>
+    <div class="p-4 border">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-bordered"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+
+      <table class="table table-dark table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-dark table-bordered"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <h3 class="py-2">Hoverable rows</h3>
+    <p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
+    <div class="p-4 border">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for content in table_content %}
+            <tr>
+              <th scope="row">{{ loop.index }}</th>
+              <td>{{ content.first_name }}</td>
+              <td>{{ content.last_name }}</td>
+              <td>@{{ content.username }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-hover"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+
+      <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          {% for header in table_header %}
+            <th scope="col">{{ header }}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-dark table-hover"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <h3 class="py-2">Small table</h3>
+    <p>Add <code>.table-sm</code> to make tables more compact by cutting cell padding in half.</p>
+    <div class="p-4 border">
+      <table class="table table-sm">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          {% for header in table_header %}
+            <th scope="col">{{ header }}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-sm"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+
+      <table class="table table-dark table-sm">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            {% for header in table_header %}
+              <th scope="col">{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for content in table_content %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ content.first_name }}</td>
+            <td>{{ content.last_name }}</td>
+            <td>@{{ content.username }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <pre class="bg-light"><code>
+    &lt;table class="table table-dark table-sm"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;#&lt;/th&gt;
+          {% for header in table_header %}
+          &lt;th scope="col"&gt;{{ header }}&lt;/th&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {% for content in table_content %}
+        &lt;tr&gt;
+          &lt;th scope="row"&gt;{{ loop.index }}&lt;/th&gt;
+          &lt;td&gt;{{ content.first_name }}&lt;/td&gt;
+          &lt;td&gt;{{ content.last_name }}&lt;/td&gt;
+          &lt;td&gt;@{{ content.username }}&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+    </div>
+
+    <h3 class="py-2">Contextual classes</h3>
+    <p>Use contextual classes to color table rows or individual cells.</p>
+    <div class="p-4 border">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Row Code</th>
+            <th scope="col">Cell Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for colorName, colorValue in scssColors %}
+            <tr class="table-{{ colorName }}">
+              <th scope="row">{{ colorName }}</th>
+              <td><code>&lt;tr class="table-{{ colorName }}"&gt;...&lt;/tr&gt;</code></td>
+              <td><code>&lt;td class="table-{{ colorName }}"&gt;...&lt;/td&gt;</code></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p>Regular table background variants are not available with the dark table, however, you may use text or background utilities to achieve similar styles.</p>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col">Row Code</th>
+          <th scope="col">Cell Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for colorName, colorValue in scssColors %}
+          {% set luma = colorValue|rgba_string|luma %}
+          <tr class="bg-{{ colorName }}">
+            <th {{ (luma < 200) ? "class='text-white'" }} scope="row">{{ colorName }}</th>
+            <td><code>&lt;tr class="bg-{{ colorName }}"&gt;...&lt;/tr&gt;</code></td>
+            <td><code>&lt;td class="bg-{{ colorName }}"&gt;...&lt;/td&gt;</code></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  {% endblock column_1 %}
+{% endembed %}
