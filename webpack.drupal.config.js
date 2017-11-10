@@ -1,3 +1,6 @@
+/**
+ * Drupal-specific webpack config
+ */
 const merge = require('webpack-merge');
 const shared = require('./webpack.shared.config');
 const webpack = require('webpack');
@@ -8,6 +11,7 @@ const drupal = {
       './app-drupal/index.js',
     ],
   },
+  // These will be explicitly be provided OUTSIDE the bundle via a <script> tag in the HTML
   externals: {
     jquery: 'jQuery',
     lodash: '_',
