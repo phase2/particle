@@ -1,0 +1,12 @@
+// All component Sass needs non-printing base config
+@import '../../00-base/config';
+
+// To change default bootstrap card variables, SEE ~bootstrap/scss/variables
+// Add bootstrap variables here
+
+
+// Add custom code here
+.branding {
+  height: 400px;
+  width: 400px;
+}

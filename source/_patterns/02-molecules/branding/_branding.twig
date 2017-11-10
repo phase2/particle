@@ -1,0 +1,36 @@
+{#
+/**
+ * Block - Branding.
+ *
+ * url: String: the url the block directs to.
+ * site_logo: String: the logo provided by the app.
+ * site_name: String: the site name provided by the app.
+ * site_slogan: String: the site slogan provided by the app.
+ *
+ */
+#}
+
+{% set branding_img = {
+  src: (pl) ? paths.assets ~ site_logo : site_logo,
+  alt: 'The Site Logo for ' ~ site_name,
+} %}
+
+<aside class="branding">
+  {% if site_logo %}
+    <div class="branding__site-logo">
+      <a href="{{ url }}" title="{{ 'Home'|t }}" rel="home">
+        {% include '@atoms/_image.twig' with branding_img %}
+      </a>
+    </div>
+  {% endif %}
+
+  {% if site_name %}
+    <h2 class="branding__site-name">
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+    </h2>
+  {% endif %}
+
+  {% if site_slogan %}
+    <h6 class="branding__site-slogan">{{ site_slogan }}</h6>
+  {% endif %}
+</aside>
