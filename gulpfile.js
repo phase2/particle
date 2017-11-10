@@ -1,5 +1,7 @@
 /**
- * Import libraries
+ * Gulp tasks for non-webpack concerns
+ * 
+ * The following tasks do rote work that isn't covered in webpack asset bundling
  */
 const path = require('path');
 const gulp = require('gulp');

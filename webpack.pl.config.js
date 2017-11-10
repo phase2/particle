@@ -1,3 +1,8 @@
+/**
+ * Pattern Lab-specific webpack config
+ * 
+ * This is merged over top of webpack.shared.config.js
+ */
 const merge = require('webpack-merge');
 const shared = require('./webpack.shared.config');
 const webpack = require('webpack');
