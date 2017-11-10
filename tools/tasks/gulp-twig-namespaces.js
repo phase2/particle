@@ -105,6 +105,7 @@ module.exports = function SassToJson(opt) {
       const outputFile = latestFile.clone({ contents: false });
       // Base appears to be removed when gulp.dest() runs. SO ADD IT.
       outputFile.path = path.join(latestFile.base, output.configFile);
+
       // Write it out in buffer safe way
       outputFile.contents = Buffer.from(yaml.safeDump(configFile));
 

@@ -10,7 +10,7 @@ import 'atoms/grid';
 import 'atoms/image/demo';
 
 // Full design system. May dupe the above, but Webpack don't care.
-import designSystem from '../source/design-system';
+import designSystem from '../../source/design-system';
 
 // Adds PL-only styles, ie color swatches.
 import './scss/_styleguide-specific.scss';
