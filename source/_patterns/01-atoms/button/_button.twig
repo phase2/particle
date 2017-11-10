@@ -17,11 +17,12 @@
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
 
-{% set button_element = button_element ? button_element : 'button' %}
+{% set button_element = button_element ?: 'button' %}
+{% set button_color = button_color ?: 'primary' %}
 
 {% set classes = [
 'btn',
-  button_color ? 'btn-' ~ button_color : 'btn-primary',
+  'btn-' ~ button_color,
   button_outline ? 'btn-outline-' ~ button_color,
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
@@ -37,8 +38,6 @@
 ] | sort | join(' ') %}
 
 <{{ button_element }} type="{{ button_type }}" class="{{ classes }}" {{ attributes }}>
-{{ button_text }}
-{% block right %}
-{% endblock right %}
-
+  {{ button_text }}
+  {% block right %}{% endblock right %}
 </{{ button_element }}>

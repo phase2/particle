@@ -18,10 +18,6 @@
   card_link_text: String: the link's text
   card_list: Number: the number of items in the list
   list_item: Loop variable: do not set
-  button_element: String: button|a|input choose the element type for your button
-  button_link: String: the URL the button will lead to
-  button_text: String: Display text on the button
-  button_color: String: primary|secondary|success|danger|warning|info|light|dark
   card_footer: String: the text on the footer
 
   see https://getbootstrap.com/docs/4.0/components/card/ for more details
@@ -44,14 +40,12 @@
   {% endif %}
 
   {% if card_image_location == 'top' %}
-
     {# if `card_image` is null, this falls back to a holderjs placeholder #}
     {% include '@atoms/image/_image.twig' with {
       imageStyleName: 'card',
       class: 'card-img-top',
       img: card_image,
     } %}
-
   {% endif %}
 
   {% if card_image_overlay %}
@@ -59,35 +53,36 @@
       <p>{{ card_image_overlay }}</p>
     </div>
   {% endif %}
-  <div class="card-body">
-    <h4 class="card-title">{{ card_title }}</h4>
-    {% if card_subtitle %}
-      <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
-    {% endif %}
-    {% if card_text %}
-      <p class="card-text {{ text_color }}">{{ card_text }}</p>
-    {% endif %}
-    {% if card_link %}
-      <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
-    {% endif %}
-    {% if button_text and button_color %}
-      <div>
-        {% include "@atoms/button/_button.twig" with {
-          button_element: button_element,
-          button_text: button_text,
-          button_color: button_color,
-          button_link: button_link,
-        } only %}
-      </div>
-    {% endif %}
-  </div>
-  {% if card_list %}
-    <ul class="list-group list-group-flush">
-      {% for list_item in card_list %}
-        <li class="list-group-item">{{ list_item }}</li>
-      {% endfor %}
-    </ul>
+
+  {% if card_flush %}
+    {# Note that 'p2card--flush--body' is not a bootstrap class. It only being used to designate the flush body#}
+    {% set body_class = 'p2card--flush--body' %}
+  {% else %}
+    {% set body_class = 'card-body' %}
   {% endif %}
+
+  <div class="{{ body_class }}">
+    {% block card_body %}
+      <h4 class="card-title">{{ card_title }}</h4>
+      {% if card_subtitle %}
+        <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
+      {% endif %}
+      {% if card_text %}
+        <p class="card-text {{ text_color }}">{{ card_text }}</p>
+      {% endif %}
+      {% if card_link %}
+        <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
+      {% endif %}
+      {% if button %}
+        {% include "@atoms/button/_button.twig" with button %}
+      {% endif %}
+    {% endblock %}
+  </div>
+
+  {% if list %}
+    {% include '@atoms/list-group/_list-group.twig' with list %}
+  {% endif %}
+
   {% if card_footer %}
     <div class="card-footer">
       {{ card_footer }}
@@ -95,14 +90,12 @@
   {% endif %}
 
   {% if card_image_location == 'bottom' %}
-
     {# if `card_image` is null, this falls back to a holderjs placeholder #}
     {% include '@atoms/image/_image.twig' with {
       imageStyleName: 'card',
       class: 'card-img-bottom',
       img: card_image,
     } %}
-
   {% endif %}
 
 </div>

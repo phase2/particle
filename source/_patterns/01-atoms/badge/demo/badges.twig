@@ -23,13 +23,27 @@
           button_color: 'primary',
           button_text: 'Notifications',
         }%}
-        {% block right %}
-          {% include '@atoms/badge/_badge.twig' with {
-            badge_text: '4',
-            badge_color: 'light',
-          } %}
-        {% endblock right %}
+          {% block right %}
+            {% include '@atoms/badge/_badge.twig' with {
+              badge_text: '4',
+              badge_color: 'light',
+            } %}
+          {% endblock right %}
         {% endembed %}
+
+        {% embed '@atoms/button/_button-outline.twig' with {
+          button_color: 'primary',
+          button_text: 'Notifications',
+        }%}
+          {% block right %}
+            {% include '@atoms/badge/_badge.twig' with {
+            badge_text: '4',
+            badge_color: 'primary',
+
+            } %}
+          {% endblock right %}
+        {% endembed %}
+
       </div>
 
       <div class="mb3">

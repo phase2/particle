@@ -7,11 +7,18 @@
   item_classes: Array: accepts active, disabled, list-group-item-action, list-group-item-(color). See https://getbootstrap.com/docs/4.0/components/list-group/#with-badges for examples. See https://getbootstrap.com/docs/4.0/utilities/flex/ for flex options
   item_text: String: the text of the list item
   badge: Array: Accepts badge_element, badge_pill, badge_color, badge_link, and badge_text. See source/_patterns/01-atoms/badge/_badge.twig for structure
+  list_flush: Boolean: True|False only use this variable if the list is on a card. this will make it align properly
 #}
 
 {% set parent_element = parent_element ?: 'ul' %}
 
-<{{ parent_element }} class="list-group mb-3" id="{{ list_id }}">
+{% if list_flush %}
+  {% set list_flush = 'list-group-flush' %}
+{% endif %}
+
+{#https://getbootstrap.com/docs/4.0/migration/#list-groups#}
+
+<{{ parent_element }} class="list-group {{ list_flush }}" id="{{ list_id }}">
   {% for item in items %}
 
   {# Note: ?: won't work in PHP5 #}

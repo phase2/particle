@@ -38,11 +38,23 @@
       <div class="mb-3">
         {% include '@molecules/card/_card.twig' with list_group_helper_elements %}
       </div>
+
+
       <div class="row mb-3">
         <div class="col-sm">
           <h2>Link List</h2>
+          {#{% for item in list_group_links %}#}
+            {#{% set item_element = item|merge({ item_element: 'a', }) %}#}
+          {#{% endfor %}#}
           {% include '@atoms/list-group/_list-group.twig' with list_group_links %}
         </div>
+
+
+        {% for element in elements %}
+          {% set buttonElement = element|merge({ button_color: 'success', }) %}
+          {% include '@atoms/button/_button.twig' with buttonElement %}
+        {% endfor %}
+
         <div class="col-sm">
           <h2>Button</h2>
           {% include '@atoms/list-group/_list-group.twig' with list_group_buttons %}

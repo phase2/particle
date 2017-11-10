@@ -1,0 +1,12 @@
+{#
+  Helper Card!
+
+  This is a simple example of extending an existing template to make a new template
+#}
+
+{% extends '@molecules/card/_card.twig' %}
+{# In this context we're hard-coding the only thing we need to override for an outline button. #}
+{% set text_color = 'light' %}
+{% set card_background = 'secondary' %}
+{% set button_element = 'a' %}
+{% set button_text = 'More Info' %}
