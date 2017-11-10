@@ -10,7 +10,7 @@ const gulp = require('gulp');
  * Pattern Lab raw compile function.
  */
 // Config: Path to Pattern Lab installation.
-const plPath = path.resolve(__dirname, 'tools/pattern-lab');
+const plPath = path.resolve(__dirname, 'app-pl/pattern-lab');
 // PL compilation function, loaded up with the the PL path
 const plCompile = require('./tools/tasks/pl-compile')(plPath);
 
@@ -20,7 +20,7 @@ const plCompile = require('./tools/tasks/pl-compile')(plPath);
 gulp.task('compile:pl', plCompile);
 
 /**
- * Gulp namespace, ensures that ./tools/pattern-lab/config.yml & ./theme.info.yml
+ * Gulp namespace, ensures that ./app-pl/pattern-lab/config.yml & ./theme.info.yml
  * are updated with all pattern namespaces for error-free compiling.
  */
 const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
@@ -32,9 +32,9 @@ gulp.task('compile:twig-namespaces', () => gulp
     outputs: [
       {
         // Note: PL will NOT compile unless the namespaces are explicitly declared
-        configFile: './tools/pattern-lab/config/config.yml',
+        configFile: './app-pl/pattern-lab/config/config.yml',
         atKey: 'plugins.twigNamespaces.namespaces',
-        pathRelativeToDir: './tools/pattern-lab',
+        pathRelativeToDir: './app-pl/pattern-lab',
       },
       {
         // The component-libraries module wants to know about our namespaces
