@@ -1,10 +1,15 @@
 /**
  * Webpack shared config
- * 
  * The shared loaders, plugins, and processing that all our "apps" should use
  */
 const path = require('path');
 const webpack = require('webpack');
+
+const {
+  PATH_PL,
+  PATH_DRUPAL,
+  PATH_SOURCE,
+} = require('./config');
 
 // Loaders
 const autoprefixer = require('autoprefixer');
@@ -23,7 +28,7 @@ module.exports = {
   // See webpack.[drupal|pl].config.js for entry points
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist/', 'assets/'),
+    path: path.resolve(__dirname, 'dist/assets/'),
     publicPath: '/assets/',
   },
   devtool: 'cheap-module-source-map',
@@ -32,9 +37,9 @@ module.exports = {
       {
         test: /\.(sass|scss)$/,
         include: [
-          path.resolve(__dirname, 'source'),
-          path.resolve(__dirname, 'app-drupal'),
-          path.resolve(__dirname, 'app-pl'),
+          path.resolve(__dirname, PATH_SOURCE),
+          path.resolve(__dirname, PATH_DRUPAL),
+          path.resolve(__dirname, PATH_PL),
         ],
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -65,7 +70,7 @@ module.exports = {
                 sourceMap: true,
                 // Revisit the real or imagined performance hit here
                 // includePaths: [
-                //   path.resolve(__dirname, './source/_patterns'), // @import '00-base/base';
+                //   path.resolve(PATH_SOURCE, '_patterns'), // @import '00-base/base';
                 // ],
                 functions: sassExportData,
               },
@@ -113,7 +118,7 @@ module.exports = {
       minChunks: 2,
     }),
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery plugins to assume
-    // that `window.jquery` is available 
+    // that `window.jquery` is available
     new webpack.ProvidePlugin({
       // Bootstrap is dependant on jQuery and Popper
       $: 'jquery',
@@ -132,23 +137,23 @@ module.exports = {
     new StyleLintPlugin(),
     // Iconfont generation from SVGs
     new IconfontPlugin({
-      svgs: path.resolve(__dirname, './source/_patterns/01-atoms/icon/svg/**/*.svg'),
-      fonts: path.resolve(__dirname, './source/_patterns/01-atoms/icon/font/'),
-      styles: path.resolve(__dirname, './source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
-      template: path.resolve(__dirname, './source/_patterns/01-atoms/icon/templates/template.icon-map-generated.njk'),
+      svgs: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
+      fonts: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/'),
+      styles: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
+      template: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/templates/template.icon-map-generated.njk'),
       fontName: 'iconfont',
       normalize: true,
     }),
     // favicon generation
     new FaviconsPlugin({
       // Your source logo
-      logo: path.resolve(__dirname, './source/_patterns/01-atoms/image/logo.svg'),
+      logo: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/image/logo.svg'),
       // The prefix for all image files (might be a folder or a name), include [hash] for hash
       prefix: 'favicons/',
       // Emit all stats of the generated icons
       emitStats: false,
       // The name of the json containing all favicon information, [hash] available here
-      statsFilename: path.resolve(__dirname, './source/_data/favicons-stats.json'),
+      statsFilename: path.resolve(__dirname, PATH_SOURCE, '_data/favicons-stats.json'),
       // Generate a cache file with control hashes and
       // don't rebuild the favicons until those hashes change
       persistentCache: true,
@@ -174,18 +179,19 @@ module.exports = {
     }),
     // Ignore generated output if generated output is on a dependency chain (causes endless loop)
     new webpack.WatchIgnorePlugin([
-      path.resolve(__dirname, './source/_patterns/01-atoms/icon/font/'),
-      path.resolve(__dirname, './source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
+      path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/'),
+      path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
     ]),
   ],
+  // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
   resolve: {
     alias: {
-      base: path.resolve(__dirname, './source/_patterns/00-base/'),
-      atoms: path.resolve(__dirname, './source/_patterns/01-atoms/'),
-      molecules: path.resolve(__dirname, './source/_patterns/02-molecules/'),
-      organisms: path.resolve(__dirname, './source/_patterns/03-organisms/'),
-      templates: path.resolve(__dirname, './source/_patterns/04-templates/'),
-      pages: path.resolve(__dirname, './source/_patterns/05-pages/'),
+      base: path.resolve(__dirname, PATH_SOURCE, '_patterns/00-base/'),
+      atoms: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/'),
+      molecules: path.resolve(__dirname, PATH_SOURCE, '_patterns/02-molecules/'),
+      organisms: path.resolve(__dirname, PATH_SOURCE, '_patterns/03-organisms/'),
+      templates: path.resolve(__dirname, PATH_SOURCE, '_patterns/04-templates/'),
+      pages: path.resolve(__dirname, PATH_SOURCE, '_patterns/05-pages/'),
     },
   },
 };
