@@ -32,7 +32,7 @@ $font-weights-demo: (
 $icons-demo: (
   prefix: $icon-font-class-prefix,
   fontname: $icon-font-base-name,
-  icons: $font-icons,
+  icons: map-keys($font-icons),
 );
 
 

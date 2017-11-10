@@ -5,9 +5,6 @@ base theme: stable
 core: 8.x
 libraries:
   - patternlab/core
-#libraries-override:
-#  core/jquery: patternlab/jquery
-#  core/underscore: patternlab/lodash
 regions:
   header: Header
   content: Content
