@@ -2,16 +2,15 @@
  * List-Item
  */
 
-// Module dependencies
-import base from 'base';
+import 'base';
 
 // Module styles
 import './_list-item.scss';
 
-export default {
-  name: 'list-item',
-  deps: [base],
-  enable() {},
-  disable() {},
-};
+export const name = 'list-item';
 
+export function disable() {}
+
+export function enable() {}
+
+export default enable;

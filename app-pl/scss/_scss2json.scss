@@ -2,7 +2,7 @@
 
 // Import Everything from Base.
 // This includes Bootstrap
-@import '../_patterns/00-base/config';
+@import '../../source/_patterns/00-base/config';
 
 // Customized Sass Mapping
 // Pulled from Bootstrap's _variables.scss
@@ -27,7 +27,7 @@ $font-weights-demo: (
 //@import '../_patterns/01-atoms/button/_button.scss';
 
 // Include icons settings
-@import '../_patterns/01-atoms/icon/scss/icon-mixins';
+@import '../../source/_patterns/01-atoms/icon/scss/icon-mixins';
 
 $icons-demo: (
   prefix: $icon-font-class-prefix,

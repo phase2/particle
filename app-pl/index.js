@@ -1,5 +1,5 @@
 /**
- * Apply all our design system components to the DOM
+ * Apply the Design System to Pattern Lab DOM
  */
 
 import $ from 'jquery';
@@ -10,11 +10,11 @@ import 'atoms/grid';
 import 'atoms/image/demo';
 
 // Full design system. May dupe the above, but Webpack don't care.
-import ds from './design-system';
+import designSystem from '../source/design-system';
 
 // Adds PL-only styles, ie color swatches.
-import './styleguide/_styleguide-specific.scss';
-import './styleguide/_scss2json.scss';
+import './scss/_styleguide-specific.scss';
+import './scss/_scss2json.scss';
 
 // Send each component the $(document) as its context
 const $context = $(document);
@@ -26,8 +26,7 @@ const settings = {
 };
 
 // Let's just execute everything and pass in $(document), settings
-_.forEach(ds, (component, name) => {
+_.forEach(designSystem, (component) => {
+  console.log(component.name);
   component.enable($context, settings);
-  console.log(name);
-  // console.log(component);
 });
