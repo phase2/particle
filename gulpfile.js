@@ -36,9 +36,9 @@ gulp.task('compile:twig-namespaces', () => gulp
       },
       {
         // The component-libraries module wants to know about our namespaces
-        configFile: './patternlab.info.yml',
+        configFile: './app-drupal/patternlab.info.yml',
         atKey: 'component-libraries',
-        pathRelativeToDir: './',
+        pathRelativeToDir: './app-drupal/',
       },
     ],
     // What are the top-level namespace paths, and which sub paths should we ignore?
