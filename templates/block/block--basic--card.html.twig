@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a block.
+ * Theme override to display a block with a card view mode.
  *
  * Available variables:
  * - plugin_id: The ID of the block implementation.
@@ -24,28 +24,21 @@
  *
  * @see template_preprocess_block()
  *
+ * @See patternlab_theme_suggestions_block_alter()
  * @see @molecules/_card.twig for full list of variables.
- */
-#}
-
-{#
-/**
- * This file is an example of using a Block as a Card View Mode.
  *
- * Create a Card View Mode in Drupal to use.
- * See patternlab_theme_suggestions_block_alter()
- *
- * text_card for example.
+ * text_card for example purposes.
+ * Set variables directly in template or as content editor created fields.
  *
  */
 #}
 
 {% set text_card = {
     card_width: card_width ? card_width : 50,
-    text_alignment: text_alignment ? text_alignment : 'center',
-    text_color: text_color ? text_color : 'white',
-    card_background: card_background ? card_background : 'primary',
-    card_border: card_border ? card_border : 'primary',
+    text_alignment: text_alignment ? text_alignment : 'justify',
+    text_color: text_color ? text_color : 'dark',
+    card_background: card_background ? card_background : 'light',
+    card_border: card_border ? card_border : 'black',
     card_title: label,
     card_text: content.body,
     card_subtitle: content.subtitle ? : ''
