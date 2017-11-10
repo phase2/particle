@@ -11,7 +11,7 @@
 #}
 
 {% set img = {
-  src: (pl) ? paths.assets ~ site_logo : site_logo,
+  src: pl ? paths.assets ~ site_logo : site_logo,
   alt: 'The Site Logo for ' ~ site_name,
 } %}
 
