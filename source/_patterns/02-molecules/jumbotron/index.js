@@ -3,16 +3,17 @@
  */
 
 // Module dependencies
-import base from 'base';
-import image from 'atoms/image';
-import button from 'atoms/button';
+import 'base';
+import 'atoms/image';
+import 'atoms/button';
 
 // Module styles
 import './_jumbotron.scss';
 
-export default {
-  name: 'jumbotron',
-  deps: [base, image, button],
-  enable() {},
-  disable() {},
-};
+export const name = 'jumbotron';
+
+export function disable() {}
+
+export function enable() {}
+
+export default enable;

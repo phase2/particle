@@ -1,10 +1,11 @@
-import base from 'base';
+import 'base';
 
 import './_grid.scss';
 
-export default {
-  name: 'grid',
-  deps: [base],
-  enable() {},
-  disable() {},
-};
+export const name = 'grid';
+
+export function disable() {}
+
+export function enable() {}
+
+export default enable;

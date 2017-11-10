@@ -1,11 +1,11 @@
 /**
- * Apply the Design System app to a Drupal behavior
+ * Apply the Design System to a single Drupal behavior
  */
 
 import $ from 'jquery';
 import _ from 'lodash';
 
-import ds from '../source/design-system';
+import designSystem from '../source/design-system';
 
 require('./scss/_drupal-styles.scss');
 
@@ -19,9 +19,10 @@ _.forEach([1, 2, 3, 4], (num) => {
 });
 
 Drupal.behaviors.designSystem = {
-  attach(context, settings) {
-    ds.forEach((component) => {
-      component.enable(context, settings);
+  attach($context, settings) {
+    _.forEach(designSystem, (component) => {
+      console.log(component.name);
+      component.enable($context, settings);
     });
   },
 };

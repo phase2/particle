@@ -1,19 +1,26 @@
+/**
+ * Webpack shared config
+ * 
+ * The shared loaders, plugins, and processing that all our "apps" should use
+ */
 const path = require('path');
 const webpack = require('webpack');
 
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// Loaders
 const autoprefixer = require('autoprefixer');
 const sassExportData = require('@theme-tools/sass-export-data')({
   name: 'export_data',
   path: path.resolve(__dirname, 'source/_data/'),
 });
+
+// Plugins
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const IconfontPlugin = require('webpack-iconfont-plugin');
 const FaviconsPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
-  // Commented out here since the specifics are different per PL or Drupal
-  // entry: { 'entry-name': './path/to/entry.js', },
+  // See webpack.[drupal|pl].config.js for entry points
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist/', 'assets/'),
@@ -26,9 +33,9 @@ module.exports = {
         test: /\.(sass|scss)$/,
         include: [
           path.resolve(__dirname, 'source'),
-          path.resolve(__dirname, 'drupal'),
+          path.resolve(__dirname, 'app-drupal'),
+          path.resolve(__dirname, 'app-pl'),
         ],
-        // use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -100,16 +107,15 @@ module.exports = {
     ],
   },
   plugins: [
+    // Allows for multiple entry points to share common code
     new webpack.optimize.CommonsChunkPlugin({
       name: 'commons',
       minChunks: 2,
     }),
-    new ExtractTextPlugin({
-      filename: '[name].styles.css',
-      allChunks: true,
-    }),
+    // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery plugins to assume
+    // that `window.jquery` is available 
     new webpack.ProvidePlugin({
-      // Bootstrap is dependant on jQuery and Popper, they must explicitly be provided by webpack.
+      // Bootstrap is dependant on jQuery and Popper
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
@@ -117,6 +123,11 @@ module.exports = {
     }),
     // Named files instead of chunk IDs for HMR.
     new webpack.NamedModulesPlugin(),
+    // Pulls out compile css to a standalone file
+    new ExtractTextPlugin({
+      filename: '[name].styles.css',
+      allChunks: true,
+    }),
     // Yell at us while writing Sass
     new StyleLintPlugin(),
     // Iconfont generation from SVGs

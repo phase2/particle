@@ -1,21 +1,22 @@
+/**
+ * Button
+ */
+
 import $ from 'jquery';
+import 'bootstrap/js/src/button';
 
-// Import button js from Bootstrap
-import { Button } from 'bootstrap/js/src';
+// Custom
+import 'base';
 
-// Import dependent base js/scss (See
-import base from 'base';
-
-// Import our custom sass, includes Bootstrap sass
+// Import custom sass, includes Bootstrap sass
 import './_button.scss';
 
-// Custom logic for buttons here
+export const name = 'button';
 
-export default {
-  name: 'button',
-  deps: [base, Button],
-  enable($context) {
-    $('#blah', $context).button('toggle');
-  },
-  disable() {},
-};
+export function disable() {}
+
+export function enable($context) {
+  $('#blah', $context).button('toggle');
+}
+
+export default enable;

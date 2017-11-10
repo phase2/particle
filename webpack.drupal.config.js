@@ -1,13 +1,19 @@
+/**
+ * Drupal-specific webpack config
+ * 
+ * This is merged over top of webpack.shared.config.js
+ */
 const merge = require('webpack-merge');
 const shared = require('./webpack.shared.config');
 const webpack = require('webpack');
 
 const drupal = {
   entry: {
-    'drupal-theme': [
-      './drupal/drupal-theme.js',
+    'app-drupal': [
+      './app-drupal/index.js',
     ],
   },
+  // These will be explicitly be provided OUTSIDE the bundle via a <script> tag in the HTML
   externals: {
     jquery: 'jQuery',
     lodash: '_',
