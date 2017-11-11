@@ -89,20 +89,40 @@ npm run update
 - Auto namespace addition into Drupal theme and Pattern Lab (for no-effort `@atoms/thing.twig`)
 - Iconfont auto-generation
 - Bootstrap 4 integration, used for all starting example components
+- Auto-linting against the AirBnB javascript styleguide and sane Sass standards
 
 ## Structure
 
+The following are the most important items at the root level:
+
+    # ./
     .
     ├── apps                         # Things that use the compiled design system. Drupal theme & PL
-    ├── dist                         # Rendered output: CSS, javascript, image, PL artifacts
+    ├── dist                         # Bundled output: CSS, javascript, images, PL artifacts
     ├── source                       # The design system. All assets compiled to dist/
     ├── tools                        # Gulp plugins and node tools
     ├── gulpfile.js                  # Defines the few tasks required in the workflow
     ├── webpack.drupal.config.js.    # Entry point for the Drupal theme bundle
     ├── webpack.pl.config.js.        # Entry point for the Pattern Lab bundle
-    └── webpack.shared.config.js.    # Shared bundle configuration for all entry points
+    ├── webpack.shared.config.js.    # Shared bundle configuration for all entry points
+    └── ...                          # Mostly just config
 
-> Use short lowercase names at least for the top-level file
+`source/` holds all assets for the design system and looks like this:
+
+    # ./source/
+    .
+    ├── _patterns                      # All assets live within an Atomic "pattern"
+    │   ├── 01-atoms                   # For instance, in atoms
+    │   │   ├── button                 # For instance, the button atom
+    │   │   │    ├── demo              # Patterns feature a demo folder to show implementation
+    │   │   │    │   ├── buttons.twig  # Demonstrate with a plural name, visible to PL since no underscore
+    │   │   │    │   └── buttons.yml   # Data provided to the demo pattern
+    │   │   │    ├── _button.scss.     # Most components require styles, underscore required
+    │   │   │    ├── _button.twig.     # The pure component template, underscore required
+    │   │   │    └── index.js.         # The component js that ties together all assets
+    │   │   └── ...                    # Other atoms
+    │   └── ...                        # Other Atomic Design categories (molecules, organisms, etc) 
+    └── design-system.js               # The ultimate importer/exporter of the design system pieces
 
 ## Anatomy of a Component
 
