@@ -102,9 +102,9 @@ The following are the most important items at the root level:
     ├── source                       # The design system. All assets compiled to dist/
     ├── tools                        # Gulp plugins and node tools
     ├── gulpfile.js                  # Defines the few tasks required in the workflow
-    ├── webpack.drupal.config.js.    # Entry point for the Drupal theme bundle
-    ├── webpack.pl.config.js.        # Entry point for the Pattern Lab bundle
-    ├── webpack.shared.config.js.    # Shared bundle configuration for all entry points
+    ├── webpack.drupal.config.js     # Entry point for the Drupal theme bundle
+    ├── webpack.pl.config.js         # Entry point for the Pattern Lab bundle
+    ├── webpack.shared.config.js     # Shared bundle configuration for all entry points
     └── ...                          # Mostly just config
 
 `source/` holds all assets for the design system and looks like this:
@@ -117,9 +117,9 @@ The following are the most important items at the root level:
     │   │   │    ├── demo              # Patterns feature a demo folder to show implementation
     │   │   │    │   ├── buttons.twig  # Demonstrate with a plural name, visible to PL since no underscore
     │   │   │    │   └── buttons.yml   # Data provided to the demo pattern
-    │   │   │    ├── _button.scss.     # Most components require styles, underscore required
-    │   │   │    ├── _button.twig.     # The pure component template, underscore required
-    │   │   │    └── index.js.         # The component js that ties together all assets
+    │   │   │    ├── _button.scss      # Most components require styles, underscore required
+    │   │   │    ├── _button.twig      # The pure component template, underscore required
+    │   │   │    └── index.js          # The component js that ties together all assets
     │   │   └── ...                    # Other atoms
     │   └── ...                        # Other Atomic Design categories (molecules, organisms, etc) 
     └── design-system.js               # The ultimate importer/exporter of the design system pieces
@@ -127,7 +127,7 @@ The following are the most important items at the root level:
 ## Anatomy of a Component
 
 ```javascript
-import $ from 'jquery';
+import $ from 'jquery'; // No assumption of global vars. *EVERY* dependency is imported.
 import 'bootstrap/js/src/button';
 
 // Custom
@@ -146,6 +146,34 @@ export function enable($context) {
 
 export default enable;
 ```
+
+
+## Sass
+
+NAMETBD makes a very clear distinction between *printing* and *non-printing* Sass. 
+
+> Printing Sass generates actual, rendered CSS output.
+
+This would result in rendered CSS:
+
+```scss
+.thing {
+  background: blue;
+}
+```
+
+> Non-printing Sass results in no CSS
+
+This won't output any CSS:
+
+```scss
+$rando-var: 33px;
+@mixin doThing() {
+  background: blue;
+}
+```
+
+There is a very clear role for each in the component system of NAMETBD.
 
 ## Assets
 
