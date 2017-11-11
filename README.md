@@ -224,10 +224,6 @@ export function enable($context) {
 export default enable;
 ```
 
-## Namespaces
-
-Namespace notes go here.
-
 ## Sass
 
 NAMETBD makes a very clear distinction between *printing* and *non-printing* Sass. 
@@ -253,7 +249,31 @@ $rando-var: 33px;
 }
 ```
 
-There is a very clear role for each in the component system of NAMETBD. EXPAND THIS.
+There is a very clear role for each in the component system of NAMETBD. In the `button` component featured above in [Anatomy of a Component](#anatomy-of-a-component), note this import:
+
+```javascript
+...
+import './_button.scss';
+...
+
+```
+
+Looking into `source/_patterns/01-atoms/button/_button.scss` reveals:
+
+```scss
+@import '../../00-base/config'; // DOES NOT OUTPUT CSS!
+
+$btn-border-radius: 0.25rem;
+@import "~bootstrap/scss/buttons"; // OUTPUTS CSS!
+
+```
+
+This approach to component styes allows sharing non-printing Sass config, while also ensuring our component prints its custom CSS exactly once. We can now safely `@import 'atoms/button;` anywhere in our other javascript components and there will be no duplicate CSS output for buttons!
+
+## Namespaces
+
+Namespace notes go here.
+
 
 ## Configuration
 
