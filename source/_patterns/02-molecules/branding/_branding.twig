@@ -10,16 +10,15 @@
  */
 #}
 
-{% set img = {
-  src: pl ? paths.assets ~ site_logo : site_logo,
-  alt: 'The Site Logo for ' ~ site_name,
+{% set site_logo = {
+  svgpath: pl ? '@molecules/branding/logo.svg' : site_logo,
 } %}
 
 <aside class="branding">
   {% if site_logo %}
     <div class="branding__site-logo">
-      <a href="{{ url }}" title="{{ 'Home'|t }}" rel="home">
-        {% include '@atoms/_image.twig' with img %}
+      <a href="{{ (pl) ? '#' : url }}" title="{{ 'Home'|t }}" rel="home">
+        {% include '@atoms/image/_svg.twig' with site_logo %}
       </a>
     </div>
   {% endif %}
