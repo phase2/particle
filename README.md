@@ -1,12 +1,20 @@
 [![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
 
+# Welcome
+
+NAMETBD is a highly-opinionated set of tools and examples to:
+
+1. Build an application-agnostic **design system**
+1. Apply that design system to a locally-served **Pattern Lab** for rapid prototyping
+2. Apply that design system to a **Drupal theme**
+
+In depth documentation about frontend approach using this project at [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/)
+
 # Prerequisites
 
 - [Node `^8.0.0`](https://nodejs.org)
 - [PHP `^7.0.0`](https://php.net)
 - [Composer](https://getcomposer.org)
-
-In depth documentation about frontend approach using this project at [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/)
 
 # QuickStart
 
@@ -64,7 +72,7 @@ npm test
 Run accessibility testing on Pattern Lab rendered output:
 
 ```bash
-npm run accessibility
+npm run test:accessibility
 ```
 
 To update node and composer dependencies (**merge** if offered the option):
