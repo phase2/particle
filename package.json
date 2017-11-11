@@ -32,7 +32,8 @@
     "lint:js": "eslint ./ --cache",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js & npm run lint:scss",
-    "pa11y": "pa11y"
+    "pa11y": "pa11y",
+    "accessibility": "npm run gulp -- test:accessibility"
   },
   "browserslist": [
     "last 2 versions",

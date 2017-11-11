@@ -6,6 +6,8 @@
 - [PHP `^7.0.0`](https://php.net)
 - [Composer](https://getcomposer.org)
 
+In depth documentation about frontend approach using this project at [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/)
+
 # QuickStart
 
 [Download the latest release](CHANGME), extract to the `/themes` directory if integrating with Drupal 8, and then `cd` into folder before running below commands.
@@ -16,6 +18,8 @@ npm run setup
 npm start
 ```
 
+Simply wait until the webpack bundle output appears and start working.
+
 If you're using Drupal 8, get the [Component Libraries module](https://www.drupal.org/project/components):
 
 ```bash
@@ -23,7 +27,7 @@ drush dl components
 drush en components -y
 ```
 
-That's it.
+That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/). 
 
 ## Commands
 
@@ -39,44 +43,37 @@ Quick compile Drupal
 npm run compile:drupal
 ```
 
-Start up watches and local server after compiling:
+Start up watches and local server:
 
 ```bash
 npm start
 ```
 
-> Protip: any config option from `gulpconfig.yml` can be overwritten with `npm start -- --js.enabled=''`, or by including options in your own `~/.p2-theme-corerc` file. See [`rc`](https://www.npmjs.com/package/rc) for more details.
-
-Run Tests:
+Run all linters:
 
 ```bash
-npm run test # or `npm test`
+npm run lint
 ```
 
-Create a new component folder in Pattern Lab with scss, twig, md, & yml/json by running:
+Run all tests:
 
 ```bash
-npm run new
+npm test
 ```
 
-To update node and composer dependencies (if you see messages about Pattern Lab wanting to Merge or Replace files, merge them):
+Run accessibility testing on Pattern Lab rendered output:
+
+```bash
+npm run accessibility
+```
+
+To update node and composer dependencies (**merge** if offered the option):
 
 ```bash
 npm run update
 ```
 
 ## Assets
-
-Get front end libraries downloaded with Bower like so:
-
-    bower install {project-name} --save
-
-Afterwards, you'll need to add them to Drupal and Pattern Lab:
-
-1. Pattern Lab: Go to `source/_meta/` and in `_00-head.twig` or `01-foot.twig`, add the `<link>` or `<script>` tags needed.
-2. Drupal: Add them to the appropriate library in the `*.libraries.yml` file and attach them where needed.
-
-Using `--save` shows it's intention to be used in Pattern Lab and Drupal; using `--save-dev` shows it's just for Pattern Lab.
 
 ### Icons and SVGs
 
