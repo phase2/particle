@@ -2,16 +2,16 @@
 
 # Prerequisites
 
-- [Node](https://nodejs.org) v6, v8 is required for pa11y testing
-- PHP 5.4, 5.5, 5.6, OR 7 (5.3 might work, no promises)
-- [`composer`](https://getcomposer.org)
+- [Node `^8.0.0`](https://nodejs.org)
+- [PHP `^7.0.0`](https://php.net)
+- [Composer](https://getcomposer.org)
 
 # QuickStart
 
-[Download this repo](https://github.com/phase2/pattern-lab-starter/archive/master.zip), rename folder to `patternlab` and place in themes directory if integrating with Drupal 8, and then `cd` into folder before running below commands.
+[Download the latest release](CHANGME), extract to the `/themes` directory if integrating with Drupal 8, and then `cd` into folder before running below commands.
 
 ```bash
-npm install # or `yarn install` if you want 3x the speed
+npm install
 npm run setup
 npm start
 ```
@@ -27,16 +27,22 @@ That's it.
 
 ## Commands
 
-Compile everything:
+Quick compile Pattern Lab:
 
 ```bash
-npm run compile
+npm run compile:pl
+```
+
+Quick compile Drupal
+
+```bash
+npm run compile:drupal
 ```
 
 Start up watches and local server after compiling:
 
 ```bash
-npm run start # or `npm start`
+npm start
 ```
 
 > Protip: any config option from `gulpconfig.yml` can be overwritten with `npm start -- --js.enabled=''`, or by including options in your own `~/.p2-theme-corerc` file. See [`rc`](https://www.npmjs.com/package/rc) for more details.
