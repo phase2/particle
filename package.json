@@ -40,7 +40,6 @@
     "IE >= 10"
   ],
   "dependencies": {
-    "@theme-tools/sass-export-data": "^1.0.2",
     "bootstrap": "^4.0.0-beta.2",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
@@ -48,6 +47,7 @@
     "popper.js": "^1.12.6"
   },
   "devDependencies": {
+    "@theme-tools/sass-export-data": "^1.0.2",
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

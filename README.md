@@ -16,6 +16,18 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 - [PHP `^7.0.0`](https://php.net)
 - [Composer](https://getcomposer.org)
 
+## Provides
+
+- Drupal theme and Pattern Lab app
+- Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
+- Webpack bundling of all CSS, javascript, font, and static image assets for multiple targets (Drupal theme and Pattern Lab)
+- Webpack Dev Server for local hosting and auto asset injection into Pattern Lab and Drupal
+- Auto namespace addition into Drupal theme and Pattern Lab. Within any twig file, `@atoms/thing.twig` means the same thing to Drupal theme and Pattern Lab.
+- Iconfont auto-generation
+- Bootstrap 4 integration, used for all starting example components
+- Auto-linting against the [AirBnB JavaScript Style Guide](https://github.com/airbnb/javascript) and sane Sass standards
+- All Webpack and Gulp files are fully configurable
+
 # Quickstart
 
 1. [Download the latest release](https://github.com/phase2/pattern-lab-starter/releases)
@@ -112,18 +124,6 @@ To update node and composer dependencies (**merge** if offered the option):
 npm run update
 ```
 
-## Provides
-
-- Drupal theme and Pattern Lab app
-- Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
-- Webpack bundling of all CSS, javascript, font, and static image assets for multiple targets (Drupal theme and Pattern Lab)
-- Webpack Dev Server for local hosting and auto asset injection into Pattern Lab and Drupal
-- Auto namespace addition into Drupal theme and Pattern Lab. Basically, `@atoms/thing.twig` means the same thing to Drupal theme and Pattern Lab
-- Iconfont auto-generation
-- Bootstrap 4 integration, used for all starting example components
-- Auto-linting against the AirBnB javascript styleguide and sane Sass standards
-- All Webpack and Gulp files are fully configurable
-
 ## Structure
 
 The following are significant items at the root level:
@@ -190,26 +190,39 @@ The following are significant items at the root level:
 ## Anatomy of a Component
 
 ```javascript
-import $ from 'jquery'; // No assumption of global vars. *EVERY* dependency is imported.
+// source/_patterns/01-atoms/button/index.js
+
+// Import *EVERY* NPM dependency.
+import $ from 'jquery';
+// Import specific plugins this component may need
 import 'bootstrap/js/src/button';
 
-// Custom
+// source/_patterns/01-atoms/00-base/index.js
 import 'base';
 
-// Import custom sass, includes Bootstrap sass
+// Import local Sass (which in turn imports Bootstrap Sass)
 import './_button.scss';
 
+// Req. 1 of a component: name
 export const name = 'button';
 
+// Req. 2 of a component: disable function
 export function disable() {}
 
+// Req. 3 of a component: enable function. `$context` is `$(document)` in PL, and `context` in Drupal
 export function enable($context) {
+  
+  // `.button()` is only available because of `import 'bootstrap/js/src/button';` above
   $('#blah', $context).button('toggle');
 }
 
+// Req. 4 of a component: default export is the enable function
 export default enable;
 ```
 
+## Namespaces
+
+Namespace notes go here.
 
 ## Sass
 
@@ -217,7 +230,7 @@ NAMETBD makes a very clear distinction between *printing* and *non-printing* Sas
 
 > Printing Sass generates actual, rendered CSS output.
 
-This would result in rendered CSS:
+This results in rendered CSS:
 
 ```scss
 .thing {
@@ -236,9 +249,29 @@ $rando-var: 33px;
 }
 ```
 
-There is a very clear role for each in the component system of NAMETBD.
+There is a very clear role for each in the component system of NAMETBD. EXPAND THIS.
 
-## Assets
+## Configuration
+
+### Webpack
+
+### Gulp
+
+### Linting
+
+- Javascript: edit `.eslintrc.js` - [docs](http://eslint.org/docs/rules/)
+- Sass: edit `.stylelintrc` - [docs](http://stylelint.io/user-guide/)
+
+### IDE/Text Editor Setup
+
+Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding conventions.
+
+- [VSCode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+- [JetBrains (*Storm)](https://plugins.jetbrains.com/plugin/7294-editorconfig)
+- [Atom](https://github.com/sindresorhus/atom-editorconfig)
+- [Sublime Text](https://github.com/sindresorhus/editorconfig-sublime)
+
+## Assets (REVAMP THIS)
 
 ### Icons and SVGs
 
@@ -261,7 +294,7 @@ Useful for small, frequently used icons that are a single color which is changea
     - HTML class: `icon--file`
     - Sass Mixin: `@include icon(file)`
 
-## Orientation
+## Orientation (REVAMP THIS)
 
 - source/
   - _annotations/ ([annotations](http://patternlab.io/docs/pattern-adding-annotations.html) for Patterns)
@@ -274,31 +307,9 @@ Useful for small, frequently used icons that are a single color which is changea
     - 03-organisms (Twig Namespace: `@organisms`)
     - 04-templates (Twig Namespace: `@templates`)
     - 05-pages (Twig Namespace: `@pages`)
-  - _meta/ (contains the header and footer Twig templates for PL; add any `<link>` or `<script>` tags here; don't edit in between the `<!-- inject -->` tags though; it'll get overwritten)
-- pattern-lab/
-  - config/config.yml (Pattern Lab configuration)
-  - public/ (Where Pattern Lab compiles too, it's just static HTML)
-  - composer.json (run `composer update` next to this to update dependencies)
-- scss/ - Sass files that aren't really tied to a component, so not in the above location.
-- js/ - all js files here and transpiled by Babel and combined into a single `dest/script.js` file.
-- images/icons/src/ - all SVGs here are combined into font icons and have classes and Sass mixins made for each based on file name. See `atoms/images/icons` in Pattern Lab.
-- dest/ - Many compiled assets end up in here like CSS, JS, Font Icons, and any doc systems like [SassDoc](http://sassdoc.com).
 - templates/ - Drupal twig templates. These often will `include`, `embed`, or `extend` the Twig templates found in Pattern Lab like this: `{% include "@molecules/branding/branding.twig" with { url: path('<front>') } %}`. We keep the components in Pattern Lab "pure" and ignorant of Drupal's data model and use these templates to map the data between the two. Think of these as the Presenter templates in the [Model View Presenter](https://en.wikipedia.org/wiki/Model–view–presenter) approach. Also, Drupal Twig templates that have nothing to do with Pattern Lab go here.
-- gulpconfig.yml - Configuration for all the gulp tasks, a ton can be controlled here.
 
-### IDE/Text Editor Setup
-
-- Install an EditorConfig plugin
-- Ignore the indexing of these directories:
-  - `node_modules/`
-  - `bower_components/`
-  - `dest/`
-  - `pattern-lab/public/`
-  - `pattern-lab/vendor/`
-
----
-
-# Details
+# Details (REVAMP THIS)
 
 ## Pattern Lab
 
