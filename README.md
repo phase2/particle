@@ -81,6 +81,52 @@ To update node and composer dependencies (**merge** if offered the option):
 npm run update
 ```
 
+## Provides
+
+- Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
+- Webpack bundling of all CSS, javascript, font, and static image assets for multiple targets (Drupal theme and Pattern Lab)
+- Webpack Dev Server for local hosting and auto asset injection into Pattern Lab and Drupal
+- Auto namespace addition into Drupal theme and Pattern Lab (for no-effort `@atoms/thing.twig`)
+- Iconfont auto-generation
+- Bootstrap 4 integration, used for all starting example components
+
+## Structure
+
+    .
+    ├── apps                         # Things that use the compiled design system. Drupal theme & PL
+    ├── dist                         # Rendered output: CSS, javascript, image, PL artifacts
+    ├── source                       # The design system. All assets compiled to dist/
+    ├── tools                        # Gulp plugins and node tools
+    ├── gulpfile.js                  # Defines the few tasks required in the workflow
+    ├── webpack.drupal.config.js.    # Entry point for the Drupal theme bundle
+    ├── webpack.pl.config.js.        # Entry point for the Pattern Lab bundle
+    └── webpack.shared.config.js.    # Shared bundle configuration for all entry points
+
+> Use short lowercase names at least for the top-level file
+
+## Anatomy of a Component
+
+```javascript
+import $ from 'jquery';
+import 'bootstrap/js/src/button';
+
+// Custom
+import 'base';
+
+// Import custom sass, includes Bootstrap sass
+import './_button.scss';
+
+export const name = 'button';
+
+export function disable() {}
+
+export function enable($context) {
+  $('#blah', $context).button('toggle');
+}
+
+export default enable;
+```
+
 ## Assets
 
 ### Icons and SVGs
@@ -103,15 +149,6 @@ Useful for small, frequently used icons that are a single color which is changea
 3. Use either way:
     - HTML class: `icon--file`
     - Sass Mixin: `@include icon(file)`
-
-### Sass Libraries
-
-Sass libraries are installed using bower as well; you can see how we import them in the main scss file. These are the ones available:
-
-- [Normalize](https://github.com/JohnAlbin/normalize-scss) - Better style reset
-- [Singularity Grid System](https://github.com/at-import/Singularity) - Grid system
-- [Breakpoint](http://breakpoint-sass.com) - A cleaner way to do breakpoints/media queries
-- [Bourbon](http://bourbon.io/docs) - Helpful mixins
 
 ## Orientation
 
@@ -196,20 +233,6 @@ Use it like this in `source/_data/data.json`:
 ```
 
 The formatters (things like `.paragraph`, `.words`, etc) can accept options, when you see `Faker.words(3, true)` that means give me 3 random words and I'd like them as a string and not an array of strings. All the [formatters and their options are documented here](https://github.com/fzaninotto/Faker#formatters) - there's tons: numbers, address, names, dates, and more.
-
-## Configuration
-
-It's almost all done in `gulpconfig.yml`. End all paths with a `/` please (i.e. `path/to/dir/`). The local `gulpfile.js` passes the `config` object to [`p2-theme-core`](https://github.com/phase2/p2-theme-core) - which can be viewed at `node_modules/p2-theme-core/` (most stuff in `lib/`).
-
-Many of the features can be turned off, for example if we didn't want all the JS features like linting and concatenation, just toggle `enabled` under `js` in `gulpconfig.yml`. So you'd just open `gulpconfig.yml` and change this:
-
-```diff
-js:
--    enabled: true
-+    enabled: false
-```
-
-Documentation for many of the features are found in `node_modules/p2-theme-core/docs/` – those are [hosted here](http://p2-theme-core.readthedocs.org) too.
 
 ### Linting Config
 
