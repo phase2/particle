@@ -114,29 +114,31 @@ npm run update
 
 ## Provides
 
+- Drupal theme and Pattern Lab app
 - Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
 - Webpack bundling of all CSS, javascript, font, and static image assets for multiple targets (Drupal theme and Pattern Lab)
 - Webpack Dev Server for local hosting and auto asset injection into Pattern Lab and Drupal
-- Auto namespace addition into Drupal theme and Pattern Lab (for no-effort `@atoms/thing.twig`)
+- Auto namespace addition into Drupal theme and Pattern Lab. Basically, `@atoms/thing.twig` means the same thing to Drupal theme and Pattern Lab
 - Iconfont auto-generation
 - Bootstrap 4 integration, used for all starting example components
 - Auto-linting against the AirBnB javascript styleguide and sane Sass standards
+- All Webpack and Gulp files are fully configurable
 
 ## Structure
 
-The following are the most important items at the root level:
+The following are significant items at the root level:
 
     # ./
     .
-    ├── apps                         # Things that use the compiled design system. Drupal theme & PL
-    ├── dist                         # Bundled output: CSS, javascript, images, PL artifacts
-    ├── source                       # The design system. All assets compiled to dist/
-    ├── tools                        # Gulp plugins and node tools
-    ├── gulpfile.js                  # Defines the few tasks required in the workflow
-    ├── webpack.drupal.config.js     # Entry point for the Drupal theme bundle
-    ├── webpack.pl.config.js         # Entry point for the Pattern Lab bundle
-    ├── webpack.shared.config.js     # Shared bundle configuration for all entry points
-    └── ...                          # Mostly just config
+    ├── apps                           # Things that use the compiled design system. Drupal theme & PL
+    ├── dist                           # Bundled output: CSS, js, images, app artifacts (like PL html)
+    ├── source                         # The design system. All assets compiled to dist/
+    ├── tools                          # Gulp plugins and node tools
+    ├── gulpfile.js                    # Defines the few tasks required in the workflow
+    ├── webpack.drupal.config.js       # Entry point for the Drupal theme bundle
+    ├── webpack.pl.config.js           # Entry point for the Pattern Lab bundle
+    ├── webpack.shared.config.js       # Shared bundle configuration for all entry points
+    └── ...                            # Mostly just config
 
 `source/` holds all assets for the design system and looks like this:
 
@@ -150,10 +152,40 @@ The following are the most important items at the root level:
     │   │   │    │   └── buttons.yml   # Data provided to the demo pattern
     │   │   │    ├── _button.scss      # Most components require styles, underscore required
     │   │   │    ├── _button.twig      # The pure component template, underscore required
-    │   │   │    └── index.js          # The component js that ties together all assets
+    │   │   │    └── index.js          # Component entry point (See "Anatomy of a Component below)
     │   │   └── ...                    # Other atoms
     │   └── ...                        # Other Atomic Design categories (molecules, organisms, etc) 
     └── design-system.js               # The ultimate importer/exporter of the design system pieces
+    
+>The design system is *consumed by* "apps". The two apps included are a Drupal theme and a Pattern Lab installation.
+
+`app/pl/` holds the *entry point* for all Pattern Lab assets, as well as the PHP engine:
+
+
+    # ./app/pl/
+    .
+    ├── pattern-lab/                   # Holds the Pattern Lab installation
+    │   ├── ...                        # composer.json, config, console php, ...
+    ├── scss                           # PL-only Sass; styles that shoudln't junk up the design system
+    │   ├── _scss2json.scss            # Output certain Sass variables into json for demo in PL
+    │   └── _styleguide.scss           # Custom PL UI styles
+    └── index.js                       # Imports and applies the design system to a bundle for PL
+
+`app/drupal/` holds the *entry point* for all Drupal 8 theme assets, as well as templates, yml, etc:
+
+    # ./app/drupal/
+    .
+    ├── scss/                          # Theme-only Sass, tweaks to Drupalisms that need not be in the DS
+    │   └── _drupal-styles.scss        # Add more drupal styles here, like _views.scss, _field.scss etc
+    ├── templates                      # Templates integrate Drupal data with design system patterns
+    │   ├── block.html.twig            # Example Drupal template integrating, say @molecules/_card.twig
+    │   └── ...                        # There wil be many Drupal templates
+    ├── index.js                       # Imports and applies the design system to a bundle for Drupal
+    ├── NAMETBD.info.yml               # Theme information. DS namespaces are auto-injected!
+    ├── NAMETBD.libraries.yml          # The output js and css bundles are included here
+    ├── NAMETBD.theme                  # Drupal preprocess functions
+    └── index.js                       # Imports and applies the design system to a bundle for Drupal
+
 
 ## Anatomy of a Component
 
