@@ -16,7 +16,7 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 - [PHP `^7.0.0`](https://php.net)
 - [Composer](https://getcomposer.org)
 
-## Provides
+# Provides
 
 - Drupal theme and Pattern Lab app
 - Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
@@ -30,6 +30,10 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 # Quickstart
 
+NAMETBD can be run from anywhere to work with Pattern Lab. It also provides a theme to a Drupal website.
+
+## Quickstart anywhere
+
 1. [Download the latest release](https://github.com/phase2/pattern-lab-starter/releases)
 1. Extract anywhere (i.e. this readme should be at `any/where/NAMETBD/README.md`)
 1. Within the extracted folder run:
@@ -42,7 +46,7 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 Simply wait until the webpack bundle output appears then visit [http://0.0.0.0/pl](http://0.0.0.0/pl) (or [http://localhost/pl](http://localhost/pl)) and start working.
 
-# Quickstart with Drupal 8
+## Quickstart with Drupal 8
 
 NAMETBD provides a Drupal 8 theme, the starting steps are slightly different:
 
