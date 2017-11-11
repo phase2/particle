@@ -16,24 +16,55 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 - [PHP `^7.0.0`](https://php.net)
 - [Composer](https://getcomposer.org)
 
-# QuickStart
+# Quickstart
 
-[Download the latest release](CHANGME), extract to the `/themes` directory if integrating with Drupal 8, and then `cd` into folder before running below commands.
+1. [Download the latest release](https://github.com/phase2/pattern-lab-starter/releases)
+1. Extract anywhere (i.e. this readme should be at `any/where/NAMETBD/README.md`)
+1. Within the extracted folder run:
+
+	```bash
+	npm install
+	npm run setup
+	npm start
+	```
+
+Simply wait until the webpack bundle output appears then visit [http://0.0.0.0/pl](http://0.0.0.0/pl) (or [http://localhost/pl](http://localhost/pl)) and start working.
+
+# Quickstart with Drupal 8
+
+NAMETBD provides a Drupal 8 theme, the starting steps are slightly different:
+
+1. [Download the latest release](https://github.com/phase2/pattern-lab-starter/releases)
+1. Extract to `themes/` at the root of your Drupal 8 install. (i.e. this readme should be at `drupal-root/themes/NAMETBD/README.md`)
+1. Download and install the [Component Libraries module](https://www.drupal.org/project/components):
+	
+	```bash
+	drush dl components
+	drush en components -y
+	```
+1. Within `drupal-root/themes/NAMETBD/` run:
+
+	```bash
+	npm install
+	npm run setup
+	npm run compile:drupal
+	```
+
+This will compile all assets and provide all namespaces to the Drupal theme. Make sure to choose this theme in Drupal Appearance settings and `drush cr` to clear cache.
+
+For subsequent recompile and Drupal cache clear, run:
 
 ```bash
-npm install
-npm run setup
+npm run compile:drupal && drush cr
+```
+
+Working rapidly in Pattern Lab is still available, simply run:
+
+```bash
 npm start
 ```
 
-Simply wait until the webpack bundle output appears and start working.
-
-If you're using Drupal 8, get the [Component Libraries module](https://www.drupal.org/project/components):
-
-```bash
-drush dl components
-drush en components -y
-```
+Just like in the regular Quickstart, when Webpack output appears, visit [http://0.0.0.0/pl](http://0.0.0.0/pl) (or [http://localhost/pl](http://localhost/pl)) to immediately start building and previewing your design system in Pattern Lab. 
 
 That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/). 
 
