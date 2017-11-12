@@ -149,7 +149,7 @@ The following are significant items at the root level:
     # ./source/
     .
     ├── _patterns                      # All assets live within an Atomic "pattern"
-    │   ├── 01-atoms                   # For instance, in atoms
+    │   ├── 01-atoms                   # Twig namespace: @atoms, JS/Sass namespace: atoms
     │   │   ├── button                 # For instance, the button atom
     │   │   │    ├── demo              # Patterns feature a demo folder to show implementation
     │   │   │    │   ├── buttons.twig  # Demonstrate with a plural name, visible to PL since no underscore
@@ -157,8 +157,8 @@ The following are significant items at the root level:
     │   │   │    ├── _button.scss      # Most components require styles, underscore required
     │   │   │    ├── _button.twig      # The pure component template, underscore required
     │   │   │    └── index.js          # Component entry point (See "Anatomy of a Component below)
-    │   │   └── ...                    # Other atoms
-    │   └── ...                        # Other Atomic Design categories (molecules, organisms, etc) 
+    │   │   └── ...                    # Other @atoms
+    │   └── ...                        # @base, @atoms, @molecules, @organisms, @templates, @pages
     └── design-system.js               # The ultimate importer/exporter of the design system pieces
     
 >The design system is *consumed by* "apps". The two apps included are a Drupal theme and a Pattern Lab installation.
@@ -193,6 +193,20 @@ The following are significant items at the root level:
 
 ## Anatomy of a Component
 
+All components require a set of files:
+
+    # ./source/_patterns/01-atoms/button/
+    .
+    ├── demo                           # Demo implementations, can be removed on deploy to prod
+    │   ├── buttons.md                 # Markdown with extra notes, visible in PL UI
+    │   ├── buttons.twig               # Demonstrate with a plural name, visible to PL since no underscore
+    │   └── buttons.yml                # Data provided to the demo pattern
+    ├── _button.scss                   # Most components require styles, underscore required
+    ├── _button.twig                   # The pure component template, "_" required to hide from PL UI
+    └── index.js                       # Component entry point
+
+With the power of [Webpack](https://webpack.js.org/), all static assets a component needs are `import`ed right into the `index.js` **entry point** alongside the javascript methods: 
+
 ```javascript
 // source/_patterns/01-atoms/button/index.js
 
@@ -223,10 +237,11 @@ export function enable($context) {
 // Req. 4 of a component: default export is the enable function
 export default enable;
 ```
+See the Sass and Twig sections below for more 
 
 ## Sass
 
-NAMETBD makes a very clear distinction between *printing* and *non-printing* Sass. 
+NAMETBD makes a very clear distinction between *printing* and *non-printing* Sass in components.
 
 > Printing Sass generates actual, rendered CSS output.
 
@@ -252,6 +267,7 @@ $rando-var: 33px;
 There is a very clear role for each in the component system of NAMETBD. In the `button` component featured above in [Anatomy of a Component](#anatomy-of-a-component), note this import:
 
 ```javascript
+// source/_patterns/01-atoms/button/_index.js
 ...
 import './_button.scss';
 ...
@@ -266,36 +282,50 @@ Looking into `source/_patterns/01-atoms/button/_button.scss` reveals:
 $btn-border-radius: 0.25rem;
 @import "~bootstrap/scss/buttons"; // OUTPUTS CSS!
 
+.custom-class {
+  color: red;    // OUTPUTS CSS!
+}
 ```
 
-This approach to component styes allows sharing non-printing Sass config, while also ensuring our component prints its custom CSS exactly once. We can now safely `@import 'atoms/button;` anywhere in our other javascript components and there will be no duplicate CSS output for buttons!
+This approach to component styes allows sharing non-printing Sass **configuration**, while also ensuring our component prints its custom CSS exactly once. We can now safely `@import 'atoms/button;` anywhere in our other javascript components as many times as needed and there will be no duplicate CSS output for buttons!
+
+## Twig
+
+Twig notes here
 
 ## Namespaces
 
 Namespace notes go here.
 
+## Assets
 
-## Configuration
+Assets are "static" files that make up all clientside applications. Examples of static assets are:
 
-### Webpack
+- CSS
+- Javascript bundles
+- .map files for debugging CSS and Javascript
+- Font files
+- JPEG, PNG, GIF, and SVG images
+- favicons
 
-### Gulp
+> Assets are compiled to the dist/ folder if they are @import'd in some file within the dependency chain of your app. Only files within dist/ are available to be served to your apps.
 
-### Linting
+### "Dependency Chain"
 
-- Javascript: edit `.eslintrc.js` - [docs](http://eslint.org/docs/rules/)
-- Sass: edit `.stylelintrc` - [docs](http://stylelint.io/user-guide/)
+NAMETBD takes a modern approach to asset management through Webpack. Instead of files spread around a project that have to be referenced individually on the client side, apps now have entry point javascript files that @import dependencies that @import dependencies that @import dependencies and so on. 
 
-### IDE/Text Editor Setup
+Using Webpack to **[bundle](https://webpack.js.org/guides/getting-started/#creating-a-bundle)** this dependency chain up into as few output files as possible to the `dist/` directory means we have a `source/` (and `apps/`) folder that is structured the way we want to work, with a consistent output.
 
-Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding conventions.
+Consider this dependency chain for the `apps/pl` app:
 
-- [VSCode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-- [JetBrains (*Storm)](https://plugins.jetbrains.com/plugin/7294-editorconfig)
-- [Atom](https://github.com/sindresorhus/atom-editorconfig)
-- [Sublime Text](https://github.com/sindresorhus/editorconfig-sublime)
-
-## Assets (REVAMP THIS)
+                                                         <- @base
+                                                         <- jquery
+                                    <- @atoms/button     <- bootstrap/src/js/buttons
+                                                         <- @base
+                                                         <- jquery
+    apps/pl <- source/design-system <- @molecules/card   <- bootstrap/src/js/cards
+                                                         <- @base
+                                    <- @organisms/header <- bootstrap/src/js/jumbotron
 
 ### Icons and SVGs
 
@@ -317,6 +347,27 @@ Useful for small, frequently used icons that are a single color which is changea
 3. Use either way:
     - HTML class: `icon--file`
     - Sass Mixin: `@include icon(file)`
+
+## Configuration
+
+### Webpack
+
+### Gulp
+
+### Linting
+
+- Javascript: edit `.eslintrc.js` - [docs](http://eslint.org/docs/rules/)
+- Sass: edit `.stylelintrc` - [docs](http://stylelint.io/user-guide/)
+
+### IDE/Text Editor Setup
+
+Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding conventions.
+
+- [VSCode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+- [JetBrains (*Storm)](https://plugins.jetbrains.com/plugin/7294-editorconfig)
+- [Atom](https://github.com/sindresorhus/atom-editorconfig)
+- [Sublime Text](https://github.com/sindresorhus/editorconfig-sublime)
+
 
 ## Orientation (REVAMP THIS)
 
