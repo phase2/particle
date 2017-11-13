@@ -16,7 +16,7 @@ function startWebpackDevServer(webpackConfig, devServerConfig) {
   return (cb) => {
     const localWebpackConfig = webpackConfig;
     const {
-      entry: { 'app-pl': plEntry }, // ./app-pl/index.js
+      entry: { 'app-pl': plEntry }, // ./apps/pl/index.js
       output: { publicPath }, // /temp/
     } = localWebpackConfig;
 
