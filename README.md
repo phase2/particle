@@ -67,7 +67,7 @@ npm run setup
 npm run compile:drupal
 ```
 
-This will compile all assets and provide all namespaces to the Drupal theme. Make sure to choose this theme in Drupal Appearance settings and `drush cr` to clear cache.
+This will compile all assets and provide all namespaced Twig paths to the Drupal theme. Make sure to choose this theme in Drupal Appearance settings and `drush cr` to clear cache.
 
 For subsequent recompile and Drupal cache clear, run:
 
