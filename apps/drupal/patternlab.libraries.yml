@@ -2,12 +2,12 @@
 core:
   css:
     theme:
-      ../dist/assets/app-drupal.styles.css:
+      ../../dist/assets/app-drupal.styles.css:
         preprocess: true
   js:
-    ../dist/assets/commons.js:
+    ../../dist/assets/commons.js:
       preprocess: true
-    ../dist/assets/app-drupal.js:
+    ../../dist/assets/app-drupal.js:
       preprocess: true
   # see all in Drupal's `core/core.libraries.yml`
   dependencies:
