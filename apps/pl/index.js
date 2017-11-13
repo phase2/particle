@@ -13,7 +13,7 @@ import 'atoms/image/demo';
 import designSystem from '../../source/design-system';
 
 // Adds PL-only styles, ie color swatches.
-import './scss/_styleguide-specific.scss';
+import './scss/_styleguide.scss';
 import './scss/_scss2json.scss';
 
 // Send each component the $(document) as its context
