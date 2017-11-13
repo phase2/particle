@@ -22,7 +22,7 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 - Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
 - Webpack bundling of all CSS, javascript, font, and static image assets for multiple targets (Drupal theme and Pattern Lab)
 - Webpack Dev Server for local hosting and auto asset injection into Pattern Lab and Drupal
-- Auto namespace addition into Drupal theme and Pattern Lab. Within any twig file, `@atoms/thing.twig` means the same thing to Drupal theme and Pattern Lab.
+- [Twig namespaced paths](https://symfony.com/doc/current/templating/namespaced_paths.html) automatically added into Drupal theme and Pattern Lab config. Within any twig file, `@atoms/thing.twig` means the same thing to Drupal theme and Pattern Lab.
 - Iconfont auto-generation
 - Bootstrap 4 integration, used for all starting example components
 - Auto-linting against the [AirBnB JavaScript Style Guide](https://github.com/airbnb/javascript) and sane Sass standards
