@@ -5,7 +5,6 @@
 // Module dependencies
 import 'base';
 import 'atoms/image';
-import 'atoms/button';
 
 // Pull in system-wide images
 import './logo.svg';
