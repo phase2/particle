@@ -13,8 +13,8 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 ## Prerequisites
 
 - [Node `^8.0.0`](https://nodejs.org)
-- [PHP `^7.0.0`](https://php.net)
-- [Composer](https://getcomposer.org)
+- [PHP `5.6`, `^7.0.0`](https://php.net)
+- [Composer `^1.0.0`](https://getcomposer.org)
 
 ## Provides
 
