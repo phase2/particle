@@ -1,22 +1,22 @@
-[![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
+# NAMETBD: A design system integrating to Pattern Lab and a Drupal 8 theme
 
-# Welcome
+[![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
 
 NAMETBD is a highly-opinionated set of tools and examples to:
 
 1. Build an application-agnostic **design system**
 1. Apply that design system to a locally-served **Pattern Lab** for rapid prototyping
-2. Apply that design system to a **Drupal theme**
+1. Apply that design system to a **Drupal theme**
 
 In depth documentation about frontend approach using this project at [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/)
 
-# Prerequisites
+## Prerequisites
 
 - [Node `^8.0.0`](https://nodejs.org)
 - [PHP `^7.0.0`](https://php.net)
 - [Composer](https://getcomposer.org)
 
-# Provides
+## Provides
 
 - Drupal theme and Pattern Lab app
 - Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
@@ -28,43 +28,44 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 - Auto-linting against the [AirBnB JavaScript Style Guide](https://github.com/airbnb/javascript) and sane Sass standards
 - All Webpack and Gulp files are fully configurable
 
-# Quickstart
+## Quickstart
 
 NAMETBD can be run from anywhere to work with Pattern Lab. It also provides a theme to a Drupal website.
 
-## Quickstart anywhere
+### Quickstart anywhere
 
 1. [Download the latest release](https://github.com/phase2/pattern-lab-starter/releases)
 1. Extract anywhere (i.e. this readme should be at `any/where/NAMETBD/README.md`)
 1. Within the extracted folder run:
 
-	```bash
-	npm install
-	npm run setup
-	npm start
-	```
+```bash
+npm install
+npm run setup
+npm start
+```
 
 Simply wait until the webpack bundle output appears then visit [http://0.0.0.0/pl](http://0.0.0.0/pl) (or [http://localhost/pl](http://localhost/pl)) and start working.
 
-## Quickstart with Drupal 8
+### Quickstart with Drupal 8
 
 NAMETBD provides a Drupal 8 theme, the starting steps are slightly different:
 
 1. [Download the latest release](https://github.com/phase2/pattern-lab-starter/releases)
 1. Extract to `themes/` at the root of your Drupal 8 install. (i.e. this readme should be at `drupal-root/themes/NAMETBD/README.md`)
 1. Download and install the [Component Libraries module](https://www.drupal.org/project/components):
-	
-	```bash
-	drush dl components
-	drush en components -y
-	```
+
+```bash
+drush dl components
+drush en components -y
+```
+
 1. Within `drupal-root/themes/NAMETBD/` run:
 
-	```bash
-	npm install
-	npm run setup
-	npm run compile:drupal
-	```
+```bash
+npm install
+npm run setup
+npm run compile:drupal
+```
 
 This will compile all assets and provide all namespaces to the Drupal theme. Make sure to choose this theme in Drupal Appearance settings and `drush cr` to clear cache.
 
@@ -80,9 +81,9 @@ Working rapidly in Pattern Lab is still available, simply run:
 npm start
 ```
 
-Just like in the regular Quickstart, when Webpack output appears, visit [http://0.0.0.0/pl](http://0.0.0.0/pl) (or [http://localhost/pl](http://localhost/pl)) to immediately start building and previewing your design system in Pattern Lab. 
+Just like in the regular Quickstart, when Webpack output appears, visit [http://0.0.0.0/pl](http://0.0.0.0/pl) (or [http://localhost/pl](http://localhost/pl)) to immediately start building and previewing your design system in Pattern Lab.
 
-That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/). 
+That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/).
 
 ## Commands
 
@@ -160,7 +161,7 @@ The following are significant items at the root level:
     │   │   └── ...                    # Other @atoms
     │   └── ...                        # @base, @atoms, @molecules, @organisms, @templates, @pages
     └── design-system.js               # The ultimate importer/exporter of the design system pieces
-    
+
 >The design system is *consumed by* "apps". The two apps included are a Drupal theme and a Pattern Lab installation.
 
 `app/pl/` holds the *entry point* for all Pattern Lab assets, as well as the PHP engine:
@@ -190,7 +191,6 @@ The following are significant items at the root level:
     ├── NAMETBD.theme                  # Drupal preprocess functions
     └── index.js                       # Imports and applies the design system to a bundle for Drupal
 
-
 ## Anatomy of a Component
 
 All components require a set of files:
@@ -205,7 +205,7 @@ All components require a set of files:
     ├── _button.twig                   # The pure component template, "_" required to hide from PL UI
     └── index.js                       # Component entry point
 
-With the power of [Webpack](https://webpack.js.org/), all static assets a component needs are `import`ed right into the `index.js` **entry point** alongside the javascript methods: 
+With the power of [Webpack](https://webpack.js.org/), all static assets a component needs are `import`ed right into the `index.js` **entry point** alongside the javascript methods:
 
 ```javascript
 // source/_patterns/01-atoms/button/index.js
@@ -229,7 +229,7 @@ export function disable() {}
 
 // Req. 3 of a component: enable function. `$context` is `$(document)` in PL, and `context` in Drupal
 export function enable($context) {
-  
+
   // `.button()` is only available because of `import 'bootstrap/js/src/button';` above
   $('#blah', $context).button('toggle');
 }
@@ -237,7 +237,8 @@ export function enable($context) {
 // Req. 4 of a component: default export is the enable function
 export default enable;
 ```
-See the Sass and Twig sections below for more 
+
+See the Sass and Twig sections below for more
 
 ## Sass
 
@@ -312,7 +313,7 @@ Assets are "static" files that make up all clientside applications. Examples of 
 
 ### "Dependency Chain"
 
-NAMETBD takes a modern approach to asset management through Webpack. Instead of files spread around a project that have to be referenced individually on the client side, apps now have entry point javascript files that @import dependencies that @import dependencies that @import dependencies and so on. 
+NAMETBD takes a modern approach to asset management through Webpack. Instead of files spread around a project that have to be referenced individually on the client side, apps now have entry point javascript files that @import dependencies that @import dependencies that @import dependencies and so on.
 
 Using Webpack to **[bundle](https://webpack.js.org/guides/getting-started/#creating-a-bundle)** this dependency chain up into as few output files as possible to the `dist/` directory means we have a `source/` (and `apps/`) folder that is structured the way we want to work, with a consistent output.
 
@@ -327,24 +328,24 @@ Consider this dependency chain for the `apps/pl` app:
                                                          <- @base
                                     <- @organisms/header <- bootstrap/src/js/jumbotron
 
-### Icons and SVGs
+### Icons and SVGs (REVAMP)
 
 Two systems exists for flexibility: SVGs as HTML elements, and SVGs compiled into Font Icons.
 
-#### SVG Elements
+#### SVG Elements (REVAMP)
 
 Useful for larger, less frequently used vector images that potentially could be multi-color or able to animate.
 
 1. Place `file.svg` in `images/svgs/` and possible minify yourself.
-2. Use it in Twig templates like so: `{{ source('@svgs/file.svg') }}` ([info on `source`](http://twig.sensiolabs.org/doc/1.x/functions/source.html))
+1. Use it in Twig templates like so: `{{ source('@svgs/file.svg') }}` ([info on `source`](http://twig.sensiolabs.org/doc/1.x/functions/source.html))
 
-#### SVG => Font Icons
+#### SVG => Font Icons (REVAMP)
 
 Useful for small, frequently used icons that are a single color which is changeable via CSS.
 
 1. Place `file.svg` in `images/icons/src/`
-2. See it automatically appear in Pattern Lab at "Atoms > Images > Icons".
-3. Use either way:
+1. See it automatically appear in Pattern Lab at "Atoms > Images > Icons".
+1. Use either way:
     - HTML class: `icon--file`
     - Sass Mixin: `@include icon(file)`
 
@@ -368,8 +369,7 @@ Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding co
 - [Atom](https://github.com/sindresorhus/atom-editorconfig)
 - [Sublime Text](https://github.com/sindresorhus/editorconfig-sublime)
 
-
-## Orientation (REVAMP THIS)
+## Orientation (REVAMP)
 
 - source/
   - _annotations/ ([annotations](http://patternlab.io/docs/pattern-adding-annotations.html) for Patterns)
@@ -390,7 +390,7 @@ Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding co
 
 Refer to the [Pattern Lab Documentation](http://patternlab.io/docs) for extensive info on how to use it. This theme starter is a custom Pattern Lab 2 *Edition* that is heavily influenced by the [Drupal Edition of Pattern Lab](https://github.com/pattern-lab/edition-php-drupal-standard) and uses the Twig engine to bring it inline with Drupal 8's use of Twig.
 
-### Folder Structure Differences
+### Folder Structure Differences (REVAMP)
 
 Our folder structure makes a slight but convenient alteration to the typical Pattern Lab folder setup. Basically we move `pattern-lab/source/` up one level because we keep Sass in there too and it's the "source" for much of the theme. Here's the difference between the typical and our structure (few folders mentioned for brevity; please see Orientation above for a more thorough list).
 
@@ -412,7 +412,7 @@ Our folder structure makes a slight but convenient alteration to the typical Pat
   - public/
   - composer.json
 
-### Dummy data using `Faker`
+### Dummy data using `Faker` (REVAMP)
 
 [`Faker`](https://github.com/fzaninotto/Faker) generates fake data and the [Faker plugin for Pattern Lab](https://github.com/pattern-lab/plugin-php-faker) is used here. This generates *different* fake content for each compile, and allows [translated content](https://github.com/pattern-lab/plugin-php-faker#locales) as well.
 
@@ -436,7 +436,7 @@ The formatters (things like `.paragraph`, `.words`, etc) can accept options, whe
 - JS: edit `.eslintrc` - [rule docs](http://eslint.org/docs/rules/)
 - Scss: edit `.stylelintrc` - [docs](http://stylelint.io/user-guide/)
 
-#### Disabling Stylelint rules for a certain section
+#### Disabling Stylelint rules for a certain section (REVAMP)
 
 You can [use comments to turn off certain rules](http://stylelint.io/user-guide/configuration/#turning-rules-off-from-within-your-css) easily:
 
@@ -452,7 +452,7 @@ You can [use comments to turn off certain rules](http://stylelint.io/user-guide/
 }
 ```
 
-### Babel JS Transpiling Config
+### Babel JS Transpiling Config (REVAMP)
 
 Edit `.babelrc` for configuration of [Babel rules](https://babeljs.io/docs/usage/options/) that transpile JS. Default allows ES6 to be transpiled to ES5. Learn about awesome [ES6 features](http://es6-features.org) here.
 
@@ -476,12 +476,12 @@ js:
 
 Also, if you're still getting the annoying (but not harmful) warnings about `graceful-fs`, run `npm update -g npm`.
 
-### Helpful Gulp 4 resources
+### Helpful Gulp 4 resources (REVAMP)
 
 - [Gulp 4 Docs](https://github.com/gulpjs/gulp/tree/4.0/docs)
 - [Gulp 4 Readme](https://github.com/gulpjs/gulp/blob/4.0/README.md)
 
-## Drupal 8 Integration
+## Drupal 8 Integration (REVAMP)
 
 From your Drupal Twig templates in `templates/` you can `{% include %}`, `{% extends %}`, and `{% embed %}` your Pattern Lab Twig template files. Each of the top level folders has a Twig Namespace like `@organisms` and then you append the path down to the file like below.
 
