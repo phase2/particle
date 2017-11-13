@@ -166,7 +166,6 @@ The following are significant items at the root level:
 
 `app/pl/` holds the *entry point* for all Pattern Lab assets, as well as the PHP engine:
 
-
     # ./app/pl/
     .
     ├── pattern-lab/                   # Holds the Pattern Lab installation
@@ -294,9 +293,37 @@ This approach to component styes allows sharing non-printing Sass **configuratio
 
 Twig notes here
 
-## Namespaces
+## Atomic Design and Namespaces
 
-Namespace notes go here.
+"Namespaces" are simply aliases to paths on a file system. The design system within `source/` adheres strongly to [Atomic Design](http://atomicdesign.bradfrost.com/), with `@base` added on.
+
+| Path                             | Twig         | Javascript  | Sass |
+| -------------------------------- | ------------ | ----------- | ---- |
+| `source/_patterns/00-base/`      | `@base`      | `base`      | TBD
+| `source/_patterns/01-atoms/`     | `@atoms`     | `atoms`     | TBD
+| `source/_patterns/02-molecules/` | `@molecules` | `molcules`  | TBD
+| `source/_patterns/03-organisms/` | `@organisms` | `organisms` | TBD
+| `source/_patterns/04-templates/` | `@templates` | `templates` | TBD
+| `source/_patterns/05-pages/`     | `@pages`     | `pages`     | TBD
+
+Our reasoning for categorization of components within each is pretty close to pure Atomic Design principals, but here's a quick explanation.
+
+- **Base** features Sass systems and non-consumable pattern markup. No Twig file will `@include` anything from @base, but javascript and Sass will. This is a uniquely NAMETBD convention.
+- **Atoms** upward **will** be included in other Twig files.
+
+    > "Atoms of our interfaces serve as the foundational building blocks that comprise all our user interfaces. These atoms include basic HTML elements like form labels, inputs, buttons, and others that can’t be broken down any further without ceasing to be functional. [Source.](http://atomicdesign.bradfrost.com/chapter-2/#atoms)
+- **Molecules** are more complex widgets that must at least include an atom and sometimes other molecules.
+
+  > "In interfaces, molecules are relatively simple groups of UI elements functioning together as a unit. For example, a form label, search input, and button can join together to create a search form molecule." [Source.](http://atomicdesign.bradfrost.com/chapter-2/#molecules)
+- **Organisms** feature atoms, molecules, and even other organisms (sparingly). Think headers, footers, blog rolls.
+
+  > "Organisms are relatively complex UI components composed of groups of molecules and/or atoms and/or other organisms." [Source.](http://atomicdesign.bradfrost.com/chapter-2/#organisms)
+- **Templates** are page layouts, giving us a view into how content can possibly be laid out.
+
+  > "Templates are page-level objects that place components into a layout and articulate the design’s underlying content structure." [Source.](http://atomicdesign.bradfrost.com/chapter-2/#templates)
+- **Pages** can be considered full "prototypes" of a design systgem, with real content, images, etc.
+
+  > "Pages are specific instances of templates that show what a UI looks like with real representative content in place." [Source.](http://atomicdesign.bradfrost.com/chapter-2/#pages)
 
 ## Assets
 
@@ -321,33 +348,45 @@ Consider this dependency chain for the `apps/pl` app:
 
                                                          <- @base
                                                          <- jquery
-                                    <- @atoms/button     <- bootstrap/src/js/buttons
+                                                         <- bootstrap/src/js/buttons
+                                    <- @atoms/button     <- _button.scss
                                                          <- @base
                                                          <- jquery
-    apps/pl <- source/design-system <- @molecules/card   <- bootstrap/src/js/cards
+                                                         <- bootstrap/src/js/cards
+    apps/pl <- source/design-system <- @molecules/card   <- _card.scss
                                                          <- @base
-                                    <- @organisms/header <- bootstrap/src/js/jumbotron
+                                                         <- bootstrap/src/js/jumbotron
+                                    <- @organisms/header <- _header.scss
 
-### Icons and SVGs (REVAMP)
-
-Two systems exists for flexibility: SVGs as HTML elements, and SVGs compiled into Font Icons.
-
-#### SVG Elements (REVAMP)
-
-Useful for larger, less frequently used vector images that potentially could be multi-color or able to animate.
-
-1. Place `file.svg` in `images/svgs/` and possible minify yourself.
-1. Use it in Twig templates like so: `{{ source('@svgs/file.svg') }}` ([info on `source`](http://twig.sensiolabs.org/doc/1.x/functions/source.html))
-
-#### SVG => Font Icons (REVAMP)
+### Font Icons
 
 Useful for small, frequently used icons that are a single color which is changeable via CSS.
 
-1. Place `file.svg` in `images/icons/src/`
-1. See it automatically appear in Pattern Lab at "Atoms > Images > Icons".
+1. Place `filename.svg` in `source/_patterns/01-atoms/icon/svg/`
+1. Start up active server with `npm start` or compile via `npm run compile:pl|drupal`
+1. View new font icon demo page in Pattern Lab at [Atoms > Icon > Icons](http://localhost:8080/pl/?p=atoms-icons)
 1. Use either way:
-    - HTML class: `icon--file`
-    - Sass Mixin: `@include icon(file)`
+    - HTML class: `icon--filename`
+    - Sass Mixin: `@include icon(filename)`
+
+> IMPORTANT: Font icons are only compiled at the start of a webpack build. The webpack dev server will have to be restarted to see new icons appear in the font.
+
+#### Inline SVG
+
+Useful for larger, less frequently used vector images that potentially could be multi-color or able to animate.
+
+1. Place `file.svg` within a namespaced folder, like `source/_patterns/01-atoms/icon/svg/`.
+1. Use the special `_svg.twig` pattern to inline it completely. For instance, using the path in step 1, include it like so:
+    ```twig
+    {% include '@atoms/image/_svg.twig' with {
+      svgpath: '@atoms/icon/svg/file.svg',
+    } %}
+    ```
+1. OR just use the [`source`](https://twig.symfony.com/doc/2.x/functions/source.html) function provided by Twig: `{{ source('@atoms/icon/svg/file.svg') }}`
+
+### Static images
+
+Static image notes here.
 
 ## Configuration
 
@@ -369,19 +408,15 @@ Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding co
 - [Atom](https://github.com/sindresorhus/atom-editorconfig)
 - [Sublime Text](https://github.com/sindresorhus/editorconfig-sublime)
 
+
+## Apps
+
+### Drupal
+
+### Pattern Lab
+
 ## Orientation (REVAMP)
 
-- source/
-  - _annotations/ ([annotations](http://patternlab.io/docs/pattern-adding-annotations.html) for Patterns)
-  - _data/ (Global JSON data files available to all Patterns, can add multiple)
-  - _patterns/ (Twig, Scss, and JS all in here)
-    - 00-base/ (Twig Namespace: `@base`)
-      - Contains what all that follows needs: variables, mixins, and grid layouts for examples
-    - 01-atoms/ (Twig Namespace: `@atoms`)
-    - 02-molecules (Twig Namespace: `@molecules`)
-    - 03-organisms (Twig Namespace: `@organisms`)
-    - 04-templates (Twig Namespace: `@templates`)
-    - 05-pages (Twig Namespace: `@pages`)
 - templates/ - Drupal twig templates. These often will `include`, `embed`, or `extend` the Twig templates found in Pattern Lab like this: `{% include "@molecules/branding/branding.twig" with { url: path('<front>') } %}`. We keep the components in Pattern Lab "pure" and ignorant of Drupal's data model and use these templates to map the data between the two. Think of these as the Presenter templates in the [Model View Presenter](https://en.wikipedia.org/wiki/Model–view–presenter) approach. Also, Drupal Twig templates that have nothing to do with Pattern Lab go here.
 
 # Details (REVAMP THIS)
@@ -390,27 +425,6 @@ Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding co
 
 Refer to the [Pattern Lab Documentation](http://patternlab.io/docs) for extensive info on how to use it. This theme starter is a custom Pattern Lab 2 *Edition* that is heavily influenced by the [Drupal Edition of Pattern Lab](https://github.com/pattern-lab/edition-php-drupal-standard) and uses the Twig engine to bring it inline with Drupal 8's use of Twig.
 
-### Folder Structure Differences (REVAMP)
-
-Our folder structure makes a slight but convenient alteration to the typical Pattern Lab folder setup. Basically we move `pattern-lab/source/` up one level because we keep Sass in there too and it's the "source" for much of the theme. Here's the difference between the typical and our structure (few folders mentioned for brevity; please see Orientation above for a more thorough list).
-
-#### Typical Folder Structure
-
-- pattern-lab/
-  - config/
-  - public/
-  - source/
-    - _patterns/ (contains atoms, molecules, etc folders)
-  - composer.json
-
-#### Our Folder Structure
-
-- source/
-  - _patterns/ (contains atoms, molecules, etc folders)
-- pattern-lab/
-  - config/
-  - public/
-  - composer.json
 
 ### Dummy data using `Faker` (REVAMP)
 
