@@ -293,6 +293,10 @@ This approach to component styes allows sharing non-printing Sass **configuratio
 
 Twig notes here
 
+## Javascript
+
+All javascript should be written in ES6 (ES2015) according to the [AirBnB JavaScript Style Guide](https://github.com/airbnb/javascript). Webpack will use Babel to transpile all javascript back to ES5 in emitted bundles.
+
 ## Atomic Design and Namespaces
 
 "Namespaces" are simply aliases to paths on a file system. The design system within `source/` adheres strongly to [Atomic Design](http://atomicdesign.bradfrost.com/), with `@base` added on.
@@ -392,12 +396,29 @@ Static image notes here.
 
 ### Webpack
 
+Webpack notes go here.
+
 ### Gulp
+
+Gulp 4 is used to run a small set of tasks that can't be accomplished by Webpack alone. Examine `gulpfile.js` for all tasks available. Feel free to edit and add tasks to this file.
+
+Gulp 4 is used and the `npm run` commands above basically trigger gulp without having to install a global dependency. If you want to run specific gulp tasks, run `npm run gulp -- OPTIONS TASKS`. The `--` passes whatever comes after to the `gulp` command. Run `npm run gulp -- --tasks` to see the whole list, here's some examples of what you can do:
+
+- `npm run gulp -- --help` - See the help menu
+- `npm run gulp -- compile` - Compile Pattern Lab
+- `npm run gulp -- test:accessibility` - Run Pa11y tests
+
+For more info on Gulp:
+
+- [Gulp 4 Docs](https://github.com/gulpjs/gulp/tree/4.0/docs)
+- [Gulp 4 Readme](https://github.com/gulpjs/gulp/blob/4.0/README.md)
 
 ### Linting
 
 - Javascript: edit `.eslintrc.js` - [docs](http://eslint.org/docs/rules/)
 - Sass: edit `.stylelintrc` - [docs](http://stylelint.io/user-guide/)
+
+Both can be disabled per-line if need be.
 
 ### IDE/Text Editor Setup
 
@@ -408,25 +429,37 @@ Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding co
 - [Atom](https://github.com/sindresorhus/atom-editorconfig)
 - [Sublime Text](https://github.com/sindresorhus/editorconfig-sublime)
 
-
 ## Apps
+
+NAMETBD features two "apps" which simply consume the design system in `source/` and then present it according to their needs: a Drupal theme and a Pattern Lab installation.
 
 ### Drupal
 
+`apps/drupal/`
+
+(REVAMP) - templates/ - Drupal twig templates. These often will `include`, `embed`, or `extend` the Twig templates found in Pattern Lab like this: `{% include "@molecules/branding/branding.twig" with { url: path('<front>') } %}`. We keep the components in Pattern Lab "pure" and ignorant of Drupal's data model and use these templates to map the data between the two. Think of these as the Presenter templates in the [Model View Presenter](https://en.wikipedia.org/wiki/Model–view–presenter) approach. Also, Drupal Twig templates that have nothing to do with Pattern Lab go here.
+
+#### Drupal integration of design system Twig files
+
+From your Drupal Twig templates in `templates/` you can `{% include %}`, `{% extends %}`, and `{% embed %}` your `source/_patterns/` Twig template files. Each of the top level folders has a Twig Namespace like `@organisms` and then you append the path down to the file like below.
+
+```twig
+{% include "@organisms/path/to/file.twig" with {
+  title: label,
+  imageUrl: field_name.raw.path,
+  largeCTA: true,
+} %}
+```
+
+(REVAMP) For a demonstration in a sample codebase of how exactly to integrate templates, see the [`drupal-lab`](https://github.com/phase2/drupal-lab) repo; in particular note how both a [node teaser template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/templates/content/node--article--teaser.html.twig) and a [views field template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/templates/views/views-view-fields--newspage--page.html.twig) in the Drupal `templates/` folder can embed the [card template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/pattern-lab/source/_patterns/02-molecules/cards/card.twig) from Pattern Lab while formatting the data.
+
 ### Pattern Lab
 
-## Orientation (REVAMP)
+`apps/pl/`
 
-- templates/ - Drupal twig templates. These often will `include`, `embed`, or `extend` the Twig templates found in Pattern Lab like this: `{% include "@molecules/branding/branding.twig" with { url: path('<front>') } %}`. We keep the components in Pattern Lab "pure" and ignorant of Drupal's data model and use these templates to map the data between the two. Think of these as the Presenter templates in the [Model View Presenter](https://en.wikipedia.org/wiki/Model–view–presenter) approach. Also, Drupal Twig templates that have nothing to do with Pattern Lab go here.
+(REVAMP) Refer to the [Pattern Lab Documentation](http://patternlab.io/docs) for extensive info on how to use it. This theme starter is a custom Pattern Lab 2 *Edition* that is heavily influenced by the [Drupal Edition of Pattern Lab](https://github.com/pattern-lab/edition-php-drupal-standard) and uses the Twig engine to bring it inline with Drupal 8's use of Twig.
 
-# Details (REVAMP THIS)
-
-## Pattern Lab
-
-Refer to the [Pattern Lab Documentation](http://patternlab.io/docs) for extensive info on how to use it. This theme starter is a custom Pattern Lab 2 *Edition* that is heavily influenced by the [Drupal Edition of Pattern Lab](https://github.com/pattern-lab/edition-php-drupal-standard) and uses the Twig engine to bring it inline with Drupal 8's use of Twig.
-
-
-### Dummy data using `Faker` (REVAMP)
+#### `Faker` data in Pattern Lab
 
 [`Faker`](https://github.com/fzaninotto/Faker) generates fake data and the [Faker plugin for Pattern Lab](https://github.com/pattern-lab/plugin-php-faker) is used here. This generates *different* fake content for each compile, and allows [translated content](https://github.com/pattern-lab/plugin-php-faker#locales) as well.
 
@@ -444,66 +477,3 @@ Use it like this in `source/_data/data.json`:
 ```
 
 The formatters (things like `.paragraph`, `.words`, etc) can accept options, when you see `Faker.words(3, true)` that means give me 3 random words and I'd like them as a string and not an array of strings. All the [formatters and their options are documented here](https://github.com/fzaninotto/Faker#formatters) - there's tons: numbers, address, names, dates, and more.
-
-### Linting Config
-
-- JS: edit `.eslintrc` - [rule docs](http://eslint.org/docs/rules/)
-- Scss: edit `.stylelintrc` - [docs](http://stylelint.io/user-guide/)
-
-#### Disabling Stylelint rules for a certain section (REVAMP)
-
-You can [use comments to turn off certain rules](http://stylelint.io/user-guide/configuration/#turning-rules-off-from-within-your-css) easily:
-
-```scss
-// stylelint-disable selector-no-id, declaration-no-important
-#id {
-  color: pink !important;
-}
-// stylelint-enable
-
-.class {
-  color: pink !important; // stylelint-disable-line declaration-no-important
-}
-```
-
-### Babel JS Transpiling Config (REVAMP)
-
-Edit `.babelrc` for configuration of [Babel rules](https://babeljs.io/docs/usage/options/) that transpile JS. Default allows ES6 to be transpiled to ES5. Learn about awesome [ES6 features](http://es6-features.org) here.
-
-## Gulp
-
-Gulp 4 is used and the `npm run` commands above basically trigger gulp without having to install a global dependency. If you want to run specific gulp tasks, run `npm run gulp -- OPTIONS TASKS`. The `--` passes whatever comes after to the `gulp` command. Run `npm run gulp -- --tasks` to see the whole list, here's some examples of what you can do:
-
-- `npm run gulp -- --help` - See the help menu
-- `npm run gulp -- css` - Compile CSS
-- `npm run gulp -- pl` - Compile PL
-
-Add anything to `gulpfile.js` that you want! Also, you can copy any file from `node_modules/p2-theme-core/lib/` into your repo and use it as a starting point (may need to install packages from `p2-theme-core` too.)
-
-Many of the features can be turned off, for example if we didn't want all the JS features like linting and concatenation, just toggle `enabled` under `js` in `gulpconfig.yml`. So you'd just open `gulpconfig.yml` and change this:
-
-```diff
-js:
--    enabled: true
-+    enabled: false
-```
-
-Also, if you're still getting the annoying (but not harmful) warnings about `graceful-fs`, run `npm update -g npm`.
-
-### Helpful Gulp 4 resources (REVAMP)
-
-- [Gulp 4 Docs](https://github.com/gulpjs/gulp/tree/4.0/docs)
-- [Gulp 4 Readme](https://github.com/gulpjs/gulp/blob/4.0/README.md)
-
-## Drupal 8 Integration (REVAMP)
-
-From your Drupal Twig templates in `templates/` you can `{% include %}`, `{% extends %}`, and `{% embed %}` your Pattern Lab Twig template files. Each of the top level folders has a Twig Namespace like `@organisms` and then you append the path down to the file like below.
-
-```twig
-{% include "@organisms/path/to/file.twig" with {
-  title: label,
-  largeCTA: true
-} %}
-```
-
-For a demonstration in a sample codebase of how exactly to integrate templates, see the [`drupal-lab`](https://github.com/phase2/drupal-lab) repo; in particular note how both a [node teaser template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/templates/content/node--article--teaser.html.twig) and a [views field template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/templates/views/views-view-fields--newspage--page.html.twig) in the Drupal `templates/` folder can embed the [card template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/pattern-lab/source/_patterns/02-molecules/cards/card.twig) from Pattern Lab while formatting the data.
