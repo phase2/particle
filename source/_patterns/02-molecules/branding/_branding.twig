@@ -2,8 +2,9 @@
 /**
  * Block - Branding.
  *
- * site_logo: Array: the inline or imgSrc logo.
  * url: String: the url the block directs to.
+ * inline: Boolean: Inline SVG or Src image.
+ * site_logo: Array: the inline or imgSrc logo.
  * site_name: String: the site name provided by the app.
  * site_slogan: String: the site slogan provided by the app.
  *
@@ -13,14 +14,14 @@
 {# Default State: Set in Drupal. #}
 {% if not brandingBlock %}
   {% set brandingBlock = {
-    inline: inline,
     url: '#',
-    site_name: 'My Site Title'|t,
-    site_slogan: 'My site slogan of six words'|t,
+    inline: inline,
     site_logo: {
       svg: { svgpath: '@atoms/image/logo.svg' },
       imgSrc: { src: paths.assets ~ '/logo.svg', imageStyleName: 'thumbnail' }
-      }
+    },
+    site_name: 'My Site Title'|t,
+    site_slogan: 'My site slogan of six words'|t,
   } %}
 {% endif %}
 
