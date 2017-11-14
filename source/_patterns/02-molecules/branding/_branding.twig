@@ -2,34 +2,51 @@
 /**
  * Block - Branding.
  *
+ * site_logo: Array: the inline or imgSrc logo.
  * url: String: the url the block directs to.
- * site_logo: String: the logo provided by the app.
  * site_name: String: the site name provided by the app.
  * site_slogan: String: the site slogan provided by the app.
  *
  */
 #}
 
-{% set site_logo = {
-  svgpath: pl ? '@molecules/branding/logo.svg' : site_logo,
-} %}
+{# Default State: Set in Drupal. #}
+{% if not brandingBlock %}
+  {% set brandingBlock = {
+    inline: inline,
+    url: '#',
+    site_name: 'My Site Title'|t,
+    site_slogan: 'My site slogan of six words'|t,
+    site_logo: {
+      svg: { svgpath: '@atoms/image/logo.svg' },
+      imgSrc: { src: paths.assets ~ '/logo.svg', imageStyleName: 'thumbnail' }
+      }
+  } %}
+{% endif %}
 
 <aside class="branding">
-  {% if site_logo %}
+  {% if brandingBlock.site_logo %}
     <div class="branding__site-logo">
-      <a href="{{ (pl) ? '#' : url }}" title="{{ 'Home'|t }}" rel="home">
-        {% include '@atoms/image/_svg.twig' with site_logo %}
+      <a href="{{ brandingBlock.url }}" title="{{ 'Home'|t }}" rel="home">
+
+        {# provide inline src vs imgSrc #}
+        {% if brandingBlock.inline %}
+          {% include '@atoms/image/_svg.twig' with brandingBlock.site_logo.svg %}
+        {% else %}
+          {% include "@atoms/_image.twig" with brandingBlock.site_logo.imgSrc %}
+        {% endif %}
+
       </a>
     </div>
   {% endif %}
 
-  {% if site_name %}
+  {% if brandingBlock.site_name %}
     <h2 class="branding__site-name">
-      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ brandingBlock.site_name }}</a>
     </h2>
   {% endif %}
 
   {% if site_slogan %}
-    <h6 class="branding__site-slogan">{{ site_slogan }}</h6>
+    <h6 class="branding__site-slogan">{{ brandingBlock.site_slogan }}</h6>
   {% endif %}
 </aside>

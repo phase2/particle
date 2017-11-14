@@ -13,8 +13,18 @@
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
-{% block content %}
 
-  {% include "@molecules/_branding.twig" %}
+{% set brandingBlock = {
+    url: url,
+    site_name: site_name,
+    site_slogan: site_slogan,
+    inline: true,
+    site_logo: { svg: { svgpath: '@atoms/image/logo.svg' } },
+  }
+%}
+
+{% block content %}
+  {{ brandingBlock.site_logo }}
+  {% include "@molecules/_branding.twig" with brandingBlock %}
 
 {% endblock %}
