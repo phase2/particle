@@ -19,6 +19,8 @@
 
 {% block content %}
 
-  {% include "@molecules/_branding.twig" %}
+  {% include "@molecules/_branding.twig" with {
+    logo_inline_svg: '@atoms/image/logo.svg',
+  } %}
 
 {% endblock %}

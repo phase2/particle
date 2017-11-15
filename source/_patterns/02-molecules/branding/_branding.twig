@@ -18,9 +18,7 @@
         {% include '@atoms/image/_svg.twig' with {
           svgpath: logo_inline_svg
           } %}
-      {% endif %}
-
-      {% if logo_img_url %}
+      {% elseif logo_img_url %}
         {% include "@atoms/_image.twig" with {
           img: {
             src: logo_img_url,
