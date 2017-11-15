@@ -10,23 +10,15 @@
  * Available variables:
  * - url: The url for the front page of the site.
  * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - logo_inline_svg: The svg logo if it exists.
+ * - logo_img_src: The src logo if it exists.
  * - site_name: Name for site as defined in Site information settings.
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
 
-{# Define the branding block. See @molecules/_branding.twig #}
-{% set brandingBlock = {
-    url: url,
-    inline: true,
-    site_logo: { svg: { svgpath: '@atoms/image/logo.svg' } },
-    site_name: site_name,
-    site_slogan: site_slogan,
-  }
-%}
-
 {% block content %}
 
-  {% include "@molecules/_branding.twig" with brandingBlock %}
+  {% include "@molecules/_branding.twig" %}
 
 {% endblock %}

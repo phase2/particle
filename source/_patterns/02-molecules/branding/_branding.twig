@@ -11,30 +11,13 @@
  */
 #}
 
-{# Default State: Set in Drupal. #}
-
-{#{% if not brandingBlock %}#}
-  {#{% set brandingBlock = {#}
-    {#url: '#',#}
-    {#inline: inline,#}
-    {#site_logo: {#}
-      {#svg: { svgpath: '@atoms/image/logo.svg' },#}
-      {#imgSrc: { src: paths.assets ~ '/logo.svg', imageStyleName: 'thumbnail' }#}
-    {#},#}
-    {#site_name: 'My Site Title'|t,#}
-    {#site_slogan: 'My site slogan of six words'|t,#}
-  {#} %}#}
-{#{% endif %}#}
-
 <aside class="branding">
+  <div class="branding__site-logo">
+    <a href="{{ url }}" title="{{ site_name }}" rel="home">
 
-    <div class="branding__site-logo">
-      <a href="{{ url }}" title="{{ site_name }}" rel="home">
-
-        {# provide inline src vs imgSrc #}
-        {% if logo_inline_svg %}
-          {% include '@atoms/image/_svg.twig' with {
-            svgpath: logo_inline_svg
+      {% if logo_inline_svg %}
+        {% include '@atoms/image/_svg.twig' with {
+          svgpath: logo_inline_svg
           } %}
         {% endif %}
 
@@ -46,10 +29,8 @@
             }
           } %}
         {% endif %}
-
       </a>
     </div>
-
 
   {% if site_name %}
     <h2 class="branding__site-name">
