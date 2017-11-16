@@ -9,6 +9,7 @@ regions:
   header: Header
   content: Content
   sidebar_first: Sidebar first
+  sidebar_second: Sidebar second
   footer: Footer
 component-libraries:
   base:
