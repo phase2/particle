@@ -8,7 +8,7 @@
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function patternlab_suggestions_block_alter(array &$suggestions, array $variables) {
+function patternlab_theme_suggestions_block_alter(array &$suggestions, array $variables) {
   // Provide suggestion for block templates by custom block type.
   if (!empty($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content'];
