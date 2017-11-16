@@ -14,12 +14,12 @@
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
     {% set break = FALSE %}
-    {% for item in breadcrumb_items if not break %}
+    {% for item in breadcrumb if not break %}
       {% if item.breadcrumb_active == TRUE %}
         {% set break = TRUE %}
-        <li class="breadcrumb-item active is-active" aria-current="page">{{ item.breadcrumb_title }}</li>
+        <li class="breadcrumb-item active is-active" aria-current="page">{{ item.text }}</li>
       {% else %}
-        <li class="breadcrumb-item"><a href="{{ (pl) ? '#' : item.breadcrumb_link }}">{{ item.breadcrumb_title }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ (pl) ? '#' : item.url }}">{{ item.text }}</a></li>
       {% endif %}
     {% endfor %}
   </ol>
