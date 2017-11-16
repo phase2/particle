@@ -14,13 +14,19 @@
  * - logo_img_src: The src logo if it exists.
  * - site_name: Name for site as defined in Site information settings.
  * - site_slogan: Slogan for site as defined in Site information settings.
+ *
+ *
  */
 #}
 
 {% block content %}
 
-  {% include "@atoms/_branding.twig" with {
-    logo_inline_svg: '@atoms/image/logo.svg',
+  {# Use logo to explicitly override values from preprocess. #}
+  {% set logo = {
+    logo_svg_inline: logo_inline_svg ? logo_inline_svg : '',
+    logo_img_src: logo_img_src ? logo_img_src : ''
   } %}
+
+  {% include "@atoms/_branding.twig" with logo %}
 
 {% endblock %}

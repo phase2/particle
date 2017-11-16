@@ -8,7 +8,7 @@
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function patternlab_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+function patternlab_suggestions_block_alter(array &$suggestions, array $variables) {
   // Provide suggestion for block templates by custom block type.
   if (!empty($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content'];
@@ -30,21 +30,14 @@ function patternlab_preprocess_block(&$variables) {
 
   if ($id === 'system_branding_block') {
     $logo_default = theme_get_setting('logo.use_default');
-    $logo_uri = theme_get_setting('logo.url');
-    $file_type = substr($logo_uri, -3);
+    $logo_url = theme_get_setting('logo.url');
 
     // Set the logo to PL if default.
     if ($logo_default) {
       $variables['logo_inline_svg'] = '@atoms/image/logo.svg';
-      unset($variables['logo_img_url']);
-    // Send to SVG inline if Logo is SVG.
-    } elseif ($file_type === 'svg') {
-      $variables['logo_inline_svg'] = $logo_uri;
-      unset($variables['logo_img_url']);
-    // Send to img if Logo is not an SVG.
-    } elseif ($file_type !== 'svg') {
-      $variables['logo_img_url'] = $logo_uri;
-      unset($variables['logo_inline_svg']);
+    // Send to img if Logo is not an default.
+    } else {
+      $variables['logo_img_url'] = $logo_url;
     }
 
   }
