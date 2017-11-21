@@ -1,1 +1,19 @@
-<h1>Wootzores</h1>
+{#
+  Nav Item!
+
+  nav_element: String: li|a: The HTML element the nav-item will use.
+  nav_dropdown: Boolean: TRUE|FALSE: allows selected list-item to be a dropdown.
+  nav_link_classes: String: Modifies classes to add to individual items.
+  nav_link: String: The URL the menu item will lead to.
+  nav_text: String: The text the menu item will display.
+#}
+
+{% set nav_link = nav_link ?: '#' %}
+
+{% if nav_element == 'li'  %}
+  <li class="nav-item {{ nav_dropdown }}">
+    <a class="nav-link {{ nav_link_classes }}" href="{{ nav_link }}">{{ nav_text }}</a>
+  </li>
+{% elseif nav_element == 'a' %}
+  <a class="nav-link {{ nav_link_classes }}" href="{{ nav_link }}">{{ nav_text }}</a>
+{% endif %}
