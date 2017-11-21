@@ -34,14 +34,14 @@
 #}
 
 {% set block_card = {
-    card_width: card_width ? card_width : 100,
-    text_alignment: text_alignment ? text_alignment : 'justify',
-    text_color: text_color ? text_color : 'dark',
-    card_background: card_background ? card_background : 'light',
-    card_border: card_border ? card_border : 'black',
-    card_title: label,
-    card_text: content.body,
-    card_subtitle: content.subtitle ? : ''
+    card_width: card_width ?: 100,
+    text_alignment: text_alignment ?: 'justify',
+    text_color: text_color ?: 'dark',
+    card_background: card_background ?: 'light',
+    card_border: card_border ?: 'black',
+    card_title: label ?: '',
+    card_text: content.body ?: '',
+    card_subtitle: content.subtitle ?: ''
   }
 %}
 
