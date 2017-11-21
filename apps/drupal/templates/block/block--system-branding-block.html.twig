@@ -23,8 +23,8 @@
 
   {# Use logo to explicitly override values from preprocess. #}
   {% set logo = {
-    logo_svg_inline: logo_inline_svg ? logo_inline_svg : '',
-    logo_img_src: logo_img_src ? logo_img_src : ''
+    logo_svg_inline: logo_inline_svg ?: logo_inline_svg,
+    logo_img_src: logo_img_src ?: logo_img_src
   } %}
 
   {% include "@atoms/_branding.twig" with logo %}
