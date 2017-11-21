@@ -1,17 +1,14 @@
 /**
- * Nav-item
+ * Nav
  */
-
-// Import tab js from bootstrap
-import 'bootstrap/js/src/tab';
 
 // Custom
 import 'base';
 
 // Import custom sass, includes Bootstrap sass
-import './_nav-item.scss';
+import './_nav.scss';
 
-export const name = 'nav-item';
+export const name = 'nav';
 
 export function disable() {}
 

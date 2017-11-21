@@ -9,8 +9,9 @@
 #}
 
 {% set nav_link = nav_link ?: '#' %}
+{% set nav_item_element = nav_item_element ?: 'li' %}
 
-{% if nav_element == 'li'  %}
+{% if nav_item_element == 'li'  %}
   <li class="nav-item {{ nav_dropdown }}">
     <a class="nav-link {{ nav_link_classes }}" href="{{ nav_link }}">{{ nav_text }}</a>
   </li>

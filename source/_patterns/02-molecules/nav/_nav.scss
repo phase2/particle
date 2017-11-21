@@ -1,0 +1,12 @@
+@import '../../00-base/config';
+
+// To change default bootstrap nav variables,
+// copy from ~bootstrap/scss/variables to here
+
+//find real example!!!!
+$btn-border-radius: 0.25rem;
+
+//also, doesnt this inherently lead to the double imports that we were trying to avoid earlier?
+@import "~bootstrap/scss/nav";
+
+// Add custom code here

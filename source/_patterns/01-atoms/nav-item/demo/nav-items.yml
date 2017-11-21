@@ -1,7 +1,7 @@
 nav:
   items:
-    - nav_text: element
+    - nav_text: Basic
     - nav_link_classes: active
-      nav_text: active
+      nav_text: Active
     - nav_link_classes: disabled
-      nav_text: disabled
+      nav_text: Disabled

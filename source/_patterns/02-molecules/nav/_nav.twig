@@ -1,0 +1,27 @@
+
+
+{# not sure if I should just have nav_classes be a string here. We make it an array to be looped through in list-items and that might be the right approach but that seems to overcomplicate things. We also do that for card but that has a bunch of basically true/false thing to put in. We could do that here I suppose #}
+
+  {% set other_classes = other_classes ?: other_classes %}
+  {% set nav_element = nav_element ?: 'nav' %}
+
+  {% set classes = [
+    'nav',
+    nav_alignment ? 'justify-content-' ~ nav_alignment,
+    nav_vertical ? 'flex-column',
+    nav_tabs ? 'nav-tabs',
+    nav_pill ? 'nav-pills',
+    nav_fill ? 'nav-fill',
+    nav_justified ? 'nav-justified',
+  ] | join(' ') ~ other_classes %}
+
+<ul class="{{ classes }}">
+  {% for item in nav_items %}
+    {% include '@atoms/nav-item/_nav-item.twig' with item %}
+    {#<pre>{{ dump(item) }}</pre>#}
+  {% endfor %}
+  {#<pre>{{ dump(classes) }}</pre>#}
+</ul>
+
+
+

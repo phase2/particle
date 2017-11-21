@@ -1,0 +1,8 @@
+nav_items:
+  - nav_text: Basic
+  - nav_link_classes: active
+    nav_text: Active
+  - nav_link_classes: disabled
+    nav_text: Disabled
+
+
