@@ -25,8 +25,8 @@
 
     <h1>Button elements</h1>
     <div class="mb-3">
-      {% for element in elements %}
-        {% set buttonElement = element|merge({ button_color: 'success', }) %}
+      {% for alternate_button in alternate_buttons %}
+        {% set buttonElement = alternate_button|merge({ button_color: 'success', }) %}
         {% include '@atoms/button/_button.twig' with buttonElement %}
       {% endfor %}
     </div>

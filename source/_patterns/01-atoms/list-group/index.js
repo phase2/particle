@@ -9,9 +9,10 @@ import base from 'base';
 // Module styles
 import './_list-group.scss';
 
-export default {
-  name: 'list-group',
-  deps: [base, Tab],
-  enable() {},
-  disable() {},
-};
+export const name = 'list-group';
+
+export function disable() {}
+
+export function enable() {}
+
+export default enable;

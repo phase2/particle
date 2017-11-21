@@ -7,7 +7,7 @@ button_helper:
   button_color: primary
   button_link: 'https://getbootstrap.com/docs/4.0/components/buttons/'
 
-elements:
+alternate_buttons:
   - button_element: a
     button_link: 'https://github.com/phase2/pattern-lab-starter'
     button_text: Link

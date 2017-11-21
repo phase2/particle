@@ -29,9 +29,13 @@
           {% include '@atoms/list-group/_list-group.twig' with list_group_text %}
         </div>
         <div class="col-sm-6">
-          {# This block of code is going to appear multiple times. It exists because the _list-group.twig template ultimately needs an object to iterate through to generate the individual items. These code blocks exist to pull data from multiple disperate places (the all_colors array, list-groups.yml, etc.) and combine them into a single object that the template can then process. #}
+          {# This block of code is going to appear multiple times. It exists because the _list-group.twig
+          template ultimately needs an object to iterate through to generate the individual items. These code
+          blocks exist to pull data from multiple disperate places (the all_colors array, list-groups.yml,
+          etc.) and combine them into a single object that the template can then process. #}
           {% set list_color = [] %}
           {% for item in list_group_text.items %}
+            {#{% set list_color[] = %}#}
             {% set temp_item = [] | merge(list_group_text.items[loop.index0]) | merge(all_colors[loop.index0]) %}
             {% set list_color = list_color|merge([temp_item]) %}
           {% endfor %}
@@ -128,7 +132,8 @@
           <h2>Badges</h2>
           {% set list_badge = [] %}
           {% for item in list_group_text.items %}
-            {% set temp_item = [] | merge(list_group_text.items[loop.index0]) | merge(all_colors[loop.index0]) | merge(list_group_badges.items[0]) | merge(list_group_badges.items[1])%}
+            {% set temp_item = [] | merge(list_group_text.items[loop.index0]) | merge(all_colors[loop.index0])
+            | merge(list_group_badges.items[0]) | merge(list_group_badges.items[1])%}
             {% set list_badge = list_badge|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {

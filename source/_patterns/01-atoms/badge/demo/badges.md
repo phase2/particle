@@ -1,6 +1,6 @@
 ## Variables
 
-Name  | Type | Options | Description
+| Name  | Type | Options | Description
 --- | --- | --- | ---
 badge_element | string | span, a | choose the element type for your badge. If you use a link tag make sure to enter a value for badge_link
 badge_pill | boolean | TRUE, FALSE | make badges more rounded
