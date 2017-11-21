@@ -10,7 +10,7 @@ import base from 'base';
 import './_list-group.scss';
 
 export default {
-  name: 'list-item',
+  name: 'list-group',
   deps: [base, Tab],
   enable() {},
   disable() {},

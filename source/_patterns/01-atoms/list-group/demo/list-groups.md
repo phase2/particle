@@ -1,6 +1,6 @@
 ## Variables
 
-Name  | Type | Options | Description
+| Name  | Type | Options | Description
 --- | --- | --- | ---
 parent_element | string | ul,ol,div | the html element that will contain the list
 list_id | string | any | a unique id for the list
