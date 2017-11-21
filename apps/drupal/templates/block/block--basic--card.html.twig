@@ -39,8 +39,8 @@
     text_color: text_color ?: 'dark',
     card_background: card_background ?: 'light',
     card_border: card_border ?: 'black',
-    card_title: label,
-    card_text: content.body,
+    card_title: label ?: '',
+    card_text: content.body ?: '',
     card_subtitle: content.subtitle ?: ''
   }
 %}
