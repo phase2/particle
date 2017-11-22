@@ -7,6 +7,12 @@ libraries:
   - patternlab/core
 regions:
   header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  page_top: Page top
+  page_bottom: Page bottom
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
   content: Content
   sidebar_first: Sidebar first
   sidebar_second: Sidebar second
