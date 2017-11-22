@@ -8,13 +8,24 @@
   nav_text: String: The text the menu item will display.
 #}
 
-{% set nav_link = nav_link ?: '#' %}
+{% set nav_item_link = nav_item_link ?: '#' %}
 {% set nav_item_element = nav_item_element ?: 'li' %}
 
+{% if nav_item_js %}
+  {% set nav_item_aria = (nav_item_link_classes == 'active') ? 'aria-selected="true"' : 'aria-selected="false"' %}
+  {% set js_attributes = [
+  'id="' ~ nav_item_id ~ '"',
+  'data-toggle="tab"',
+  'role="tab"',
+  'aria-controls="' ~ nav_item_text ~ '"',
+  ] | join(' ')%}
+  {#test hfref ^#}
+{% endif %}
+
 {% if nav_item_element == 'li'  %}
-  <li class="nav-item {{ nav_dropdown }}">
-    <a class="nav-link {{ nav_link_classes }}" href="{{ nav_link }}">{{ nav_text }}</a>
+  <li class="nav-item {{ nav_item_dropdown }}">
+    <a class="nav-link {{ nav_item_link_classes }}" href="{{ nav_item_link }}" {{ js_attributes }} {{ nav_item_aria }}>{{ nav_item_text }}</a>
   </li>
-{% elseif nav_element == 'a' %}
-  <a class="nav-link {{ nav_link_classes }}" href="{{ nav_link }}">{{ nav_text }}</a>
+{% elseif nav_item_element == 'a' %}
+  <a class="nav-link {{ nav_item_link_classes }}" href="{{ nav_item_link }}">{{ nav_item_text }}</a>
 {% endif %}

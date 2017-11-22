@@ -29,6 +29,7 @@ component-libraries:
   molecules:
     paths:
       - ../../source/_patterns/02-molecules
+      - ../../source/_patterns/02-molecules/nav
       - ../../source/_patterns/02-molecules/card
       - ../../source/_patterns/02-molecules/jumbotron
   organisms:

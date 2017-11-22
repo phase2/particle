@@ -1,8 +1,19 @@
 nav_items:
-  - nav_text: Basic
-  - nav_link_classes: active
-    nav_text: Active
-  - nav_link_classes: disabled
-    nav_text: Disabled
+  - nav_item_text: Menu 1
+  - nav_item_text: Menu 2
+  - nav_item_text: Menu 3
 
-
+nav_items_javascript:
+  - nav_item_text: Home
+    nav_item_link_classes: active
+    nav_item_id: home-tab
+    nav_item_link: '#home'
+    nav_item_js: true
+  - nav_item_text: Profile
+    nav_item_id: profile-tab
+    nav_item_link: '#profile'
+    nav_item_js: true
+  - nav_item_text: Contact
+    nav_item_id: contact-tab
+    nav_item_link: '#contact'
+    nav_item_js: true

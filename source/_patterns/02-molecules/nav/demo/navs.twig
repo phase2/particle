@@ -1,6 +1,24 @@
+<h1>Alignment</h1>
+{% include '@molecules/nav/_nav.twig' %}
+
 {% include '@molecules/nav/_nav.twig' with {
   nav_alignment: 'center',
-  nav_pill: 'True',
 } %}
 
+{% include '@molecules/nav/_nav.twig' with {
+  nav_alignment: 'end',
+} %}
 
+<h1>Javascript Tabs</h1>
+{% include '@molecules/nav/_nav.twig' with {
+  nav_element: 'ul',
+  nav_tabs: 'true',
+  nav_id: 'myTab',
+  nav_role: 'tablist',
+  nav_items: nav_items_javascript,
+} %}
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">This is home content!</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">This is profile content!</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">This is contact content!</div>
+</div>
