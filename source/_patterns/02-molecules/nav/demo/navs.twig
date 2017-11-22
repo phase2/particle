@@ -9,6 +9,49 @@
   nav_alignment: 'end',
 } %}
 
+<h1>Vertical Alignment</h1>
+{% include '@molecules/nav/_nav.twig' with {
+  nav_vertical: 'true',
+} %}
+
+{#{% include '@molecules/nav/_nav.twig' with {#}
+  {#nav_vertical: 'true',#}
+  {#nav_element: 'ul',#}
+{#} %}#}
+
+<h1>Tabs</h1>
+{% include '@molecules/nav/_nav.twig' with {
+  nav_tabs: 'true',
+} %}
+
+<h1>Pills</h1>
+{% include '@molecules/nav/_nav.twig' with {
+  nav_pill: 'true',
+} %}
+
+<h1>Fill</h1>
+{% include '@molecules/nav/_nav.twig' with {
+  nav_pill: 'true',
+  nav_fill: 'true',
+} %}
+
+<h1>Justify</h1>
+{% include '@molecules/nav/_nav.twig' with {
+  nav_pill: 'true',
+  nav_justify: 'true',
+} %}
+
+<h1>Responsive nav</h1>
+{% include '@molecules/nav/_nav.twig' with {
+  nav_pill: 'true',
+  other_classes: 'flex-column flex-sm-row',
+  nav_items: nav_items_flex
+} %}
+
+<h1>Dropdown</h1>
+
+{#STILL NEED TO MAKE DROPDOWN COMPONENT#}
+
 <h1>Javascript Tabs</h1>
 {% include '@molecules/nav/_nav.twig' with {
   nav_element: 'ul',
@@ -22,3 +65,7 @@
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">This is profile content!</div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">This is contact content!</div>
 </div>
+
+
+{#maybe just mention that all navigation is possible with uls instead of navs?#}
+

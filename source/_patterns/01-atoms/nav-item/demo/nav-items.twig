@@ -2,15 +2,15 @@
 
 <ul class="nav">
   {% for nav_item in nav.items %}
-    {% set nav_element = nav_item|merge({ nav_element: 'li' }) %}
-    {% include '@atoms/nav-item/_nav-item.twig' with nav_element %}
+    {% set nav_item_element = nav_item|merge({ nav_item_element: 'li' }) %}
+    {% include '@atoms/nav-item/_nav-item.twig' with nav_item_element %}
   {% endfor %}
 </ul>
 
 <nav class="nav">
   {% for nav_item in nav.items %}
-    {% set nav_element = nav_item|merge({ nav_element: 'a' }) %}
-    {% include '@atoms/nav-item/_nav-item.twig' with nav_element %}
+    {% set nav_item_element = nav_item|merge({ nav_item_element: 'a' }) %}
+    {% include '@atoms/nav-item/_nav-item.twig' with nav_item_element %}
   {% endfor %}
 </nav>
 

@@ -1,11 +1,6 @@
 {#
   Nav Item!
 
-  nav_element: String: li|a: The HTML element the nav-item will use.
-  nav_dropdown: Boolean: TRUE|FALSE: allows selected list-item to be a dropdown.
-  nav_link_classes: String: Modifies classes to add to individual items.
-  nav_link: String: The URL the menu item will lead to.
-  nav_text: String: The text the menu item will display.
 #}
 
 {% set nav_item_link = nav_item_link ?: '#' %}
@@ -23,7 +18,7 @@
 {% endif %}
 
 {% if nav_item_element == 'li'  %}
-  <li class="nav-item {{ nav_item_dropdown }}">
+  <li class="nav-item">
     <a class="nav-link {{ nav_item_link_classes }}" href="{{ nav_item_link }}" {{ js_attributes }} {{ nav_item_aria }}>{{ nav_item_text }}</a>
   </li>
 {% elseif nav_item_element == 'a' %}
