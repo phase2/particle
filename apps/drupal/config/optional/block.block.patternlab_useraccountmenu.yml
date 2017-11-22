@@ -9,7 +9,7 @@ dependencies:
     - patternlab
 id: patternlab_useraccountmenu
 theme: patternlab
-region: sidebar_second
+region: sidebar_first
 weight: 11
 provider: null
 plugin: 'system_menu_block:account'
