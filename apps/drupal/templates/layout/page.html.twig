@@ -60,41 +60,33 @@
   {# Help Region not Included by Default. #}
   {{ page.help }}
 
-  <main role="main">
+  <main class="row" role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    {% embed '@atoms/grid/_grid-3-up.twig' with { container: false } %}
+    {% if page.sidebar_first %}
+      <aside class="layout-sidebar-first col-sm-3" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
 
-    {% block column_1 %}
-      {% if page.sidebar_first %}
-        <aside class="layout-sidebar-first" role="complementary">
-          {{ page.sidebar_first }}
-        </aside>
-      {% endif %}
-    {% endblock %}
-
-    {% block column_2 %}
-      <div class="layout-content">
+    {% if page.sidebar_first and page.sidebar_second %}
+      <div class="layout-content col-sm-6">
+    {% elseif page.sidebar_first or page.sidebar_second %}
+      <div class="layout-content col-sm-9">
+    {% else %}
+      <div class="layout-content col-sm-12">
+    {% endif %}
       {{ page.content }}
-      </div>{# /.layout-content #}
-    {% endblock %}
+      </div>
 
-    {% block column_3 %}
-      {% if page.sidebar_second %}
-       <aside class="layout-sidebar-second" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      {% endif %}
-    {% endblock %}
-
-  {% endembed %}
+    {% if page.sidebar_second %}
+      <aside class="layout-sidebar-second col-sm-3" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
 
   </main>
 
-  {% if page.footer %}
-    <footer role="contentinfo">
-      {{ page.footer }}
-    </footer>
-  {% endif %}
+  {{ page.footer }}
 
 </div>{# /.layout-container #}

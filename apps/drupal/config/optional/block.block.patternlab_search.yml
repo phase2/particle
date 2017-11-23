@@ -4,6 +4,7 @@ dependencies:
   config:
     - views.view.search
   module:
+    - system
     - views
   theme:
     - patternlab
