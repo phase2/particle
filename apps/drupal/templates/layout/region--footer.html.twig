@@ -12,12 +12,13 @@
  * @see template_preprocess_region()
  */
 #}
+
 {%
   set classes = [
     'region',
     'region-' ~ region|clean_class,
     'row',
-    'text-white'
+    'text-white',
 ] | join(' ') %}
 
 <footer class="p-5 bg-test rounded footer" role="contentinfo">
