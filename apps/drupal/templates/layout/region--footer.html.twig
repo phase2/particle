@@ -17,11 +17,10 @@
     'region',
     'region-' ~ region|clean_class,
     'row',
-    'text-light'
-  ]
-%}
+    'text-white'
+] | join(' ') %}
 
-<footer class="p-5 bg-dark footer" role="contentinfo">
+<footer class="p-5 bg-test footer" role="contentinfo">
   {% if content %}
     <section{{ attributes.addClass(classes) }}>
       {{ content }}
