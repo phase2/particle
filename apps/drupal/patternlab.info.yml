@@ -39,6 +39,7 @@ component-libraries:
   organisms:
     paths:
       - ../../source/_patterns/03-organisms
+      - ../../source/_patterns/03-organisms/header
   templates:
     paths:
       - ../../source/_patterns/04-templates

@@ -13,18 +13,6 @@
  */
 #}
 
-{%
-  set classes = [
-    'region',
-    'region-' ~ region|clean_class,
-    'row',
-    'text-white',
-] | join(' ') %}
-
-<header class="bg-test jumbotron" role="banner">
-  {% if content %}
-    <div{{ attributes.addClass(classes) }}>
-      {{ content }}
-    </div>
-  {% endif %}
-</header>
+{% if content %}
+  {% include "@organisms/_header.twig" %}
+{% endif %}

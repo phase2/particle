@@ -12,6 +12,7 @@ import * as icon from 'atoms/icon';
 import * as listItem from 'atoms/list-item';
 import * as card from 'molecules/card';
 import * as jumbotron from 'molecules/jumbotron';
+import * as header from 'organisms/header';
 
 export default {
   branding,
@@ -23,5 +24,6 @@ export default {
   listItem,
   card,
   jumbotron,
+  header,
 };
 
