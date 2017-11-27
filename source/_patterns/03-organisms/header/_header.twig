@@ -5,28 +5,9 @@
  */
 #}
 
-{% set classes = classes|default([])|merge([
-  'region',
-  'region-' ~ region|clean_class,
-  'row',
-  'text-white',
-]) | sort | join(' ') | trim %}
-
-<header class="bg-test jumbotron header" role="banner">
-  <section class="{{ classes }}">
-
-    {% block content %}
-      {% if pl %}
-        {% include "@atoms/_branding.twig" with {
-          url: '#',
-          logo_inline_svg: '@atoms/image/logo.svg',
-          site_name: 'Site Name',
-          site_slogan: 'This is My Excellent But Really Really Long Site Slogan!'
-        } %}
-      {% else %}
-        {{ content }}
-      {% endif %}
-    {% endblock %}
-
+<header class="jumbotron bg-test header" role="banner">
+  <section class="{{ classes }} text-white">
+    {% block header_content %}
+    {% endblock header_content %}
   </section>
 </header>

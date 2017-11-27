@@ -13,6 +13,16 @@
  */
 #}
 
+{% set classes = classes|default([])|merge([
+  'region',
+  'region-' ~ region|clean_class,
+  'row',
+]) | sort | join(' ') | trim %}
+
 {% if content %}
-  {% include "@organisms/_header.twig" %}
+  {% embed '@organisms/header/_header.twig' %}
+    {% block header_content %}
+      {{ content }}
+    {% endblock header_content %}
+  {% endembed %}
 {% endif %}

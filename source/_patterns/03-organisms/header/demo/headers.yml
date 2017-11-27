@@ -1,0 +1,5 @@
+header_basic:
+  url: '#'
+  logo_inline_svg: '@atoms/image/logo.svg'
+  site_name: 'Particle'
+  site_slogan: 'A Starter Theme to Kickstart Your Best Ideas'

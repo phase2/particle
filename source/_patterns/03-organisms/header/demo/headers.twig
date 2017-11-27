@@ -1,7 +1,9 @@
 <div class="container">
 
-  {% block header_basic %}
-    {% include '@organisms/_header.twig' %}
-  {% endblock %}
+  {% embed '@organisms/header/_header.twig' %}
+    {% block header_content %}
+      {% include "@atoms/_branding.twig" with header_basic %}
+    {% endblock header_content %}
+  {% endembed %}
 
 </div>
