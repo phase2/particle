@@ -56,14 +56,14 @@ plugins:
       atoms:
         paths:
           - ../../../source/_patterns/01-atoms
-          - ../../../source/_patterns/01-atoms/badge
           - ../../../source/_patterns/01-atoms/grid
           - ../../../source/_patterns/01-atoms/icon
+          - ../../../source/_patterns/01-atoms/badge
           - ../../../source/_patterns/01-atoms/image
           - ../../../source/_patterns/01-atoms/button
           - ../../../source/_patterns/01-atoms/branding
-          - ../../../source/_patterns/01-atoms/group-item
           - ../../../source/_patterns/01-atoms/breadcrumb
+          - ../../../source/_patterns/01-atoms/list-group
       molecules:
         paths:
           - ../../../source/_patterns/02-molecules

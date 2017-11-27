@@ -1,12 +1,12 @@
-// Import tab js from bootstrap
-import { Tab } from 'bootstrap/js/src';
+/**
+ * List-group
+ */
+import 'bootstrap/js/src/tab';
 
-// import $ from 'jquery';
+// Custom
+import 'base';
 
-// Module dependencies
-import base from 'base';
-
-// Module styles
+// Import custom sass, includes Bootstrap sass
 import './_list-group.scss';
 
 export const name = 'list-group';
