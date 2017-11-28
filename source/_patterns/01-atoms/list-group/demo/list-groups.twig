@@ -4,12 +4,11 @@
   {% set colors = colors|merge([name]) %}
 {% endfor %}
 
-
 <div class="container">
   {% embed '@atoms/grid/_grid-1-up.twig' %}
     {% block column_1 %}
       <div class="mb-3">
-        <h1 class="text-center">List Group</h1>
+        <h1>List Group</h1>
         {% include '@molecules/card/_card-helper.twig' with {
           card_text: list_group_helper,
           card_background: 'secondary',

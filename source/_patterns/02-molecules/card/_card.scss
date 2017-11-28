@@ -8,3 +8,7 @@ $card-border-width: 1px;
 @import '~bootstrap/scss/card';
 
 // Add custom code here
+.border-none {
+  border-style: none;
+}
+
