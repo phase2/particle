@@ -2,6 +2,8 @@
 
 # Prerequisites
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/phase2/pattern-lab-starter.svg)](https://greenkeeper.io/)
+
 - [Node](https://nodejs.org) v6 + (v4 might work, no promises)
 - PHP 5.4, 5.5, 5.6, OR 7 (5.3 might work, no promises)
 - [`composer`](https://getcomposer.org)
