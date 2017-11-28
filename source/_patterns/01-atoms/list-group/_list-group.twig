@@ -17,15 +17,20 @@
   {% set list_flush = 'list-group-flush' %}
 {% endif %}
 
-<{{ parent_element }} class="list-group {{ list_flush }}" id="{{ list_id }}">
+{% if list_id %}
+  {% set list_id = 'id="' ~ list_id ~ '"' %}
+{% endif %}
+
+
+<{{ parent_element }} class="list-group {{ list_flush }}" {{ list_id }}>
   {% for item in items %}
 
   {# Note: ?: won't work in PHP5 #}
   {% set element = item.item_element ?: 'li' %}
 
   {% set classes = [
-  'list-group-item',
-  'list-group-item-' ~ item.item_color,
+    'list-group-item',
+    'list-group-item-' ~ item.item_color,
   ] | merge(item.item_classes | default([])) | join(' ') %}
 
   {% set attributes = [

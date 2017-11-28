@@ -1,11 +1,4 @@
-button_helper:
-  card_text: Use Bootstrap's custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
-  text_color: light
-  card_background: secondary
-  button_element: a
-  button_text: More Info
-  button_color: primary
-  button_link: 'https://getbootstrap.com/docs/4.0/components/buttons/'
+buttons_helper: Use Bootstrap's custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
 
 alternate_buttons:
   - button_element: a

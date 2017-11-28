@@ -1,8 +1,14 @@
 {% embed '@atoms/grid/_grid-1-up.twig' with { container: true } %}
   {% block column_1 %}
     <h1 class="text-center">Buttons</h1>
-    {% include '@molecules/card/_card.twig' with button_helper %}
-
+    {% include '@molecules/card/_card-helper.twig' with {
+      card_text: buttons_helper,
+      card_background: 'secondary',
+      text_color: 'light',
+      button: {
+        button_link: 'https://getbootstrap.com/docs/4.0/components/buttons/',
+      }
+    } %}
     <h1>Button colors</h1>
     <div class="mb-3">
       {% for name, rgb in scssColors %}

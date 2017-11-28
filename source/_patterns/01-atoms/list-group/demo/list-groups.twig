@@ -1,9 +1,6 @@
 {# This function loops through the scssColors global variable to make an array of all the available colors. #}
 {% set colors = [] %}
 {% for name, rgb in scssColors %}
-  {% set item_classes = {
-    item_color: name
-  } %}
   {% set colors = colors|merge([name]) %}
 {% endfor %}
 
@@ -15,6 +12,8 @@
         <h1 class="text-center">List Group</h1>
         {% include '@molecules/card/_card-helper.twig' with {
           card_text: list_group_helper,
+          card_background: 'secondary',
+          text_color: 'light',
         } %}
       </div>
 
@@ -38,9 +37,9 @@
           {# Iterate over colors, since this is actually what we're demo'ing #}
           {% for color in colors %}
             {# Inline object merged into random text object #}
-            {% set color_item = { item_color: color } | merge(random(list_group_text.items)) %}
+            {% set temp_item = { item_color: color } | merge(random(list_group_text.items)) %}
             {# Build up the color_items array #}
-            {% set color_items = color_items|merge([color_item]) %}
+            {% set color_items = color_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
             items: color_items
