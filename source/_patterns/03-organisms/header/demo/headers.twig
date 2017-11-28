@@ -1,9 +1,6 @@
-<div class="container">
-
+<header role="banner">
   {% embed '@organisms/header/_header.twig' %}
     {% block branding %}
-      {% include "@atoms/_branding.twig" with header_basic %}
     {% endblock branding %}
   {% endembed %}
-
-</div>
+</header>

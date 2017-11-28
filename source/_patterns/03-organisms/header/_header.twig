@@ -5,8 +5,13 @@
  */
 #}
 
-{% embed '@molecules/jumbotron/_jumbotron.twig' %}
+{% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
   {% block branding %}
-    {% include "@atoms/_branding.twig" with header_basic %}
+    {% include "@atoms/_branding.twig" with {
+      url: '#',
+      logo_svg_inline: '@atoms/image/logo.svg',
+      site_name: 'Particle',
+      site_slogan: 'This is a dev environment to work on the latest version of Pattern Lab Starter theme. Make good things happen!',
+    } %}
   {% endblock branding %}
 {% endembed %}
