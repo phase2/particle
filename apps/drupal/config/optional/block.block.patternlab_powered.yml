@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - patternlab
+id: patternlab_powered
+theme: patternlab
+region: footer
+weight: 10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Phase2 Particle'
+  provider: system
+  label_display: '0'
+visibility: {  }
