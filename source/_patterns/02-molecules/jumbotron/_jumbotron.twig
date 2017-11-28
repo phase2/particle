@@ -21,7 +21,7 @@
   jumbotron_fluid ? 'jumbotron-fluid',
 ] | join(' ') %}
 
-<header class="{{ classes }}">
+<div class="{{ classes }}">
   {% if jumbotron_fluid %}
     <div class="container">
   {% endif %}
@@ -57,4 +57,4 @@
   {% if jumbotron_fluid %}
     </div>
   {% endif %}
-</header>
+</div>

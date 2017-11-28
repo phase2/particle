@@ -44,11 +44,15 @@
  */
 #}
 
-  {{ page.header }}
+<div class="layout-container">
 
-<div class="container layout-container">
-
+  {# @TODO Implement Bootstrap Nav #}
   {{ page.primary_menu }}
+
+  <header role="banner">
+    {{ page.header }}
+  </header>
+
   {{ page.secondary_menu }}
 
   {{ page.highlighted }}
@@ -58,31 +62,34 @@
   {# Help Region not Included by Default. #}
   {{ page.help }}
 
-  <main class="row" role="main">
+  <main class="container" role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first col-sm-3" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endif %}
+    <section class="row">
 
-    {% if page.sidebar_first and page.sidebar_second %}
-      <div class="layout-content col-sm-6">
-    {% elseif page.sidebar_first or page.sidebar_second %}
-      <div class="layout-content col-sm-9">
-    {% else %}
-      <div class="layout-content col-sm-12">
-    {% endif %}
+      {% if page.sidebar_first %}
+        <aside class="layout-sidebar-first col-sm-3" role="complementary">
+          {{ page.sidebar_first }}
+        </aside>
+      {% endif %}
+
+      {% if page.sidebar_first and page.sidebar_second %}
+        <div class="layout-content col-sm-6">
+      {% elseif page.sidebar_first or page.sidebar_second %}
+        <div class="layout-content col-sm-9">
+      {% else %}
+        <div class="layout-content col-sm-12">
+      {% endif %}
       {{ page.content }}
-      </div>
+        </div>
 
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second col-sm-3" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
+      {% if page.sidebar_second %}
+        <aside class="layout-sidebar-second col-sm-3" role="complementary">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endif %}
 
+    </section>
   </main>
 
 </div>{# /.layout-container #}

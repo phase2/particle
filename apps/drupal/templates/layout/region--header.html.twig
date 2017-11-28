@@ -19,11 +19,12 @@
 ] | join(' ') %}
 
 {% if content %}
-  {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
-    {% block branding %}
-      <section{{ attributes.addClass(header_classes) }}>
-        {{ branding }}
-      </section>
-    {% endblock branding %}
-  {% endembed %}
+  <section{{ attributes.addClass(header_classes) }}>
+    {# Embed Jumbotron and Set to Fluid. @TODO set this as theme config? #}
+    {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
+        {% block branding %}
+          {{ branding }}
+        {% endblock branding %}
+    {% endembed %}
+  </section>
 {% endif %}
