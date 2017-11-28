@@ -10,7 +10,7 @@
  * Available variables:
  * - url: The url for the front page of the site.
  * - site_logo: Logo for site as defined in Appearance or theme settings.
- * - logo_inline_svg: The svg logo if it exists.
+ * - logo_svg_inline: The svg logo if it exists.
  * - logo_img_src: The src logo if it exists.
  * - site_name: Name for site as defined in Site information settings.
  * - site_slogan: Slogan for site as defined in Site information settings.
@@ -22,7 +22,7 @@
 
   {# Use logo to explicitly override values from preprocess. #}
   {% set logo = {
-    logo_svg_inline: logo_inline_svg,
+    logo_svg_inline: logo_svg_inline,
     logo_img_src: logo_img_src
   } %}
 

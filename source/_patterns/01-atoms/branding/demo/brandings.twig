@@ -8,7 +8,7 @@
       {% block column_1 %}
         {% include "@atoms/_branding.twig" with {
           url: '#',
-          logo_inline_svg: '@atoms/image/logo.svg',
+          logo_svg_inline: '@atoms/image/logo.svg',
           site_name: 'Site Name',
           site_slogan: 'Logo with Inline SVG'
         } %}
@@ -17,7 +17,7 @@
       {% block column_2 %}
         {% include "@atoms/_branding.twig" with {
           url: '#',
-          logo_img_url: paths.assets ~ '/logo.svg',
+          logo_img_src: paths.assets ~ '/logo.svg',
           site_name: 'Site Name',
           site_slogan: 'Logo with Src SVG'
         } %}
