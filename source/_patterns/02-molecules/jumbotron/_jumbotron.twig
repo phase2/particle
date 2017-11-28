@@ -21,36 +21,40 @@
   jumbotron_fluid ? 'jumbotron-fluid',
 ] | join(' ') %}
 
-<div class="{{ classes }}">
+<header class="{{ classes }}">
   {% if jumbotron_fluid %}
     <div class="container">
   {% endif %}
 
-  {% if jumbotron_title %}
-    <h1 class="display-3">{{ jumbotron_title }}</h1>
-  {% endif %}
+  {% block branding %}
+    {% if jumbotron_title %}
+      <h1 class="display-3">{{ jumbotron_title }}</h1>
+    {% endif %}
 
-  {% if jumbotron_subtitle %}
-    <p class="lead">{{ jumbotron_subtitle }}</p>
-  {% endif %}
+    {% if jumbotron_subtitle %}
+      <p class="lead">{{ jumbotron_subtitle }}</p>
+    {% endif %}
+  {% endblock branding %}
 
-  {% if jumbotron_text %}
-    <hr class="my-4">
-    <p>{{ jumbotron_text }}</p>
-  {% endif %}
+  {% block cta %}
+    {% if jumbotron_text %}
+      <hr class="my-4">
+      <p>{{ jumbotron_text }}</p>
+    {% endif %}
 
-  {% if button_text %}
-    <p class="lead">
-      {% include "@atoms/button/_button.twig" with {
-        button_text: button_text,
-        button_color: button_color,
-        button_size: button_size,
-        button_link: button_link,
-      } only %}
-    </p>
-  {% endif %}
+    {% if button_text %}
+      <p class="lead">
+        {% include "@atoms/button/_button.twig" with {
+          button_text: button_text,
+          button_color: button_color,
+          button_size: button_size,
+          button_link: button_link,
+        } only %}
+      </p>
+    {% endif %}
+  {% endblock cta %}
 
   {% if jumbotron_fluid %}
     </div>
   {% endif %}
-</div>
+</header>

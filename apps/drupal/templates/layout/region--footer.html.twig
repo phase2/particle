@@ -13,17 +13,15 @@
  */
 #}
 
-{%
-  set classes = [
-    'region',
-    'region-' ~ region|clean_class,
-    'row',
-    'text-white',
+{% set footer_classes = [
+  'region',
+  'region-' ~ region|clean_class,
 ] | join(' ') %}
 
-<footer class="p-5 bg-test rounded footer" role="contentinfo">
+<footer class="container p-3 footer" role="contentinfo">
+  <hr>
   {% if content %}
-    <section{{ attributes.addClass(classes) }}>
+    <section{{ attributes.addClass(footer_classes) }}>
       {{ content }}
     </section>
   {% endif %}

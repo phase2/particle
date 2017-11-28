@@ -6,8 +6,8 @@ core: 8.x
 libraries:
   - patternlab/core
 regions:
-  header: Header
   primary_menu: Primary menu
+  header: Header
   secondary_menu: Secondary menu
   page_top: Page top
   page_bottom: Page bottom

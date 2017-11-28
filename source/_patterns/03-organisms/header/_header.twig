@@ -5,9 +5,8 @@
  */
 #}
 
-<header class="jumbotron bg-test header" role="banner">
-  <section class="{{ classes }} text-white">
-    {% block header_content %}
-    {% endblock header_content %}
-  </section>
-</header>
+{% embed '@molecules/jumbotron/_jumbotron.twig' %}
+  {% block branding %}
+    {% include "@atoms/_branding.twig" with header_basic %}
+  {% endblock branding %}
+{% endembed %}

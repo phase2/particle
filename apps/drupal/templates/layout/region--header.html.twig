@@ -13,16 +13,17 @@
  */
 #}
 
-{% set classes = classes|default([])|merge([
+{% set header_classes = [
   'region',
   'region-' ~ region|clean_class,
-  'row',
-]) | sort | join(' ') | trim %}
+] | join(' ') %}
 
 {% if content %}
-  {% embed '@organisms/header/_header.twig' %}
-    {% block header_content %}
-      {{ content }}
-    {% endblock header_content %}
+  {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
+    {% block branding %}
+      <section{{ attributes.addClass(header_classes) }}>
+        {{ branding }}
+      </section>
+    {% endblock branding %}
   {% endembed %}
 {% endif %}
