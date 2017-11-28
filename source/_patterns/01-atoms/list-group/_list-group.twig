@@ -1,13 +1,14 @@
 {#
   List-group:
 
-  parent_element: String: ul|ol|div the html element that will contain the list
-  list_id: String: a unique id for the list
-  items: Object: the items you wish you put into a list
-  item_element: String: li|a|div the html element that the item will use
-  item_classes: Array: accepts active, disabled, list-group-item-action, list-group-item-(color). See https://getbootstrap.com/docs/4.0/components/list-group/#with-badges for examples. See https://getbootstrap.com/docs/4.0/utilities/flex/ for flex options
-  item_text: String: the text of the list item
-  list_flush: Boolean: True|False only use this variable if the list is on a card. this will make it align properly
+  parent_element: String: ul|ol|div The html element that will contain the list.
+  list_id: String: a unique id for the list.
+  items: Object: The items you wish you put into a list.
+  item_element: String: li|a|div The html element that the item will use.
+  item_classes: Array: Accepts active, disabled, list-group-item-action, list-group-item-(color). See https://getbootstrap.com/docs/4.0/components/list-group/#with-badges for examples. See https://getbootstrap.com/docs/4.0/utilities/flex/ for flex options
+  item_text: String: The text of the list item.
+  item_badge: Array: See the documentation for badges in source/_patterns/01-atoms/badge/_badge.twig.
+  list_flush: Boolean: True|False Only use this variable if the list is on a card. this will make it align properly.
 #}
 
 {% set parent_element = parent_element ?: 'ul' %}
@@ -32,8 +33,8 @@
 
   <{{element}} class="{{ classes }}" {{ item_id }}{{ attributes }}>
     {{ item.item_text }}
-    {% if item.badge %}
-      {% include '@atoms/badge/_badge.twig' with item.badge %}
+    {% if item.item_badge %}
+      {% include '@atoms/badge/_badge.twig' with item.item_badge %}
     {% endif %}
     </{{element}}>
   {% endfor %}

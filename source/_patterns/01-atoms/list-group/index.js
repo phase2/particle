@@ -3,8 +3,9 @@
  */
 import 'bootstrap/js/src/tab';
 
-// Custom
+// Module dependencies
 import 'base';
+import 'atoms/badge';
 
 // Import custom sass, includes Bootstrap sass
 import './_list-group.scss';

@@ -1,11 +1,12 @@
 {# This function loops through the scssColors global variable to make an array of all the available colors. #}
-{% set all_colors = [] %}
+{% set colors = [] %}
 {% for name, rgb in scssColors %}
   {% set item_classes = {
     item_color: name
   } %}
-  {% set all_colors = all_colors|merge([item_classes]) %}
+  {% set colors = colors|merge([name]) %}
 {% endfor %}
+
 
 <div class="container">
   {% embed '@atoms/grid/_grid-1-up.twig' %}
@@ -33,13 +34,16 @@
           template ultimately needs an object to iterate through to generate the individual items. These code
           blocks exist to pull data from multiple disperate places (the all_colors array, list-groups.yml,
           etc.) and combine them into a single object that the template can then process. #}
-          {% set list_color = [] %}
-          {% for color in all_colors %}
-            {% set temp_item = { item_color: color.item_color }|merge(random(list_group_text.items)) %}
-            {% set list_color = list_color|merge([temp_item]) %}
+          {% set color_items = [] %}
+          {# Iterate over colors, since this is actually what we're demo'ing #}
+          {% for color in colors %}
+            {# Inline object merged into random text object #}
+            {% set color_item = { item_color: color } | merge(random(list_group_text.items)) %}
+            {# Build up the color_items array #}
+            {% set color_items = color_items|merge([color_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: list_color
+            items: color_items
           } %}
         </div>
       </div>
@@ -54,36 +58,35 @@
       <div class="row mb-3">
         <div class="col-sm">
           <h2>Active Items</h2>
-          {% set list_active = [] %}
-          {% for item in list_group_text.items %}
-            {#redundant here too?#}
-            {% set temp_item = [] | merge(item) | merge(list_group_active.items[loop.index0]) %}
-            {% set list_active = list_active|merge([temp_item]) %}
+          {% set active_items = [] %}
+          {% for item in list_group_active %}
+            {% set temp_item = item | merge(random(list_group_text.items)) %}
+            {% set active_items = active_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: list_active
+            items: active_items
           } %}
         </div>
         <div class="col-sm">
           <h2>Disabled Items</h2>
-          {% set list_disabled = [] %}
-          {% for item in list_group_text.items %}
-            {% set temp_item = [] | merge(item) | merge(list_group_disabled.items[loop.index0]) %}
-            {% set list_disabled = list_disabled|merge([temp_item]) %}
+          {% set disabled_items = [] %}
+          {% for item in list_group_disabled %}
+            {% set temp_item = item | merge(random(list_group_text.items)) %}
+            {% set disabled_items = disabled_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: list_disabled
+            items: disabled_items
           } %}
         </div>
         <div class="col-sm">
           <h2>Action</h2>
-          {% set list_action = [] %}
+          {% set action_items = [] %}
           {% for item in list_group_text.items %}
-            {% set temp_item = [] | merge(item) | merge(all_colors[loop.index0]) | merge(list_group_action.items[0]) %}
-            {% set list_action = list_action|merge([temp_item]) %}
+            {% set temp_item = item | merge({item_color: random(colors)}) | merge({item_classes: ['list-group-item-action']}) %}
+            {% set action_items = action_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: list_action
+            items: action_items
           } %}
         </div>
       </div>
@@ -98,24 +101,24 @@
       <div class="row mb-3">
         <div class="col-sm">
           <h2>Link List</h2>
-          {% set list_link = [] %}
+          {% set link_items = [] %}
           {% for item in list_group_text.items %}
-            {% set temp_item = [] | merge(item) | merge(all_colors[loop.index0]) | merge(list_group_links.items[0]) %}
-            {% set list_link = list_link|merge([temp_item]) %}
+            {% set temp_item = item | merge({item_color: random(colors)}) | merge({item_element: 'a'}) %}
+            {% set link_items = link_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-           items: list_link
+           items: link_items
           } %}
         </div>
         <div class="col-sm">
           <h2>Button</h2>
-          {% set list_button = [] %}
+          {% set button_items = [] %}
           {% for item in list_group_text.items %}
-            {% set temp_item = [] | merge(item) | merge(all_colors[loop.index0]) | merge(list_group_buttons.items[0]) %}
-            {% set list_button = list_button|merge([temp_item]) %}
+            {% set temp_item = item | merge({item_color: random(colors)}) | merge({item_element: 'button'}) %}
+            {% set button_items = button_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: list_button
+            items: button_items
           } %}
         </div>
       </div>
@@ -130,25 +133,40 @@
       <div class="row mb-3">
         <div class="col-sm">
           <h2>Badges</h2>
-          {% set list_badge = [] %}
+          {% set badge_data = {
+            badge_text: 'badge',
+            badge_pill: 'true',
+          } %}
+          {% set badge_classes = [
+            'list-group-item',
+            'd-flex',
+            'justify-content-between',
+            'align-items-center',
+          ] %}
+          {% set badge_items = [] %}
           {% for item in list_group_text.items %}
-            {% set temp_item = [] | merge(item) | merge(all_colors[loop.index0])
-            | merge(list_group_badges.items[0]) | merge(list_group_badges.items[1])%}
-            {% set list_badge = list_badge|merge([temp_item]) %}
+            {% set temp_item = item | merge({item_color: random(colors)}) | merge({item_badge: badge_data}) | merge({item_classes: badge_classes}) %}
+            {% set badge_items = badge_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: list_badge
+            items: badge_items
           } %}
         </div>
         <div class="col-sm">
           <h2>Custom HTML</h2>
-          {% set list_custom = [] %}
+          {% set custom_items = [] %}
+          {% set custom_classes = [
+            'list-group-item',
+            'list-group-item-action',
+            'flex-column',
+            'align-items-start',
+          ] %}
           {% for item in list_group_custom_text.items %}
-            {% set temp_item = [] | merge(list_group_custom_text.items[loop.index0]) | merge(list_group_custom_class.items) %}
-            {% set list_custom = list_custom|merge([temp_item]) %}
+            {% set temp_item = item | merge({item_classes: custom_classes}) %}
+            {% set custom_items = custom_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-           items: list_custom
+           items: custom_items
           } %}
         </div>
       </div>
@@ -166,15 +184,15 @@
       <div class="row mb-3">
         <div class="col-sm">
           <h2>Toggleable</h2>
-          {% set list_toggle = [] %}
+          {% set toggle_items = [] %}
           {% for item in list_group_toggleable.items %}
-            {% set temp_item = [] | merge(list_group_toggleable.items[loop.index0]) | merge(list_group_links.items[0]) %}
-            {% set list_toggle = list_toggle|merge([temp_item]) %}
+            {% set temp_item = item | merge({item_element: 'a'}) %}
+            {% set toggle_items = toggle_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
             parent_element: 'div',
             list_id: 'mylist',
-            items: list_toggle,
+            items: toggle_items,
           } %}
         </div>
         <div class="col-sm">

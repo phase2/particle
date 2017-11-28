@@ -18,55 +18,26 @@ list_group_text:
   - item_text: Morbi leo risus
   - item_text: Porta ac consectetur ac
   - item_text: Vestibulum at eros
-#  - item_text: Vestibulum at eros
-#  - item_text: Vestibulum at eros
-#  - item_text: Vestibulum at eros
-#  - item_text: Vestibulum at eros
 
 list_group_active:
-  items:
-    - item_classes:
-        - active
-    - item_classes:
-    - item_classes:
-        - active
-    - item_classes:
-    - item_classes:
-        - active
+  - item_classes:
+      - active
+  - item_classes:
+  - item_classes:
+      - active
+  - item_classes:
+  - item_classes:
+      - active
 
 list_group_disabled:
-  items:
-    - item_classes:
-        - disabled
-    - item_classes:
-    - item_classes:
-        - disabled
-    - item_classes:
-    - item_classes:
-        - disabled
-
-list_group_action:
-  items:
   - item_classes:
-      - list-group-item-action
-
-list_group_links:
-  items:
-    - item_element: a
-
-list_group_buttons:
-  items:
-    - item_element: button
-
-list_group_badges:
-  items:
-    - badge:
-        badge_text: badge
-        badge_pill: true
-    - item_classes:
-      - justify-content-between
-      - d-flex
-      - align-items-center
+      - disabled
+  - item_classes:
+  - item_classes:
+      - disabled
+  - item_classes:
+  - item_classes:
+      - disabled
 
 list_group_custom_text:
   items:
@@ -88,14 +59,6 @@ list_group_custom_text:
                   </div>
                   <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
                   <small class="text-muted">Donec id elit non mi porta.</small>'
-
-list_group_custom_class:
-  items:
-    item_classes:
-    - list-group-item
-    - list-group-item-action
-    - flex-column
-    - align-items-start
 
 list_group_toggleable:
   parent_element: div

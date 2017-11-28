@@ -2,6 +2,7 @@
  * Badge
  */
 
+// Module Dependencies
 import 'base';
 
 // Module styles
