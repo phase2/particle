@@ -27,15 +27,16 @@
   see https://getbootstrap.com/docs/4.0/components/card/ for more details
 #}
 
-{% set classes = [
+{% set classes = classes|default([])|merge([
+  'card',
   card_width ? 'w-' ~ card_width,
   text_alignment ? 'text-' ~ text_alignment,
   text_color ? 'text-' ~ text_color,
   card_background ? 'bg-' ~ card_background,
   card_border ? 'border-' ~ card_border,
-] | join(' ')%}
+]) | sort | join(' ') | trim %}
 
-<div class="card {{ classes }}">
+<div class="{{ classes }}">
   {% if card_header %}
     <div class="card-header">
       {{ card_header }}
@@ -105,4 +106,3 @@
   {% endif %}
 
 </div>
-

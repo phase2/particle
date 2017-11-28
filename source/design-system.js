@@ -3,6 +3,7 @@
  * The kitchen sink of all design components
  */
 
+import * as branding from 'atoms/branding';
 import * as breadcrumb from 'atoms/breadcrumb';
 import * as button from 'atoms/button';
 import * as image from 'atoms/image';
@@ -17,6 +18,7 @@ export default {
   image,
   icon,
   listItem,
+  branding,
   card,
   jumbotron,
 };

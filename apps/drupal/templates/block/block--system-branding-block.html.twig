@@ -8,25 +8,24 @@
  * enabled in the block configuration.
  *
  * Available variables:
+ * - url: The url for the front page of the site.
  * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - logo_svg_inline: The svg logo if it exists.
+ * - logo_img_src: The src logo if it exists.
  * - site_name: Name for site as defined in Site information settings.
  * - site_slogan: Slogan for site as defined in Site information settings.
+ *
  */
 #}
 
-
 {% block content %}
 
-  <h1>i r branding nerp</h1>
-
-  {% include '@atoms/button/_button.twig' with {
-    button_size: 'lg',
-    button_text: 'hello',
+  {# Use logo to explicitly override values from preprocess. #}
+  {% set logo = {
+    logo_svg_inline: logo_svg_inline,
+    logo_img_src: logo_img_src
   } %}
 
-  {#{% include "@molecules/branding.twig"#}
-    {#with {#}
-      {#"url": path('<front>')#}
-    {#}#}
-  {#%}#}
+  {% include "@atoms/_branding.twig" with logo %}
+
 {% endblock %}
