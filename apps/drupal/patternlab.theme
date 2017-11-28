@@ -34,10 +34,10 @@ function patternlab_preprocess_block(&$variables) {
 
     // Set the logo to PL if default.
     if ($logo_default) {
-      $variables['logo_inline_svg'] = '@atoms/image/logo.svg';
+      $variables['logo_svg_inline'] = '@atoms/image/logo.svg';
     // Send to img if Logo is not an default.
     } else {
-      $variables['logo_img_url'] = $logo_url;
+      $variables['logo_img_src'] = $logo_url;
     }
 
   }

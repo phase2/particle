@@ -1,9 +1,5 @@
-To contribute to these tools, just modify as you see fit and push up a pull request!
+# Contributing
 
-### Contributing to `p2-theme-core` dependency
+Before contributing, please ensure your IDE or text editor is using the `.editorconfig` at the root of this project. To achieve this easily, see the README.md section titled ["IDE/text editor setup"](https://github.com/phase2/pattern-lab-starter/tree/master#idetext-editor-setup)
 
-If you have an improvement, please contribute! Clone the [`p2-theme-core`](https://github.com/phase2/p2-theme-core) repo and then run this command while in this directory:
-
-    npm link ../path/to/p2-theme-core
-
-That will symlink `node_modules/p2-theme-core/` to the cloned `p2-theme-core` repo. 
+Then to contribute to these tools, just fork this repo, modify as you see fit and push up a pull request!

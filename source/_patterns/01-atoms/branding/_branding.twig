@@ -15,14 +15,14 @@
 <aside class="branding">
   <div class="branding__site-logo">
     <a href="{{ url }}" title="{{ site_name }}" rel="home">
-      {% if logo_inline_svg %}
+      {% if logo_svg_inline %}
         {% include '@atoms/image/_svg.twig' with {
-          svgpath: logo_inline_svg
-          } %}
-      {% elseif logo_img_url %}
+          svgpath: logo_svg_inline
+        } %}
+      {% elseif logo_img_src %}
         {% include "@atoms/_image.twig" with {
           img: {
-            src: logo_img_url,
+            src: logo_img_src,
             alt: site_name ~ ' site logo',
             }
         } %}
