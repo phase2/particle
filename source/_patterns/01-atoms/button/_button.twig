@@ -18,6 +18,9 @@
 {% set button_element = button_element ?: 'button' %}
 {% set button_color = button_color ?: 'primary' %}
 
+{% set other_classes = other_classes ?: other_classes %}
+{% set other_attributes = other_attributes ?: other_attributes %}
+
 {% set classes = [
 'btn',
   'btn-' ~ button_color,
@@ -25,7 +28,7 @@
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
   button_active ? 'active',
-] | join(' ') %}
+] | join(' ') ~ other_classes %}
 
 {% set attributes  = [
   button_active ? 'aria-pressed="true"',
@@ -33,7 +36,7 @@
   button_link ? 'href=' ~ button_link,
   button_value ? 'value=' ~ button_value,
   button_disabled ? 'disabled',
-] | sort | join(' ') %}
+] | sort | join(' ') ~ other_attributes %}
 
 <{{ button_element }} type="{{ button_type }}" class="{{ classes }}" {{ attributes }}>
   {{ button_text }}

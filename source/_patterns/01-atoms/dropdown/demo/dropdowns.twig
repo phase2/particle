@@ -1,1 +1,134 @@
-{% include '@atoms/dropdown/_dropdown.twig' %}
+<h1>Basic Dropdown</h1>
+{% include '@atoms/dropdown/_dropdown.twig' with basic_dropdown %}
+<h1>A tag dropdown</h1>
+{% include '@atoms/dropdown/_dropdown.twig' with a_dropdown %}
+
+<h1>Colors</h1>
+{% for name, rgb in scssColors %}
+  {% include '@atoms/dropdown/_dropdown.twig' with {
+    dropdown_button: 'true',
+    dropdown_color: name,
+    dropdown_text: name|capitalize,
+  }%}
+{% endfor %}
+
+<h1>Split Button Drop Down</h1>
+{% for name, rgb in scssColors %}
+  {% include '@atoms/dropdown/_dropdown.twig' with {
+    dropdown_button: 'true',
+    dropdown_split: 'true',
+    dropdown_color: name,
+    dropdown_text: name|capitalize,
+  }%}
+{% endfor %}
+
+<h1>Sizing</h1>
+{% include '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_button: 'true',
+  dropdown_color: 'secondary',
+  button_size: 'lg',
+  dropdown_text: 'Large Button',
+}%}
+
+{% include '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_button: 'true',
+  dropdown_color: 'secondary',
+  button_size: 'sm',
+  dropdown_text: 'Small Button',
+}%}
+
+{% include '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_button: 'true',
+  dropdown_split: 'true',
+  dropdown_color: 'secondary',
+  button_size: 'lg',
+  dropdown_text: 'Large Split Button',
+}%}
+
+{% include '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_button: 'true',
+  dropdown_split: 'true',
+  dropdown_color: 'secondary',
+  button_size: 'sm',
+  dropdown_text: 'Small Split Button',
+}%}
+
+<h1>Dropup</h1>
+{% include '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_button: 'true',
+  dropup: 'true',
+  dropdown_color: 'secondary',
+  dropdown_text: 'Dropup',
+}%}
+
+{% include '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_button: 'true',
+  dropup: 'true',
+  dropdown_split: 'true',
+  dropdown_color: 'secondary',
+  dropdown_text: 'Dropup Split',
+}%}
+
+<h1>Menu</h1>
+{% include '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_text: 'Dropdown',
+  dropdown_element: 'button',
+} %}
+
+<h1>Menu alignment</h1>
+{% include '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_text: "This dropdown's menu is right-aligned",
+  dropdown_menu_alignment: 'dropdown-menu-right',
+} %}
+
+<h1>Menu headers</h1>
+{% embed '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_text: "Header",
+} %}
+  {% block dropdown_content %}
+    <h6 class="dropdown-header">Dropdown header</h6>
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+  {% endblock dropdown_content %}
+{% endembed %}
+
+<h1>Menu dividers</h1>
+{% embed '@atoms/dropdown/_dropdown.twig' with {
+  dropdown_text: "Divider",
+} %}
+  {% block dropdown_content %}
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  {% endblock dropdown_content %}
+{% endembed %}
+
+<h1>Menu forms</h1>
+{% embed '@atoms/dropdown/_dropdown.twig' with {
+dropdown_text: "Menu form",
+} %}
+  {% block dropdown_content %}
+    <form class="px-4 py-3">
+      <div class="form-group">
+        <label for="exampleDropdownFormEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+      </div>
+      <div class="form-group">
+        <label for="exampleDropdownFormPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Remember me
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">New around here? Sign up</a>
+    <a class="dropdown-item" href="#">Forgot password?</a>
+  {% endblock dropdown_content %}
+{% endembed %}

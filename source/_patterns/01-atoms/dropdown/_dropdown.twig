@@ -1,1 +1,41 @@
-<h1>WUBALUBLADUBDUB</h1>
+{#
+  Dropdown!
+#}
+{% if dropdown_button %}
+  {% set dropdown_class = 'btn-group' %}
+{% elseif dropdown_menu %}
+  {% set dropdown_class = 'dropdown-menu' %}
+{% else %}
+  {% set dropdown_class = 'dropdown' %}
+{% endif %}
+
+{% set dropdown_element = dropdown_element ?: 'a' %}
+{% set dropup = dropup ? 'dropup' %}
+{% set dropdown_item_disabled = dropdown_item_disabled ? 'disabled' %}
+
+<div class="{{ dropdown_class }} {{ dropdown_extra_classes }} {{ dropup }}">
+  {% if dropdown_split %}
+    {% include '@atoms/button/_button-dropdown-split.twig' %}
+  {% else %}
+    {% include '@atoms/button/_button-dropdown.twig' with {
+      button_text: dropdown_text,
+      button_element: button_element,
+      button_color: dropdown_color,
+    }%}
+    {#passing button_element and button_color might not be neccesary#}
+  {% endif %}
+
+  <div class="dropdown-menu {{ dropdown_menu_alignment }}" aria-labelledby="dropdownMenuButton">
+  {% block dropdown_content%}
+    {#find a way to pull from a different list #}
+    {% for dropdown_item in dropdown_items %}
+    <{{ dropdown_element }} href="#" class="dropdown-item {{ dropdown_item.dropdown_item_disabled }}">{{ dropdown_item.dropdown_item_text }}</{{ dropdown_element }}>
+  {% endfor %}
+  {% endblock dropdown_content%}
+  </div>
+</div>
+
+{#^^^^^ still not showing enough info#}
+{#{{ href will probably have to be a link }}#}
+
+
