@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - patternlab
-id: patternlab_messages
-theme: patternlab
+    - particle
+id: particle_messages
+theme: particle
 region: highlighted
 weight: -50
 provider: null

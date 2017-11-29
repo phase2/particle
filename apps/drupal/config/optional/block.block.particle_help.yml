@@ -4,9 +4,9 @@ dependencies:
   module:
     - help
   theme:
-    - patternlab
-id: patternlab_help
-theme: patternlab
+    - particle
+id: particle_help
+theme: particle
 region: content
 weight: -30
 provider: null

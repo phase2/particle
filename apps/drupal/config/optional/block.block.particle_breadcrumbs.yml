@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - patternlab
-id: patternlab_breadcrumbs
-theme: patternlab
+    - particle
+id: particle_breadcrumbs
+theme: particle
 region: breadcrumb
 weight: -100
 provider: null

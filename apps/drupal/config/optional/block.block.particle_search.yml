@@ -7,9 +7,9 @@ dependencies:
     - system
     - views
   theme:
-    - patternlab
-id: patternlab_search
-theme: patternlab
+    - particle
+id: particle_search
+theme: particle
 region: sidebar_second
 weight: 0
 provider: null

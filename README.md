@@ -1,6 +1,6 @@
 # Particle: A design system integrating to Pattern Lab and a Drupal 8 theme
 
-[![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
+[![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/particle)
 
 Particle is an opinionated set of tools and examples to:
 

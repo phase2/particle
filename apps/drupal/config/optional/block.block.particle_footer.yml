@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - patternlab
-id: patternlab_footer
-theme: patternlab
+    - particle
+id: particle_footer
+theme: particle
 region: footer
 weight: 0
 provider: null

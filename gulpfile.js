@@ -40,7 +40,7 @@ gulp.task('compile:twig-namespaces', () => gulp
       },
       {
         // The component-libraries module wants to know about our namespaces
-        configFile: path.join(PATH_DRUPAL, 'patternlab.info.yml'),
+        configFile: path.join(PATH_DRUPAL, 'particle.info.yml'),
         atKey: 'component-libraries',
         pathRelativeToDir: path.join(PATH_DRUPAL, ''),
       },

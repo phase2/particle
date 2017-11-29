@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - patternlab
-id: patternlab_page_title
-theme: patternlab
+    - particle
+id: particle_page_title
+theme: particle
 region: content
 weight: -50
 provider: null

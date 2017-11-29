@@ -1,10 +1,10 @@
-name: Pattern Lab Starter
+name: Particle
 type: theme
-description: A theme with Pattern Lab
+description: A Theme with Pattern Lab
 base theme: stable
 core: 8.x
 libraries:
-  - patternlab/core
+  - particle/core
 regions:
   primary_menu: Primary menu
   header: Header

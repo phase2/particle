@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - patternlab
-id: patternlab_sitebranding
-theme: patternlab
+    - particle
+id: particle_sitebranding
+theme: particle
 region: header
 weight: 0
 provider: null

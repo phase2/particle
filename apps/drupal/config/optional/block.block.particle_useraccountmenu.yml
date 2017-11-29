@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - patternlab
-id: patternlab_useraccountmenu
-theme: patternlab
+    - particle
+id: particle_useraccountmenu
+theme: particle
 region: sidebar_first
 weight: 11
 provider: null
