@@ -4,6 +4,7 @@
 
 // Module dependencies
 import 'base';
+import 'molecules/jumbotron';
 
 // Module styles
 import './_header.scss';
