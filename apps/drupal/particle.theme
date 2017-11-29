@@ -9,11 +9,12 @@
  * Implements hook_preprocess_region().
  */
 function particle_preprocess_region__header(&$variables) {
+  // Blocks contains list of blocks we want to call individually in Twig.
+  // Example, {{ content }} => {{ branding }}
   $blocks = [
     'branding' => 'particle_sitebranding',
   ];
   foreach ($blocks as $key => $value) {
-    // Begins with value.
     $pattern = '/^' . $value . '/';
     foreach ($variables['elements'] as $el_key => $el_value) {
       if(preg_match($pattern, $el_key)) {
