@@ -6,6 +6,25 @@
  */
 
 /**
+ * Implements hook_preprocess_region().
+ */
+function patternlab_preprocess_region__header(&$variables) {
+  $blocks = [
+    'branding' => 'patternlab_sitebranding',
+  ];
+  foreach ($blocks as $key => $value) {
+    // Begins with value.
+    $pattern = '/^' . $value . '/';
+    foreach ($variables['elements'] as $el_key => $el_value) {
+      if(preg_match($pattern, $el_key)) {
+        $variables[$key] = $variables['elements'][$el_key];
+        break;
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function patternlab_theme_suggestions_block_alter(array &$suggestions, array $variables) {
@@ -25,43 +44,22 @@ function patternlab_theme_suggestions_block_alter(array &$suggestions, array $va
 /**
  * Implements hook_preprocess_block().
  */
-function patternlab_preprocess_block(&$variables) {
-  $id = $variables['plugin_id'];
+function patternlab_preprocess_block__system_branding_block(&$variables) {
+  $logo_default = theme_get_setting('logo.use_default');
+  $logo_url = theme_get_setting('logo.url');
 
-  if ($id === 'system_branding_block') {
-    $logo_default = theme_get_setting('logo.use_default');
-    $logo_url = theme_get_setting('logo.url');
-
-    // Set the logo to PL if default.
-    if ($logo_default) {
-      $variables['logo_svg_inline'] = '@atoms/image/logo.svg';
+  // Set the logo to PL if default.
+  if ($logo_default) {
+    $variables['logo_svg_inline'] = '@atoms/image/logo.svg';
     // Send to img if Logo is not an default.
-    } else {
-      $variables['logo_img_src'] = $logo_url;
-    }
+  } else {
+    $variables['logo_img_src'] = $logo_url;
   }
-
-  if ($id === 'system_powered_by_block') {
-    $variables['content']['#markup'] = '<p>&copy; Phase2 ' . date('Y') . ' </p>';
-  }
-
 }
 
 /**
- * Implements hook_preprocess_region().
+ * Implements hook_preprocess_block().
  */
-function patternlab_preprocess_region__header(&$variables) {
-  $blocks = [
-    'branding' => 'patternlab_sitebranding',
-  ];
-  foreach ($blocks as $key => $value) {
-    // Begins with value.
-    $pattern = '/^' . $value . '/';
-    foreach ($variables['elements'] as $el_key => $el_value) {
-      if(preg_match($pattern, $el_key)) {
-        $variables[$key] = $variables['elements'][$el_key];
-        break;
-      }
-    }
-  }
+function patternlab_preprocess_block__system_powered_by_block(&$variables) {
+  $variables['content']['#markup'] = '<p>&copy; Phase2 ' . date('Y') . '</p>';
 }
