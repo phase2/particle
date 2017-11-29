@@ -2,32 +2,17 @@ demo_1:
   breadcrumb:
     - text: 'Home'
       url: '/home'
-      breadcrumb_active: TRUE
-    - text: 'First'
-      url: '/first'
-      breadcrumb_active: FALSE
-    - text: 'Second'
-      url: '/second'
-      breadcrumb_active: FALSE
 demo_2:
   breadcrumb:
     - text: 'Home'
       url: '/home'
-      breadcrumb_active: FALSE
     - text: 'First'
       url: '/first'
-      breadcrumb_active: TRUE
-    - text: 'Second'
-      url: '/second'
-      breadcrumb_active: FALSE
 demo_3:
   breadcrumb:
     - text: 'Home'
       url: '/home'
-      breadcrumb_active: FALSE
     - text: 'First'
       url: '/first'
-      breadcrumb_active: FALSE
     - text: 'Second'
       url: '/second'
-      breadcrumb_active: TRUE

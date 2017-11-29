@@ -13,10 +13,8 @@
 
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
-    {% set break = FALSE %}
-    {% for item in breadcrumb if not break %}
-      {% if item.breadcrumb_active == TRUE %}
-        {% set break = TRUE %}
+    {% for item in breadcrumb %}
+      {% if loop.last %}
         <li class="breadcrumb-item active is-active" aria-current="page">{{ item.text }}</li>
       {% else %}
         <li class="breadcrumb-item"><a href="{{ (pl) ? '#' : item.url }}">{{ item.text }}</a></li>
