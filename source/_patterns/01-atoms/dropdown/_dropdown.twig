@@ -22,14 +22,14 @@
   {% set dropdown_class = 'dropdown' %}
 {% endif %}
 
-{% set other_classes = other_classes ?: other_classes %}
+{% set other_classes = other_classes | default(other_classes)  %}
 
 {% set classes = [
   dropdown_class,
   dropup ? 'dropup',
 ] | join(' ') ~ other_classes %}
 
-{% set dropdown_color = dropdown_color ?: 'secondary' %}
+{% set dropdown_color = dropdown_color | default('secondary') %}
 
 {% set dropdown_menu_element = dropdown_element ?: 'a' %}
 {% set dropdown_menu_aria_label = button_id ? 'aria-labelledby="' ~ button_id ~ '"' %}
