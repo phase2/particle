@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('m-3') }}>
+<article{{ attributes.addClass('ml-5') }}>
 
   {{ title_prefix }}
   {% if not page %}
@@ -80,7 +80,7 @@
   {% endif %}
   {{ title_suffix }}
 
-  <div{{ content_attributes }}>
+  <div{{ content_attributes.addClass('text-justify') }}>
     {{ content }}
   </div>
 
