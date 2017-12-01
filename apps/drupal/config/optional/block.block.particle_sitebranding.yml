@@ -7,7 +7,7 @@ dependencies:
     - particle
 id: particle_sitebranding
 theme: particle
-region: header
+region: header_branding
 weight: 0
 provider: null
 plugin: system_branding_block

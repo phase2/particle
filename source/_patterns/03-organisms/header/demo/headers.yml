@@ -1,5 +1,0 @@
-header_basic:
-  url: '#'
-  logo_svg_inline: '@atoms/image/logo.svg'
-  site_name: 'Particle'
-  site_slogan: 'This is a dev environment to work on the latest version of Pattern Lab Starter theme. Make good things happen!'

@@ -26,7 +26,7 @@
     <div class="container">
   {% endif %}
 
-  {% block branding %}
+  {% block header_branding %}
     {% if jumbotron_title %}
       <h1 class="display-3">{{ jumbotron_title }}</h1>
     {% endif %}
@@ -34,9 +34,9 @@
     {% if jumbotron_subtitle %}
       <p class="lead">{{ jumbotron_subtitle }}</p>
     {% endif %}
-  {% endblock branding %}
+  {% endblock header_branding %}
 
-  {% block cta %}
+  {% block header_cta %}
     {% if jumbotron_text %}
       <hr class="my-4">
       <p>{{ jumbotron_text }}</p>
@@ -52,7 +52,7 @@
         } only %}
       </p>
     {% endif %}
-  {% endblock cta %}
+  {% endblock header_cta %}
 
   {% if jumbotron_fluid %}
     </div>

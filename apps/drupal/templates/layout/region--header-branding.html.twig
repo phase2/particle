@@ -13,18 +13,13 @@
  */
 #}
 
-{% set header_classes = [
+{% set classes = [
   'region',
   'region-' ~ region|clean_class,
 ] | join(' ') %}
 
 {% if content %}
-  <section{{ attributes.addClass(header_classes) }}>
-    {# Embed Jumbotron and Set to Fluid. @TODO set this as theme config? #}
-    {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
-      {% block branding %}
-        {{ branding }}
-      {% endblock branding %}
-    {% endembed %}
+  <section{{ attributes.addClass(classes) }}>
+    {{ content }}
   </section>
 {% endif %}

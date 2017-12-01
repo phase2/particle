@@ -50,7 +50,11 @@
   {{ page.primary_menu }}
 
   <header role="banner">
-    {{ page.header }}
+    {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
+      {% block header_branding %}
+        {{ page.header_branding }}
+      {% endblock header_branding %}
+    {% endembed %}
   </header>
 
   {{ page.secondary_menu }}
@@ -94,4 +98,7 @@
 
 </div>{# /.layout-container #}
 
-{{ page.footer }}
+<footer class="container p-3 footer" role="contentinfo">
+  <hr>
+  {{ page.footer }}
+</footer>

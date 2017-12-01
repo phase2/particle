@@ -7,7 +7,8 @@ libraries:
   - particle/core
 regions:
   primary_menu: Primary menu
-  header: Header
+  header_branding: Header branding
+  header_cta: Header CTA
   secondary_menu: Secondary menu
   page_top: Page top
   page_bottom: Page bottom
@@ -40,7 +41,6 @@ component-libraries:
   organisms:
     paths:
       - ../../source/_patterns/03-organisms
-      - ../../source/_patterns/03-organisms/header
   templates:
     paths:
       - ../../source/_patterns/04-templates

@@ -12,7 +12,6 @@ import * as icon from 'atoms/icon';
 import * as listGroup from 'atoms/list-group';
 import * as card from 'molecules/card';
 import * as jumbotron from 'molecules/jumbotron';
-import * as header from 'organisms/header';
 
 export default {
   branding,
@@ -24,5 +23,4 @@ export default {
   listGroup,
   card,
   jumbotron,
-  header,
 };

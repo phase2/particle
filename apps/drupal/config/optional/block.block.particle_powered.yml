@@ -13,7 +13,7 @@ provider: null
 plugin: system_powered_by_block
 settings:
   id: system_powered_by_block
-  label: 'Phase2 Particle'
+  label: 'Powered by Drupal'
   provider: system
   label_display: '0'
 visibility: {  }
