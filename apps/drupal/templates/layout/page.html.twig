@@ -51,9 +51,9 @@
 
   <header role="banner">
     {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
-      {% block header_branding %}
+      {% block jumbotron_branding %}
         {{ page.header_branding }}
-      {% endblock header_branding %}
+      {% endblock jumbotron_branding %}
     {% endembed %}
   </header>
 

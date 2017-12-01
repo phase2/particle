@@ -26,7 +26,7 @@
     <div class="container">
   {% endif %}
 
-  {% block header_branding %}
+  {% block jumbotron_branding %}
     {% if jumbotron_title %}
       <h1 class="display-3">{{ jumbotron_title }}</h1>
     {% endif %}
@@ -34,7 +34,7 @@
     {% if jumbotron_subtitle %}
       <p class="lead">{{ jumbotron_subtitle }}</p>
     {% endif %}
-  {% endblock header_branding %}
+  {% endblock jumbotron_branding %}
 
   {% block header_cta %}
     {% if jumbotron_text %}
