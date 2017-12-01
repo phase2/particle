@@ -1,14 +1,22 @@
-name: Pattern Lab Starter
+name: Particle
 type: theme
-description: A theme with Pattern Lab
+description: A Theme with Pattern Lab
 base theme: stable
 core: 8.x
 libraries:
-  - patternlab/core
+  - particle/core
 regions:
-  header: Header
+  primary_menu: Primary menu
+  header_branding: Header branding
+  header_cta: Header CTA
+  secondary_menu: Secondary menu
+  page_top: Page top
+  page_bottom: Page bottom
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
   content: Content
   sidebar_first: Sidebar first
+  sidebar_second: Sidebar second
   footer: Footer
 component-libraries:
   base:

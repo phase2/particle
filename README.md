@@ -1,8 +1,8 @@
-# NAMETBD: A design system integrating to Pattern Lab and a Drupal 8 theme
+# Particle: A design system integrating to Pattern Lab and a Drupal 8 theme
 
-[![Build Status](https://travis-ci.org/phase2/pattern-lab-starter.svg?branch=master)](https://travis-ci.org/phase2/pattern-lab-starter)
+[![Build Status](https://travis-ci.org/phase2/particle.svg?branch=master)](https://travis-ci.org/phase2/particle)
 
-NAMETBD is an opinionated set of tools and examples to:
+Particle is an opinionated set of tools and examples to:
 
 1. Build an application-agnostic **design system**
 1. Apply that design system to a locally-served **Pattern Lab** for rapid prototyping
@@ -30,12 +30,12 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 ## Quickstart
 
-NAMETBD can be run from anywhere to work with Pattern Lab. It also provides a theme to a Drupal website.
+Particle can be run from anywhere to work with Pattern Lab. It also provides a theme to a Drupal website.
 
 ### Quickstart anywhere
 
-1. [Download the latest release](https://github.com/phase2/pattern-lab-starter/releases)
-1. Extract anywhere (i.e. this readme should be at `any/where/NAMETBD/README.md`)
+1. [Download the latest release](https://github.com/phase2/particle/releases)
+1. Extract anywhere (i.e. this readme should be at `any/where/particle/README.md`)
 1. Within the extracted folder run:
 
 ```bash
@@ -48,10 +48,10 @@ Simply wait until the webpack bundle output appears then visit [http://0.0.0.0/p
 
 ### Quickstart with Drupal 8
 
-NAMETBD provides a Drupal 8 theme, the starting steps are slightly different:
+Particle provides a Drupal 8 theme, the starting steps are slightly different:
 
-1. [Download the latest release](https://github.com/phase2/pattern-lab-starter/releases)
-1. Extract to `themes/` at the root of your Drupal 8 install. (i.e. this readme should be at `drupal-root/themes/NAMETBD/README.md`)
+1. [Download the latest release](https://github.com/phase2/particle/releases)
+1. Extract to `themes/` at the root of your Drupal 8 install. (i.e. this readme should be at `drupal-root/themes/particle/README.md`)
 1. Download and install the [Component Libraries module](https://www.drupal.org/project/components):
 
 ```bash
@@ -59,7 +59,7 @@ drush dl components
 drush en components -y
 ```
 
-1. Within `drupal-root/themes/NAMETBD/` run:
+1. Within `drupal-root/themes/particle/` run:
 
 ```bash
 npm install
@@ -185,9 +185,9 @@ The following are significant items at the root level:
     │   ├── block.html.twig            # Example Drupal template integrating, say @molecules/_card.twig
     │   └── ...                        # There wil be many Drupal templates
     ├── index.js                       # Imports and applies the design system to a bundle for Drupal
-    ├── NAMETBD.info.yml               # Theme information. DS namespaces are auto-injected!
-    ├── NAMETBD.libraries.yml          # The output js and css bundles are included here
-    ├── NAMETBD.theme                  # Drupal preprocess functions
+    ├── particle.info.yml               # Theme information. DS namespaces are auto-injected!
+    ├── particle.libraries.yml          # The output js and css bundles are included here
+    ├── particle.theme                  # Drupal preprocess functions
     └── index.js                       # Imports and applies the design system to a bundle for Drupal
 
 ## Anatomy of a Component
@@ -241,7 +241,7 @@ See the Sass and Twig sections below for more
 
 ## Sass
 
-NAMETBD makes a very clear distinction between *printing* and *non-printing* Sass in components.
+Particle makes a very clear distinction between *printing* and *non-printing* Sass in components.
 
 > Printing Sass generates actual, rendered CSS output.
 
@@ -264,7 +264,7 @@ $rando-var: 33px;
 }
 ```
 
-There is a very clear role for each in the component system of NAMETBD. In the `button` component featured above in [Anatomy of a Component](#anatomy-of-a-component), note this import:
+There is a very clear role for each in the component system of Particle. In the `button` component featured above in [Anatomy of a Component](#anatomy-of-a-component), note this import:
 
 ```javascript
 // source/_patterns/01-atoms/button/_index.js
@@ -312,7 +312,7 @@ All javascript should be written in ES6 (ES2015) according to the [AirBnB JavaSc
 
 Our reasoning for categorization of components within each is pretty close to pure Atomic Design principals, but here's a quick explanation.
 
-- **Base** features Sass systems and non-consumable pattern markup. No Twig file will `@include` anything from @base, but javascript and Sass will. This is a uniquely NAMETBD convention.
+- **Base** features Sass systems and non-consumable pattern markup. No Twig file will `@include` anything from @base, but javascript and Sass will. This is a uniquely Particle convention.
 - **Atoms** upward **will** be included in other Twig files.
 
     > "Atoms of our interfaces serve as the foundational building blocks that comprise all our user interfaces. These atoms include basic HTML elements like form labels, inputs, buttons, and others that can’t be broken down any further without ceasing to be functional. [Source.](http://atomicdesign.bradfrost.com/chapter-2/#atoms)
@@ -381,7 +381,7 @@ Both can be disabled per-line if need be.
 
 ### IDE/Text Editor Setup
 
-Install an [EditorConfig](http://editorconfig.org/) plugin for NAMETBD coding conventions.
+Install an [EditorConfig](http://editorconfig.org/) plugin for Particle coding conventions.
 
 - [VSCode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 - [JetBrains (*Storm)](https://plugins.jetbrains.com/plugin/7294-editorconfig)
@@ -403,7 +403,7 @@ Assets are "static" files that make up all clientside applications. Examples of 
 
 ### "Dependency Chain"
 
-NAMETBD takes a modern approach to asset management through Webpack. Instead of files spread around a project that have to be referenced individually on the client side, apps now have entry point javascript files that @import dependencies that @import dependencies that @import dependencies and so on.
+Particle takes a modern approach to asset management through Webpack. Instead of files spread around a project that have to be referenced individually on the client side, apps now have entry point javascript files that @import dependencies that @import dependencies that @import dependencies and so on.
 
 Using Webpack to **[bundle](https://webpack.js.org/guides/getting-started/#creating-a-bundle)** this dependency chain up into as few output files as possible to the `dist/` directory means we have a `source/` (and `apps/`) folder that is structured the way we want to work, with a consistent output.
 
@@ -453,7 +453,7 @@ Static image notes here.
 
 ## Apps
 
-NAMETBD features two "apps" which simply consume the design system in `source/` and then present it according to their needs: a Drupal theme and a Pattern Lab installation.
+Particle features two "apps" which simply consume the design system in `source/` and then present it according to their needs: a Drupal theme and a Pattern Lab installation.
 
 ### Drupal
 
@@ -481,7 +481,7 @@ Better examples coming soon at [Phase2 Frontend Docs](https://phase2.github.io/f
 
 `apps/pl/`
 
-Refer to the [Pattern Lab Documentation](http://patternlab.io/docs) for extensive info on how to use it. NAMETBD is a custom Pattern Lab 2 *Edition* that is heavily influenced by the [Drupal Edition of Pattern Lab](https://github.com/pattern-lab/edition-php-drupal-standard) and uses the Twig engine to bring it inline with Drupal 8's use of Twig.
+Refer to the [Pattern Lab Documentation](http://patternlab.io/docs) for extensive info on how to use it. Particle is a custom Pattern Lab 2 *Edition* that is heavily influenced by the [Drupal Edition of Pattern Lab](https://github.com/pattern-lab/edition-php-drupal-standard) and uses the Twig engine to bring it inline with Drupal 8's use of Twig.
 
 The `app/pl` folder simply imports the design system from `source/` and provides its own custom Sass for UI and json generation. Any Twig files that change in `source/` cause a full Pattern Lab rebuild. The Pattern Lab engine and config lives within `apps/pl/pattern-lab`.
 

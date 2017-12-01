@@ -1,33 +1,18 @@
 demo_1:
-  breadcrumb_items:
-    - breadcrumb_title: 'Home'
-      breadcrumb_link: '/home'
-      breadcrumb_active: TRUE
-    - breadcrumb_title: 'First'
-      breadcrumb_link: '/first'
-      breadcrumb_active: FALSE
-    - breadcrumb_title: 'Second'
-      breadcrumb_link: '/second'
-      breadcrumb_active: FALSE
+  breadcrumb:
+    - text: 'Home'
+      url: '/home'
 demo_2:
-  breadcrumb_items:
-    - breadcrumb_title: 'Home'
-      breadcrumb_link: '/home'
-      breadcrumb_active: FALSE
-    - breadcrumb_title: 'First'
-      breadcrumb_link: '/first'
-      breadcrumb_active: TRUE
-    - breadcrumb_title: 'Second'
-      breadcrumb_link: '/second'
-      breadcrumb_active: FALSE
+  breadcrumb:
+    - text: 'Home'
+      url: '/home'
+    - text: 'First'
+      url: '/first'
 demo_3:
-  breadcrumb_items:
-    - breadcrumb_title: 'Home'
-      breadcrumb_link: '/home'
-      breadcrumb_active: FALSE
-    - breadcrumb_title: 'First'
-      breadcrumb_link: '/first'
-      breadcrumb_active: FALSE
-    - breadcrumb_title: 'Second'
-      breadcrumb_link: '/second'
-      breadcrumb_active: TRUE
+  breadcrumb:
+    - text: 'Home'
+      url: '/home'
+    - text: 'First'
+      url: '/first'
+    - text: 'Second'
+      url: '/second'
