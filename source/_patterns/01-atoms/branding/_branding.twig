@@ -1,10 +1,11 @@
 {#
 /**
  * Block - Branding.
+ * Designed to be added inside a Jumbotron.
  *
  * url: String: the url the block directs to.
- * inline: Boolean: Inline SVG or Src image.
- * site_logo: Array: the inline or imgSrc logo.
+ * logo_svg_inline: String: The SVG path.
+ * logo_img_src: String: The IMG path.
  * site_name: String: the site name provided by the app.
  * site_slogan: String: the site slogan provided by the app.
  *
@@ -30,12 +31,12 @@
   </div>
 
   {% if site_name %}
-    <h2 class="branding__site-name">
+    <h1 class="display-3 branding__site-name">
       <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
-    </h2>
+    </h1>
   {% endif %}
 
   {% if site_slogan %}
-    <h6 class="branding__site-slogan">{{ site_slogan }}</h6>
+    <p class="lead branding__site-slogan">{{ site_slogan }}</p>
   {% endif %}
 </aside>
