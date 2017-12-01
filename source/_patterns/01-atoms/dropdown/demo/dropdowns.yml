@@ -1,13 +1,12 @@
-basic_dropdown:
-  dropdown_text: Dropdown
+dropdowns_helper: 'Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin.'
 
-a_dropdown:
-  dropdown_text: Dropdown
-  dropdown_link: true
+dropdown_menu_items:
+  - dropdown_menu_item_text: Action
+  - dropdown_menu_item_text: Another Action
+  - dropdown_menu_item_text: Something else here
 
-dropdown_items:
-  - dropdown_item_text: Action
-    dropdown_item_disabled: disabled
-#    this isn't good, need to find a way to use individual dropdown_item lists for each
-  - dropdown_item_text: Another Action
-  - dropdown_item_text: Something else here
+dropdown_menu_disabled:
+  - dropdown_menu_item_text: This item is disabled
+    dropdown_menu_item_disabled: 'disabled'
+  - dropdown_menu_item_text: Action
+  - dropdown_menu_item_text: Another Action

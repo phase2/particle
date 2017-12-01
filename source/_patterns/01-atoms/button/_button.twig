@@ -1,22 +1,24 @@
 {#
   Button!
-  button_element: String: button|a|input choose the element type for your button
-  button_type: String: the html 'type' attribute
-  button_outline: Boolean: True|False, remove all background colors and images from a button
-  button_color: String: primary|secondary|success|danger|warning|info|light|dark the color of the button
-  button_size: String: lg|sm set whether the button is large or small
-  button_block:  Boolean: True|False set button to occupy the full width the parent element
-  button_active: Boolean: True|False set button to appear pressed
-  button_toggle: Boolean: True|False set button to be toggleable
-  button_link: String: the URL the button will lead to
-  button_value: String: the html 'value' attribute
-  button_disabled: Boolean: True|False set button to appear disabled
-  button_text: String: Display text on the button
+  button_element: String: button|a|input choose the element type for your button.
+  button_type: String: the html 'type' attribute.
+  button_outline: Boolean: True|False, remove all background colors and images from a button.
+  button_color: String: primary|secondary|success|danger|warning|info|light|dark the color of the button.
+  button_size: String: lg|sm set whether the button is large or small.
+  button_block:  Boolean: True|False set button to occupy the full width the parent element.
+  button_active: Boolean: True|False set button to appear pressed.
+  button_toggle: Boolean: True|False set button to be toggleable.
+  button_link: String: the URL the button will lead to.
+  button_value: String: the html 'value' attribute.
+  button_id: String: The button's html 'id' attribute.
+  button_disabled: Boolean: True|False set button to appear disabled.
+  button_text: String: Display text on the button.
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
 
 {% set button_element = button_element ?: 'button' %}
 {% set button_color = button_color ?: 'primary' %}
+{% set button_type = button_type ?: 'button' %}
 
 {% set other_classes = other_classes ?: other_classes %}
 {% set other_attributes = other_attributes ?: other_attributes %}
@@ -33,8 +35,9 @@
 {% set attributes  = [
   button_active ? 'aria-pressed="true"',
   button_toggle ? 'data-toggle="button"',
-  button_link ? 'href=' ~ button_link,
-  button_value ? 'value=' ~ button_value,
+  button_link ? 'href="' ~ button_link ~ '"',
+  button_value ? 'value="' ~ button_value ~ '"',
+  button_id ? 'id="' ~ button_id ~ '"',
   button_disabled ? 'disabled',
 ] | sort | join(' ') ~ other_attributes %}
 
