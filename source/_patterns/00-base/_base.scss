@@ -11,7 +11,7 @@
 /// This guarantees both de-duplication and existence of required, generated CSS.
 ///
 
-@import 'config';
+@import 'variables';
 
 // Bootstrap CSS-generating output
 @import '~bootstrap/scss/root';
@@ -21,7 +21,7 @@
 @import '~bootstrap/scss/code';
 
 // Custom CSS-generating output
-@import 'type';
-@import 'forms';
-@import 'tables';
-@import 'transitions';
+@import 'printing/type';
+@import 'printing/forms';
+@import 'printing/tables';
+@import 'printing/transitions';
