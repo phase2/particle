@@ -11,14 +11,22 @@
  */
 #}
 
+{# Array must be named `class` to work with PL #}
+{# Options on Bootstrap for Styles: https://getbootstrap.com/docs/4.0/content/images/ #}
+{% set class = [
+  'mb-5',
+  'img',
+  'img-fluid',
+  'rounded-circle',
+  style_name ? style_name
+] | join(' ') | trim %}
+
 {% include "@atoms/_image.twig" with {
   img: {
-    imageStyleName: style_name ? style_name,
-    class: 'm-2 rounded',
     src: attributes.src,
+    alt: attributes.alt,
     width: attributes.width,
     height: attributes.height,
-    alt: attributes.alt,
     typeof: attributes.typeof,
   }
 } %}
