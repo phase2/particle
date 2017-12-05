@@ -1,2 +1,8 @@
-{% embed '@atoms/alert/_alert.twig' %}
+{% embed '@atoms/alert/_alert.twig' with alert_status %}
+{% endembed %}
+
+{% embed '@atoms/alert/_alert.twig' with alert_warning %}
+{% endembed %}
+
+{% embed '@atoms/alert/_alert.twig' with alert_error %}
 {% endembed %}

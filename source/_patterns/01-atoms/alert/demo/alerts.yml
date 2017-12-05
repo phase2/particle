@@ -1,4 +1,17 @@
-alert_title: 'Well done!'
-alert_body: 'Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.'
-alert_footer: 'Whenever you need to, be sure to use margin utilities to keep things nice and tidy.'
-alert_type: 'danger'
+alert_error:
+  type: 'error'
+  alert_title: 'Well done!'
+  alert_primary: 'Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.'
+  alert_secondary: 'Whenever you need to, be sure to use margin utilities to keep things nice and tidy.'
+
+alert_status:
+  type: 'status'
+  alert_title: 'Well done!'
+  alert_primary: 'Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.'
+  alert_secondary: 'Whenever you need to, be sure to use margin utilities to keep things nice and tidy.'
+
+alert_warning:
+  type: 'warning'
+  alert_title: 'Well done!'
+  alert_primary: 'Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.'
+  alert_secondary: 'Whenever you need to, be sure to use margin utilities to keep things nice and tidy.'

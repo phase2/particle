@@ -38,19 +38,23 @@
   {% endif %}
 
   <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
-    <div class="{{ alert_classes }}" {{ alert_degree }}>
-      {% if status_headings[type] %}
-        <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
-      {% endif %}
-      {% if messages|length > 1 %}
-        <div>
+    {% embed '@atoms/alert/_alert.twig' %}
+      {% block alert_header %}
+        {% if status_headings[type] %}
+          <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+        {% endif %}
+      {% endblock alert_header %}
+      {% block alert_content %}
+        {% if messages|length > 1 %}
           {% for message in messages %}
-            <p>{{ message }}</p>
+            <div>{{ message }}</div>
           {% endfor %}
-        </div>
-      {% else %}
-        {{ messages|first }}
-      {% endif %}
-    </div>
+        {% else %}
+          <div>{{ messages|first }}</div>
+        {% endif %}
+      {% endblock alert_content %}
+      {% block alert_footer %}
+      {% endblock alert_footer %}
+    {% endembed %}
   </div>
 {% endfor %}
