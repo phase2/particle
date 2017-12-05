@@ -85,13 +85,13 @@
   </div>
 
   {% if display_submitted %}
-    <footer>
+    <blockquote class="text-right">
       {{ author_picture }}
-      <div{{ author_attributes }}>
+      <footer{{ author_attributes.addClass('blockquote-footer') }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         {{ metadata }}
-      </div>
-    </footer>
+      </footer>
+    </blockquote>
   {% endif %}
 
 </article>
