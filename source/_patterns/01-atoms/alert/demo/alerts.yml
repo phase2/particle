@@ -1,7 +1,7 @@
 alert_status:
   type: 'status'
   alert_title: 'Success!'
-  alert_primary: 'These alerts are a useful way to call attention to pieces of content you want to highlight. The type is juggled in the component to handle type from Drupal and what we need for Bootstrap. For example, this is status message that gets success styling!'
+  alert_primary: 'These alerts are a useful way to call attention to pieces of content you want to highlight. The type is altered in the component match for Bootstrap. For example, this is a status message that gets success styling!'
   alert_secondary: 'They even have useful footer areas for more info! Footers can be overridden if you don''t want them!'
 
 alert_warning:
