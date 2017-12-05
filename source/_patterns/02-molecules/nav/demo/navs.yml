@@ -1,3 +1,5 @@
+navs_helper: Documentation and examples for how to use Bootstrap's included navigation components.
+
 nav_items:
   - nav_item_text: Menu
     nav_item_link_classes: active
@@ -36,11 +38,22 @@ nav_items_flex:
     nav_item_link_classes: flex-sm-fill text-sm-center disabled
 
 nav_items_dropdown:
-  - nav_item_text: Menu
+  - nav_item_text: Active
     nav_item_link_classes: active
-  - nav_item_text: Menu 2
+  - nav_item_dropdown: true
+    dropdown_text: Dropdown
+    dropdown_color: none
+    #    color isn't really kosher here
+    unique_classes: nav-link
+    unique_attributes: href="#"
+    button_element: a
+    dropdown_element: li
+    other_classes: nav-item
+    dropdown_menu_items:
+      - dropdown_menu_item_text: Action
+      - dropdown_menu_item_text: Another Action
+      - dropdown_menu_item_text: Something else here
+  - nav_item_text: Link
     nav_item_link_classes:
-  - nav_item_text: Menu 3
-    nav_item_link_classes:
-  - nav_item_text: Menu 4
+  - nav_item_text: Disabled
     nav_item_link_classes: disabled

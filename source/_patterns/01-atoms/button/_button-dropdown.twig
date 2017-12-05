@@ -3,8 +3,5 @@
 #}
 
 {% extends '@atoms/button/_button.twig' %}
-{% set other_classes = 'dropdown-toggle' %}
+{% set other_classes = 'dropdown-toggle ' ~ unique_classes %}
 {% set other_attributes = 'type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' ~ unique_attributes %}
-
-{#double check aria-expanded#}
-

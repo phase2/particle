@@ -9,3 +9,9 @@ $btn-border-radius: 0.25rem;
 @import "~bootstrap/scss/button-group";
 
 // Add custom code here
+.nav {
+  &--border {
+    border-color: $gray-300;
+    border-style: solid;
+  }
+}

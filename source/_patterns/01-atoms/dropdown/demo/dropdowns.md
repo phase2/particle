@@ -1,6 +1,7 @@
 ## Variables
 | Name                        | Type    | Options     | Description                                            |
 |-----------------------------|---------|-------------|--------------------------------------------------------|
+| dropdown_element            | string  | div, li, ul                 | Choose the html element of the dropdown. |
 | dropdown_button             | boolean | true, false                 | Choose whether the dropdown will be a button element or not. |
 | other_classes               | string  | any                         | Allows use of other bootstrap utility classes.               |
 | dropup                      | boolean | true,false                  | Set the dropdown to dropup instead.                          |

@@ -1,46 +1,12 @@
-####Herp
-Variations: 
+## Variables
 
-Atom
--li: nav-item > a tag > active
--li: nav-item > a tag > 
--li: nav-item > a tag > disabled
-
--a: nav-link >  active
--a: nav-link >  
--a: nav-link >  disabled
-
-
-Molecule
-Horizontal Alignment: 
-    ul=nav.justify-content-center
-nav.justify-content-end
-possible without ULs?
-
-Vertical Alignment:
-nav flex-column
-possible without ULs
-
-Tabs:
-nav nav-tabs
-
-Pills:
-nav nav-pills
-
-Fill and Justify
-nav nav-fill
-When using a <nav>-based navigation, be sure to include .nav-item on the anchors.
-nav nav-justified
-
-Flex (probably more examples):
-nav nav-pills flex-column flex-sm-row
-
-Dropdown (checkout later)
--Tabs
--Pills
-
-JS behavior/data attributes
-
-
-Organism
-https://getbootstrap.com/docs/4.0/components/navbar/#supported-content
+| Name                  | Type    | Options     | Description                                                |
+|-----------------------|---------|-------------|------------------------------------------------------------|
+| nav_item_link         | String  | any         | The URL the nav item will lead to.                         |
+| nav_item_element      | String  | any         | The nav-item's html element.                               |
+| nav_item_js           | Boolean | true, false | Choose whether to use bootstrap's built-in nav javascript. |
+| nav_item_aria         | -       | -           | DO NOT SET                                                 |
+| js_attributes         | -       | -           | DO NOT SET                                                 |
+| nav_item_id           | String  | any         | The nav item's id html element.                            |
+| nav_item_text         | String  | any         | The nav item's text.                                       |
+| nav_item_link_classes | String  | any         | The html classes for the nav-item                          |

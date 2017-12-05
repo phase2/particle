@@ -1,12 +1,23 @@
-
-
-{# not sure if I should just have nav_classes be a string here. We make it an array to be looped through in list-items and that might be the right approach but that seems to overcomplicate things. We also do that for card but that has a bunch of basically true/false thing to put in. We could do that here I suppose #}
+{#
+  Nav!
+  nav_element: String: Choose the html element of the nav.
+  nav_id: String: Choose the html id of the nav.
+  nav_role: String: Choose the html role of the nav.
+  nav_alignment: String: Center|Right: Choose the nav's alignment.
+  nav_vertical: Boolean: True|False: Choose if the nav will be vertical.
+  nav_tabs: Boolean: True|False: Choose if nav will have tabs.
+  nav_pills: Boolean: True|False: Choose if nav items will be pills.
+  nav_fill: Boolean: True|False: Proportionately fill all available space the nav.
+  nav_justified: Boolean: True|False: Make sure all elements are of equal width.
+  other_classes: String: Choose other classes, like bootstrap sizing, for the nav.
+  nav_element: String: Choose the html element of the nav.
+  nav_items: Array: A list of items to be in the nav.
+  item.nav_item_dropdown: Boolean: True | False: Set the selected nav.item as a dropdown menu.
+#}
 
   {% set nav_element = nav_element ?: 'nav' %}
   {% set nav_id = nav_id ? 'id="' ~ nav_id ~ '"' %}
   {% set nav_role = nav_role ? 'role="' ~ nav_role ~ '"' %}
-
-  {% set other_classes = other_classes ?: other_classes %}
 
   {% set classes = [
     'nav',
@@ -20,11 +31,10 @@
 
 <{{ nav_element }} class="{{ classes }}" {{ nav_id }} {{ nav_role }}>
   {% for item in nav_items %}
-    {% include '@atoms/nav-item/_nav-item.twig' with item %}
-    {#<pre>{{ dump(item) }}</pre>#}
+    {% if item.nav_item_dropdown %}
+      {% include '@atoms/dropdown/_dropdown.twig' with item %}
+    {% else %}
+      {% include '@atoms/nav-item/_nav-item.twig' with item %}
+    {% endif %}
   {% endfor %}
-  {#<pre>{{ dump(classes) }}</pre>#}
 </{{ nav_element }}>
-
-
-

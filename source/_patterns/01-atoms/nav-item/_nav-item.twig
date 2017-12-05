@@ -1,6 +1,13 @@
 {#
   Nav Item!
-
+  nav_item_link: String: The URL the nav item will lead to.
+  nav_item_element: String: The nav-item's html element.
+  nav_item_js: Boolean: True|False: Choose whether to use bootstrap's built-in nav javascript.
+  nav_item_aria: DO NOT SET
+  js_attributes: DO NOT SET
+  nav_item_id: String: The nav item's id html element.
+  nav_item_text: String: The nav item's text.
+  nav_item_link_classes: String: The html classes for the nav-item
 #}
 
 {% set nav_item_link = nav_item_link ?: '#' %}
@@ -9,10 +16,10 @@
 {% if nav_item_js %}
   {% set nav_item_aria = (nav_item_link_classes == 'active') ? 'aria-selected="true"' : 'aria-selected="false"' %}
   {% set js_attributes = [
-  'id="' ~ nav_item_id ~ '"',
-  'data-toggle="tab"',
-  'role="tab"',
-  'aria-controls="' ~ nav_item_text ~ '"',
+    'id="' ~ nav_item_id ~ '"',
+    'data-toggle="tab"',
+    'role="tab"',
+    'aria-controls="' ~ nav_item_text ~ '"',
   ] | join(' ')%}
   {#test hfref ^#}
 {% endif %}
