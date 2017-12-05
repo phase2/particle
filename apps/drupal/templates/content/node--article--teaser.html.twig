@@ -71,17 +71,6 @@
  */
 #}
 
-{#{% set article_teaser_card = {#}
-{#card_title: label,#}
-{#card_text: content.body,#}
-{#button: {#}
-{#button_text: 'View details »',#}
-{#button_link: url,#}
-{#}#}
-{#} %}#}
-
-{#{% include '@molecules/card/_card.twig' with article_teaser_card %}#}
-
 <article{{ attributes.addClass('card-body') }}>
   {{ title_prefix }}
   <h2{{ title_attributes.addClass('card-title') }}>{{ label }}</h2>
