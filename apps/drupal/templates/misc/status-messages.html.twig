@@ -22,26 +22,22 @@
  */
 #}
 
+{% set status_heading = {
+  'status': 'Status message'|t,
+  'error': 'Error message'|t,
+  'warning': 'Warning message'|t,
+  'info': 'Informative message'|t,
+  }
+%}
+
 {% for type, messages in message_list %}
-  {% set alert_classes = [
-    'mb-0',
-    'alert',
-    (type == 'status') ? 'alert-success',
-    (type == 'error') ? 'alert-danger',
-    (type == 'warning') ? 'alert-' ~ type,
-  ] | sort | join(' ') | trim %}
 
-  {% if type == 'error' %}
-    {% set alert_degree = 'role=alert' %}
-  {% else %}
-    {% set alert_degree = 'aria-live=polite' %}
-  {% endif %}
-
-  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+  <div role="contentinfo" aria-label="{{ status_heading[type] }}"{{ attributes|without('role', 'aria-label') }}>
     {% embed '@atoms/alert/_alert.twig' %}
       {% block alert_header %}
+        <a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">&times;</span></a>
         {% if status_headings[type] %}
-          <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+          <h2 class="sr-only">{{ status_headings[type] }}</h2>
         {% endif %}
       {% endblock alert_header %}
       {% block alert_content %}

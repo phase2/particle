@@ -2,7 +2,10 @@
  * Alert
  */
 
-// Custom
+// JS from Bootstrap
+import 'bootstrap/js/src/alert';
+
+// Module Dependencies
 import 'base';
 
 // Module styles

@@ -12,12 +12,21 @@
   see https://getbootstrap.com/docs/4.0/components/alerts/
 #}
 
+{% set status_classes = {
+  'status': 'success',
+  'error': 'danger',
+  'warning': 'warning',
+  'info': 'info',
+  }
+%}
+
 {% set alert_classes = [
   'mb-0',
   'alert',
-  (type == 'status') ? 'alert-success',
-  (type == 'error') ? 'alert-danger',
-  (type == 'warning') ? 'alert-' ~ type,
+  'alert-' ~ status_classes[type],
+  'alert-dismissible',
+  'fade',
+  'show',
 ] | sort | join(' ') | trim %}
 
 {% if type == 'error' %}
@@ -28,6 +37,7 @@
 
 <div class="{{ alert_classes }}" {{ alert_degree }}>
   {% block alert_header %}
+    <a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">&times;</span></a>
     <h4 class="alert-heading">{{ alert_title }}</h4>
   {% endblock alert_header %}
   {% block alert_content %}
