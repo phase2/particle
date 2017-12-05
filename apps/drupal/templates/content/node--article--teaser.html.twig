@@ -70,28 +70,27 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes }}>
 
+{#{% set article_teaser_card = {#}
+{#card_title: label,#}
+{#card_text: content.body,#}
+{#button: {#}
+{#button_text: 'View details »',#}
+{#button_link: url,#}
+{#}#}
+{#} %}#}
+
+{#{% include '@molecules/card/_card.twig' with article_teaser_card %}#}
+
+<article{{ attributes.addClass('card-body') }}>
   {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
+  <h2{{ title_attributes.addClass('card-title') }}>{{ label }}</h2>
   {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
-  <div{{ content_attributes }}>
-    {{ content }}
-  </div>
-
+  <p{{ content_attributes.addClass('card-text') }}>
+    {{ content.body }}
+  </p>
 </article>
+
+<div class="card-footer bg-white border-none">
+  <a href="{{ url }}" class="btn btn-secondary">View details »</a>
+</div>
