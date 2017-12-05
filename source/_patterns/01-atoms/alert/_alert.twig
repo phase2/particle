@@ -1,0 +1,23 @@
+{#
+  Alert!
+
+  Documenting Alerts from Bootstrap.
+
+  alert_title: String: The heading value of the Alert.
+  alert_body: String: The paragraph value of the Alert.
+  alert_footer: String (optional): The value of the footer.
+  alert_type: String (optional): The type of error to display.
+
+  see https://getbootstrap.com/docs/4.0/components/alerts/
+#}
+
+
+  {% block alert %}
+    <div class="alert alert-{{ alert_type }}" role="alert">
+      <h4 class="alert-heading">{{ alert_title }}</h4>
+      <p>{{ alert_body }}</p>
+      <hr>
+      <p class="mb-0">{{ alert_footer }}</p>
+    </div>
+  {% endblock alert %}
+

@@ -49,6 +49,8 @@
   {# @TODO Implement Bootstrap Nav #}
   {{ page.primary_menu }}
 
+  {{ page.highlighted }}
+
   <header role="banner">
     {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
       {% block jumbotron_branding %}
@@ -58,8 +60,6 @@
   </header>
 
   {{ page.secondary_menu }}
-
-  {{ page.highlighted }}
 
   {# Help Region not Included by Default. #}
   {{ page.help }}

@@ -3,6 +3,7 @@
  * The kitchen sink of all design components
  */
 
+import * as alert from 'atoms/alert';
 import * as branding from 'atoms/branding';
 import * as breadcrumb from 'atoms/breadcrumb';
 import * as button from 'atoms/button';
@@ -14,6 +15,7 @@ import * as card from 'molecules/card';
 import * as jumbotron from 'molecules/jumbotron';
 
 export default {
+  alert,
   branding,
   breadcrumb,
   button,

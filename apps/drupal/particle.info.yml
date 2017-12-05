@@ -7,12 +7,12 @@ libraries:
   - particle/core
 regions:
   primary_menu: Primary menu
+  highlighted: Highlighted
   header_branding: Header branding
   header_cta: Header CTA
   secondary_menu: Secondary menu
   page_top: Page top
   page_bottom: Page bottom
-  highlighted: Highlighted
   breadcrumb: Breadcrumb
   content: Content
   sidebar_first: Sidebar first
@@ -28,6 +28,7 @@ component-libraries:
       - ../../source/_patterns/01-atoms/grid
       - ../../source/_patterns/01-atoms/icon
       - ../../source/_patterns/01-atoms/badge
+      - ../../source/_patterns/01-atoms/alert
       - ../../source/_patterns/01-atoms/image
       - ../../source/_patterns/01-atoms/button
       - ../../source/_patterns/01-atoms/branding
