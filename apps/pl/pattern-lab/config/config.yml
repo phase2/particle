@@ -75,6 +75,7 @@ plugins:
       organisms:
         paths:
           - ../../../source/_patterns/03-organisms
+          - ../../../source/_patterns/03-organisms/navbar
       templates:
         paths:
           - ../../../source/_patterns/04-templates

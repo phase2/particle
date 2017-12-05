@@ -15,6 +15,7 @@ import * as nav from 'molecules/nav';
 import * as navItem from 'atoms/nav-item';
 import * as card from 'molecules/card';
 import * as jumbotron from 'molecules/jumbotron';
+import * as navbar from 'organisms/navbar';
 
 export default {
   branding,
@@ -29,4 +30,5 @@ export default {
   navItem,
   card,
   jumbotron,
+  navbar,
 };
