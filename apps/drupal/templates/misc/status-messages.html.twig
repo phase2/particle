@@ -32,13 +32,13 @@
   ] | sort | join(' ') | trim %}
 
   {% if type == 'error' %}
-    {% set degree = 'role=alert' %}
+    {% set alert_degree = 'role=alert' %}
   {% else %}
-    {% set degree = 'aria-live=polite' %}
+    {% set alert_degree = 'aria-live=polite' %}
   {% endif %}
 
   <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
-    <div class="{{ alert_classes }}" {{ degree }}>
+    <div class="{{ alert_classes }}" {{ alert_degree }}>
       {% if status_headings[type] %}
         <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
       {% endif %}
