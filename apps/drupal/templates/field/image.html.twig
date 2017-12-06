@@ -11,12 +11,10 @@
  */
 #}
 
-{% set style_name = style_name|replace({'_': '-'}) %}
-
 {% set image_classes = [
   'mb-5',
   'img',
-  style_name
+  style_name|clean_class
 ] | join(' ') | trim %}
 
 <img{{ attributes.addClass(image_classes) }} />
