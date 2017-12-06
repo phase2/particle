@@ -34,7 +34,7 @@
   card_border ? 'border-' ~ card_border,
 ]) | sort | join(' ') | trim %}
 
-<{{ (card_element) ? card_element : 'div' }} class="{{ classes }}">
+<div class="{{ classes }}">
   {% if card_header %}
     <div class="card-header">
       {{ card_header }}
@@ -104,4 +104,4 @@
     {% endblock card_image_bottom %}
   {% endif %}
 
-<{{ (card_element) ? '/' ~ card_element : '/div' }}>
+</div>
