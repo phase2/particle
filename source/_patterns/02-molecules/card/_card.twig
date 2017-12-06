@@ -26,6 +26,7 @@
 {% set classes = classes|default([])|merge([
   'card',
   card_width ? 'w-' ~ card_width,
+  card_cols ? card_cols : '',
   text_alignment ? 'text-' ~ text_alignment,
   text_color ? 'text-' ~ text_color,
   card_background ? 'bg-' ~ card_background,

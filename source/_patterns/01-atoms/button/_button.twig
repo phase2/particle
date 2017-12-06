@@ -27,7 +27,7 @@
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
   button_active ? 'active',
-] | join(' ') %}
+] | sort | join(' ') | trim %}
 
 {% set attributes  = [
   button_active ? 'aria-pressed="true"',
@@ -35,7 +35,7 @@
   button_link ? 'href=' ~ button_link,
   button_value ? 'value=' ~ button_value,
   button_disabled ? 'disabled',
-] | sort | join(' ') %}
+] | sort | join(' ') | trim %}
 
 <{{ button_element }} type="{{ button_type }}" class="{{ classes }}" {{ attributes }}>
   {{ button_text }}

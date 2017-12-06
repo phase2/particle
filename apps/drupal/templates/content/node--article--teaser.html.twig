@@ -71,15 +71,17 @@
  */
 #}
 
-<article{{ attributes.addClass('card-body') }}>
-  {{ title_prefix }}
-  <h3{{ title_attributes.addClass('card-title') }}>{{ label }}</h3>
-  {{ title_suffix }}
-  <p{{ content_attributes.addClass('card-text') }}>
-    {{ content.body }}
-  </p>
-</article>
+{% set article_card = {
+  card_cols: 'col-sm-12 col-md-6 col-lg-4',
+  card_border: 'none',
+  card_title: label,
+  card_text: content.body,
+  button: {
+    button_element: 'a',
+    button_color: 'secondary',
+    button_text: 'View details »'|t,
+    button_link: url,
+  }
+} %}
 
-<div class="card-footer bg-white border-none">
-  <a href="{{ url }}" class="btn btn-secondary">View details »</a>
-</div>
+{% include '@molecules/card/_card.twig' with article_card %}
