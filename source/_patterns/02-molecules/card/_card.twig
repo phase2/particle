@@ -1,6 +1,7 @@
 {#
   Card!
 
+  card_element: String (optional): Element tag that defaults to div.
   card_width: Integer: 25|50|75 If left empty the card will fill the width of it's parent element.
   card_background: String: primary|secondary|succes|danger|warning|info|light|dark Background color.
   card_border: String: primary|secondary|succes|danger|warning|info|light|dark Border color.
@@ -33,7 +34,7 @@
   card_border ? 'border-' ~ card_border,
 ]) | sort | join(' ') | trim %}
 
-<div class="{{ classes }}">
+<{{ (card_element) ? card_element : 'div' }} class="{{ classes }}">
   {% if card_header %}
     <div class="card-header">
       {{ card_header }}
@@ -41,12 +42,14 @@
   {% endif %}
 
   {% if card_image_location == 'top' %}
-    {# if `card_image` is null, this falls back to a holderjs placeholder #}
-    {% include '@atoms/image/_image.twig' with {
-      imageStyleName: 'card',
-      class: 'card-img-top',
-      img: card_image,
-    } %}
+    {% block card_image_top %}
+      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+      {% include '@atoms/image/_image.twig' with {
+        imageStyleName: 'card',
+        class: 'card-img-top',
+        img: card_image,
+      } %}
+    {% endblock %}
   {% endif %}
 
   {% if card_image_overlay %}
@@ -91,12 +94,14 @@
   {% endif %}
 
   {% if card_image_location == 'bottom' %}
-    {# if `card_image` is null, this falls back to a holderjs placeholder #}
-    {% include '@atoms/image/_image.twig' with {
-      imageStyleName: 'card',
-      class: 'card-img-bottom',
-      img: card_image,
-    } %}
+    {% block card_image_bottom %}
+      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+      {% include '@atoms/image/_image.twig' with {
+        imageStyleName: 'card',
+        class: 'card-img-bottom',
+        img: card_image,
+      } %}
+    {% endblock card_image_bottom %}
   {% endif %}
 
-</div>
+<{{ (card_element) ? '/' ~ card_element : '/div' }}>
