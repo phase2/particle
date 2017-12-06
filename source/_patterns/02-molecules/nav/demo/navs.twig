@@ -66,10 +66,15 @@
 
       <div class=" mb-3">
         <h1>Responsive nav</h1>
+        {% set responsive_items = [] %}
+        {% for item in nav_items_responsive %}
+          {% set temp_item = item | merge({nav_item_element: 'a'}) %}
+          {% set responsive_items = responsive_items|merge([temp_item]) %}
+        {% endfor %}
         {% include '@molecules/nav/_nav.twig' with {
           nav_pill: 'true',
           other_classes: 'flex-column flex-sm-row',
-          nav_items: nav_items_flex
+          nav_items: responsive_items,
         } %}
       </div>
 
@@ -84,12 +89,17 @@
 
       <div class=" mb-3">
         <h1>Javascript Tabs</h1>
+        {% set javascript_items = [] %}
+        {% for item in nav_items_javascript %}
+          {% set temp_item = item | merge({nav_item_js: 'true'}) %}
+          {% set javascript_items = javascript_items|merge([temp_item]) %}
+        {% endfor %}
         {% include '@molecules/nav/_nav.twig' with {
           nav_element: 'ul',
           nav_tabs: 'true',
           nav_id: 'myTab',
           nav_role: 'tablist',
-          nav_items: nav_items_javascript,
+          nav_items: javascript_items,
         } %}
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">This is home content!</div>

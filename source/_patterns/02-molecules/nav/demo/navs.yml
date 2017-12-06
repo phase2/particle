@@ -8,33 +8,14 @@ nav_items:
   - nav_item_text: Menu 4
     nav_item_link_classes: disabled
 
-nav_items_javascript:
-  - nav_item_text: Home
-    nav_item_link_classes: active
-    nav_item_id: home-tab
-    nav_item_link: '#home'
-    nav_item_js: true
-  - nav_item_text: Profile
-    nav_item_id: profile-tab
-    nav_item_link: '#profile'
-    nav_item_js: true
-  - nav_item_text: Contact
-    nav_item_id: contact-tab
-    nav_item_link: '#contact'
-    nav_item_js: true
-
-nav_items_flex:
+nav_items_responsive:
   - nav_item_text: Menu
-    nav_item_element: a
     nav_item_link_classes: flex-sm-fill text-sm-center active
   - nav_item_text: Menu 2
-    nav_item_element: a
     nav_item_link_classes: flex-sm-fill text-sm-center
   - nav_item_text: Menu 3
-    nav_item_element: a
     nav_item_link_classes: flex-sm-fill text-sm-center
   - nav_item_text: Menu 4
-    nav_item_element: a
     nav_item_link_classes: flex-sm-fill text-sm-center disabled
 
 nav_items_dropdown:
@@ -42,8 +23,6 @@ nav_items_dropdown:
     nav_item_link_classes: active
   - nav_item_dropdown: true
     dropdown_text: Dropdown
-    dropdown_color: none
-    #    color isn't really kosher here
     unique_classes: nav-link
     unique_attributes: href="#"
     button_element: a
@@ -57,3 +36,15 @@ nav_items_dropdown:
     nav_item_link_classes:
   - nav_item_text: Disabled
     nav_item_link_classes: disabled
+
+nav_items_javascript:
+  - nav_item_text: Home
+    nav_item_link_classes: active
+    nav_item_id: home-tab
+    nav_item_link: '#home'
+  - nav_item_text: Profile
+    nav_item_id: profile-tab
+    nav_item_link: '#profile'
+  - nav_item_text: Contact
+    nav_item_id: contact-tab
+    nav_item_link: '#contact'

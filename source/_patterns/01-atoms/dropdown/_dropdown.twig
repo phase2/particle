@@ -29,8 +29,6 @@
   dropup ? 'dropup',
 ] | join(' ') ~ dropdown_other_classes %}
 
-{% set dropdown_color = dropdown_color | default('secondary') %}
-
 {% set dropdown_menu_element = dropdown_menu_element ?: 'a' %}
 {% set dropdown_menu_aria_label = button_id ? 'aria-labelledby="' ~ button_id ~ '"' %}
 

@@ -15,6 +15,7 @@
       <div class="mb-3">
         <h1>Basic Dropdown</h1>
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_text: 'Dropdown button',
           button_id: 'dropdownMenuButton',
         } %}
@@ -22,6 +23,7 @@
       <div class="mb-3">
         <h1>&lta&gt element dropdown</h1>
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_text: 'Dropdown link',
           button_id: 'dropdownMenuLink',
           button_element: 'a',
@@ -56,18 +58,21 @@
       <div class="mb-3">
         <h1>Sizing</h1>
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_button: 'true',
           button_size: 'lg',
           dropdown_text: 'Large Button',
         }%}
 
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_button: 'true',
           button_size: 'sm',
           dropdown_text: 'Small Button',
         }%}
 
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_button: 'true',
           dropdown_split: 'true',
           button_size: 'lg',
@@ -75,6 +80,7 @@
         }%}
 
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_button: 'true',
           dropdown_split: 'true',
           button_size: 'sm',
@@ -85,12 +91,14 @@
       <div class="mb-3">
         <h1>Dropup</h1>
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_button: 'true',
           dropup: 'true',
           dropdown_text: 'Dropup',
         }%}
 
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_button: 'true',
           dropup: 'true',
           dropdown_split: 'true',
@@ -102,6 +110,7 @@
         <h1>Menu Items</h1>
         <p>Note: Historically dropdown menu contents had to be links, but that’s no longer the case with Bootstrap v4. Now you can optionally use &ltbutton&gt elements in your dropdowns instead of just &lta&gts.</p>
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_text: 'Dropdown',
           dropdown_menu_element: 'button',
           button_id: 'dropdownMenu2',
@@ -111,6 +120,7 @@
       <div class="mb-3">
         <h1>Menu alignment</h1>
         {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_text: "This dropdown's menu is right-aligned",
           dropdown_menu_right: 'true',
         } %}
@@ -121,6 +131,7 @@
         {% embed '@atoms/grid/_grid-3-up.twig' with { container: false } %}
           {% block column_1 %}
             {% embed '@atoms/dropdown/_dropdown.twig' with {
+              dropdown_color: 'secondary',
               dropdown_text: "Header",
             } %}
               {% block dropdown_menu_content %}
@@ -132,6 +143,7 @@
           {% endblock column_1 %}
           {% block column_2 %}
             {% embed '@atoms/dropdown/_dropdown.twig' with {
+              dropdown_color: 'secondary',
               dropdown_text: "Divider",
             } %}
               {% block dropdown_menu_content %}
@@ -145,6 +157,7 @@
           {% endblock column_2 %}
           {% block column_3 %}
             {% include '@atoms/dropdown/_dropdown.twig' with {
+              dropdown_color: 'secondary',
               dropdown_text: 'Disabled Items',
               dropdown_menu_items: dropdown_menu_disabled,
             } %}
@@ -155,6 +168,7 @@
       <div class="mb-3">
         <h1>Menu forms</h1>
         {% embed '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
           dropdown_text: "Menu form",
         } %}
           {% block dropdown_menu_content %}

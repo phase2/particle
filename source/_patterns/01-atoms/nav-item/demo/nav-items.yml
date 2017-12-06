@@ -1,9 +1,0 @@
-nav_items_helper: The base .nav component is built with flexbox and provide a strong foundation for building all types of navigation components. It includes some style overrides (for working with lists), some link padding for larger hit areas, and basic disabled styling.
-
-nav:
-  items:
-    - nav_item_text: Basic
-    - nav_item_link_classes: active
-      nav_item_text: Active
-    - nav_item_link_classes: disabled
-      nav_item_text: Disabled

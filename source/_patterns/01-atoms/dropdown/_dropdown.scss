@@ -3,15 +3,9 @@
 // To change default bootstrap nav variables,
 // copy from ~bootstrap/scss/variables to here
 
-//find real example!!!!
-$btn-border-radius: 0.25rem;
+$dropdown-link-color: $gray-900;
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/button-group";
 
 // Add custom code here
-.nav {
-  &--border {
-    border-color: $gray-300;
-    border-style: solid;
-  }
-}
+

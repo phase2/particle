@@ -2,6 +2,9 @@
  * Navbar
  */
 
+// Import dropdown js from bootstrap
+import 'bootstrap/js/src/collapse';
+
 // Custom
 import 'base';
 

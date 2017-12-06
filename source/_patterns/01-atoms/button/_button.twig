@@ -7,7 +7,7 @@
   button_size: String: lg|sm set whether the button is large or small.
   button_block:  Boolean: True|False set button to occupy the full width the parent element.
   button_active: Boolean: True|False set button to appear pressed.
-  button_toggle: Boolean: True|False set button to be toggleable.
+  button_toggle: String: button|collapse set button's data-toggle html value.
   button_link: String: the URL the button will lead to.
   button_value: String: the html 'value' attribute.
   button_id: String: The button's html 'id' attribute.
@@ -17,15 +17,14 @@
 #}
 
 {% set button_element = button_element ?: 'button' %}
-{% set button_color = button_color ?: 'primary' %}
 {% set button_type = button_type ?: 'button' %}
 
 {% set other_classes = other_classes ?: other_classes %}
 {% set other_attributes = other_attributes ?: other_attributes %}
 
 {% set classes = [
-'btn',
-  'btn-' ~ button_color,
+  'btn',
+  button_color ? 'btn-' ~ button_color,
   button_outline ? 'btn-outline-' ~ button_color,
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
@@ -34,7 +33,7 @@
 
 {% set attributes  = [
   button_active ? 'aria-pressed="true"',
-  button_toggle ? 'data-toggle="button"',
+  button_toggle ? 'data-toggle="' ~ button_toggle ~ '"',
   button_link ? 'href="' ~ button_link ~ '"',
   button_value ? 'value="' ~ button_value ~ '"',
   button_id ? 'id="' ~ button_id ~ '"',

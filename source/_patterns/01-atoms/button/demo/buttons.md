@@ -8,7 +8,7 @@
 | button_size     | string  | lg, sm                      | set whether the button is large or small               |
 | button_block    | boolean | TRUE, FALSE                 | set button to occupy the full width the parent element |
 | button_active   | boolean | TRUE, FALSE                 | set button to appear pressed                           |
-| button_toggle   | boolean | TRUE, FALSE                 | set button to be toggleable                            |
+| button_toggle   | string  | button, collapse            | set button's data-toggle html value                    |
 | button_link     | string  | any                         | the URL the button will lead to                        |
 | button_value    | string  | any                         | the html 'value' attribute                             |
 | button_disabled | boolean | TRUE, FALSE                 | set button to appear disabled                          |

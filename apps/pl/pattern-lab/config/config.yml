@@ -63,7 +63,6 @@ plugins:
           - ../../../source/_patterns/01-atoms/button
           - ../../../source/_patterns/01-atoms/branding
           - ../../../source/_patterns/01-atoms/dropdown
-          - ../../../source/_patterns/01-atoms/nav-item
           - ../../../source/_patterns/01-atoms/breadcrumb
           - ../../../source/_patterns/01-atoms/list-group
       molecules:

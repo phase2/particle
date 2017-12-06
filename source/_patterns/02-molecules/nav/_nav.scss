@@ -3,10 +3,14 @@
 // To change default bootstrap nav variables,
 // copy from ~bootstrap/scss/variables to here
 
-//find real example!!!!
-$btn-border-radius: 0.25rem;
+$nav-link-disabled-color: $gray-600;
 
-//also, doesnt this inherently lead to the double imports that we were trying to avoid earlier?
 @import "~bootstrap/scss/nav";
 
 // Add custom code here
+.nav {
+  &--border {
+    border-color: $light;
+    border-style: solid;
+  }
+}
