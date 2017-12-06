@@ -1,15 +1,13 @@
 {% embed '@atoms/alert/_alert.twig' with alert_info %}
-  {% block alert_footer %}
-  {% endblock alert_footer %}
 {% endembed %}
 <header role="banner">
   {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
     {% block jumbotron_branding %}
       {% include "@atoms/_branding.twig" with {
-      url: '#',
-      logo_svg_inline: '@atoms/image/logo.svg',
-      site_name: 'Particle',
-      site_slogan: 'Site Slogan that Describes the Logo Above with Inline SVG'
+        url: '#',
+        logo_svg_inline: '@atoms/image/logo.svg',
+        site_name: 'Phase2 Particle',
+        site_slogan: 'This is a dev environment to work on the latest version of the Particle theme. Make good things happen!'
       } %}
     {% endblock jumbotron_branding %}
   {% endembed %}

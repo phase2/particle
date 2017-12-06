@@ -44,7 +44,9 @@
     <p>{{ alert_primary }}</p>
   {% endblock alert_content %}
   {% block alert_footer %}
-    <hr>
-    <p class="mb-0">{{ alert_secondary }}</p>
+    {% if alert_secondary %}
+      <hr>
+      <p class="mb-0">{{ alert_secondary }}</p>
+    {% endif %}
   {% endblock alert_footer %}
 </div>
