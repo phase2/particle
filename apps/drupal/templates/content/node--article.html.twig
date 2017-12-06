@@ -70,28 +70,39 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('ml-5') }}>
 
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
+{% set classes = [
+  'ml-5',
+] | sort | join(' ') | trim %}
 
-  <div{{ content_attributes.addClass('text-justify') }}>
-    {{ content }}
-  </div>
+{% embed '@organisms/article/_article.twig' %}
 
-  {% if display_submitted %}
-    <blockquote class="text-right">
-      {{ author_picture }}
-      <footer{{ author_attributes.addClass('blockquote-footer') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </footer>
-    </blockquote>
-  {% endif %}
+  {% block article_header %}
+    {{ title_prefix }}
+    {% if not page %}
+      <h2{{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% endif %}
+    {{ title_suffix }}
+  {% endblock article_header %}
 
-</article>
+  {% block article_content %}
+    <div{{ content_attributes.addClass('text-justify') }}>
+      {{ content }}
+    </div>
+  {% endblock article_content %}
+
+  {% block article_footer %}
+    {% if display_submitted %}
+      <blockquote class="text-right">
+        {{ author_picture }}
+        <footer{{ author_attributes.addClass('blockquote-footer') }}>
+          {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+          {{ metadata }}
+        </footer>
+      </blockquote>
+    {% endif %}
+  {% endblock article_footer %}
+
+{% endembed %}
