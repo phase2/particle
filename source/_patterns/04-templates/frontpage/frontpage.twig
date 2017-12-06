@@ -1,3 +1,7 @@
+{% embed '@atoms/alert/_alert.twig' with alert_info %}
+  {% block alert_footer %}
+  {% endblock alert_footer %}
+{% endembed %}
 <header role="banner">
   {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
     {% block jumbotron_branding %}
@@ -18,3 +22,8 @@
 
   {% endblock %}
 {% endembed %}
+
+<footer class="container p-3 footer" role="contentinfo">
+  <hr>
+  {{ footer_content.slogan }}
+</footer>

@@ -14,3 +14,10 @@ card_grid_rows:
   -
     card_title: 'Interdico'
     card_text: 'Fere loquor luptatum nunc secundum suscipit typicus vel vulpes. Nobis qui secundum tamen. Blandit defui fere gilvus pala plaga sit tamen utrum. Eum exputo illum imputo neque quadrum vereor.'
+
+alert_info:
+  type: 'info'
+  alert_primary: 'This is our front page template!'
+
+footer_content:
+  slogan: 'Powered by <a href="http://patternlab.io/" target="_blank">Pattern Lab</a>'
