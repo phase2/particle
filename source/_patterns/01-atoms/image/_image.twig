@@ -38,13 +38,6 @@
   {% if bg %}
     <div style="background-image: url({{ imgSrc }});" class="bg-img {{ class }}"></div>
   {% else %}
-    <img
-      src="{{ imgSrc }}"
-      alt="{{ imgAlt }}"
-      {% if class %} class="{{ class }}"{% endif %}
-      {% if width %}width="{{ width }}"{% endif %}
-      {% if height %}height="{{ height }}"{% endif %}
-      {% if typeof %}typeof="{{ typeof }}"{% endif %}
-    >
+    <img src="{{ imgSrc }}" alt="{{ imgAlt }}"{% if class %} class="{{ class }}"{% endif %} \>
   {% endif %}
 {% endif %}
