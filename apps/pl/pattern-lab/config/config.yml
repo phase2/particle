@@ -73,9 +73,11 @@ plugins:
       organisms:
         paths:
           - ../../../source/_patterns/03-organisms
+          - ../../../source/_patterns/03-organisms/card-grid
       templates:
         paths:
           - ../../../source/_patterns/04-templates
+          - ../../../source/_patterns/04-templates/frontpage
       pages:
         paths:
           - ../../../source/_patterns/05-pages
