@@ -9,13 +9,13 @@
   nav_pills: Boolean: True|False: Choose if nav items will be pills.
   nav_fill: Boolean: True|False: Proportionately fill all available space the nav.
   nav_justified: Boolean: True|False: Make sure all elements are of equal width.
-  other_classes: String: Choose other classes, like bootstrap sizing, for the nav.
+  nav_other_classes: String: Choose other classes, like bootstrap sizing, for the nav.
   nav_element: String: Choose the html element of the nav.
   nav_items: Array: A list of items to be in the nav.
   item.nav_item_dropdown: Boolean: True | False: Set the selected nav.item as a dropdown menu.
 #}
 
-  {% set nav_element = nav_element ?: 'nav' %}
+  {% set nav_element = nav_element | default('nav') %}
   {% set nav_id = nav_id ? 'id="' ~ nav_id ~ '"' %}
   {% set nav_role = nav_role ? 'role="' ~ nav_role ~ '"' %}
 
@@ -27,7 +27,7 @@
     nav_pill ? 'nav-pills',
     nav_fill ? 'nav-fill',
     nav_justify ? 'nav-justified',
-  ] | join(' ') ~ other_classes %}
+  ] | join(' ') ~ nav_other_classes %}
 
 <{{ nav_element }} class="{{ classes }}" {{ nav_id }} {{ nav_role }}>
   {% for item in nav_items %}

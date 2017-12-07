@@ -14,7 +14,7 @@ navbar_items:
     unique_attributes: href="#"
     button_element: a
     dropdown_element: li
-    other_classes: nav-item
+    dropdown_other_classes: nav-item
     dropdown_menu_items:
       - dropdown_menu_item_text: Action
       - dropdown_menu_item_text: Another Action

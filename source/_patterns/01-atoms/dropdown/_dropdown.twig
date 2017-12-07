@@ -29,7 +29,7 @@
   dropup ? 'dropup',
 ] | join(' ') ~ dropdown_other_classes %}
 
-{% set dropdown_menu_element = dropdown_menu_element ?: 'a' %}
+{% set dropdown_menu_element = dropdown_menu_element | default('a') %}
 {% set dropdown_menu_aria_label = button_id ? 'aria-labelledby="' ~ button_id ~ '"' %}
 
 <{{ dropdown_element }} class="{{ classes }}">
@@ -39,7 +39,7 @@
     {% include '@atoms/button/_button-dropdown.twig' with {
       button_text: dropdown_text,
       button_color: dropdown_color,
-    }%}
+    } %}
   {% endif %}
 
   <div class="dropdown-menu {{ dropdown_menu_right }}" {{ dropdown_menu_aria_label }}>

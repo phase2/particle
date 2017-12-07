@@ -7,8 +7,8 @@
   badge_text: String: Display text on the badge.
 #}
 
-{% set badge_element = badge_element ?: 'span' %}
-{% set badge_color = badge_color ?: 'primary' %}
+{% set badge_element = badge_element | default('span') %}
+{% set badge_color = badge_color | default('primary') %}
 
 {% set classes = [
   'badge',

@@ -10,7 +10,7 @@
   list_flush: Boolean: True|False Only use this variable if the list is on a card. this will make it align properly.
 #}
 
-{% set parent_element = parent_element ?: 'ul' %}
+{% set parent_element = parent_element | default('ul') %}
 
 {% if list_flush %}
   {% set list_flush = 'list-group-flush' %}
@@ -24,8 +24,7 @@
 <{{ parent_element }} class="list-group {{ list_flush }}" {{ list_id }}>
   {% for item in items %}
 
-  {# Note: ?: won't work in PHP5 #}
-  {% set element = item.item_element ?: 'li' %}
+  {% set element = item.item_element | default('li') %}
 
   {% set classes = [
     'list-group-item',

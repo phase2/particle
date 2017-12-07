@@ -1,9 +1,9 @@
 ## Variables
-| Name                        | Type    | Options     | Description                                            |
-|-----------------------------|---------|-------------|--------------------------------------------------------|
-| dropdown_element            | string  | div, li, ul                 | Choose the html element of the dropdown. |
+| Name                        | Type    | Options                     | Description                                                  |
+|-----------------------------|---------|-----------------------------|--------------------------------------------------------------|
+| dropdown_element            | string  | div, li, ul                 | Choose the html element of the dropdown.                     |
 | dropdown_button             | boolean | true, false                 | Choose whether the dropdown will be a button element or not. |
-| other_classes               | string  | any                         | Allows use of other bootstrap utility classes.               |
+| dropdown_other_classes      | string  | any                         | Allows use of other bootstrap utility classes.               |
 | dropup                      | boolean | true,false                  | Set the dropdown to dropup instead.                          |
 | dropdown_color              | string  | scssColors.(selected_color) | set The color of the dropdown.                               |
 | dropdown_split              | boolean | true, false                 | Set the dropdown button to split between text and the arrow. |

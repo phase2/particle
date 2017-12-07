@@ -11,7 +11,7 @@
 | nav_pills              | Boolean | true, false | Choose if nav items will be pills.                        |
 | nav_fill               | Boolean | true, false | Proportionately fill all available space the nav.         |
 | nav_justified          | Boolean | true, false | Make sure all elements are of equal width.                |
-| other_classes          | String  | any         | Choose other classes, like bootstrap sizing, for the nav. |
+| nav_other_classes      | String  | any         | Choose other classes, like bootstrap sizing, for the nav. |
 | nav_element            | String  | any         | Choose the html element of the nav.                       |
 | nav_items              | Array   | any         | A list of items to be in the nav.                         |
 | item.nav_item_dropdown | Boolean | true, false | Set the selected nav.item as a dropdown menu.             |

@@ -8,10 +8,10 @@
   } %}
 
   {% embed '@atoms/button/_button.twig' with {
-    other_classes: 'dropdown-toggle dropdown-toggle-split',
-    other_attributes: 'data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"',
+    button_other_classes: 'dropdown-toggle dropdown-toggle-split',
+    button_other_attributes: 'data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"',
     button_color: dropdown_color,
-  }%}
+  } %}
     {% block right %}
       <span class="sr-only">Toggle Dropdown</span>
     {% endblock right %}

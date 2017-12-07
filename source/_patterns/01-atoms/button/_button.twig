@@ -7,20 +7,22 @@
   button_size: String: lg|sm set whether the button is large or small.
   button_block:  Boolean: True|False set button to occupy the full width the parent element.
   button_active: Boolean: True|False set button to appear pressed.
+  button_other_classes: Other classes not specified in the template.
   button_toggle: String: button|collapse set button's data-toggle html value.
   button_link: String: the URL the button will lead to.
   button_value: String: the html 'value' attribute.
   button_id: String: The button's html 'id' attribute.
   button_disabled: Boolean: True|False set button to appear disabled.
+  button_other_attributes: String: Other attributes not specified in the template.
   button_text: String: Display text on the button.
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
 
-{% set button_element = button_element ?: 'button' %}
-{% set button_type = button_type ?: 'button' %}
+{% set button_element = button_element | default ('button') %}
 
-{% set other_classes = other_classes ?: other_classes %}
-{% set other_attributes = other_attributes ?: other_attributes %}
+{% if button_element != 'a' %}
+  {% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
+{% endif %}
 
 {% set classes = [
   'btn',
@@ -29,7 +31,7 @@
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
   button_active ? 'active',
-] | join(' ') ~ other_classes %}
+] | join(' ') ~ button_other_classes %}
 
 {% set attributes  = [
   button_active ? 'aria-pressed="true"',
@@ -38,9 +40,9 @@
   button_value ? 'value="' ~ button_value ~ '"',
   button_id ? 'id="' ~ button_id ~ '"',
   button_disabled ? 'disabled',
-] | sort | join(' ') ~ other_attributes %}
+] | sort | join(' ') ~ button_other_attributes %}
 
-<{{ button_element }} type="{{ button_type }}" class="{{ classes }}" {{ attributes }}>
+<{{ button_element }} {{ button_type }} class="{{ classes }}" {{ attributes }}>
   {{ button_text }}
   {% block right %}{% endblock right %}
 </{{ button_element }}>

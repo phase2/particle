@@ -39,7 +39,7 @@
             dropdown_button: 'true',
             dropdown_color: name,
             dropdown_text: name|capitalize,
-          }%}
+          } %}
         {% endfor %}
       </div>
 
@@ -51,7 +51,7 @@
             dropdown_split: 'true',
             dropdown_color: name,
             dropdown_text: name|capitalize,
-          }%}
+          } %}
         {% endfor %}
       </div>
 
@@ -62,14 +62,14 @@
           dropdown_button: 'true',
           button_size: 'lg',
           dropdown_text: 'Large Button',
-        }%}
+        } %}
 
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_button: 'true',
           button_size: 'sm',
           dropdown_text: 'Small Button',
-        }%}
+        } %}
 
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
@@ -77,7 +77,7 @@
           dropdown_split: 'true',
           button_size: 'lg',
           dropdown_text: 'Large Split Button',
-        }%}
+        } %}
 
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
@@ -85,17 +85,18 @@
           dropdown_split: 'true',
           button_size: 'sm',
           dropdown_text: 'Small Split Button',
-        }%}
+        } %}
       </div>
 
       <div class="mb-3">
         <h1>Dropup</h1>
+        <p>Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown</p>
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_button: 'true',
           dropup: 'true',
           dropdown_text: 'Dropup',
-        }%}
+        } %}
 
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
@@ -103,7 +104,7 @@
           dropup: 'true',
           dropdown_split: 'true',
           dropdown_text: 'Dropup Split',
-        }%}
+        } %}
       </div>
 
       <div class="mb-3">

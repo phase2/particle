@@ -12,16 +12,16 @@
   {# collapse button #}
   {% include '@atoms/button/_button.twig' with {
     button_color: 'none',
-    other_classes: 'navbar-toggler',
+    button_other_classes: 'navbar-toggler',
     button_toggle: 'collapse',
-    other_attributes: 'data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"',
+    button_other_attributes: 'data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"',
     button_text: '<span class="navbar-toggler-icon"></span>',
   } %}
   {# navbar #}
   <div class="collapse navbar-collapse" id="{{ navbar_id }}">
     {% include '@molecules/nav/_nav.twig' with {
       nav_element: 'ul',
-      other_classes: 'navbar-nav mr-auto',
+      nav_other_classes: 'navbar-nav mr-auto',
       nav_items: navbar_items,
     } %}
     {# search form #}
@@ -30,7 +30,7 @@
       {% include '@atoms/button/_button.twig' with {
         button_color: 'success',
         button_outline: true,
-        other_classes: 'my-2 my-sm-0',
+        button_other_classes: 'my-2 my-sm-0',
         button_type: 'submit',
         button_text: 'Search'
       } %}

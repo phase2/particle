@@ -10,8 +10,8 @@
   nav_item_link_classes: String: The html classes for the nav-item
 #}
 
-{% set nav_item_link = nav_item_link ?: '#' %}
-{% set nav_item_element = nav_item_element ?: 'li' %}
+{% set nav_item_link = nav_item_link | default('#') %}
+{% set nav_item_element = nav_item_element | default('li') %}
 
 {% if nav_item_js %}
   {% set nav_item_aria = (nav_item_link_classes == 'active') ? 'aria-selected="true"' : 'aria-selected="false"' %}
