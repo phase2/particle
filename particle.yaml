@@ -1,4 +1,5 @@
-# Our base Grav theme is `particle-grav` which inherits the compiled version as its source.
+# This config file is solely for Grav to provide theme inheritance.
+# Our base Grav theme is `particle` which inherits the compiled version as its source.
 streams:
  schemes:
    theme:
