@@ -1,0 +1,25 @@
+{#<h2>{{ page.title }}</h2>#}
+{#{{ page.content }}#}
+{#{% embed "@base/grids/_smart-grid.twig" with {#}
+  {#rowItems: {#}
+    {#medium: page.header.columns|default('3')#}
+  {#}#}
+{#} %}#}
+  {#{% block gridItems %}#}
+    {#{% for item in page.header.links %}#}
+
+      {#{% embed "@molecules/caption-block.twig" with {#}
+        {#"title": item.title,#}
+        {#"img": {#}
+          {#"src": page.media[item.image].url,#}
+          {#"alt": item.img_alt#}
+        {#}#}
+      {#} %}#}
+        {#{% block body %}#}
+          {#{{ item.content|markdown }}#}
+        {#{% endblock %}#}
+      {#{% endembed %}#}
+    {#{% endfor %}#}
+
+  {#{% endblock %}#}
+{#{% endembed %}#}

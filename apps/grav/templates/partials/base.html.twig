@@ -1,0 +1,51 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getLanguage ?: 'en' }}">
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+        {% include 'partials/metadata.html.twig' %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="shortcut icon" href="{{ url('theme://assets/favicon.ico') }}" />
+        <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+        {% block stylesheets %}
+             {% do assets.addCss('theme://dest/style.css', 102) %}
+        {% endblock %}
+        {{ assets.css() }}
+
+        {% block javascripts %}
+          {% do assets.addJs('theme://dest/bower--deps.min.js', {'group':'bottom'}) %}
+          {% do assets.addJs('theme://dest/bower--devDeps.min.js', {'group':'bottom'}) %}
+          {% do assets.addJs('theme://dest/scripts.js', {'group':'bottom'}) %}
+        {% endblock %}
+        {{ assets.js() }}
+    {% endblock head %}
+</head>
+
+<body>
+<div class="site">
+
+    <header class="site__header" role="banner">
+        {% block header %}
+          {% include "@organisms/site-header.twig" %}
+        {% endblock %}
+    </header>
+
+    {% block body %}
+        {% block content %}{% endblock %}
+    {% endblock %}
+
+    {% block footer %}
+        <footer class="site__footer" role="contentinfo">
+          {% include "@organisms/site-footer.twig" %}
+        </footer>
+    {% endblock %}
+
+    {% block bottom %}
+        {{ assets.js('bottom') }}
+    {% endblock %}
+</div>
+</body>
+</html>
