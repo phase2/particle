@@ -30,9 +30,9 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('nav') }}>
+      <ul{{ attributes.addClass('nav', 'pr-2', 'justify-content-end') }}>
     {% else %}
-      <ul class="nav">
+      <ul class="nav pr-2 justify-content-end">
     {% endif %}
     {% for item in items %}
       <li{{ item.attributes.addClass('nav-item') }}>

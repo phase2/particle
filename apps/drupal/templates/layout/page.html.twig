@@ -55,11 +55,10 @@
     {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
       {% block jumbotron_branding %}
         {{ page.header_branding }}
+        {{ page.secondary_menu }}
       {% endblock jumbotron_branding %}
     {% endembed %}
   </header>
-
-  {{ page.secondary_menu }}
 
   {# Help Region not Included by Default. #}
   {{ page.help }}
