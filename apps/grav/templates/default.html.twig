@@ -1,8 +1,16 @@
 {#{% extends 'partials/base.html.twig' %}#}
-{# Need to figure out namespaces here. Symlink PL to Grav theme folder for simplicity? #}
+
+<header role="banner">
+  {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
+    {% block jumbotron_branding %}
+      <h1>Test</h1>
+    {% endblock jumbotron_branding %}
+  {% endembed %}
+</header>
+
 
 {% block content %}
   <header role="banner">
-    <h1>Test</h1>
+
   </header>
 {% endblock %}
