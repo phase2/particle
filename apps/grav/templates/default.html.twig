@@ -1,7 +1,17 @@
-<header role="banner">
-  {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
-    {% block jumbotron_branding %}
-      <h1>Test</h1>
-    {% endblock jumbotron_branding %}
-  {% endembed %}
-</header>
+{% extends 'partials/base.html.twig' %}
+
+{% block body %}
+
+  {% block content %}
+    <div>
+      <p>Congratulations! This Grav theme is working! This is a solid proof of concept, but there's a ton more you can do here:</p>
+      <ul>
+        <li>Webpack the Grav</li>
+        <li>Update CSS Assets from Drupal -> Grav</li>
+        <li>Fix JavaScript</li>
+      </ul>
+    </div>
+
+  {% endblock content %}
+
+{% endblock body %}
