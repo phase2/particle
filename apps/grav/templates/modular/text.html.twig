@@ -1,8 +1,0 @@
-{#<div class="modular-row callout">#}
-  {#<h2>{{ page.title }}</h2>#}
-    {#{% set image = page.media.images|first %}#}
-    {#{% if image %}#}
-        {#{{ image.cropResize(400,400).html('','','align-'~page.header.image_align) }}#}
-    {#{% endif %}#}
-{#{{ content }}#}
-{#</div>#}

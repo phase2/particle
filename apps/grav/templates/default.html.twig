@@ -1,5 +1,3 @@
-{#{% extends 'partials/base.html.twig' %}#}
-
 <header role="banner">
   {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
     {% block jumbotron_branding %}
@@ -7,10 +5,3 @@
     {% endblock jumbotron_branding %}
   {% endembed %}
 </header>
-
-
-{% block content %}
-  <header role="banner">
-
-  </header>
-{% endblock %}

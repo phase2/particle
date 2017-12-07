@@ -1,0 +1,34 @@
+enabled: true
+namespaces:
+  base:
+    paths:
+      - user/themes/particle/source/_patterns/00-base
+  atoms:
+    paths:
+      - user/themes/particle/source/_patterns/01-atoms
+      - user/themes/particle/source/_patterns/01-atoms/grid
+      - user/themes/particle/source/_patterns/01-atoms/icon
+      - user/themes/particle/source/_patterns/01-atoms/badge
+      - user/themes/particle/source/_patterns/01-atoms/alert
+      - user/themes/particle/source/_patterns/01-atoms/image
+      - user/themes/particle/source/_patterns/01-atoms/button
+      - user/themes/particle/source/_patterns/01-atoms/branding
+      - user/themes/particle/source/_patterns/01-atoms/breadcrumb
+      - user/themes/particle/source/_patterns/01-atoms/list-group
+  molecules:
+    paths:
+      - user/themes/particle/source/_patterns/02-molecules
+      - user/themes/particle/source/_patterns/02-molecules/card
+      - user/themes/particle/source/_patterns/02-molecules/jumbotron
+  organisms:
+    paths:
+      - user/themes/particle/source/_patterns/03-organisms
+      - user/themes/particle/source/_patterns/03-organisms/article
+      - user/themes/particle/source/_patterns/03-organisms/card-grid
+  templates:
+    paths:
+      - user/themes/particle/source/_patterns/04-templates
+      - user/themes/particle/source/_patterns/04-templates/frontpage
+  pages:
+    paths:
+      - user/themes/particle/source/_patterns/05-pages
