@@ -4,7 +4,7 @@ Particle for Grav is an extension of our opinionated design-system first front-e
 ## Requirements
 
 ### Twig Namespaces Plugin
-See [the repo](https://github.com/phase2/grav-pl-starter/tree/master/app/user/plugins/twig-namespaces) for more information. After installing this plugin in your Grav install, simoly copy (or symlink) the included `particle/apps/grav/twig-namespaces.yaml` file to `user/config/plugins/twig-namespaces.yaml` of your Grav install. This covers all patterns / components Particle ships with. This config will need to be updated for any new components you create! 
+See [the repo](https://github.com/phase2/grav-pl-starter/tree/master/app/user/plugins/twig-namespaces) for more information. After installing this plugin in your Grav install, simply copy (or symlink) the included `particle/apps/grav/twig-namespaces.yaml` file to `user/config/plugins/twig-namespaces.yaml` of your Grav install. This covers all patterns / components Particle ships with. This config will need to be updated for any new components you create! 
 
 ## How to Use
 Use Particle as normal to create your design and assets. When you're ready to start creating in Grav, simply copy or symlink Particle to `user/themes`. 
