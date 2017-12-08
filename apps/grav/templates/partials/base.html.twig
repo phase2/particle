@@ -11,12 +11,12 @@
     <link rel="canonical" href="{{ page.url(true, true) }}" />
 
     {% block stylesheets %}
-      {% do assets.addCss('theme://dist/assets/app-drupal.styles.css', 102) %}
+      {% do assets.addCss('theme://dist/assets/app-grav.styles.css', 102) %}
     {% endblock %}
     {{ assets.css() }}
 
     {% block javascripts %}
-      {#{% do assets.addJs('theme://dist/assets/app-grav.js', {'group':'bottom'}) %}#}
+      {% do assets.addJs('theme://dist/assets/app-grav.js', {'group':'bottom'}) %}
     {% endblock %}
     {{ assets.js() }}
   {% endblock head %}
