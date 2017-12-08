@@ -23,20 +23,23 @@
 </head>
 
 <body>
-<div class="site container">
 
-  <header class="site__header" role="banner">
-    {% block header %}
-      {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: false } %}
-        {% block jumbotron_branding %}
-          <h1 class="display-3 branding__site-name">
-            {% include '@atoms/image/logo.svg' %}
-            <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">Phase2 Particle</a>
-          </h1>
-        {% endblock jumbotron_branding %}
-      {% endembed %}
-    {% endblock %}
-  </header>
+<header class="site__header" role="banner">
+  {% block header %}
+    {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
+      {% block jumbotron_branding %}
+        {% include '@atoms/branding/_branding.twig' with {
+          site_name: 'Particle in ' ~ site.title|e('html'),
+          url: 'example.com',
+          logo_svg_inline: '@atoms/image/logo.svg'
+        } %}
+      {% endblock jumbotron_branding %}
+    {% endembed %}
+  {% endblock %}
+</header>
+
+<main class="site container" role="main">
+  <a id="main-content" tabindex="-1"></a>
 
   {% block body %}
     {% block content %}{% endblock %}
@@ -52,6 +55,6 @@
   {% block bottom %}
     {{ assets.js('bottom') }}
   {% endblock %}
-</div>
+</main>
 </body>
 </html>
