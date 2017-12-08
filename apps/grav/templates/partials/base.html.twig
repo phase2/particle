@@ -30,7 +30,7 @@
       {% block jumbotron_branding %}
         {% include '@atoms/branding/_branding.twig' with {
           site_name: 'Particle in ' ~ site.title|e('html'),
-          url: 'example.com',
+          url: '/',
           logo_svg_inline: '@atoms/image/logo.svg'
         } %}
       {% endblock jumbotron_branding %}
