@@ -3,7 +3,13 @@
     <h1>Carousel</h1>
     <p class="lead">A slideshow component for cycling through elements—images or slides of text—like a carousel.</p>
 
+    <h2 class="my-3">Slides Only</h2>
+    <p>Here’s a carousel with slides only. The <code>.active</code> class must be on at least one item initially to show.</p>
     {% include '@molecules/carousel/_carousel.twig' with carousel_1 %}
+
+    <h2 class="my-3">With Controls</h2>
+    <p>Adding in the previous and next controls:</p>
+    {% include '@molecules/carousel/_carousel.twig' with carousel_2 %}
 
   {% endblock %}
 {% endembed %}

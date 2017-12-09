@@ -12,3 +12,6 @@ imageStyles:
     width: 800
   large:
     width: 1600
+  carousel:
+    width: 1110
+    height: 400

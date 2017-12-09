@@ -1,6 +1,10 @@
 carousel_1:
   carousel_id: 1
 
+carousel_2:
+  carousel_id: 2
+  controls: TRUE
+
 carousel_images:
   -
    active: TRUE
