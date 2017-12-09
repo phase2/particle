@@ -1,0 +1,18 @@
+{#
+  Carousel
+
+
+  see https://getbootstrap.com/docs/4.0/components/carousel/ for more details
+#}
+
+<div id="{{ 'carousel-' ~ carousel_id }}" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    {% for image in carousel_images %}
+      <div class="carousel-item {{ (image.active) ? 'active' }}">
+        {% include '@atoms/image/_image.twig' with {
+          class: 'img img-responsive'
+        } %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

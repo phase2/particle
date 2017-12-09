@@ -12,6 +12,7 @@ import * as image from 'atoms/image';
 import * as icon from 'atoms/icon';
 import * as listGroup from 'atoms/list-group';
 import * as card from 'molecules/card';
+import * as carousel from 'molecules/carousel';
 import * as jumbotron from 'molecules/jumbotron';
 import * as article from 'organisms/article';
 
@@ -25,6 +26,7 @@ export default {
   icon,
   listGroup,
   card,
+  carousel,
   jumbotron,
   article,
 };

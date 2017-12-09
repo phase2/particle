@@ -1,0 +1,10 @@
+carousel_1:
+  carousel_id: 1
+
+carousel_images:
+  -
+   active: TRUE
+  -
+   active: FALSE
+  -
+   active: FALSE
