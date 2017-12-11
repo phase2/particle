@@ -2,10 +2,9 @@
 
 <div class="sg-breakpoints">
   <ul class="breakpoints">
-    {% for bpVarName, bpVarData in baseScssVars if '$bp--' in bpVarName %}
-      {% set value = bpVarData.value ~ bpVarData.unit %}
+    {% for bp, value in scssBreakpoints %}
       <li style="left: {{ value }}">
-        <span class="label">{{ bpVarName }}:<br/>{{ value }}</span>
+        <span class="label">{{ bp }}:<br/>{{ value }}</span>
       </li>
     {% endfor %}
   </ul>
@@ -18,5 +17,5 @@
   </ul>
 </div>
 
-
-<p>To add to these items, use Sass variables that start with $bp-- in _breakpoints.scss</p>
+<p>To add or change these items, override Bootstrap's <code>$grid-breakpoints</code> inside <code>_variables.scss</code></p>
+<p>See <a target="_blank" href="https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints">Bootstrap's docs</a> for more.</p>
