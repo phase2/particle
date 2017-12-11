@@ -2,7 +2,7 @@
 
 // Import Everything from Base.
 // This includes Bootstrap
-@import '../../../source/_patterns/00-base/config';
+@import '../../../source/_patterns/00-base/variables';
 
 // Customized Sass Mapping
 // Pulled from Bootstrap's _variables.scss
@@ -23,6 +23,8 @@ $font-weights-demo: (
   bold: $font-weight-bold
 );
 
+$spacing-demo: $spacing;
+
 // Import your Customized Variables here, example:
 //@import '../_patterns/01-atoms/button/_button.scss';
 
@@ -40,6 +42,8 @@ $icons-demo: (
 // Include your Customized Sass Maps here to JSONIFY
 @include export-data('scssVariables.json', (
   scssColors: $theme-colors, // Colors generated from Bootstrap's
+  scssBreakpoints: $grid-breakpoints,
+  scssSpacing: $spacing-demo,
   fontFamilies: $font-families-demo,
   fontSizes: $font-sizes-demo,
   fontWeights: $font-weights-demo,

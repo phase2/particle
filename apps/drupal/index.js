@@ -2,7 +2,6 @@
  * Apply the Design System to a single Drupal behavior
  */
 
-import $ from 'jquery';
 import _ from 'lodash';
 
 import designSystem from '../../source/design-system';
