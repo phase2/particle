@@ -29,11 +29,7 @@
   'show',
 ] | sort | join(' ') | trim %}
 
-{% if type == 'error' %}
-  {% set alert_degree = 'role=alert' %}
-{% else %}
-  {% set alert_degree = 'aria-live=polite' %}
-{% endif %}
+{% set alert_degree = ( type == 'error' ? 'role=alert' : 'aria-live=polite' ) %}
 
 <div class="{{ alert_classes }}" {{ alert_degree }}>
   {% block alert_header %}
