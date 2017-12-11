@@ -5,10 +5,33 @@ carousel_2:
   carousel_id: 2
   controls: TRUE
 
+carousel_3:
+  carousel_id: 3
+  controls: TRUE
+  carousel_indicators:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+
+carousel_4:
+  carousel_id: 4
+  controls: TRUE
+  carousel_caption: TRUE
+  carousel_indicators:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+
 carousel_images:
   -
-   active: TRUE
+    active: TRUE
+    caption_title: 'First slide label'
+    caption_body: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
   -
-   active: FALSE
+    active: FALSE
+    caption_title: 'Second slide label'
+    caption_body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   -
-   active: FALSE
+    active: FALSE
+    caption_title: 'Third slide label'
+    caption_body: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
