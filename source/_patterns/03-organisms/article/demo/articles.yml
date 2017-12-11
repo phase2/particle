@@ -16,11 +16,11 @@ article_1:
   article_date: '11/19/2017 - 08:30'
   article_tags:
     -
-      word: 'woot'
+      word: 'Lorem'
       url: '#'
     -
-      word: '2 woot'
+      word: 'Ipsum'
       url: '#'
     -
-      word: 'cool'
+      word: 'Dolor'
       url: '#'
