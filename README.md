@@ -85,6 +85,20 @@ Just like in the regular Quickstart, when Webpack output appears, visit [http://
 
 That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/).
 
+### Adding or Removing Apps
+
+Particle makes adding or removing apps, our compiled version of the design system, a snap! By default Particle has Pattern Lab, Drupal and Grav included. To change an app see:
+
+* `module.exports` in `config.js`
+* imports in `gulpfile.js`
+* `twigNamespaces` in `gulpfile.js`
+* `compile` scripts in `package.json`
+* `webpack` scripts in `package.json`
+* Add or remove `webpack.APPNAME.config.js`
+* Add or remove path in `webpack.shared.config.js`
+* Special: to remove Grav, delete `particle.yaml`
+* Add or delete App folder under `/apps`
+
 ## Commands
 
 Quick compile Pattern Lab:
