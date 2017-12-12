@@ -85,20 +85,6 @@ Just like in the regular Quickstart, when Webpack output appears, visit [http://
 
 That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/).
 
-### Adding or Removing Apps
-
-Particle makes adding or removing apps, our compiled version of the design system, a snap! By default Particle has Pattern Lab, Drupal and Grav included. To change an app see:
-
-* `module.exports` in `config.js`
-* imports in `gulpfile.js`
-* `twigNamespaces` in `gulpfile.js`
-* `compile` scripts in `package.json`
-* `webpack` scripts in `package.json`
-* Add or remove `webpack.APPNAME.config.js`
-* Add or remove path in `webpack.shared.config.js`
-* Special: to remove Grav, delete `particle.yaml`
-* Add or delete App folder under `/apps`
-
 ## Commands
 
 Quick compile Pattern Lab:
@@ -517,3 +503,38 @@ Use it like this in `source/_data/data.json`:
 ```
 
 The formatters (things like `.paragraph`, `.words`, etc) can accept options, when you see `Faker.words(3, true)` that means give me 3 random words and I'd like them as a string and not an array of strings. All the [formatters and their options are documented here](https://github.com/fzaninotto/Faker#formatters) - there's tons: numbers, address, names, dates, and more.
+
+### Grav
+
+`apps/grav/`
+
+Grav is a flat file CMS that uses Twig as a template engine. Learn more [here](https://learn.getgrav.org/). 
+
+#### Grav integration of design system Twig files
+
+With the inclusion of the Grav plugin, [twig-namespaces](https://github.com/phase2/grav-pl-starter/tree/master/app/user/plugins/twig-namespaces), Grav Twig templates in `templates/` can `{% include %}`, `{% extends %}`, and `{% embed %}` the Twig patterns within `source/_patterns/`. Similar to Drupal above, including these patterns is done as follows:
+
+```twig
+{% include "@organisms/path/to/file.twig" with {
+  title: label,
+  imageUrl: field_name.raw.path,
+  largeCTA: true,
+} %}
+```
+
+Configuration for Grav and additional docs can found at `apps/grav/README.md`.
+
+### Adding or Removing Apps
+
+Particle makes adding or removing apps a snap! By default Particle has Pattern Lab, Drupal and Grav included. But these can be added to, removed or changed easily! If you'd like to make changes, see these pieces:
+
+* `module.exports` in `config.js`
+* imports in `gulpfile.js`
+* `twigNamespaces` in `gulpfile.js`
+* `compile` scripts in `package.json`
+* `webpack` scripts in `package.json`
+* Add or remove `webpack.APPNAME.config.js`
+* Add or remove path in `webpack.shared.config.js`
+* Special: to remove Grav, delete `particle.yaml`
+* Add or delete App folder under `/apps`
+
