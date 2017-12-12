@@ -13,6 +13,7 @@ import * as icon from 'atoms/icon';
 import * as listGroup from 'atoms/list-group';
 import * as card from 'molecules/card';
 import * as jumbotron from 'molecules/jumbotron';
+import * as pagination from 'molecules/pagination';
 import * as article from 'organisms/article';
 
 export default {
@@ -27,4 +28,5 @@ export default {
   card,
   jumbotron,
   article,
+  pagination,
 };
