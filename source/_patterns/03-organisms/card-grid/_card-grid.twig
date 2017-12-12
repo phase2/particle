@@ -13,8 +13,8 @@
   'col-lg-4',
 ] | sort | join(' ') | trim ~ row_classes %}
 
-{% if title %}
-  <h3>{{ title }}</h3>
+{% if card_grid_title %}
+  <h3>{{ card_grid_title }}</h3>
 {% endif %}
 <div class="row">
   {% for item_card in card_grid_rows %}
