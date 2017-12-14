@@ -9,6 +9,7 @@ navbar_items:
   - nav_item_text: Home
     nav_item_link_classes: active
   - nav_item_dropdown: true
+    buttonless_dropdown: true
     dropdown_text: Dropdown
     unique_classes: nav-link
     unique_attributes: href="#"

@@ -3,6 +3,7 @@
   button_element: String: button|a|input choose the element type for your button.
   button_type: String: the html 'type' attribute.
   button_outline: Boolean: True|False, remove all background colors and images from a button.
+  buttonless_dropdown: Boolean: True|False, toggle `btn` base class for dropdowns.
   button_color: String: primary|secondary|success|danger|warning|info|light|dark the color of the button.
   button_size: String: lg|sm set whether the button is large or small.
   button_block:  Boolean: True|False set button to occupy the full width the parent element.
@@ -25,13 +26,13 @@
 {% endif %}
 
 {% set classes = [
-  'btn',
+  buttonless_dropdown ? '' : 'btn',
   button_color ? 'btn-' ~ button_color,
   button_outline ? 'btn-outline-' ~ button_color,
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
   button_active ? 'active',
-] | join(' ') ~ button_other_classes %}
+] | sort | join(' ') | trim ~ ' ' ~ button_other_classes %}
 
 {% set attributes  = [
   button_active ? 'aria-pressed="true"',

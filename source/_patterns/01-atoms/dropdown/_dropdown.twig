@@ -27,7 +27,7 @@
 {% set classes = [
   dropdown_class,
   dropup ? 'dropup',
-] | join(' ') ~ dropdown_other_classes %}
+] | sort | join(' ') | trim ~ ' ' ~ dropdown_other_classes %}
 
 {% set dropdown_menu_element = dropdown_menu_element | default('a') %}
 {% set dropdown_menu_aria_label = button_id ? 'aria-labelledby="' ~ button_id ~ '"' %}

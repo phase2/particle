@@ -26,6 +26,7 @@ nav_items_dropdown:
     unique_classes: nav-link
     unique_attributes: href="#"
     button_element: a
+    buttonless_dropdown: true
     dropdown_element: li
     dropdown_other_classes: nav-item
     dropdown_menu_items:
