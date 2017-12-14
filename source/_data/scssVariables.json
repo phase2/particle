@@ -10,6 +10,18 @@
     "dark": "rgb(52, 58, 64)",
     "test": "rgb(255, 192, 203)"
   },
+  "scssBreakpoints": {
+    "xs": 0,
+    "sm": "576px",
+    "md": "768px",
+    "lg": "992px",
+    "xl": "1200px"
+  },
+  "scssSpacing": {
+    "s": "5px",
+    "m": "25px",
+    "l": "50px"
+  },
   "fontFamilies": {
     "$font-family-base": [
       "-apple-system",

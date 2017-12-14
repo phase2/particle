@@ -8,6 +8,7 @@ import _ from 'lodash';
 // PL-only components, regardless of design system
 import 'atoms/grid';
 import 'atoms/image/demo';
+import * as homepage from 'pages/homepage';
 
 // Full design system. May dupe the above, but Webpack don't care.
 import designSystem from '../../source/design-system';
@@ -30,3 +31,6 @@ _.forEach(designSystem, (component) => {
   console.log(component.name);
   component.enable($context, settings);
 });
+
+// PL-only components may need enabled as well!
+homepage.enable();
