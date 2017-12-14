@@ -105,7 +105,7 @@
             {% set link_items = link_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: link_items
+            items: link_items,
           } %}
         </div>
         <div class="col-sm">
@@ -116,7 +116,7 @@
             {% set button_items = button_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: button_items
+            items: button_items,
           } %}
         </div>
       </div>
