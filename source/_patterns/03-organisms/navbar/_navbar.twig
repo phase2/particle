@@ -7,16 +7,19 @@
 #}
 
 <nav class="navbar {{ navbar_classes }}">
-  {# Brand #}
-  <a class="navbar-brand" href="{{ navbar_brand_link }}">{{ navbar_brand_text }}</a>
-  {# collapse button #}
-  {% include '@atoms/button/_button.twig' with {
-    button_color: 'none',
-    button_other_classes: 'navbar-toggler',
-    button_toggle: 'collapse',
-    button_other_attributes: 'data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"',
-    button_text: '<span class="navbar-toggler-icon"></span>',
-  } %}
+
+  {% block brand %}
+    <a class="navbar-brand" href="{{ navbar_brand_link }}">{{ navbar_brand_text }}</a>
+    {# collapse button #}
+    {% include '@atoms/button/_button.twig' with {
+      button_color: 'none',
+      button_other_classes: 'navbar-toggler',
+      button_toggle: 'collapse',
+      button_other_attributes: 'data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"',
+      button_text: '<span class="navbar-toggler-icon"></span>',
+    } %}
+  {% endblock brand %}
+
   {# navbar #}
   <div class="collapse navbar-collapse" id="{{ navbar_id }}">
     {% include '@molecules/nav/_nav.twig' with {
@@ -24,16 +27,19 @@
       nav_other_classes: 'navbar-nav mr-auto',
       nav_items: navbar_items,
     } %}
-    {# search form #}
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      {% include '@atoms/button/_button.twig' with {
-        button_color: 'success',
-        button_outline: true,
-        button_other_classes: 'my-2 my-sm-0',
-        button_type: 'submit',
-        button_text: 'Search'
-      } %}
-    </form>
+
+    {% block search %}
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        {% include '@atoms/button/_button.twig' with {
+          button_color: 'primary',
+          button_outline: true,
+          button_other_classes: 'my-2 my-sm-0',
+          button_type: 'submit',
+          button_text: 'Search'
+        } %}
+      </form>
+    {% endblock search %}
+
   </div>
 </nav>
