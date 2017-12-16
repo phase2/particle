@@ -67,9 +67,9 @@ function particle_preprocess_user(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_node().
+ * Implements hook_preprocess_page().
  */
-function particle_preprocess_node(&$variables) {
+function particle_preprocess_page(&$variables) {
 
   $messages = [
     'warning',
