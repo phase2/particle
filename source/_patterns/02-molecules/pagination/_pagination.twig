@@ -18,11 +18,11 @@
   <ul class="{{ pagination_classes }}">
 
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" href="#" aria-label="{{ 'Previous'|t }}">
         {% if page_icon %}
           <span aria-hidden="true">&laquo;</span>
         {% endif %}
-        <span {{ (page_icon) ? 'class="sr-only"' }}>Previous</span>
+        <span {{ (page_icon) ? 'class="sr-only"' }}>{{ 'Previous'|t }}</span>
       </a>
     </li>
 
@@ -31,11 +31,11 @@
     {% endfor %}
 
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+      <a class="page-link" href="#" aria-label="{{ 'Next'|t }}">
         {% if page_icon %}
           <span aria-hidden="true">&raquo;</span>
         {% endif %}
-        <span {{ (page_icon) ? 'class="sr-only"' }}>Next</span>
+        <span {{ (page_icon) ? 'class="sr-only"' }}>{{ 'Next'|t }}</span>
       </a>
     </li>
 
