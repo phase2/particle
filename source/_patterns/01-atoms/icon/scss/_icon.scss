@@ -3,6 +3,9 @@
 ///
 
 @import 'icon-mixins';
+@import '~font-awesome/scss/mixins';
+@import '~font-awesome/scss/variables';
+
 
 @font-face {
   font-family: $icon-font-base-name;
@@ -42,3 +45,24 @@
 }
 
 
+// Font-Awesome Sass Examples
+.fontawesome-example {
+  &:before {
+    @include fa-icon();
+    content: $fa-var-train;
+  }
+}
+
+.fontawesome-example2 {
+  &:after {
+    @include fa-icon();
+    content: $fa-var-compass;
+  }
+}
+
+.fontawesome-example3 {
+  &:after {
+    @include fa-icon();
+    content: $fa-var-apple;
+  }
+}

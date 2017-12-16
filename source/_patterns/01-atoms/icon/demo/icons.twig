@@ -46,6 +46,14 @@
           <h4 class="card-title">Font Awesome</h4>
           <p class="card-text"><a href="http://fontawesome.io/examples/" target="_blank">Font Awesome</a> icons are also available for use inside patterns.</p>
           <p>These can be easily added to inline elements (we recommend using <b>span</b> or <b>i</b> tags) with two classes: <code>fa</code> and <code>fa-icon-name</code>.</p>
+
+          <p>Font awesome icons can also be implemented in Sass, in just two lines:
+            <code>@include fa-icon();</code>
+            <code>content: $fa-icon-name;</code>
+          </p>
+
+          <p>See _icon.scss for an example of how the Sass approach works.</p>
+
           <p>There are currently 675 icons available from <a href="http://fontawesome.io/examples/" target="_blank">Font Awesome</a>, sky's the limit.</p>
         </div>
       </div>
@@ -70,6 +78,27 @@
           <i class="fa fa-medkit text-primary" style="font-size: 1.5rem;"></i>
           <i class="fa fa-medkit bg-dark text-white" style="font-size: 2rem;"></i>
           <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa fa-medkit</code></p>
+        </div>
+
+        <div class="col p-3 text-center" style="max-width: 240px;">
+          <i class="fontawesome-example"></i>
+          <i class="fontawesome-example text-primary" style="font-size: 1.5rem;"></i>
+          <i class="fontawesome-example bg-dark text-white" style="font-size: 2rem;"></i>
+          <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-train;</code></p>
+        </div>
+
+        <div class="col p-3 text-center" style="max-width: 240px;">
+          <i class="fontawesome-example2"></i>
+          <i class="fontawesome-example2 text-primary" style="font-size: 1.5rem;"></i>
+          <i class="fontawesome-example2 bg-dark text-white" style="font-size: 2rem;"></i>
+          <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-compass;</code></p>
+        </div>
+
+        <div class="col p-3 text-center" style="max-width: 240px;">
+          <i class="fontawesome-example3"></i>
+          <i class="fontawesome-example3 text-primary" style="font-size: 1.5rem;"></i>
+          <i class="fontawesome-example3 bg-dark text-white" style="font-size: 2rem;"></i>
+          <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-apple;</code></p>
         </div>
       </div>
 
