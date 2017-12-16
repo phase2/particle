@@ -78,7 +78,7 @@ plugins:
       templates:
         paths:
           - ../../../source/_patterns/04-templates
-          - ../../../source/_patterns/04-templates/frontpage
+          - ../../../source/_patterns/04-templates/homepage
       pages:
         paths:
           - ../../../source/_patterns/05-pages
