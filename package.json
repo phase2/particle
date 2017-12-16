@@ -21,6 +21,7 @@
     "compile": "NODE_ENV=production gulp compile",
     "compile:pl": "webpack --display-entrypoints --config webpack.pl.config.js && gulp compile",
     "compile:drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
+    "compile:grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "lint:js": "eslint ./ --cache",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js & npm run lint:scss",
@@ -32,6 +33,7 @@
     "setup": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "webpack-pl": "webpack --display-entrypoints --config webpack.pl.config.js",
     "webpack-drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
+    "webpack-grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
     "pa11y": "pa11y"
   },
