@@ -35,11 +35,13 @@
 ]) | sort | join(' ') | trim %}
 
 <div class="{{ classes }}">
-  {% if card_header %}
-    <div class="card-header">
-      {{ card_header }}
-    </div>
-  {% endif %}
+  {% block card_header %}
+    {% if card_header %}
+      <div class="card-header">
+        {{ card_header }}
+      </div>
+    {% endif %}
+  {% endblock card_header %}
 
   {% if card_image_location == 'top' %}
     {% block card_image_top %}
@@ -65,8 +67,8 @@
     {% set body_class = 'card-body' %}
   {% endif %}
 
-  <div class="{{ body_class }}">
-    {% block card_body %}
+  {% block card_body %}
+    <div class="{{ body_class }}">
       <h4 class="card-title">{{ card_title }}</h4>
       {% if card_subtitle %}
         <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
@@ -80,8 +82,8 @@
       {% if button %}
         {% include "@atoms/button/_button.twig" with button %}
       {% endif %}
-    {% endblock %}
-  </div>
+    </div>
+  {% endblock %}
 
   {% if list %}
     {% include '@atoms/list-group/_list-group.twig' with list %}
