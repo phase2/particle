@@ -17,8 +17,8 @@ export const name = 'carousel';
 
 export function disable() {}
 
-export function enable() {
-  $('.carousel').carousel({
+export function enable($context) {
+  $('.carousel', $context).carousel({
     interval: 3000,
   });
 }
