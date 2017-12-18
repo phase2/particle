@@ -2,7 +2,7 @@ buttons_helper: Use Bootstrap's custom button styles for actions in forms, dialo
 
 alternate_buttons:
   - button_element: a
-    button_link: 'https://github.com/phase2/pattern-lab-starter'
+    button_link: http://getbootstrap.com/docs/4.0/components/buttons/
     button_text: Link
   - button_element: button
     button_type: submit
@@ -20,6 +20,7 @@ alternate_buttons:
 sizes:
   - button_size: lg
     button_text: Large Button
+    button_color: secondary
   - button_size: sm
     button_text: Small Button
     button_color: secondary
@@ -52,7 +53,7 @@ states:
     button_color: warning
 
 toggleable:
-  button_toggle: TRUE
+  button_toggle: button
   button_text: Toggleable button
   button_color: dark
   button_link: herpderp.com

@@ -15,10 +15,10 @@
         <p>Note: Badges scale to match the size of the immediate parent element </p>
         {% for i in 1..5 %}
           <h{{ i }}>
-        {% include '@atoms/badge/_badge.twig' with {
-          badge_text: 'Badge',
-          badge_color: 'primary',
-        } %}
+          {% include '@atoms/badge/_badge.twig' with {
+            badge_text: 'Badge',
+            badge_color: 'primary',
+          } %}
           </h{{ i }}>
         {% endfor %}
       </div>
@@ -28,7 +28,7 @@
         {% embed '@atoms/button/_button.twig' with {
           button_color: 'primary',
           button_text: 'Notifications',
-        }%}
+        } %}
           {% block right %}
             {% include '@atoms/badge/_badge.twig' with {
               badge_text: '4',
@@ -40,12 +40,11 @@
         {% embed '@atoms/button/_button-outline.twig' with {
           button_color: 'primary',
           button_text: 'Notifications',
-        }%}
+        } %}
           {% block right %}
             {% include '@atoms/badge/_badge.twig' with {
               badge_text: '4',
               badge_color: 'primary',
-
             } %}
           {% endblock right %}
         {% endembed %}
