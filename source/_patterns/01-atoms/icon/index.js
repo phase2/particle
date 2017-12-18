@@ -5,6 +5,7 @@
  */
 
 // Import custom sass
+import 'base';
 import './scss/_icon.scss';
 
 export const name = 'icon';
