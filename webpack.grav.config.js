@@ -1,5 +1,5 @@
 /**
- * Pattern Lab-specific webpack config
+ * Grav-specific webpack config
  * This is merged over top of webpack.shared.config.js
  */
 
@@ -10,20 +10,20 @@ const webpack = require('webpack');
 
 // Custom Imports
 const shared = require('./webpack.shared.config');
-const { PATH_PL } = require('./config');
+const { PATH_GRAV } = require('./config');
 
-// Webpack Entry Points
-const pl = {
+const grav = {
   entry: {
-    'app-pl': [
-      path.resolve(__dirname, PATH_PL, 'index.js'),
+    'app-grav': [
+      path.resolve(__dirname, PATH_GRAV, 'index.js'),
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
-      BUILD_TARGET: JSON.stringify('pl'),
+      BUILD_TARGET: JSON.stringify('grav'),
     }),
   ],
 };
 
-module.exports = merge(shared, pl);
+module.exports = merge(shared, grav);
+

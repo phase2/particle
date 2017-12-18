@@ -1,6 +1,6 @@
 alert_info:
   type: 'info'
-  alert_primary: 'This is our front page template!'
+  alert_primary: 'This is our homepage template!'
 
 card_grid_rows:
   -

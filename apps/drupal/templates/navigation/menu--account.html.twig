@@ -30,13 +30,15 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
+      {# These Classes are added from Particle theme #}
       <ul{{ attributes.addClass('nav', 'pr-2', 'justify-content-end') }}>
     {% else %}
+      {# These Classes are added from Particle theme #}
       <ul class="nav pr-2 justify-content-end">
     {% endif %}
     {% for item in items %}
       <li{{ item.attributes.addClass('nav-item') }}>
-        {# @TODO update to use Preprocess #}
+        {# @TODO update to use Preprocess - Classes for Particle #}
         {{ link(item.title, item.url)|merge({'#options': {'attributes': {'class': 'nav-link'}}}) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}

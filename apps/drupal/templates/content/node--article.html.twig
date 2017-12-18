@@ -89,7 +89,7 @@
 
   {% block article_content %}
     <div{{ content_attributes.addClass('text-justify') }}>
-      {{ content }}
+      {{ content|without('comment') }}
     </div>
   {% endblock article_content %}
 
@@ -102,6 +102,9 @@
           {{ metadata }}
         </footer>
       </blockquote>
+      {% if content.comment %}
+        {{ content.comment }}
+      {% endif %}
     {% endif %}
   {% endblock article_footer %}
 
