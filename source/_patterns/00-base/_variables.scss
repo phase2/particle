@@ -28,6 +28,9 @@ $spacing: (
   l: 50px,
 );
 
+// This is a good place to globally override bootstrap variables that aren't
+// just overridden in a component later on.
+
 // Bootstrap non-printing tools
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";

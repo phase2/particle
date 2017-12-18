@@ -41,7 +41,7 @@
   button_value ? 'value="' ~ button_value ~ '"',
   button_id ? 'id="' ~ button_id ~ '"',
   button_disabled ? 'disabled',
-] | sort | join(' ') ~ button_other_attributes %}
+] | sort | join(' ') | trim ~ ' ' ~ button_other_attributes %}
 
 <{{ button_element }} {{ button_type }} class="{{ classes }}" {{ attributes }}>
   {{ button_text }}

@@ -1,0 +1,25 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+
+    <h1>Pagination</h1>
+    <p class="lead">Documentation and examples for showing pagination to indicate a series of related content exists across multiple pages.</p>
+    <h2>Default</h2>
+    <p>This is the default pagination. A list of links to the pages available.</p>
+    {% include '@molecules/pagination/_pagination.twig' with pagination_1 %}
+
+    <h2>Icons</h2>
+    <p>Optionally use icons in place of Previous and Next. Be sure to provide proper screen reader support with <code>aria</code> attributes and the <code>.sr-only</code> utility.</p>
+    {% include '@molecules/pagination/_pagination.twig' with pagination_2 %}
+
+    <h2>Sizes</h2>
+    <p>Optionally set the size with <code>pagination_size</code> to either <code>sm</code> or <code>lg</code>.</p>
+
+    <h4>Small</h4>
+    {% include '@molecules/pagination/_pagination.twig' with pagination_3 %}
+
+    <h4>Large</h4>
+    {% include '@molecules/pagination/_pagination.twig' with pagination_4 %}
+
+  {% endblock %}

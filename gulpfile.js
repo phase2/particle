@@ -5,7 +5,7 @@
 const path = require('path');
 const gulp = require('gulp');
 
-const { PATH_PL, PATH_DRUPAL } = require('./config');
+const { PATH_PL, PATH_DRUPAL, PATH_GRAV } = require('./config');
 
 /**
  * Pattern Lab raw compile function.
@@ -43,6 +43,12 @@ gulp.task('compile:twig-namespaces', () => gulp
         configFile: path.join(PATH_DRUPAL, 'particle.info.yml'),
         atKey: 'component-libraries',
         pathRelativeToDir: path.join(PATH_DRUPAL, ''),
+      },
+      {
+        // The twig-namespaces plugin wants to know about our namespaces
+        configFile: path.join(PATH_GRAV, 'twig-namespaces.yaml'),
+        atKey: 'generated-namespaces',
+        pathRelativeToDir: path.join(PATH_GRAV, ''),
       },
     ],
     // What are the top-level namespace paths, and which sub paths should we ignore?
