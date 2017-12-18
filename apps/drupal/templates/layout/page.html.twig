@@ -49,26 +49,23 @@
   {# @TODO Implement Bootstrap Nav #}
   {{ page.primary_menu }}
 
+  {{ page.highlighted }}
+
   <header role="banner">
     {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
       {% block jumbotron_branding %}
         {{ page.header_branding }}
+        {{ page.secondary_menu }}
       {% endblock jumbotron_branding %}
     {% endembed %}
   </header>
-
-  {{ page.secondary_menu }}
-
-  {{ page.highlighted }}
-
-  {{ page.breadcrumb }}
 
   {# Help Region not Included by Default. #}
   {{ page.help }}
 
   <main class="container" role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
+    {{ page.breadcrumb }}
     <section class="row">
 
       {% if page.sidebar_first %}

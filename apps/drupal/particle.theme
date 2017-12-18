@@ -23,6 +23,16 @@ function particle_theme_suggestions_block_alter(array &$suggestions, array $vari
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function particle_theme_suggestions_image_alter(array &$suggestions, array $variables) {
+  $node = \Drupal::request()->attributes->get('node');
+  if (!empty($node)) {
+    $suggestions[] = 'image__' . $node->getType();
+  }
+}
+
+/**
  * Implements hook_preprocess_block().
  */
 function particle_preprocess_block__system_branding_block(&$variables) {
@@ -47,4 +57,33 @@ function particle_preprocess_breadcrumb(&$variables) {
       'text' => $node->getTitle()
     ];
   }
+}
+
+/**
+ * Implements hook_preprocess_user().
+ */
+function particle_preprocess_user(&$variables) {
+  $variables['content']['member_for']['#markup'] = '';
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function particle_preprocess_page(&$variables) {
+
+  $messages = [
+    'warning',
+    'status',
+    'error',
+    'info',
+  ];
+
+  foreach ($messages as $message) {
+    drupal_set_message(t('Status: <span>%string</span>',
+      [
+        '%string' => 'This is a ' . $message . ' message. Remove me in particle.theme!',
+      ]
+    ), $message);
+  }
+
 }

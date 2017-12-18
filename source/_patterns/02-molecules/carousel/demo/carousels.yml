@@ -1,0 +1,57 @@
+carousel_1:
+  carousel_id: 1
+  carousel_images:
+    -
+      active: TRUE
+    -
+      active: FALSE
+    -
+      active: FALSE
+
+carousel_2:
+  carousel_id: 2
+  carousel_controls: TRUE
+  carousel_images:
+    -
+      active: TRUE
+    -
+      active: FALSE
+    -
+      active: FALSE
+
+carousel_3:
+  carousel_id: 3
+  carousel_controls: TRUE
+  carousel_indicators:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+  carousel_images:
+    -
+      active: TRUE
+    -
+      active: FALSE
+    -
+      active: FALSE
+
+carousel_4:
+  carousel_id: 4
+  carousel_controls: TRUE
+  carousel_caption: TRUE
+  carousel_indicators:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+  carousel_images:
+    -
+      active: TRUE
+      caption_title: 'First slide label'
+      caption_body: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    -
+      active: FALSE
+      caption_title: 'Second slide label'
+      caption_body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    -
+      active: FALSE
+      caption_title: 'Third slide label'
+      caption_body: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'

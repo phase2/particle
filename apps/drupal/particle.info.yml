@@ -7,12 +7,12 @@ libraries:
   - particle/core
 regions:
   primary_menu: Primary menu
+  highlighted: Highlighted
   header_branding: Header branding
   header_cta: Header CTA
   secondary_menu: Secondary menu
   page_top: Page top
   page_bottom: Page bottom
-  highlighted: Highlighted
   breadcrumb: Breadcrumb
   content: Content
   sidebar_first: Sidebar first
@@ -28,6 +28,7 @@ component-libraries:
       - ../../source/_patterns/01-atoms/grid
       - ../../source/_patterns/01-atoms/icon
       - ../../source/_patterns/01-atoms/badge
+      - ../../source/_patterns/01-atoms/alert
       - ../../source/_patterns/01-atoms/image
       - ../../source/_patterns/01-atoms/button
       - ../../source/_patterns/01-atoms/branding
@@ -37,13 +38,18 @@ component-libraries:
     paths:
       - ../../source/_patterns/02-molecules
       - ../../source/_patterns/02-molecules/card
+      - ../../source/_patterns/02-molecules/carousel
       - ../../source/_patterns/02-molecules/jumbotron
   organisms:
     paths:
       - ../../source/_patterns/03-organisms
+      - ../../source/_patterns/03-organisms/article
+      - ../../source/_patterns/03-organisms/accordion
+      - ../../source/_patterns/03-organisms/card-grid
   templates:
     paths:
       - ../../source/_patterns/04-templates
+      - ../../source/_patterns/04-templates/homepage
   pages:
     paths:
       - ../../source/_patterns/05-pages

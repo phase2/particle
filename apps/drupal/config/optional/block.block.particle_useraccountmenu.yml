@@ -9,7 +9,7 @@ dependencies:
     - particle
 id: particle_useraccountmenu
 theme: particle
-region: sidebar_first
+region: secondary_menu
 weight: 11
 provider: null
 plugin: 'system_menu_block:account'

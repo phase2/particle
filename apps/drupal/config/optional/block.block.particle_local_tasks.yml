@@ -6,7 +6,7 @@ dependencies:
 id: particle_local_tasks
 theme: particle
 region: content
-weight: -40
+weight: -60
 provider: null
 plugin: local_tasks_block
 settings:

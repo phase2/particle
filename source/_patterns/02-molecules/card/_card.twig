@@ -1,6 +1,7 @@
 {#
   Card!
 
+  card_element: String (optional): Element tag that defaults to div.
   card_width: Integer: 25|50|75 If left empty the card will fill the width of it's parent element.
   card_background: String: primary|secondary|succes|danger|warning|info|light|dark Background color.
   card_border: String: primary|secondary|succes|danger|warning|info|light|dark Border color.
@@ -26,6 +27,7 @@
 {% set classes = classes|default([])|merge([
   'card',
   card_width ? 'w-' ~ card_width,
+  card_cols ? card_cols : '',
   text_alignment ? 'text-' ~ text_alignment,
   text_color ? 'text-' ~ text_color,
   card_background ? 'bg-' ~ card_background,
@@ -33,19 +35,23 @@
 ]) | sort | join(' ') | trim %}
 
 <div class="{{ classes }}">
-  {% if card_header %}
-    <div class="card-header">
-      {{ card_header }}
-    </div>
-  {% endif %}
+  {% block card_header %}
+    {% if card_header %}
+      <div class="card-header">
+        {{ card_header }}
+      </div>
+    {% endif %}
+  {% endblock card_header %}
 
   {% if card_image_location == 'top' %}
-    {# if `card_image` is null, this falls back to a holderjs placeholder #}
-    {% include '@atoms/image/_image.twig' with {
-      imageStyleName: 'card',
-      class: 'card-img-top',
-      img: card_image,
-    } %}
+    {% block card_image_top %}
+      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+      {% include '@atoms/image/_image.twig' with {
+        imageStyleName: 'card',
+        class: 'card-img-top',
+        img: card_image,
+      } %}
+    {% endblock %}
   {% endif %}
 
   {% if card_image_overlay %}
@@ -61,8 +67,8 @@
     {% set body_class = 'card-body' %}
   {% endif %}
 
-  <div class="{{ body_class }}">
-    {% block card_body %}
+  {% block card_body %}
+    <div class="{{ body_class }}">
       <h4 class="card-title">{{ card_title }}</h4>
       {% if card_subtitle %}
         <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
@@ -76,8 +82,8 @@
       {% if button %}
         {% include "@atoms/button/_button.twig" with button %}
       {% endif %}
-    {% endblock %}
-  </div>
+    </div>
+  {% endblock %}
 
   {% if list %}
     {% include '@atoms/list-group/_list-group.twig' with list %}
@@ -90,12 +96,14 @@
   {% endif %}
 
   {% if card_image_location == 'bottom' %}
-    {# if `card_image` is null, this falls back to a holderjs placeholder #}
-    {% include '@atoms/image/_image.twig' with {
-      imageStyleName: 'card',
-      class: 'card-img-bottom',
-      img: card_image,
-    } %}
+    {% block card_image_bottom %}
+      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+      {% include '@atoms/image/_image.twig' with {
+        imageStyleName: 'card',
+        class: 'card-img-bottom',
+        img: card_image,
+      } %}
+    {% endblock card_image_bottom %}
   {% endif %}
 
 </div>

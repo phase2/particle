@@ -7,7 +7,11 @@ imageStyles:
     height: 180
   small:
     width: 400
+    height: 400
   medium:
     width: 800
   large:
     width: 1600
+  carousel:
+    width: 1110
+    height: 400

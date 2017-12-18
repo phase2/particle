@@ -10,14 +10,14 @@ dependencies:
     - particle
 id: particle_search
 theme: particle
-region: sidebar_second
+region: primary_menu
 weight: 0
 provider: null
 plugin: 'views_exposed_filter_block:search-page'
 settings:
   id: 'views_exposed_filter_block:search-page'
-  label: ''
+  label: 'Search'
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
 visibility: {  }
