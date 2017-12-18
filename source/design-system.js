@@ -14,6 +14,7 @@ import * as listGroup from 'atoms/list-group';
 import * as card from 'molecules/card';
 import * as carousel from 'molecules/carousel';
 import * as jumbotron from 'molecules/jumbotron';
+import * as pagination from 'molecules/pagination';
 import * as accordion from 'organisms/accordion';
 import * as article from 'organisms/article';
 
@@ -29,6 +30,7 @@ export default {
   card,
   carousel,
   jumbotron,
+  pagination,
   accordion,
   article,
 };
