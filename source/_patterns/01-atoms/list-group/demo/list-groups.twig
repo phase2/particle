@@ -164,7 +164,7 @@
             {% set custom_items = custom_items|merge([temp_item]) %}
           {% endfor %}
           {% include '@atoms/list-group/_list-group.twig' with {
-            items: custom_items
+            items: custom_items,
           } %}
         </div>
       </div>
