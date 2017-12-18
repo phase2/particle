@@ -2,11 +2,14 @@
  * Drupal-specific webpack config
  * This is merged over top of webpack.shared.config.js
  */
+
+// Library Imports
 const path = require('path');
 const merge = require('webpack-merge');
-const shared = require('./webpack.shared.config');
 const webpack = require('webpack');
 
+// Custom Imports
+const shared = require('./webpack.shared.config');
 const { PATH_DRUPAL } = require('./config');
 
 const drupal = {

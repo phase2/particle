@@ -2,9 +2,12 @@
  * Webpack shared config
  * The shared loaders, plugins, and processing that all our "apps" should use
  */
+
+// Library Imports
 const path = require('path');
 const webpack = require('webpack');
 
+// Custom Imports
 const {
   PATH_PL,
   PATH_DRUPAL,
