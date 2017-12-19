@@ -15,8 +15,7 @@
   'img-responsive',
   'rounded-circle',
   'float-right'
-] | join(' ') | trim %}
-
+] | sort | join(' ') | trim %}
 
 <article{{ (BUILD_TARGET == 'pl') ? ' class=' ~ classes : attributes.addClass(classes) }}>
 

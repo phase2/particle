@@ -40,7 +40,7 @@
 {% set button_attributes = [
   button_active ? 'aria-pressed="true"',
   button_toggle ? 'data-toggle="' ~ button_toggle ~ '"',
-  button_link ? 'href="' ~ button_link ~ '"',
+  button_link ? 'href=' ~ button_link,
   button_value ? 'value="' ~ button_value ~ '"',
   button_id ? 'id="' ~ button_id ~ '"',
   button_disabled ? 'disabled',

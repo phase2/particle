@@ -1,5 +1,6 @@
 {#
   Dropdown!
+
   dropdown_element: String: div|li|ul: Choose the html element of the dropdown.
   dropdown_button: Boolean: True|False: Choose whether the dropdown will be a button element or not.
   dropdown_other_classes: String: Allows use of other bootstrap utility classes.
@@ -14,8 +15,10 @@
   dropdown_menu_items: Array: An array of menu items.
   dropdown_menu_item_disabled: Boolean: True|False: Set an individual menu option as disabled.
   dropdown_menu_item_text: String: Set the text of an individual menu item.
+
   See https://getbootstrap.com/docs/4.0/components/dropdowns/ fro more details
 #}
+
 {% set dropdown_element = dropdown_element | default('div') %}
 
 {% if dropdown_button %}
@@ -24,15 +27,16 @@
   {% set dropdown_class = 'dropdown' %}
 {% endif %}
 
-{% set classes = [
+{% set dropdown_classes = [
   dropdown_class,
   dropup ? 'dropup',
-] | sort | join(' ') | trim ~ ' ' ~ dropdown_other_classes %}
+  dropdown_other_classes,
+] | sort | join(' ') | trim %}
 
 {% set dropdown_menu_element = dropdown_menu_element | default('a') %}
 {% set dropdown_menu_aria_label = button_id ? 'aria-labelledby="' ~ button_id ~ '"' %}
 
-<{{ dropdown_element }} class="{{ classes }}">
+<{{ dropdown_element }} class="{{ dropdown_classes }}">
   {% if dropdown_split %}
     {% include '@atoms/button/_button-dropdown-split.twig' %}
   {% else %}

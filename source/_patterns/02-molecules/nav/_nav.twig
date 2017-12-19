@@ -1,5 +1,6 @@
 {#
   Nav!
+
   nav_element: String: Choose the html element of the nav.
   nav_id: String: Choose the html id of the nav.
   nav_role: String: Choose the html role of the nav.
@@ -15,21 +16,22 @@
   item.nav_item_dropdown: Boolean: True | False: Set the selected nav.item as a dropdown menu.
 #}
 
-  {% set nav_element = nav_element | default('nav') %}
-  {% set nav_id = nav_id ? 'id="' ~ nav_id ~ '"' %}
-  {% set nav_role = nav_role ? 'role="' ~ nav_role ~ '"' %}
+{% set nav_element = nav_element | default('nav') %}
+{% set nav_id = nav_id ? 'id="' ~ nav_id ~ '"' %}
+{% set nav_role = nav_role ? 'role="' ~ nav_role ~ '"' %}
 
-  {% set classes = [
-    'nav',
-    nav_alignment ? 'justify-content-' ~ nav_alignment,
-    nav_vertical ? 'flex-column',
-    nav_tabs ? 'nav-tabs',
-    nav_pill ? 'nav-pills',
-    nav_fill ? 'nav-fill',
-    nav_justify ? 'nav-justified',
-  ] | join(' ') ~ nav_other_classes %}
+{% set nav_classes = [
+  'nav',
+  nav_alignment ? 'justify-content-' ~ nav_alignment,
+  nav_vertical ? 'flex-column',
+  nav_tabs ? 'nav-tabs',
+  nav_pill ? 'nav-pills',
+  nav_fill ? 'nav-fill',
+  nav_justify ? 'nav-justified',
+  nav_other_classes
+] | sort | join(' ') | trim %}
 
-<{{ nav_element }} class="{{ classes }}" {{ nav_id }} {{ nav_role }}>
+<{{ nav_element }} class="{{ nav_classes }}" {{ nav_id }} {{ nav_role }}>
   {% for item in nav_items %}
     {% if item.nav_item_dropdown %}
       {% include '@atoms/dropdown/_dropdown.twig' with item %}
