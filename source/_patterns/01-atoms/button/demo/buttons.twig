@@ -1,4 +1,6 @@
-{% embed '@atoms/grid/_grid-1-up.twig' with { container: true } %}
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
   {% block column_1 %}
     <h1>Buttons</h1>
     {% include '@molecules/card/_card-helper.twig' with {
@@ -71,4 +73,3 @@
       {% include '@atoms/button/_button.twig' with toggleable %}
     </div>
   {% endblock column_1 %}
-{% endembed %}

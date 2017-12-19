@@ -1,4 +1,6 @@
-{% embed '@atoms/grid/_grid-1-up.twig' with { container: true } %}
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
   {% block column_1 %}
 
     <h1>Inline SVG</h1>
@@ -16,4 +18,3 @@
     } %}
 
   {% endblock column_1 %}
-{% endembed %}
