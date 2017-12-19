@@ -1,5 +1,6 @@
 {#
   List-group:
+
   parent_element: String: ul|ol|div The html element that will contain the list.
   list_id: String: a unique id for the list.
   items: Object: The items you wish you put into a list.
@@ -8,6 +9,8 @@
   item_text: String: The text of the list item.
   item_badge: Array: See the documentation for badges in source/_patterns/01-atoms/badge/_badge.twig.
   list_flush: Boolean: True|False Only use this variable if the list is on a card. this will make it align properly.
+
+  see https://getbootstrap.com/docs/4.0/components/list-group/
 #}
 
 {% set parent_element = parent_element | default('ul') %}
