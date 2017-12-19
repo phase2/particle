@@ -55,3 +55,7 @@ carousel_4:
       active: FALSE
       caption_title: 'Third slide label'
       caption_body: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+
+alert:
+  type: 'info'
+  alert_primary: 'Please note that clicking carousel control arrows skips page down to that element due to the Pattern Lab iFrame.'
