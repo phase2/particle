@@ -14,12 +14,12 @@
   'badge',
   badge_pill ? 'badge-pill',
   badge_color ? 'badge-' ~ badge_color,
-] | join (' ') %}
+] | sort | join(' ') | trim ~ ' ' ~ badge_other_classes %}
 
 {% if badge_link %}
   {% set badge_link = 'href="' ~ badge_link ~ '"' %}
 {% endif %}
 
-<{{ badge_element }} {{ badge_link }}class="{{ classes }}">
+<{{ badge_element }} {{ badge_link }} class="{{ classes }}">
   {{ badge_text }}
 </{{ badge_element }}>
