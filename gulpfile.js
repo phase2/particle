@@ -88,9 +88,9 @@ const { pa11yConsecutive } = require('./tools/tasks/gulp-pa11y');
 
 gulp.task('test:accessibility', () => gulp
   .src([
-    'dist/public/patterns/**/*.html', // All html
-    '!dist/public/patterns/**/*.markup-only.html', // Except the fragment pages
-    '!dist/public/patterns/**/index.html', // Except the aggregate, auto-generated pages
+    'dist/pl/patterns/**/*.html', // All html
+    '!dist/pl/patterns/**/*.markup-only.html', // Except the fragment pages
+    '!dist/pl/patterns/**/index.html', // Except the aggregate, auto-generated pages
   ])
   .pipe(pa11yConsecutive()));
 
