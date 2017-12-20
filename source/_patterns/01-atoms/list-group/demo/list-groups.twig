@@ -148,7 +148,7 @@
           {% set badge_items = badge_items|merge([temp_item]) %}
         {% endfor %}
         {% include '@atoms/list-group/_list-group.twig' with {
-          items: badge_items
+          items: badge_items,
         } %}
       </div>
       <div class="col-sm">
@@ -177,7 +177,7 @@
         card_text: list_group_helper_toggleable,
         button: {
           button_link: 'https://getbootstrap.com/docs/4.0/components/list-group/#via-javascript',
-        }
+        },
       } %}
     </div>
     <div class="row mb-3">
