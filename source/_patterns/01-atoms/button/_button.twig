@@ -1,5 +1,6 @@
 {#
   Button!
+
   button_element: String: button|a|input choose the element type for your button.
   button_type: String: the html 'type' attribute.
   button_outline: Boolean: True|False, remove all background colors and images from a button.
@@ -16,6 +17,7 @@
   button_disabled: Boolean: True|False set button to appear disabled.
   button_other_attributes: String: Other attributes not specified in the template.
   button_text: String: Display text on the button.
+
   See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
 #}
 
@@ -25,25 +27,27 @@
   {% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
 {% endif %}
 
-{% set classes = [
+{% set button_classes = [
   buttonless_dropdown ? '' : 'btn',
   button_color ? 'btn-' ~ button_color,
   button_outline ? 'btn-outline-' ~ button_color,
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
   button_active ? 'active',
-] | sort | join(' ') | trim ~ ' ' ~ button_other_classes %}
+  button_other_classes,
+] | sort | join(' ') | trim %}
 
-{% set attributes  = [
+{% set button_attributes = [
   button_active ? 'aria-pressed="true"',
   button_toggle ? 'data-toggle="' ~ button_toggle ~ '"',
-  button_link ? 'href="' ~ button_link ~ '"',
+  button_link ? 'href=' ~ button_link,
   button_value ? 'value="' ~ button_value ~ '"',
   button_id ? 'id="' ~ button_id ~ '"',
   button_disabled ? 'disabled',
-] | sort | join(' ') | trim ~ ' ' ~ button_other_attributes %}
+  button_other_attributes,
+] | sort | join(' ') | trim %}
 
-<{{ button_element }} {{ button_type }} class="{{ classes }}" {{ attributes }}>
+<{{ button_element }} {{ button_type }} class="{{ button_classes }}" {{ button_attributes }}>
   {{ button_text }}
   {% block right %}{% endblock right %}
 </{{ button_element }}>

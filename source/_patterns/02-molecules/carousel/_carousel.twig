@@ -10,6 +10,8 @@
   see https://getbootstrap.com/docs/4.0/components/carousel/ for more details
 #}
 
+{% set carousel_id = random() %}
+
 <div id="{{ 'carousel-' ~ carousel_id }}" class="carousel slide" data-ride="carousel">
   {% block indicators %}
     {% if carousel_indicators %}
@@ -25,7 +27,7 @@
       <div class="carousel-item {{ (image.active) ? 'active' }}">
         {% include '@atoms/image/_image.twig' with {
           imageStyleName: 'carousel',
-          class: 'img img-responsive'
+          class: 'img img-responsive',
         } %}
         {% if carousel_caption %}
           <div class="carousel-caption d-none d-md-block">

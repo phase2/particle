@@ -20,10 +20,11 @@
   card_list: Number: The number of items in the list.
   list_item: Loop variable: Do not set.
   card_footer: String: The text on the footer.
+
   see https://getbootstrap.com/docs/4.0/components/card/ for more details
 #}
 
-{% set classes = classes|default([])|merge([
+{% set card_classes = [
   'card',
   card_width ? 'w-' ~ card_width,
   card_cols ? card_cols : '',
@@ -31,9 +32,10 @@
   text_color ? 'text-' ~ text_color,
   card_background ? 'bg-' ~ card_background,
   card_border ? 'border-' ~ card_border,
-]) | sort | join(' ') | trim %}
+  card_other_classes,
+] | sort | join(' ') | trim %}
 
-<div class="{{ classes }}">
+<div class="{{ card_classes }}">
   {% block card_header %}
     {% if card_header %}
       <div class="card-header">

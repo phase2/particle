@@ -1,5 +1,6 @@
 {#
   Nav Item!
+
   nav_item_link: String: The URL the nav item will lead to.
   nav_item_element: String: The nav-item's html element.
   nav_item_js: Boolean: True|False: Choose whether to use bootstrap's built-in nav javascript.
@@ -20,7 +21,7 @@
     'data-toggle="tab"',
     'role="tab"',
     'aria-controls="' ~ nav_item_text ~ '"',
-  ] | join(' ')%}
+  ] | sort | join(' ') | trim %}
   {#test hfref ^#}
 {% endif %}
 

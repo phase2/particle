@@ -16,12 +16,13 @@
   see https://getbootstrap.com/docs/4.0/components/jumbotron/ for more details
 #}
 
-{% set classes = [
+{% set jumbotron_classes = [
   'jumbotron',
   jumbotron_fluid ? 'jumbotron-fluid',
-] | join(' ') %}
+  jumbotron_other_classes,
+] | sort | join(' ') | trim %}
 
-<div class="{{ classes }}">
+<div class="{{ jumbotron_classes }}">
   {% if jumbotron_fluid %}
     <div class="container">
   {% endif %}

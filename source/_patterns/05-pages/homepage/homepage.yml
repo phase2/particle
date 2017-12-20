@@ -1,0 +1,6 @@
+alert_info:
+  type: 'status'
+  alert_primary: 'This is our homepage!'
+
+footer_content:
+  slogan: 'Powered by <a href="http://patternlab.io/" target="_blank">Pattern Lab</a>'

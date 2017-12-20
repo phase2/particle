@@ -1,8 +1,6 @@
 {#
   Alert!
 
-  Documenting Alerts from Bootstrap.
-
   type: String: status | warning | error: The type of error to display.
   alert_degree: String (optional): The degree of error. Set via Type for Accessibility.
   alert_title: String: The heading value of the Alert.
@@ -27,6 +25,7 @@
   'alert-dismissible',
   'fade',
   'show',
+  alert_other_classes,
 ] | sort | join(' ') | trim %}
 
 {% set alert_degree = ( type == 'error' ? 'role=alert' : 'aria-live=polite' ) %}

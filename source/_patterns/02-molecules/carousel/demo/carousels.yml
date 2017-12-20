@@ -1,5 +1,4 @@
 carousel_1:
-  carousel_id: 1
   carousel_images:
     -
       active: TRUE
@@ -9,7 +8,6 @@ carousel_1:
       active: FALSE
 
 carousel_2:
-  carousel_id: 2
   carousel_controls: TRUE
   carousel_images:
     -
@@ -20,7 +18,6 @@ carousel_2:
       active: FALSE
 
 carousel_3:
-  carousel_id: 3
   carousel_controls: TRUE
   carousel_indicators:
     - active: TRUE
@@ -35,7 +32,6 @@ carousel_3:
       active: FALSE
 
 carousel_4:
-  carousel_id: 4
   carousel_controls: TRUE
   carousel_caption: TRUE
   carousel_indicators:

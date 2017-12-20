@@ -12,6 +12,7 @@
 {% set pagination_classes = [
   'pagination',
   pagination_size ? 'pagination-' ~ pagination_size,
+  pagination_other_classes,
 ] | sort | join(' ') | trim %}
 
 <nav aria-label="{{ pagination_title }}">
