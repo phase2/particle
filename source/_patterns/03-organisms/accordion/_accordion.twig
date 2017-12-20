@@ -14,6 +14,8 @@
   * https://getbootstrap.com/docs/4.0/components/card/
 #}
 
+{% set accordion_id = random(9999) %}
+
 <div id="{{ 'accordion-' ~ accordion_id }}" role="tablist">
   {% for card in accordion_card_list %}
     {% embed '@molecules/card/_card.twig' %}
