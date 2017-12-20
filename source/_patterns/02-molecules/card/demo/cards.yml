@@ -27,7 +27,7 @@ text_card_2:
   card_title: Card Title
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
   card_subtitle: Card subtitle
-  card_link: 'https://github.com/phase2/pattern-lab-starter'
+  card_link: 'https://github.com/phase2/particle'
   card_link_text: 'Card link'
 
 text_card_3:
