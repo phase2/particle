@@ -9,7 +9,7 @@
       text_color: 'light',
       button: {
         button_link: 'http://getbootstrap.com/docs/4.0/components/navs/',
-      }
+      },
     } %}
 
     <div class="mb-3">
@@ -32,37 +32,37 @@
     <div class=" mb-3">
       <h1>Vertical Alignment</h1>
       {% include '@molecules/nav/_nav.twig' with {
-        nav_vertical: 'true',
+        nav_vertical: true,
       } %}
     </div>
 
     <div class=" mb-3">
       <h1>Tabs</h1>
       {% include '@molecules/nav/_nav.twig' with {
-        nav_tabs: 'true',
+        nav_tabs: true,
       } %}
     </div>
 
     <div class=" mb-3">
       <h1>Pills</h1>
       {% include '@molecules/nav/_nav.twig' with {
-        nav_pill: 'true',
+        nav_pill: true,
       } %}
     </div>
 
     <div class=" mb-3">
       <h1>Fill</h1>
       {% include '@molecules/nav/_nav.twig' with {
-        nav_pill: 'true',
-        nav_fill: 'true',
+        nav_pill: true,
+        nav_fill: true,
       } %}
     </div>
 
     <div class=" mb-3">
       <h1>Justify</h1>
       {% include '@molecules/nav/_nav.twig' with {
-        nav_pill: 'true',
-        nav_justify: 'true',
+        nav_pill: true,
+        nav_justify: true,
       } %}
     </div>
 
@@ -74,7 +74,7 @@
         {% set responsive_items = responsive_items|merge([temp_item]) %}
       {% endfor %}
       {% include '@molecules/nav/_nav.twig' with {
-        nav_pill: 'true',
+        nav_pill: true,
         nav_other_classes: 'flex-column flex-sm-row',
         nav_items: responsive_items,
       } %}

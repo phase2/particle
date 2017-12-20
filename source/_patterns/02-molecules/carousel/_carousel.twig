@@ -10,7 +10,7 @@
   see https://getbootstrap.com/docs/4.0/components/carousel/ for more details
 #}
 
-{% set carousel_id = random(9999) %}
+{% set carousel_id = random() %}
 
 <div id="{{ 'carousel-' ~ carousel_id }}" class="carousel slide" data-ride="carousel">
   {% block indicators %}
