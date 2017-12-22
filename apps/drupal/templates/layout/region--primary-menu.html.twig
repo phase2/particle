@@ -21,6 +21,8 @@
 ] | join(' ') | trim %}
 
 {% if content %}
+  {# The Primary Menu region requires our Nav wrapper, which we've removed from block--system-menu-block.html.twig #}
+  {# This was done to insure the content array matches what Bootstrap 4 expects - an unordered list representing our menu and the Search block #}
   <nav role="navigation" aria-labelledby="block-particle-mainnavigation-menu"{{ attributes.addClass(navbar_classes) }}>
     <a class="navbar-brand" href="{{ url('<front>') }}">{{ 'Particle'|t }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
