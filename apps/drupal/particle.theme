@@ -87,3 +87,39 @@ function particle_preprocess_page(&$variables) {
   }
 
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function particle_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  $id = $variables['element']['#id'];
+  if ($id == 'views-exposed-form-search-page' || $id == 'search-block-form') {
+    $suggestions[] = 'form__particle_search';
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function particle_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Switch method to allow additional cases for these forms.
+  // Let's be explicit because it's easier for newcomers.
+  $id = $form['#id'];
+  switch($id) {
+    case 'views-exposed-form-search-page':
+      // Clean the unwanted label.
+      unset($form['#info']['filter-search_api_fulltext']['label']);
+      // Update type and add Bootstrap classes.
+      $form['keywords']['#type'] = 'search';
+      $form['keywords']['#size'] = 15;
+      $form['keywords']['#title'] = t('Enter the terms you wish to search for.');
+      $form['keywords']['#title_display'] = 'invisible';
+      $form['keywords']['#attributes']['class'] = ['form-control'];
+      $form['actions']['submit']['#attributes']['class'] = ['btn', 'btn-outline-success'];
+      break;
+    case 'search-block-form':
+      // For Drupal's built-in Search, add classes.
+      $form['keys']['#attributes']['class'] = ['form-control'];
+      $form['actions']['submit']['#attributes']['class'] = ['btn', 'btn-outline-success'];
+  }
+}

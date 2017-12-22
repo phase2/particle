@@ -15,5 +15,5 @@ settings:
   id: search_form_block
   label: 'Search form'
   provider: search
-  label_display: visible
+  label_display: '0'
 visibility: {  }
