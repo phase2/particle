@@ -5,6 +5,8 @@
  * Functions to support theming in the Particle theme.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
