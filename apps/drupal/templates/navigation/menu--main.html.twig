@@ -30,6 +30,7 @@
   {% import _self as menus %}
     {% if items %}
 
+    {# Add wrapper_classes array to style our unordered list below. #}
     {% set wrapper_classes = [
       'navbar-nav',
       'mr-auto',
@@ -43,10 +44,13 @@
 
         {% for item in items %}
 
+          {# Sync Drupal and Bootstrap's active state classes. #}
           {% set item_classes = [
             item.in_active_trail ? 'active',
           ] %}
 
+          {#  Include our pre-built Nav Items from Particle.
+              See particle/source/_patterns/02-molecules/nav/_nav-item.twig. #}
           {% include '@molecules/nav/_nav-item.twig' with {
             nav_item_element: 'li',
             nav_item_classes: item_classes,
