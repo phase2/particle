@@ -44,30 +44,21 @@
         {% for item in items %}
 
           {% set item_classes = [
-              'nav-item',
-              item.in_active_trail ? 'active',
-            ]
-          %}
+            item.in_active_trail ? 'active',
+          ] %}
 
-          {% set link_classes = [
-              'nav-link',
-            ]
-          %}
+          {% include '@molecules/nav/_nav-item.twig' with {
+            nav_item_element: 'li',
+            nav_item_classes: item_classes,
+            nav_item_link: item.url,
+            js_attributes: item.attributes,
+            nav_item_text: item.title,
+          } %}
 
-          <li{{ item.attributes.addClass(item_classes) }}>
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
 
-            {{
-              link(
-                item.title,
-                item.url,
-                item.attributes.addClass(link_classes).removeClass(item_classes)
-              )
-            }}
-
-            {% if item.below %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-            {% endif %}
-          </li>
         {% endfor %}
       </ul>
       {% endif %}

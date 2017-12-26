@@ -2,25 +2,38 @@ navs_helper: Documentation and examples for how to use Bootstrap's included navi
 
 nav_items:
   - nav_item_text: Menu
-    nav_item_link_classes: active
+    nav_item_link_other_classes:
+      - active
   - nav_item_text: Menu 2
   - nav_item_text: Menu 3
   - nav_item_text: Menu 4
-    nav_item_link_classes: disabled
+    nav_item_link_other_classes:
+      - disabled
 
 nav_items_responsive:
   - nav_item_text: Menu
-    nav_item_link_classes: flex-sm-fill text-sm-center active
+    nav_item_link_other_classes:
+      - flex-sm-fill
+      - text-sm-center
+      - active
   - nav_item_text: Menu 2
-    nav_item_link_classes: flex-sm-fill text-sm-center
+    nav_item_link_other_classes:
+      - flex-sm-fill
+      - text-sm-center
   - nav_item_text: Menu 3
-    nav_item_link_classes: flex-sm-fill text-sm-center
+    nav_item_link_other_classes:
+      - flex-sm-fill
+      - text-sm-center
   - nav_item_text: Menu 4
-    nav_item_link_classes: flex-sm-fill text-sm-center disabled
+    nav_item_link_other_classes:
+      - flex-sm-fill
+      - text-sm-center
+      - disabled
 
 nav_items_dropdown:
   - nav_item_text: Active
-    nav_item_link_classes: active
+    nav_item_link_other_classes:
+      - active
   - nav_item_dropdown: true
     dropdown_text: Dropdown
     unique_classes: nav-link
@@ -34,13 +47,15 @@ nav_items_dropdown:
       - dropdown_menu_item_text: Another Action
       - dropdown_menu_item_text: Something else here
   - nav_item_text: Link
-    nav_item_link_classes:
+    nav_item_link_other_classes:
   - nav_item_text: Disabled
-    nav_item_link_classes: disabled
+    nav_item_link_other_classes:
+      - disabled
 
 nav_items_javascript:
   - nav_item_text: Home
-    nav_item_link_classes: active
+    nav_item_link_other_classes:
+      - active
     nav_item_id: home-tab
     nav_item_link: '#home'
   - nav_item_text: Profile
