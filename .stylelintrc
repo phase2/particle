@@ -2,7 +2,9 @@
   "plugins": [
     "stylelint-scss",
   ],
-  "ignoreFiles": [],
+  "ignoreFiles": [
+    "apps/pl/pattern-lab/**/*"
+  ],
   "rules": {
     "declaration-colon-space-after": "always",
     "declaration-no-important": true,
