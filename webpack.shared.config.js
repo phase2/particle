@@ -75,7 +75,7 @@ module.exports = {
                 sourceMap: true,
                 // Revisit the real or imagined performance hit here
                 // includePaths: [
-                //   path.resolve(PATH_SOURCE, '_patterns'), // @import '00-base/base';
+                //   path.resolve(PATH_SOURCE, '_patterns'), // @import '00-protons/base';
                 // ],
                 functions: sassExportData,
               },
@@ -191,7 +191,7 @@ module.exports = {
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
   resolve: {
     alias: {
-      base: path.resolve(__dirname, PATH_SOURCE, '_patterns/00-base/'),
+      protons: path.resolve(__dirname, PATH_SOURCE, '_patterns/00-protons/'),
       atoms: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/'),
       molecules: path.resolve(__dirname, PATH_SOURCE, '_patterns/02-molecules/'),
       organisms: path.resolve(__dirname, PATH_SOURCE, '_patterns/03-organisms/'),

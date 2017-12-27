@@ -50,9 +50,9 @@ plugins:
   twigNamespaces:
     enabled: true
     namespaces:
-      base:
+      protons:
         paths:
-          - ../../../source/_patterns/00-base
+          - ../../../source/_patterns/00-protons
       atoms:
         paths:
           - ../../../source/_patterns/01-atoms

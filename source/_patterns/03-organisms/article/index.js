@@ -3,7 +3,7 @@
  */
 
 // Module dependencies
-import 'base';
+import 'protons';
 
 // Module styles
 import './_article.scss';

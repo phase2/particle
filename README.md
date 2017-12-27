@@ -159,7 +159,7 @@ The following are significant items at the root level:
     │   │   │    ├── _button.twig      # The pure component template, underscore required
     │   │   │    └── index.js          # Component entry point (See "Anatomy of a Component below)
     │   │   └── ...                    # Other @atoms
-    │   └── ...                        # @base, @atoms, @molecules, @organisms, @templates, @pages
+    │   └── ...                        # @protons, @atoms, @molecules, @organisms, @templates, @pages
     └── design-system.js               # The ultimate importer/exporter of the design system pieces
 
 >The design system is *consumed by* "apps". The two apps included are a Drupal theme and a Pattern Lab installation.
@@ -214,8 +214,8 @@ import $ from 'jquery';
 // Import specific plugins this component may need
 import 'bootstrap/js/src/button';
 
-// source/_patterns/01-atoms/00-base/index.js
-import 'base';
+// source/_patterns/01-atoms/00-protons/index.js
+import 'protons';
 
 // Import local Sass (which in turn imports Bootstrap Sass)
 import './_button.scss';
@@ -277,7 +277,7 @@ import './_button.scss';
 Looking into `source/_patterns/01-atoms/button/_button.scss` reveals:
 
 ```scss
-@import '../../00-base/config'; // DOES NOT OUTPUT CSS!
+@import '../../00-protons/config'; // DOES NOT OUTPUT CSS!
 
 $btn-border-radius: 0.25rem;
 @import "~bootstrap/scss/buttons"; // OUTPUTS CSS!
@@ -303,7 +303,7 @@ All javascript should be written in ES6 (ES2015) according to the [AirBnB JavaSc
 
 | Path                             | Twig         | Javascript  | Sass |
 | -------------------------------- | ------------ | ----------- | ---- |
-| `source/_patterns/00-base/`      | `@base`      | `base`      | TBD
+| `source/_patterns/00-protons/`      | `@base`      | `base`      | TBD
 | `source/_patterns/01-atoms/`     | `@atoms`     | `atoms`     | TBD
 | `source/_patterns/02-molecules/` | `@molecules` | `molcules`  | TBD
 | `source/_patterns/03-organisms/` | `@organisms` | `organisms` | TBD

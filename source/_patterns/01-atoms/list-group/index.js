@@ -4,7 +4,7 @@
 import 'bootstrap/js/src/tab';
 
 // Module dependencies
-import 'base';
+import 'protons';
 import 'atoms/badge';
 
 // Import custom sass, includes Bootstrap sass

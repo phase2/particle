@@ -3,7 +3,7 @@
  */
 
 // Module Dependencies
-import 'base';
+import 'protons';
 
 // Module styles
 import './_badge.scss';

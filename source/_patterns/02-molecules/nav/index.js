@@ -3,7 +3,7 @@
  */
 
 // Custom
-import 'base';
+import 'protons';
 
 // Import custom sass, includes Bootstrap sass
 import './_nav.scss';

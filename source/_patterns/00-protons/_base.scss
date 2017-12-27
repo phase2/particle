@@ -5,7 +5,7 @@
 /// Instead, import as a dependency in a component's .js file. From @molecules/card:
 /// @example
 /// ```js
-/// import base from '../../00-base';
+/// import base from '../../00-protons';
 /// import button from '../../01-atoms/button';
 /// ```
 /// This guarantees both de-duplication and existence of required, generated CSS.

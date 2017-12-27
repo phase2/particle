@@ -6,7 +6,7 @@
 import 'bootstrap/js/src/alert';
 
 // Module Dependencies
-import 'base';
+import 'protons';
 
 // Module styles
 import './_alert.scss';
