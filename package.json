@@ -29,7 +29,7 @@
   "dependencies": {
     "babel-preset-es2015": "^6.24.0",
     "bower": "^1.8.0",
-    "gulp": "gulpjs/gulp#6d71a65",
+    "gulp": "github:gulpjs/gulp#6d71a65",
     "p2-theme-core": "^9.4.6",
     "rc": "^1.2.0",
     "stylelint-scss": "^1.4.3"
