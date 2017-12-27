@@ -53,8 +53,8 @@ gulp.task('compile:twig-namespaces', () => gulp
     ],
     // What are the top-level namespace paths, and which sub paths should we ignore?
     sets: {
-      base: {
-        root: 'source/_patterns/00-base',
+      protons: {
+        root: 'source/_patterns/00-protons',
         ignore: '/demo',
       },
       atoms: {

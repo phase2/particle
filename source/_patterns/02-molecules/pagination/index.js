@@ -3,7 +3,7 @@
  */
 
 // Module dependencies
-import 'base';
+import 'protons';
 import 'atoms/icon';
 
 // Module styles

@@ -16,7 +16,7 @@ module.exports = function SassToJson(opt) {
   const options = opt || {};
 
   // Start by pulling off the paths mentioned in config
-  // Will look like e.g. ['source/_patterns/00-base', 'source/_patterns/01-atoms, 'etc]
+  // Will look like e.g. ['source/_patterns/00-protons', 'source/_patterns/01-atoms, 'etc]
   const filefolders = _.map(options.sets, namePath => namePath.root);
 
   // Check last file modified
@@ -42,9 +42,9 @@ module.exports = function SassToJson(opt) {
     // Get the proper path of this file, given:
     // cwd: /Users/illepic/dev/pattern-lab-starter
     // base: /Users/illepic/dev/pattern-lab-starter/source/_patterns/
-    // path: /Users/illepic/dev/pattern-lab-starter/source/_patterns/00-base/demo/grid/_grid.twig
+    // path: /Users/illepic/dev/pattern-lab-starter/source/_patterns/00-protons/demo/grid/_grid.twig
     //
-    // Want output like: i.e. source/_patterns/00-base/demo/type/text
+    // Want output like: i.e. source/_patterns/00-protons/demo/type/text
     filefolders.push(path.dirname(path.relative(vinylFile.cwd, vinylFile.path)));
 
     callback();
@@ -62,7 +62,7 @@ module.exports = function SassToJson(opt) {
       // Build the namespaces object that looks like:
       // {
       //   atoms: {
-      //     paths: ['source/_patterns/00-base', 'source/_patterns/01-atoms, 'etc],
+      //     paths: ['source/_patterns/00-protons', 'source/_patterns/01-atoms, 'etc],
       //   molecules: ...
       // }
       const namespaces = _.reduce(options.sets, (result, namePath, name) => {

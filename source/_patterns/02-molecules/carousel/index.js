@@ -7,7 +7,7 @@ import 'bootstrap/js/src/util';
 import 'bootstrap/js/src/carousel';
 
 // Module dependencies
-import 'base';
+import 'protons';
 import 'atoms/image';
 
 // Module styles

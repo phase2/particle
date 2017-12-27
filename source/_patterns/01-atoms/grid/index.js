@@ -1,4 +1,4 @@
-import 'base';
+import 'protons';
 
 import './_grid.scss';
 

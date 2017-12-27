@@ -5,7 +5,7 @@
 import 'bootstrap/js/src/collapse';
 
 // Module dependencies
-import 'base';
+import 'protons';
 import 'atoms/button';
 import 'molecules/card';
 

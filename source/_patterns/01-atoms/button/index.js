@@ -6,7 +6,7 @@ import $ from 'jquery';
 import 'bootstrap/js/src/button';
 
 // Custom
-import 'base';
+import 'protons';
 
 // Import custom sass, includes Bootstrap sass
 import './_button.scss';
