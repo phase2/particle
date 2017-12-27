@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - particle
+id: particle_searchform
+theme: particle
+region: primary_menu
+weight: 20
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+visibility: {  }

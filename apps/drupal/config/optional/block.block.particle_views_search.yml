@@ -8,10 +8,10 @@ dependencies:
     - views
   theme:
     - particle
-id: particle_search
+id: particle_views_search
 theme: particle
 region: primary_menu
-weight: 0
+weight: 20
 provider: null
 plugin: 'views_exposed_filter_block:search-page'
 settings:
@@ -19,5 +19,5 @@ settings:
   label: 'Search'
   provider: views
   label_display: '0'
-  views_label: ''
+  views_label: visible
 visibility: {  }

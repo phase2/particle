@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+
+{% set navbar_classes = [
+  'navbar',
+  'navbar-expand-lg',
+  'navbar-dark',
+  'bg-dark',
+] | join(' ') | trim %}
+
+{% if content %}
+  {# The Primary Menu region requires our Nav wrapper, which we've removed from block--system-menu-block.html.twig #}
+  {# This was done to insure the content array matches what Bootstrap 4 expects - an unordered list representing our menu and the Search block #}
+  {% embed '@organisms/navbar/_navbar.twig' %}
+    {% set navbar_arialebelledby = 'block-particle-mainnavigation-menu' %}
+    {% set navbar_attributes = attributes.addClass(navbar_classes) %}
+
+    {% block navbar_brand %}
+      <a class="navbar-brand" href="{{ url('<front>') }}">{{ 'Particle'|t }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    {% endblock navbar_brand %}
+    {% block navbar_content %}
+      <div class="collapse navbar-collapse" id="primary-menu">
+        {{ content }}
+      </div>
+    {% endblock navbar_content %}
+
+  {% endembed %}
+{% endif %}

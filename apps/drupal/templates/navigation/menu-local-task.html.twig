@@ -21,5 +21,4 @@
 ] | join(' ') %}
 
 {# Merge attributes/classes into link for Bootstrap #}
-{# @TODO update to use Preprocess #}
 <li{{ attributes.addClass('nav-item') }}>{{ link|merge({'#options': {'attributes': {'class': link_classes}}}) }}</li>
