@@ -44,7 +44,7 @@ npm run setup
 npm start
 ```
 
-Simply wait until the webpack bundle output appears then visit [http://0.0.0.0/pl](http://0.0.0.0/pl) (or [http://localhost/pl](http://localhost/pl)) and start working.
+Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/pl](http://0.0.0.0:8080/pl) (or [http://localhost/pl](http://localhost/pl)) and start working.
 
 ### Quickstart with Drupal 8
 
@@ -552,21 +552,23 @@ npm install --save-dev pa11y@5.0.0-beta.5 pa11y-reporter-cli
 Then whenever you want to run your tests, simply:
 
 ```bash
-npm run test:accessibility
+npm run pa11y
 ```
 
-See `./pa11y.json` and the `test:accessibility` tasks inside `./gulpfile.js` for configuration.
+See `./pa11y.js` for configuration [options](https://github.com/pa11y/pa11y/tree/5.x#configuration). Add your needed updates to the options object. 
 
-It may be necessary to change config in `./pally.json`. See below for example on ignoring rules:
-
+```js
+const options = {
+  standard: 'WCAG2AAA',
+  ignore: [
+    'WCAG2AAA.Principle3.Guideline3_1.3_1_1.H57.2',
+  ],
+  log: {
+    debug: console.log,
+    error: console.error,
+    info: console.log,
+  },
+};
 ```
-{
-  "standard": "WCAG2AAA",
-  "ignore": [
-    "WCAG2AAA.Principle3.Guideline3_1.3_1_1.H57.2",
-    "WCAG2AAA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl"
-  ]
-}
-```
 
-See [pa11y on GitHub](https://github.com/pa11y/pa11y/tree/5.x#configuration) for additional options.
+

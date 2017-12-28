@@ -26,7 +26,6 @@
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js & npm run lint:scss",
     "test": "gulp test",
-    "test:accessibility": "gulp test:accessibility",
     "gulp": "gulp",
     "update": "npm update && cd ./apps/pl/pattern-lab && composer update",
     "new": "yo ./tools/new-component/index.js",
@@ -35,7 +34,7 @@
     "webpack-drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
     "webpack-grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
-    "pa11y": "pa11y"
+    "pa11y": "node pa11y.js"
   },
   "browserslist": [
     "last 2 versions",
