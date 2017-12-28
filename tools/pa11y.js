@@ -8,7 +8,7 @@ const urls = [
   'http://0.0.0.0:8080/pl/patterns/02-molecules-card-demo-cards/02-molecules-card-demo-cards.html',
 ];
 
-// Put together some options to use in each test
+// Put together some options to use in each test.
 const options = {
   standard: 'WCAG2AAA',
   ignore: [
