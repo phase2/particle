@@ -1,7 +1,7 @@
 const pa11y = require('pa11y');
 const reporter = require('pa11y-reporter-cli'); // As pa11y 5 stabilizes, we can pull this off pa11y
 
-// @TODO pl data from src/themes/particle/dist/pl/styleguide/data/patternlab-data.js.
+// @TODO dynamically retrieve pl data from config.js.
 // An Array of URLs for pa11y to test.
 const urls = [
   'http://0.0.0.0:8080/pl/patterns/00-protons-demo-borders/00-protons-demo-borders.html',
@@ -9,6 +9,7 @@ const urls = [
 ];
 
 // Put together some options to use in each test.
+// See pa11y config https://github.com/pa11y/pa11y/tree/5.x#configuration.
 const options = {
   standard: 'WCAG2AAA',
   ignore: [
