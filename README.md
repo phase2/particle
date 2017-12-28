@@ -117,12 +117,6 @@ Run all tests:
 npm test
 ```
 
-Run accessibility testing on Pattern Lab rendered output:
-
-```bash
-npm run test:accessibility
-```
-
 To update node and composer dependencies (**merge** if offered the option):
 
 ```bash
@@ -357,7 +351,6 @@ Gulp 4 is used and the `npm run` commands above basically trigger gulp without h
 
 - `npm run gulp -- --help` - See the help menu
 - `npm run gulp -- compile` - Compile Pattern Lab
-- `npm run gulp -- test:accessibility` - Run Pa11y tests
 
 For more info on Gulp:
 
@@ -538,3 +531,28 @@ Particle makes adding or removing apps a snap! By default Particle has Pattern L
 * Special: to remove Grav, delete `particle.yaml`
 * Add or delete App folder under `/apps`
 
+## Testing
+
+Particle provides the starting point for various types of testing.
+
+## Accessibility Testing
+
+To run [pa11y](http://pa11y.org/) accessibility testing on Pattern Lab rendered output, first you'll need to install the pa11y dependencies:
+
+```bash
+npm install pa11y@5.0.0-beta.5 pa11y-reporter-cli 
+```
+
+To save these dependencies to your project *permanently*, run the following instead:
+
+```bash
+npm install --save-dev pa11y@5.0.0-beta.5 pa11y-reporter-cli 
+``` 
+
+Then whenever you want to run your tests, simply:
+
+```bash
+npm run test:accessibility
+```
+
+See `./pa11y.json` and the `test:accessibility` tasks inside `./gulpfile.js` for configuration.
