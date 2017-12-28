@@ -1,6 +1,12 @@
 const pa11y = require('pa11y');
+const reporter = require('pa11y-reporter-cli'); // As pa11y 5 stabilizes, we can pull this off pa11y
 
-// @TODO Add HTML Reporter and use.
+// @TODO pl data from src/themes/particle/dist/pl/styleguide/data/patternlab-data.js.
+// An Array of URLs for pa11y to test.
+const urls = [
+  'http://0.0.0.0:8080/pl/patterns/00-protons-demo-borders/00-protons-demo-borders.html',
+  'http://0.0.0.0:8080/pl/patterns/02-molecules-card-demo-cards/02-molecules-card-demo-cards.html',
+];
 
 // Put together some options to use in each test
 const options = {
@@ -16,18 +22,14 @@ const options = {
   },
 };
 
-// Run tests against multiple URLs
-// @TODO Update promise to pull all PL data:
-// From src/themes/particle/dist/pl/styleguide/data/patternlab-data.js.
-Promise.all([
-  pa11y('http://0.0.0.0:8080/pl/patterns/00-protons-demo-borders/00-protons-demo-borders.html', options),
-  pa11y('http://0.0.0.0:8080/pl/patterns/02-molecules-card-demo-cards/02-molecules-card-demo-cards.html', options),
-])
-  .then(results => {
-    // @TODO handle results via iterating.
-    console.log(results[0]); // Results for the first URL
-    console.log(results[1]); // Results for the second URL
-  })
-  .catch(error => {
-    console.error(error.message);
-  });
+/**
+ * Returns an array of URLs with pa11y options.
+ * @param {Array} urls - the urls we want to test.
+ * @param {Array} options - the pa11y options we evaluate against.
+ * @return {Array} pallyUrls
+ */
+const pallyUrls = urls.map(url => pa11y(url, options));
+
+Promise.all(pallyUrls)
+  .then(results => results.forEach(result => options.log.info(reporter.results(result))))
+  .catch(error => options.log.error(error.message));
