@@ -1,5 +1,7 @@
 const pa11y = require('pa11y');
 
+// @TODO Add HTML Reporter and use.
+
 // Put together some options to use in each test
 const options = {
   standard: 'WCAG2AAA',
@@ -22,6 +24,7 @@ Promise.all([
   pa11y('http://0.0.0.0:8080/pl/patterns/02-molecules-card-demo-cards/02-molecules-card-demo-cards.html', options),
 ])
   .then(results => {
+    // @TODO handle results via iterating.
     console.log(results[0]); // Results for the first URL
     console.log(results[1]); // Results for the second URL
   })
