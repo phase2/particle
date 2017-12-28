@@ -556,3 +556,17 @@ npm run test:accessibility
 ```
 
 See `./pa11y.json` and the `test:accessibility` tasks inside `./gulpfile.js` for configuration.
+
+It may be necessary to change config in `./pally.json`. See below for example on ignoring rules:
+
+```
+{
+  "standard": "WCAG2AAA",
+  "ignore": [
+    "WCAG2AAA.Principle3.Guideline3_1.3_1_1.H57.2",
+    "WCAG2AAA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl"
+  ]
+}
+```
+
+See [pa11y on GitHub](https://github.com/pa11y/pa11y/tree/5.x#configuration) for additional options.
