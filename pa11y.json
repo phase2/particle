@@ -1,3 +1,7 @@
 {
-  "standard": "WCAG2AAA"
+  "standard": "WCAG2AAA",
+  "ignore": [
+    "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17",
+    "WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18"
+  ]
 }
