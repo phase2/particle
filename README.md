@@ -555,7 +555,7 @@ Then whenever you want to run your tests, simply:
 npm run pa11y
 ```
 
-See `./pa11y.js` for configuration [options](https://github.com/pa11y/pa11y/tree/5.x#configuration). Add your needed updates to the options object. 
+See `./pa11y.js` for configuration [options](https://github.com/pa11y/pa11y/tree/5.x#configuration). Note the ignore options are for example only, add your needed updates to the options object. 
 
 ```js
 const options = {
