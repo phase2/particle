@@ -34,7 +34,7 @@
     "webpack-drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
     "webpack-grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
-    "pa11y": "node pa11y.js"
+    "pa11y": "node tools/pa11y.js"
   },
   "browserslist": [
     "last 2 versions",
