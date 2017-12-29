@@ -2,7 +2,7 @@ module.exports = {
   verbose: true,
   // If jest can't find a library in node_modules, include it here
   transformIgnorePatterns: [
-    '!node_modules/bootstrap'
+    '!node_modules/bootstrap',
   ],
   moduleNameMapper: {
     // Jest doesn't care about styles, images, fonts, etc
@@ -14,6 +14,6 @@ module.exports = {
     '^molecules$': '<rootDir>/source/_patterns/02-molecules/',
     '^organisms$': '<rootDir>/source/_patterns/03-organisms/',
     '^templates$': '<rootDir>/source/_patterns/04-templates/',
-    '^pages$': '<rootDir>/source/_patterns/05-pages/'
+    '^pages$': '<rootDir>/source/_patterns/05-pages/',
   },
 };
