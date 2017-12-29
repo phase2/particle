@@ -44,7 +44,7 @@ npm run setup
 npm start
 ```
 
-Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/pl](http://0.0.0.0:8080/pl) (or [http://localhost/pl](http://localhost/pl)) and start working.
+Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/pl](http://0.0.0.0:8080/pl) (or [http://localhost:8080/pl](http://localhost:8080/pl)) and start working.
 
 ### Quickstart with Drupal 8
 
@@ -555,7 +555,7 @@ Then whenever you want to run your tests, simply:
 npm run pa11y
 ```
 
-See `./pa11y.js` for configuration [options](https://github.com/pa11y/pa11y/tree/5.x#configuration). Note the ignore options are for example only, add your needed updates to the options object. 
+See `./tools/pa11y.js` for configuration [options](https://github.com/pa11y/pa11y/tree/5.x#configuration). Note the ignore options are for example only, add your needed updates to the options object. Add additional pages to the test via the `testPaths` array.
 
 ```js
 const options = {
@@ -570,5 +570,3 @@ const options = {
   },
 };
 ```
-
-
