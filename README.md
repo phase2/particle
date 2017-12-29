@@ -44,7 +44,7 @@ npm run setup
 npm start
 ```
 
-Simply wait until the webpack bundle output appears then visit [http://0.0.0.0/pl](http://0.0.0.0/pl) (or [http://localhost/pl](http://localhost/pl)) and start working.
+Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/pl](http://0.0.0.0:8080/pl) (or [http://localhost:8080/pl](http://localhost:8080/pl)) and start working.
 
 ### Quickstart with Drupal 8
 
@@ -115,12 +115,6 @@ Run all tests:
 
 ```bash
 npm test
-```
-
-Run accessibility testing on Pattern Lab rendered output:
-
-```bash
-npm run test:accessibility
 ```
 
 To update node and composer dependencies (**merge** if offered the option):
@@ -357,7 +351,6 @@ Gulp 4 is used and the `npm run` commands above basically trigger gulp without h
 
 - `npm run gulp -- --help` - See the help menu
 - `npm run gulp -- compile` - Compile Pattern Lab
-- `npm run gulp -- test:accessibility` - Run Pa11y tests
 
 For more info on Gulp:
 
@@ -538,3 +531,42 @@ Particle makes adding or removing apps a snap! By default Particle has Pattern L
 * Special: to remove Grav, delete `particle.yaml`
 * Add or delete App folder under `/apps`
 
+## Testing
+
+Particle provides the starting point for various types of testing.
+
+## Accessibility Testing
+
+To run [pa11y](http://pa11y.org/) accessibility testing on Pattern Lab rendered output, first you'll need to install the pa11y dependencies:
+
+```bash
+npm install pa11y@5.0.0-beta.5 pa11y-reporter-cli 
+```
+
+To save these dependencies to your project *permanently*, run the following instead:
+
+```bash
+npm install --save-dev pa11y@5.0.0-beta.5 pa11y-reporter-cli 
+``` 
+
+Then whenever you want to run your tests, simply:
+
+```bash
+npm run pa11y
+```
+
+See `./tools/pa11y.js` for configuration [options](https://github.com/pa11y/pa11y/tree/5.x#configuration). Note the ignore options are for example only, add your needed updates to the options object. Add additional pages to the test via the `testPaths` array.
+
+```js
+const options = {
+  standard: 'WCAG2AAA',
+  ignore: [
+    'WCAG2AAA.Principle3.Guideline3_1.3_1_1.H57.2',
+  ],
+  log: {
+    debug: console.log,
+    error: console.error,
+    info: console.log,
+  },
+};
+```

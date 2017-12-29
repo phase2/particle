@@ -82,19 +82,6 @@ gulp.task('compile:twig-namespaces', () => gulp
   .pipe(gulp.dest('./')));
 
 /**
- * Accessibility test a subset of generated HTML files
- */
-const { pa11yConsecutive } = require('./tools/tasks/gulp-pa11y');
-
-gulp.task('test:accessibility', () => gulp
-  .src([
-    'dist/pl/patterns/**/*.html', // All html
-    '!dist/pl/patterns/**/*.markup-only.html', // Except the fragment pages
-    '!dist/pl/patterns/**/index.html', // Except the aggregate, auto-generated pages
-  ])
-  .pipe(pa11yConsecutive()));
-
-/**
  * Webpack config and setup.
  */
 // Import webpack config for PL
@@ -164,13 +151,6 @@ gulp.task('webpack:watch:pl-source', (cb) => {
 gulp.task('compile', gulp.series([
   'compile:twig-namespaces',
   'compile:pl',
-]));
-
-/**
- * Run tests against non-webpack assets
- */
-gulp.task('test', gulp.parallel([
-  'test:accessibility',
 ]));
 
 /**
