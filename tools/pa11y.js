@@ -1,4 +1,3 @@
-const url = require('url');
 const pa11y = require('pa11y');
 const reporter = require('pa11y-reporter-cli'); // As pa11y 5 stabilizes, we can pull this off pa11y
 
