@@ -533,9 +533,20 @@ Particle makes adding or removing apps a snap! By default Particle has Pattern L
 
 ## Testing
 
-Particle provides the starting point for various types of testing.
+Particle provides the starting point for various types of testing. Tests are located under the tools directory:
 
-## Accessibility Testing
+    # ./particle/
+    .
+    ├── tools/
+    │   ├── tasks/
+    │   └── tests/
+    │   │   └── accessibility/
+    │   │   └── unit/
+    │   │   └── vrt/
+    │   └── ...
+    └── ...
+
+### Accessibility Testing
 
 To run [pa11y](http://pa11y.org/) accessibility testing on Pattern Lab rendered output, first you'll need to install the pa11y dependencies:
 
