@@ -1,12 +1,12 @@
 {
   "name": "Particle",
   "version": "10.0.0",
-  "description": "A Theme with Pattern Lab",
+  "description": "A starterkit to build a design system shared to Pattern Lab, Drupal, Grav",
   "main": "gulpfile.js",
   "license": "GPL-2.0",
   "author": {
-    "name": "Evan Lovely",
-    "url": "https://github.com/EvanLovely"
+    "name": "Phase2 Technology",
+    "url": "https://github.com/phase2/"
   },
   "repository": {
     "type": "git",
@@ -83,7 +83,7 @@
     "webpack-dev-server": "^2.9.7",
     "webpack-iconfont-plugin": "0.0.2",
     "webpack-merge": "^4.1.1",
-    "yeoman-generator": "^0.23.3",
-    "yo": "^1.8.3"
+    "yeoman-generator": "^2.0.1",
+    "yo": "^2.0.0"
   }
 }
