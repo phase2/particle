@@ -41,7 +41,7 @@
     "IE >= 10"
   ],
   "dependencies": {
-    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap": "^4.0.0-beta.3",
     "font-awesome": "^4.7.0",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",

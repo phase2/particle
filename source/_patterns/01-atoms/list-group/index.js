@@ -1,7 +1,7 @@
 /**
  * List-group
  */
-import 'bootstrap/js/src/tab';
+import 'bootstrap/js/dist/tab';
 
 // Module dependencies
 import 'protons';
