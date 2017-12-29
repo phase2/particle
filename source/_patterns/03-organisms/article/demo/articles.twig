@@ -1,0 +1,12 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+
+    <h1>Article Demonstration</h1>
+    <p>A simple demonstration of an article within our grid and 1 column. It uses several Bootstrap components, such as an image floated right, a list of tags using <code>list-inline-item</code> and a <code>blockquote</code> footer to display author and date information.</p>
+    <hr>
+
+    {% include '@organisms/article/_article.twig' with article_1 %}
+
+  {% endblock %}

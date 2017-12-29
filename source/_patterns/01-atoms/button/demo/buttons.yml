@@ -1,0 +1,59 @@
+buttons_helper: Use Bootstrap's custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+
+alternate_buttons:
+  - button_element: a
+    button_link: http://getbootstrap.com/docs/4.0/components/buttons/
+    button_text: Link
+  - button_element: button
+    button_type: submit
+    button_text: Button
+  - button_element: input
+    button_type: button
+    button_value: Input
+  - button_element: input
+    button_type: submit
+    button_value: Submit
+  - button_element: input
+    button_type: reset
+    button_value: Reset
+
+sizes:
+  - button_size: lg
+    button_text: Large Button
+    button_color: secondary
+  - button_size: sm
+    button_text: Small Button
+    button_color: secondary
+
+block_level_1:
+  button_block: TRUE
+  button_text: Block level button
+  button_color: danger
+block_level_2:
+  button_block: TRUE
+  button_text: Block level button
+  button_color: success
+block_level_3:
+  button_block: TRUE
+  button_text: Block level button
+  button_color: info
+
+states:
+  - button_active: FALSE
+    button_text: Inactive State
+    button_color: info
+  - button_active: TRUE
+    button_text: Active state
+    button_color: info
+  - button_disabled: FALSE
+    button_text: Enabled state
+    button_color: warning
+  - button_disabled: TRUE
+    button_text: Disabled state
+    button_color: warning
+
+toggleable:
+  button_toggle: button
+  button_text: Toggleable button
+  button_color: dark
+  button_link: herpderp.com

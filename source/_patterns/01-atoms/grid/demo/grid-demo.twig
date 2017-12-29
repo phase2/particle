@@ -1,0 +1,61 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+
+    <h1>Grid Demo</h1>
+    <p>
+      Grids are exceptionally documented. Encourage reading the grid docs on <a
+        href="https://getbootstrap.com/docs/4.0/layout/grid/" target="_blank">Bootstrap</a>.
+      Basics: Wrap content in a container. See Layout Demo for info on containers.
+      Rows are wrappers for columns via the <code>.row</code> class.
+      Use <code>col-</code> classes to size your columns between 1 - 12, ex.
+    </p>
+
+    <h1>One column</h1>
+    {% embed '@atoms/grid/_grid-1-up.twig' with { container: false } %}
+      {% block column_1 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+    {% endembed %}
+
+    <h1>Two columns</h1>
+    {% embed '@atoms/grid/_grid-2-up.twig' with { container: false } %}
+      {% block column_1 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+      {% block column_2 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+    {% endembed %}
+
+    <h1>Three columns</h1>
+    {% embed '@atoms/grid/_grid-3-up.twig' with { container: false } %}
+      {% block column_1 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+      {% block column_2 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+      {% block column_3 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+    {% endembed %}
+
+    <h1>Four columns</h1>
+    {% embed '@atoms/grid/_grid-4-up.twig' with { container: false } %}
+      {% block column_1 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+      {% block column_2 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+      {% block column_3 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+      {% block column_4 %}
+        <div class="bg-secondary" style="height: 10rem;"></div>
+      {% endblock %}
+    {% endembed %}
+
+  {% endblock column_1 %}

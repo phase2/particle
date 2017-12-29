@@ -1,0 +1,12 @@
+// All component Sass needs non-printing base config
+@import '../../00-protons/variables';
+
+// To change default bootstrap jumbotron variables, SEE ~bootstrap/scss/variables
+// Add bootstrap variables here
+
+//$jumbotron-padding: some_override_value;
+//$jumbotron-bg: some_override_value;
+
+@import '~bootstrap/scss/jumbotron';
+
+// Add custom code here

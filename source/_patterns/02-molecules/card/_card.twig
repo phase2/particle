@@ -1,0 +1,110 @@
+{#
+  Card!
+
+  card_element: String (optional): Element tag that defaults to div.
+  card_width: Integer: 25|50|75 If left empty the card will fill the width of it's parent element.
+  card_background: String: primary|secondary|succes|danger|warning|info|light|dark Background color.
+  card_border: String: primary|secondary|succes|danger|warning|info|light|dark Border color.
+  text_alignment: String: center|right|left|jusfify Text alignment.
+  card_header: String: The header on the card.
+  card_image_location: String: top|bottom Indicates where the image is.
+  card_image: Object:
+    src: String: Path to image
+  card_image_overlay: String: The text overlay for an image (may require additional utilities).
+  card_title: String: The title on the cared.
+  card_subtitle: String: The subtitle on the card.
+  card_text: String: The text on the card.
+  text_color: String: primary|secondary|succes|danger|warning|info|light|dark Text color.
+  card_link: String: The path to another URL.
+  card_link_text: String: The link's text.
+  card_list: Number: The number of items in the list.
+  list_item: Loop variable: Do not set.
+  card_footer: String: The text on the footer.
+
+  see https://getbootstrap.com/docs/4.0/components/card/ for more details
+#}
+
+{% set card_classes = [
+  'card',
+  card_width ? 'w-' ~ card_width,
+  card_cols ? card_cols : '',
+  text_alignment ? 'text-' ~ text_alignment,
+  text_color ? 'text-' ~ text_color,
+  card_background ? 'bg-' ~ card_background,
+  card_border ? 'border-' ~ card_border,
+  card_other_classes,
+] | sort | join(' ') | trim %}
+
+<div class="{{ card_classes }}">
+  {% block card_header %}
+    {% if card_header %}
+      <div class="card-header">
+        {{ card_header }}
+      </div>
+    {% endif %}
+  {% endblock card_header %}
+
+  {% if card_image_location == 'top' %}
+    {% block card_image_top %}
+      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+      {% include '@atoms/image/_image.twig' with {
+        imageStyleName: 'card',
+        class: 'card-img-top',
+        img: card_image,
+      } %}
+    {% endblock %}
+  {% endif %}
+
+  {% if card_image_overlay %}
+    <div class="card-img-overlay">
+      <p>{{ card_image_overlay }}</p>
+    </div>
+  {% endif %}
+
+  {% if card_flush %}
+    {# Note that 'p2card__flush__body' is not a bootstrap class. It only being used to designate the flush body#}
+    {% set body_class = 'p2card__flush--body' %}
+  {% else %}
+    {% set body_class = 'card-body' %}
+  {% endif %}
+
+  {% block card_body %}
+    <div class="{{ body_class }}">
+      <h4 class="card-title">{{ card_title }}</h4>
+      {% if card_subtitle %}
+        <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
+      {% endif %}
+      {% if card_text %}
+        <p class="card-text {{ text_color }}">{{ card_text }}</p>
+      {% endif %}
+      {% if card_link %}
+        <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
+      {% endif %}
+      {% if button %}
+        {% include "@atoms/button/_button.twig" with button %}
+      {% endif %}
+    </div>
+  {% endblock %}
+
+  {% if list %}
+    {% include '@atoms/list-group/_list-group.twig' with list %}
+  {% endif %}
+
+  {% if card_footer %}
+    <div class="card-footer">
+      {{ card_footer }}
+    </div>
+  {% endif %}
+
+  {% if card_image_location == 'bottom' %}
+    {% block card_image_bottom %}
+      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+      {% include '@atoms/image/_image.twig' with {
+        imageStyleName: 'card',
+        class: 'card-img-bottom',
+        img: card_image,
+      } %}
+    {% endblock card_image_bottom %}
+  {% endif %}
+
+</div>

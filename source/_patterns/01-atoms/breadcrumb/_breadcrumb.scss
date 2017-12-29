@@ -1,0 +1,18 @@
+// All component Sass needs non-printing base config
+@import '../../00-protons/variables';
+
+// To change default bootstrap breadcrumb variables, SEE ~bootstrap/scss/variables
+// Add bootstrap variables here
+
+//$breadcrumb-padding-y;
+//$breadcrumb-padding-x;
+//$breadcrumb-bg;
+//$breadcrumb-item-padding;
+//$breadcrumb-item-padding;
+//$breadcrumb-divider-color;
+//$breadcrumb-divider;
+//$breadcrumb-active-color;
+
+@import '~bootstrap/scss/breadcrumb';
+
+// Add custom code here

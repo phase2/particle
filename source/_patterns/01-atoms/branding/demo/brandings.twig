@@ -1,0 +1,29 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+    <h1>Branding Examples</h1>
+    <p class="lead">Different applications of a branding block.</p>
+
+    {% embed '@atoms/grid/_grid-2-up.twig' with { container: false } %}
+
+      {% block column_1 %}
+        {% include "@atoms/_branding.twig" with {
+          url: '#',
+          logo_svg_inline: '@atoms/image/logo.svg',
+          site_name: 'Particle',
+          site_slogan: 'Site Slogan that Describes the Logo Above with Inline SVG'
+        } %}
+      {% endblock column_1 %}
+
+      {% block column_2 %}
+        {% include "@atoms/_branding.twig" with {
+          url: '#',
+          logo_img_src: paths.assets ~ '/logo.svg',
+          site_name: 'Particle',
+          site_slogan: 'Site Slogan that Describes the Logo Above with Src SVG'
+        } %}
+      {% endblock column_2 %}
+
+    {% endembed %}
+  {% endblock column_1 %}

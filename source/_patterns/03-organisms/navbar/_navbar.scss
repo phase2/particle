@@ -1,0 +1,10 @@
+@import '../../00-protons/variables';
+
+// To change default bootstrap navbar variables,
+// copy from ~bootstrap/scss/variables to here
+
+$navbar-brand-font-size: $font-size-lg;
+
+@import "~bootstrap/scss/navbar";
+
+// Add custom code here

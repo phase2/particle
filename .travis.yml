@@ -1,25 +1,35 @@
 language: php
-# Tests will be for each version in `php` combined with each node version in `env`
 php:
-  - 5.5
-  - 7.0
+- 5.6
+- 7.1
 env:
-  - TRAVIS_NODE_VERSION="4"
-  - TRAVIS_NODE_VERSION="6"
+  matrix:
+  - CXX=g++-4.8 TRAVIS_NODE_VERSION="8"
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
 before_install:
-#  - composer clear-cache
-  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+- composer self-update
+- . $HOME/.nvm/nvm.sh
+- nvm install $TRAVIS_NODE_VERSION
+- nvm use $TRAVIS_NODE_VERSION
+- npm install -g npm5
 install:
-  - npm install
-  - npm run setup
+- composer clear-cache
+- npm install
+- npm run setup
 before_script:
-  - php --version
-  - node --version
-  - npm --version
-script: 'npm run compile && npm test'
+- php --version
+- composer --version
+- node --version
+- npm --version
+script: npm run lint && npm run compile:pl
 notifications:
   email:
-    on_success: never
+    on_success: always
     on_failure: always
   flowdock:
-    secure: RBLFcGBNV8iBA3pBGqGzq5o2Kt+X0IESDtuWnamGurhXItdd0Qh8LZwGmbcZdBuncJQ/WvC5/umCZykf0BeMOiu5TnhJKH3ett0qQT8dxJI9aykwbk/+xyCX09tQJ6jejhcDmu394SUlXYb8DBPnlmE345EVbtjFt9Wxo+ZskCo=
+    secure: dE853wBiC+WZkrB1IWks/pALiBu/CjCVgulay9A7ptW2uWuv2Y4Wr+pLcELVUl0AYBMTBc20mwWilDO0nf0vnwBrX7oXkCRkAwlDcNt+u/ZR3dykCaDlUq88+2XBBFLBDGriCI1bZ2eTS14ED7QbfnHf71caYKJjrUa2nXwBGc0=

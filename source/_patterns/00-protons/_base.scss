@@ -1,0 +1,32 @@
+///
+/// Base **GENERATED** styles
+///
+// WARNING: Do NOT include this file in other .scss files. It WILL duplicate output
+/// Instead, import as a dependency in a component's .js file. From @molecules/card:
+/// @example
+/// ```js
+/// import base from '../../00-protons';
+/// import button from '../../01-atoms/button';
+/// ```
+/// This guarantees both de-duplication and existence of required, generated CSS.
+///
+
+@import 'variables';
+
+// Bootstrap CSS-generating output
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/print';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/code';
+
+// Font Awesome icons
+$fa-font-path: '~font-awesome/fonts/';
+@import '~font-awesome/scss/font-awesome';
+
+// Custom CSS-generating output
+@import 'printing/type';
+@import 'printing/forms';
+@import 'printing/tables';
+@import 'printing/transitions';
+@import 'printing/html-elements';

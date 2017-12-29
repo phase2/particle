@@ -1,0 +1,21 @@
+<h1>Breakpoints</h1>
+
+<div class="sg-breakpoints">
+  <ul class="breakpoints">
+    {% for bp, value in scssBreakpoints %}
+      <li style="left: {{ value }}">
+        <span class="label">{{ bp }}:<br/>{{ value }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  <ul class="device_widths">
+    {% for device in device_widths %}
+      <li style="width: {{ device.width }}px;">
+        <span class="label">{{ device.name }}: {{ device.width }}px</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<p>To add or change these items, override Bootstrap's <code>$grid-breakpoints</code> inside <code>_variables.scss</code></p>
+<p>See <a target="_blank" href="https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints">Bootstrap's docs</a> for more.</p>

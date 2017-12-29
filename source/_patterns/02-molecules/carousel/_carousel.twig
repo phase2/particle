@@ -1,0 +1,53 @@
+{#
+  Carousel
+
+  carousel_id: Integer: The ID of the Carousel.
+  carousel_controls: Boolean: Adds controls for the Carousel.
+  carousel_caption: Boolean: Adds the Image Caption in the Carousel Images Array.
+  carousel_indicators: Array: The Indicators and Associated Data.
+  carousel_images: Array: The Images and Associated Data.
+
+  see https://getbootstrap.com/docs/4.0/components/carousel/ for more details
+#}
+
+{% set carousel_id = random() %}
+
+<div id="{{ 'carousel-' ~ carousel_id }}" class="carousel slide" data-ride="carousel">
+  {% block indicators %}
+    {% if carousel_indicators %}
+      <ol class="carousel-indicators">
+        {% for indicator in carousel_indicators %}
+          <li data-target="{{ '#carousel-' ~ carousel_id }}" data-slide-to="{{ loop.index0 }}" class="{{ (indicator.active) ? 'active' }}"></li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+  {% endblock indicators %}
+  <div class="carousel-inner">
+    {% for image in carousel_images %}
+      <div class="carousel-item {{ (image.active) ? 'active' }}">
+        {% include '@atoms/image/_image.twig' with {
+          imageStyleName: 'carousel',
+          class: 'img img-responsive',
+        } %}
+        {% if carousel_caption %}
+          <div class="carousel-caption d-none d-md-block">
+            <h3>{{ image.caption_title }}</h3>
+            <p>{{ image.caption_body }}</p>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    {% block controls %}
+      {% if carousel_controls %}
+        <a class="carousel-control-prev" href="{{ '#carousel-' ~ carousel_id }}" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="{{ '#carousel-' ~ carousel_id }}" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      {% endif %}
+    {% endblock controls %}
+  </div>
+</div>

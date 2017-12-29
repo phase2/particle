@@ -1,0 +1,211 @@
+{#
+  Typography!
+
+  This is a demo file for our typography.
+
+  See https://getbootstrap.com/docs/4.0/content/typography/ for more!
+
+#}
+
+<div class="container">
+  {% embed '@atoms/grid/_grid-1-up.twig' %}
+    {% block column_1 %}
+
+      <h1>Font Families</h1>
+      <p class="lead">
+        Font families can be added via <code>_type.scss</code> and imported to this list via <code>styleguide/_scss2json.scss</code>.
+      </p>
+      {% for key, family in fontFamilies %}
+        {% set family_value = family|join(', ') %}
+        <div class="my-3 border">
+          <div class="my-3 p-2" style="font-family: {{ family_value }};">
+            <h2>Family: {{ key }}</h2>
+            <p><b>Fonts</b>: {{ family_value }}</p>
+          </div>
+          <pre class="bg-light">
+            <code>
+  .class {
+    font-family: {{ key }};
+  }
+            </code></pre>
+          <div class="p-2">
+            <p class="h3">Regular</p>
+              <div style="font-family: {{ family_value }}; font-size: 1.4em;">{{ excerpt.short }}</div>
+
+            <p class="h3">Bold</p>
+              <div style="font-family: {{ family_value }}; font-size: 1.4em; font-weight: bold;">{{ excerpt.short }}</div>
+
+            <p class="h3">Italic</p>
+              <div style="font-family: {{ family_value }}; font-size: 1.4em; font-style: italic;">{{ excerpt.short }}</div>
+          </div>
+        </div>
+      {% endfor %}
+
+    <h1>Font Sizes</h1>
+    <p class="lead">
+      Font sizes can be added via <code>_type.scss</code> and imported to this list via <code>styleguide/_scss2json.scss</code>.
+    <div class="p-2 border">
+      <ul style="list-style: none">
+        {% for key, size in fontSizes|sort %}
+        <div style="font-size: {{ size }};">{{ key|capitalize }}: <code>{{ size }}</code></div>
+        <p style="font-size: {{ size }};">{{ headline.medium }}</p>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <h1>Headings</h1>
+      <p class="lead">
+        These are heading styles, including both element and classed version.
+        Use the element version in markup following Accessibility guidelines.
+        Use the class version to match font styling of heading.
+        See <a href="https://webaim.org/techniques/semanticstructure/ " target="_blank">WebAim</a> for details.
+      </p>
+      <table class="table table-responsive-sm">
+        <thead>
+          <tr>
+            <th scope="col">Header</th>
+            <th scope="col">Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in range(1, 6) %}
+            <tr>
+              <th scope="row"><h{{ i }} contenteditable>{{ headline.short }}</h{{ i }}></th>
+              <td><code>&lt;h{{ i }} contenteditable&gt;h1. {{ headline.short }}&lt;/h{{ i }}&gt;</code></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p class="my-4">You can use these as either the element or as a class. For example:</p>
+      <table class="table table-responsive-sm">
+        <thead>
+        <tr>
+          <th scope="col">Paragraph</th>
+          <th scope="col">Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in range(1, 6) %}
+          <tr>
+            <th scope="row"><p class="h{{ i }}">{{ headline.short }}</p{{ i }}></th>
+            <td><code>&lt;p class="h{{ i }}"&gt;p{{ i }}. {{ headline.short }}&lt;/p&gt;</code></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <hr>
+
+      <h1>Display headings</h1>
+      <p class="my-4">Bootstrap style for larger headlines. For example:</p>
+
+      <table class="table table-responsive-sm">
+        <thead>
+        <tr>
+          <th scope="col">Display Heading</th>
+          <th scope="col">Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in range(1, 4) %}
+          <tr>
+            <th scope="row"><h1 class="display-{{ i }}">{{ headline.two }}</h1></th>
+            <td><code>&lt;h1 class="display-{{ i }}"&gt;{{ headline.two }}&lt;/h1&gt;</code></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <hr>
+
+      <h1>Text Styles</h1>
+
+      {# Paragraph Lead from Bootstrap#}
+      <p class="py-2 h2">Lead</p>
+      <div class="p-2 border">
+        <p class="lead">A paragraph <code>p</code> class to help text standout. {{ excerpt.medium }}</p>
+        <pre class="bg-light" style="margin: 0; padding: 0;">
+          <code>
+  &lt;p class="lead"&gt;
+    {{ excerpt.short }}
+  &lt;/p&gt;</code>
+        </pre>
+      </div>
+
+      <p class="py-2 h2">Paragraphs</p>
+      <p><b>Paragraph One</b> {{ description }}</p>
+      <hr>
+      <p><b>Paragraph Two</b> after an <code>hr</code> {{ description }}</p>
+
+      <p class="py-2 h2">Header + Paragraphs</p>
+      {% for i in range(1, 6)  %}
+        <h{{ i }}>Header {{ i }}</h{{ i }}>
+        <p><b>Paragraph</b> following an <code>h{{ i }}</code>{{ description }}</p>
+      {% endfor %}
+
+      <p class="py-2 h2">Misc</p>
+      <p><a href="#">This is a text link.</a></p>
+
+      <p><i>Italic text is used for stylistic purposes</i> in <code>i</code></p>
+
+      <p><em>This text has added emphasis</em> in <code>em</code></p>
+
+      <p><b>Bolded text is used for stylistic purposes</b> in <code>b</code></p>
+
+      <p><strong>Strong is used to indicate strong importance</strong> in <code>strong</code></p>
+
+      <p>This text is <sup>superscript</sup></p>
+
+      <p>This text is <sub>subscript</sub></p>
+
+      <blockquote>
+        <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text, and typically distinguished visually using indentation and a different typeface or smaller size quotation.</p>
+      </blockquote>
+
+      <p class="p-2 h3">Lists</p>
+      <div class="list--unordered">
+        <ul>
+          <li>This is a list item in an <b>Unordered List</b></li>
+          <li>An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line. </li>
+          <li>
+            Lists can be nested inside of each other
+            <ul>
+              <li>This is a nested list item</li>
+              <li>This is another nested list item in an unordered list</li>
+            </ul>
+          </li>
+          <li>This is the last list item</li>
+        </ul>
+      </div>
+      <hr>
+
+      <div class="list--ordered">
+        <ol>
+          <li>This is a list item in an <b>Ordered List</b></li>
+          <li>An ordered list is a list in which the sequence of items is important. An ordered list does not necessarily contain sequence characters.</li>
+          <li>
+            Lists can be nested inside of each other
+            <ol>
+              <li>This is a nested list item</li>
+              <li>This is another nested list item in an ordered list</li>
+            </ol>
+          </li>
+          <li>This is the last list item</li>
+        </ol>
+      </div>
+
+      <div class="list--definition">
+        <dl>
+          <dt><b>Definition List</b></dt>
+          <dd>A number of connected items or names written or printed consecutively, typically one below the other.</dd>
+          <dt>This is a term.</dt>
+          <dd>This is the definition of that term, which both live in a <code>dl</code>.</dd>
+          <dt>Here is another term.</dt>
+          <dd>And it gets a definition too, which is this line.</dd>
+          <dt>Here is term that shares a definition with the term below.</dt>
+          <dd>And it gets a definition too, which is this line.</dd>
+        </dl>
+      </div>
+
+
+    {% endblock column_1 %}
+  {% endembed %}
+</div>

@@ -1,0 +1,22 @@
+{% extends "@templates/homepage/homepage.twig" %}
+
+  {% block header %}
+    {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
+      {% block jumbotron_branding %}
+        {% include "@atoms/_branding.twig" with {
+          url: '#',
+          logo_svg_inline: '@atoms/image/logo.svg',
+          site_name: 'Particle',
+          site_slogan: 'An opinionated front-end framework to create design systems.'
+        } %}
+      {% endblock jumbotron_branding %}
+    {% endembed %}
+  {% endblock header %}
+
+  {% block content %}
+    <h6>I should fail pa11y</h6>
+
+    <h1 class="homepage__header">this is a pattern lab only demo of the HOMEPAGE</h1>
+
+    <p class="homepage__text">asdfafdsd blerp</p>
+  {% endblock content %}

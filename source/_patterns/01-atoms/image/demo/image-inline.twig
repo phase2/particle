@@ -1,0 +1,20 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+
+    <h1>Inline SVG</h1>
+
+    <p>Grab and inline any svg within source by passing its namespace'd path. For instance: <code>@atoms/icon/svg/person.svg</code>:</p>
+
+    {% include '@atoms/image/_svg.twig' with {
+      svgpath: '@atoms/icon/svg/person.svg',
+    } %}
+
+    <p>Or <code>@atoms/image/logo.svg</code>:</p>
+
+    {% include '@atoms/image/_svg.twig' with {
+      svgpath: '@atoms/image/logo.svg',
+    } %}
+
+  {% endblock column_1 %}

@@ -1,0 +1,45 @@
+pagination_1:
+  pagination_title: 'Page Navigation Example #1'
+  page_icon: FALSE
+  page_items:
+    - title: 1
+      link: '#'
+    - title: 2
+      link: '#'
+    - title: 3
+      link: '#'
+
+pagination_2:
+  pagination_title: 'Page Navigation Example #2'
+  page_icon: TRUE
+  page_items:
+    - title: 1
+      link: '#'
+    - title: 2
+      link: '#'
+    - title: 3
+      link: '#'
+
+pagination_3:
+  pagination_title: 'Page Navigation Example #2'
+  pagination_size: 'sm'
+  page_icon: TRUE
+  page_items:
+    - title: 1
+      link: '#'
+    - title: 2
+      link: '#'
+    - title: 3
+      link: '#'
+
+pagination_4:
+  pagination_title: 'Page Navigation Example #2'
+  pagination_size: 'lg'
+  page_icon: TRUE
+  page_items:
+    - title: 1
+      link: '#'
+    - title: 2
+      link: '#'
+    - title: 3
+      link: '#'

@@ -1,0 +1,52 @@
+{#
+  Navbar!
+  navbar_classes: Array: The html classes for the navbar.
+  navbar_other_classes: Array: The classes from YAML to merge into navbar_classes.
+  navbar_arialebelledby: String: The aria labelled by value.
+  navbar_attributes: Array: Attributes for the Navbar.
+  navbar_brand_link: String: The URL the brand text will link to.
+  navbar_brand_text: String: The text of the brand.
+  navbar_id: String: The html id for the navbar.
+#}
+
+{% set navbar_classes = navbar_other_classes|default([])|merge([
+  'navbar',
+]) | sort | join(' ') | trim %}
+
+<nav role="navigation" aria-labelledby="{{ navbar_arialebelledby }}" {{ navbar_attributes }} class="{{ navbar_classes }}">
+
+  {% block navbar_brand %}
+    <a class="navbar-brand" href="{{ navbar_brand_link }}">{{ navbar_brand_text }}</a>
+    {# collapse button #}
+    {% include '@atoms/button/_button.twig' with {
+      button_color: 'none',
+      button_other_classes: 'navbar-toggler',
+      button_toggle: 'collapse',
+      button_other_attributes: 'data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"',
+      button_text: '<span class="navbar-toggler-icon"></span>',
+    } %}
+  {% endblock navbar_brand %}
+
+  {# navbar #}
+  {% block navbar_content %}
+    <div class="collapse navbar-collapse" id="{{ navbar_id }}">
+      {% include '@molecules/nav/_nav.twig' with {
+        nav_element: 'ul',
+        nav_other_classes: 'navbar-nav mr-auto',
+        nav_items: navbar_items,
+      } %}
+
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        {% include '@atoms/button/_button.twig' with {
+          button_color: 'primary',
+          button_outline: true,
+          button_other_classes: 'my-2 my-sm-0',
+          button_type: 'submit',
+          button_text: 'Search'
+        } %}
+      </form>
+    </div>
+  {% endblock navbar_content %}
+
+</nav>

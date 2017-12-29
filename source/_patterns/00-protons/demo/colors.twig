@@ -1,0 +1,68 @@
+{% embed '@atoms/grid/_grid-1-up.twig' with { container: true } %}
+  {% block column_1 %}
+
+    <h1>Colors</h1>
+    <p>To add to these items, add and override colors in <code>_colors.scss:$theme-colors()</code>.
+      See <a href="https://getbootstrap.com/docs/4.0/utilities/colors/" target="_blank">Bootstrap's docs</a> for more.</p>
+
+    <div class="row">
+      {% for colorName, colorValue in scssColors %}
+        {# The custom Twig filters `rgba_string` and `luma` are found in _twig-components/filters/.
+         Feel free to add filters, but ensure that your implementing system is provided them. #}
+        {% set luma = colorValue|rgba_string|luma %}
+
+        <div class="col-sm-3">
+          <div
+            class="card mb-3 {% if luma < 200 %}text-white{% endif %} bg-{{ colorName }}">
+            <div class="card-header">{{ colorValue }}</div>
+            <div class="card-body">
+              <h4 class="card-title">{{ colorName }}</h4>
+              <p class="card-text">Usage:</p>
+              <pre><code>$theme-colors({{ colorName }});</code></pre>
+              <p>Luminance: <code>{{ luma }}</code></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <h2>Text Color</h2>
+    <p>Colors can also be used with text classes. <code>_colors.scss:$theme-colors()</code>
+      is again the go-to here. <code>text-white</code> and
+      <code>text-black</code> are available by default.</p>
+
+    <div class="row border mb-3">
+      <div class="col-sm-10 offset-1">
+        {% for colorName, colorValue in scssColors %}
+          {% set luma = colorValue|rgba_string|luma %}
+          <p
+            class="p-3 mb-2 text-{{ colorName }} {% if luma > 200 %}bg-dark{% endif %}">
+            text-{{ colorName }}: <code>&lt;p class="text-{{ colorName }}"&gt;text-{{ colorName }}
+              &lt;/p&gt;</code></p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <h2>Background Colors</h2>
+    <p>Similar to the contextual text color classes, easily set the background of an element to any contextual class.
+      Anchor components will darken on hover, just like the text classes.
+      Background utilities do not set color, so in some cases you’ll want to use
+      <code>.text-*</code> utilities.</p>
+
+    <div class="row border">
+      <div class="col-sm-12">
+        <br>
+        <div class="row">
+          {% for colorName, colorValue in scssColors %}
+            {% set luma = colorValue|rgba_string|luma %}
+            <div class="p-3 mb-2 col-sm-10 offset-1 bg-{{ colorName }} {{ (luma < 200) ? 'text-white' }}">
+              bg-{{ colorName }}: <br><code>&lt;div class="bg-{{ colorName }}"&gt;&lt;/div&gt;</code>
+            </div>
+            <br>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  {% endblock column_1 %}
+{% endembed %}

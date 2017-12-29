@@ -1,0 +1,134 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+    <h1>Cards</h1>
+    <div class="mb-3">
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_text: helper_card_main,
+        card_background: 'secondary',
+        text_color: 'light',
+      } %}
+    </div>
+    <div class="mb-3">
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_title: 'Text',
+        card_text: helper_card_text,
+        button: {
+          button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works',
+        },
+      } %}
+    </div>
+    <div class="row">
+      <div class="col-sm mb-3">
+        {% include '@molecules/card/_card.twig' with text_card_1 %}
+      </div>
+      <div class="col-sm mb-3">
+        {% include '@molecules/card/_card.twig' with text_card_2 %}
+      </div>
+      <div class="col-sm mb-3">
+        {% include '@molecules/card/_card.twig' with text_card_3 %}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_text: helper_card_text_2,
+      } %}
+    </div>
+    <div class="mb-3">
+      {% embed '@atoms/grid/_grid-3-up.twig' %}
+        {% block column_1 %}
+          {% include '@molecules/card/_card.twig' with text_card_1 %}
+        {% endblock column_1 %}
+        {% block column_2 %}
+          {% include '@molecules/card/_card.twig' with text_card_2 %}
+        {% endblock column_2 %}
+        {% block column_3 %}
+          {% include '@molecules/card/_card.twig' with text_card_3 %}
+        {% endblock column_3 %}
+      {% endembed %}
+    </div>
+
+    <div class="mb-3">
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_title: 'Width',
+        card_text: helper_card_width,
+        button: {
+          button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works',
+        },
+      } %}
+    </div>
+    <div class="row">
+      <div class="col-sm-12 mb-3">
+        {% include '@molecules/card/_card.twig' with card_width_1 %}
+        {% include '@molecules/card/_card.twig' with card_width_2 %}
+        {% include '@molecules/card/_card.twig' with card_width_3 %}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_title: 'Image',
+        card_text: helper_card_image,
+        button: {
+          button_link: 'https://getbootstrap.com/docs/4.0/components/card/#card-decks',
+        },
+      } %}
+    </div>
+    <div class="card-deck mb-3">
+      {% include '@molecules/card/_card.twig' with top_image %}
+      {% include '@molecules/card/_card.twig' with bottom_image %}
+      {% include '@molecules/card/_card.twig' with overlay_image %}
+    </div>
+
+    <div class="mb-3">
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_title: 'Structure',
+        card_text: helper_card_structure,
+        button: {
+          button_link: 'https://getbootstrap.com/docs/4.0/components/card/#header-and-footer',
+        },
+      } %}
+    </div>
+    <div class="card-group mb-3">
+      {% include '@molecules/card/_card.twig' with header_card %}
+      {% include '@molecules/card/_card.twig' with footer_card %}
+      {% include '@molecules/card/_card.twig' with list_card %}
+    </div>
+
+    <div class="mb-3">
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_title: 'Background and Border',
+        card_text: helper_card_colors,
+        button: {
+          button_link: 'https://getbootstrap.com/docs/4.0/components/card/#card-columns',
+        },
+      } %}
+    </div>
+    <div class="card-columns mb-3">
+      {% include '@molecules/card/_card.twig' with card_background_1 %}
+      {% include '@molecules/card/_card.twig' with card_background_2 %}
+      {% include '@molecules/card/_card.twig' with card_background_3 %}
+      {% include '@molecules/card/_card.twig' with card_background_4 %}
+      {% include '@molecules/card/_card.twig' with card_border_1 %}
+      {% include '@molecules/card/_card.twig' with card_border_2 %}
+      {% include '@molecules/card/_card.twig' with card_border_3 %}
+      {% include '@molecules/card/_card.twig' with card_border_4 %}
+    </div>
+    <div class="mb-3">
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_title: 'Variation',
+        card_text: helper_card_blocks,
+      } %}
+    </div>
+    <div class="mb3">
+      {% embed '@molecules/card/_card.twig' %}
+        {% block card_body %}
+          <h2 class="text-left">First Title</h2>
+          <h2 class="text-right">Second Title</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet facilisis erat. Suspendisse ultrices sed massa a faucibus. </p>
+        {% endblock %}
+      {% endembed %}
+    </div>
+  {% endblock column_1 %}

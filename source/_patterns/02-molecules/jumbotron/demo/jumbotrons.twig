@@ -1,0 +1,19 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+
+    {% block jumbo_basic %}
+      {% include '@molecules/jumbotron/_jumbotron.twig' with basic_jumbotron %}
+    {% endblock %}
+
+    {% block jumbo_fluid %}
+      {% include '@molecules/jumbotron/_jumbotron.twig' with fluid_jumbotron %}
+    {% endblock %}
+
+    <p>
+      The Jumbotron is fairly basic. Use the <code>jumbotron_fluid</code> boolean variable to manage the type.
+    You can adjust the default background color and padding via Bootstrap variables in the <code>_jumbotron.scss</code> file via <code>$jumbotron-padding</code> and <code>$jumbotron-bg</code>.
+    </p>
+
+  {% endblock %}

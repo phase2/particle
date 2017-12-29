@@ -1,0 +1,68 @@
+///
+/// The printing output for icons, includes classes and font face.
+///
+
+@import 'icon-mixins';
+@import '~font-awesome/scss/mixins';
+@import '~font-awesome/scss/variables';
+
+
+@font-face {
+  font-family: $icon-font-base-name;
+  src: url("#{$icon-font-path}#{$icon-font-base-name}.eot?cachebust=#{random(99999)}");
+  src: /* stylelint-disable-line declaration-colon-space-after */
+    url("#{$icon-font-path}#{$icon-font-base-name}.eot#iefix") format("eot"),
+    url("#{$icon-font-path}#{$icon-font-base-name}.woff") format("woff"),
+    url("#{$icon-font-path}#{$icon-font-base-name}.ttf") format("truetype");
+  // Leaving out svg for the time being
+  //url("#{$icon-font-path}#{$icon-font-base-name}.svg##{$icon-font-base-name}") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+ * Font application to generic DOM
+ */
+
+//@font-face {
+//  font-family: $icon-font-base-name;
+//  src: $icon-font-source-1;
+//  src: $icon-font-source-2;
+//  font-weight: normal;
+//  font-style: normal;
+//}
+
+// Everything with .icon--something has a base set of styles in order to view
+[class*="#{$icon-font-class-prefix}"] {
+  @include font-icon-base;
+}
+
+// Print .icon--thingy classes using default :before for easy elements
+@each $icon-name, $icon-symbol in $font-icons {
+  .#{$icon-font-class-prefix}#{$icon-name}::before {
+    content: map-get($font-icons, $icon-name);
+  }
+}
+
+
+// Font-Awesome Sass Examples
+.fontawesome-example {
+  &:before {
+    @include fa-icon();
+    content: $fa-var-train;
+  }
+}
+
+.fontawesome-example2 {
+  &:after {
+    @include fa-icon();
+    content: $fa-var-compass;
+  }
+}
+
+.fontawesome-example3 {
+  &:after {
+    @include fa-icon();
+    content: $fa-var-apple;
+  }
+}
