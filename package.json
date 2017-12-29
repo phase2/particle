@@ -22,7 +22,7 @@
     "compile:pl": "webpack --display-entrypoints --config webpack.pl.config.js && gulp compile",
     "compile:drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
     "compile:grav": "webpack --display-entrypoints --config webpack.grav.config.js",
-    "lint:js": "eslint ./ --cache",
+    "lint:js": "eslint ./",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js & npm run lint:scss",
     "gulp": "gulp",
