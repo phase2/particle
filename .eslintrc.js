@@ -1,5 +1,9 @@
-// Rule reference: http://eslint.org/docs/rules
-// Individual rule reference: http://eslint.org/docs/rules/NAME-OF-RULE
+/**
+ * Use AirBnB ES6 linting standards, as well as a Jest plugin for tests
+ *
+ * Rule reference: http://eslint.org/docs/rules
+ * Individual rule reference: http://eslint.org/docs/rules/NAME-OF-RULE
+ */
 module.exports = {
   extends: ["airbnb", "plugin:jest/recommended"],
   globals: {

@@ -33,7 +33,7 @@
     "webpack-drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
     "webpack-grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
-    "test:accessibility": "node tools/tests/accessibility/pa11y.js",
+    "test:pa11y": "node tools/tests/accessibility/pa11y.js",
     "test:unit": "jest"
   },
   "browserslist": [

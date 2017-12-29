@@ -563,7 +563,7 @@ npm install --save-dev pa11y@5.0.0-beta.5 pa11y-reporter-cli
 Then whenever you want to run your tests, simply:
 
 ```bash
-npm run test:accessibility
+npm run test:pa11y
 ```
 
 See `./tools/pa11y.js` for configuration [options](https://github.com/pa11y/pa11y/tree/5.x#configuration). Note the ignore options are for example only, add your needed updates to the options object. Add additional pages to the test via the `testPaths` array.
