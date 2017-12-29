@@ -7,6 +7,7 @@ const plPath = 'http://0.0.0.0:8080/pl';
 // An Array of URLs for pa11y to test.
 const testPaths = [
   '/patterns/00-protons-demo-borders/00-protons-demo-borders.html',
+  '/patterns/01-atoms-alert-demo-alerts/01-atoms-alert-demo-alerts.html',
   '/patterns/02-molecules-card-demo-cards/02-molecules-card-demo-cards.html',
 ];
 
@@ -26,12 +27,12 @@ const options = {
 };
 
 /**
- * Returns an array of URLs with pa11y options.
+ * Returns an array of URLs with pa11y options. Join url via template literals.
  * @param {Array} testPaths - the paths we want to test.
  * @param {Array} options - the pa11y options we evaluate against.
  * @return {Array} pa11yPaths - a pa11y array to operate on.
  */
-const pa11yPaths = testPaths.map(path => pa11y(url.resolve(plPath, path), options));
+const pa11yPaths = testPaths.map(path => pa11y(`${plPath}${path}`, options));
 
 Promise.all(pa11yPaths)
   .then(results => results.forEach(result => options.log.info(reporter.results(result))))
