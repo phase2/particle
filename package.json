@@ -25,7 +25,6 @@
     "lint:js": "eslint ./ --cache",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js & npm run lint:scss",
-    "test": "gulp test",
     "gulp": "gulp",
     "update": "npm update && cd ./apps/pl/pattern-lab && composer update",
     "new": "yo ./tools/new-component/index.js",
@@ -34,7 +33,8 @@
     "webpack-drupal": "webpack --display-entrypoints --config webpack.drupal.config.js",
     "webpack-grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
-    "pa11y": "node tools/tests/accessibility/pa11y.js"
+    "test:accessibility": "node tools/tests/accessibility/pa11y.js",
+    "test:unit": "jest tools/tests/unit/ source/"
   },
   "browserslist": [
     "last 2 versions",
@@ -49,6 +49,7 @@
     "popper.js": "^1.13.0"
   },
   "devDependencies": {
+    "jest": "^22.0.4",
     "@theme-tools/sass-export-data": "^1.0.3",
     "autoprefixer": "^7.2.3",
     "babel-core": "^6.26.0",
