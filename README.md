@@ -548,13 +548,13 @@ Particle provides the starting point for various types of testing. Tests are loc
 
 ### Accessibility Testing
 
-To run [pa11y](http://pa11y.org/) accessibility testing on Pattern Lab rendered output, first you'll need to install the pa11y dependencies:
+To run [pa11y](http://pa11y.org/) accessibility testing on Pattern Lab rendered output, first you'll need to install the pa11y npm package:
 
 ```bash
 npm install pa11y@5.0.0-beta.5 pa11y-reporter-cli 
 ```
 
-To save these dependencies to your project *permanently*, run the following instead:
+To save these devDependencies to your project *permanently*, run the following instead:
 
 ```bash
 npm install --save-dev pa11y@5.0.0-beta.5 pa11y-reporter-cli 
@@ -563,7 +563,7 @@ npm install --save-dev pa11y@5.0.0-beta.5 pa11y-reporter-cli
 Then whenever you want to run your tests, simply:
 
 ```bash
-npm run pa11y
+npm run test:pa11y
 ```
 
 See `./tools/pa11y.js` for configuration [options](https://github.com/pa11y/pa11y/tree/5.x#configuration). Note the ignore options are for example only, add your needed updates to the options object. Add additional pages to the test via the `testPaths` array.
@@ -581,3 +581,15 @@ const options = {
   },
 };
 ```
+
+### Unit Testing
+
+Particle provides unit testing as well using [Jest](https://facebook.github.io/jest/docs/en/tutorial-jquery.html).
+
+Simply run the following to run Jest tests against the design system:
+
+```js
+npm run test:unit
+```
+
+Note the `__tests__` folders within components for examples.

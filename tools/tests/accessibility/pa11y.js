@@ -1,5 +1,7 @@
+/* eslint import/no-unresolved: 0 import/no-extraneous-dependencies: 0 */
+
 const pa11y = require('pa11y');
-const reporter = require('pa11y-reporter-cli'); // As pa11y 5 stabilizes, we can pull this off pa11y
+const reporter = require('pa11y-reporter-cli');
 
 const plPath = 'http://0.0.0.0:8080/pl';
 // @TODO dynamically retrieve pl data from config.js.
