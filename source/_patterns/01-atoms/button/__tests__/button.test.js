@@ -1,8 +1,8 @@
 const $ = require('jquery');
 const button = require('../');
 
-test('can reach button tests', () => {
-  expect(true).toBe(true);
+test('button component is registered', () => {
+  expect(button.name).toBe('button');
 });
 
 test('simple .text() is verified', () => {
