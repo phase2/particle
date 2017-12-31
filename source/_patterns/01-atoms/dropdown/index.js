@@ -3,7 +3,7 @@
  */
 
 // Import dropdown js from bootstrap
-import 'bootstrap/js/dist/dropdown';
+import 'bootstrap/js/src/dropdown';
 
 // Custom
 import 'protons';

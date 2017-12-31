@@ -3,7 +3,7 @@
  */
 
 // JS from Bootstrap
-import 'bootstrap/js/dist/alert';
+import 'bootstrap/js/src/alert';
 
 // Module Dependencies
 import 'protons';
