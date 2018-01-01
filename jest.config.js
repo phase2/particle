@@ -9,13 +9,13 @@ module.exports = {
     '\\.(css|scss|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
     '<rootDir>/tools/tests/unit/__mocks__/fileMock.js',
 
-    // Webpack aliases.
-    // @TODO: pull in webpack.shared.config.js and pull this piece off?
+    // Webpack aliases. This is a pain, but Babel does NOT understand Webpack resolved aliases
+    // @TODO: Look into helpers for this (e.g. https://github.com/mwolson/jest-webpack-alias)
     '^protons$': '<rootDir>/source/_patterns/00-protons/',
-    '^atoms$': '<rootDir>/source/_patterns/01-atoms/',
-    '^molecules$': '<rootDir>/source/_patterns/02-molecules/',
-    '^organisms$': '<rootDir>/source/_patterns/03-organisms/',
-    '^templates$': '<rootDir>/source/_patterns/04-templates/',
-    '^pages$': '<rootDir>/source/_patterns/05-pages/',
+    '^atoms[/](.+)': '<rootDir>/source/_patterns/01-atoms/$1',
+    '^molecules[/](.+)': '<rootDir>/source/_patterns/02-molecules/$1',
+    '^organisms[/](.+)': '<rootDir>/source/_patterns/03-organisms/$1',
+    '^templates[/](.+)': '<rootDir>/source/_patterns/04-templates/$1',
+    '^pages[/](.+)': '<rootDir>/source/_patterns/05-pages/$1',
   },
 };
