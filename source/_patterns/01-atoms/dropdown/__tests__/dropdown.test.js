@@ -1,5 +1,5 @@
-const $ = require('jquery');
-const dropdown = require('../');
+import $ from 'jquery';
+import enable, { name } from '../';
 
 const dropHTML = `
   <div class="dropdown">
@@ -13,12 +13,12 @@ const dropHTML = `
 `;
 
 test('dropdown component is registered', () => {
-  expect(dropdown.name).toBe('dropdown');
+  expect(name).toBe('dropdown');
 });
 
 test('dropdown menu starts out hidden', () => {
   document.body.innerHTML = dropHTML;
-  dropdown.enable($(document));
+  enable($(document));
 
   // `show` class should NOT start out on dropdowns
   expect($('.dropdown, .dropdown-menu').hasClass('show')).not.toBe(true);
@@ -28,7 +28,7 @@ test('dropdown menu starts out hidden', () => {
 
 test('dropdown menu shows after clicking button', () => {
   document.body.innerHTML = dropHTML;
-  dropdown.enable($(document));
+  enable($(document));
 
   $('#dropdownMenuButton').click();
 
