@@ -1,4 +1,4 @@
-import enable, { name } from '../';
+import { name } from '../';
 
 test('nav component is registered', () => {
   expect(name).toBe('nav');
