@@ -12,10 +12,11 @@ function attach(attachPoint) {
     return;
   }
 
-  // Re-render and replace all HTML on every data change
+  // Immediately render
+  $attachPoint.html(render());
+
+  // Re-render and replace all HTML on every store change
   store.subscribe(() => $attachPoint.html(render()));
-  // Dispatch an empty action to trigger a render after subscribing
-  store.dispatch({});
 }
 
 export default attach;

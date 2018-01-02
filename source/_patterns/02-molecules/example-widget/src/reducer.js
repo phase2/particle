@@ -1,4 +1,4 @@
-import { RECEIVE_DATA, REQUEST_DATA, SET_FILTER } from './action-types';
+import * as types from './action-types';
 
 const initialState = {
   activeFilter: 'all',
@@ -9,17 +9,20 @@ const initialState = {
 
 const widget = (state = initialState, action) => {
   switch (action.type) {
-    case SET_FILTER:
-      return {
-        ...state,
-        activeFilter: action.filter,
-      };
-    case REQUEST_DATA:
+    case types.SET_FILTER:
+      // Only set filter to allowed values
+      return state.allFilters.includes(action.filter)
+        ? {
+          ...state,
+          activeFilter: action.filter,
+        }
+        : state;
+    case types.REQUEST_DATA:
       return {
         ...state,
         requestingData: true,
       };
-    case RECEIVE_DATA:
+    case types.RECEIVE_DATA:
       return {
         ...state,
         requestingData: false,

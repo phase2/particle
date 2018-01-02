@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 import store from './store';
+import { setFilter } from './actions';
 
 function render() {
   const renderState = store.getState();
@@ -26,10 +27,7 @@ function render() {
 
   // Attach events
   $dom.on('click', 'a', function filterClick() {
-    store.dispatch({
-      type: 'SET_FILTER',
-      filter: $(this).text().trim(),
-    });
+    store.dispatch(setFilter($(this).text().trim()));
   });
 
   return $dom;
