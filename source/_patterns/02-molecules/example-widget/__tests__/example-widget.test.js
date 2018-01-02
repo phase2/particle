@@ -1,7 +1,10 @@
+import $ from 'jquery';
+
 import { name } from '../';
-import store from '../src/store';
 import * as actions from '../src/actions';
 import * as types from '../src/action-types';
+import store from '../src/store';
+import attach from '../src/';
 
 test('component is registered', () => {
   expect(name).toBe('example-widget');
@@ -34,4 +37,28 @@ test('does not allow setting filter to unsupported filter', () => {
 
   const { activeFilter } = store.getState();
   expect(activeFilter).not.toBe('blerp');
+});
+
+test('does not render if attachPoint is not in DOM', () => {
+  const $dom = $('<div><div id="blerp"></div></div>');
+  const $attachPoint = $('#attach', $dom);
+
+  expect($attachPoint.length).toBe(0);
+
+  attach($attachPoint);
+
+  const $found = $attachPoint.find('.example-widget');
+  expect($found.length).toBe(0);
+});
+
+test('renders if attachPoint is found in DOM', () => {
+  const $dom = $('<div><div id="attach"></div></div>');
+  const $attachPoint = $('#attach', $dom);
+
+  expect($attachPoint.length).toBe(1);
+
+  attach($attachPoint);
+
+  const $found = $attachPoint.find('.example-widget');
+  expect($found.length).toBe(1);
 });
