@@ -2,7 +2,8 @@
  * Example JS widget
  *
  * An example of a testable, standalone, javascript-driven widget that makes an api call, writes
- *  HTML, and does basic logic
+ * HTML, and does basic logic. This is a pretty naive re-render-on-data-change approach, using
+ * poor-man's Redux and jQuery
  */
 import $ from 'jquery';
 
@@ -11,6 +12,7 @@ import 'molecules/card';
 
 import './_example-widget.scss';
 
+import createStore from './lib/redux-lite';
 import { SET_FILTER, REQUEST_DATA, RECEIVE_DATA } from './actionTypes';
 
 const initialState = {
@@ -40,67 +42,53 @@ const widget = (state = initialState, action) => {
   }
 };
 
-const createStore = (reducer) => {
-  let state;
-  let listeners = [];
-
-  const getState = () => state;
-
-  const dispatch = (action) => {
-    state = reducer(state, action);
-    listeners.forEach(listener => listener());
-  };
-
-  const subscribe = (listener) => {
-    listeners.push(listener);
-    // Return optional function to unsub
-    return () => {
-      listeners = listeners.filter(l => l !== listener);
-    };
-  };
-
-  dispatch({});
-
-  return { getState, dispatch, subscribe };
-};
-
+// Wire up our reducer to our state
 const store = createStore(widget, initialState);
 
-// // Row of filter links
-// const filtersTemplate = () => (
-//   filters.map(optionFilter => `
-//     <a class="card-link ${optionFilter === activeFilter ? 'text-secondary' : ''}" href="#">
-//       ${optionFilter}
-//     </a>
-//   `).join('')
-// );
-// // Overall card template
-// const cardTemplate = () => `
-//   <div class="example-widget card">
-//     <div class="card-header">Crypto</div>
-//     <div class="card-body">
-//       <h5 class="card-title">Filter: ${activeFilter}</h5>
-//       <p>Content here</p>
-//       ${filtersTemplate()}
-//     </div>
-//   </div>
-// `;
+// Rendered, event-bound DOM returned
+function render() {
+  const renderState = store.getState();
+  console.log(renderState);
 
-store.subscribe(() => {
-  console.log(store.getState());
-});
+  const dom = `
+    <div class="example-widget card">
+      <div class="card-header">Crypto</div>
+      <div class="card-body">
+        <h5 class="card-title">Filter: ${renderState.activeFilter}</h5>
+        <p>Content here</p>
+        ${renderState.allFilters.map(optionFilter => `
+          <a class="card-link ${optionFilter === renderState.activeFilter ? 'text-secondary' : ''}" href="#">
+            ${optionFilter}
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  `;
 
-store.dispatch({
-  type: 'SET_FILTER',
-  filter: 'eth',
-});
+  // Make string a jQuery object
+  const $dom = $(dom);
+
+  // Attach events
+  $dom.on('click', 'a', function filterClick() {
+    store.dispatch({
+      type: 'SET_FILTER',
+      filter: $(this).text().trim(),
+    });
+  });
+
+  return $dom;
+}
 
 export const name = 'example-widget';
 
 export function disable() {}
 
 export function enable($context) {
-  $('#js-example-widget', $context).html('blerp');
+  const $attachPoint = $('#js-example-widget', $context);
+  store.subscribe(() => $attachPoint.html(render()));
+
+  // We must dispatch since actions will have already fired before enable()
+  store.dispatch({});
 }
 
 export default enable;
