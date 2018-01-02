@@ -20,14 +20,7 @@ export function disable() {}
 
 export function enable($context) {
   // We have to glue this app to some piece of DOM
-  const $attachPoint = $('#js-example-widget', $context);
-
-  // Bail if our attach point is not on screen
-  if (!$attachPoint.length) {
-    return;
-  }
-
-  exampleWidget($attachPoint);
+  exampleWidget($('#js-example-widget', $context));
 }
 
 export default enable;
