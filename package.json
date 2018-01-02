@@ -24,7 +24,7 @@
     "compile:grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
-    "lint": "npm run lint:js && npm run lint:scss",
+    "lint": "npm run lint:js; npm run lint:scss",
     "gulp": "gulp",
     "update": "npm update && cd ./apps/pl/pattern-lab && composer update",
     "new": "yo ./tools/new-component/index.js",
