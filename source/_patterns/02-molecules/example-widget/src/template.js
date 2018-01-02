@@ -5,14 +5,24 @@ import { setFilter } from './actions';
 
 function render() {
   const renderState = store.getState();
-  // console.log(renderState);
+  console.log(renderState);
 
   const dom = `
     <div class="example-widget card">
       <div class="card-header">Crypto</div>
       <div class="card-body">
-        <h5 class="card-title">Filter: ${renderState.activeFilter}</h5>
-        <p>Content here</p>
+        <h5 class="card-title">
+          Filter: ${renderState.activeFilter} | Fetch: ${renderState.isFetching}
+        </h5>
+      </div>
+      
+      <ul class="list-group list-group-flush">
+        ${renderState.data.map(crypto => `
+          <li class="list-group-item">${crypto.rank}. ${crypto.name} | $${crypto.price_usd} </li>
+        `).join('')}
+      </ul>
+      
+      <div class="card-body">
         ${renderState.allFilters.map(optionFilter => `
           <a class="card-link ${optionFilter === renderState.activeFilter ? 'text-secondary' : ''}" href="#">
             ${optionFilter}

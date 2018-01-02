@@ -3,7 +3,7 @@ import * as types from './action-types';
 const initialState = {
   activeFilter: 'all',
   allFilters: ['all', 'eth', 'btc', 'xrp'],
-  requestingData: false,
+  isFetching: false,
   data: [],
 };
 
@@ -14,15 +14,15 @@ const widget = (state = initialState, action) => {
       return state.allFilters.includes(action.filter)
         ? { ...state, activeFilter: action.filter }
         : state;
-    case types.REQUEST_DATA:
+    case types.REQUEST_CRYPTO:
       return {
         ...state,
-        requestingData: true,
+        isFetching: true,
       };
-    case types.RECEIVE_DATA:
+    case types.REQUEST_CRYPTO_SUCCESS:
       return {
         ...state,
-        requestingData: false,
+        isFetching: false,
         data: action.data,
       };
     default:
