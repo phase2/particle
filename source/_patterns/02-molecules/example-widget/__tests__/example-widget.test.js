@@ -7,6 +7,11 @@ test('component is registered', () => {
   expect(name).toBe('example-widget');
 });
 
+test('starts with default filter of `all`', () => {
+  const { activeFilter } = store.getState();
+  expect(activeFilter).toBe('all');
+});
+
 test('should create an action to set a filter', () => {
   const filter = 'xrp';
   const expectedAction = {
@@ -14,11 +19,6 @@ test('should create an action to set a filter', () => {
     filter,
   };
   expect(actions.setFilter(filter)).toEqual(expectedAction);
-});
-
-test('starts with default filter of `all`', () => {
-  const { activeFilter } = store.getState();
-  expect(activeFilter).toBe('all');
 });
 
 test('sets filter to string provided', () => {

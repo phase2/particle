@@ -12,10 +12,7 @@ const widget = (state = initialState, action) => {
     case types.SET_FILTER:
       // Only set filter to allowed values
       return state.allFilters.includes(action.filter)
-        ? {
-          ...state,
-          activeFilter: action.filter,
-        }
+        ? { ...state, activeFilter: action.filter }
         : state;
     case types.REQUEST_DATA:
       return {
