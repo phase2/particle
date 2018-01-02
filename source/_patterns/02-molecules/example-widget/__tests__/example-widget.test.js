@@ -40,8 +40,8 @@ test('does not allow setting filter to unsupported filter', () => {
 });
 
 test('does not render if attachPoint is not in DOM', () => {
-  const $dom = $('<div><div id="blerp"></div></div>');
-  const $attachPoint = $('#attach', $dom);
+  document.body.innerHTML = '<div id="blerp"></div>';
+  const $attachPoint = $('#attach', document);
 
   expect($attachPoint.length).toBe(0);
 
@@ -52,8 +52,8 @@ test('does not render if attachPoint is not in DOM', () => {
 });
 
 test('renders if attachPoint is found in DOM', () => {
-  const $dom = $('<div><div id="attach"></div></div>');
-  const $attachPoint = $('#attach', $dom);
+  document.body.innerHTML = '<div id="attach"></div>';
+  const $attachPoint = $('#attach', document);
 
   expect($attachPoint.length).toBe(1);
 

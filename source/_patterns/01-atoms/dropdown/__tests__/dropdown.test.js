@@ -18,7 +18,7 @@ test('dropdown component is registered', () => {
 
 test('dropdown menu starts out hidden', () => {
   document.body.innerHTML = dropHTML;
-  dropdown($(document));
+  dropdown(document);
 
   // `show` class should NOT start out on dropdowns
   expect($('.dropdown, .dropdown-menu').hasClass('show')).not.toBe(true);
@@ -28,7 +28,7 @@ test('dropdown menu starts out hidden', () => {
 
 test('dropdown menu shows after clicking button', () => {
   document.body.innerHTML = dropHTML;
-  dropdown($(document));
+  dropdown(document);
 
   $('#dropdownMenuButton').click();
 
