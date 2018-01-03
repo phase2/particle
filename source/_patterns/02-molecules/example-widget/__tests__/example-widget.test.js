@@ -6,13 +6,24 @@ import * as types from '../src/action-types';
 import store from '../src/store';
 import attach from '../src/';
 
+import mockData from './mock-data';
+
+beforeAll(() => {
+  // Mock $.get() to avoid network calls during tests
+  $.get = function mockGet(url) {
+    return new Promise((resolve, reject) => {
+      resolve(mockData);
+    })
+  }
+});
+
 test('component is registered', () => {
   expect(name).toBe('example-widget');
 });
 
 test('starts with default filter of `all`', () => {
   const { activeFilter } = store.getState();
-  expect(activeFilter).toBe('all');
+  expect(activeFilter).toBe('ALL');
 });
 
 test('should create an action to set a filter', () => {
@@ -25,10 +36,10 @@ test('should create an action to set a filter', () => {
 });
 
 test('sets filter to string provided', () => {
-  store.dispatch(actions.setFilter('eth'));
+  store.dispatch(actions.setFilter('ETH'));
 
   const { activeFilter } = store.getState();
-  expect(activeFilter).toBe('eth');
+  expect(activeFilter).toBe('ETH');
 });
 
 test('does not allow setting filter to unsupported filter', () => {
