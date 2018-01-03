@@ -5,7 +5,7 @@ import { setFilter } from './actions';
 
 function render() {
   const renderState = store.getState();
-  console.log(renderState);
+  // console.log(renderState);
 
   const dom = `
     <div class="example-widget card">
@@ -14,21 +14,20 @@ function render() {
         <h5 class="card-title">
           Filter: ${renderState.activeFilter} | Fetch: ${renderState.isFetching}
         </h5>
+        <p>
+          ${renderState.allFilters.map(optionFilter => `
+            <a class="card-link ${optionFilter === renderState.activeFilter ? 'text-secondary' : ''}" href="#">
+              ${optionFilter}
+            </a>
+          `).join('')}
+        </p>
       </div>
       
       <ul class="list-group list-group-flush">
-        ${renderState.data.map(crypto => `
-          <li class="list-group-item">${crypto.rank}. ${crypto.name} | $${crypto.price_usd} </li>
+        ${renderState.filteredData.map(crypto => `
+          <li class="list-group-item">${crypto.rank}. ${crypto.name} | $${crypto.price_usd} | ${crypto.symbol}</li>
         `).join('')}
       </ul>
-      
-      <div class="card-body">
-        ${renderState.allFilters.map(optionFilter => `
-          <a class="card-link ${optionFilter === renderState.activeFilter ? 'text-secondary' : ''}" href="#">
-            ${optionFilter}
-          </a>
-        `).join('')}
-      </div>
     </div>
   `;
 

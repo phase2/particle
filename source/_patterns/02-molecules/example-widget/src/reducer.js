@@ -1,9 +1,10 @@
 import * as types from './action-types';
 
 const initialState = {
-  activeFilter: 'all',
-  allFilters: ['all', 'eth', 'btc', 'xrp'],
+  activeFilter: 'ALL',
+  allFilters: ['ALL', 'ETH', 'BTC', 'XRP'],
   isFetching: false,
+  filteredData: [],
   data: [],
 };
 
@@ -11,9 +12,23 @@ const widget = (state = initialState, action) => {
   switch (action.type) {
     case types.SET_FILTER:
       // Only set filter to allowed values
-      return state.allFilters.includes(action.filter)
-        ? { ...state, activeFilter: action.filter }
-        : state;
+      if (!state.allFilters.includes(action.filter)) {
+        return state;
+      }
+
+      if (action.filter === 'ALL') {
+        return {
+          ...state,
+          activeFilter: action.filter,
+          filteredData: [...state.data],
+        };
+      }
+
+      return {
+        ...state,
+        activeFilter: action.filter,
+        filteredData: state.data.filter(crypto => action.filter === crypto.symbol),
+      };
     case types.REQUEST_CRYPTO:
       return {
         ...state,

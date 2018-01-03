@@ -20,7 +20,7 @@ function attach(attachPoint) {
   store.subscribe(() => $attachPoint.html(render()));
 
   // Immediate kick-off of request
-  store.dispatch(fetchCryptos('all'));
+  store.dispatch(fetchCryptos('ALL'));
 }
 
 export default attach;

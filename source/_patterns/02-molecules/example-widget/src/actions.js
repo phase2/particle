@@ -31,11 +31,12 @@ export function requestCryptoSuccess(crypto, data) {
 }
 
 export function fetchCryptos(crypto) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(requestCrypto(crypto));
 
     return $.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-      .then(response => dispatch(requestCryptoSuccess(crypto, response)));
+      .then(response => dispatch(requestCryptoSuccess(crypto, response)))
+      .then(() => dispatch(setFilter(crypto)));
   };
 }
 
