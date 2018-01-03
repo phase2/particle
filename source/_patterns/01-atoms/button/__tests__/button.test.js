@@ -1,8 +1,8 @@
-const $ = require('jquery');
-const button = require('../');
+import $ from 'jquery';
+import button, { name } from '../';
 
-test('can reach button tests', () => {
-  expect(true).toBe(true);
+test('button component is registered', () => {
+  expect(name).toBe('button');
 });
 
 test('simple .text() is verified', () => {
@@ -21,7 +21,7 @@ test('non-#blah button is not active', () => {
     </div>
   `;
 
-  button.enable($(document));
+  button($(document));
   expect($('#button').hasClass('active')).toBe(false);
 });
 
@@ -32,6 +32,6 @@ test('#blah button is immediately active', () => {
     </div>
   `;
 
-  button.enable($(document));
+  button($(document));
   expect($('#blah').hasClass('active')).toBe(true);
 });

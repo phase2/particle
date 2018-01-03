@@ -24,7 +24,7 @@
     "compile:grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
-    "lint": "npm run lint:js & npm run lint:scss",
+    "lint": "npm run lint:js; npm run lint:scss",
     "gulp": "gulp",
     "update": "npm update && cd ./apps/pl/pattern-lab && composer update",
     "new": "yo ./tools/new-component/index.js",
@@ -41,7 +41,7 @@
     "IE >= 10"
   ],
   "dependencies": {
-    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap": "^4.0.0-beta.3",
     "font-awesome": "^4.7.0",
     "holderjs": "^2.9.4",
     "jquery": "^3.2.1",
@@ -54,6 +54,8 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^22.0.4",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "css-hot-loader": "^1.3.5",
     "css-loader": "^0.28.7",
