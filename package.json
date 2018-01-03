@@ -71,7 +71,7 @@
     "favicons-webpack-plugin": "0.0.7",
     "file-loader": "^1.1.6",
     "glob": "^7.1.2",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "^4.0.0",
     "jest": "^22.0.4",
     "js-yaml": "^3.10.0",
     "node-sass": "^4.7.2",
