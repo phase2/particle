@@ -190,6 +190,8 @@ All components require a set of files:
 
     # ./source/_patterns/01-atoms/button/
     .
+    ├── __tests__                      # Jest unit tests. Read automatically during `npm run test:unit`
+    │   └── button.test.js             # Unit test JS functions. Limited DOM manipulation
     ├── demo                           # Demo implementations, can be removed on deploy to prod
     │   ├── buttons.md                 # Markdown with extra notes, visible in PL UI
     │   ├── buttons.twig               # Demonstrate with a plural name, visible to PL since no underscore
@@ -214,13 +216,13 @@ import 'protons';
 // Import local Sass (which in turn imports Bootstrap Sass)
 import './_button.scss';
 
-// Req. 1 of a component: name
+// Requirement 1 of a component: name
 export const name = 'button';
 
-// Req. 2 of a component: disable function
+// Requirement 2 of a component: disable function
 export function disable() {}
 
-// Req. 3 of a component: enable function. `$context` is `$(document)` in PL, and `context` in Drupal
+// Requirement 3 of a component: enable function. `$context` is `$(document)` in PL, and `context` in Drupal
 export function enable($context) {
 
   // `.button()` is only available because of `import 'bootstrap/js/src/button';` above
