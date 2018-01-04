@@ -293,20 +293,22 @@ All javascript should be written in ES6 (ES2015) according to the [AirBnB JavaSc
 
 ## Atomic Design and Namespaces
 
-"Namespaces" are simply aliases to paths on a file system. The design system within `source/` adheres strongly to [Atomic Design](http://atomicdesign.bradfrost.com/), with `@base` added on.
+"Namespaces" are simply aliases to paths on a file system. The design system within `source/` adheres strongly to [Atomic Design](http://atomicdesign.bradfrost.com/), with `@protons` added on.
 
 | Path                             | Twig         | Javascript  | Sass |
 | -------------------------------- | ------------ | ----------- | ---- |
-| `source/_patterns/00-protons/`      | `@base`      | `base`      | TBD
+| `source/_patterns/00-protons/`   | `@protons`   | `protons`   | TBD
 | `source/_patterns/01-atoms/`     | `@atoms`     | `atoms`     | TBD
 | `source/_patterns/02-molecules/` | `@molecules` | `molcules`  | TBD
 | `source/_patterns/03-organisms/` | `@organisms` | `organisms` | TBD
 | `source/_patterns/04-templates/` | `@templates` | `templates` | TBD
 | `source/_patterns/05-pages/`     | `@pages`     | `pages`     | TBD
 
+> Note: Namespaces within Sass are a work in progress!
+
 Our reasoning for categorization of components within each is pretty close to pure Atomic Design principals, but here's a quick explanation.
 
-- **Base** features Sass systems and non-consumable pattern markup. No Twig file will `@include` anything from @base, but javascript and Sass will. This is a uniquely Particle convention.
+- **Protons** features Sass systems and non-consumable pattern markup. No Twig file will `@include` anything from @protons, but javascript and Sass will. This is a uniquely Particle convention.
 - **Atoms** upward **will** be included in other Twig files.
 
     > "Atoms of our interfaces serve as the foundational building blocks that comprise all our user interfaces. These atoms include basic HTML elements like form labels, inputs, buttons, and others that can’t be broken down any further without ceasing to be functional. [Source.](http://atomicdesign.bradfrost.com/chapter-2/#atoms)
@@ -402,15 +404,15 @@ Using Webpack to **[bundle](https://webpack.js.org/guides/getting-started/#creat
 
 Consider this dependency chain for the `apps/pl` app:
 
-                                                         <- @base
+                                                         <- @protons
                                                          <- jquery
                                                          <- bootstrap/src/js/buttons
                                     <- @atoms/button     <- _button.scss
-                                                         <- @base
+                                                         <- @protons
                                                          <- jquery
                                                          <- bootstrap/src/js/cards
     apps/pl <- source/design-system <- @molecules/card   <- _card.scss
-                                                         <- @base
+                                                         <- @protons
                                                          <- bootstrap/src/js/jumbotron
                                     <- @organisms/header <- _header.scss
 
@@ -560,7 +562,13 @@ To save these devDependencies to your project *permanently*, run the following i
 npm install --save-dev pa11y@5.0.0-beta.5 pa11y-reporter-cli 
 ``` 
 
-Then whenever you want to run your tests, simply:
+Then whenever you want to run your tests, simply start the local Pattern Lab dev server in one session:
+
+```bash
+npm run start
+```
+
+And the kick off the pa11y tests in another session:
 
 ```bash
 npm run test:pa11y
