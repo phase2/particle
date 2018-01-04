@@ -179,9 +179,9 @@ The following are significant items at the root level:
     │   ├── block.html.twig            # Example Drupal template integrating, say @molecules/_card.twig
     │   └── ...                        # There wil be many Drupal templates
     ├── index.js                       # Imports and applies the design system to a bundle for Drupal
-    ├── particle.info.yml               # Theme information. DS namespaces are auto-injected!
-    ├── particle.libraries.yml          # The output js and css bundles are included here
-    ├── particle.theme                  # Drupal preprocess functions
+    ├── particle.info.yml              # Theme information. DS namespaces are auto-injected!
+    ├── particle.libraries.yml         # The output js and css bundles are included here
+    ├── particle.theme                 # Drupal preprocess functions
     └── index.js                       # Imports and applies the design system to a bundle for Drupal
 
 ## Anatomy of a Component
