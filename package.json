@@ -34,7 +34,9 @@
     "webpack-grav": "webpack --display-entrypoints --config webpack.grav.config.js",
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
     "test:pa11y": "node tools/tests/accessibility/pa11y.js",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "test": "npm run test:unit",
+    "ci": "npm run lint && npm run test && npm run compile:pl"
   },
   "browserslist": [
     "last 2 versions",
