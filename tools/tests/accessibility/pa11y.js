@@ -21,11 +21,7 @@ const options = {
     'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18',
   ],
   log: {
-    debug: (message) => {
-      if (!message.startsWith('Browser Console:')) {
-        console.log(message);
-      }
-    },
+    debug: console.log,
     error: console.error,
     info: console.log,
   },
