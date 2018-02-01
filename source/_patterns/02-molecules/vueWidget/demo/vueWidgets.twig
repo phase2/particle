@@ -1,0 +1,14 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+
+    <div class="card text-light bg-secondary mb-3">
+      <div class="card-body">
+        <h4 class="card-title">Vue Components</h4>
+        <p class="card-text">If my calculations are correct, the inner div should be mounted by the vueWidget with a simple hello world.</p>
+
+        <div id="app"></div>
+      </div>
+    </div>
+  {% endblock column_1 %}

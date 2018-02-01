@@ -18,6 +18,7 @@ import * as carousel from 'molecules/carousel';
 import * as exampleWidget from 'molecules/example-widget';
 import * as jumbotron from 'molecules/jumbotron';
 import * as pagination from 'molecules/pagination';
+import * as vueWidget from 'molecules/vueWidget';
 import * as accordion from 'organisms/accordion';
 import * as article from 'organisms/article';
 import * as navbar from 'organisms/navbar';
@@ -38,6 +39,7 @@ export default {
   exampleWidget,
   jumbotron,
   pagination,
+  vueWidget,
   accordion,
   article,
   navbar,

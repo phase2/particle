@@ -39,6 +39,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
+            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax', // <style lang="sass">
+          },
+        },
+      },
+      {
         test: /\.(sass|scss)$/,
         include: [
           path.resolve(__dirname, PATH_SOURCE),
@@ -128,7 +138,7 @@ module.exports = {
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery plugins to assume
     // that `window.jquery` is available
     new webpack.ProvidePlugin({
-      // Bootstrap is dependant on jQuery and Popper
+      // Bootstrap is dependent on jQuery and Popper
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
