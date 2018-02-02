@@ -1,16 +1,34 @@
 <template>
-  <div class="vue-card">
-    <h3><marquee>{{ message }}</marquee></h3>
+  <div class="">
+    <div v-for="item in getCard" class="card text-dark">
+      <div class="card-body">
+        <h4 class="card-title">{{ item.name }}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">{{ item.id }}</h6>
+        <div class="card-text">
+          <ul>
+            <li>{{ item.phone }}</li>
+            <li>{{ item.website }}</li>
+            <li>{{ item.email }}</li>
+          </ul>
+      </div>
+
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
   import { mapGetters, mapActions, mapState } from 'vuex'
+
+  // import existing PRINTING styles through javascript
+  import '../../../card/_card.scss';
+
   export default {
     name: 'card',
     data() {
       return {
-        message: this.$store.state.message
+        card: this.$store.state.card
       }
     },
     methods: {
@@ -19,22 +37,11 @@
     },
     computed: {
       ...mapGetters([
+        'getCard'
       ]),
     },
-  }
-</script>
-
-<style lang="scss">
-  @import '../../../../00-protons/variables';
-
-  .vue-card {
-    margin: map-get($spacing, l);
-    padding: map-get($spacing, m);
-    font-size: $font-size-lg;
-    background-color: map-get($theme-colors, 'new');
-
-    h3 {
-      color: $white;
+    created() {
+      this.$store.dispatch('getCardItems');
     }
   }
-</style>
+</script>

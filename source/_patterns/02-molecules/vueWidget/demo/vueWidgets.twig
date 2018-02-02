@@ -6,7 +6,11 @@
     <div class="card text-light bg-secondary mb-3">
       <div class="card-body">
         <h4 class="card-title">Vue Components</h4>
-        <p class="card-text">If my calculations are correct, the inner div should be mounted by the vueWidget with a simple hello world message.</p>
+        <p class="card-text">If my calculations are correct, the inner div should be mounted by the vueWidget app, which contains two components:</p>
+        <ul>
+          <li>a simple hello world message</li>
+          <li>a card component that re-uses _card.scss styles</li>
+        </ul>
 
         {% include '@molecules/vueWidget/_vue-widget.twig' %}
       </div>
