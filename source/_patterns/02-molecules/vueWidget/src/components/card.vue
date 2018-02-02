@@ -25,7 +25,7 @@
 </script>
 
 <style lang="scss">
-  @import '../../../00-protons/variables';
+  @import '../../../../00-protons/variables';
 
   .vue-card {
     margin: map-get($spacing, l);

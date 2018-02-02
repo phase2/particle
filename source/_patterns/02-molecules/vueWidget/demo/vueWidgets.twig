@@ -6,9 +6,9 @@
     <div class="card text-light bg-secondary mb-3">
       <div class="card-body">
         <h4 class="card-title">Vue Components</h4>
-        <p class="card-text">If my calculations are correct, the inner div should be mounted by the vueWidget with a simple hello world.</p>
+        <p class="card-text">If my calculations are correct, the inner div should be mounted by the vueWidget with a simple hello world message.</p>
 
-        <div id="app"></div>
+        {% include '@molecules/vueWidget/_vue-widget.twig' %}
       </div>
     </div>
   {% endblock column_1 %}
