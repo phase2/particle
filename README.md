@@ -2,6 +2,8 @@
 
 [![GitHub (pre-)release](https://img.shields.io/github/release/phase2/particle/all.svg)](https://github.com/phase2/particle/releases) [![Build Status](https://travis-ci.org/phase2/particle.svg?branch=master)](https://travis-ci.org/phase2/particle) [![Greenkeeper badge](https://badges.greenkeeper.io/phase2/pattern-lab-starter.svg)](https://greenkeeper.io/)
 
+![Particle mascot: Astrogoat](source/_patterns/01-atoms/image/demo/astrogoat.png?raw=true "Astrogoat")
+
 Particle is an opinionated set of tools and examples to:
 
 1. Build an application-agnostic **design system**
@@ -505,7 +507,7 @@ The formatters (things like `.paragraph`, `.words`, etc) can accept options, whe
 
 `apps/grav/`
 
-Grav is a flat file CMS that uses Twig as a template engine. Learn more [here](https://learn.getgrav.org/). 
+Grav is a flat file CMS that uses Twig as a template engine. Learn more [here](https://learn.getgrav.org/).
 
 #### Grav integration of design system Twig files
 
