@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <div v-for="item in getCard" class="card text-dark">
+  <div class="row" style="justify-content: center;">
+    <div v-for="item in getCard" class="card text-dark col-5" style="margin: 5px;">
       <div class="card-body">
         <h4 class="card-title">{{ item.name }}</h4>
         <h6 class="card-subtitle mb-2 text-muted">{{ item.id }}</h6>
@@ -10,8 +10,7 @@
             <li>{{ item.website }}</li>
             <li>{{ item.email }}</li>
           </ul>
-      </div>
-
+        </div>
       </div>
     </div>
   </div>

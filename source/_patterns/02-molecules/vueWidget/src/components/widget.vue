@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-card">
+  <div class="vue-widget">
     <h3><marquee>{{ message }}</marquee></h3>
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
   import { mapGetters, mapActions, mapState } from 'vuex'
   export default {
-    name: 'card',
+    name: 'widget',
     data() {
       return {
         message: this.$store.state.message
@@ -28,7 +28,7 @@
   // importing NON PRINTING styles in sass
   @import '../../../../00-protons/variables';
 
-  .vue-card {
+  .vue-widget {
     margin: map-get($spacing, l);
     padding: map-get($spacing, m);
     font-size: $font-size-lg;
