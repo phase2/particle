@@ -32,7 +32,7 @@
     "gulp": "github:gulpjs/gulp#6d71a65",
     "p2-theme-core": "^9.4.6",
     "rc": "^1.2.0",
-    "stylelint-scss": "^1.4.3"
+    "stylelint-scss": "^2.3.0"
   },
   "devDependencies": {
     "lodash.includes": "^4.1.3",
