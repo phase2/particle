@@ -1,0 +1,78 @@
+{
+  "name": "phase2/pattern-lab-starter",
+  "description": "Phase2 Pattern Lab for Drupal based on Pattern Lab's Drupal Edition",
+  "keywords": [
+    "pattern lab",
+    "drupal"
+  ],
+  "homepage": "https://github.com/phase2/pattern-lab-starter",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Evan Lovely",
+      "role": "Lead Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/phase2/pattern-lab-starter/issues"
+  },
+  "autoload": {
+    "psr-0": {
+      "PatternLab": "core/src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/patternlab-php-core"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/patternengine-php-twig"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/styleguidekit-assets-default"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/drupal-pattern-lab/styleguidekit-twig-default"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.5",
+    "pattern-lab/core": "^2.7.0",
+    "pattern-lab/patternengine-twig": "^2.0.0",
+    "pattern-lab/styleguidekit-assets-default": "^3.0.0",
+    "pattern-lab/styleguidekit-twig-default": "^3.0.0",
+    "pattern-lab/drupal-twig-components": "^2.0.0",
+    "pattern-lab/plugin-faker": "^2.0",
+    "evanlovely/plugin-twig-namespaces": "^1.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "PatternLab\\Installer::postInstallCmd"
+    ],
+    "post-update-cmd": [
+      "PatternLab\\Installer::postUpdateCmd"
+    ],
+    "post-root-package-install": [
+      "PatternLab\\Installer::setProjectInstall",
+      "PatternLab\\Installer::getSuggestedStarterKits",
+      "PatternLab\\Installer::getConfigOverrides"
+    ],
+    "post-package-install": [
+      "PatternLab\\Installer::postPackageInstall"
+    ],
+    "post-package-update": [
+      "PatternLab\\Installer::postPackageUpdate"
+    ],
+    "pre-package-uninstall": [
+      "PatternLab\\Installer::prePackageUninstall"
+    ]
+  },
+  "extra": {
+    "patternlab": {
+    }
+  }
+}

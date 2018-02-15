@@ -1,0 +1,10 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+
+    <h1>Accordion</h1>
+    <p class="lead">Accordions make usee of Bootstrap's <a href="https://getbootstrap.com/docs/4.0/components/collapse/" target="_blank">Collapse</a> with the card component. Default collapse behavior is extended to create an accordion.</p>
+    {% include '@organisms/accordion/_accordion.twig' with accordion_1 %}
+
+  {% endblock %}

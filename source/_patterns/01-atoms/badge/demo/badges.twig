@@ -1,0 +1,86 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+    <h1>Badges</h1>
+    {% include '@molecules/card/_card-helper.twig' with {
+      card_text: badges_helper,
+      card_background: 'secondary',
+      text_color: 'light',
+      button: {
+        button_link: 'https://getbootstrap.com/docs/4.0/components/badge/',
+      },
+    } %}
+    <div class="mb-3">
+      <h1>Badge Sizes</h1>
+      <p>Note: Badges scale to match the size of the immediate parent element </p>
+      {% for i in 1..5 %}
+        <h{{ i }}>
+        {% include '@atoms/badge/_badge.twig' with {
+          badge_text: 'Badge',
+          badge_color: 'primary',
+        } %}
+        </h{{ i }}>
+      {% endfor %}
+    </div>
+
+    <div class="mb-3">
+      <h1>Badge Button</h1>
+      {% embed '@atoms/button/_button.twig' with {
+        button_color: 'primary',
+        button_text: 'Notifications',
+      } %}
+        {% block right %}
+          {% include '@atoms/badge/_badge.twig' with {
+            badge_text: '4',
+            badge_color: 'light',
+          } %}
+        {% endblock right %}
+      {% endembed %}
+
+      {% embed '@atoms/button/_button-outline.twig' with {
+        button_color: 'primary',
+        button_text: 'Notifications',
+      } %}
+        {% block right %}
+          {% include '@atoms/badge/_badge.twig' with {
+            badge_text: '4',
+            badge_color: 'primary',
+          } %}
+        {% endblock right %}
+      {% endembed %}
+    </div>
+
+    <div class="mb3">
+      <h1>Badge Colors</h1>
+      {% for name, rgb in scssColors %}
+        {% include '@atoms/badge/_badge.twig' with {
+          badge_color: name,
+          badge_text: name,
+        } %}
+      {% endfor %}
+    </div>
+
+    <div class="mb-3">
+      <h1>Pill Badges</h1>
+      {% for name, rgb in scssColors %}
+        {% include '@atoms/badge/_badge.twig' with {
+          badge_color: name,
+          badge_text: name,
+          badge_pill: TRUE,
+        } %}
+      {% endfor %}
+    </div>
+
+    <div class="mb-3">
+      <h1>Badge Links</h1>
+      {% for name, rgb in scssColors %}
+        {% include '@atoms/badge/_badge.twig' with {
+          badge_color: name,
+          badge_text: name,
+          badge_element: 'a',
+          badge_link: 'https://github.com/phase2/particle',
+        } %}
+      {% endfor %}
+    </div>
+  {% endblock column_1 %}

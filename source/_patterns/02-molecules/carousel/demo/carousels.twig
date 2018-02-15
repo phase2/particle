@@ -1,0 +1,31 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+{% set container = true %}
+
+{% block column_1 %}
+  <h1>Carousel</h1>
+
+  <p class="lead">A slideshow component for cycling through elements—images or slides of text—like a carousel.</p>
+
+  {% include '@atoms/alert/_alert.twig' with alert %}
+
+  <h2 class="my-3">Slides Only</h2>
+  <p>Here’s a carousel with slides only. The <code>.active</code> class must be on at least one item initially to show.</p>
+  {% include '@molecules/carousel/_carousel.twig' with carousel_1 %}
+
+  <h2 class="my-3">With Controls</h2>
+  <p>Adding in the previous and next controls:</p>
+  {% include '@molecules/carousel/_carousel.twig' with carousel_2 %}
+
+  <h2 class="my-3">With Indicators</h2>
+  <p>You can also add the indicators to the carousel, alongside the controls, too.</p>
+  {% include '@molecules/carousel/_carousel.twig' with carousel_3 %}
+
+  <h2 class="my-3">With Captions</h2>
+  <p>
+    Add captions to your slides easily with the <code>.carousel-caption</code> element within any <code>.carousel-item.</code>
+    They can be easily hidden on smaller viewports, as shown below, with optional display utilities.
+    We hide them initially with <code>.d-none</code> and bring them back on medium-sized devices with <code>.d-md-block</code>.
+  </p>
+  {% include '@molecules/carousel/_carousel.twig' with carousel_4 %}
+
+{% endblock column_1 %}

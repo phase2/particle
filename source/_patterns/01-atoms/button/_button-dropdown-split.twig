@@ -1,0 +1,18 @@
+{#
+  Split Button Dropdown!
+#}
+
+  {% include '@atoms/button/_button.twig' with {
+    button_color: dropdown_color,
+    button_text: dropdown_text,
+  } %}
+
+  {% embed '@atoms/button/_button.twig' with {
+    button_other_classes: 'dropdown-toggle dropdown-toggle-split',
+    button_other_attributes: 'data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"',
+    button_color: dropdown_color,
+  } %}
+    {% block right %}
+      <span class="sr-only">Toggle Dropdown</span>
+    {% endblock right %}
+  {% endembed %}

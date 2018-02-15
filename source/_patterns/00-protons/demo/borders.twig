@@ -1,0 +1,90 @@
+{#
+  Borders!
+
+  Documenting Border Examples from Bootstrap. These are Bootstrap Utilities we gain via Base.
+
+  All our Bootstrap Utilities are Belong to Base.
+
+  border_classes: Array: Used to demonstrate available border utility classes.
+  radius_classes: Array: Used to demonstrate available boder-radius utility classes.
+
+  see https://getbootstrap.com/docs/4.0/utilities/borders/
+#}
+
+{% set border_classes = [
+  '',
+  '-0',
+  '-top-0',
+  '-right-0',
+  '-bottom-0',
+  '-left-0',
+] %}
+
+{% set radius_classes = [
+  '',
+  '-top',
+  '-right',
+  '-bottom',
+  '-left',
+  '-circle',
+  '-0',
+] %}
+
+  {% embed '@atoms/grid/_grid-1-up.twig' with { container: true } %}
+    {% block column_1 %}
+
+      <h1>Borders</h1>
+      <p class="lead">Use border utilities to quickly style the border and
+        border-radius of an element. Great for images, buttons, or any other
+        element.</p>
+
+      <h2 class="py-3">Border</h2>
+      <p>Add classes to an element to remove all borders or some borders.</p>
+      <div class="border">
+        {% for class in border_classes %}
+          <span class=" bg-light m-2 border{{ class }}"
+                style="display: inline-block; height: 5rem; width: 5rem; margin: .25rem; border: 1px solid black"></span>
+        {% endfor %}
+        <pre class="bg-light">
+          <code>
+{% for class in border_classes %}
+  &lt;span class="border{{ class }}"&gt;&lt;/span&gt;
+{% endfor %}
+          </code></pre>
+      </div>
+
+      <h2 class="py-3">Border color</h2>
+      <p>Change the border color using utilities built on our theme colors.</p>
+      <div class="border">
+        {% for colorName, colorValue in scssColors %}
+          <span class="bg-light m-2 border border-{{ colorName }}"
+                style="display: inline-block; height: 5rem; width: 5rem; margin: .25rem;"></span>
+        {% endfor %}
+
+        <pre class="bg-light">
+          <code>
+{% for colorName, colorValue in scssColors %}
+  &lt;span class="border border-{{ colorName }}"&gt;&lt;/span&gt;
+{% endfor %}
+          </code></pre>
+      </div>
+
+      <h2 class="py-3">Border-radius</h2>
+      <p>Add classes to an element to easily round its corners.</p>
+      <div class="border">
+        {% for class in radius_classes %}
+          {% include '@atoms/image/_image.twig' with {
+            imageStyleName: 'thumbnail',
+            class: 'm-2 rounded' ~ class,
+          } %}
+        {% endfor %}
+        <pre class="bg-light">
+          <code>
+{% for class in radius_classes %}
+  &lt;img src="..." alt="..." class="rounded{{ class }}"&gt;
+{% endfor %}
+          </code></pre>
+      </div>
+
+    {% endblock column_1 %}
+  {% endembed %}

@@ -1,0 +1,27 @@
+{#
+  Badge!
+
+  badge_element: String: span|a Choose the element type for your badge. If you use an <a> tag make sure to enter a value for badge_link.
+  badge_pill: Boolean: TRUE|FALSE Make badges more rounded.
+  badge_color: String: primary|secondary|success|danger|warning|info|light|dark The color of the badge.
+  badge_link: String: The URL the badge will lead to. Make sure to set badge_element to 'a'.
+  badge_text: String: Display text on the badge.
+#}
+
+{% set badge_element = badge_element | default('span') %}
+{% set badge_color = badge_color | default('primary') %}
+
+{% set badge_classes = [
+  'badge',
+  badge_pill ? 'badge-pill',
+  badge_color ? 'badge-' ~ badge_color,
+  badge_other_classes,
+] | sort | join(' ') | trim %}
+
+{% if badge_link %}
+  {% set badge_link = 'href="' ~ badge_link ~ '"' %}
+{% endif %}
+
+<{{ badge_element }} {{ badge_link }} class="{{ badge_classes }}">
+  {{ badge_text }}
+</{{ badge_element }}>

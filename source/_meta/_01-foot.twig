@@ -1,30 +1,8 @@
-
 	<!--DO NOT REMOVE-->
 	{{ patternLabFoot | raw }}
 
-  {# As soon as this is integrated into a Drupal site, remove deps from `bower.json` and switch these over to tags like this: #}
-  {#<script src="/core/assets/vendor/domready/ready.min.js"></script>#}
-
-  {# Relative paths should prepend `../../` on top of what you think is necessary to get from the location of the `publicDir` to the root of the theme. #}
-  {# If the public directory is at `pattern-lab/public/` then you'll `../../../../` to get the root of the theme. #}
-  {# If the public directory is at `pattern-lab-public/` then you'll `../../../` to get the root of the theme. #}
-
-  <!-- Drupal dependencies -->
-  <script src="../../../../bower_components/domready/ready.js"></script>
-  <script src="../../../../bower_components/jquery/dist/jquery.js"></script>
-  <script src="../../../../bower_components/jquery-once/jquery.once.js"></script>
-  <script src="../../../../bower_components/drupal/index.js"></script>
-  <script src="../../../../bower_components/drupalinit/index.js"></script>
-  <!-- END: Drupal dependencies -->
-
-  <!-- Pattern Lab only dependencies -->
-  <script src="../../../../bower_components/holderjs/holder.js"></script>
-  <!-- END:Pattern Lab only dependencies -->
-
-  {# Gulp tools will auto-inject what is compiled into the `dest/` directory (usually just aggregated JS & CSS), and anything in `config.patternLab.injectFiles` here: #}
-  <!-- inject:js -->
-  <script src="../../../../dest/script.js?cacheBuster={{ cacheBuster }}"></script>
-  <!-- endinject -->
+  <script src="{{ paths.assets }}/commons.js"></script>
+  <script src="{{ paths.assets }}/app-pl.js"></script>
 
 	</body>
 </html>

@@ -1,0 +1,61 @@
+{#
+  Jumbotron
+
+  jumbotron_fluid: Boolean: Removes rounded corners and sets full horizontal space of parent.
+  jumbotron_title: String: The title of the Jumbotron
+  jumbotron_subtitle: String: The Subtitle of the Jumbotron
+  jumbotron_text: String: The text of the Jumbotron.
+  jumbotron_link: String: the path to another URL
+  jumbotron_link_text: String: the link's text
+
+  button vars see @atoms/button
+  button_text: String: Display text on the button
+  button_color: String: primary|secondary|success|danger|warning|info|light|dark
+  button_size: String: lg|sm set whether the button is large or small
+
+  see https://getbootstrap.com/docs/4.0/components/jumbotron/ for more details
+#}
+
+{% set jumbotron_classes = [
+  'jumbotron',
+  jumbotron_fluid ? 'jumbotron-fluid',
+  jumbotron_other_classes,
+] | sort | join(' ') | trim %}
+
+<div class="{{ jumbotron_classes }}">
+  {% if jumbotron_fluid %}
+    <div class="container">
+  {% endif %}
+
+  {% block jumbotron_branding %}
+    {% if jumbotron_title %}
+      <h1 class="display-3">{{ jumbotron_title }}</h1>
+    {% endif %}
+
+    {% if jumbotron_subtitle %}
+      <p class="lead">{{ jumbotron_subtitle }}</p>
+    {% endif %}
+  {% endblock jumbotron_branding %}
+
+  {% block header_cta %}
+    {% if jumbotron_text %}
+      <hr class="my-4">
+      <p>{{ jumbotron_text }}</p>
+    {% endif %}
+
+    {% if button_text %}
+      <p class="lead">
+        {% include "@atoms/button/_button.twig" with {
+          button_text: button_text,
+          button_color: button_color,
+          button_size: button_size,
+          button_link: button_link,
+        } only %}
+      </p>
+    {% endif %}
+  {% endblock header_cta %}
+
+  {% if jumbotron_fluid %}
+    </div>
+  {% endif %}
+</div>

@@ -1,0 +1,18 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+    <h1>Navbar</h1>
+    {% include '@molecules/card/_card-helper.twig' with {
+      card_text: navbar_helper,
+      card_background: 'secondary',
+      text_color: 'light',
+      button: {
+        button_link: 'http://getbootstrap.com/docs/4.0/components/navbar/',
+      },
+    } %}
+
+  <div class="mt-3">
+    {% include '@organisms/navbar/_navbar.twig' %}
+  </div>
+  {% endblock column_1 %}

@@ -1,0 +1,22 @@
+# @TODO: THIS IS NEEDS LOTS OF WORK, THESE PATHS MAY BE NO LONGER CORRECT
+core:
+  css:
+    theme:
+      ../../dist/assets/app-drupal.styles.css:
+        preprocess: true
+  js:
+    ../../dist/assets/commons.js:
+      preprocess: true
+    ../../dist/assets/app-drupal.js:
+      preprocess: true
+  # see all in Drupal's `core/core.libraries.yml`
+  dependencies:
+    # - patternlab/j-dash
+    - core/drupal
+# @TODO: GET THESE PULLED OUT VIA WEBPACK
+#jquery:
+#  js:
+#    ../node_modules/jquery/dist/jquery.min.js: { minified: true, weight: -20 }
+#lodash:
+#  js:
+#    ../node_modules/lodash/lodash.min.js: { minified: true, weight: -20 }

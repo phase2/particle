@@ -1,0 +1,53 @@
+{#
+  Article!
+
+  article_title: String: The title of the article.
+  article_body: String: Body content for a article.
+  article_author_name: String: The name of the author.
+  article_date: String: A simple string date.
+  article_tags: Array: An array of tags.
+
+#}
+
+{% set image_classes = [
+  'm-3',
+  'img',
+  'img-responsive',
+  'rounded-circle',
+  'float-right'
+] | sort | join(' ') | trim %}
+
+<article{{ (BUILD_TARGET == 'pl') ? ' class=' ~ classes : attributes.addClass(classes) }}>
+
+  {% block article_header %}
+    <h2 class="ml-0">{{ article_title }}</h2>
+  {% endblock article_header %}
+
+  {% block article_content %}
+    <div class="ml-5 text-justify">
+      {% include '@atoms/image/_image.twig' with {
+        imageStyleName: 'small',
+        class: image_classes,
+        img: card_image,
+      } %}
+      {{ article_body }}
+    </div>
+  {% endblock article_content %}
+
+  {% block article_footer %}
+    <div>
+      <span class="font-weight-bold">Tags:</span>
+      <ul class="list-inline">
+        {% for tag in article_tags  %}
+          <li class="list-inline-item"><a href="{{ tag.url }}" target="_blank">{{ tag.word }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <blockquote class="text-right">
+      <footer class="blockquote-footer">
+        Submitted by {{ article_author_name }} on {{ article_date }}
+      </footer>
+    </blockquote>
+  {% endblock article_footer %}
+
+</article>

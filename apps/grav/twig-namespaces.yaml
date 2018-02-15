@@ -1,0 +1,75 @@
+enabled: true
+namespaces:
+  base:
+    paths:
+      - user/themes/particle/source/_patterns/00-protons
+  atoms:
+    paths:
+      - user/themes/particle/source/_patterns/01-atoms
+      - user/themes/particle/source/_patterns/01-atoms/grid
+      - user/themes/particle/source/_patterns/01-atoms/icon
+      - user/themes/particle/source/_patterns/01-atoms/badge
+      - user/themes/particle/source/_patterns/01-atoms/alert
+      - user/themes/particle/source/_patterns/01-atoms/image
+      - user/themes/particle/source/_patterns/01-atoms/button
+      - user/themes/particle/source/_patterns/01-atoms/branding
+      - user/themes/particle/source/_patterns/01-atoms/breadcrumb
+      - user/themes/particle/source/_patterns/01-atoms/list-group
+  molecules:
+    paths:
+      - user/themes/particle/source/_patterns/02-molecules
+      - user/themes/particle/source/_patterns/02-molecules/card
+      - user/themes/particle/source/_patterns/02-molecules/jumbotron
+  organisms:
+    paths:
+      - user/themes/particle/source/_patterns/03-organisms
+      - user/themes/particle/source/_patterns/03-organisms/article
+      - user/themes/particle/source/_patterns/03-organisms/card-grid
+  templates:
+    paths:
+      - user/themes/particle/source/_patterns/04-templates
+      - user/themes/particle/source/_patterns/04-templates/frontpage
+  pages:
+    paths:
+      - user/themes/particle/source/_patterns/05-pages
+generated-namespaces:
+  protons:
+    paths:
+      - ../../source/_patterns/00-protons
+  atoms:
+    paths:
+      - ../../source/_patterns/01-atoms
+      - ../../source/_patterns/01-atoms/grid
+      - ../../source/_patterns/01-atoms/icon
+      - ../../source/_patterns/01-atoms/alert
+      - ../../source/_patterns/01-atoms/badge
+      - ../../source/_patterns/01-atoms/image
+      - ../../source/_patterns/01-atoms/button
+      - ../../source/_patterns/01-atoms/branding
+      - ../../source/_patterns/01-atoms/dropdown
+      - ../../source/_patterns/01-atoms/breadcrumb
+      - ../../source/_patterns/01-atoms/list-group
+  molecules:
+    paths:
+      - ../../source/_patterns/02-molecules
+      - ../../source/_patterns/02-molecules/nav
+      - ../../source/_patterns/02-molecules/card
+      - ../../source/_patterns/02-molecules/carousel
+      - ../../source/_patterns/02-molecules/jumbotron
+      - ../../source/_patterns/02-molecules/pagination
+      - ../../source/_patterns/02-molecules/example-widget
+  organisms:
+    paths:
+      - ../../source/_patterns/03-organisms
+      - ../../source/_patterns/03-organisms/navbar
+      - ../../source/_patterns/03-organisms/article
+      - ../../source/_patterns/03-organisms/accordion
+      - ../../source/_patterns/03-organisms/card-grid
+  templates:
+    paths:
+      - ../../source/_patterns/04-templates
+      - ../../source/_patterns/04-templates/homepage
+  pages:
+    paths:
+      - ../../source/_patterns/05-pages
+      - ../../source/_patterns/05-pages/homepage

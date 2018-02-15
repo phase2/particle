@@ -1,0 +1,53 @@
+{#
+  Button!
+
+  button_element: String: button|a|input choose the element type for your button.
+  button_type: String: the html 'type' attribute.
+  button_outline: Boolean: True|False, remove all background colors and images from a button.
+  buttonless_dropdown: Boolean: True|False, toggle `btn` base class for dropdowns.
+  button_color: String: primary|secondary|success|danger|warning|info|light|dark the color of the button.
+  button_size: String: lg|sm set whether the button is large or small.
+  button_block:  Boolean: True|False set button to occupy the full width the parent element.
+  button_active: Boolean: True|False set button to appear pressed.
+  button_other_classes: Other classes not specified in the template.
+  button_toggle: String: button|collapse set button's data-toggle html value.
+  button_link: String: the URL the button will lead to.
+  button_value: String: the html 'value' attribute.
+  button_id: String: The button's html 'id' attribute.
+  button_disabled: Boolean: True|False set button to appear disabled.
+  button_other_attributes: String: Other attributes not specified in the template.
+  button_text: String: Display text on the button.
+
+  See https://getbootstrap.com/docs/4.0/components/buttons/ for more details
+#}
+
+{% set button_element = button_element | default ('button') %}
+
+{% if button_element != 'a' %}
+  {% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
+{% endif %}
+
+{% set button_classes = [
+  buttonless_dropdown ? '' : 'btn',
+  button_color ? 'btn-' ~ button_color,
+  button_outline ? 'btn-outline-' ~ button_color,
+  button_size ? 'btn-' ~ button_size,
+  button_block ? 'btn-block',
+  button_active ? 'active',
+  button_other_classes,
+] | sort | join(' ') | trim %}
+
+{% set button_attributes = [
+  button_active ? 'aria-pressed="true"',
+  button_toggle ? 'data-toggle="' ~ button_toggle ~ '"',
+  button_link ? 'href=' ~ button_link,
+  button_value ? 'value="' ~ button_value ~ '"',
+  button_id ? 'id="' ~ button_id ~ '"',
+  button_disabled ? 'disabled',
+  button_other_attributes,
+] | sort | join(' ') | trim %}
+
+<{{ button_element }} {{ button_type }} class="{{ button_classes }}" {{ button_attributes }}>
+  {{ button_text }}
+  {% block right %}{% endblock right %}
+</{{ button_element }}>

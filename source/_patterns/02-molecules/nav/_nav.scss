@@ -1,0 +1,16 @@
+@import '../../00-protons/variables';
+
+// To change default bootstrap nav variables,
+// copy from ~bootstrap/scss/variables to here
+
+$nav-link-disabled-color: $gray-600;
+
+@import "~bootstrap/scss/nav";
+
+// Add custom code here
+.nav {
+  &--border {
+    border-color: $light;
+    border-style: solid;
+  }
+}

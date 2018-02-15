@@ -1,0 +1,15 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+
+    {% include '@atoms/alert/_alert.twig' with alert_status %}
+
+    {% include '@atoms/alert/_alert.twig' with alert_warning %}
+
+    {% include '@atoms/alert/_alert.twig' with alert_error %}
+
+    {% include '@atoms/alert/_alert.twig' with alert_info %}
+
+  {% endblock %}
+

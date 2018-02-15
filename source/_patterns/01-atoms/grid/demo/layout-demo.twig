@@ -1,0 +1,32 @@
+{#
+  Layout!
+  Demonstration of Containers from Bootstrap.
+  See https://getbootstrap.com/docs/4.0/layout/overview/
+#}
+
+<div class="container ">
+  <h1>Layout Demo</h1>
+  <p class="py-3 h3">Containers</p>
+  <p>
+    Containers are the most basic layout element in Bootstrap and are required when using our default grid system.
+    Choose from a responsive, fixed-width container (meaning its <code>max-width</code> changes at each breakpoint) or fluid-width (meaning it’s <code>100%</code> wide all the time).
+    While containers can be nested, most layouts do not require a nested container.
+  </p>
+  <p>
+    While nesting containers is possible, it's not recommended.
+    See <a href="https://getbootstrap.com/docs/4.0/layout/overview/" target="_blank">Bootstrap</a> for usage details.
+  </p>
+</div>
+
+<div class="container bg-secondary" style="height: 20rem;">
+  <p class="py-3 h1 text-white">Container Standard</p>
+  <p>Use <code>.container</code> for the standard version.
+    Padding is set as an expression of <code>$grid-gutter-width / 2</code>.
+</div>
+<br>
+
+<div class="container-fluid bg-secondary" style="height: 20rem;">
+  <p class="py-3 h1 text-white">Container Fluid</p>
+  <p>Use <code>.container-fluid</code> for a full width container, spanning the entire width of the viewport.</p>
+</div>
+<br>

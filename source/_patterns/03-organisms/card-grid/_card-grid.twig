@@ -1,0 +1,37 @@
+{#
+  Card Grid!
+
+  This is provided to show you an example of our Cards in grid in Pattern Lab.
+  Additional implementations are app-specific and should be handled on a case-by-case basis.
+
+  see https://getbootstrap.com/docs/4.0/components/card/ for more details
+#}
+
+{% set card_grid_classes = [
+  'col-sm-12',
+  'col-md-6',
+  'col-lg-4',
+  row_classes,
+] | sort | join(' ') | trim %}
+
+{% if card_grid_title %}
+  <h3>{{ card_grid_title }}</h3>
+{% endif %}
+<div class="row">
+  {% for item_card in card_grid_rows %}
+    {% set item_card = {
+      card_border: 'none',
+      card_title: item_card.card_title,
+      card_text: item_card.card_text,
+        button: {
+        button_element: 'a',
+        button_color: 'secondary',
+        button_text: 'View details »'|t,
+        button_link: '#',
+      }
+    } %}
+  <div class="{{ card_grid_classes }}">
+    {% include '@molecules/card/_card.twig' with item_card %}
+  </div>
+  {% endfor %}
+</div>

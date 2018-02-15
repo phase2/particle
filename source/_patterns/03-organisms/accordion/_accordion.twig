@@ -1,0 +1,40 @@
+{#
+  Accordion!
+
+  accordion_id: Integer: A unique numerical ID for the accordion.
+  accordion_card_list: Array: A list of cards and their values.
+
+  card_header: String: The header on the card.
+  card_text: String: The text on the card.
+  card_expanded: String: The default collapse state on the card.
+
+  Accordions combine Bootstrap's Card and Collapse. See below for more details:
+
+  * https://getbootstrap.com/docs/4.0/components/collapse/
+  * https://getbootstrap.com/docs/4.0/components/card/
+#}
+
+{% set accordion_id = random() %}
+
+<div id="{{ 'accordion-' ~ accordion_id }}" role="tablist">
+  {% for card in accordion_card_list %}
+    {% embed '@molecules/card/_card.twig' %}
+      {% block card_header %}
+        <div class="card-header" role="tab" id="{{ 'heading-' ~ loop.index }}">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" href="{{ '#collapse-' ~ loop.index }}" aria-expanded="{{ card_expanded }}" aria-controls="{{ 'collapse-' ~ loop.index }}">
+              {{ card.card_header }}
+            </a>
+          </h5>
+        </div>
+      {% endblock card_header %}
+      {% block card_body %}
+        <div id="{{ 'collapse-' ~ loop.index }}" class="collapse" role="tabpanel" aria-labelledby="{{ 'heading-' ~ loop.index }}" data-parent="{{ 'accordion-' ~ accordion_id }}">
+          <div class="card-body">
+            {{ card.card_text }}
+          </div>
+        </div>
+        {% endblock card_body %}
+    {% endembed %}
+  {% endfor %}
+</div>

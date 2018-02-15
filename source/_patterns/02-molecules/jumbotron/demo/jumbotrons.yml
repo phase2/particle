@@ -1,0 +1,13 @@
+basic_jumbotron:
+  jumbotron_title: Hello, world!
+  jumbotron_subtitle: This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+  jumbotron_text: It uses utility classes for typography and spacing to space content out within the larger container.
+  button_text: Learn more
+  button_color: primary
+  button_size: lg
+  button_link: 'https://github.com/phase2/particle'
+
+fluid_jumbotron:
+  jumbotron_title: Fluid Jumbotron
+  jumbotron_subtitle: This is a modified jumbotron that occupies the entire horizontal space of its parent.
+  jumbotron_fluid: TRUE

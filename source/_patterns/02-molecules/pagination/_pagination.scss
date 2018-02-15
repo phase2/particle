@@ -1,0 +1,10 @@
+// All component Sass needs non-printing base config
+@import '../../00-protons/variables';
+
+// To change default bootstrap variables, SEE ~bootstrap/scss/variables
+// Add bootstrap variables here
+//$pagination-color: blue;
+
+@import "~bootstrap/scss/pagination";
+
+// Add custom code here

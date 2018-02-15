@@ -1,0 +1,201 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+    {% block column_1 %}
+
+      <h1>Dropdowns</h1>
+      {% include '@molecules/card/_card-helper.twig' with {
+        card_text: dropdowns_helper,
+        card_background: 'secondary',
+        text_color: 'light',
+        button: {
+          button_link: 'https://getbootstrap.com/docs/4.0/components/dropdowns/',
+        }
+      } %}
+
+      <div class="mb-3">
+        <h1>Basic Dropdown</h1>
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_text: 'Dropdown button',
+          button_id: 'dropdownMenuButton',
+        } %}
+      </div>
+      <div class="mb-3">
+        <h1>&lt;a&gt; element dropdown</h1>
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_text: 'Dropdown link',
+          button_id: 'dropdownMenuLink',
+          button_element: 'a',
+          unique_attributes: 'role="button" id="dropdownMenuLink"',
+          button_link: '#',
+        } %}
+      </div>
+
+      <div class="mb-3">
+        <h1>Colors</h1>
+        {% for name, rgb in scssColors %}
+          {% include '@atoms/dropdown/_dropdown.twig' with {
+            dropdown_button: 'true',
+            dropdown_color: name,
+            dropdown_text: name|capitalize,
+          } %}
+        {% endfor %}
+      </div>
+
+      <div class="mb-3">
+        <h1>Split Button Drop Down</h1>
+        {% for name, rgb in scssColors %}
+          {% include '@atoms/dropdown/_dropdown.twig' with {
+            dropdown_button: 'true',
+            dropdown_split: 'true',
+            dropdown_color: name,
+            dropdown_text: name|capitalize,
+          } %}
+        {% endfor %}
+      </div>
+
+      <div class="mb-3">
+        <h1>Sizing</h1>
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_button: 'true',
+          button_size: 'lg',
+          dropdown_text: 'Large Button',
+        } %}
+
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_button: 'true',
+          button_size: 'sm',
+          dropdown_text: 'Small Button',
+        } %}
+
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_button: 'true',
+          dropdown_split: 'true',
+          button_size: 'lg',
+          dropdown_text: 'Large Split Button',
+        } %}
+
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_button: 'true',
+          dropdown_split: 'true',
+          button_size: 'sm',
+          dropdown_text: 'Small Split Button',
+        } %}
+      </div>
+
+      <div class="mb-3">
+        <h1>Dropup</h1>
+        <p>Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown</p>
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_button: 'true',
+          dropup: 'true',
+          dropdown_text: 'Dropup',
+        } %}
+
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_button: 'true',
+          dropup: 'true',
+          dropdown_split: 'true',
+          dropdown_text: 'Dropup Split',
+        } %}
+      </div>
+
+      <div class="mb-3">
+        <h1>Menu Items</h1>
+        <p>Note: Historically dropdown menu contents had to be links, but that’s no longer the case with Bootstrap v4. Now you can optionally use &ltbutton&gt elements in your dropdowns instead of just &lta&gts.</p>
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_text: 'Dropdown',
+          dropdown_menu_element: 'button',
+          button_id: 'dropdownMenu2',
+        } %}
+      </div>
+
+      <div class="mb-3">
+        <h1>Menu alignment</h1>
+        {% include '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_text: "This dropdown's menu is right-aligned",
+          dropdown_menu_right: 'true',
+        } %}
+      </div>
+
+      <div class="mb-3">
+        <h1>In-menu options</h1>
+        {% embed '@atoms/grid/_grid-3-up.twig' with { container: false } %}
+          {% block column_1 %}
+            {% embed '@atoms/dropdown/_dropdown.twig' with {
+              dropdown_color: 'secondary',
+              dropdown_text: "Header",
+            } %}
+              {% block dropdown_menu_content %}
+                <h6 class="dropdown-header">Dropdown header</h6>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+              {% endblock dropdown_menu_content %}
+            {% endembed %}
+          {% endblock column_1 %}
+          {% block column_2 %}
+            {% embed '@atoms/dropdown/_dropdown.twig' with {
+              dropdown_color: 'secondary',
+              dropdown_text: "Divider",
+            } %}
+              {% block dropdown_menu_content %}
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              {% endblock dropdown_menu_content %}
+            {% endembed %}
+          {% endblock column_2 %}
+          {% block column_3 %}
+            {% include '@atoms/dropdown/_dropdown.twig' with {
+              dropdown_color: 'secondary',
+              dropdown_text: 'Disabled Items',
+              dropdown_menu_items: dropdown_menu_disabled,
+            } %}
+          {% endblock column_3 %}
+        {% endembed %}
+      </div>
+
+      <div class="mb-3">
+        <h1>Menu forms</h1>
+        {% embed '@atoms/dropdown/_dropdown.twig' with {
+          dropdown_color: 'secondary',
+          dropdown_text: "Menu form",
+        } %}
+          {% block dropdown_menu_content %}
+            <form class="px-4 py-3">
+              <div class="form-group">
+                <label for="exampleDropdownFormEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+              </div>
+              <div class="form-group">
+                <label for="exampleDropdownFormPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                  Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">New around here? Sign up</a>
+            <a class="dropdown-item" href="#">Forgot password?</a>
+          {% endblock dropdown_menu_content %}
+        {% endembed %}
+      </div>
+
+    {% endblock column_1 %}
