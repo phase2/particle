@@ -27,7 +27,7 @@
       <div class="carousel-item {{ (image.active) ? 'active' }}">
         {% include '@atoms/image/_image.twig' with {
           imageStyleName: 'carousel',
-          class: 'img img-responsive',
+          class: 'img img-fluid',
         } %}
         {% if carousel_caption %}
           <div class="carousel-caption d-none d-md-block">
