@@ -10,7 +10,6 @@ const webpack = require('webpack');
 
 // Custom Imports
 const shared = require('../../webpack.shared.config');
-const { PATH_PL } = require('../../config');
 
 // Webpack Entry Points
 const pl = {
