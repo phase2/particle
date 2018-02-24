@@ -9,13 +9,12 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 // Custom Imports
-const shared = require('./webpack.shared.config');
-const { PATH_GRAV } = require('./config');
+const shared = require('../../webpack.shared.config');
 
 const grav = {
   entry: {
     'app-grav': [
-      path.resolve(__dirname, PATH_GRAV, 'index.js'),
+      path.resolve(__dirname, 'index.js'),
     ],
   },
   plugins: [

@@ -19,9 +19,9 @@
   "scripts": {
     "start": "gulp",
     "compile": "NODE_ENV=production gulp compile",
-    "compile:pl": "webpack --config webpack.pl.config.js && gulp compile",
-    "compile:drupal": "webpack --config webpack.drupal.config.js",
-    "compile:grav": "webpack --config webpack.grav.config.js",
+    "compile:pl": "webpack --config ./apps/pl/webpack.pl.config.js && gulp compile",
+    "compile:drupal": "webpack --config ./apps/drupal/webpack.drupal.config.js",
+    "compile:grav": "webpack --config ./apps/grav/webpack.grav.config.js",
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js; npm run lint:scss",

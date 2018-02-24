@@ -85,7 +85,7 @@ gulp.task('compile:twig-namespaces', () => gulp
  * Webpack config and setup.
  */
 // Import webpack config for PL
-const wpconfig = require('./webpack.pl.config');
+const wpconfig = require('./apps/pl/webpack.pl.config');
 // Webpack Dev Server config used for local development. See all available config options:
 // https://webpack.js.org/configuration/dev-server/#devserver
 const serverconfig = {
