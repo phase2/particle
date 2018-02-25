@@ -89,7 +89,7 @@
     "stylelint-webpack-plugin": "^0.10.3",
     "through2": "^2.0.3",
     "url-loader": "^0.6.2",
-    "webpack": "^3.11.0",
+    "webpack": "^4.0.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-iconfont-plugin": "0.0.2",
     "webpack-merge": "^4.1.2",
