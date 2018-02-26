@@ -99,7 +99,7 @@ const serverconfig = {
     colors: true, // Colored terminal output.
     hash: true,
     version: true,
-    timings: false,
+    timings: true,
     assets: true,
     chunks: false,
     modules: false,

@@ -13,6 +13,7 @@ const shared = require('../../webpack.shared.config');
 
 // Webpack Entry Points
 const pl = {
+  mode: "development",
   entry: {
     'app-pl': [
       path.resolve(__dirname, 'index.js'),

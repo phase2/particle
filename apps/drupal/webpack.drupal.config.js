@@ -12,6 +12,7 @@ const webpack = require('webpack');
 const shared = require('../../webpack.shared.config');
 
 const drupal = {
+  mode: "production",
   entry: {
     'app-drupal': [
       path.resolve(__dirname, 'index.js'),

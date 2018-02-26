@@ -21,9 +21,9 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 
 // Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const IconfontPlugin = require('webpack-iconfont-plugin');
-const FaviconsPlugin = require('favicons-webpack-plugin');
+// const StyleLintPlugin = require('stylelint-webpack-plugin');
+// const IconfontPlugin = require('webpack-iconfont-plugin');
+// const FaviconsPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   // See webpack.[drupal|pl].config.js for entry points
@@ -110,12 +110,10 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    runtimeChunk: false,
+  },
   plugins: [
-    // Allows for multiple entry points to share common code
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'commons',
-      minChunks: 2,
-    }),
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery plugins to assume
     // that `window.jquery` is available
     new webpack.ProvidePlugin({
@@ -125,57 +123,55 @@ module.exports = {
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
     }),
-    // Named files instead of chunk IDs for HMR.
-    new webpack.NamedModulesPlugin(),
     // Pulls out compile css to a standalone file
     new ExtractTextPlugin({
       filename: '[name].styles.css',
       allChunks: true,
     }),
     // Yell at us while writing Sass
-    new StyleLintPlugin(),
+    // new StyleLintPlugin(),
     // Iconfont generation from SVGs
-    new IconfontPlugin({
-      svgs: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
-      fonts: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/'),
-      styles: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
-      template: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/templates/template.icon-map-generated.njk'),
-      fontName: 'iconfont',
-      normalize: true,
-    }),
+    // new IconfontPlugin({
+    //   svgs: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
+    //   fonts: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/'),
+    //   styles: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
+    //   template: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/templates/template.icon-map-generated.njk'),
+    //   fontName: 'iconfont',
+    //   normalize: true,
+    // }),
     // favicon generation
-    new FaviconsPlugin({
-      // Your source logo
-      logo: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/image/logo.svg'),
-      // The prefix for all image files (might be a folder or a name), include [hash] for hash
-      prefix: 'favicons/',
-      // Emit all stats of the generated icons
-      emitStats: false,
-      // The name of the json containing all favicon information, [hash] available here
-      statsFilename: path.resolve(__dirname, PATH_SOURCE, '_data/favicons-stats.json'),
-      // Generate a cache file with control hashes and
-      // don't rebuild the favicons until those hashes change
-      persistentCache: true,
-      // Inject the html into the html-webpack-plugin
-      inject: false,
-      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
-      background: '#fff',
-      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
-      title: 'Webpack App',
-      // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
-      icons: {
-        android: false,
-        appleIcon: false,
-        appleStartup: false,
-        coast: false,
-        favicons: true,
-        firefox: false,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: false,
-      },
-    }),
+    // new FaviconsPlugin({
+    //   // Your source logo
+    //   logo: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/image/logo.svg'),
+    //   // The prefix for all image files (might be a folder or a name), include [hash] for hash
+    //   prefix: 'favicons/',
+    //   // Emit all stats of the generated icons
+    //   emitStats: false,
+    //   // The name of the json containing all favicon information, [hash] available here
+    //   statsFilename: path.resolve(__dirname, PATH_SOURCE, '_data/favicons-stats.json'),
+    //   // Generate a cache file with control hashes and
+    //   // don't rebuild the favicons until those hashes change
+    //   persistentCache: true,
+    //   // Inject the html into the html-webpack-plugin
+    //   inject: false,
+    //   // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+    //   background: '#fff',
+    //   // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+    //   title: 'Webpack App',
+    //   // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+    //   icons: {
+    //     android: false,
+    //     appleIcon: false,
+    //     appleStartup: false,
+    //     coast: false,
+    //     favicons: true,
+    //     firefox: false,
+    //     opengraph: false,
+    //     twitter: false,
+    //     yandex: false,
+    //     windows: false,
+    //   },
+    // }),
     // Ignore generated output if generated output is on a dependency chain (causes endless loop)
     new webpack.WatchIgnorePlugin([
       path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/'),
