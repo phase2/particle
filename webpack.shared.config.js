@@ -9,9 +9,6 @@ const webpack = require('webpack');
 
 // Custom Imports
 const {
-  PATH_PL,
-  PATH_DRUPAL,
-  PATH_GRAV,
   PATH_SOURCE,
 } = require('./config');
 
@@ -40,12 +37,6 @@ module.exports = {
     rules: [
       {
         test: /\.(sass|scss)$/,
-        include: [
-          path.resolve(__dirname, PATH_SOURCE),
-          path.resolve(__dirname, PATH_DRUPAL),
-          path.resolve(__dirname, PATH_GRAV),
-          path.resolve(__dirname, PATH_PL),
-        ],
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [

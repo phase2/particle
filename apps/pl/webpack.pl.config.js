@@ -9,14 +9,13 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 // Custom Imports
-const shared = require('./webpack.shared.config');
-const { PATH_PL } = require('./config');
+const shared = require('../../webpack.shared.config');
 
 // Webpack Entry Points
 const pl = {
   entry: {
     'app-pl': [
-      path.resolve(__dirname, PATH_PL, 'index.js'),
+      path.resolve(__dirname, 'index.js'),
     ],
   },
   plugins: [
