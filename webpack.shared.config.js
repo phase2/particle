@@ -39,13 +39,18 @@ module.exports = {
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
           { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
-          { loader: 'postcss-loader', options: { sourceMap: true, ident: 'postcss',
-            plugins: () => [
-              autoprefixer(),
-            ],
-          } },
-          { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } }
-        ]
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              ident: 'postcss',
+              plugins: () => [
+                autoprefixer(),
+              ],
+            },
+          },
+          { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } },
+        ],
       },
       {
         test: /\.js$/,
@@ -107,7 +112,9 @@ module.exports = {
     // new IconfontPlugin({
     //   svgs: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
     //   fonts: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/'),
+    // eslint-disable-next-line max-len
     //   styles: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icon-map-generated.scss'),
+    // eslint-disable-next-line max-len
     //   template: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/templates/template.icon-map-generated.njk'),
     //   fontName: 'iconfont',
     //   normalize: true,
