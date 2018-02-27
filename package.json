@@ -1,7 +1,8 @@
 {
   "name": "Particle",
   "version": "10.0.0",
-  "description": "A starterkit to build a design system shared to Pattern Lab, Drupal, Grav",
+  "description":
+    "A starterkit to build a design system shared to Pattern Lab, Drupal, Grav",
   "main": "gulpfile.js",
   "license": "GPL-2.0",
   "author": {
@@ -12,33 +13,34 @@
     "type": "git",
     "url": "git@github.com:phase2/particle.git"
   },
-  "keywords": [
-    "pattern-lab",
-    "prototyping"
-  ],
+  "keywords": ["pattern-lab", "prototyping"],
   "scripts": {
     "start": "gulp",
     "compile": "NODE_ENV=production gulp compile",
-    "compile:pl": "webpack --config ./apps/pl/webpack.pl.config.js && gulp compile",
+    "compile:pl":
+      "webpack --config ./apps/pl/webpack.pl.config.js && gulp compile",
     "compile:drupal": "webpack --config ./apps/drupal/webpack.drupal.config.js",
     "compile:grav": "webpack --config ./apps/grav/webpack.grav.config.js",
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js; npm run lint:scss",
+    "fmt:js":
+      "npm run lint:js -- --fix && prettier --loglevel warn --write '**/*.{js,json}'",
+    "fmt:scss":
+      "npm run lint:scss -- --fix && prettier --loglevel warn --write '{source, apps/drupal, apps/pl}/**/*.scss'",
+    "fmt": "npm run fmt:js; npm run fmt:scss",
     "gulp": "gulp",
     "update": "npm update && cd ./apps/pl/pattern-lab && composer update",
     "new": "yo ./tools/new-component/index.js",
-    "setup": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
+    "setup":
+      "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "webpack-dev-server": "webpack-dev-server --hot --inline --progress",
     "test:pa11y": "node tools/tests/accessibility/pa11y.js",
     "test:unit": "jest",
     "test": "npm run test:unit",
     "ci": "npm run lint && npm run test && npm run compile:pl"
   },
-  "browserslist": [
-    "last 2 versions",
-    "IE >= 10"
-  ],
+  "browserslist": ["last 2 versions", "IE >= 10"],
   "dependencies": {
     "bootstrap": "^4.0.0",
     "font-awesome": "^4.7.0",
@@ -62,11 +64,13 @@
     "css-loader": "^0.28.10",
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-webpack": "^0.8.4",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jest": "^21.12.2",
     "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "favicons-webpack-plugin": "0.0.7",
@@ -77,6 +81,7 @@
     "js-yaml": "^3.10.0",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.1.0",
+    "prettier": "^1.11.0",
     "regenerator-runtime": "^0.11.1",
     "sass-extract": "^1.0.1",
     "sass-loader": "^6.0.6",

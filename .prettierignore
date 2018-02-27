@@ -1,0 +1,7 @@
+# Ignore any path/file using .gitignore syntax, ie:
+# js/vendor
+
+dist/
+apps/pl/pattern-lab
+# Ignore yeoman new-component for now
+tools/new-component
