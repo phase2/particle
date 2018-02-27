@@ -14,8 +14,6 @@ const {
 
 // Loaders
 const autoprefixer = require('autoprefixer');
-const stylelint = require('stylelint');
-const postcssReporter = require('postcss-reporter');
 const sassExportData = require('@theme-tools/sass-export-data')({
   name: 'export_data',
   path: path.resolve(__dirname, 'source/_data/'),
@@ -23,6 +21,7 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 
 // Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const IconfontPlugin = require('webpack-iconfont-plugin');
 // const FaviconsPlugin = require('favicons-webpack-plugin');
 
@@ -33,7 +32,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/assets/'),
     publicPath: '/assets/',
   },
-  devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {
@@ -41,20 +39,12 @@ module.exports = {
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
           { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
-          { loader: 'postcss-loader', options: { sourceMap: true,
-            ident: 'postcss',
+          { loader: 'postcss-loader', options: { sourceMap: true, ident: 'postcss',
             plugins: () => [
-              stylelint({
-                configFile: '.stylelintrc',
-                ignorePath: '.stylelintignore',
-                failOnError: false,
-                quiet: false,
-              }),
               autoprefixer(),
-              postcssReporter({ clearReportedMessages: true })
             ],
           } },
-          { loader: 'sass-loader', options: { sourceMap: true } }
+          { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } }
         ]
       },
       {
@@ -111,6 +101,8 @@ module.exports = {
       filename: '[name].styles.css',
       allChunks: true,
     }),
+    // Yell at us while writing Sass
+    new StyleLintPlugin(),
     // Iconfont generation from SVGs
     // new IconfontPlugin({
     //   svgs: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),

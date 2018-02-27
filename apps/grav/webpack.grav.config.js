@@ -12,7 +12,7 @@ const webpack = require('webpack');
 const shared = require('../../webpack.shared.config');
 
 const grav = {
-  mode: "production",
+  mode: 'production',
   entry: {
     'app-grav': [
       path.resolve(__dirname, 'index.js'),
