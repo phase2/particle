@@ -88,9 +88,9 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    runtimeChunk: false,
-  },
+  // optimization: {
+  //   runtimeChunk: false,
+  // },
   plugins: [
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery plugins to assume
     // that `window.jquery` is available

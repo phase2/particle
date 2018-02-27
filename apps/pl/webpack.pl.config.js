@@ -11,6 +11,8 @@ const webpack = require('webpack');
 // Custom Imports
 const shared = require('../../webpack.shared.config');
 
+console.log(path.resolve(__dirname, 'dist/'));
+
 // Webpack Entry Points
 const pl = {
   mode: 'development',
@@ -18,6 +20,31 @@ const pl = {
     'app-pl': [
       path.resolve(__dirname, 'index.js'),
     ],
+  },
+  devServer: {
+    host: '0.0.0.0',
+    port: '8080',
+    contentBase: path.resolve('dist/'), // dev server starts from this folder.
+    watchContentBase: true,
+    hot: true, // Inject css/js into page without full refresh
+    historyApiFallback: true, // Finds default index.html files at folder root
+    inline: true, // Injects all the webpack dev server code right in the page
+    stats: {
+      colors: true, // Colored terminal output.
+      hash: true,
+      version: true,
+      timings: true,
+      assets: true,
+      chunks: false,
+      modules: false,
+      reasons: true,
+      children: false,
+      source: true,
+      errors: true,
+      errorDetails: true,
+      warnings: true,
+      publicPath: true,
+    },
   },
   plugins: [
     new webpack.DefinePlugin({
