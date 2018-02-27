@@ -3,7 +3,8 @@
     "stylelint-scss",
   ],
   "ignoreFiles": [
-    "apps/pl/pattern-lab/**/*"
+    "apps/pl/pattern-lab/**/*",
+    "./node_modules/**/*"
   ],
   "rules": {
     "declaration-colon-space-after": "always",

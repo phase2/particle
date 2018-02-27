@@ -14,6 +14,8 @@ const {
 
 // Loaders
 const autoprefixer = require('autoprefixer');
+const stylelint = require('stylelint');
+const postcssReporter = require('postcss-reporter');
 const sassExportData = require('@theme-tools/sass-export-data')({
   name: 'export_data',
   path: path.resolve(__dirname, 'source/_data/'),
@@ -21,7 +23,6 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 
 // Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const IconfontPlugin = require('webpack-iconfont-plugin');
 // const FaviconsPlugin = require('favicons-webpack-plugin');
 
@@ -37,42 +38,24 @@ module.exports = {
     rules: [
       {
         test: /\.(sass|scss)$/,
-        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-                sourceMap: true,
-                // minimize: {
-                //   discardDuplicates: true,
-                // }
-              },
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                ident: 'postcss',
-                plugins: () => [
-                  autoprefixer(),
-                ],
-              },
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-                // Revisit the real or imagined performance hit here
-                // includePaths: [
-                //   path.resolve(PATH_SOURCE, '_patterns'), // @import '00-protons/base';
-                // ],
-                functions: sassExportData,
-              },
-            },
-          ],
-        })),
+        use: [
+          { loader: 'style-loader', options: { sourceMap: true } },
+          { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
+          { loader: 'postcss-loader', options: { sourceMap: true,
+            ident: 'postcss',
+            plugins: () => [
+              stylelint({
+                configFile: '.stylelintrc',
+                ignorePath: '.stylelintignore',
+                failOnError: false,
+                quiet: false,
+              }),
+              autoprefixer(),
+              postcssReporter({ clearReportedMessages: true })
+            ],
+          } },
+          { loader: 'sass-loader', options: { sourceMap: true } }
+        ]
       },
       {
         test: /\.js$/,
@@ -128,8 +111,6 @@ module.exports = {
       filename: '[name].styles.css',
       allChunks: true,
     }),
-    // Yell at us while writing Sass
-    // new StyleLintPlugin(),
     // Iconfont generation from SVGs
     // new IconfontPlugin({
     //   svgs: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
