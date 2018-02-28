@@ -29,14 +29,13 @@ $spacing-demo: $spacing;
 //@import '../_patterns/01-atoms/button/_button.scss';
 
 // Include icons settings
-@import '../../../source/_patterns/01-atoms/icon/scss/icon-mixins';
+@import '../../../source/_patterns/01-atoms/icon/scss/_icons-generated';
 
 $icons-demo: (
-  prefix: $icon-font-class-prefix,
-  fontname: $icon-font-base-name,
-  icons: map-keys($font-icons),
+  prefix: 'icon--',
+  fontname: "iconfont",
+  icons: map-keys(map_get($__iconfont__data, "iconfont"))
 );
-
 
 // Exports Data to source/_data/scssVariables.json
 // Include your Customized Sass Maps here to JSONIFY

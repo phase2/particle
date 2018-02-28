@@ -4,7 +4,8 @@
   ],
   "ignoreFiles": [
     "apps/pl/pattern-lab/**/*",
-    "./node_modules/**/*"
+    "./node_modules/**/*",
+    "source/_patterns/01-atoms/icon/scss/_icons-generated.scss"
   ],
   "rules": {
     "declaration-colon-space-after": "always",
