@@ -25,7 +25,10 @@ const pl = {
     host: '0.0.0.0',
     port: '8080',
     contentBase: path.resolve('dist/'), // dev server starts from this folder.
-    watchContentBase: true,
+    watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
+    watchOptions: {
+      ignored: /(pl|assets)/, // This watches ONLY the root CHANGED.txt file for changes
+    },
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
     inline: true, // Injects all the webpack dev server code right in the page
