@@ -1,6 +1,6 @@
 /**
  * Webpack shared config
- * The shared loaders, plugins, and processing that all our "apps" should use
+ * The shared loaders, plugins, and processing that all our "apps" should use for dev.
  */
 
 // Library Imports
@@ -20,13 +20,13 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 });
 
 // Plugins
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const IconFontPlugin = require('iconfont-plugin-webpack');
+// Helper file used to generate a svg -> fonticon Sass map.
 const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
 module.exports = {
-  // See webpack.[drupal|pl].config.js for entry points
+  // See webpack.[app].dev.js for entry points
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist/assets/'),
@@ -97,11 +97,6 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
-    }),
-    // Pulls out compile css to a standalone file
-    new ExtractTextPlugin({
-      filename: '[name].styles.css',
-      allChunks: true,
     }),
     // Yell at us while writing Sass
     new StyleLintPlugin(),

@@ -9,7 +9,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 // Custom Imports
-const shared = require('../../webpack.shared.config');
+const shared = require('../../webpack.shared.dev.js');
 
 console.log(path.resolve(__dirname, 'dist/'));
 
