@@ -29,6 +29,8 @@ const pl = {
     watchOptions: {
       ignored: /(pl|assets)/, // This watches ONLY the root CHANGED.txt file for changes
     },
+    open: true,
+    openPage: 'pl',
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
     inline: true, // Injects all the webpack dev server code right in the page
