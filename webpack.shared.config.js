@@ -23,7 +23,7 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const IconFontPlugin = require('iconfont-plugin-webpack');
-const IconFontTemplate = require('./tools/tasks/iconfont-template');
+const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
 module.exports = {
   // See webpack.[drupal|pl].config.js for entry points
@@ -88,9 +88,6 @@ module.exports = {
       },
     ],
   },
-  // optimization: {
-  //   runtimeChunk: false,
-  // },
   plugins: [
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery plugins to assume
     // that `window.jquery` is available

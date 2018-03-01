@@ -2,93 +2,31 @@
 /// The printing output for icons, includes classes and font face.
 ///
 @import 'icons-generated';
+@import 'icon-mixins';
 @import '~font-awesome/scss/mixins';
 @import '~font-awesome/scss/variables';
 
-@each $family, $map in $__iconfont__data {
-  @each $icon, $content in $map {
-    .icon--#{$icon}{
-      &::before{
-        content: $content;
-      }
-    }
-  }
+// Creates the font face tag for font icons.
+@font-face {
+  font-family: "iconfont";
+  src: url('../font/iconfont.eot?cachebust=#{random(99999)}'); /* IE9 Compat Modes */
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../font/iconfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../font/iconfont.svg') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
 }
 
-$create-font-face: true !default;
-$create-icon-classes: true !default;
-$icon-common-class: 'icon' !default;
-$icon-prefix: 'icon--' !default;
-
-// helper function to get the correct font group
-@function iconfont-group($group: null) {
-  @if (null == $group) {
-    $group: nth(map-keys($__iconfont__data), 1);
-  }
-  @if (false == map-has-key($__iconfont__data, $group)) {
-    @warn 'Undefined Iconfont Family!';
-    @return ();
-  }
-  @return map-get($__iconfont__data, $group);
+.icon {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
 }
 
-// helper function to get the correct icon of a group
-@function iconfont-item($name) {
-  $slash: str-index($name, '/');
-  $group: null;
-  @if ($slash) {
-    $group: str-slice($name, 0, $slash - 1);
-    $name: str-slice($name, $slash + 1);
-  } @else {
-    $group: nth(map-keys($__iconfont__data), 1);
-  }
-  $group: iconfont-group($group);
-  @if (false == map-has-key($group, $name)) {
-    @warn 'Undefined Iconfont Glyph!';
-    @return '';
-  }
-  @return map-get($group, $name);
-}
-
-// complete mixin to include the icon
-// usage:
-// .my_icon{ @include iconfont('star') }
-@mixin iconfont($icon: 'search') {
-  &:before {
-    font-family: "iconfont";
-    font-style: normal;
-    font-weight: 400;
-    content: iconfont-item($icon);
-  }
-}
-
-// Creates the font face tag if the variable is set to true (default)
-@if $create-font-face == true {
-  @font-face {
-    font-family: "iconfont";
-    src: url('../font/iconfont.eot?cachebust=#{random(99999)}'); /* IE9 Compat Modes */
-    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-      url('../font/iconfont.woff') format('woff'), /* Pretty Modern Browsers */
-      url('../font/iconfont.ttf')  format('truetype'), /* Safari, Android, iOS */
-      url('../font/iconfont.svg') format('svg'); /* Legacy iOS */
-  }
-}
-// Creates icon classes for each individual loaded svg (default)
-@if $create-icon-classes == true {
-  .#{$icon-common-class} {
-    font-family: "iconfont";
-    font-style: normal;
-    font-weight: 400;
-
-    @each $family, $map in $__iconfont__data {
-      @each $icon, $content in $map {
-        &.#{$icon-prefix}#{$icon} {
-          &:before { // stylelint-disable-line max-nesting-depth
-            content: iconfont-item($icon);
-          }
-        }
-      }
-    }
+@each $name, $value in (map_get($__iconfont__data, "iconfont")) {
+  .icon--#{$name} {
+    @include icon($name);
   }
 }
 

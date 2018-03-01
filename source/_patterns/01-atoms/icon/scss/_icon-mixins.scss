@@ -1,0 +1,43 @@
+/// Non printing functions and mixins related to icons.
+@import 'icons-generated';
+
+// helper function to get the correct font group
+@function iconfont-group($group: null) {
+  @if (null == $group) {
+    $group: nth(map-keys($__iconfont__data), 1);
+  }
+  @if (false == map-has-key($__iconfont__data, $group)) {
+    @warn 'Undefined Iconfont Family!';
+    @return ();
+  }
+  @return map-get($__iconfont__data, $group);
+}
+// helper function to get the correct icon of a group
+@function iconfont-item($name) {
+  $slash: str-index($name, '/');
+  $group: null;
+  @if ($slash) {
+    $group: str-slice($name, 0, $slash - 1);
+    $name: str-slice($name, $slash + 1);
+  } @else {
+    $group: nth(map-keys($__iconfont__data), 1);
+  }
+  $group: iconfont-group($group);
+  @if (false == map-has-key($group, $name)) {
+    @warn 'Undefined Iconfont Glyph!';
+    @return '';
+  }
+  @return map-get($group, $name);
+}
+
+// complete mixing to include the icon
+// usage:
+// .my_icon{ @include iconfont('star') }
+@mixin icon($icon) {
+  &:before{
+    font-family: "iconfont";
+    font-style: normal;
+    font-weight: 400;
+    content: iconfont-item($icon);
+  }
+}
