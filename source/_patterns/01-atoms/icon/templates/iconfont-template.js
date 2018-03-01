@@ -1,6 +1,4 @@
-'use strict';
-
-const TEMPLATE = ``;
+const TEMPLATE = '';
 
 function toSCSS(glyphs) {
   return JSON.stringify(glyphs, null, '\t')
@@ -32,5 +30,5 @@ module.exports = function(args) {
   return [
     `$__iconfont__data: map-merge(if(global_variable_exists('__iconfont__data'), $__iconfont__data, ()), ${toSCSS(data)});`,
     str
-  ].join('\n\n');
+  ].join('\n');
 };

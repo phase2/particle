@@ -111,12 +111,12 @@ module.exports = {
       family: 'iconfont',
       dest: {
         font: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/[family].[type]'),
-        css: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icons-generated.scss')
+        css: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icons-generated.scss'),
       },
       watch: {
-        pattern: path.resolve(__dirname, PATH_SOURCE,'_patterns/01-atoms/icon/svg/**/*.svg'),
+        pattern: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
       },
-      cssTemplate: IconFontTemplate
+      cssTemplate: IconFontTemplate,
     }),
   ],
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`

@@ -1,7 +1,7 @@
 /// Non printing functions and mixins related to icons.
 @import 'icons-generated';
 
-// helper function to get the correct font group
+// Helper function to get the correct font group.
 @function iconfont-group($group: null) {
   @if (null == $group) {
     $group: nth(map-keys($__iconfont__data), 1);
@@ -12,7 +12,7 @@
   }
   @return map-get($__iconfont__data, $group);
 }
-// helper function to get the correct icon of a group
+// Helper function to get the correct icon of a group.
 @function iconfont-item($name) {
   $slash: str-index($name, '/');
   $group: null;
@@ -30,11 +30,10 @@
   @return map-get($group, $name);
 }
 
-// complete mixing to include the icon
-// usage:
-// .my_icon{ @include iconfont('star') }
+// Complete mixin to include an icon.
+// usage: .foo { @include iconfont('search') }
 @mixin icon($icon) {
-  &:before{
+  &:before {
     font-family: "iconfont";
     font-style: normal;
     font-weight: 400;
