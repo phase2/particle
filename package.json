@@ -32,7 +32,7 @@
     "test:pa11y": "node tools/tests/accessibility/pa11y.js",
     "test:unit": "jest",
     "test": "npm run test:unit",
-    "ci": "npm run lint && npm run test && npm run compile:pl"
+    "ci": "npm run lint && npm run test && npm run build:pl"
   },
   "browserslist": [
     "last 2 versions",
