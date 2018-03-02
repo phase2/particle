@@ -11,8 +11,6 @@ const webpack = require('webpack');
 // Custom Imports
 const shared = require('../../webpack.shared.dev.js');
 
-console.log(path.resolve(__dirname, 'dist/'));
-
 // Webpack Entry Points
 const pl = {
   mode: 'development',
