@@ -7,19 +7,14 @@
 // Library Imports
 const path = require('path');
 const merge = require('webpack-merge');
-const webpack = require('webpack');
 
 // Custom Imports
 const shared = require('../../webpack.shared.dev.js');
+const pl = require('./webpack.pl.shared');
 
 // Webpack Entry Points
-const pl = {
+const dev = {
   mode: 'development',
-  entry: {
-    'app-pl': [
-      path.resolve(__dirname, 'index.js'),
-    ],
-  },
   devServer: {
     host: '0.0.0.0',
     port: '8080',
@@ -50,11 +45,6 @@ const pl = {
       publicPath: true,
     },
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      BUILD_TARGET: JSON.stringify('pl'),
-    }),
-  ],
 };
 
-module.exports = merge(shared, pl);
+module.exports = merge(shared, pl, dev);
