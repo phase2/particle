@@ -5,7 +5,6 @@
 
 // Library Imports
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 
 // Custom Imports
@@ -55,6 +54,5 @@ const prod = {
     }),
   ],
 };
-
 
 module.exports = merge(shared, prod);
