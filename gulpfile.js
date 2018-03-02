@@ -3,16 +3,21 @@
  * The following tasks do rote work that isn't covered in webpack asset bundling
  */
 const path = require('path');
+const fs = require('fs');
 const gulp = require('gulp');
 
-const { PATH_PL, PATH_DRUPAL, PATH_GRAV } = require('./config');
+const {
+  PATH_PL,
+  PATH_DIST,
+  PATH_DRUPAL,
+  PATH_GRAV,
+} = require('./config');
 
 /**
  * Pattern Lab raw compile function.
  */
 // Config: Path to Pattern Lab installation.
 const plPath = path.resolve(__dirname, PATH_PL, 'pattern-lab');
-console.log(plPath);
 // PL compilation function, loaded up with the the PL path
 const plCompile = require('./tools/tasks/pl-compile')(plPath);
 
@@ -82,65 +87,23 @@ gulp.task('compile:twig-namespaces', () => gulp
   .pipe(gulp.dest('./')));
 
 /**
- * Webpack config and setup.
+ * When PL is done compiling do stuff here to notify anything that needs to know. Currently it just
+ * writes a file to the root of dist/ so that Webpack can trigger a reload.
  */
-// Import webpack config for PL
-const wpconfig = require('./apps/pl/webpack.pl.config');
-// Webpack Dev Server config used for local development. See all available config options:
-// https://webpack.js.org/configuration/dev-server/#devserver
-const serverconfig = {
-  host: '0.0.0.0',
-  port: '8080',
-  contentBase: path.resolve(__dirname, 'dist/'), // dev server starts from this folder.
-  hot: true, // Inject css/js into page without full refresh
-  historyApiFallback: true, // Finds default index.html files at folder root
-  inline: true, // Injects all the webpack dev server code right in the page
-  stats: {
-    colors: true, // Colored terminal output.
-    hash: true,
-    version: true,
-    timings: false,
-    assets: true,
-    chunks: false,
-    modules: false,
-    reasons: true,
-    children: false,
-    source: true,
-    errors: true,
-    errorDetails: true,
-    warnings: true,
-    publicPath: true,
-  },
-};
-// Hold a webpack dev server that we can start and reload
-const devserver = require('./tools/tasks/webpack-dev-server');
-
-/**
- * Starts up the Webpack Dev Server, requires:
- * 1. webpack config
- * 2. webpack dev server config
- * 3. callback (that gulp provides to every task)
- */
-gulp.task('webpack:server', (cb) => {
-  devserver.start(wpconfig, serverconfig, cb);
-});
-
-/**
- * Refresh an active instance of webpack dev server
- */
-gulp.task('webpack:refresh-server', (cb) => {
-  devserver.reload(cb);
+gulp.task('compile:pl:notify', (cb) => {
+  // Write to dist/ root a file named CHANGED.txt, casts Date to text, calls callback
+  fs.writeFile(path.resolve(__dirname, PATH_DIST, 'CHANGED.txt'), +new Date(), cb);
 });
 
 /**
  * Watch known PL files and compile to html. Reload server
  */
-gulp.task('webpack:watch:pl-source', (cb) => {
+gulp.task('watch:pl-source', (cb) => {
   // @TODO: check if changed file is in path that already exists before namespacing
   gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
     'compile:twig-namespaces',
     'compile:pl',
-    'webpack:refresh-server',
+    'compile:pl:notify',
   ]));
   cb();
 });
@@ -151,14 +114,7 @@ gulp.task('webpack:watch:pl-source', (cb) => {
 gulp.task('compile', gulp.series([
   'compile:twig-namespaces',
   'compile:pl',
-]));
-
-/**
- * Active server watching via webpack dev server for non-webpack assets.
- */
-gulp.task('webpack:dev', gulp.series([
-  'webpack:server',
-  'webpack:watch:pl-source',
+  'compile:pl:notify',
 ]));
 
 /**
@@ -166,5 +122,5 @@ gulp.task('webpack:dev', gulp.series([
  */
 gulp.task('default', gulp.series([
   'compile',
-  'webpack:dev',
+  'watch:pl-source',
 ]));

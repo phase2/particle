@@ -33,9 +33,9 @@
     <div class="d-flex align-items-center flex-wrap" style="min-height: 10rem;">
       {% for icon in scssIcons.icons %}
         <div class="col p-3 text-center">
-          <i class="{{ scssIcons.prefix }}{{ icon }}"></i>
-          <i class="{{ scssIcons.prefix }}{{ icon }} text-primary" style="font-size: 1.5rem;"></i>
-          <i class="{{ scssIcons.prefix }}{{ icon }} bg-dark text-white" style="font-size: 2rem;"></i>
+          <i class="icon {{ scssIcons.prefix }}{{ icon }}"></i>
+          <i class="icon {{ scssIcons.prefix }}{{ icon }} text-primary" style="font-size: 1.5rem;"></i>
+          <i class="icon {{ scssIcons.prefix }}{{ icon }} bg-dark text-white" style="font-size: 2rem;"></i>
           <p class="w-100 pt-3" style="white-space: nowrap;"><code>{{ icon }}</code></p>
         </div>
       {% endfor %}

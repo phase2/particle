@@ -5,3 +5,6 @@ dist/
 apps/pl/pattern-lab
 # Ignore yeoman new-component for now
 tools/new-component
+
+# Ignore iconfont template file for now
+source/_patterns/01-atoms/icon/templates

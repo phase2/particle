@@ -9,9 +9,10 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 // Custom Imports
-const shared = require('../../webpack.shared.config');
+const shared = require('../../webpack.particle.prod.js');
 
 const drupal = {
+  mode: 'production',
   entry: {
     'app-drupal': [
       path.resolve(__dirname, 'index.js'),

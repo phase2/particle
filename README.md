@@ -136,9 +136,9 @@ The following are significant items at the root level:
     ├── source                         # The design system. All assets compiled to dist/
     ├── tools                          # Gulp plugins and node tools
     ├── gulpfile.js                    # Defines the few tasks required in the workflow
-    ├── webpack.drupal.config.js       # Entry point for the Drupal theme bundle
-    ├── webpack.pl.config.js           # Entry point for the Pattern Lab bundle
-    ├── webpack.shared.config.js       # Shared bundle configuration for all entry points
+    ├── webpack.drupal.prod.js       # Entry point for the Drupal theme bundle
+    ├── webpack.pl.dev.js           # Entry point for the Pattern Lab bundle
+    ├── webpack.particle.dev.js       # Shared bundle configuration for all entry points
     └── ...                            # Mostly just config
 
 `source/` holds all assets for the design system and looks like this:
@@ -337,9 +337,9 @@ A small `config.js` file at the root of the project provides basic path settings
 
 [Webpack](https://webpack.js.org/) does the heavy lifting of assets compilation and transformation. Webpack allows importing of Sass, images, fonts, and other assets into javascript files, bundling output files like CSS and javascript. There are three webpack config files:
 
-- `webpack.shared.config.js`: The majority of loader and plugin configuration related to `source/`
-- `webpack.drupal.config.js`: Configuration specific to `app/drupal`
-- `webpack.pl.config.js`: Configuration specific to `app/pl`
+- `webpack.particle.dev.js`: The majority of loader and plugin configuration related to `source/`
+- `webpack.drupal.prod.js`: Configuration specific to `app/drupal`
+- `webpack.pl.dev.js`: Configuration specific to `app/pl`
 
 The `pl` and `drupal` configurations import the `shared` configuration, providing app-specific customizations. You are encouraged to read through all three files to understand how assets are parsed and prepared.
 
@@ -533,7 +533,7 @@ Particle makes adding or removing apps a snap! By default Particle has Pattern L
 * `compile` scripts in `package.json`
 * `webpack` scripts in `package.json`
 * Add or remove `webpack.APPNAME.config.js`
-* Add or remove path in `webpack.shared.config.js`
+* Add or remove path in `webpack.particle.dev.js`
 * Special: to remove Grav, delete `particle.yaml`
 * Add or delete App folder under `/apps`
 
