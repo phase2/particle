@@ -1,10 +1,10 @@
 /**
- * Pattern Lab-specific webpack config
- * This is merged over top of webpack.shared.config.js
+ * Pattern Lab-specific webpack config.
+ * This is merged over top of webpack.shared.prod.js and
+ * outputs compiled bundles to particle/dist/assets.
  */
 
 // Library Imports
-const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 
@@ -20,13 +20,6 @@ const pl = {
   plugins: [
     new webpack.DefinePlugin({
       BUILD_TARGET: JSON.stringify('pl'),
-    }),
-    new webpack.ProvidePlugin({
-      // Bootstrap is dependent on jQuery and Popper
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
     }),
   ],
 };

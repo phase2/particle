@@ -1,6 +1,7 @@
 /**
- * Pattern Lab-specific webpack config
- * This is merged over top of webpack.shared.config.js
+ * Pattern Lab-specific webpack config.
+ * This is merged over top of webpack.shared.dev.js and uses
+ * a hot-reloading server that does not generate assets inside dist/.
  */
 
 // Library Imports
@@ -10,8 +11,6 @@ const webpack = require('webpack');
 
 // Custom Imports
 const shared = require('../../webpack.shared.dev.js');
-
-console.log(path.resolve(__dirname, 'dist/'));
 
 // Webpack Entry Points
 const pl = {
