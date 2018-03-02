@@ -1,6 +1,6 @@
 /**
  * Pattern Lab-specific webpack config.
- * This is merged over top of webpack.shared.prod.js and
+ * This is merged over top of webpack.particle.prod.js and
  * outputs compiled bundles to particle/dist/assets.
  */
 
@@ -8,7 +8,7 @@
 const merge = require('webpack-merge');
 
 // Custom Imports
-const shared = require('../../webpack.shared.prod.js');
+const particle = require('../../webpack.particle.prod.js');
 const pl = require('./webpack.pl.shared.js');
 
-module.exports = merge(shared, pl);
+module.exports = merge(particle, pl);

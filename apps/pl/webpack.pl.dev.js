@@ -1,6 +1,6 @@
 /**
  * Pattern Lab-specific webpack config.
- * This is merged over top of webpack.shared.dev.js and uses
+ * This is merged over top of webpack.particle.dev.js and uses
  * a hot-reloading server that does not generate assets inside dist/.
  */
 
@@ -9,7 +9,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 
 // Custom Imports
-const shared = require('../../webpack.shared.dev.js');
+const particle  = require('../../webpack.particle.dev.js');
 const pl = require('./webpack.pl.shared');
 
 // Webpack Entry Points
@@ -47,4 +47,4 @@ const dev = {
   },
 };
 
-module.exports = merge(shared, pl, dev);
+module.exports = merge(particle, pl, dev);

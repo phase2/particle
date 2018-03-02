@@ -23,7 +23,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: {
-        config: 'webpack.shared.dev.js'
+        config: 'webpack.particle.dev.js'
       }
     }
   }

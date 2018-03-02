@@ -8,7 +8,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 
 // Custom Imports
-const shared = require('./webpack.shared.dev.js');
+const shared = require('./webpack.particle.dev.js');
 const sassExportData = require('@theme-tools/sass-export-data')({
   name: 'export_data',
   path: path.resolve(__dirname, 'source/_data/'),

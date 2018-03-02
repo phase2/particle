@@ -17,11 +17,11 @@
     "prototyping"
   ],
   "scripts": {
-    "start": "npm-run-all --continue-on-error --parallel gulp server:pl",
-    "server:pl": "webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot --progress",
-    "compile:pl": "webpack --config ./apps/pl/webpack.pl.prod.js && gulp compile",
-    "compile:drupal": "webpack --config ./apps/drupal/webpack.drupal.prod.js",
-    "compile:grav": "webpack --config ./apps/grav/webpack.grav.prod.js",
+    "start": "npm-run-all --continue-on-error --parallel gulp dev:pl",
+    "dev:pl": "webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot --progress",
+    "build:pl": "webpack --config ./apps/pl/webpack.pl.prod.js && gulp compile",
+    "build:drupal": "webpack --config ./apps/drupal/webpack.drupal.prod.js",
+    "build:grav": "webpack --config ./apps/grav/webpack.grav.prod.js",
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js; npm run lint:scss",
