@@ -557,13 +557,13 @@ Particle provides the starting point for various types of testing. Tests are loc
 To run [pa11y](http://pa11y.org/) accessibility testing on Pattern Lab rendered output, first you'll need to install the pa11y npm package:
 
 ```bash
-npm install pa11y@5.0.0-beta.7 pa11y-reporter-cli
+npm install pa11y pa11y-reporter-cli
 ```
 
 To save these devDependencies to your project *permanently*, run the following instead:
 
 ```bash
-npm install --save-dev pa11y@5.0.0-beta.7 pa11y-reporter-cli
+npm install --save-dev pa11y pa11y-reporter-cli
 ```
 
 Then whenever you want to run your tests, simply start the local Pattern Lab dev server in one session:
