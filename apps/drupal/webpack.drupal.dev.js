@@ -5,6 +5,7 @@
 
 // Library Imports
 const merge = require('webpack-merge');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 // Custom Imports
 // Import shared PROD settings because webpack.particle.prod extracts styles to its own standalone
@@ -19,6 +20,14 @@ const dev = {
     children: false,
     entrypoints: false,
   },
+  plugins: [
+    new WebpackShellPlugin({
+      onBuildEnd: [
+        'echo Webpack build end! Put drupal/drush cr here!',
+      ],
+      dev: false, // Runs on EVERY rebuild
+    }),
+  ],
 };
 
 module.exports = merge(particle, drupal, dev);

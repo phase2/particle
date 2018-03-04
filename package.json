@@ -22,8 +22,8 @@
     "dev:pl:webpack": "webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot --progress",
     "dev:pl:gulp": "NODE_ENV='development' gulp default",
     "build:pl": "NODE_ENV='production' gulp compile; webpack --config ./apps/pl/webpack.pl.prod.js",
-    "dev:drupal": "webpack --config ./apps/drupal/webpack.drupal.dev.js",
-    "dev:drupal:cr": "echo Fake running drupal cr!",
+    
+    "dev:drupal:webpack": "webpack --watch --progress --config ./apps/drupal/webpack.drupal.dev.js",
     "build:drupal": "webpack --config ./apps/drupal/webpack.drupal.prod.js",
     "build:grav": "webpack --config ./apps/grav/webpack.grav.prod.js",
     "lint:js": "eslint ./",
@@ -91,6 +91,7 @@
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0",
-    "webpack-merge": "^4.1.2"
+    "webpack-merge": "^4.1.2",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }
