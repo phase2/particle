@@ -563,7 +563,7 @@ npm install pa11y pa11y-reporter-cli
 To save these devDependencies to your project *permanently*, run the following instead:
 
 ```bash
-npm install --save-dev pa11y pa11y-reporter-cli
+npm install --save-dev pa11y
 ```
 
 Then whenever you want to run your tests, simply start the local Pattern Lab dev server in one session:
