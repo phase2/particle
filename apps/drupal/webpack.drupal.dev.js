@@ -23,7 +23,7 @@ const dev = {
   plugins: [
     new WebpackShellPlugin({
       onBuildEnd: [
-        'echo Webpack build end! Put drupal/drush cr here!',
+        'echo \nWebpack build end! Put drupal/drush cr here!',
       ],
       dev: false, // Runs on EVERY rebuild
     }),

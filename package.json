@@ -22,8 +22,9 @@
     "dev:pl:webpack": "webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot --progress",
     "dev:pl:gulp": "NODE_ENV='development' gulp default",
     "build:pl": "NODE_ENV='production' gulp compile; webpack --config ./apps/pl/webpack.pl.prod.js",
-    
+    "dev:drupal": "npm-run-all --continue-on-error --parallel dev:drupal:gulp dev:drupal:webpack",
     "dev:drupal:webpack": "webpack --watch --progress --config ./apps/drupal/webpack.drupal.dev.js",
+    "dev:drupal:gulp": "NODE_ENV='development' echo Placeholder for Drupal gulp tasks",
     "build:drupal": "webpack --config ./apps/drupal/webpack.drupal.prod.js",
     "build:grav": "webpack --config ./apps/grav/webpack.grav.prod.js",
     "lint:js": "eslint ./",
