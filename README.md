@@ -93,13 +93,19 @@ That's it. For **much** greater detail on the frontend approach using this proje
 
 ## Commands
 
-Start up watches and local server:
+Start up watches and a local server for Pattern Lab in dev mode. All assets will be served very fast from memory:
 
 ```bash
-npm start
+npm start # An alias for npm run dev:pl
 ```
 
-Quick compile Pattern Lab:
+Start up watches and compile assets to disk for Drupal on changes, running `drupal cr` when complete:
+
+```bash
+npm run dev:drupal
+```
+
+Compile assets for Pattern Lab (e.g. for a static file host):
 
 ```bash
 npm run build:pl
@@ -127,12 +133,6 @@ Run all tests:
 
 ```bash
 npm test
-```
-
-To update node and composer dependencies (**merge** if offered the option):
-
-```bash
-npm run update
 ```
 
 ## Structure
