@@ -10,8 +10,6 @@ const merge = require('webpack-merge');
 const particle = require('../../webpack.particle.prod');
 const drupal = require('./webpack.drupal.shared');
 
-const prod = {
-  mode: 'production',
-};
+const prod = {};
 
 module.exports = merge(particle, drupal, prod);

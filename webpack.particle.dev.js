@@ -26,6 +26,7 @@ const IconFontPlugin = require('iconfont-plugin-webpack');
 const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
 module.exports = {
+  mode: 'development',
   // See webpack.[app].dev.js for entry points
   output: {
     filename: '[name].js',
