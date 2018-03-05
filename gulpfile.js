@@ -8,9 +8,10 @@ const gulp = require('gulp');
 
 const {
   PATH_PL,
-  PATH_DIST,
   PATH_DRUPAL,
   PATH_GRAV,
+  PATH_SOURCE,
+  PATH_DIST,
 } = require('./config');
 
 /**
@@ -96,6 +97,15 @@ gulp.task('compile:pl:notify', (cb) => {
 });
 
 /**
+ * Generate data json PL uses to determine which mode: 'development' or 'production.' Defaults to
+ * 'production' if NODE_ENV is not set.
+ */
+gulp.task('compile:pl:env', (cb) => {
+  const env = { env: process.env.NODE_ENV ? process.env.NODE_ENV : 'production' };
+  fs.writeFile(path.resolve(__dirname, PATH_SOURCE, '_data/', 'env.json'), JSON.stringify(env), cb);
+});
+
+/**
  * Watch known PL files and compile to html. Reload server
  */
 gulp.task('watch:pl-source', (cb) => {
@@ -112,6 +122,7 @@ gulp.task('watch:pl-source', (cb) => {
  * Standalone compile tasks for non-webpack assets
  */
 gulp.task('compile', gulp.series([
+  'compile:pl:env',
   'compile:twig-namespaces',
   'compile:pl',
   'compile:pl:notify',

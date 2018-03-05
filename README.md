@@ -20,10 +20,10 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 ## Provides
 
-- Drupal theme and Pattern Lab app
+- Drupal theme, Grav theme,  and Pattern Lab app
 - Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
-- Webpack bundling of all CSS, javascript, font, and static image assets for multiple targets (Drupal theme and Pattern Lab)
-- Webpack Dev Server for local hosting and auto asset injection into Pattern Lab and Drupal
+- Webpack bundling of all CSS, javascript, font, and static image assets for multiple targets (Drupal theme, Grav theme, Pattern Lab)
+- [Webpack Dev Server](https://github.com/webpack/webpack-dev-server) for local hosting and hot reloading of assets into Pattern Lab
 - [Twig namespaced paths](https://symfony.com/doc/current/templating/namespaced_paths.html) automatically added into Drupal theme and Pattern Lab config. Within any twig file, `@atoms/thing.twig` means the same thing to Drupal theme and Pattern Lab.
 - Iconfont auto-generation
 - Bootstrap 4 integration, used for all starting example components
@@ -32,7 +32,7 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 ## Quickstart
 
-Particle can be run from anywhere to work with Pattern Lab. It also provides a theme to a Drupal website.
+Particle builds design systems in dev mode for local hosting, or production mode for optimized asset generation.
 
 ### Quickstart anywhere
 
@@ -53,28 +53,32 @@ Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8
 Particle provides a Drupal 8 theme, the starting steps are slightly different:
 
 1. [Download the latest release](https://github.com/phase2/particle/releases)
-1. Extract to `themes/` at the root of your Drupal 8 install. (i.e. this readme should be at `drupal-root/themes/particle/README.md`)
+1. Extract to `themes/` at the root of your Drupal 8 install. (i.e. this readme should be at `{drupal-root}/themes/particle/README.md`)
 1. Download and install the [Component Libraries module](https://www.drupal.org/project/components):
 
-```bash
-drush dl components
-drush en components -y
-```
+    ```bash
+    # With Drush
+    drush dl components
+    drush en components -y
 
-1. Within `drupal-root/themes/particle/` run:
+    # With Drupal Console
+    drupal module:install components
+    ```
 
-```bash
-npm install
-npm run setup
-npm run compile:drupal
-```
+1. Within `{drupal-root}/themes/particle/` run:
 
-This will compile all assets and provide all namespaced Twig paths to the Drupal theme. Make sure to choose this theme in Drupal Appearance settings and `drush cr` to clear cache.
+    ```bash
+    npm install
+    npm run setup
+    npm run build:drupal
+    ```
+
+This will compile all assets and provide all namespaced Twig paths to the Drupal theme. Make sure to choose this theme in Drupal Appearance settings and `drush cr ` or `drupal cr all` to clear cache.
 
 For subsequent recompile and Drupal cache clear, run:
 
 ```bash
-npm run compile:drupal && drush cr
+npm run build:drupal && drush cr
 ```
 
 Working rapidly in Pattern Lab is still available, simply run:
@@ -89,22 +93,34 @@ That's it. For **much** greater detail on the frontend approach using this proje
 
 ## Commands
 
-Quick compile Pattern Lab:
+Start up watches and a local server for Pattern Lab in dev mode. All assets will be served very fast from memory:
 
 ```bash
-npm run compile:pl
+npm start # An alias for npm run dev:pl
 ```
 
-Quick compile Drupal
+Start up watches and compile assets to disk for Drupal on changes, running `drupal cr` when complete:
 
 ```bash
-npm run compile:drupal
+npm run dev:drupal
 ```
 
-Start up watches and local server:
+Compile assets for Pattern Lab (e.g. for a static file host):
 
 ```bash
-npm start
+npm run build:pl
+```
+
+Compile assets for Drupal
+
+```bash
+npm run build:drupal
+```
+
+Compile assets for Grav
+
+```bash
+npm run build:grav
 ```
 
 Run all linters:
@@ -119,12 +135,6 @@ Run all tests:
 npm test
 ```
 
-To update node and composer dependencies (**merge** if offered the option):
-
-```bash
-npm run update
-```
-
 ## Structure
 
 The following are significant items at the root level:
@@ -136,9 +146,8 @@ The following are significant items at the root level:
     ├── source                         # The design system. All assets compiled to dist/
     ├── tools                          # Gulp plugins and node tools
     ├── gulpfile.js                    # Defines the few tasks required in the workflow
-    ├── webpack.drupal.prod.js       # Entry point for the Drupal theme bundle
-    ├── webpack.pl.dev.js           # Entry point for the Pattern Lab bundle
-    ├── webpack.particle.dev.js       # Shared bundle configuration for all entry points
+    ├── webpack.particle.dev.js        # Shared bundle configuration for all dev entry points
+    ├── webpack.particle.prod.js       # Shared bundle configuration for all prod entry points
     └── ...                            # Mostly just config
 
 `source/` holds all assets for the design system and looks like this:
@@ -148,6 +157,7 @@ The following are significant items at the root level:
     ├── _patterns                      # All assets live within an Atomic "pattern"
     │   ├── 01-atoms                   # Twig namespace: @atoms, JS/Sass namespace: atoms
     │   │   ├── button                 # For instance, the button atom
+    │   │   │    ├── __tests__         # Jest javascript unit tests
     │   │   │    ├── demo              # Patterns feature a demo folder to show implementation
     │   │   │    │   ├── buttons.twig  # Demonstrate with a plural name, visible to PL since no underscore
     │   │   │    │   └── buttons.yml   # Data provided to the demo pattern
@@ -158,9 +168,9 @@ The following are significant items at the root level:
     │   └── ...                        # @protons, @atoms, @molecules, @organisms, @templates, @pages
     └── design-system.js               # The ultimate importer/exporter of the design system pieces
 
->The design system is *consumed by* "apps". The two apps included are a Drupal theme and a Pattern Lab installation.
+>The design system is *consumed by* "apps". The three apps included are a Drupal theme, Grav theme, and a Pattern Lab installation.
 
-`app/pl/` holds the *entry point* for all Pattern Lab assets, as well as the PHP engine:
+`apps/pl/` holds the *entry point* for all Pattern Lab assets, as well as the PHP engine:
 
     # ./app/pl/
     .
@@ -169,9 +179,12 @@ The following are significant items at the root level:
     ├── scss                           # PL-only Sass; styles that shoudln't junk up the design system
     │   ├── _scss2json.scss            # Output certain Sass variables into json for demo in PL
     │   └── _styleguide.scss           # Custom PL UI styles
+    ├── webpack.pl.shared.js           # Webpack config shared between PL dev and PL prod
+    ├── webpack.pl.dev.js              # Webpack config unique to dev, or that overrides shared
+    ├── webpack.pl.prod.js             # Webpack config unique to prod, or that overrides shared
     └── index.js                       # Imports and applies the design system to a bundle for PL
 
-`app/drupal/` holds the *entry point* for all Drupal 8 theme assets, as well as templates, yml, etc:
+`apps/drupal/` holds the *entry point* for all Drupal 8 theme assets, as well as templates, yml, etc:
 
     # ./app/drupal/
     .
@@ -184,6 +197,9 @@ The following are significant items at the root level:
     ├── particle.info.yml              # Theme information. DS namespaces are auto-injected!
     ├── particle.libraries.yml         # The output js and css bundles are included here
     ├── particle.theme                 # Drupal preprocess functions
+    ├── webpack.drupal.shared.js       # Webpack config shared between drupal dev and drupal prod
+    ├── webpack.drupal.dev.js          # Webpack config unique to dev, or that overrides shared
+    ├── webpack.drupal.prod.js         # Webpack config unique to prod, or that overrides shared
     └── index.js                       # Imports and applies the design system to a bundle for Drupal
 
 ## Anatomy of a Component
@@ -262,7 +278,7 @@ $rando-var: 33px;
 }
 ```
 
-There is a very clear role for each in the component system of Particle. In the `button` component featured above in [Anatomy of a Component](#anatomy-of-a-component), note this import:
+There is a distinct role for each in the component system of Particle. In the `button` component featured above in [Anatomy of a Component](#anatomy-of-a-component), note this import:
 
 ```javascript
 // source/_patterns/01-atoms/button/_index.js
@@ -289,7 +305,7 @@ This approach to component styes allows sharing non-printing Sass **configuratio
 
 ## Twig
 
-Twig notes here
+Twig notes coming soon.
 
 ## Javascript
 
@@ -335,25 +351,28 @@ A small `config.js` file at the root of the project provides basic path settings
 
 ### Webpack
 
-[Webpack](https://webpack.js.org/) does the heavy lifting of assets compilation and transformation. Webpack allows importing of Sass, images, fonts, and other assets into javascript files, bundling output files like CSS and javascript. There are three webpack config files:
+[Webpack](https://webpack.js.org/) does the heavy lifting of assets compilation and transformation. Webpack allows importing of Sass, images, fonts, and other assets into javascript files, bundling output files like CSS and javascript. Note the two webpack files at the root of the project:
 
-- `webpack.particle.dev.js`: The majority of loader and plugin configuration related to `source/`
-- `webpack.drupal.prod.js`: Configuration specific to `app/drupal`
-- `webpack.pl.dev.js`: Configuration specific to `app/pl`
+- `webpack.particle.dev.js`: Development settings shared amongst all consuming apps.
+- `webpack.particle.prod.js`: Production settings shared amongst all the consuming app.
 
-The `pl` and `drupal` configurations import the `shared` configuration, providing app-specific customizations. You are encouraged to read through all three files to understand how assets are parsed and prepared.
+Each app features three webpack files. Take for example, the `pl` app:
+
+- `webpack.pl.sharedjs`: Config shared by prod and dev
+- `webpack.pl.prod.js`: Production-only config merged over the top of `webpack.pl.shared.js` and `webpack.particle.prod.js` (from root)
+- `webpack.pl.dev.js`: Development-only config merged over the top of `webpack.pl.shared.js` and `webpack.particle.dev.js` (from root)
+
+You are encouraged to read through all three files to understand how assets are parsed and prepared.
 
 ### Webpack dev server
 
-Running `npm start` compiles Pattern Lab, compiles all asset bundles, then starts a *hot reloading* webpack dev server. All static html files generated by Pattern Lab will be served at [http://0.0.0.0/pl](http://0.0.0.0/pl) and all modifications to assets on the dependency chain will be automatically injected into the browser. This means that you can work on Sass and javsacript, the bundle will recompile, and the browser will reload rapidly. Pattern Lab html regeneration from Twig file changes triggers a hard-refresh of the Webpack dev server browser.
-
-The Webpack dev server also features proxying css and javascript assets into a running local Drupal site. This means that these assets can avoid Drupal caching and provide hot reloading while working in Drupal. Write up coming soon.
+Running `npm start` compiles Pattern Lab, then starts a *hot reloading* webpack dev server, then injects assets into the Pattern Lab. All static html files generated by Pattern Lab will be served at [http://0.0.0.0/pl](http://0.0.0.0/pl) and all modifications to assets on the dependency chain will be automatically injected into the browser. This means that you can work on Sass and javsacript, the bundle will recompile, and the browser will reload rapidly. Pattern Lab html regeneration from Twig file changes triggers a hard-refresh of the Webpack dev server browser.
 
 ### Gulp
 
 Gulp 4 is used to run a small set of tasks that can't be accomplished by Webpack alone. Examine `gulpfile.js` for all tasks available. Feel free to edit and add tasks to this file.
 
-Gulp 4 is used and the `npm run` commands above basically trigger gulp without having to install a global dependency. If you want to run specific gulp tasks, run `npm run gulp -- OPTIONS TASKS`. The `--` passes whatever comes after to the `gulp` command. Run `npm run gulp -- --tasks` to see the whole list, here's some examples of what you can do:
+Gulp 4 is used and the `npm run` commands above basically trigger gulp without having to install a global dependency. If you want to run specific gulp tasks, run `npm run gulp -- TASKNAME`. The `--` passes whatever comes after to the `gulp` command. Run `npm run gulp -- --tasks` to see the whole list, here's some examples of what you can do:
 
 - `npm run gulp -- --help` - See the help menu
 - `npm run gulp -- compile` - Compile Pattern Lab
@@ -472,7 +491,7 @@ Drupal Twig templates in `templates/` can `{% include %}`, `{% extends %}`, and 
 } %}
 ```
 
-For a demonstration in a sample codebase of how exactly to integrate templates, see the [`drupal-lab`](https://github.com/phase2/drupal-lab) repo; in particular note how both a [node teaser template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/templates/content/node--article--teaser.html.twig) and a [views field template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/templates/views/views-view-fields--newspage--page.html.twig) in the Drupal `templates/` folder can embed the [card template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/pattern-lab/source/_patterns/02-molecules/cards/card.twig) from Pattern Lab while formatting the data.
+(Note: update this) For a demonstration in a sample codebase of how exactly to integrate templates, see the [`drupal-lab`](https://github.com/phase2/drupal-lab) repo; in particular note how both a [node teaser template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/templates/content/node--article--teaser.html.twig) and a [views field template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/templates/views/views-view-fields--newspage--page.html.twig) in the Drupal `templates/` folder can embed the [card template](https://github.com/phase2/drupal-lab/blob/master/web/themes/dashing/pattern-lab/source/_patterns/02-molecules/cards/card.twig) from Pattern Lab while formatting the data.
 
 Better examples coming soon at [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/)!
 
@@ -532,8 +551,6 @@ Particle makes adding or removing apps a snap! By default Particle has Pattern L
 * `twigNamespaces` in `gulpfile.js`
 * `compile` scripts in `package.json`
 * `webpack` scripts in `package.json`
-* Add or remove `webpack.APPNAME.config.js`
-* Add or remove path in `webpack.particle.dev.js`
 * Special: to remove Grav, delete `particle.yaml`
 * Add or delete App folder under `/apps`
 

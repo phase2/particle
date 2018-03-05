@@ -9,7 +9,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 
 // Custom Imports
-const particle = require('../../webpack.particle.dev.js');
+const particle = require('../../webpack.particle.dev');
 const pl = require('./webpack.pl.shared');
 
 // Webpack Entry Points

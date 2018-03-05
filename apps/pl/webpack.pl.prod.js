@@ -8,7 +8,11 @@
 const merge = require('webpack-merge');
 
 // Custom Imports
-const particle = require('../../webpack.particle.prod.js');
-const pl = require('./webpack.pl.shared.js');
+const particle = require('../../webpack.particle.prod');
+const pl = require('./webpack.pl.shared');
 
-module.exports = merge(particle, pl);
+const prod = {
+  mode: 'production',
+};
+
+module.exports = merge(particle, pl, prod);
