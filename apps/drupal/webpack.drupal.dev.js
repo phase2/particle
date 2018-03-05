@@ -1,6 +1,9 @@
 /**
  * Drupal-specific webpack config.
- * This is merged over top of webpack.particle.dev.js
+ * This is merged over top of webpack.particle.prod.js
+ *
+ * Import shared PROD settings because webpack.particle.prod extracts styles to its own standalone
+ * CSS files. So drupal dev uses shared PROD settings, in DEV MODE to rapidly build all assets.
  */
 
 // Library Imports
@@ -8,14 +11,12 @@ const merge = require('webpack-merge');
 const WebpackShellPlugin = require('webpack-shell-plugin');
 
 // Custom Imports
-// Import shared PROD settings because webpack.particle.prod extracts styles to its own standalone
-// CSS files. So drupal dev uses shared prod settings, in dev mode to rapidly build all assets.
 const particle = require('../../webpack.particle.prod');
 const drupal = require('./webpack.drupal.shared');
 
 // Webpack Entry Points
 const dev = {
-  mode: 'development',
+  mode: 'development', // Since we import PROD config, must set this to dev
   stats: {
     children: false,
     entrypoints: false,
