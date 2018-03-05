@@ -1,6 +1,8 @@
 # Ignore any path/file using .gitignore syntax, ie:
 # js/vendor
 
+package.json
+package-lock.json
 dist/
 apps/pl/pattern-lab
 # Ignore yeoman new-component for now
