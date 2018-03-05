@@ -1,17 +1,11 @@
 /**
- * Drupal-specific webpack config
- * This is merged over top of webpack.shared.config.js
+ * Drupal-specific webpack config common to dev and prod.
  */
 
-// Library Imports
 const path = require('path');
-const merge = require('webpack-merge');
 const webpack = require('webpack');
 
-// Custom Imports
-const shared = require('../../webpack.shared.config');
-
-const drupal = {
+const pl = {
   entry: {
     'app-drupal': [
       path.resolve(__dirname, 'index.js'),
@@ -29,4 +23,4 @@ const drupal = {
   ],
 };
 
-module.exports = merge(shared, drupal);
+module.exports = pl;

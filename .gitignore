@@ -1,5 +1,6 @@
 # Compiled files
 dist/
+source/_data/env.json
 source/_patterns/01-atoms/icon/font/
 source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss
 

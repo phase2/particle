@@ -6,4 +6,5 @@ module.exports = {
   PATH_DRUPAL: './apps/drupal',
   PATH_GRAV: './apps/grav',
   PATH_SOURCE: './source',
+  PATH_DIST: './dist',
 };

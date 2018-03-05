@@ -1,49 +1,34 @@
 ///
 /// The printing output for icons, includes classes and font face.
 ///
-
+@import 'icons-generated';
 @import 'icon-mixins';
 @import '~font-awesome/scss/mixins';
 @import '~font-awesome/scss/variables';
 
-
+// Creates the font face tag for font icons.
 @font-face {
-  font-family: $icon-font-base-name;
-  src: url("#{$icon-font-path}#{$icon-font-base-name}.eot?cachebust=#{random(99999)}");
-  src: /* stylelint-disable-line declaration-colon-space-after */
-    url("#{$icon-font-path}#{$icon-font-base-name}.eot#iefix") format("eot"),
-    url("#{$icon-font-path}#{$icon-font-base-name}.woff") format("woff"),
-    url("#{$icon-font-path}#{$icon-font-base-name}.ttf") format("truetype");
-  // Leaving out svg for the time being
-  //url("#{$icon-font-path}#{$icon-font-base-name}.svg##{$icon-font-base-name}") format("svg");
+  font-family: "iconfont";
+  src: url('../font/iconfont.eot?cachebust=#{random(99999)}'); /* IE9 Compat Modes */
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../font/iconfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../font/iconfont.svg') format('svg'); /* Legacy iOS */
   font-weight: normal;
   font-style: normal;
 }
 
-/**
- * Font application to generic DOM
- */
-
-//@font-face {
-//  font-family: $icon-font-base-name;
-//  src: $icon-font-source-1;
-//  src: $icon-font-source-2;
-//  font-weight: normal;
-//  font-style: normal;
-//}
-
-// Everything with .icon--something has a base set of styles in order to view
-[class*="#{$icon-font-class-prefix}"] {
-  @include font-icon-base;
+.icon {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
 }
 
-// Print .icon--thingy classes using default :before for easy elements
-@each $icon-name, $icon-symbol in $font-icons {
-  .#{$icon-font-class-prefix}#{$icon-name}::before {
-    content: map-get($font-icons, $icon-name);
+@each $name, $value in (map_get($__iconfont__data, "iconfont")) {
+  .icon--#{$name} {
+    @include icon($name);
   }
 }
-
 
 // Font-Awesome Sass Examples
 .fontawesome-example {

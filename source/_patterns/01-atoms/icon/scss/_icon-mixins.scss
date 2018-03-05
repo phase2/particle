@@ -1,77 +1,42 @@
-///
-/// Include this file for all non-printing vars involving icons
-///
+/// Non printing functions and mixins related to icons.
+@import 'icons-generated';
 
-// $icon-font-base-name and $font-icons come from here:
-@import 'icon-map-generated';
-
-$icon-font-path: '../font/';
-$icon-font-class-prefix: 'icon--';
-
-
-@mixin font-icon-base() {
-  font-family: $icon-font-base-name;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-  font-weight: normal;
-  font-style: normal;
-  speak: none;
-  text-decoration: inherit;
-  text-transform: none;
-  text-rendering: auto;
-  font-size: inherit;
-  transform: translate(0, 0);
+// Helper function to get the correct font group.
+@function iconfont-group($group: null) {
+  @if (null == $group) {
+    $group: nth(map-keys($__iconfont__data), 1);
+  }
+  @if (false == map-has-key($__iconfont__data, $group)) {
+    @warn 'Undefined Iconfont Family!';
+    @return ();
+  }
+  @return map-get($__iconfont__data, $group);
+}
+// Helper function to get the correct icon of a group.
+@function iconfont-item($name) {
+  $slash: str-index($name, '/');
+  $group: null;
+  @if ($slash) {
+    $group: str-slice($name, 0, $slash - 1);
+    $name: str-slice($name, $slash + 1);
+  } @else {
+    $group: nth(map-keys($__iconfont__data), 1);
+  }
+  $group: iconfont-group($group);
+  @if (false == map-has-key($group, $name)) {
+    @warn 'Undefined Iconfont Glyph!';
+    @return '';
+  }
+  @return map-get($group, $name);
 }
 
-@mixin font-icon-replace($pseudo) {
-  position: relative;
-  right: 9999px;
-  &:#{$pseudo} { /* stylelint-disable-line */
-    position: absolute;
-    height: 100%;
-    text-align: center;
-    top: 0;
-    right: -9999px;
-  }
-}
-
-/// Main Icon mixin.
-/// See the [Icons in Pattern Lab](../../pattern-lab/public/?p=atoms-icons).
-/// @param {String} $icon - Machine name of icon (filename).
-/// @param {String} $pseudo [before] - `before` | `after` The pseudo element to place the icon in.
-/// @todo Allow `$pseudo: false` to be declared so we don't have to use a pseudo element if we don't want to.
-/// @param {Bool} $text-replace [false]
-/// @param {String} $size [inherit]
-/// @param {String} $color [inherit]
-/// @param {Bool} $block [false] - If `display: block` should be applied.
-/// @example scss
-/// .class {
-///   @include icon('close');
-/// }
-@mixin icon(
-  $icon: "search", // just a default
-  $pseudo: before,
-  $text-replace: false,
-  $size: inherit,
-  $color: inherit,
-  $block: false
-) {
-  &:#{$pseudo} { /* stylelint-disable-line */
-
-    @include font-icon-base();
-    content: map-get($font-icons, $icon);
-    font-size: $size;
-    color: $color;
-
-    @content;
-  }
-  // Replace text with icon, like classic sprites
-  @if $text-replace {
-    @include font-icon-replace($pseudo);
-  }
-  // Get around fighting with line-heights
-  @if $block {
-    display: block;
+// Complete mixin to include an icon.
+// usage: .foo { @include iconfont('search') }
+@mixin icon($icon) {
+  &:before {
+    font-family: "iconfont";
+    font-style: normal;
+    font-weight: 400;
+    content: iconfont-item($icon);
   }
 }

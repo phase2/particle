@@ -47,7 +47,7 @@
     "pattern-lab/styleguidekit-twig-default": "^3.0.0",
     "pattern-lab/drupal-twig-components": "^2.0.0",
     "pattern-lab/plugin-faker": "^2.0",
-    "evanlovely/plugin-twig-namespaces": "^1.0"
+    "evanlovely/plugin-twig-namespaces": "~1.0.0"
   },
   "scripts": {
     "post-install-cmd": [

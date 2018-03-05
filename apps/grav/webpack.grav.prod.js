@@ -9,9 +9,10 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 // Custom Imports
-const shared = require('../../webpack.shared.config');
+const shared = require('../../webpack.particle.dev.js');
 
 const grav = {
+  mode: 'production',
   entry: {
     'app-grav': [
       path.resolve(__dirname, 'index.js'),
