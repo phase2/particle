@@ -7,7 +7,7 @@
 const merge = require('webpack-merge');
 
 // Custom Imports
-const particle = require('../../webpack.particle.prod.js');
+const particle = require('../../webpack.particle.prod');
 const drupal = require('./webpack.drupal.shared');
 
 const prod = {
