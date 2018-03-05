@@ -12,7 +12,7 @@ beforeAll(() => {
   // Mock $.get() to avoid network calls during tests
   $.get = function mockGet() {
     // @TODO: Add `reject` to args in promise
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       resolve(mockData);
     });
   };

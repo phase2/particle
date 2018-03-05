@@ -7,9 +7,7 @@ const webpack = require('webpack');
 
 const pl = {
   entry: {
-    'app-drupal': [
-      path.resolve(__dirname, 'index.js'),
-    ],
+    'app-drupal': [path.resolve(__dirname, 'index.js')],
   },
   // These will be explicitly be provided OUTSIDE the bundle via a <script> tag in the HTML
   externals: {

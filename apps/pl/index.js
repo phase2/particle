@@ -27,7 +27,7 @@ const settings = {
 };
 
 // Let's just execute everything and pass in $(document), settings
-_.forEach(designSystem, (component) => {
+_.forEach(designSystem, component => {
   console.log(component.name);
   component.enable($context, settings);
 });

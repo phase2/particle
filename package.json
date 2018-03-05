@@ -12,10 +12,7 @@
     "type": "git",
     "url": "git@github.com:phase2/particle.git"
   },
-  "keywords": [
-    "pattern-lab",
-    "prototyping"
-  ],
+  "keywords": ["pattern-lab", "prototyping"],
   "scripts": {
     "start": "npm run dev:pl",
     "dev:pl": "npm-run-all --continue-on-error --parallel dev:pl:gulp dev:pl:webpack",
@@ -31,9 +28,11 @@
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl, apps/grav}/**/*.scss'",
     "lint": "npm run lint:js; npm run lint:scss",
     "fmt:js": "npm run lint:js -- --fix && prettier --loglevel warn --write '**/*.{js,json}'",
-    "fmt:scss": "npm run lint:scss -- --fix && prettier --loglevel warn --write '{source, apps/drupal, apps/pl}/**/*.scss'",
+    "fmt:scss":
+      "npm run lint:scss -- --fix && prettier --loglevel warn --write '{source, apps/drupal, apps/pl}/**/*.scss'",
     "fmt": "npm run fmt:js; npm run fmt:scss",
     "gulp": "gulp",
+    "prettier": "prettier",
     "update": "npm update && cd ./apps/pl/pattern-lab && composer update",
     "setup": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "test:pa11y": "node tools/tests/accessibility/pa11y.js",
@@ -41,10 +40,7 @@
     "test": "npm run test:unit",
     "ci": "npm run lint && npm run test && npm run build:pl"
   },
-  "browserslist": [
-    "last 2 versions",
-    "IE >= 10"
-  ],
+  "browserslist": ["last 2 versions", "IE >= 10"],
   "dependencies": {
     "bootstrap": "^4.0.0",
     "font-awesome": "^4.7.0",

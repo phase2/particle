@@ -29,18 +29,22 @@ const prod = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true, importLoaders: 2 },
+            },
             {
               loader: 'postcss-loader',
               options: {
                 sourceMap: true,
                 ident: 'postcss',
-                plugins: () => [
-                  autoprefixer(),
-                ],
+                plugins: () => [autoprefixer()],
               },
             },
-            { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } },
+            {
+              loader: 'sass-loader',
+              options: { sourceMap: true, functions: sassExportData },
+            },
           ],
         }),
       },

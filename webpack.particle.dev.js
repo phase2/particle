@@ -8,9 +8,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 // Custom Imports
-const {
-  PATH_SOURCE,
-} = require('./config');
+const { PATH_SOURCE } = require('./config');
+
+// Paths
+const iconsPath = path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon');
 
 // Loaders
 const autoprefixer = require('autoprefixer');
@@ -38,18 +39,22 @@ module.exports = {
         test: /\.(sass|scss)$/,
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
-          { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true, importLoaders: 2 },
+          },
           {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
               ident: 'postcss',
-              plugins: () => [
-                autoprefixer(),
-              ],
+              plugins: () => [autoprefixer()],
             },
           },
-          { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true, functions: sassExportData },
+          },
         ],
       },
       {
@@ -102,14 +107,14 @@ module.exports = {
     new StyleLintPlugin(),
     // Iconfont generation from SVGs
     new IconFontPlugin({
-      src: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/'),
       family: 'iconfont',
+      src: path.resolve(iconsPath, 'svg/'),
       dest: {
-        font: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/[family].[type]'),
-        css: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icons-generated.scss'),
+        font: path.resolve(iconsPath, 'font/[family].[type]'),
+        css: path.resolve(iconsPath, 'scss/_icons-generated.scss'),
       },
       watch: {
-        pattern: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
+        pattern: path.resolve(iconsPath, 'svg/**/*.svg'),
       },
       cssTemplate: IconFontTemplate,
     }),

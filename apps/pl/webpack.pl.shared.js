@@ -7,9 +7,7 @@ const webpack = require('webpack');
 
 const pl = {
   entry: {
-    'app-pl': [
-      path.resolve(__dirname, 'index.js'),
-    ],
+    'app-pl': [path.resolve(__dirname, 'index.js')],
   },
   plugins: [
     new webpack.DefinePlugin({

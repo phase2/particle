@@ -11,7 +11,12 @@ module.exports = function(args) {
   const family = args.family;
   const pathToFonts = args.fontPath;
   const glyphs = args.unicodes.reduce(function(glyphs, glyph) {
-    glyphs[glyph.name] = '\\' + glyph.unicode.charCodeAt(0).toString(16).toLowerCase();
+    glyphs[glyph.name] =
+      '\\' +
+      glyph.unicode
+        .charCodeAt(0)
+        .toString(16)
+        .toLowerCase();
     return glyphs;
   }, {});
   const data = {};
@@ -20,15 +25,17 @@ module.exports = function(args) {
   const replacements = {
     __FAMILY__: family,
     __RELATIVE_FONT_PATH__: pathToFonts,
-    goat:"cat"
+    goat: 'cat',
   };
 
-  const str = TEMPLATE.replace(/__FAMILY__|__RELATIVE_FONT_PATH__|goat/gi, function(matched){
+  const str = TEMPLATE.replace(/__FAMILY__|__RELATIVE_FONT_PATH__|goat/gi, function(matched) {
     return replacements[matched];
   });
 
   return [
-    `$__iconfont__data: map-merge(if(global_variable_exists('__iconfont__data'), $__iconfont__data, ()), ${toSCSS(data)});`,
-    str
+    `$__iconfont__data: map-merge(if(global_variable_exists('__iconfont__data'), $__iconfont__data, ()), ${toSCSS(
+      data,
+    )});`,
+    str,
   ].join('\n');
 };

@@ -31,7 +31,7 @@ export function requestCryptoSuccess(crypto, data) {
 }
 
 export function fetchCryptos(crypto) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(requestCrypto(crypto));
 
     return $.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
@@ -39,6 +39,5 @@ export function fetchCryptos(crypto) {
       .then(() => dispatch(setFilter(crypto)));
   };
 }
-
 
 export default setFilter;
