@@ -28,7 +28,7 @@
     "build:drupal": "webpack --config ./apps/drupal/webpack.drupal.prod.js",
     "build:grav": "webpack --config ./apps/grav/webpack.grav.prod.js",
     "lint:js": "eslint ./",
-    "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
+    "lint:scss": "stylelint '{source, apps/drupal, apps/pl, apps/grav}/**/*.scss'",
     "lint": "npm run lint:js; npm run lint:scss",
     "fmt:js": "npm run lint:js -- --fix && prettier --loglevel warn --write '**/*.{js,json}'",
     "fmt:scss": "npm run lint:scss -- --fix && prettier --loglevel warn --write '{source, apps/drupal, apps/pl}/**/*.scss'",
