@@ -12,7 +12,9 @@
 		{{ patternLabHead | raw }}
 		<!-- End Pattern Lab -->
 
+    {% if env == 'production' %}
     <link rel="stylesheet" href="{{ paths.assets }}/app-pl.styles.css">
+    {% endif %}
 
   </head>
 	<body class="{{ bodyClass }}">

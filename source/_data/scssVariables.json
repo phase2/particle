@@ -1,7 +1,7 @@
 {
   "scssColors": {
     "primary": "rgb(0, 123, 255)",
-    "secondary": "rgb(134, 142, 150)",
+    "secondary": "rgb(108, 117, 125)",
     "success": "rgb(40, 167, 69)",
     "info": "rgb(23, 162, 184)",
     "warning": "rgb(255, 193, 7)",

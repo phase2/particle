@@ -28,17 +28,17 @@ $spacing-demo: $spacing;
 // Import your Customized Variables here, example:
 //@import '../_patterns/01-atoms/button/_button.scss';
 
-// Include icons settings
-@import '../../../source/_patterns/01-atoms/icon/scss/icon-mixins';
+// Import the map of available custom font icons.
+@import '../../../source/_patterns/01-atoms/icon/scss/_icons-generated';
 
 $icons-demo: (
-  prefix: $icon-font-class-prefix,
-  fontname: $icon-font-base-name,
-  icons: map-keys($font-icons),
+  prefix: 'icon--',
+  fontname: "iconfont",
+  icons: map-keys(map_get($__iconfont__data, "iconfont"))
 );
 
-
 // Exports Data to source/_data/scssVariables.json
+// This json file populates demo twig patterns related to config items.
 // Include your Customized Sass Maps here to JSONIFY
 @include export-data('scssVariables.json', (
   scssColors: $theme-colors, // Colors generated from Bootstrap's
@@ -49,6 +49,3 @@ $icons-demo: (
   fontWeights: $font-weights-demo,
   scssIcons: $icons-demo,
 ));
-
-// Add font sizes, font faces, typog variables, colors,
-// Check Sass to JSON task

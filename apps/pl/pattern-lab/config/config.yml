@@ -21,7 +21,7 @@ cacheBusterOn: 'true'
 exportDir: export
 publicDir: ../../../dist/pl/
 sourceDir: ../../../source/
-defaultPattern: all
+defaultPattern: protons-welcome
 defaultShowPatternInfo: false
 ishMinimum: '240'
 ishMaximum: '2600'

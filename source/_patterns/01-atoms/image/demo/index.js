@@ -5,5 +5,5 @@
 // Ensure all image pattern deps are present
 import 'atoms/image';
 
-// Demo-only asset: cat.jpg
-import './cat.jpg';
+// Demo-only asset: astrogoat.png
+import './astrogoat.png';
