@@ -28,7 +28,6 @@ namespaces:
   templates:
     paths:
       - user/themes/particle/source/_patterns/04-templates
-      - user/themes/particle/source/_patterns/04-templates/frontpage
   pages:
     paths:
       - user/themes/particle/source/_patterns/05-pages
