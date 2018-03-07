@@ -11,6 +11,7 @@ RunScriptOnFiletypeChange.prototype.apply = function PatternLabPluginApply(compi
     // Convert fileTimestamps to array of arrays to filter it and find changed files we care about
     const changed = [...compilation.fileTimestamps].filter(([file, stamp]) => {
 
+      // Debugging for now
       if (file.match(this.options.test)) { console.log(file); }
 
       // Use our file regex to test, eject if not a file we care about

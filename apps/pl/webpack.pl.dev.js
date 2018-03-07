@@ -52,11 +52,11 @@ const dev = {
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|yaml|md)$/,
       exec: 'npm run dev:pl:gulp',
-      text: '\nRUN PATTERNLAB REBUILD',
+      text: '\n🚀 PATTERN LAB REBUILD RUNNING 🚀',
     }),
     new WebpackShellPlugin({
       onBuildStart: [
-        'echo \nInitial Pattern Lab compile.',
+        'echo \n🚀 INITIAL PATTERN LAB BUILD RUNNING 🚀',
         'npm run dev:pl:gulp',
       ],
     }),
