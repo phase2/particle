@@ -20,7 +20,7 @@
     "start": "npm run dev:pl",
     "dev:pl": "npm-run-all --continue-on-error --parallel dev:pl:gulp dev:pl:webpack",
     "dev:pl:webpack": "webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot --progress",
-    "dev:pl:gulp": "NODE_ENV='development' gulp default",
+    "dev:pl:gulp": "NODE_ENV='development' gulp compile",
     "build:pl": "NODE_ENV='production' gulp compile; webpack --config ./apps/pl/webpack.pl.prod.js",
     "dev:drupal": "npm-run-all --continue-on-error --parallel dev:drupal:gulp dev:drupal:webpack",
     "dev:drupal:webpack": "webpack --watch --progress --config ./apps/drupal/webpack.drupal.dev.js",
