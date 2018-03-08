@@ -1,6 +1,6 @@
 enabled: true
 namespaces:
-  base:
+  protons:
     paths:
       - user/themes/particle/source/_patterns/00-protons
   atoms:
@@ -8,30 +8,38 @@ namespaces:
       - user/themes/particle/source/_patterns/01-atoms
       - user/themes/particle/source/_patterns/01-atoms/grid
       - user/themes/particle/source/_patterns/01-atoms/icon
-      - user/themes/particle/source/_patterns/01-atoms/badge
       - user/themes/particle/source/_patterns/01-atoms/alert
+      - user/themes/particle/source/_patterns/01-atoms/badge
       - user/themes/particle/source/_patterns/01-atoms/image
       - user/themes/particle/source/_patterns/01-atoms/button
       - user/themes/particle/source/_patterns/01-atoms/branding
+      - user/themes/particle/source/_patterns/01-atoms/dropdown
       - user/themes/particle/source/_patterns/01-atoms/breadcrumb
       - user/themes/particle/source/_patterns/01-atoms/list-group
   molecules:
     paths:
       - user/themes/particle/source/_patterns/02-molecules
+      - user/themes/particle/source/_patterns/02-molecules/nav
       - user/themes/particle/source/_patterns/02-molecules/card
+      - user/themes/particle/source/_patterns/02-molecules/carousel
       - user/themes/particle/source/_patterns/02-molecules/jumbotron
+      - user/themes/particle/source/_patterns/02-molecules/pagination
+      - user/themes/particle/source/_patterns/02-molecules/example-widget
   organisms:
     paths:
       - user/themes/particle/source/_patterns/03-organisms
+      - user/themes/particle/source/_patterns/03-organisms/navbar
       - user/themes/particle/source/_patterns/03-organisms/article
+      - user/themes/particle/source/_patterns/03-organisms/accordion
       - user/themes/particle/source/_patterns/03-organisms/card-grid
   templates:
     paths:
       - user/themes/particle/source/_patterns/04-templates
-      - user/themes/particle/source/_patterns/04-templates/frontpage
+      - user/themes/particle/source/_patterns/04-templates/homepage
   pages:
     paths:
       - user/themes/particle/source/_patterns/05-pages
+      - user/themes/particle/source/_patterns/05-pages/homepage
 generated-namespaces:
   protons:
     paths:
