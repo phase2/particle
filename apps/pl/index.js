@@ -17,6 +17,12 @@ import designSystem from '../../source/design-system';
 import './scss/_styleguide.scss';
 import './scss/_scss2json.scss';
 
+// Demo files used for Pattern Lab
+// import './demo';
+const demos = require('dir-loader!./demo/load-demos');
+
+console.log(demos);
+
 // Send each component the $(document) as its context
 const $context = $(document);
 // Configure PL-specific settings here

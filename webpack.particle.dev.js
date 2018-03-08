@@ -79,8 +79,9 @@ module.exports = {
           name: '[name].[ext]?[hash]',
         },
       },
+      // Pattern Lab assets on the dependency chain
       {
-        test: /\.(twig|yml)$/,
+        test: /\.(twig|yml|md)$/,
         loader: 'file-loader',
         options: {
           emitFile: false,

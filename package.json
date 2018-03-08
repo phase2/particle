@@ -62,6 +62,7 @@
     "babel-jest": "^22.4.1",
     "babel-loader": "^8.0.0-beta.2",
     "css-loader": "^0.28.10",
+    "dir-loader": "^0.3.0",
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.4",

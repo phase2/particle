@@ -12,7 +12,7 @@ RunScriptOnFiletypeChange.prototype.apply = function PatternLabPluginApply(compi
     const changed = [...compilation.fileTimestamps].filter(([file, stamp]) => {
 
       // Debugging for now
-      if (file.match(this.options.test)) { console.log(file); }
+      // if (file.match(this.options.test)) { console.log(file); }
 
       // Use our file regex to test, eject if not a file we care about
       if (!file.match(this.options.test)) { return false; }
@@ -32,9 +32,6 @@ RunScriptOnFiletypeChange.prototype.apply = function PatternLabPluginApply(compi
       callback();
       return true;
     }
-
-    // Otherwise, run our command
-    console.log(this.options.text);
 
     // Run the configured script, completing with callback
     exec(this.options.exec, (err, stdout, stderr) => {

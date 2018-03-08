@@ -24,7 +24,7 @@ const dev = {
     contentBase: path.resolve('dist/'), // dev server starts from this folder.
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
     watchOptions: {
-      ignored: '/node_modules/',
+      ignored: '/(node_modules|dist/pl)/',
     },
     open: true, // Open browser immediately
     openPage: 'pl', // Open browser to the PL landing page so it's very clear where to go
@@ -51,8 +51,7 @@ const dev = {
   plugins: [
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|yaml|md)$/,
-      exec: 'npm run dev:pl:gulp',
-      text: '\n🚀 PATTERN LAB REBUILD RUNNING 🚀',
+      exec: 'echo "\n🚀 PATTERN LAB REBUILD RUNNING 🚀" && npm run dev:pl:gulp',
     }),
     new WebpackShellPlugin({
       onBuildStart: [
