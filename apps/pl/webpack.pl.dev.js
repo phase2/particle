@@ -9,7 +9,6 @@ const path = require('path');
 const merge = require('webpack-merge');
 
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
-const WebpackShellPlugin = require('webpack-shell-plugin');
 
 // Custom Imports
 const particle = require('../../webpack.particle.dev');
@@ -52,12 +51,6 @@ const dev = {
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|yaml|md)$/,
       exec: 'echo "\n🚀 PATTERN LAB REBUILD RUNNING 🚀" && npm run dev:pl:gulp',
-    }),
-    new WebpackShellPlugin({
-      onBuildStart: [
-        'echo \n🚀 INITIAL PATTERN LAB BUILD RUNNING 🚀',
-        'npm run dev:pl:gulp',
-      ],
     }),
   ],
 };

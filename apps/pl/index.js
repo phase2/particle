@@ -17,13 +17,8 @@ import designSystem from '../../source/design-system';
 import './scss/_styleguide.scss';
 import './scss/_scss2json.scss';
 
-// Demo files used for Pattern Lab
-// import './demo';
-// const demos = require('dir-loader!./demo/load-demos');
-// import '../../source/_patterns/02-molecules/card/demo/cards.twig';
-import './demo';
-
-// console.log(demos);
+// Watch all demo folders in source
+import './demo/demos.glob';
 
 // Send each component the $(document) as its context
 const $context = $(document);

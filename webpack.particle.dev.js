@@ -30,6 +30,7 @@ module.exports = {
   // See webpack.[app].dev.js for entry points
   output: {
     filename: '[name].js',
+    chunkFilename: '[id].chunk.js',
     path: path.resolve(__dirname, 'dist/assets/'),
     publicPath: '/assets/',
   },
@@ -79,6 +80,14 @@ module.exports = {
           name: '[name].[ext]?[hash]',
         },
       },
+      {
+        test: /\.(woff|woff2|eot|ttf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
+      },
       // Pattern Lab assets on the dependency chain
       {
         test: /\.(twig|yml|md)$/,
@@ -87,13 +96,10 @@ module.exports = {
           emitFile: false,
         },
       },
+      // Used by Pattern Lab app to import all demo folder twig files
       {
-        test: /\.(woff|woff2|eot|ttf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: [
-          {
-            loader: 'url-loader',
-          },
-        ],
+        test: /\.(glob)$/,
+        loader: 'glob-loader',
       },
     ],
   },
