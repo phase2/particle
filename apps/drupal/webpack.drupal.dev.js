@@ -24,7 +24,7 @@ const dev = {
   plugins: [
     new WebpackShellPlugin({
       onBuildEnd: [
-        'echo \nWebpack drupal dev build complete! Edit apps/drupal/webpack.drupal.dev.js to run a cache clear script like `drupal cr all` now.',
+        'echo \nWebpack drupal dev build complete! Edit apps/drupal/webpack.drupal.dev.js to replace this line with `drupal cr all` now.',
       ],
       dev: false, // Runs on EVERY rebuild
     }),

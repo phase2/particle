@@ -9,8 +9,7 @@ function RunScriptOnFiletypeChange(options) {
 RunScriptOnFiletypeChange.prototype.apply = function PatternLabPluginApply(compiler) {
   compiler.plugin('emit', (compilation, callback) => {
     // Convert fileTimestamps to array of arrays to filter it and find changed files we care about
-    const changed = [...compilation.fileTimestamps].filter(([file, stamp]) => {
-
+    const changed = [...compilation.fileTimestamps].filter(([file]) => {
       // Debugging for now
       // if (file.match(this.options.test)) { console.log(file); }
 
