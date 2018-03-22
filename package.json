@@ -19,7 +19,7 @@
   "scripts": {
     "start": "npm run dev:pl",
     "dev:pl": "npm-run-all --continue-on-error --parallel dev:pl:gulp dev:pl:webpack",
-    "dev:pl:webpack": "webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot --progress",
+    "dev:pl:webpack": "webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot",
     "dev:pl:gulp": "NODE_ENV='development' gulp compile",
     "build:pl": "NODE_ENV='production' gulp compile; webpack --config ./apps/pl/webpack.pl.prod.js",
     "dev:drupal": "npm-run-all --continue-on-error --parallel dev:drupal:gulp dev:drupal:webpack",
@@ -62,7 +62,6 @@
     "babel-jest": "^22.4.1",
     "babel-loader": "^8.0.0-beta.2",
     "css-loader": "^0.28.10",
-    "dir-loader": "^0.3.0",
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.4",
@@ -93,6 +92,7 @@
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0",
+    "webpack-glob-entry": "^2.1.1",
     "webpack-merge": "^4.1.2",
     "webpack-shell-plugin": "^0.5.0"
   }

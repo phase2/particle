@@ -32,7 +32,7 @@ const dev = {
     historyApiFallback: true, // Finds default index.html files at folder root
     inline: true, // Injects all the webpack dev server code right in the page
     stats: {
-      colors: true, // Colored terminal output.
+      colors: true,
       hash: true,
       version: true,
       timings: true,
