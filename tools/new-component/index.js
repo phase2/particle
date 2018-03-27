@@ -1,30 +1,30 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var _ = require('lodash');
-import { includes } from 'lodash';
-var path = require('path');
-var fs = require('fs');
-var plBase = ('./source/_patterns');
 
-module.exports = yeoman.Base.extend({
-  prompting: function () {
+const Generator = require('yeoman-generator');
+const _ = require('lodash');
+const path = require('path');
+const fs = require('fs');
+const patternBase = ('./source/_patterns');
+
+module.exports = class extends Generator {
+  prompting() {
 
     console.log('Hi! This will help you build a component folder with assets.');
     console.log('Templates for this are in: ' + path.relative(process.cwd(), __dirname));
     console.log('');
 
-    var prompts = [{
+    const prompts = [{
       type: 'list',
       name: 'patternType',
       message: 'Where would you like this new component?',
-      choices: fs.readdirSync(plBase, 'utf8')
+      choices: fs.readdirSync(patternBase, 'utf8')
     }, {
       type: 'list',
       name: 'patternSubType',
       message: 'Where in here?',
       choices: function(answers) {
-        var folder = path.join(plBase, answers.patternType);
-        var subfolders = fs.readdirSync(folder, 'utf8');
+        const folder = path.join(patternBase, answers.patternType);
+        const subfolders = fs.readdirSync(folder, 'utf8');
         return ['./'].concat(subfolders);
       }
     }, {
@@ -34,15 +34,15 @@ module.exports = yeoman.Base.extend({
       choices: [
         'twig',
         'scss',
-        'json',
         'js',
         'md',
-        'yml'
+        'yml',
+        'json',
       ],
       default: [
         'twig',
         'scss',
-        'yml'
+        'js',
       ]
     }, {
       name: 'name',
@@ -59,14 +59,12 @@ module.exports = yeoman.Base.extend({
       props.camelCaseName = _.camelCase(props.name);
       this.props = props;
     }.bind(this));
-  },
+  };
 
-  writing: function () {
+  writing() {
+    const destPath = path.join(patternBase, this.props.patternType, this.props.patternSubType, this.props.name);
 
-    // console.log(this.props);
-    var destPath = path.join(plBase, this.props.patternType, this.props.patternSubType, this.props.name);
-
-    if (includes(this.props.files, 'scss')) {
+    if (_.includes(this.props.files, 'scss')) {
       this.fs.copyTpl(
         this.templatePath('_pattern.scss'),
         this.destinationPath(path.join(destPath, '_' + this.props.name + '.scss')),
@@ -74,15 +72,15 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if (includes(this.props.files, 'twig')) {
+    if (_.includes(this.props.files, 'twig')) {
       this.fs.copyTpl(
-        this.templatePath('pattern.twig'),
+        this.templatePath('_pattern.twig'),
         this.destinationPath(path.join(destPath, this.props.name + '.twig')),
         this.props
       );
     }
 
-    if (includes(this.props.files, 'json')) {
+    if (_.includes(this.props.files, 'json')) {
       this.fs.copyTpl(
         this.templatePath('pattern.json'),
         this.destinationPath(path.join(destPath, this.props.name + '.json')),
@@ -90,7 +88,7 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if (includes(this.props.files, 'js')) {
+    if (_.includes(this.props.files, 'js')) {
       this.fs.copyTpl(
         this.templatePath('pattern.js'),
         this.destinationPath(path.join(destPath, this.props.name + '.js')),
@@ -98,7 +96,7 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if (includes(this.props.files, 'md')) {
+    if (_.includes(this.props.files, 'md')) {
       this.fs.copyTpl(
         this.templatePath('pattern.md'),
         this.destinationPath(path.join(destPath, this.props.name + '.md')),
@@ -106,7 +104,7 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if (includes(this.props.files, 'yml')) {
+    if (_.includes(this.props.files, 'yml')) {
       this.fs.copyTpl(
         this.templatePath('pattern.yml'),
         this.destinationPath(path.join(destPath, this.props.name + '.yml')),
@@ -114,6 +112,11 @@ module.exports = yeoman.Base.extend({
       );
     }
 
+    //
+    // if demo { create demo subfolder setup }
+
+    // after creating component files add to design-system.js
+    // add demo to demo-system.js
   }
 
-});
+};
