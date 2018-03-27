@@ -34,11 +34,13 @@ module.exports = class extends Generator {
         'js',
         'yml',
         'md',
+        'demo',
       ],
       default: [
         'twig',
         'scss',
         'js',
+        'demo',
       ],
     }, {
       name: 'name',
@@ -80,7 +82,7 @@ module.exports = class extends Generator {
     if (_.includes(this.props.files, 'twig')) {
       this.fs.copyTpl(
         this.templatePath('_pattern.twig'),
-        this.destinationPath(path.join(destPath, `${this.props.name}.twig`)),
+        this.destinationPath(path.join(destPath, `_${this.props.name}.twig`)),
         this.props,
       );
     }
@@ -96,7 +98,7 @@ module.exports = class extends Generator {
     if (_.includes(this.props.files, 'md')) {
       this.fs.copyTpl(
         this.templatePath('pattern.md'),
-        this.destinationPath(path.join(destPath, `${this.props.name}.md`)),
+        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}.md`)),
         this.props,
       );
     }
@@ -104,16 +106,24 @@ module.exports = class extends Generator {
     if (_.includes(this.props.files, 'yml')) {
       this.fs.copyTpl(
         this.templatePath('pattern.yml'),
-        this.destinationPath(path.join(destPath, `${this.props.name}.yml`)),
+        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.yml`)),
         this.props,
       );
     }
 
-    console.log('Your new component is being created. Please import it inside of source/design-system.js to see it on the chain.');
+    if (_.includes(this.props.files, 'demo')) {
+      this.fs.copyTpl(
+        this.templatePath('demo-pattern.twig'),
+        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.twig`)),
+        this.props,
+      );
+      this.fs.copyTpl(
+        this.templatePath('demo-pattern.js'),
+        this.destinationPath(path.join(destPath, 'demo', 'index.js')),
+        this.props,
+      );
+    }
 
-    // @todo
-    // if (demo) { create demo subfolder setup }
-    // after creating component files add 2 lines to design-system.js
-    // add demo to demo-system.js
+    console.log(`Your new component ${this.props.name} is being created. Please import it inside of source/design-system.js to see it on the chain.`);
   }
 };
