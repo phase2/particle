@@ -32,9 +32,8 @@ module.exports = class extends Generator {
         'twig',
         'scss',
         'js',
-        'md',
         'yml',
-        'json',
+        'md',
       ],
       default: [
         'twig',
@@ -86,14 +85,6 @@ module.exports = class extends Generator {
       );
     }
 
-    if (_.includes(this.props.files, 'json')) {
-      this.fs.copyTpl(
-        this.templatePath('pattern.json'),
-        this.destinationPath(path.join(destPath, `${this.props.name}.json`)),
-        this.props,
-      );
-    }
-
     if (_.includes(this.props.files, 'js')) {
       this.fs.copyTpl(
         this.templatePath('pattern.js'),
@@ -117,6 +108,8 @@ module.exports = class extends Generator {
         this.props,
       );
     }
+
+    console.log('Your new component is being created. Please import it inside of source/design-system.js to see it on the chain.');
 
     // @todo
     // if (demo) { create demo subfolder setup }
