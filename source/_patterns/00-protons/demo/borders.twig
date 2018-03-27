@@ -45,7 +45,7 @@
           <span class=" bg-light m-2 border border{{ class }}"
                 style="display: inline-block; height: 5rem; width: 5rem; margin: .25rem;"></span>
         {% endfor %}
-        <pre class="bg-light">
+        <pre class="bg-light mb-0">
           <code>
 {% for class in border_classes %}
   &lt;span class="border{{ class }}"&gt;&lt;/span&gt;
@@ -61,7 +61,7 @@
                 style="display: inline-block; height: 5rem; width: 5rem; margin: .25rem;"></span>
         {% endfor %}
 
-        <pre class="bg-light">
+        <pre class="bg-light mb-0">
           <code>
 {% for colorName, colorValue in scssColors %}
   &lt;span class="border border-{{ colorName }}"&gt;&lt;/span&gt;
@@ -78,7 +78,7 @@
             class: 'm-2 rounded' ~ class,
           } %}
         {% endfor %}
-        <pre class="bg-light">
+        <pre class="bg-light mb-0">
           <code>
 {% for class in radius_classes %}
   &lt;img src="..." alt="..." class="rounded{{ class }}"&gt;
