@@ -5,8 +5,8 @@ module.exports = {
     '!node_modules/bootstrap',
   ],
   moduleNameMapper: {
-    // Jest doesn't care about styles, images, fonts, etc
-    '\\.(css|scss|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+    // Jest doesn't care about styles, twig, images, fonts, etc
+    '\\.(twig|md|yml|yaml|css|scss|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
     '<rootDir>/tools/tests/unit/__mocks__/fileMock.js',
 
     // Webpack aliases. This is a pain, but Babel does NOT understand Webpack resolved aliases
