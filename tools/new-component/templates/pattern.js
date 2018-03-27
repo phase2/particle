@@ -1,5 +1,5 @@
 /**
- * <%= name %>
+ * <%= camelCaseName %>
  */
 
 // Module dependencies
@@ -8,7 +8,7 @@ import 'protons';
 // Module styles
 import './_<%= name %>.scss';
 
-export const name = '<%= name %>';
+export const name = '<%= camelCaseName %>';
 
 export function disable() {}
 

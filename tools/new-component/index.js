@@ -1,32 +1,29 @@
-'use strict';
-
 const Generator = require('yeoman-generator');
 const _ = require('lodash');
 const path = require('path');
 const fs = require('fs');
+
 const patternBase = ('./source/_patterns');
 
 module.exports = class extends Generator {
   prompting() {
-
     console.log('Hi! This will help you build a component folder with assets.');
-    console.log('Templates for this are in: ' + path.relative(process.cwd(), __dirname));
-    console.log('');
+    console.log(`Templates for this are in: ${path.relative(process.cwd(), __dirname)} \n`);
 
     const prompts = [{
       type: 'list',
       name: 'patternType',
       message: 'Where would you like this new component?',
-      choices: fs.readdirSync(patternBase, 'utf8')
+      choices: fs.readdirSync(patternBase, 'utf8'),
     }, {
       type: 'list',
       name: 'patternSubType',
       message: 'Where in here?',
-      choices: function(answers) {
+      choices(answers) {
         const folder = path.join(patternBase, answers.patternType);
         const subfolders = fs.readdirSync(folder, 'utf8');
         return ['./'].concat(subfolders);
-      }
+      },
     }, {
       type: 'checkbox',
       name: 'files',
@@ -43,13 +40,13 @@ module.exports = class extends Generator {
         'twig',
         'scss',
         'js',
-      ]
+      ],
     }, {
       name: 'name',
       message: 'What shall we name it?',
-      filter: function(answer) {
+      filter(answer) {
         return answer.replace(/ /g, '-').toLowerCase();
-      }
+      },
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -59,7 +56,7 @@ module.exports = class extends Generator {
       props.camelCaseName = _.camelCase(props.name);
       this.props = props;
     }.bind(this));
-  };
+  }
 
   writing() {
     const destPath = path.join(patternBase, this.props.patternType, this.props.patternSubType, this.props.name);
@@ -67,48 +64,48 @@ module.exports = class extends Generator {
     if (_.includes(this.props.files, 'scss')) {
       this.fs.copyTpl(
         this.templatePath('_pattern.scss'),
-        this.destinationPath(path.join(destPath, '_' + this.props.name + '.scss')),
-        this.props
+        this.destinationPath(path.join(destPath, `_${this.props.name}.scss`)),
+        this.props,
       );
     }
 
     if (_.includes(this.props.files, 'twig')) {
       this.fs.copyTpl(
         this.templatePath('_pattern.twig'),
-        this.destinationPath(path.join(destPath, this.props.name + '.twig')),
-        this.props
+        this.destinationPath(path.join(destPath, `${this.props.name}.twig`)),
+        this.props,
       );
     }
 
     if (_.includes(this.props.files, 'json')) {
       this.fs.copyTpl(
         this.templatePath('pattern.json'),
-        this.destinationPath(path.join(destPath, this.props.name + '.json')),
-        this.props
+        this.destinationPath(path.join(destPath, `${this.props.name}.json`)),
+        this.props,
       );
     }
 
     if (_.includes(this.props.files, 'js')) {
       this.fs.copyTpl(
         this.templatePath('pattern.js'),
-        this.destinationPath(path.join(destPath, this.props.name + '.js')),
-        this.props
+        this.destinationPath(path.join(destPath, 'index.js')),
+        this.props,
       );
     }
 
     if (_.includes(this.props.files, 'md')) {
       this.fs.copyTpl(
         this.templatePath('pattern.md'),
-        this.destinationPath(path.join(destPath, this.props.name + '.md')),
-        this.props
+        this.destinationPath(path.join(destPath, `${this.props.name}.md`)),
+        this.props,
       );
     }
 
     if (_.includes(this.props.files, 'yml')) {
       this.fs.copyTpl(
         this.templatePath('pattern.yml'),
-        this.destinationPath(path.join(destPath, this.props.name + '.yml')),
-        this.props
+        this.destinationPath(path.join(destPath, `${this.props.name}.yml`)),
+        this.props,
       );
     }
 
@@ -118,5 +115,4 @@ module.exports = class extends Generator {
     // after creating component files add to design-system.js
     // add demo to demo-system.js
   }
-
 };
