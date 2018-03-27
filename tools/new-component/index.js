@@ -49,6 +49,9 @@ module.exports = class extends Generator {
       },
     }];
 
+    // Disabling some rules here to pass linting because the generator
+    // needs 'this' and es6's lovely fat arrows nuke it.
+    /* eslint-disable func-names, prefer-arrow-callback, no-param-reassign */
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       props.dashlessName = props.name.replace(/-/g, '');
@@ -56,10 +59,16 @@ module.exports = class extends Generator {
       props.camelCaseName = _.camelCase(props.name);
       this.props = props;
     }.bind(this));
+    /* eslint-enable func-names, prefer-arrow-callback, no-param-reassign */
   }
 
   writing() {
-    const destPath = path.join(patternBase, this.props.patternType, this.props.patternSubType, this.props.name);
+    const destPath = path.join(
+      patternBase,
+      this.props.patternType,
+      this.props.patternSubType,
+      this.props.name,
+    );
 
     if (_.includes(this.props.files, 'scss')) {
       this.fs.copyTpl(
@@ -109,10 +118,9 @@ module.exports = class extends Generator {
       );
     }
 
-    //
-    // if demo { create demo subfolder setup }
-
-    // after creating component files add to design-system.js
+    // @todo
+    // if (demo) { create demo subfolder setup }
+    // after creating component files add 2 lines to design-system.js
     // add demo to demo-system.js
   }
 };
