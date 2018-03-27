@@ -12,6 +12,7 @@ import * as homepage from 'pages/homepage';
 
 // Full design system. May dupe the above, but Webpack don't care.
 import designSystem from '../../source/design-system';
+// import demoSystem from '../demo'; // All our templates/pages showing off in PL
 
 // Adds PL-only styles, ie color swatches.
 import './scss/_styleguide.scss';
