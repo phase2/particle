@@ -6,6 +6,9 @@
 import 'protons';
 import 'atoms/image';
 
+// Module template
+import './_branding.twig';
+
 // Module styles
 import './_branding.scss';
 

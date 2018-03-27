@@ -10,6 +10,9 @@ import 'bootstrap/js/src/carousel';
 import 'protons';
 import 'atoms/image';
 
+// Module template
+import './_carousel.twig';
+
 // Module styles
 import './_carousel.scss';
 

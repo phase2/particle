@@ -11,7 +11,7 @@ module.exports = {
 
     // Webpack aliases. This is a pain, but Babel does NOT understand Webpack resolved aliases
     // @TODO: Look into helpers for this (e.g. https://github.com/mwolson/jest-webpack-alias)
-    '^protons$': '<rootDir>/source/_patterns/00-protons/',
+    '^protons$': '<rootDir>/source/_patterns/00-protons/', // @TODO: Why is this different?
     '^atoms/(.+)': '<rootDir>/source/_patterns/01-atoms/$1',
     '^molecules/(.+)': '<rootDir>/source/_patterns/02-molecules/$1',
     '^organisms/(.+)': '<rootDir>/source/_patterns/03-organisms/$1',

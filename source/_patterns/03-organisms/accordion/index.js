@@ -9,6 +9,9 @@ import 'protons';
 import 'atoms/button';
 import 'molecules/card';
 
+// Module template
+import './_accordion.twig';
+
 // Module styles
 import './_accordion.scss';
 

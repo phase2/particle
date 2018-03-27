@@ -1,5 +1,9 @@
 import $ from 'jquery';
 
+// Module template
+import './homepage.twig';
+import './homepage.yml';
+
 const defaultSettings = { color: 'orange' };
 
 export const name = 'homepage';
