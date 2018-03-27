@@ -32,8 +32,6 @@ module.exports = class extends Generator {
         'twig',
         'scss',
         'js',
-        'yml',
-        'md',
         'demo',
       ],
       default: [
@@ -95,22 +93,6 @@ module.exports = class extends Generator {
       );
     }
 
-    if (_.includes(this.props.files, 'md')) {
-      this.fs.copyTpl(
-        this.templatePath('pattern.md'),
-        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}.md`)),
-        this.props,
-      );
-    }
-
-    if (_.includes(this.props.files, 'yml')) {
-      this.fs.copyTpl(
-        this.templatePath('pattern.yml'),
-        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.yml`)),
-        this.props,
-      );
-    }
-
     if (_.includes(this.props.files, 'demo')) {
       this.fs.copyTpl(
         this.templatePath('demo-pattern.twig'),
@@ -120,6 +102,18 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath('demo-pattern.js'),
         this.destinationPath(path.join(destPath, 'demo', 'index.js')),
+        this.props,
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('pattern.md'),
+        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.md`)),
+        this.props,
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('pattern.yml'),
+        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.yml`)),
         this.props,
       );
     }
