@@ -38,11 +38,12 @@
     "test:pa11y": "node tools/tests/accessibility/pa11y.js",
     "test:unit": "jest",
     "test": "npm run test:unit",
-    "ci": "npm run lint && npm run test && npm run build:pl"
+    "ci": "npm run lint && npm run test && npm run build:pl",
+    "new": "yo ./tools/new-component/index.js"
   },
   "browserslist": [
     "last 2 versions",
-    "IE >= 10"
+    "IE >= 11"
   ],
   "dependencies": {
     "bootstrap": "^4.0.0",
@@ -96,6 +97,8 @@
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0",
     "webpack-merge": "^4.1.2",
-    "webpack-shell-plugin": "^0.5.0"
+    "webpack-shell-plugin": "^0.5.0",
+    "yeoman-generator": "^2.0.3",
+    "yo": "^2.0.1"
   }
 }
