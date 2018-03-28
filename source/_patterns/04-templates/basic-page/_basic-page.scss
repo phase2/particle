@@ -4,20 +4,20 @@
 .basic-page {
   @include full-width();
 
-  //@include breakpoint($bp--medium) {
-  //  @include full-width($undo: true);
-  //  position: relative;
-  //}
-  //@include breakpoint($bp--xlarge) {
-  //  width: 1200px;
-  //}
+  @include media-breakpoint-up(md) {
+    @include full-width($undo: true);
+    position: relative;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 1200px;
+  }
 
   &__inner {
     padding: 50px 20px;
 
-    //@include breakpoint($bp--medium) {
-    //  padding: 50px 150px 100px;
-    //}
+    @include media-breakpoint-up(md) {
+      padding: 50px;
+    }
 
     p {
       line-height: 2;
