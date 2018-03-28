@@ -1,17 +1,14 @@
 /**
- * <%= camelCaseName %>
+ * footer
  */
 
 // Module dependencies
 import 'protons';
 
 // Module styles
-import './_<%= name %>.scss';
+import './_footer.scss';
 
-// Module template
-import './_<%= name %>.twig';
-
-export const name = '<%= camelCaseName %>';
+export const name = 'footer';
 
 export function disable() {}
 

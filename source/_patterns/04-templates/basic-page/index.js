@@ -1,17 +1,17 @@
 /**
- * <%= camelCaseName %>
+ * basicPage
  */
 
 // Module dependencies
 import 'protons';
 
 // Module styles
-import './_<%= name %>.scss';
+import './_basic-page.scss';
 
 // Module template
-import './_<%= name %>.twig';
+import './_basic-page.twig';
 
-export const name = '<%= camelCaseName %>';
+export const name = 'basicPage';
 
 export function disable() {}
 
