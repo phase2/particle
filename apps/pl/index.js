@@ -46,4 +46,5 @@ _.forEach(demoSystem, (component) => {
   }
 });
 
+// Remove a pl-only helper class to hide the pre-load spinner on the welcome page.
 $('body').removeClass('pl-loading');
