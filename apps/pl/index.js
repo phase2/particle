@@ -7,17 +7,16 @@ import _ from 'lodash';
 
 // PL-only components, regardless of design system
 import 'atoms/grid';
-import * as demoPages from 'pages/demo';
 
 // Full design system. May dupe the above, but Webpack don't care.
 import designSystem from '../../source/design-system';
 
+// Watch all demo folders in source
+import demoSystem from './demo/demos.glob';
+
 // Adds PL-only styles, ie color swatches.
 import './scss/_styleguide.scss';
 import './scss/_scss2json.scss';
-
-// Watch all demo folders in source
-import './demo/demos.glob';
 
 // Send each component the $(document) as its context
 const $context = $(document);
@@ -33,12 +32,16 @@ const settings = {
 
 // Let's just execute everything and pass in $(document), settings
 _.forEach(designSystem, (component) => {
-  console.log(component.name);
-  component.enable($context, settings);
+  if (_.has(component, 'enable')) {
+    console.log(component.name);
+    component.enable($context, settings);
+  }
 });
 
 // Not every demo will need enabled, but some might.
-// As an example, this pattern in particular mocks Drupal page behaviors
-// for Pattern Lab, so it needs enabled.
-console.log(demoPages.name);
-demoPages.enable($context, settings);
+_.forEach(demoSystem, (component) => {
+  if (_.has(component, 'enable')) {
+    console.log(component.name);
+    component.enable($context, settings);
+  }
+});

@@ -22,7 +22,7 @@ import * as accordion from 'organisms/accordion';
 import * as article from 'organisms/article';
 import * as footer from 'organisms/footer';
 import * as navbar from 'organisms/navbar';
-import * as homepage from 'templates/homepage';
+import * as basicPage from 'templates/basic-page';
 
 export default {
   alert,
@@ -44,5 +44,5 @@ export default {
   article,
   footer,
   navbar,
-  homepage,
+  basicPage,
 };

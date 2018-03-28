@@ -7,11 +7,14 @@
 
 import $ from 'jquery';
 
-// Demo dependencies
-
-
-// Demo templates
+// Ensure all demo assets are present.
+import 'protons';
 import 'templates/site-container.twig';
+import 'templates/basic-page';
+
+import './article.yml';
+import './article.twig';
+import './homepage.yml';
 import './homepage.twig';
 
 export const name = 'demoPages';
@@ -20,7 +23,7 @@ export function disable() {}
 
 export function enable(context = $(document), settings) {
   $('.homepage__header', context).css('color', settings.color);
-  $('.homepage__text', context).html('the header color should be overwritten by settings in pl/index.js');
+  $('.homepage__text', context).html('the header color should be overwritten by settings in pl/index.js. this text was overwritten from js in 05-pages/demo/index.js.');
 }
 
 export default enable;

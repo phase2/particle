@@ -1,14 +1,17 @@
 /**
- * homepage
+ * basicPage
  */
 
 // Module dependencies
 import 'protons';
 
 // Module styles
-import './_homepage.scss';
+import './_basic-page.scss';
 
-export const name = 'homepage';
+// Module template
+import './_basic-page.twig';
+
+export const name = 'basicPage';
 
 export function disable() {}
 
