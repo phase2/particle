@@ -16,7 +16,7 @@ before_install:
 - . $HOME/.nvm/nvm.sh
 - nvm install $TRAVIS_NODE_VERSION
 - nvm use $TRAVIS_NODE_VERSION
-- npm install -g npm5
+- npm install -g npm@latest
 install:
 - composer clear-cache
 - npm ci
