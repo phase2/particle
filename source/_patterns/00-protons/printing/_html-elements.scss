@@ -5,3 +5,27 @@
 // another pattern here.
 //
 // @see https://v4-alpha.getbootstrap.com/content/reboot/
+
+html {
+  height: 100%; // IE11 sticky footer workaround.
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; // avoid IE11 min-height bug.
+  overflow-x: hidden;
+}
+
+main {
+  display: block; // IE11 fix ~ http://stackoverflow.com/a/26207036
+  flex: 1 0 auto; // "flex: 1;" breaks IE11.
+}
+
+hr {
+  margin: 3rem 0;
+}
+
+footer { // defined here for IE positioning
+  flex-shrink: 0;
+}

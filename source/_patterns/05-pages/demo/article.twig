@@ -1,8 +1,10 @@
 {% extends '@templates/site-container.twig' %}
   {% block content %}
 
-    {# include alert pattern here #}
-
-    {% include '@organisms/_article.twig' with article_1 %}
+     {% embed '@templates/_basic-page.twig' %}
+       {% block content %}
+         {% include '@organisms/_article.twig' %}
+       {% endblock %}
+     {% endembed %}
 
   {% endblock %}

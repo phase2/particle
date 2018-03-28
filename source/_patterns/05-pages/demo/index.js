@@ -7,14 +7,13 @@
 
 import $ from 'jquery';
 
-// Ensure all demo assets are present.
+// Ensure all assets required by demos are present.
 import 'protons';
 import 'templates/site-container.twig';
 import 'templates/basic-page';
 
-import './article.yml';
+// Demo templates.
 import './article.twig';
-import './homepage.yml';
 import './homepage.twig';
 
 export const name = 'demoPages';
