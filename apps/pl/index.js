@@ -45,3 +45,5 @@ _.forEach(demoSystem, (component) => {
     component.enable($context, settings);
   }
 });
+
+$('body').removeClass('pl-loading');
