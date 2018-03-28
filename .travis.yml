@@ -19,8 +19,11 @@ before_install:
 - npm install -g npm5
 install:
 - composer clear-cache
-- npm install
+- npm ci
 - npm run setup
+cache:
+  directories:
+    - "$HOME/.npm"
 before_script:
 - php --version
 - composer --version
