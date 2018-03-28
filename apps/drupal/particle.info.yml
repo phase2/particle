@@ -58,4 +58,3 @@ component-libraries:
   pages:
     paths:
       - ../../source/_patterns/05-pages
-      - ../../source/_patterns/05-pages/homepage
