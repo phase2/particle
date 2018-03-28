@@ -92,6 +92,12 @@ module.exports = class extends Generator {
         this.destinationPath(path.join(destPath, 'index.js')),
         this.props,
       );
+
+      this.fs.copyTpl(
+        this.templatePath('pattern-test.js'),
+        this.destinationPath(path.join(destPath, '__tests__', `${this.props.name}.test.js`)),
+        this.props,
+      );
     }
 
     if (_.includes(this.props.files, 'demo')) {
