@@ -20,7 +20,9 @@ import * as jumbotron from 'molecules/jumbotron';
 import * as pagination from 'molecules/pagination';
 import * as accordion from 'organisms/accordion';
 import * as article from 'organisms/article';
+import * as footer from 'organisms/footer';
 import * as navbar from 'organisms/navbar';
+import * as homepage from 'templates/homepage';
 
 export default {
   alert,
@@ -40,5 +42,7 @@ export default {
   pagination,
   accordion,
   article,
+  footer,
   navbar,
+  homepage,
 };

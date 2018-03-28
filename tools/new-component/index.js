@@ -56,6 +56,7 @@ module.exports = class extends Generator {
       props.dashlessName = props.name.replace(/-/g, '');
       props.underscoreName = props.name.replace(/-/g, '_');
       props.camelCaseName = _.camelCase(props.name);
+      props.cleanPatternType = props.patternType.replace(/([0-9])\w+-/g, '');
       this.props = props;
     }.bind(this));
     /* eslint-enable func-names, prefer-arrow-callback, no-param-reassign */

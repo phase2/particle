@@ -1,14 +1,14 @@
 /**
- * homepage
+ * footer
  */
 
 // Module dependencies
 import 'protons';
 
 // Module styles
-import './_homepage.scss';
+import './_footer.scss';
 
-export const name = 'homepage';
+export const name = 'footer';
 
 export function disable() {}
 
