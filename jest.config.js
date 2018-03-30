@@ -1,3 +1,4 @@
+/* eslint max-len: 0 */
 module.exports = {
   verbose: true,
   // If jest can't find a library in node_modules, include it here

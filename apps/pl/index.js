@@ -9,7 +9,7 @@ import _ from 'lodash';
 import 'atoms/grid';
 
 // Full design system. May dupe the above, but Webpack don't care.
-import designSystem from '../../source/design-system';
+import { enableAllComponents } from '../../source/design-system';
 
 // Watch all demo folders in source
 import demoSystem from './demo/demos.glob';
@@ -30,18 +30,13 @@ const settings = {
   color: 'orange',
 };
 
-// Let's just execute everything and pass in $(document), settings
-_.forEach(designSystem, (component) => {
-  if (_.has(component, 'enable')) {
-    console.log(component.name);
-    component.enable($context, settings);
-  }
-});
+// Let's just execute everything in the design system and pass in $(document), settings
+enableAllComponents($context, settings);
 
-// Not every demo will need enabled, but some might.
-_.forEach(demoSystem, (component) => {
+// Not every demo will need be enabled, but some might.
+Object.values(demoSystem).forEach((component) => {
   if (_.has(component, 'enable')) {
-    console.log(component.name);
+    // console.log(component.name);
     component.enable($context, settings);
   }
 });
