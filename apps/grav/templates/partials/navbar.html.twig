@@ -1,0 +1,15 @@
+{% set navbar = {
+  navbar_brand_link: base_url == '' ? '/' : base_url,
+  navbar_brand_text: config.site.title,
+  navbar_other_classes: [
+    'navbar',
+    'navbar-expand-lg',
+    'navbar-dark',
+    'bg-dark',
+  ],
+  navbar_id: 'navbarSupportedContent',
+  navbar_items: [],
+} %}
+
+{# @TODO Assemble NavBar Items from loop of page.visibleChildren #}
+{% include '@organisms/navbar/_navbar.twig' with navbar %}
