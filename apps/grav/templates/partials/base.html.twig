@@ -33,7 +33,7 @@
     {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
       {% block jumbotron_branding %}
         {% include '@atoms/branding/_branding.twig' with {
-          site_name: 'Particle in ' ~ site.title|e('html'),
+          site_name: site.title|e('html'),
           url: base_url == '' ? '/' : base_url,
           logo_svg_inline: '@atoms/image/logo.svg'
         } %}
