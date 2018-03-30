@@ -1,0 +1,26 @@
+// All component Sass needs non-printing base config
+@import '../../00-protons/variables';
+
+.basic-page {
+  @include full-width();
+
+  @include media-breakpoint-up(md) {
+    @include full-width($undo: true);
+    position: relative;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 1200px;
+  }
+
+  &__inner {
+    padding: 50px 20px;
+
+    @include media-breakpoint-up(md) {
+      padding: 50px;
+    }
+
+    p {
+      line-height: 2;
+    }
+  }
+}

@@ -106,19 +106,6 @@ gulp.task('compile:pl:env', (cb) => {
 });
 
 /**
- * Watch known PL files and compile to html. Reload server
- */
-gulp.task('watch:pl-source', (cb) => {
-  // @TODO: check if changed file is in path that already exists before namespacing
-  gulp.watch('source/**/*.{twig,json,yml,yaml,md}', gulp.series([
-    'compile:twig-namespaces',
-    'compile:pl',
-    'compile:pl:notify',
-  ]));
-  cb();
-});
-
-/**
  * Standalone compile tasks for non-webpack assets
  */
 gulp.task('compile', gulp.series([
@@ -129,9 +116,8 @@ gulp.task('compile', gulp.series([
 ]));
 
 /**
- * Kicking off cold should compile all the non-webpack assets, start webpack:dev
+ * Kicking off cold should compile all Pattern Lab assets
  */
 gulp.task('default', gulp.series([
   'compile',
-  'watch:pl-source',
 ]));

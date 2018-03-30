@@ -8,9 +8,12 @@
 const path = require('path');
 const merge = require('webpack-merge');
 
+const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
+
 // Custom Imports
 const particle = require('../../webpack.particle.dev');
 const pl = require('./webpack.pl.shared');
+
 
 // Webpack Entry Points
 const dev = {
@@ -19,13 +22,16 @@ const dev = {
     port: '8080',
     contentBase: path.resolve('dist/'), // dev server starts from this folder.
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
+    watchOptions: {
+      ignored: '/(node_modules|dist/pl)/',
+    },
     open: true, // Open browser immediately
     openPage: 'pl', // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
     inline: true, // Injects all the webpack dev server code right in the page
     stats: {
-      colors: true, // Colored terminal output.
+      colors: true,
       hash: true,
       version: true,
       timings: true,
@@ -41,6 +47,12 @@ const dev = {
       publicPath: true,
     },
   },
+  plugins: [
+    new RunScriptOnFiletypeChange({
+      test: /\.(twig|yml|yaml|md)$/,
+      exec: 'echo "\n🚀 PATTERN LAB REBUILD RUNNING 🚀" && npm run dev:pl:gulp',
+    }),
+  ],
 };
 
 module.exports = merge(particle, pl, dev);

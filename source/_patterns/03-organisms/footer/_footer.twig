@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * footer
+ *
+ * Available variables for footer:
+ *    - footer.variable_name [variable_type]: Description of the variable. Example below.
+ *    - footer.slogan [String]: Site footer slogan seen on most pages.
+ */
+#}
+
+<footer class="container p-3 footer" role="contentinfo">
+  {% block footer %}
+    <hr>
+    {{ footer.slogan }}
+  {% endblock footer %}
+</footer>
