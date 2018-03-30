@@ -13,9 +13,12 @@ console.log('grav-theme ran');
 
 // Send each component the $(document) as its context
 const $context = $(document);
+const settings = {
+  enableHolder: TRUE,
+};
 
 // Let's just execute everything and pass in $(document), settings
 _.forEach(designSystem, (component) => {
   console.log(component.name);
-  component.enable($context);
+  component.enable($context, settings);
 });
