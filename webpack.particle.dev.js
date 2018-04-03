@@ -25,6 +25,9 @@ const IconFontPlugin = require('iconfont-plugin-webpack');
 // Helper file used to generate a svg -> fonticon Sass map.
 const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
+// Helps us track down deprecation during development
+process.traceDeprecation = true;
+
 module.exports = {
   mode: 'development',
   // See webpack.[app].dev.js for entry points
