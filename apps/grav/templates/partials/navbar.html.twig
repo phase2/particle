@@ -8,8 +8,45 @@
     'bg-dark',
   ],
   navbar_id: 'navbarSupportedContent',
-  navbar_items: [],
+  navbar_arialebelledby: 'particle-main-navigation',
 } %}
 
-{# @TODO Assemble NavBar Items from loop of page.visibleChildren #}
-{% include '@organisms/navbar/_navbar.twig' with navbar %}
+{% embed '@organisms/navbar/_navbar.twig' with navbar %}
+  {% block navbar_content %}
+
+  <div class="collapse navbar-collapse" id="{{ navbar_id }}">
+    {% embed '@molecules/nav/_nav.twig' with {
+      nav_element: 'ul',
+      nav_other_classes: 'navbar-nav mr-auto',
+    } %}
+      {% block nav_items %}
+        {% for page in pages.children.visible %}
+          {% set js_attributes = [
+            'id="' ~ page.menu ~ '-tab"'|lower,
+            'data-toggle="tab"',
+            'role="tab"',
+            'aria-controls="' ~ page.menu ~ '"'|lower,
+          ] | sort | join(' ') | trim %}
+          {% set nav_item_aria = (page.active or page.activeChild) ? 'aria-selected="true"' : 'aria-selected="false"' %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ page.url }}" {{ js_attributes }} {{ nav_item_aria }}>{{ page.menu }}</a>
+          </li>
+        {% endfor %}
+      {% endblock nav_items %}
+    {% endembed %}
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      {% include '@atoms/button/_button.twig' with {
+        button_color: 'primary',
+        button_outline: true,
+        button_other_classes: 'my-2 my-sm-0',
+        button_type: 'submit',
+        button_text: 'Search'
+      } %}
+    </form>
+  </div>
+
+  {% endblock navbar_content %}
+{% endembed %}
