@@ -13,6 +13,8 @@ import { enableAllComponents } from '../../source/design-system';
 
 // Watch all demo folders in source
 import demoSystem from './demo/demos.glob';
+// Watch all files in the source/_data folder
+import './demo/data.glob';
 
 // Adds PL-only styles, ie color swatches.
 import './scss/_styleguide.scss';
