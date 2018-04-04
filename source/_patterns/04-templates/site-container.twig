@@ -1,0 +1,28 @@
+{# This pattern should NOT be consumed directly by Drupal.
+ # It is a guideline for regions, divs, and classes inside
+ # of html.html.twig and page.html.twig while mocking the
+ # familiar site structure for Pattern Lab.
+ #}
+
+{% include "@organisms/_navbar.twig" %}
+
+<main class="main-content">
+  {% block content %}
+
+    {% embed '@atoms/grid/_grid-1-up.twig' with { container: true } %}
+      {% block column_1 %}
+        <div class="text-center" style="margin-top: 150px;">
+          <h1>Site Content Here</h1>
+          <p>This is just a dummy mockup to provide a realistic site wrapper for full-screen example pages.</p>
+          <p>It should not be consumed by anything outside of Pattern Lab, but referenced as a guideline.</p>
+          <p>To use it, <b>{{ '{% extend %}' }}</b> this template and override <b>{{ '{% block content %}' }}</b>.</p>
+          <p>See full-page demos using this wrapper under the pages dropdown.</p>
+        </div>
+
+      {% endblock column_1 %}
+    {% endembed %}
+
+  {% endblock %}
+</main>
+
+{% include "@organisms/_footer.twig" %}

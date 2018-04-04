@@ -29,6 +29,7 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 - Bootstrap 4 integration, used for all starting example components
 - Auto-linting against the [AirBnB JavaScript Style Guide](https://github.com/airbnb/javascript) and sane Sass standards
 - All Webpack and Gulp files are fully configurable
+- Simple [Yeoman](http://yeoman.io/) generator for Design System component creation
 
 ## Quickstart
 
@@ -75,13 +76,42 @@ Particle provides a Drupal 8 theme, the starting steps are slightly different:
 
 This will compile all assets and provide all namespaced Twig paths to the Drupal theme. Make sure to choose this theme in Drupal Appearance settings and `drush cr ` or `drupal cr all` to clear cache.
 
-For subsequent recompile and Drupal cache clear, run:
+For rapid, development-mode recompile and Drupal cache clear, edit `webpack.drupal.dev.js`, find the `onBuildEnd` plugin and edit it from:
 
-```bash
-npm run build:drupal && drush cr
+```js
+// ORIGINAL
+plugins: [
+  new WebpackShellPlugin({
+    onBuildEnd: [
+      // CHANGE THE FOLLOWING LINE
+      'echo \nWebpack drupal dev build complete! Edit apps/drupal/webpack.drupal.dev.js to replace this line with `drupal cr all` now.',
+    ],
+    dev: false, // Runs on EVERY rebuild
+  }),
+],
 ```
 
-Working rapidly in Pattern Lab is still available, simply run:
+to:
+
+```js
+// UPDATED
+plugins: [
+  new WebpackShellPlugin({
+    onBuildEnd: [
+      'drupal cr all',
+    ],
+    dev: false, // Runs on EVERY rebuild
+  }),
+],
+```
+
+Now you have active Drupal development-mode compilation and cache clearing by just running:
+
+```bash
+npm run dev:drupal
+```
+
+You can still work in Pattern Lab while also working in Drupal by also running in another terminal:
 
 ```bash
 npm start
@@ -99,28 +129,34 @@ Start up watches and a local server for Pattern Lab in dev mode. All assets will
 npm start # An alias for npm run dev:pl
 ```
 
-Start up watches and compile assets to disk for Drupal on changes, running `drupal cr` when complete:
+Start up watches and compile assets to disk for Drupal on changes (see above for enabling Drupal cache clears as part of this):
 
 ```bash
 npm run dev:drupal
 ```
 
-Compile assets for Pattern Lab (e.g. for a static file host):
+Compile production assets for Pattern Lab (e.g. for a static file host):
 
 ```bash
 npm run build:pl
 ```
 
-Compile assets for Drupal
+Compile production assets for Drupal
 
 ```bash
 npm run build:drupal
 ```
 
-Compile assets for Grav
+Compile production assets for Grav
 
 ```bash
 npm run build:grav
+```
+
+Reinstall and setup Pattern Lab
+
+```bash
+npm run setup
 ```
 
 Run all linters:
@@ -129,10 +165,49 @@ Run all linters:
 npm run lint
 ```
 
+Run only Javascript linters:
+
+```bash
+npm run lint:js
+```
+
+Run only Sass linters:
+
+```bash
+npm run lint:scss
+```
+
 Run all tests:
 
 ```bash
 npm test
+```
+
+Run only unit test:
+
+```bash
+npm run test:unit
+```
+
+Run only pa11y accessibility tests:
+
+```bash
+npm run test:pa11y
+```
+
+Run Yeoman generator to make new component:
+
+```bash
+npm run new
+```
+
+Run any Gulp task:
+
+```bash
+# See gulpfile.js for gulp tasks
+npm run gulp -- gulpTaskName
+# For instance, running a full Pattern Lab compile
+npm run gulp -- compile
 ```
 
 ## Structure
@@ -159,6 +234,7 @@ The following are significant items at the root level:
     │   │   ├── button                 # For instance, the button atom
     │   │   │    ├── __tests__         # Jest javascript unit tests
     │   │   │    ├── demo              # Patterns feature a demo folder to show implementation
+    │   │   │    │   ├── index.js      # Pulls in twig, yaml, md inside demo/ so webpack is aware
     │   │   │    │   ├── buttons.twig  # Demonstrate with a plural name, visible to PL since no underscore
     │   │   │    │   └── buttons.yml   # Data provided to the demo pattern
     │   │   │    ├── _button.scss      # Most components require styles, underscore required
@@ -179,6 +255,8 @@ The following are significant items at the root level:
     ├── scss                           # PL-only Sass; styles that shoudln't junk up the design system
     │   ├── _scss2json.scss            # Output certain Sass variables into json for demo in PL
     │   └── _styleguide.scss           # Custom PL UI styles
+    ├── demo                           # Holds things related to just "demos" for the design system
+    │   └── demos.glob                 # Special file used by webpack to "glob" all demos within source/
     ├── webpack.pl.shared.js           # Webpack config shared between PL dev and PL prod
     ├── webpack.pl.dev.js              # Webpack config unique to dev, or that overrides shared
     ├── webpack.pl.prod.js             # Webpack config unique to prod, or that overrides shared
@@ -202,6 +280,16 @@ The following are significant items at the root level:
     ├── webpack.drupal.prod.js         # Webpack config unique to prod, or that overrides shared
     └── index.js                       # Imports and applies the design system to a bundle for Drupal
 
+## Generating a Component
+
+Components have a specific file structure. Instead of making a developer create all required files by hand, we use a [Yeoman](http://yeoman.io/) generator to easily create new component folders. Simply run:
+
+```bash
+npm run new
+```
+
+Follow the onscreen prompts for the location, included files, and name of the new component. **Then make sure you edit `source/design-system.js` and add your new component.**
+
 ## Anatomy of a Component
 
 All components require a set of files:
@@ -211,6 +299,7 @@ All components require a set of files:
     ├── __tests__                      # Jest unit tests. Read automatically during `npm run test:unit`
     │   └── button.test.js             # Unit test JS functions. Limited DOM manipulation
     ├── demo                           # Demo implementations, can be removed on deploy to prod
+    │   ├── index.js                   # Pulls in twig, yaml, md inside demo/ so webpack is aware
     │   ├── buttons.md                 # Markdown with extra notes, visible in PL UI
     │   ├── buttons.twig               # Demonstrate with a plural name, visible to PL since no underscore
     │   └── buttons.yml                # Data provided to the demo pattern
@@ -230,6 +319,9 @@ import 'bootstrap/js/src/button';
 
 // source/_patterns/01-atoms/00-protons/index.js
 import 'protons';
+
+// Module template. Changes to this file trigger a PL rebuild
+import './_button.twig';
 
 // Import local Sass (which in turn imports Bootstrap Sass)
 import './_button.scss';

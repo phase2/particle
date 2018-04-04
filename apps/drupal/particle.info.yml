@@ -47,6 +47,7 @@ component-libraries:
   organisms:
     paths:
       - ../../source/_patterns/03-organisms
+      - ../../source/_patterns/03-organisms/footer
       - ../../source/_patterns/03-organisms/navbar
       - ../../source/_patterns/03-organisms/article
       - ../../source/_patterns/03-organisms/accordion
@@ -54,8 +55,7 @@ component-libraries:
   templates:
     paths:
       - ../../source/_patterns/04-templates
-      - ../../source/_patterns/04-templates/homepage
+      - ../../source/_patterns/04-templates/basic-page
   pages:
     paths:
       - ../../source/_patterns/05-pages
-      - ../../source/_patterns/05-pages/homepage
