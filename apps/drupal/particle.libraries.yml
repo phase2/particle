@@ -9,6 +9,8 @@ core:
       preprocess: true
   # see all in Drupal's `core/core.libraries.yml`
   dependencies:
+    - particle/jquery
+    - particle/lodash
     - core/drupal
     - core/drupalSettings
 

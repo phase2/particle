@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash/lodash.min';
 
 // Convert Underscore methods to Lodash.
 _.all = _.every;
