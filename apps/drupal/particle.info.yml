@@ -5,6 +5,9 @@ base theme: stable
 core: 8.x
 libraries:
   - particle/core
+libraries-override:
+  core/jquery: particle/jquery
+  core/underscore: particle/lodash
 regions:
   primary_menu: Primary menu
   highlighted: Highlighted
