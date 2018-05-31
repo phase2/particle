@@ -26,7 +26,7 @@ const IconFontPlugin = require('iconfont-plugin-webpack');
 const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
 // Helps us track down deprecation during development
-process.traceDeprecation = true;
+// process.traceDeprecation = true;
 
 module.exports = {
   mode: 'development',
