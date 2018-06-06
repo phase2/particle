@@ -54,6 +54,7 @@ module.exports = {
               ],
             },
           },
+          { loader: 'resolve-url-loader' },
           { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } },
         ],
       },
@@ -81,6 +82,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]',
+          // useRelativePath: true,
         },
       },
       {
