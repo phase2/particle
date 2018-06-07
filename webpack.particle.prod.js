@@ -28,6 +28,7 @@ const prod = {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
+          publicPath: './',
           use: [
             { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
             {
