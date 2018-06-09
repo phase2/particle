@@ -92,7 +92,7 @@
     "style-loader": "^0.21.0",
     "stylelint": "^9.2.0",
     "stylelint-scss": "^3.0.0",
-    "stylelint-webpack-plugin": "^0.10.4",
+    "stylelint-webpack-plugin": "^0.10.5",
     "through2": "^2.0.3",
     "url-loader": "^1.0.1",
     "webpack": "^4.5.0",
