@@ -101,6 +101,7 @@ gulp.task('compile:pl:notify', (cb) => {
  * 'production' if NODE_ENV is not set.
  */
 gulp.task('compile:pl:env', (cb) => {
+  // Default of 'production' if running this task standalone
   const env = { env: process.env.NODE_ENV ? process.env.NODE_ENV : 'production' };
   fs.writeFile(path.resolve(__dirname, PATH_SOURCE, '_data/', 'env.json'), JSON.stringify(env), cb);
 });
