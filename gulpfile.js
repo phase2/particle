@@ -97,8 +97,8 @@ gulp.task('compile:pl:notify', (cb) => {
 });
 
 /**
- * Generate data json PL uses to determine which mode: 'development' or 'production.' Defaults to
- * 'production' if NODE_ENV is not set.
+ * Generate data json PL uses to determine which mode: 'development' or 'production.'
+ * Defaults to 'production' if NODE_ENV is not set.
  */
 gulp.task('compile:pl:env', (cb) => {
   // Default of 'production' if running this task standalone. Run like so to set NODE_ENV:
@@ -110,13 +110,21 @@ gulp.task('compile:pl:env', (cb) => {
 });
 
 /**
- * Standalone compile tasks for non-webpack assets
+ * Standalone compile tasks for non-webpack assets. Run repeatedly.
+ * Note: 'compile:pl:env' must have been run at least once to guarantee source/_data/env.json exists
  */
 gulp.task('compile', gulp.series([
-  // 'compile:pl:env' must have been run at least once
   'compile:twig-namespaces',
   'compile:pl',
   'compile:pl:notify',
+]));
+
+/**
+ * First-time PL build. Run on startup.
+ */
+gulp.task('compile:startup', gulp.series([
+  'compile:pl:env',
+  'compile',
 ]));
 
 /**
