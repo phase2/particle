@@ -101,7 +101,10 @@ gulp.task('compile:pl:notify', (cb) => {
  * 'production' if NODE_ENV is not set.
  */
 gulp.task('compile:pl:env', (cb) => {
-  // Default of 'production' if running this task standalone
+  // Default of 'production' if running this task standalone. Run like so to set NODE_ENV:
+  // ```
+  // NODE_ENV='development' npx gulp compile:pl:env
+  // ```
   const env = { env: process.env.NODE_ENV ? process.env.NODE_ENV : 'production' };
   fs.writeFile(path.resolve(__dirname, PATH_SOURCE, '_data/', 'env.json'), JSON.stringify(env), cb);
 });
@@ -110,7 +113,7 @@ gulp.task('compile:pl:env', (cb) => {
  * Standalone compile tasks for non-webpack assets
  */
 gulp.task('compile', gulp.series([
-  'compile:pl:env',
+  // 'compile:pl:env' must have been run at least once
   'compile:twig-namespaces',
   'compile:pl',
   'compile:pl:notify',
