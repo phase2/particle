@@ -34,33 +34,34 @@ const pl = {
          * @param {*} stdout
          * @param {*} stderr
          */
-        const puts = (error, stdout, stderr) => {
+        const puts = (error) => {
           if (error) {
             throw error;
           }
-        }
+        };
 
         /**
          * Split a shell command into format needed for spawn()
          * @param {string} script - Command line command, ie `npx gulp compile`
          */
-        const serializeScript = script => {
+        const serializeScript = (script) => {
+          // 'npx gulp compile' becomes:
           // ['npx', 'gulp', 'compile'] becomes:
           // {
           //   command: 'npx',
           //   args: ['gulp', 'compile'],
           // }
           const [command, ...args] = script.split(' ');
-          return {command, args};
+          return { command, args };
         };
 
         /**
          * Run a shell command
          * @param string script - Command line command, ie `npx gulp compile`
          */
-        const handleScript = script => {
-          const {command, args} = serializeScript(script);
-          const proc = spawn(command, args, {stdio: 'inherit'});
+        const handleScript = (script) => {
+          const { command, args } = serializeScript(script);
+          const proc = spawn(command, args, { stdio: 'inherit' });
           proc.on('close', puts);
         };
 
