@@ -10,9 +10,6 @@ const drupal = {
     'drupal-jquery': [
       path.resolve(__dirname, 'drupal-jquery.js'),
     ],
-    'drupal-lodash': [
-      path.resolve(__dirname, 'drupal-lodash.js'),
-    ],
     'app-drupal': [
       path.resolve(__dirname, 'index.js'),
     ],
