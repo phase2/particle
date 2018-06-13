@@ -48,18 +48,15 @@ module.exports = class extends Generator {
       },
     }];
 
-    // Disabling some rules here to pass linting because the generator
-    // needs 'this' and es6's lovely fat arrows nuke it.
-    /* eslint-disable func-names, prefer-arrow-callback, no-param-reassign */
-    return this.prompt(prompts).then(function (props) {
+    return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
-      props.dashlessName = props.name.replace(/-/g, '');
-      props.underscoreName = props.name.replace(/-/g, '_');
-      props.camelCaseName = camelCase(props.name);
-      props.cleanPatternType = props.patternType.replace(/([0-9])\w+-/g, '');
-      this.props = props;
-    }.bind(this));
-    /* eslint-enable func-names, prefer-arrow-callback, no-param-reassign */
+      const updatedProps = { ...props };
+      updatedProps.dashlessName = props.name.replace(/-/g, '');
+      updatedProps.underscoreName = props.name.replace(/-/g, '_');
+      updatedProps.camelCaseName = camelCase(props.name);
+      updatedProps.cleanPatternType = props.patternType.replace(/([0-9])\w+-/g, '');
+      this.props = updatedProps;
+    });
   }
 
   writing() {
