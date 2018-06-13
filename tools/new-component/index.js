@@ -50,12 +50,13 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
-      const updatedProps = { ...props };
-      updatedProps.dashlessName = props.name.replace(/-/g, '');
-      updatedProps.underscoreName = props.name.replace(/-/g, '_');
-      updatedProps.camelCaseName = camelCase(props.name);
-      updatedProps.cleanPatternType = props.patternType.replace(/([0-9])\w+-/g, '');
-      this.props = updatedProps;
+      this.props = {
+        ...props,
+        dashlessName: props.name.replace(/-/g, ''),
+        underscoreName: props.name.replace(/-/g, '_'),
+        camelCaseName: camelCase(props.name),
+        cleanPatternType: props.patternType.replace(/([0-9])\w+-/g, ''),
+      };
     });
   }
 
