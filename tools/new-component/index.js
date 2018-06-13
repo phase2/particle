@@ -63,19 +63,21 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const { files } = this.props;
+    const {
+      files, patternType, patternSubType, name,
+    } = this.props;
 
     const destPath = path.join(
       patternBase,
-      this.props.patternType,
-      this.props.patternSubType,
-      this.props.name,
+      patternType,
+      patternSubType,
+      name,
     );
 
     if (files.includes('scss')) {
       this.fs.copyTpl(
         this.templatePath('_pattern.scss'),
-        this.destinationPath(path.join(destPath, `_${this.props.name}.scss`)),
+        this.destinationPath(path.join(destPath, `_${name}.scss`)),
         this.props,
       );
     }
@@ -83,7 +85,7 @@ module.exports = class extends Generator {
     if (files.includes('twig')) {
       this.fs.copyTpl(
         this.templatePath('_pattern.twig'),
-        this.destinationPath(path.join(destPath, `_${this.props.name}.twig`)),
+        this.destinationPath(path.join(destPath, `_${name}.twig`)),
         this.props,
       );
     }
@@ -97,7 +99,7 @@ module.exports = class extends Generator {
 
       this.fs.copyTpl(
         this.templatePath('pattern-test.js'),
-        this.destinationPath(path.join(destPath, '__tests__', `${this.props.name}.test.js`)),
+        this.destinationPath(path.join(destPath, '__tests__', `${name}.test.js`)),
         this.props,
       );
     }
@@ -105,7 +107,7 @@ module.exports = class extends Generator {
     if (files.includes('demo')) {
       this.fs.copyTpl(
         this.templatePath('demo-pattern.twig'),
-        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.twig`)),
+        this.destinationPath(path.join(destPath, 'demo', `${name}s.twig`)),
         this.props,
       );
       this.fs.copyTpl(
@@ -116,17 +118,17 @@ module.exports = class extends Generator {
 
       this.fs.copyTpl(
         this.templatePath('pattern.md'),
-        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.md`)),
+        this.destinationPath(path.join(destPath, 'demo', `${name}s.md`)),
         this.props,
       );
 
       this.fs.copyTpl(
         this.templatePath('pattern.yml'),
-        this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.yml`)),
+        this.destinationPath(path.join(destPath, 'demo', `${name}s.yml`)),
         this.props,
       );
     }
 
-    console.log(`Your new component ${this.props.name} is being created. Please import it inside of source/design-system.js to see it on the chain.`);
+    console.log(`Your new component ${name} is being created. Please import it inside of source/design-system.js to see it on the chain.`);
   }
 };
