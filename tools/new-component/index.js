@@ -72,60 +72,64 @@ module.exports = class extends Generator {
       name,
     );
 
-    if (files.includes('scss')) {
-      this.fs.copyTpl(
-        this.templatePath('_pattern.scss'),
-        this.destinationPath(path.join(destPath, `_${name}.scss`)),
-        this.props,
-      );
-    }
+    /*
+     * generatorAssets has a key for each filetype that Particle creates.
+     * Each of those is an array of objects, each of which must contain
+     * the properties templatePath and destinationPath. These arrays are
+     * looped over in the function below. The array pattern is necessary
+     * to accomodate the varying number of files generated for each type.
+     */
 
-    if (files.includes('twig')) {
-      this.fs.copyTpl(
-        this.templatePath('_pattern.twig'),
-        this.destinationPath(path.join(destPath, `_${name}.twig`)),
-        this.props,
-      );
-    }
+    const generatorAssets = {
+      scss: [{
+        templatePath: '_pattern.scss',
+        destinationPath: path.join(destPath, `_${name}.scss`),
+      }],
+      twig: [{
+        templatePath: '_pattern.twig',
+        destinationPath: path.join(destPath, `_${name}.twig`),
+      }],
+      js: [{
+        templatePath: 'pattern.js',
+        destinationPath: path.join(destPath, 'index.js'),
+      },
+      {
+        templatePath: 'pattern-test.js',
+        destinationPath: path.join(destPath, '__tests__', `${name}.test.js`),
+      },
+      ],
+      demo: [
+        {
+          templatePath: 'demo-pattern.twig',
+          destinationPath: path.join(destPath, 'demo', `${name}s.twig`),
+        },
+        {
+          templatePath: 'demo-pattern.js',
+          destinationPath: path.join(destPath, 'demo', 'index.js'),
+        },
+        {
+          templatePath: 'pattern.md',
+          destinationPath: path.join(destPath, 'demo', `${name}s.md`),
+        },
+        {
+          templatePath: 'pattern.yml',
+          destinationPath: path.join(destPath, 'demo', `${name}s.yml`),
+        },
+      ],
+    };
 
-    if (files.includes('js')) {
-      this.fs.copyTpl(
-        this.templatePath('pattern.js'),
-        this.destinationPath(path.join(destPath, 'index.js')),
-        this.props,
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('pattern-test.js'),
-        this.destinationPath(path.join(destPath, '__tests__', `${name}.test.js`)),
-        this.props,
-      );
-    }
-
-    if (files.includes('demo')) {
-      this.fs.copyTpl(
-        this.templatePath('demo-pattern.twig'),
-        this.destinationPath(path.join(destPath, 'demo', `${name}s.twig`)),
-        this.props,
-      );
-      this.fs.copyTpl(
-        this.templatePath('demo-pattern.js'),
-        this.destinationPath(path.join(destPath, 'demo', 'index.js')),
-        this.props,
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('pattern.md'),
-        this.destinationPath(path.join(destPath, 'demo', `${name}s.md`)),
-        this.props,
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('pattern.yml'),
-        this.destinationPath(path.join(destPath, 'demo', `${name}s.yml`)),
-        this.props,
-      );
-    }
+    /* Loop over all the selected files and populate the template according to
+     * the pattern structure in generatorAssets.
+     */
+    files.forEach((fileType) => {
+      generatorAssets[fileType].forEach((file) => {
+        this.fs.copyTpl(
+          this.templatePath(file.templatePath),
+          this.destinationPath(file.destinationPath),
+          this.props,
+        );
+      });
+    });
 
     console.log(`Your new component ${name} is being created. Please import it inside of source/design-system.js to see it on the chain.`);
   }
