@@ -1,5 +1,5 @@
 const Generator = require('yeoman-generator');
-const _ = require('lodash');
+const camelCase = require('lodash.camelcase');
 const path = require('path');
 const fs = require('fs');
 
@@ -55,7 +55,7 @@ module.exports = class extends Generator {
       // To access props later use this.props.someAnswer;
       props.dashlessName = props.name.replace(/-/g, '');
       props.underscoreName = props.name.replace(/-/g, '_');
-      props.camelCaseName = _.camelCase(props.name);
+      props.camelCaseName = camelCase(props.name);
       props.cleanPatternType = props.patternType.replace(/([0-9])\w+-/g, '');
       this.props = props;
     }.bind(this));
@@ -63,6 +63,8 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    const { files } = this.props;
+
     const destPath = path.join(
       patternBase,
       this.props.patternType,
@@ -70,7 +72,7 @@ module.exports = class extends Generator {
       this.props.name,
     );
 
-    if (_.includes(this.props.files, 'scss')) {
+    if (files.includes('scss')) {
       this.fs.copyTpl(
         this.templatePath('_pattern.scss'),
         this.destinationPath(path.join(destPath, `_${this.props.name}.scss`)),
@@ -78,7 +80,7 @@ module.exports = class extends Generator {
       );
     }
 
-    if (_.includes(this.props.files, 'twig')) {
+    if (files.includes('twig')) {
       this.fs.copyTpl(
         this.templatePath('_pattern.twig'),
         this.destinationPath(path.join(destPath, `_${this.props.name}.twig`)),
@@ -86,7 +88,7 @@ module.exports = class extends Generator {
       );
     }
 
-    if (_.includes(this.props.files, 'js')) {
+    if (files.includes('js')) {
       this.fs.copyTpl(
         this.templatePath('pattern.js'),
         this.destinationPath(path.join(destPath, 'index.js')),
@@ -100,7 +102,7 @@ module.exports = class extends Generator {
       );
     }
 
-    if (_.includes(this.props.files, 'demo')) {
+    if (files.includes('demo')) {
       this.fs.copyTpl(
         this.templatePath('demo-pattern.twig'),
         this.destinationPath(path.join(destPath, 'demo', `${this.props.name}s.twig`)),
