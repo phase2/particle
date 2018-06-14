@@ -21,6 +21,7 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 // const IconFontPlugin = require('iconfont-plugin-webpack');
 // Helper file used to generate a svg -> fonticon Sass map.
 // const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
@@ -119,6 +120,10 @@ module.exports = {
     }),
     // Yell at us while writing Sass
     new StyleLintPlugin(),
+    new SVGSpritemapPlugin({
+      src: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/svgicon/svg/**/*.svg'),
+      styles: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/svgicon/scss/_icons-generated.scss'),
+    }),
     /* eslint-disable max-len */
     // Iconfont generation from SVGs
     // new IconFontPlugin({
