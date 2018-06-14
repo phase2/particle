@@ -94,6 +94,7 @@
     "stylelint": "^9.2.0",
     "stylelint-scss": "^3.0.0",
     "stylelint-webpack-plugin": "^0.10.4",
+    "svg-spritemap-webpack-plugin": "^2.6.0",
     "through2": "^2.0.3",
     "url-loader": "^1.0.1",
     "webpack": "^4.5.0",
