@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * svgicon
+ *
+ * Available variables for svgicon:
+ *    - svgicon.variable_name [variable_type]: Description of the variable. Example below.
+ *    - svgicon.invert [bool]: When set, colors will be inverted for light display on dark background.
+ */
+#}
+
+<svg class="svgicon">
+    <use xlink:href="{{paths.assets}}/spritemap.svg?cacheBuster={{ randomNumber }}#sprite-{{svgname}}"></use>
+</svg>

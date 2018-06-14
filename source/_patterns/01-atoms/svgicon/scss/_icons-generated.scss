@@ -1,0 +1,70 @@
+$sprites: (
+    'chevron-down': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath d='M250%2c455.7L-2.1%2c203.6L73.5%2c128L250%2c317.1L426.5%2c128l75.6%2c75.6L250%2c455.7z'/%3e%3c/svg%3e",
+    'chevron-left': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath d='M82.1%2c250.6L330.5%2c2.3L405%2c76.8L218.7%2c250.6L405%2c424.5L330.5%2c499L82.1%2c250.6z'/%3e%3c/svg%3e",
+    'chevron-right': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath fill='___color___' d='M166.6%2c499l-74.5-74.5l186.3-173.9L92.1%2c76.8l74.5-74.5L415%2c250.6L166.6%2c499z'/%3e%3c/svg%3e",
+    'chevron-up': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath d='M250%2c68l252.1%2c252.1l-75.6%2c75.6L250%2c206.7L73.5%2c395.7l-75.6-75.6L250%2c68z'/%3e%3c/svg%3e",
+    'close': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath d='M250 179.9L70-.1l-70 70 180 180-180 180 70 70 180-180 180 180 70-70-180-180 180-180-70-70-180 180z'/%3e%3c/svg%3e",
+    'menu': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath d='M0 0h500v103.4H0zm0 197.6h500V301H0zm0 199h500V500H0z'/%3e%3c/svg%3e",
+    'person': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath d='M460%2c463.6c0%2c19.6-15.9%2c35.4-35.4%2c35.4l0%2c0H69.8c-19.6%2c0-35.5-15.8-35.6-35.4c0%2c0%2c0%2c0%2c0-0.1V428 c0-93.4%2c141.9-141.9%2c141.9-141.9s8.2-14.5%2c0-35.5c-29.8-22-33.5-56.4-35.5-141.9C146.8%2c23.1%2c206.9%2c2.3%2c247.1%2c2.3 S347.4%2c23%2c353.6%2c108.7c-2%2c85.5-5.7%2c119.9-35.5%2c141.9c-8.2%2c20.9%2c0%2c35.5%2c0%2c35.5S460%2c334.6%2c460%2c428V463.6z'/%3e%3c/svg%3e",
+    'search': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath class='st0' d='M470.5 471.5L368.9 335.4c67.1-69.1 77.2-178.9 18.3-258.1C348.5 28.5 289.6 0 226.6 0c-42.7 0-83.3 14.2-117.9 40.7-87.4 65-105.7 189-38.6 276.4 38.6 50.8 95.5 79.3 158.5 79.3 36.6 0 73.2-10.2 103.7-30.5L433.9 500l36.6-28.5zM106.7 288.6C55.9 221.5 70.1 128 137.2 77.2c26.4-20.3 56.9-30.5 91.5-30.5 48.8 0 91.5 22.4 119.9 61 50.8 67.1 36.6 160.6-30.5 211.4-26.4 20.3-56.9 30.5-91.5 30.5-46.8 0-91.5-22.4-119.9-61z'/%3e%3c/svg%3e"
+);
+
+$variables: (
+    'chevron-right': (
+        'color': '#000'
+    )
+);
+
+// https://github.com/waldemarfm/sass-svg-uri/blob/v1.0.0/_svg-uri.scss
+@function sprite-str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if type-of($replace) == 'null' {
+        $replace: '';
+    }
+
+    @if ( $index ) {
+        @return str-slice($string, 1, $index - 1) + $replace + sprite-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@function sprite-svg-uri($value) {
+    $encoded: '';
+    $slice: 2000;
+    $index: 0;
+
+    @for $i from 1 through ceil(str-length($value) / $slice) {
+        $chunk: str-slice($value, $index, $index + $slice - 1);
+        $chunk: sprite-str-replace($chunk, '"', "'");
+        $chunk: sprite-str-replace($chunk, '<', '%3C');
+        $chunk: sprite-str-replace($chunk, '>', '%3E');
+        $chunk: sprite-str-replace($chunk, '&', '%26');
+        $chunk: sprite-str-replace($chunk, '#', '%23');
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice;
+    }
+
+    @return $encoded;
+}
+
+@mixin sprite($name, $user-variables: ()) {
+    $sprite: map-get($sprites, $name);
+
+    // Inject variables
+    $default-variables: map-get($variables, $name);
+    @if type-of($default-variables) == 'map' {
+        @each $key, $value in map-merge($default-variables, $user-variables) {
+            @if ( not map-has-key($default-variables, $key) ) {
+                @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
+            }
+
+            $sprite: sprite-str-replace($sprite, '___#{$key}___', sprite-svg-uri(quote($value)));
+        }
+    } @else if type-of($user-variables) == 'map' {
+        @warn 'Sprite \'#{$name}\' does not contain any variables';
+    }
+
+    background: url($sprite) center no-repeat;
+}
