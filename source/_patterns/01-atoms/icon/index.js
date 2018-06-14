@@ -6,10 +6,10 @@
 
 // Import custom sass
 import 'protons';
-import './scss/_icon.scss';
+// import './scss/_icon.scss';
 
 // Module template
-import './_icon.twig';
+// import './_icon.twig';
 
 export const name = 'icon';
 

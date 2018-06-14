@@ -21,9 +21,9 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const IconFontPlugin = require('iconfont-plugin-webpack');
+// const IconFontPlugin = require('iconfont-plugin-webpack');
 // Helper file used to generate a svg -> fonticon Sass map.
-const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
+// const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
 // Helps us track down deprecation during development
 // process.traceDeprecation = true;
@@ -119,19 +119,21 @@ module.exports = {
     }),
     // Yell at us while writing Sass
     new StyleLintPlugin(),
+    /* eslint-disable max-len */
     // Iconfont generation from SVGs
-    new IconFontPlugin({
-      src: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/'),
-      family: 'iconfont',
-      dest: {
-        font: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/[family].[type]'),
-        css: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icons-generated.scss'),
-      },
-      watch: {
-        pattern: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
-      },
-      cssTemplate: IconFontTemplate,
-    }),
+    // new IconFontPlugin({
+    //   src: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/'),
+    //   family: 'iconfont',
+    //   dest: {
+    //     font: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/[family].[type]'),
+    //     css: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icons-generated.scss'),
+    //   },
+    //   watch: {
+    //     pattern: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
+    //   },
+    //   cssTemplate: IconFontTemplate,
+    // }),
+    /* eslint-enable max-len */
   ],
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
   resolve: {
