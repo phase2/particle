@@ -10,6 +10,7 @@ import * as dropdown from 'atoms/dropdown';
 import * as grid from 'atoms/grid';
 import * as image from 'atoms/image';
 import * as icon from 'atoms/icon';
+import * as svgicon from 'atoms/svgicon';
 import * as listGroup from 'atoms/list-group';
 import * as nav from 'molecules/nav';
 import * as card from 'molecules/card';
@@ -32,6 +33,7 @@ const components = {
   grid,
   image,
   icon,
+  svgicon,
   listGroup,
   nav,
   card,
