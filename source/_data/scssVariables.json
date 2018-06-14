@@ -55,19 +55,5 @@
     "light": 300,
     "normal": 400,
     "bold": 700
-  },
-  "scssIcons": {
-    "prefix": "icon--",
-    "fontname": "iconfont",
-    "icons": [
-      "chevron-down",
-      "chevron-left",
-      "chevron-right",
-      "chevron-up",
-      "close",
-      "menu",
-      "person",
-      "search"
-    ]
   }
 }
