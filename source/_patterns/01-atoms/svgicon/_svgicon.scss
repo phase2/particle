@@ -2,12 +2,6 @@
 @import '../../00-protons/variables';
 @import './scss/_icons-generated';
 
-.svgicon-demo-1:before {
-  @include sprite('chevron-right', (color: theme-color('primary')));
-  content: '';
-  display: block;
-  height: 20px;
-}
 .svgicon {
 
 }

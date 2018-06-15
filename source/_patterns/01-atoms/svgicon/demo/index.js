@@ -7,6 +7,9 @@
 // Import component assets
 import 'atoms/svgicon';
 
+// Demo-only styles
+import './_svgicon-demo.scss';
+
 // Import demo assets
 import twig from './svgicons.twig';
 import yaml from './svgicons.yml';

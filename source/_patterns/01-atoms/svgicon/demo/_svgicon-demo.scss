@@ -1,0 +1,8 @@
+// All component Sass needs non-printing base config
+@import '../../../00-protons/variables';
+@import '../scss/_icons-generated';
+
+.svgicon-demo-1 {
+  @include sprite('chevron-right', (color: theme-color('primary')));
+  height: 20px;
+}
