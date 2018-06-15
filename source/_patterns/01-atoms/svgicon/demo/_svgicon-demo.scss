@@ -2,7 +2,12 @@
 @import '../../../00-protons/variables';
 @import '../scss/_icons-generated';
 
+.svgicon-demo-0 {
+  @include sprite('chevron-right');
+  height: 40px;
+}
+
 .svgicon-demo-1 {
-  @include sprite('chevron-right', (color: theme-color('primary')));
-  height: 20px;
+  @include sprite('person', (color: theme-color('primary')));
+  height: 40px;
 }
