@@ -11,3 +11,8 @@
   @include sprite('person', (color: theme-color('primary')));
   height: 40px;
 }
+
+.svgicon-demo-2 {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3e%3cpath fill='%23F00' d='M250%2c455.7L-2.1%2c203.6L73.5%2c128L250%2c317.1L426.5%2c128l75.6%2c75.6L250%2c455.7z'/%3e%3c/svg%3e") center no-repeat;
+  height: 40px;
+}
