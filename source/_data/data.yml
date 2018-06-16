@@ -3,6 +3,7 @@ BUILD_TARGET: pl
 paths:
   assets: "../../../assets"
 bodyClass: 'pl pl-loading'
+randomNumber: Faker.randomNumber(8)
 title: Faker.words(2, true)
 text: Faker.words(3, true)
 cardimage: Faker.imageURL(318, 180, 'abstract', true, 'Some Text', true)
