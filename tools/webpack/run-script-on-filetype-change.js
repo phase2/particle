@@ -1,8 +1,8 @@
-const { exec } = require('child_process');
+const ShellHelper = require('./phase2-node-shell-helper');
 
-class RunScriptOnFiletypeChange {
+class RunScriptOnFiletypeChange extends ShellHelper {
   constructor(options) {
-    this.options = options;
+    super(options);
     this.startTime = Date.now();
     this.prevTimestamps = new Map();
   }
@@ -11,7 +11,7 @@ class RunScriptOnFiletypeChange {
     compiler.hooks.emit.tapAsync('RunScriptOnFiletypeChange', (compilation, callback) => {
       // Convert fileTimestamps to array of arrays to filter it and find changed files we care about
       const changed = [...compilation.fileTimestamps].filter(([file]) => {
-        // Debugging for now
+        // Uncomment to debug
         // if (file.match(this.options.test)) { console.log(file); }
 
         // Use our file regex to test, eject if not a file we care about
@@ -33,17 +33,11 @@ class RunScriptOnFiletypeChange {
         return true;
       }
 
-      // Run the configured script, completing with callback
-      exec(this.options.exec, (err, stdout, stderr) => {
-        console.log(stdout);
-        if (err) {
-          console.log(stderr);
-          callback();
-          return false;
-        }
-        callback();
-        return true;
-      });
+      // Run all commands synchronously
+      this.options.exec.forEach(script => this.handleScript(script));
+
+      // Run callback to finish compilation
+      callback();
 
       // Fat arrow functions must return a value
       return true;

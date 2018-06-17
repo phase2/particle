@@ -14,7 +14,6 @@ const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-fil
 const particle = require('../../webpack.particle.dev');
 const pl = require('./webpack.pl.shared');
 
-
 // Webpack Entry Points
 const dev = {
   devServer: {
@@ -55,8 +54,11 @@ const dev = {
   },
   plugins: [
     new RunScriptOnFiletypeChange({
-      test: /\.(twig|yml|yaml|md)$/,
-      exec: 'echo "\n🚀 PATTERN LAB REBUILD RUNNING 🚀" && npx gulp compile',
+      test: /\.(twig|yml|md)$/,
+      exec: [
+        `echo 🚀 Pattern Lab ${process.env.NODE_ENV} rebuild running! 🚀`,
+        'npx gulp compile',
+      ],
     }),
   ],
 };
