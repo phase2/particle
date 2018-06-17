@@ -6,29 +6,28 @@ class ShellHelper {
     this.options = options;
   }
 
-  spreadStdoutAndStdErr(proc) {
+  static spreadStdoutAndStdErr(proc) {
     proc.stdout.pipe(process.stdout);
     proc.stderr.pipe(process.stdout);
   }
 
-  serializeScript(script) {
+  static serializeScript(script) {
     if (typeof script === 'string') {
       const [command, ...args] = script.split(' ');
-      return {command, args};
+      return { command, args };
     }
-    const {command, args} = script;
-    return {command, args};
+    const { command, args } = script;
+    return { command, args };
   }
 
   handleScript(script) {
     if (os.platform() === 'win32' || this.options.safe) {
       this.spreadStdoutAndStdErr(exec(script, this.puts));
     } else {
-      const {command, args} = this.serializeScript(script);
-      spawnSync(command, args, {stdio: 'inherit'});
+      const { command, args } = this.serializeScript(script);
+      spawnSync(command, args, { stdio: 'inherit' });
     }
   }
-
 }
 
 module.exports = ShellHelper;

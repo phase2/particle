@@ -1,10 +1,6 @@
 const ShellHelper = require('./phase2-node-shell-helper');
 
 class RunScriptAfterEmit extends ShellHelper {
-  constructor(options) {
-    super(options);
-  }
-
   apply(compiler) {
     compiler.hooks.afterEmit.tapAsync('RunScriptAfterEmit', (compilation, callback) => {
       // Run all commands synchronously

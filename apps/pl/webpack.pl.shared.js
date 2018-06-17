@@ -6,12 +6,6 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const webpack = require('webpack');
 
-// Commands that should run a single time BEFORE webpack compiles
-const commands = [
-  // PL startup compile
-  'npx gulp compile:startup',
-];
-
 const pl = {
   entry: {
     'app-pl': [
