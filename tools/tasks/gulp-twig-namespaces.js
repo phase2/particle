@@ -92,7 +92,8 @@ module.exports = function SassToJson(opt) {
         };
 
         // Continuously assign this back into the result object
-        return _.assign(result, namespace);
+        // Avoiding spread operator for now to maintain Node v6 compatability
+        return Object.assign({}, result, namespace);
       }, {});
 
 
