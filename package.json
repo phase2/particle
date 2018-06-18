@@ -27,7 +27,6 @@
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl}/**/*.scss'",
     "lint": "npm run lint:js; npm run lint:scss",
-    "gulp": "gulp",
     "setup": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "test:pa11y": "node tools/tests/accessibility/pa11y.js",
     "test:unit": "jest",
