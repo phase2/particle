@@ -1,5 +1,5 @@
 const Generator = require('yeoman-generator');
-const camelCase = require('lodash.camelcase');
+const { camelCase } = require('lodash');
 const path = require('path');
 const fs = require('fs');
 

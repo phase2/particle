@@ -3,7 +3,6 @@
  */
 
 import $ from 'jquery';
-import _ from 'lodash';
 
 // PL-only components, regardless of design system
 import 'atoms/grid';
@@ -37,7 +36,7 @@ enableAllComponents($context, settings);
 
 // Not every demo will need be enabled, but some might.
 Object.values(demoSystem).forEach((component) => {
-  if (_.has(component, 'enable')) {
+  if (Object.prototpye.hasOwnProperty.call(component, 'enable')) {
     // console.log(component.name);
     component.enable($context, settings);
   }
