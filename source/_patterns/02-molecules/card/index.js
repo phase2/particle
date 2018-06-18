@@ -7,6 +7,9 @@ import 'protons';
 import 'atoms/image';
 import 'atoms/button';
 
+// Module template
+import './_card.twig';
+
 // Module styles
 import './_card.scss';
 

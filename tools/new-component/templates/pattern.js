@@ -1,7 +1,20 @@
-(function <%= camelCaseName %>Script($, Drupal) {
-  Drupal.behaviors.<%= camelCaseName %> = {
-    attach(context) {
+/**
+ * <%= camelCaseName %>
+ */
 
-    },
-  };
-}(jQuery, Drupal));
+// Module dependencies
+import 'protons';
+
+// Module styles
+import './_<%= name %>.scss';
+
+// Module template
+import './_<%= name %>.twig';
+
+export const name = '<%= camelCaseName %>';
+
+export function disable() {}
+
+export function enable() {}
+
+export default enable;

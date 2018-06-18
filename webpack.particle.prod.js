@@ -28,23 +28,21 @@ const prod = {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
+          publicPath: './',
           use: [
-            {
-              loader: 'css-loader',
-              options: { sourceMap: true, importLoaders: 2 },
-            },
+            { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
             {
               loader: 'postcss-loader',
               options: {
                 sourceMap: true,
                 ident: 'postcss',
-                plugins: () => [autoprefixer()],
+                plugins: () => [
+                  autoprefixer(),
+                ],
               },
             },
-            {
-              loader: 'sass-loader',
-              options: { sourceMap: true, functions: sassExportData },
-            },
+            { loader: 'resolve-url-loader' },
+            { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } },
           ],
         }),
       },

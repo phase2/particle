@@ -1,0 +1,33 @@
+{% extends '@templates/site-container.twig' %}
+  {% block content %}
+
+    {% include '@atoms/_alert.twig' with {
+      type: 'info',
+      alert_primary: 'This is an alert on our homepage template!'
+    } %}
+
+    {% embed '@molecules/_jumbotron.twig' with { jumbotron_fluid: true } %}
+      {% block jumbotron_branding %}
+        {% include "@atoms/_branding.twig" with {
+        url: '#',
+        logo_svg_inline: '@atoms/image/logo.svg',
+        site_name: 'Particle',
+        site_slogan: 'An opinionated toolkit for building design systems.'
+        } %}
+      {% endblock jumbotron_branding %}
+    {% endembed %}
+
+    {% embed '@templates/_basic-page.twig' %}
+      {% block content %}
+        <h1 class="homepage__header">Sample Homepage Content</h1>
+
+        <p class="homepage__text">this should get overwritten. it's not important.</p>
+
+        <p>Lorem ipsum dolor sit amet, cum ex eripuit sadipscing accommodare. Eum facete dignissim et, veniam nemore adipiscing ne vim. Causae rationibus te ius, oratio virtute docendi an his, ad saepe saperet pri. Brute mazim platonem eu mel, mei ludus aperiam phaedrum ad. Insolens lobortis moderatius id mel. Rebum cetero eleifend nam an.</p>
+
+        <p>Nostrum delectus oporteat in cum, et his similique efficiendi temporibus, in prima reformidans mei. In modo idque eloquentiam cum, graece deterruisset et vim. Ut mei altera viderer molestiae, an sit antiopam suavitate. Ut eros suscipit delicata sit, pri te aperiri integre abhorreant. Nam ei accusata sensibus forensibus, ei eum admodum corrumpit. </p>
+
+        <p>Ei sit choro voluptaria, mei sint tation interpretaris et. Rebum iusto pertinacia et vim, usu inermis suscipit molestiae ex. Cu usu persius nominati, te nominati perpetua sed. Eu laudem noster est, ea duis quas ius.</p>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}

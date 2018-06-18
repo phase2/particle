@@ -13,6 +13,10 @@ import $ from 'jquery';
 import 'protons';
 import 'molecules/card';
 
+// Module template
+import './_example-widget.twig';
+
+// Module styles
 import './_example-widget.scss';
 
 import exampleWidget from './src';

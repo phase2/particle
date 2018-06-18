@@ -5,14 +5,14 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const pl = {
+const drupal = {
   entry: {
-    'app-drupal': [path.resolve(__dirname, 'index.js')],
-  },
-  // These will be explicitly be provided OUTSIDE the bundle via a <script> tag in the HTML
-  externals: {
-    jquery: 'jQuery',
-    lodash: '_',
+    'drupal-jquery': [
+      path.resolve(__dirname, 'drupal-jquery.js'),
+    ],
+    'app-drupal': [
+      path.resolve(__dirname, 'index.js'),
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -21,4 +21,4 @@ const pl = {
   ],
 };
 
-module.exports = pl;
+module.exports = drupal;

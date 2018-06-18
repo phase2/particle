@@ -6,7 +6,13 @@ const path = require('path');
 const fs = require('fs');
 const gulp = require('gulp');
 
-const { PATH_PL, PATH_DRUPAL, PATH_GRAV, PATH_SOURCE, PATH_DIST } = require('./config');
+const {
+  PATH_PL,
+  PATH_DRUPAL,
+  PATH_GRAV,
+  PATH_SOURCE,
+  PATH_DIST,
+} = require('./config');
 
 /**
  * Pattern Lab raw compile function.
@@ -27,121 +33,103 @@ gulp.task('compile:pl', plCompile);
  */
 const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
 
-gulp.task('compile:twig-namespaces', () =>
-  gulp
-    .src('./source/_patterns/**/*.twig')
-    .pipe(
-      twigNamespaces({
-        // Which files to read and overwrite with namespace info
-        outputs: [
-          {
-            // Note: PL will NOT compile unless the namespaces are explicitly declared
-            configFile: path.join(PATH_PL, 'pattern-lab/config/config.yml'),
-            atKey: 'plugins.twigNamespaces.namespaces',
-            pathRelativeToDir: path.join(PATH_PL, 'pattern-lab/'),
-          },
-          {
-            // The component-libraries module wants to know about our namespaces
-            configFile: path.join(PATH_DRUPAL, 'particle.info.yml'),
-            atKey: 'component-libraries',
-            pathRelativeToDir: path.join(PATH_DRUPAL, ''),
-          },
-          {
-            // The twig-namespaces plugin wants to know about our namespaces
-            configFile: path.join(PATH_GRAV, 'twig-namespaces.yaml'),
-            atKey: 'generated-namespaces',
-            pathRelativeToDir: path.join(PATH_GRAV, ''),
-          },
-        ],
-        // What are the top-level namespace paths, and which sub paths should we ignore?
-        sets: {
-          protons: {
-            root: 'source/_patterns/00-protons',
-            ignore: '/demo',
-          },
-          atoms: {
-            root: 'source/_patterns/01-atoms',
-            ignore: '/demo',
-          },
-          molecules: {
-            root: 'source/_patterns/02-molecules',
-            ignore: '/demo',
-          },
-          organisms: {
-            root: 'source/_patterns/03-organisms',
-            ignore: '/demo',
-          },
-          templates: {
-            root: 'source/_patterns/04-templates',
-            ignore: '/demo',
-          },
-          pages: {
-            root: 'source/_patterns/05-pages',
-            ignore: '/demo',
-          },
-        },
-      }),
-    )
-    .pipe(gulp.dest('./')),
-);
+gulp.task('compile:twig-namespaces', () => gulp
+  .src('./source/_patterns/**/*.twig')
+  .pipe(twigNamespaces({
+    // Which files to read and overwrite with namespace info
+    outputs: [
+      {
+        // Note: PL will NOT compile unless the namespaces are explicitly declared
+        configFile: path.join(PATH_PL, 'pattern-lab/config/config.yml'),
+        atKey: 'plugins.twigNamespaces.namespaces',
+        pathRelativeToDir: path.join(PATH_PL, 'pattern-lab/'),
+      },
+      {
+        // The component-libraries module wants to know about our namespaces
+        configFile: path.join(PATH_DRUPAL, 'particle.info.yml'),
+        atKey: 'component-libraries',
+        pathRelativeToDir: path.join(PATH_DRUPAL, ''),
+      },
+      {
+        // The twig-namespaces plugin wants to know about our namespaces
+        configFile: path.join(PATH_GRAV, 'twig-namespaces.yaml'),
+        atKey: 'generated-namespaces',
+        pathRelativeToDir: path.join(PATH_GRAV, ''),
+      },
+    ],
+    // What are the top-level namespace paths, and which sub paths should we ignore?
+    sets: {
+      protons: {
+        root: 'source/_patterns/00-protons',
+        ignore: '/demo',
+      },
+      atoms: {
+        root: 'source/_patterns/01-atoms',
+        ignore: '/demo',
+      },
+      molecules: {
+        root: 'source/_patterns/02-molecules',
+        ignore: '/demo',
+      },
+      organisms: {
+        root: 'source/_patterns/03-organisms',
+        ignore: '/demo',
+      },
+      templates: {
+        root: 'source/_patterns/04-templates',
+        ignore: '/demo',
+      },
+      pages: {
+        root: 'source/_patterns/05-pages',
+        ignore: '/demo',
+      },
+    },
+  }))
+  .pipe(gulp.dest('./')));
 
 /**
  * When PL is done compiling do stuff here to notify anything that needs to know. Currently it just
  * writes a file to the root of dist/ so that Webpack can trigger a reload.
  */
-gulp.task('compile:pl:notify', cb => {
+gulp.task('compile:pl:notify', (cb) => {
   // Write to dist/ root a file named CHANGED.txt, casts Date to text, calls callback
   fs.writeFile(path.resolve(__dirname, PATH_DIST, 'CHANGED.txt'), +new Date(), cb);
 });
 
 /**
- * Generate data json PL uses to determine which mode: 'development' or 'production.' Defaults to
- * 'production' if NODE_ENV is not set.
+ * Generate data json PL uses to determine which mode: 'development' or 'production.'
+ * Defaults to 'production' if NODE_ENV is not set.
  */
-gulp.task('compile:pl:env', cb => {
+gulp.task('compile:pl:env', (cb) => {
+  // Default of 'production' if running this task standalone. Run like so to set NODE_ENV:
+  // ```
+  // NODE_ENV='development' npx gulp compile:pl:env
+  // ```
   const env = { env: process.env.NODE_ENV ? process.env.NODE_ENV : 'production' };
   fs.writeFile(path.resolve(__dirname, PATH_SOURCE, '_data/', 'env.json'), JSON.stringify(env), cb);
 });
 
 /**
- * Watch known PL files and compile to html. Reload server
+ * Standalone compile tasks for non-webpack assets. Run repeatedly.
+ * Note: 'compile:pl:env' must have been run at least once to guarantee source/_data/env.json exists
  */
-gulp.task('watch:pl-source', cb => {
-  // @TODO: check if changed file is in path that already exists before namespacing
-  gulp.watch(
-    'source/**/*.{twig,json,yml,yaml,md}',
-    // prettier-ignore
-    gulp.series([
-      'compile:twig-namespaces',
-      'compile:pl',
-      'compile:pl:notify',
-    ]),
-  );
-  cb();
-});
+gulp.task('compile', gulp.series([
+  'compile:twig-namespaces',
+  'compile:pl',
+  'compile:pl:notify',
+]));
 
 /**
- * Standalone compile tasks for non-webpack assets
+ * First-time PL build. Run on startup.
  */
-gulp.task(
+gulp.task('compile:startup', gulp.series([
+  'compile:pl:env',
   'compile',
-  // prettier-ignore
-  gulp.series([
-    'compile:pl:env',
-    'compile:twig-namespaces',
-    'compile:pl',
-    'compile:pl:notify',
-  ]),
-);
+]));
 
 /**
- * Kicking off cold should compile all the non-webpack assets, start webpack:dev
+ * Kicking off cold should compile all Pattern Lab assets
  */
-gulp.task(
-  'default',
-  // prettier-ignore
-  gulp.series([
-    'compile',
-    'watch:pl-source',
-  ]),
-);
+gulp.task('default', gulp.series([
+  'compile',
+]));

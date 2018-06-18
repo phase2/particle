@@ -6,6 +6,9 @@
 import 'protons';
 import 'atoms/icon';
 
+// Module template
+import './_pagination.twig';
+
 // Module styles
 import './_pagination.scss';
 
