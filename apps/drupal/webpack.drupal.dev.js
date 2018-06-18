@@ -8,7 +8,7 @@
 
 // Library Imports
 const merge = require('webpack-merge');
-const WebpackShellPlugin = require('webpack-shell-plugin');
+const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
 // Custom Imports
 const particle = require('../../webpack.particle.prod');
@@ -22,11 +22,10 @@ const dev = {
     entrypoints: false,
   },
   plugins: [
-    new WebpackShellPlugin({
-      onBuildEnd: [
-        'echo \nWebpack drupal dev build complete! Edit apps/drupal/webpack.drupal.dev.js to replace this line with `drupal cr all` now.',
+    new RunScriptAfterEmit({
+      exec: [
+        `echo \n🚀 Webpack Drupal ${process.env.NODE_ENV} build complete! Edit apps/drupal/webpack.drupal.dev.js to replace this line with 'drupal cr all' now. 🚀\n`,
       ],
-      dev: false, // Runs on EVERY rebuild
     }),
   ],
 };
