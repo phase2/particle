@@ -10,7 +10,7 @@ import 'atoms/button';
 // Module template
 import './_card.twig';
 
-var blerp="";
+var blerp = '';
 
 // Module styles
 import './_card.scss';
