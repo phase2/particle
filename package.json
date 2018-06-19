@@ -28,7 +28,7 @@
     "lint:scss": "stylelint '{source, apps/drupal, apps/pl, apps/grav}/**/*.scss'",
     "lint": "npm run lint:js; npm run lint:scss",
     "fmt:js": "npm run lint:js -- --fix && prettier --loglevel warn --write '**/*.{js,json}'",
-    "fmt:scss": "npm run lint:scss -- --fix && prettier --loglevel warn --write '{source, apps/drupal, apps/pl, apps/grav}/**/*.scss'",
+    "fmt:scss": "npm run lint:scss -- --fix && prettier --loglevel warn --write '**/*.{css,scss}'",
     "fmt": "npm run fmt:js; npm run fmt:scss",
     "test:pa11y": "node tools/tests/accessibility/pa11y.js",
     "test:unit": "jest",
