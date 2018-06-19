@@ -7,7 +7,7 @@ const { exec } = require('child_process');
  */
 module.exports = function plCompile(plPath) {
   // Note returns a function with the plPath in closure
-  return (done) => {
+  return done => {
     exec(`php ${plPath}/core/console --generate`, (err, stdout, stderr) => {
       console.log(stdout);
 

@@ -1,0 +1,9 @@
+// Demonstration of how references to images for bg images are transformed
+// during hot-reload and extracttext in webpack
+
+.demo-image--bg1 {
+  background: url('../logo.svg') no-repeat;
+}
+.demo-image--bg2 {
+  background: url('./astrogoat.png') no-repeat;
+}

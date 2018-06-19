@@ -8,6 +8,9 @@
 import 'protons';
 import './scss/_icon.scss';
 
+// Module template
+import './_icon.twig';
+
 export const name = 'icon';
 
 export function disable() {}

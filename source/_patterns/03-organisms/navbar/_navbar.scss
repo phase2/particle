@@ -5,6 +5,10 @@
 
 $navbar-brand-font-size: $font-size-lg;
 
-@import "~bootstrap/scss/navbar";
+@import '~bootstrap/scss/navbar';
 
 // Add custom code here
+
+.navbar {
+  flex-shrink: 0;
+}

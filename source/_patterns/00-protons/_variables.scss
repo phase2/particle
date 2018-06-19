@@ -32,9 +32,9 @@ $spacing: (
 // just overridden in a component later on.
 
 // Bootstrap non-printing tools
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 
 // import anything else non-printing that may depend on variables in this file!
 // @import 'non-printing/project-specific-mixins'

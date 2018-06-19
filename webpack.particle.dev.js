@@ -8,9 +8,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 // Custom Imports
-const {
-  PATH_SOURCE,
-} = require('./config');
+const { PATH_SOURCE } = require('./config');
 
 // Loaders
 const autoprefixer = require('autoprefixer');
@@ -25,11 +23,15 @@ const IconFontPlugin = require('iconfont-plugin-webpack');
 // Helper file used to generate a svg -> fonticon Sass map.
 const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
+// Helps us track down deprecation during development
+// process.traceDeprecation = true;
+
 module.exports = {
   mode: 'development',
   // See webpack.[app].dev.js for entry points
   output: {
     filename: '[name].js',
+    chunkFilename: '[id].chunk.js',
     path: path.resolve(__dirname, 'dist/assets/'),
     publicPath: '/assets/',
   },
@@ -46,21 +48,26 @@ module.exports = {
         },
       },
       {
-        test: /\.(sass|scss)$/,
+        test: /\.(css|sass|scss)$/,
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
-          { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true, importLoaders: 2 },
+          },
           {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
               ident: 'postcss',
-              plugins: () => [
-                autoprefixer(),
-              ],
+              plugins: () => [autoprefixer()],
             },
           },
-          { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } },
+          { loader: 'resolve-url-loader' },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true, functions: sassExportData },
+          },
         ],
       },
       {
@@ -97,6 +104,19 @@ module.exports = {
           },
         ],
       },
+      // Pattern Lab assets on the dependency chain
+      {
+        test: /\.(twig|yml|md)$/,
+        loader: 'file-loader',
+        options: {
+          emitFile: false,
+        },
+      },
+      // Used by Pattern Lab app to import all demo folder twig files
+      {
+        test: /\.(glob)$/,
+        loader: 'glob-loader',
+      },
     ],
   },
   plugins: [
@@ -116,11 +136,23 @@ module.exports = {
       src: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/'),
       family: 'iconfont',
       dest: {
-        font: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/[family].[type]'),
-        css: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icons-generated.scss'),
+        font: path.resolve(
+          __dirname,
+          PATH_SOURCE,
+          '_patterns/01-atoms/icon/font/[family].[type]',
+        ),
+        css: path.resolve(
+          __dirname,
+          PATH_SOURCE,
+          '_patterns/01-atoms/icon/scss/_icons-generated.scss',
+        ),
       },
       watch: {
-        pattern: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
+        pattern: path.resolve(
+          __dirname,
+          PATH_SOURCE,
+          '_patterns/01-atoms/icon/svg/**/*.svg',
+        ),
       },
       cssTemplate: IconFontTemplate,
     }),
@@ -130,9 +162,21 @@ module.exports = {
     alias: {
       protons: path.resolve(__dirname, PATH_SOURCE, '_patterns/00-protons/'),
       atoms: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/'),
-      molecules: path.resolve(__dirname, PATH_SOURCE, '_patterns/02-molecules/'),
-      organisms: path.resolve(__dirname, PATH_SOURCE, '_patterns/03-organisms/'),
-      templates: path.resolve(__dirname, PATH_SOURCE, '_patterns/04-templates/'),
+      molecules: path.resolve(
+        __dirname,
+        PATH_SOURCE,
+        '_patterns/02-molecules/',
+      ),
+      organisms: path.resolve(
+        __dirname,
+        PATH_SOURCE,
+        '_patterns/03-organisms/',
+      ),
+      templates: path.resolve(
+        __dirname,
+        PATH_SOURCE,
+        '_patterns/04-templates/',
+      ),
       pages: path.resolve(__dirname, PATH_SOURCE, '_patterns/05-pages/'),
     },
   },

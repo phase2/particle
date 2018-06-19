@@ -34,7 +34,7 @@
 // usage: .foo { @include iconfont('search') }
 @mixin icon($icon) {
   &:before {
-    font-family: "iconfont";
+    font-family: 'iconfont';
     font-style: normal;
     font-weight: 400;
     content: iconfont-item($icon);

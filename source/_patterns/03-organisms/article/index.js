@@ -5,6 +5,9 @@
 // Module dependencies
 import 'protons';
 
+// Module template
+import './_article.twig';
+
 // Module styles
 import './_article.scss';
 

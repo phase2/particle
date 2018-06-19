@@ -8,6 +8,9 @@ import 'bootstrap/js/src/alert';
 // Module Dependencies
 import 'protons';
 
+// Module template
+import './_alert.twig';
+
 // Module styles
 import './_alert.scss';
 

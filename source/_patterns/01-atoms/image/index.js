@@ -4,6 +4,10 @@ import './_image.scss';
 // Pull in system-wide images
 import './logo.svg';
 
+// Module templates
+import './_image.twig';
+import './_svg.twig';
+
 export const name = 'image';
 
 export function disable() {}
