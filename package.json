@@ -37,11 +37,6 @@
     "ci": "npm run lint && npm run test && npm run build:pl",
     "new": "yo ./tools/new-component/index.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "browserslist": [
     "last 2 versions",
     "IE >= 11"
