@@ -46,8 +46,7 @@ $svgicons: map-keys($sprites);
   'scssVariables.json',
   (
     scssColors: $theme-colors,
-    // Colors generated from Bootstrap's
-      scssBreakpoints: $grid-breakpoints,
+    scssBreakpoints: $grid-breakpoints,
     scssSpacing: $spacing-demo,
     fontFamilies: $font-families-demo,
     fontSizes: $font-sizes-demo,
