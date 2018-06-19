@@ -27,7 +27,9 @@ const widget = (state = initialState, action) => {
       return {
         ...state,
         activeFilter: action.filter,
-        filteredData: state.data.filter(crypto => action.filter === crypto.symbol),
+        filteredData: state.data.filter(
+          crypto => action.filter === crypto.symbol,
+        ),
       };
     case types.REQUEST_CRYPTO:
       return {

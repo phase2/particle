@@ -7,9 +7,7 @@ const webpack = require('webpack');
 
 const grav = {
   entry: {
-    'app-grav': [
-      path.resolve(__dirname, 'index.js'),
-    ],
+    'app-grav': [path.resolve(__dirname, 'index.js')],
   },
   plugins: [
     new webpack.DefinePlugin({

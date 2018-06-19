@@ -14,9 +14,7 @@ const shared = require('../../webpack.particle.dev.js');
 const grav = {
   mode: 'production',
   entry: {
-    'app-grav': [
-      path.resolve(__dirname, 'index.js'),
-    ],
+    'app-grav': [path.resolve(__dirname, 'index.js')],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -26,4 +24,3 @@ const grav = {
 };
 
 module.exports = merge(shared, grav);
-
