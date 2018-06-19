@@ -1,13 +1,6 @@
 // All component Sass needs non-printing base config
 @import '../../../00-protons/variables';
 @import '../scss/_icons-generated';
-// @import '../../../../../apps/pl/pattern-lab/vendor/pattern-lab/styleguidekit-assets-default/src/css/prism-okaidia';
-
-.code-display-flex {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
 .svgicon-demo-0 {
   @include sprite('chevron-right');
