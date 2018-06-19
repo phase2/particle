@@ -123,6 +123,7 @@ module.exports = {
     new SVGSpritemapPlugin({
       src: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/svgicon/svg/**/*.svg'),
       styles: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/svgicon/scss/_icons-generated.scss'),
+      svg4everybody: true,
     }),
     /* eslint-disable max-len */
     // Iconfont generation from SVGs
