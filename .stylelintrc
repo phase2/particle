@@ -5,12 +5,9 @@
   "plugins": [
     "stylelint-scss"
   ],
-  "ignoreFiles": [
-    "apps/pl/pattern-lab/**/*",
-    "node_modules/",
-    "source/_patterns/01-atoms/icon/scss/_icons-generated.scss"
-  ],
   "rules": {
+    "indentation": 2,
+    "declaration-colon-space-after": "always",
     "declaration-no-important": true,
     "max-nesting-depth": 3,
     "selector-max-specificity": "0,3,3",

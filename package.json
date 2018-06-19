@@ -25,7 +25,7 @@
     "dev:grav": "NODE_ENV='development webpack --watch --progress --config ./apps/grav/webpack.grav.dev.js",
     "build:grav": "NODE_ENV='production' webpack --config ./apps/grav/webpack.grav.prod.js",
     "lint:js": "eslint ./",
-    "lint:scss": "stylelint '{source, apps/drupal, apps/pl, apps/grav}/**/*.scss'",
+    "lint:scss": "stylelint '**/*.{css,scss}'",
     "lint": "npm run lint:js; npm run lint:scss",
     "fmt:js": "npm run lint:js -- --fix && prettier --loglevel warn --write '**/*.{js,json}'",
     "fmt:scss": "npm run lint:scss -- --fix && prettier --loglevel warn --write '**/*.{css,scss}'",
