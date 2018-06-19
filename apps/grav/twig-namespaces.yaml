@@ -47,8 +47,8 @@ generated-namespaces:
   atoms:
     paths:
       - ../../source/_patterns/01-atoms
-      - ../../source/_patterns/01-atoms/grid
       - ../../source/_patterns/01-atoms/icon
+      - ../../source/_patterns/01-atoms/grid
       - ../../source/_patterns/01-atoms/alert
       - ../../source/_patterns/01-atoms/badge
       - ../../source/_patterns/01-atoms/image

@@ -5,6 +5,7 @@
 
 // Library Imports
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 
 // Custom Imports
@@ -87,6 +88,10 @@ module.exports = {
         exclude: /node_modules\/(?!(bootstrap)\/).*/,
         use: {
           loader: 'babel-loader',
+          options: {
+            // For now, read .babelrc DIRECTLY within loader
+            ...JSON.parse(fs.readFileSync(path.resolve(__dirname, '.babelrc'))),
+          },
         },
       },
       {

@@ -2,7 +2,7 @@
 module.exports = {
   verbose: true,
   // If jest can't find a library in node_modules, include it here
-  transformIgnorePatterns: ['!node_modules/bootstrap'],
+  transformIgnorePatterns: ['node_modules/(?!(bootstrap)/)'],
   moduleNameMapper: {
     // Jest doesn't care about styles, twig, images, fonts, etc
     '\\.(twig|md|yml|yaml|css|scss|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
