@@ -35,8 +35,7 @@
     "test:unit": "jest",
     "test": "npm run test:unit",
     "ci": "npm run lint && npm run test && npm run build:pl",
-    "new": "yo ./tools/new-component/index.js",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+    "new": "yo ./tools/new-component/index.js"
   },
   "browserslist": [
     "last 2 versions",

@@ -8,23 +8,23 @@
 
 // Creates the font face tag for font icons.
 @font-face {
-  font-family: "iconfont";
+  font-family: 'iconfont';
   src: url('../font/iconfont.eot?cachebust=#{random(99999)}'); /* IE9 Compat Modes */
-  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('../font/iconfont.woff') format('woff'), /* Pretty Modern Browsers */
-    url('../font/iconfont.ttf')  format('truetype'), /* Safari, Android, iOS */
-    url('../font/iconfont.svg') format('svg'); /* Legacy iOS */
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../font/iconfont.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('../font/iconfont.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('../font/iconfont.svg') format('svg'); /* Legacy iOS */
   font-weight: normal;
   font-style: normal;
 }
 
 .icon {
-  font-family: "iconfont";
+  font-family: 'iconfont';
   font-weight: normal;
   font-style: normal;
 }
 
-@each $name, $value in (map_get($__iconfont__data, "iconfont")) {
+@each $name, $value in (map_get($__iconfont__data, 'iconfont')) {
   .icon--#{$name} {
     @include icon($name);
   }

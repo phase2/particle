@@ -4,3 +4,6 @@ package.json
 package-lock.json
 dist/
 apps/pl/pattern-lab
+
+# Icons
+_icons-generated.scss
