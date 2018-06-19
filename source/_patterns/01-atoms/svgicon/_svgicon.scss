@@ -1,7 +1,14 @@
 // All component Sass needs non-printing base config
 @import '../../00-protons/variables';
+@import '../../../../apps/pl/scss/_scss2json';
 @import './scss/_icons-generated';
 
-.svgicon {
-
+// Loop over every SVG and create a CSS class for it
+@each $icon in $svgicons {
+  .icon--#{$icon} {
+    @include sprite(#{$icon});
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+  }
 }

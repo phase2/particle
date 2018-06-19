@@ -29,7 +29,9 @@ $spacing-demo: $spacing;
 //@import '../_patterns/01-atoms/button/_button.scss';
 
 // Import the map of available custom font icons.
-@import '../../../source/_patterns/01-atoms/icon/scss/_icons-generated';
+@import '../../../source/_patterns/01-atoms/svgicon/scss/_icons-generated';
+
+$svgicons: map-keys($sprites);
 
 // $icons-demo: (
 //   prefix: 'icon--',
@@ -47,5 +49,5 @@ $spacing-demo: $spacing;
   fontFamilies: $font-families-demo,
   fontSizes: $font-sizes-demo,
   fontWeights: $font-weights-demo,
-  // scssIcons: $icons-demo,
+  scssIcons: $svgicons,
 ));
