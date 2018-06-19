@@ -31,13 +31,14 @@ function render() {
 
       <ul class="list-group list-group-flush">
         ${renderState.filteredData
-          .map(
-            crypto => `
-          <li class="list-group-item">
-          ${crypto.rank}. ${crypto.name} | $${crypto.price_usd} | ${crypto.symbol}
-          </li>
-        `,
-          )
+          .map(crypto => {
+            const { rank, name, price_usd: priceUSD, symbol } = crypto;
+            return `
+              <li class="list-group-item">
+                ${rank}. ${name} | $${priceUSD} | ${symbol}
+              </li>
+            `;
+          })
           .join('')}
       </ul>
     </div>

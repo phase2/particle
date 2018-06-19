@@ -33,8 +33,12 @@ const options = {
  * @param {Array} options - the pa11y options we evaluate against.
  * @return {Array} pa11yPaths - a pa11y array to operate on.
  */
-const pa11yPaths = testPaths.map(testPath => pa11y(`${plPath}${testPath}`, options));
+const pa11yPaths = testPaths.map(testPath =>
+  pa11y(`${plPath}${testPath}`, options),
+);
 
 Promise.all(pa11yPaths)
-  .then(results => results.forEach(result => options.log.info(reporter.results(result))))
+  .then(results =>
+    results.forEach(result => options.log.info(reporter.results(result))),
+  )
   .catch(error => options.log.error(error.message));

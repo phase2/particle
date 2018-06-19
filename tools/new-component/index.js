@@ -3,52 +3,52 @@ const { camelCase } = require('lodash');
 const path = require('path');
 const fs = require('fs');
 
-const patternBase = ('./source/_patterns');
+const patternBase = './source/_patterns';
 
 module.exports = class extends Generator {
   prompting() {
     console.log('Hi! This will help you build a component folder with assets.');
-    console.log(`Templates for this are in: ${path.relative(process.cwd(), __dirname)} \n`);
+    console.log(
+      `Templates for this are in: ${path.relative(
+        process.cwd(),
+        __dirname,
+      )} \n`,
+    );
 
-    const prompts = [{
-      type: 'list',
-      name: 'patternType',
-      message: 'Where would you like this new component?',
-      choices: fs.readdirSync(patternBase, 'utf8'),
-    }, {
-      type: 'list',
-      name: 'patternSubType',
-      message: 'Where in here?',
-      choices(answers) {
-        const folder = path.join(patternBase, answers.patternType);
-        const subfolders = fs.readdirSync(folder, 'utf8');
-        return ['./'].concat(subfolders);
+    const prompts = [
+      {
+        type: 'list',
+        name: 'patternType',
+        message: 'Where would you like this new component?',
+        choices: fs.readdirSync(patternBase, 'utf8'),
       },
-    }, {
-      type: 'checkbox',
-      name: 'files',
-      message: 'What files would you like in there?',
-      choices: [
-        'twig',
-        'scss',
-        'js',
-        'demo',
-      ],
-      default: [
-        'twig',
-        'scss',
-        'js',
-        'demo',
-      ],
-    }, {
-      name: 'name',
-      message: 'What shall we name it?',
-      filter(answer) {
-        return answer.replace(/ /g, '-').toLowerCase();
+      {
+        type: 'list',
+        name: 'patternSubType',
+        message: 'Where in here?',
+        choices(answers) {
+          const folder = path.join(patternBase, answers.patternType);
+          const subfolders = fs.readdirSync(folder, 'utf8');
+          return ['./'].concat(subfolders);
+        },
       },
-    }];
+      {
+        type: 'checkbox',
+        name: 'files',
+        message: 'What files would you like in there?',
+        choices: ['twig', 'scss', 'js', 'demo'],
+        default: ['twig', 'scss', 'js', 'demo'],
+      },
+      {
+        name: 'name',
+        message: 'What shall we name it?',
+        filter(answer) {
+          return answer.replace(/ /g, '-').toLowerCase();
+        },
+      },
+    ];
 
-    return this.prompt(prompts).then((props) => {
+    return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = {
         ...props,
@@ -61,16 +61,9 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const {
-      files, patternType, patternSubType, name,
-    } = this.props;
+    const { files, patternType, patternSubType, name } = this.props;
 
-    const destPath = path.join(
-      patternBase,
-      patternType,
-      patternSubType,
-      name,
-    );
+    const destPath = path.join(patternBase, patternType, patternSubType, name);
 
     /*
      * generatorAssets has a key for each filetype that Particle creates.
@@ -81,22 +74,27 @@ module.exports = class extends Generator {
      */
 
     const generatorAssets = {
-      scss: [{
-        templatePath: '_pattern.scss',
-        destinationPath: path.join(destPath, `_${name}.scss`),
-      }],
-      twig: [{
-        templatePath: '_pattern.twig',
-        destinationPath: path.join(destPath, `_${name}.twig`),
-      }],
-      js: [{
-        templatePath: 'pattern.js',
-        destinationPath: path.join(destPath, 'index.js'),
-      },
-      {
-        templatePath: 'pattern-test.js',
-        destinationPath: path.join(destPath, '__tests__', `${name}.test.js`),
-      },
+      scss: [
+        {
+          templatePath: '_pattern.scss',
+          destinationPath: path.join(destPath, `_${name}.scss`),
+        },
+      ],
+      twig: [
+        {
+          templatePath: '_pattern.twig',
+          destinationPath: path.join(destPath, `_${name}.twig`),
+        },
+      ],
+      js: [
+        {
+          templatePath: 'pattern.js',
+          destinationPath: path.join(destPath, 'index.js'),
+        },
+        {
+          templatePath: 'pattern-test.js',
+          destinationPath: path.join(destPath, '__tests__', `${name}.test.js`),
+        },
       ],
       demo: [
         {
@@ -121,8 +119,8 @@ module.exports = class extends Generator {
     /* Loop over all the selected files and populate the template according to
      * the pattern structure in generatorAssets.
      */
-    files.forEach((fileType) => {
-      generatorAssets[fileType].forEach((file) => {
+    files.forEach(fileType => {
+      generatorAssets[fileType].forEach(file => {
         this.fs.copyTpl(
           this.templatePath(file.templatePath),
           this.destinationPath(file.destinationPath),
@@ -131,6 +129,8 @@ module.exports = class extends Generator {
       });
     });
 
-    console.log(`Your new component ${name} is being created. Please import it inside of source/design-system.js to see it on the chain.`);
+    console.log(
+      `Your new component ${name} is being created. Please import it inside of source/design-system.js to see it on the chain.`,
+    );
   }
 };

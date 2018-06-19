@@ -36,7 +36,7 @@ enableAllComponents($context, settings);
 
 // Not every demo will need be enabled, but some might.
 Object.values(demoSystem).forEach(component => {
-  if (Object.prototpye.hasOwnProperty.call(component, 'enable')) {
+  if (Object.prototype.hasOwnProperty.call(component, 'enable')) {
     // console.log(component.name);
     component.enable($context, settings);
   }

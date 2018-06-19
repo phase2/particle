@@ -28,9 +28,12 @@ module.exports = function(args) {
     goat: 'cat',
   };
 
-  const str = TEMPLATE.replace(/__FAMILY__|__RELATIVE_FONT_PATH__|goat/gi, function(matched) {
-    return replacements[matched];
-  });
+  const str = TEMPLATE.replace(
+    /__FAMILY__|__RELATIVE_FONT_PATH__|goat/gi,
+    function(matched) {
+      return replacements[matched];
+    },
+  );
 
   return [
     `$__iconfont__data: map-merge(if(global_variable_exists('__iconfont__data'), $__iconfont__data, ()), ${toSCSS(

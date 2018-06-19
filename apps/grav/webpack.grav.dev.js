@@ -24,7 +24,9 @@ const dev = {
   plugins: [
     new RunScriptAfterEmit({
       exec: [
-        `echo \n🚀 Webpack Grav ${process.env.NODE_ENV} build complete! Edit apps/grav/webpack.grav.dev.js to run run any command you need! Great for using tasks to re-generate twig-namespaces! 🚀\n`,
+        `echo \n🚀 Webpack Grav ${process.env.NODE_ENV} build complete! 
+        Edit apps/grav/webpack.grav.dev.js to run run any command you need!
+        Great for using tasks to re-generate twig-namespaces! 🚀\n`,
       ],
     }),
   ],

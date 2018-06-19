@@ -5,7 +5,8 @@
  * Individual rule reference: http://eslint.org/docs/rules/NAME-OF-RULE
  */
 module.exports = {
-  extends: ['airbnb', 'plugin:jest/recommended', 'plugin:prettier/recommended'],
+  extends: ['airbnb-base', 'plugin:jest/recommended', 'prettier'],
+  plugins: ['prettier'],
   globals: {
     Drupal: true,
     jQuery: true,
@@ -17,7 +18,7 @@ module.exports = {
   },
   rules: {
     'no-console': [0], // turned off for now while we are console.logging everywhere.
-    'react/require-extension': [0],
+    // 'react/require-extension': [0],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
   settings: {

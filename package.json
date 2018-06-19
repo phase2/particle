@@ -35,7 +35,8 @@
     "test:unit": "jest",
     "test": "npm run test:unit",
     "ci": "npm run lint && npm run test && npm run build:pl",
-    "new": "yo ./tools/new-component/index.js"
+    "new": "yo ./tools/new-component/index.js",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "browserslist": [
     "last 2 versions",
@@ -62,15 +63,13 @@
     "babel-loader": "^8.0.0-beta.2",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-webpack": "^0.10.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jest": "^21.15.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "glob-loader": "^0.3.0",
