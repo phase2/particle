@@ -50,7 +50,7 @@ pre {
     }
     @media all and (min-width: 700px) {
       width: 24%;
-      &:nth-child(4n+1) {
+      &:nth-child(4n + 1) {
         clear: both;
       }
     }

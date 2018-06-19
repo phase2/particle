@@ -24,7 +24,10 @@ const dev = {
   plugins: [
     new RunScriptAfterEmit({
       exec: [
-        `echo \n🚀 Webpack Drupal ${process.env.NODE_ENV} build complete! Edit apps/drupal/webpack.drupal.dev.js to replace this line with 'drupal cr all' now. 🚀\n`,
+        // prettier-ignore
+        `echo \n🚀 Webpack Drupal ${process.env.NODE_ENV} build complete! 
+        Edit apps/drupal/webpack.drupal.dev.js to replace this line with 
+        'drupal cr all' now. 🚀\n`,
       ],
     }),
   ],

@@ -5,7 +5,8 @@
  * Individual rule reference: http://eslint.org/docs/rules/NAME-OF-RULE
  */
 module.exports = {
-  extends: ["airbnb", "plugin:jest/recommended"],
+  extends: ['airbnb-base', 'plugin:jest/recommended', 'prettier'],
+  plugins: ['prettier'],
   globals: {
     Drupal: true,
     jQuery: true,
@@ -13,18 +14,17 @@ module.exports = {
     BUILD_TARGET: true,
   },
   env: {
-    "browser": true,
+    browser: true,
   },
   rules: {
     'no-console': [0], // turned off for now while we are console.logging everywhere.
-    'react/require-extension': [0],
-    'import/no-extraneous-dependencies': ["error", {"devDependencies": true}],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
   settings: {
     'import/resolver': {
       webpack: {
-        config: 'webpack.particle.dev.js'
-      }
-    }
-  }
+        config: 'webpack.particle.dev.js',
+      },
+    },
+  },
 };

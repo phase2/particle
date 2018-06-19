@@ -6,6 +6,7 @@
 
 // Library Imports
 const path = require('path');
+const { ProgressPlugin } = require('webpack');
 const merge = require('webpack-merge');
 
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
@@ -53,6 +54,7 @@ const dev = {
     },
   },
   plugins: [
+    new ProgressPlugin({ profile: false }),
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md)$/,
       exec: [

@@ -54,7 +54,8 @@ export default components;
  * All component names as an array
  * @returns {Array} List of components name strings
  */
-export const componentNames = () => Object.values(components).map(({ name }) => name);
+export const componentNames = () =>
+  Object.values(components).map(({ name }) => name);
 
 /**
  * Enable all components against a piece of DOM with some settings

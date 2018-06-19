@@ -8,40 +8,46 @@ class RunScriptOnFiletypeChange extends ShellHelper {
   }
 
   apply(compiler) {
-    compiler.hooks.emit.tapAsync('RunScriptOnFiletypeChange', (compilation, callback) => {
-      // Convert fileTimestamps to array of arrays to filter it and find changed files we care about
-      const changed = [...compilation.fileTimestamps].filter(([file]) => {
-        // Uncomment to debug
-        // if (file.match(this.options.test)) { console.log(file); }
+    compiler.hooks.emit.tapAsync(
+      'RunScriptOnFiletypeChange',
+      (compilation, callback) => {
+        // Convert fileTimestamps to array of arrays to filter it and find
+        // changed files we care about
+        const changed = [...compilation.fileTimestamps].filter(([file]) => {
+          // Uncomment to debug
+          // if (file.match(this.options.test)) { console.log(file); }
 
-        // Use our file regex to test, eject if not a file we care about
-        if (!file.match(this.options.test)) { return false; }
-        // Previous file timestamp
-        const prevStamp = this.prevTimestamps.get(file) || this.startTime;
-        // New timestamp value
-        const nextStamp = compilation.fileTimestamps.get(file) || Infinity;
-        // Only returns true if changed files are newer
-        return prevStamp < nextStamp;
-      });
+          // Use our file regex to test, eject if not a file we care about
+          if (!file.match(this.options.test)) {
+            return false;
+          }
+          // Previous file timestamp
+          const prevStamp = this.prevTimestamps.get(file) || this.startTime;
+          // New timestamp value
+          const nextStamp = compilation.fileTimestamps.get(file) || Infinity;
+          // Only returns true if changed files are newer
+          return prevStamp < nextStamp;
+        });
 
-      // Set stamps to new point
-      this.prevTimestamps = compilation.fileTimestamps;
+        // Set stamps to new point
+        this.prevTimestamps = compilation.fileTimestamps;
 
-      // If none of the file types have changed, emit as usual
-      if (!changed.length) {
+        // If none of the file types have changed, emit as usual
+        if (!changed.length) {
+          callback();
+          return true;
+        }
+
+        // Run all commands synchronously
+        this.options.exec.forEach(script => this.handleScript(script));
+
+        // Run callback to finish compilation
         callback();
+
+        // Fat arrow functions must return a value
         return true;
-      }
-
-      // Run all commands synchronously
-      this.options.exec.forEach(script => this.handleScript(script));
-
-      // Run callback to finish compilation
-      callback();
-
-      // Fat arrow functions must return a value
-      return true;
-    });
+      },
+    );
   }
 }
 

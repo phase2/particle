@@ -1,0 +1,11 @@
+# Ignore any path/file using .gitignore syntax, ie:
+
+node_modules/
+
+dist/
+apps/pl/pattern-lab/
+
+package.json
+package-lock.json
+
+_icons-generated.scss
