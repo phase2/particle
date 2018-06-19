@@ -1,16 +1,17 @@
 {
+  "extends": [
+    "stylelint-config-prettier"
+  ],
   "plugins": [
-    "stylelint-scss",
+    "stylelint-scss"
   ],
   "ignoreFiles": [
     "apps/pl/pattern-lab/**/*",
-    "./node_modules/**/*",
+    "node_modules/",
     "source/_patterns/01-atoms/icon/scss/_icons-generated.scss"
   ],
   "rules": {
-    "declaration-colon-space-after": "always",
     "declaration-no-important": true,
-    "indentation": 2,
     "max-nesting-depth": 3,
     "selector-max-specificity": "0,3,3",
     "selector-max-id": 0,

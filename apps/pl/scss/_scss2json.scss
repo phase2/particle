@@ -43,13 +43,13 @@ $icons-demo: (
 @include export-data(
   'scssVariables.json',
   (
-    scssColors: $theme-colors,
-    // Colors generated from Bootstrap's
-      scssBreakpoints: $grid-breakpoints,
+    // Colors generated from Bootstrap
+      scssColors: $theme-colors,
+    scssBreakpoints: $grid-breakpoints,
     scssSpacing: $spacing-demo,
     fontFamilies: $font-families-demo,
     fontSizes: $font-sizes-demo,
     fontWeights: $font-weights-demo,
-    scssIcons: $icons-demo,
+    scssIcons: $icons-demo
   )
 );
