@@ -4,7 +4,7 @@
 
 // Module dependencies
 import 'protons';
-import 'atoms/icon';
+import 'atoms/svgicon';
 
 // Module template
 import './_pagination.twig';
