@@ -22,9 +22,9 @@ class ShellHelper {
 
   handleScript(script) {
     if (os.platform() === 'win32' || this.options.safe) {
-      this.spreadStdoutAndStdErr(exec(script, this.puts));
+      ShellHelper.spreadStdoutAndStdErr(exec(script, this.puts));
     } else {
-      const { command, args } = this.serializeScript(script);
+      const { command, args } = ShellHelper.serializeScript(script);
       spawnSync(command, args, { stdio: 'inherit' });
     }
   }
