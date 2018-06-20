@@ -3,6 +3,12 @@
 @import '../../../../apps/pl/scss/_scss2json';
 @import './scss/_icons-generated';
 
+// Default styles to maintain inline-block functionality
+// since the SVG is wrapped in a div
+.svgicon-default {
+  display: inline-block;
+}
+
 // Loop over every SVG and create a CSS class for it
 @each $icon in $svgicons {
   .icon--#{$icon} {
