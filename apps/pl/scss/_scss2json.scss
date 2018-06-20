@@ -31,6 +31,7 @@ $spacing-demo: $spacing;
 // Import the map of available custom font icons.
 @import '../../../source/_patterns/01-atoms/svgicon/scss/_icons-generated';
 
+// Return an array of the SVG filenames located within svgicon/svg/
 $svgicons: map-keys($sprites);
 
 // $icons-demo: (

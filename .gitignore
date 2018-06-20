@@ -3,6 +3,7 @@ dist/
 source/_data/env.json
 source/_patterns/01-atoms/icon/font/
 source/_patterns/01-atoms/icon/scss/_icon-map-generated.scss
+source/_data/scssVariables.json
 source/_patterns/01-atoms/svgicon/scss/_icons-generated.scss
 
 # OS generated files
@@ -17,7 +18,6 @@ node_modules
 vendor
 
 # Generated files
-source/_data/scssVariables.json
 *.sass-cache/
 .eslintcache
 *unison.*

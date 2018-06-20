@@ -16,10 +16,12 @@
         }
       </code>
     </pre>
-      {% for icon in scssIcons %}
-      <div class="icon--{{ icon }}">
+      <div class="d-flex justify-content-between">
+        {% for icon in scssIcons %}
+        <div class="icon--{{ icon }}">
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
 
     <h3>Changing colors with the Sass mixin</h3>
     <p>To allow an SVG to be colorized, add <code>var:color.fill="#000"</code> to all path elements on the raw SVG. This defaults the color to black, but allows an override when using the mixin. <b class="text-danger">Warning:</b> this does involve altering the raw SVG which will need to be be updated with any revisions to the source file.</p>
