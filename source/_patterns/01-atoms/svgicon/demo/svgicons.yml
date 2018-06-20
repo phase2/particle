@@ -1,1 +1,5 @@
-svgicon: ''
+svgicon_1:
+  svgname: 'chevron-up'
+svgicon_2:
+  svgname: 'chevron-up'
+  svgfill: 'danger'

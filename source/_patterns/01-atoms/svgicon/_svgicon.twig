@@ -4,12 +4,13 @@
  * svgicon
  *
  * Available variables for svgicon:
- *    - svgicon.variable_name [variable_type]: Description of the variable. Example below.
- *    - svgicon.invert [bool]: When set, colors will be inverted for light display on dark background.
+ *    - svgicon.svgname [string]: String filename of the SVG to use from svg/
+ *    - svgicon.svgfill [string]: Pass in a theme-color to colorize the SVG.
+ *    Otherwise it will default to black.
  */
 #}
 
-<div class="{{ svgfill ? "color-fill--" ~ svgfill : ""}}">
+<div class="svgicon-default{{ svgfill ? " color-fill--" ~ svgfill : ""}}">
   <svg>
       <use xlink:href="{{paths.assets}}/spritemap.svg?cacheBuster={{ randomNumber }}#sprite-{{svgname}}"></use>
   </svg>
