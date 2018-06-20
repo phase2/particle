@@ -22,7 +22,7 @@
     "build:pl": "NODE_ENV='production' webpack --config ./apps/pl/webpack.pl.prod.js",
     "dev:drupal": "NODE_ENV='development' webpack --watch --progress --config ./apps/drupal/webpack.drupal.dev.js",
     "build:drupal": "NODE_ENV='production' webpack --config ./apps/drupal/webpack.drupal.prod.js",
-    "dev:grav": "NODE_ENV='development webpack --watch --progress --config ./apps/grav/webpack.grav.dev.js",
+    "dev:grav": "NODE_ENV='development' webpack --watch --progress --config ./apps/grav/webpack.grav.dev.js",
     "build:grav": "NODE_ENV='production' webpack --config ./apps/grav/webpack.grav.prod.js",
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '**/*.{css,scss}'",
