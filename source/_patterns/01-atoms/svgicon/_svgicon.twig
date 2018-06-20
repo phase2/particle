@@ -9,6 +9,8 @@
  */
 #}
 
-<svg fill="{{svgfill|default('#000')}}" class="svgicon">
-    <use xlink:href="{{paths.assets}}/spritemap.svg?cacheBuster={{ randomNumber }}#sprite-{{svgname}}"></use>
-</svg>
+<div class="{{ svgfill ? "color-fill--" ~ svgfill : ""}}">
+  <svg>
+      <use xlink:href="{{paths.assets}}/spritemap.svg?cacheBuster={{ randomNumber }}#sprite-{{svgname}}"></use>
+  </svg>
+</div>

@@ -46,6 +46,6 @@
     <h2>Using Twig to render SVG elements</h2>
     <p>Using the Twig template renders an SVG element directly to the DOM. The template accepts several arguments: <code>svgname</code> accepts the filename of the SVG to render, <code>svgfill</code> accepts a value to set the change the default fill color of the SVG element from black.</p>
     {% include '@atoms/_svgicon.twig' with {svgname: 'chevron-up'} %}
-    {% include '@atoms/_svgicon.twig' with {svgname: 'chevron-up', svgfill: '#F00'} %}
+    {% include '@atoms/_svgicon.twig' with {svgname: 'chevron-up', svgfill: 'danger'} %}
 
   {% endblock column_1 %}
