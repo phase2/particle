@@ -7,6 +7,15 @@
 // since the SVG is wrapped in a div
 .svgicon-default {
   display: inline-block;
+  width: 40px;
+
+  svg {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+  }
 }
 
 // Loop over every SVG and create a CSS class for it
