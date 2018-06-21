@@ -9,7 +9,12 @@
 }
 
 .svgicon-demo-1 {
-  @include sprite('person', (color: theme-color('primary')));
+  @include sprite(
+    'person',
+    (
+      color: theme-color('primary'),
+    )
+  );
   width: 40px;
   height: 40px;
 }
