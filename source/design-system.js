@@ -2,6 +2,7 @@
  * Design System
  * The kitchen sink of all design components
  */
+import svg4everybody from 'svg4everybody';
 import * as alert from 'atoms/alert';
 import * as branding from 'atoms/branding';
 import * as breadcrumb from 'atoms/breadcrumb';
@@ -22,6 +23,8 @@ import * as article from 'organisms/article';
 import * as footer from 'organisms/footer';
 import * as navbar from 'organisms/navbar';
 import * as basicPage from 'templates/basic-page';
+
+svg4everybody();
 
 const components = {
   alert,
