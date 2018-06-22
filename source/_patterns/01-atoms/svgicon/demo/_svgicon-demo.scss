@@ -1,6 +1,8 @@
 // All component Sass needs non-printing base config
 @import '../../../00-protons/variables';
 @import '../scss/_icons-generated';
+@import '~font-awesome/scss/mixins';
+@import '~font-awesome/scss/variables';
 
 .svgicon-demo-0 {
   @include sprite('chevron-right');
@@ -17,4 +19,26 @@
   );
   width: 40px;
   height: 40px;
+}
+
+// Font-Awesome Sass Examples
+.fontawesome-example {
+  &:before {
+    @include fa-icon();
+    content: $fa-var-train;
+  }
+}
+
+.fontawesome-example2 {
+  &:after {
+    @include fa-icon();
+    content: $fa-var-compass;
+  }
+}
+
+.fontawesome-example3 {
+  &:after {
+    @include fa-icon();
+    content: $fa-var-apple;
+  }
 }
