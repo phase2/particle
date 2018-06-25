@@ -7,6 +7,12 @@
 
     <h2>Using Twig to render SVG elements</h2>
     <p>Using the Twig template renders an SVG element directly to the DOM. The template accepts several arguments: <code>svgname</code> accepts the filename of the SVG to render, <code>svgfill</code> accepts a value to set the change the default fill color of the SVG element from black.</p>
+    <pre class="language-markup mb-3">
+      <code>
+        &#123;&#37; include '@atoms/_svgicon.twig' with { svgname: 'chevron-up', svgfill: 'danger'} &#37;&#125;
+      </code>
+    </pre>
+
     <div class="mb-3">
       {% include '@atoms/_svgicon.twig' with svgicon_1 %}
       {% include '@atoms/_svgicon.twig' with svgicon_2 %}
@@ -25,8 +31,7 @@
     </pre>
       <div class="d-flex justify-content-between mb-3">
         {% for icon in scssIcons %}
-        <div class="icon--{{ icon }}">
-        </div>
+        <i class="icon--{{ icon }}"></i>
         {% endfor %}
       </div>
 
