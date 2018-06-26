@@ -7,8 +7,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
 
-// Custom Imports
-const shared = require('./webpack.particle.dev.js');
 const sassExportData = require('@theme-tools/sass-export-data')({
   name: 'export_data',
   path: path.resolve(__dirname, 'source/_data/'),
@@ -17,6 +15,9 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 // Plugins
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+// Custom Imports
+const shared = require('./webpack.particle.dev.js');
 
 const prod = {
   mode: 'production',

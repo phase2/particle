@@ -7,9 +7,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-// Custom Imports
-const { PATH_SOURCE } = require('./config');
-
 // Loaders
 const autoprefixer = require('autoprefixer');
 const sassExportData = require('@theme-tools/sass-export-data')({
@@ -20,6 +17,9 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+
+// Custom Imports
+const { PATH_SOURCE } = require('./config');
 
 // Helps us track down deprecation during development
 // process.traceDeprecation = true;
