@@ -34,7 +34,7 @@
     "test:unit": "jest",
     "test": "npm run test:unit",
     "setup": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
-    "ci": "npm run lint && npm run test && npm run build:pl",
+    "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal && npm run build:grav",
     "new": "yo ./tools/new-component/index.js"
   },
   "browserslist": [
