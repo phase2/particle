@@ -7,9 +7,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-// Custom Imports
-const { PATH_SOURCE } = require('./config');
-
 // Loaders
 const autoprefixer = require('autoprefixer');
 const sassExportData = require('@theme-tools/sass-export-data')({
@@ -20,6 +17,10 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const IconFontPlugin = require('iconfont-plugin-webpack');
+
+// Custom Imports
+const { PATH_SOURCE } = require('./config');
+
 // Helper file used to generate a svg -> fonticon Sass map.
 const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
