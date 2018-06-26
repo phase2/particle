@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import dropdown, { name } from '../';
+import dropdown, { name } from '..';
 
 const dropHTML = `
   <div class="dropdown">
