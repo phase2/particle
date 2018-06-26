@@ -2,60 +2,64 @@
   {% set container = true %}
   {% block column_1 %}
 
-    <table class="table mt-2">
-      <thead>
-        <tr>
-          <th scope="col">Method</th>
-          <th scope="col">Arguments</th>
-          <th scope="col">Sizing</th>
-          <th scope="col">Change Color</th>
-          <th scope="col">Rendered HTML</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">
-            <a href="#svg-spritesheet">Inline SVG (Spritesheet)</a>
-          </th>
-          <td>svgname: string, svgfill: string</td>
-          <td>Yes. Container div</td>
-          <td>Yes. svgfill property.</td>
-          <td>Renders inline SVG</td>
-        </tr>
-        <tr>
-          <th scope="row">
-            <a href="/pl/patterns/01-atoms-image-demo-image-inline/01-atoms-image-demo-image-inline.html">Inline SVG (Raw)</a>
-          </th>
-          <td>atomic path to raw SVG</td>
-          <td>Yes. Container div</td>
-          <td>Yes. Add class properties to container div.</td>
-          <td>Renders inline SVG</td>
-        </tr>
-        <tr>
-          <th scope="row">
-            <a href="#svg-css">CSS Selector</a>
-          </th>
-          <td>@include sprite(sprite name)</td>
-          <td>Yes. Code width and height.</td>
-          <td>var:color.fill="#000" on raw SVG. Exposes color argument in sprite()</td>
-          <td>None. Attach CSS class to element.</td>
-        </tr>
-        <tr>
-          <th scope="row">
-            <a href="#icon-html">HTML Classes</a>
-          </th>
-          <td>'fa-' + icon name</td>
-          <td>Yes. fa-lg, fa-2x, etc.</td>
-          <td>Yes</td>
-          <td>Use i tags</td>
-        </tr>
-      </tbody>
-    </table>
-
     <h1 id="svg-spritesheet">SVG Icons</h1>
     <p class="lead">Store your SVG files in the SVG subdirectory to have them made available via the <code>_svgicon.twig</code> partial or using a Sass mixin. SVGs are rendered utilizing their filename as a variable.</p>
 
-    <h2>Using Twig to render SVG elements</h2>
+    <h2 id="svgicon-techniques">Techniques</h2>
+    <table class="table mt-2">
+      <thead>
+      <tr>
+        <th scope="col">Method</th>
+        <th scope="col">Arguments</th>
+        <th scope="col">Sizing</th>
+        <th scope="col">Change Color</th>
+        <th scope="col">Rendered HTML</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">
+          <a href="/pl/patterns/01-atoms-image-demo-image-inline/01-atoms-image-demo-image-inline.html">Inline SVG <br>(Raw)</a>
+        </th>
+        <td>atomic path to raw SVG</td>
+        <td>Yes. Container div</td>
+        <td>Yes. Add class properties to container div.</td>
+        <td>Renders inline SVG</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <a href="#svg-spritesheet">Inline SVG <br>(Spritesheet)</a>
+        </th>
+        <td>svgname: string, svgfill: string</td>
+        <td>Yes. Container div</td>
+        <td>Yes. svgfill property.</td>
+        <td>Renders inline SVG</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <a href="#svg-css">CSS Selector</a>
+        </th>
+        <td>@include sprite(sprite name)</td>
+        <td>Yes. Code width and height.</td>
+        <td>var:color.fill="#000" on raw SVG. Exposes color argument in sprite()</td>
+        <td>None. Attach CSS class to element.</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <a href="#icon-html">HTML Classes</a>
+        </th>
+        <td>'fa-' + icon name</td>
+        <td>Yes. fa-lg, fa-2x, etc.</td>
+        <td>Yes</td>
+        <td>Use i tags</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2>Inline SVG (Raw)</h2>
+    <p>INline link goes here.</p>
+
+    <h2>Inline SVG (Spritesheet)</h2>
     <p>Using the Twig template renders an SVG element directly to the DOM. The template accepts several arguments: <code>svgname</code> accepts the filename of the SVG to render, <code>svgfill</code> accepts a value to set the change the default fill color of the SVG element from black.</p>
     <pre class="language-markup mb-3">
       <code>
@@ -84,11 +88,11 @@
         &lt;i class="icon--chevron-up"&gt;&lt;/i&gt;
       </code>
     </pre>
-      <div class="d-flex justify-content-between mb-3">
-        {% for icon in scssIcons %}
+    <div class="d-flex justify-content-between mb-3">
+      {% for icon in scssIcons %}
         <i class="icon--{{ icon }}"></i>
-        {% endfor %}
-      </div>
+      {% endfor %}
+    </div>
 
     <h3>Changing colors with the Sass mixin</h3>
     <p>To allow an SVG to be colorized, add <code>var:color.fill="#000"</code> to all path elements on the raw SVG. This defaults the color to black, but allows an override when using the mixin. <b class="text-danger">Warning:</b> this does involve altering the raw SVG which will need to be be updated with any revisions to the source file.</p>
@@ -129,42 +133,42 @@
         <i class="fa fa-battery-full text-primary" style="font-size: 1.5rem;"></i>
         <i class="fa fa-battery-full bg-dark text-white" style="font-size: 2rem;"></i>
         <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa fa-battery-full</code></p>
-    </div>
+      </div>
 
-    <div class="col p-3 text-center">
-      <i class="fa fa-moon-o"></i>
-      <i class="fa fa-moon-o text-primary" style="font-size: 1.5rem;"></i>
-      <i class="fa fa-moon-o bg-dark text-white" style="font-size: 2rem;"></i>
-      <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa fa-moon-o</code></p>
-    </div>
+      <div class="col p-3 text-center">
+        <i class="fa fa-moon-o"></i>
+        <i class="fa fa-moon-o text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fa fa-moon-o bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa fa-moon-o</code></p>
+      </div>
 
-    <div class="col p-3 text-center">
-      <i class="fa fa-medkit"></i>
-      <i class="fa fa-medkit text-primary" style="font-size: 1.5rem;"></i>
-      <i class="fa fa-medkit bg-dark text-white" style="font-size: 2rem;"></i>
-      <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa fa-medkit</code></p>
-    </div>
+      <div class="col p-3 text-center">
+        <i class="fa fa-medkit"></i>
+        <i class="fa fa-medkit text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fa fa-medkit bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa fa-medkit</code></p>
+      </div>
 
-    <div class="col p-3 text-center" style="max-width: 240px;">
-      <i class="fontawesome-example"></i>
-      <i class="fontawesome-example text-primary" style="font-size: 1.5rem;"></i>
-      <i class="fontawesome-example bg-dark text-white" style="font-size: 2rem;"></i>
-      <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-train;</code></p>
-    </div>
+      <div class="col p-3 text-center" style="max-width: 240px;">
+        <i class="fontawesome-example"></i>
+        <i class="fontawesome-example text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fontawesome-example bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-train;</code></p>
+      </div>
 
-    <div class="col p-3 text-center" style="max-width: 240px;">
-      <i class="fontawesome-example2"></i>
-      <i class="fontawesome-example2 text-primary" style="font-size: 1.5rem;"></i>
-      <i class="fontawesome-example2 bg-dark text-white" style="font-size: 2rem;"></i>
-      <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-compass;</code></p>
-    </div>
+      <div class="col p-3 text-center" style="max-width: 240px;">
+        <i class="fontawesome-example2"></i>
+        <i class="fontawesome-example2 text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fontawesome-example2 bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-compass;</code></p>
+      </div>
 
-    <div class="col p-3 text-center" style="max-width: 240px;">
-      <i class="fontawesome-example3"></i>
-      <i class="fontawesome-example3 text-primary" style="font-size: 1.5rem;"></i>
-      <i class="fontawesome-example3 bg-dark text-white" style="font-size: 2rem;"></i>
-      <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-apple;</code></p>
+      <div class="col p-3 text-center" style="max-width: 240px;">
+        <i class="fontawesome-example3"></i>
+        <i class="fontawesome-example3 text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fontawesome-example3 bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;"><code>@include fa-icon();</code><code>content: $fa-var-apple;</code></p>
+      </div>
     </div>
-  </div>
 
   {% endblock column_1 %}

@@ -58,7 +58,7 @@ const dev = {
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md)$/,
       exec: [
-        `echo 🚀 Pattern Lab ${process.env.NODE_ENV} rebuild running! 🚀`,
+        `echo \n🚀 Pattern Lab ${process.env.NODE_ENV} rebuild running! 🚀\n`,
         'npx gulp compile',
       ],
     }),
