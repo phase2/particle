@@ -5,7 +5,7 @@
  * probably do not actually need a `blerp` value in your code. If you do, please let us know!
  */
 
-import protons from '../';
+import protons from '..';
 
 test('GLOBAL_CONSTANT of `blerp` is available', () => {
   const { GLOBAL_CONSTANT } = protons;
