@@ -7,6 +7,14 @@ import $ from 'jquery';
 // PL-only components, regardless of design system
 import 'atoms/grid';
 
+// Prism highlighting in PL.
+// Prism is kind of dumb and just operates globally.
+import 'prismjs/components/prism-core';
+import 'prismjs/components/prism-twig';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-markup';
+
 // Full design system. May dupe the above, but Webpack don't care.
 import { enableAllComponents } from '../../source/design-system';
 

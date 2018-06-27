@@ -13,6 +13,7 @@
       <tr>
         <th scope="col">Method</th>
         <th scope="col">Example</th>
+        <th scope="col">Output</th>
         <th scope="col">Sizing</th>
         <th scope="col">Change Color</th>
         <th scope="col">Rendered HTML</th>
@@ -25,24 +26,41 @@
             SVG:<br>Raw</a>
         </th>
         <td>
-          <pre class="language-twig"><code>{% verbatim %}{% include '@atoms/_svg.twig' with {
+          <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
   svgpath: '@atoms/svgicon/svg/person.svg',
 } %}{% endverbatim %}</code></pre>
         </td>
+        <td>
+          {% include '@atoms/_svg.twig' with {
+            svgpath: '@atoms/svgicon/svg/person.svg',
+          } %}
+        </td>
         <td>Yes. Container div</td>
-        <td>Yes. Add class properties to container div.</td>
+        <td class="text-center">
+          <i class="fa fa-check fa-2x text-success" aria-hidden="true"></i>
+          <p>Add class properties to container div.</p>
+        </td>
         <td>Renders inline SVG</td>
       </tr>
       <tr>
         <th scope="row" class="text-nowrap">
           <a href="#svg-spritesheet">Inline SVG:<br>Spritesheet</a>
         </th>
-        <td><pre class="language-twig"><code>{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+        <td><pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
   svgname: 'chevron-up',
   svgfill: 'danger', // Optional
 } %}{% endverbatim %}</code></pre></td>
+        <td>
+          {% include '@atoms/_svgicon.twig' with {
+            svgname: 'person',
+            svgfill: 'danger',
+          } %}
+        </td>
         <td>Yes. Container div</td>
-        <td>Yes. svgfill property.</td>
+        <td class="text-center">
+          <i class="fa fa-check fa-2x text-success" aria-hidden="true"></i>
+          <p><code>svgfill</code> property.</p>
+        </td>
         <td>Renders inline SVG</td>
       </tr>
       <tr>
@@ -50,11 +68,14 @@
           <a href="#svg-css">Sass mixin:<br>Custom</a>
         </th>
         <td>
-          <pre class="language-scss"><code>{% verbatim %}.totally-rad-icon {
+          <pre><code class="language-scss">{% verbatim %}.svgicon-demo-0 {
   @include sprite('chevron-right');
   height: 40px;
   width: 40px;
 }{% endverbatim %}</code></pre>
+        </td>
+        <td>
+          <div class="svgicon-demo-0"></div>
         </td>
         <td>Yes. Code width and height.</td>
         <td>var:color.fill="#000" on raw SVG. Exposes color argument in
@@ -66,8 +87,18 @@
         <th scope="row" class="text-nowrap">
           <a href="#svg-css">Sass mixin:<br>Font Awesome</a>
         </th>
-        <td></td>
-        <td></td>
+        <td>
+          <pre><code class="language-scss">{% verbatim %}.fontawesome-example {
+  &:before {
+    @include fa-icon();
+    content: $fa-var-user;
+  }
+}
+{% endverbatim %}</code></pre>
+        </td>
+        <td>
+          <i class="fontawesome-example"></i>
+        </td>
         <td></td>
         <td></td>
       </tr>
@@ -77,7 +108,7 @@
         </th>
         <td>
           {% set htmlclassicon = '<i class="icon--chevron-right"></i>' %}
-          <pre class="language-html"><code>{% autoescape %}{{ htmlclassicon }}{% endautoescape %}</code></pre>
+          <pre><code class="language-markup">{% autoescape %}{{ htmlclassicon }}{% endautoescape %}</code></pre>
         </td>
         <td></td>
         <td></td>
@@ -87,7 +118,8 @@
         <th scope="row" class="text-nowrap">
           <a href="#icon-html">HTML Classes:<br>Font Awesome</a>
         </th>
-        <td>'fa-' + icon name</td>
+        <td>{% set htmlclassicon = '<i class="fa fa-rocket"></i>' %}
+          <pre><code class="language-markup">{% autoescape %}{{ htmlclassicon }}{% endautoescape %}</code></pre></td>
         <td>Yes. fa-lg, fa-2x, etc.</td>
         <td>Yes</td>
         <td>Use i tags</td>
@@ -105,71 +137,73 @@
       template accepts several arguments: <code>svgname</code> accepts the
       filename of the SVG to render, <code>svgfill</code> accepts a value to set
       the change the default fill color of the SVG element from black.</p>
-    <pre class="language-markup mb-3">
-      <code>
-        &#123;&#37; include '@atoms/_svgicon.twig' with { svgname: 'chevron-up', svgfill: 'danger'} &#37;&#125;
-      </code>
-    </pre>
+    <h4 class="mt-3">Example</h4>
+    <pre><code  class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+  svgname: 'chevron-up',
+%}{% endverbatim %}</code></pre>
+    <h4>Output</h4>
+    {% include '@atoms/_svgicon.twig' with {
+      svgname: 'chevron-up',
+    } %}
+    <h4 class="mt-3">Example</h4>
+    <pre><code  class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+  svgname: 'chevron-up',
+  svgfill: 'danger',
+%}{% endverbatim %}</code></pre>
+    <h4>Output</h4>
+    {% include '@atoms/_svgicon.twig' with {
+      svgname: 'chevron-up',
+      svgfill: 'danger',
+    } %}
 
-    <div class="mb-3">
-      {% include '@atoms/_svgicon.twig' with svgicon_1 %}
-      {% include '@atoms/_svgicon.twig' with svgicon_2 %}
-    </div>
-
-    <h2 id="svg-css">Sass mixin: custom</h2>
+    <h2 id="icon-sass-mixin-custom" class="mt-5">Sass mixin: custom</h2>
     <p>The Sass mixin is located in the components scss/_icons-generated.scss
       file which is generated by the Webpack plugin on build. Use the <code>sprite()</code>
       mixin on your CSS class with the SVG filename as an argument. This class
       also needs to have a designated height and width. For your convenience, a
       CSS class is created for each icon in svg/ with the settings below as a
       default. These follow the pattern <code>icon--[svg-filename]</code></p>
-    <pre class="language-css mb-3">
-      <code>
-        .svgicon-demo-0 {
-          @include sprite('chevron-right');
-          height: 40px;
-          width: 40px;
-        }
-      </code>
-    </pre>
-    <pre class="language-html mb-3">
-      <code>
-        &lt;i class="icon--chevron-up"&gt;&lt;/i&gt;
-      </code>
-    </pre>
-    <div class="d-flex justify-content-between mb-3">
+    <h4 class="mt-3">Example</h4>
+    <pre><code class="language-scss">.svgicon-demo-0 {
+  @include sprite('chevron-right');
+  height: 40px;
+  width: 40px;
+}</code></pre>
+    <h4 class="mt-3">Output</h4>
+    <div class="svgicon-demo-0"></div>
+
+    <h3 id="icon-"sass-mixin-custom-colors class="mt-3">Sass mixin: custom w/ colors</h3>
+    <p>To allow an SVG to be colorized, add <code>var:color.fill="#000"</code> to all path elements on the raw SVG. This defaults the color to black, but allows an override when using the mixin. <strong class="text-danger">Warning:</strong> this does involve altering the source SVG to add <code>var:color.fill="#000"</code> to the first <code>path</code> element.
+    </p>
+    <h4>Source SVG</h4>
+    <pre><code class="language-html">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"&gt;
+  &lt;path var:color.fill="#000" d="M460,463.6c0,19.6-15.9,35.4-35.4,35.4l0,0H69.8c-19.6,0-35.5-15.8-35.6-35.4c0,0,0,0,0-0.1V428 c0-93.4,141.9-141.9,141.9-141.9s8.2-14.5,0-35.5c-29.8-22-33.5-56.4-35.5-141.9C146.8,23.1,206.9,2.3,247.1,2.3 S347.4,23,353.6,108.7c-2,85.5-5.7,119.9-35.5,141.9c-8.2,20.9,0,35.5,0,35.5S460,334.6,460,428V463.6z"/&gt;
+&lt;/svg&gt;</code></pre>
+    <h4>Sass with color argument</h4>
+    <pre><code class="language-scss">.svgicon-demo-1 {
+  @include sprite('person', (color: theme-color('primary')));
+  height: 40px;
+  width: 40px;
+}</code></pre>
+    <h4>Output</h4>
+    <div class="svgicon-demo-1 mb-3"></div>
+
+    <h2 id="icon-html-classes-custom" class="mt-5">HTML classes: custom</h2>
+    <p>All icons placed into the @atoms/svgicon/svg/ folder have a class autogenerated in the format <code>icon--{icon-filename}</code></p>
+    {% set htmlclassicon = '<i class="icon--chevron-up"></i>' %}
+    <pre><code class="language-html">{% autoescape %}{{ htmlclassicon  }}{% endautoescape %}</code></pre>
+    <h3 class="mt-3">HTML classes: custom, all classes</h3>
+    <div class="d-flex justify-content-between mt-2">
       {% for icon in scssIcons %}
-        <i class="icon--{{ icon }}"></i>
+        <div class="text-center">
+          <p><i class="icon--{{ icon }}"></i></p>
+          <small><code>.icon--{{ icon }}</code></small>
+        </div>
       {% endfor %}
     </div>
 
-    <h3>Changing colors with the Sass mixin</h3>
-    <p>To allow an SVG to be colorized, add <code>var:color.fill="#000"</code>
-      to all path elements on the raw SVG. This defaults the color to black, but
-      allows an override when using the mixin.
-      <b class="text-danger">Warning:</b> this does involve altering the raw SVG
-      which will need to be be updated with any revisions to the source file.
-    </p>
-    <pre class="language-html">
-      <code>
-        &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"&gt;
-          &lt;path var:color.fill="#000" d="M460,463.6c0,19.6-15.9,35.4-35.4,35.4l0,0H69.8c-19.6,0-35.5-15.8-35.6-35.4c0,0,0,0,0-0.1V428 c0-93.4,141.9-141.9,141.9-141.9s8.2-14.5,0-35.5c-29.8-22-33.5-56.4-35.5-141.9C146.8,23.1,206.9,2.3,247.1,2.3 S347.4,23,353.6,108.7c-2,85.5-5.7,119.9-35.5,141.9c-8.2,20.9,0,35.5,0,35.5S460,334.6,460,428V463.6z"/&gt;
-        &lt;/svg&gt;
-      </code>
-    </pre>
-    <pre class="language-css mb-3">
-      <code>
-        .svgicon-demo-1 {
-          @include sprite('person', (color: theme-color('primary')));
-          height: 40px;
-          width: 40px;
-        }
-      </code>
-    </pre>
-    <div class="svgicon-demo-1 mb-3">
-    </div>
 
-    <h2 id="icon-html">HTML Classes: Font Awesome</h2>
+    <h2 id="icon-html-classes-fa" class="mt-5">HTML Classes: Font Awesome</h2>
     <p>
       <a href="http://fontawesome.io/examples/" target="_blank" rel="noopener noreferrer">Font
         Awesome</a> icons are also available for use inside patterns.</p>

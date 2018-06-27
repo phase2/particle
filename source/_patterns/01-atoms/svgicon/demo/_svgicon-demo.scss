@@ -5,7 +5,7 @@
 @import '~font-awesome/scss/variables';
 
 .svgicon-demo-0 {
-  @include sprite('chevron-right');
+  @include sprite('person');
   height: 40px;
   width: 40px;
 }
@@ -25,7 +25,7 @@
 .fontawesome-example {
   &:before {
     @include fa-icon();
-    content: $fa-var-train;
+    content: $fa-var-user;
   }
 }
 
