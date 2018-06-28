@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const patternBase = './source/_patterns';
-const ignoreFiles = ['.DS_Store'];
+const ignoreFiles = ['.DS_Store', '.DS_Store?', '._.DS_Store', '._.DS_Store?'];
 
 module.exports = class extends Generator {
   prompting() {
