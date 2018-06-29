@@ -2,6 +2,8 @@
  * svgicon
  */
 
+import svg4everybody from 'svg4everybody';
+
 // Module dependencies
 import 'protons';
 
@@ -15,6 +17,8 @@ export const name = 'svgicon';
 
 export function disable() {}
 
-export function enable() {}
+export function enable() {
+  svg4everybody();
+}
 
 export default enable;
