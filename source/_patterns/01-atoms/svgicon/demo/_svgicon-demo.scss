@@ -4,7 +4,7 @@
 @import '~font-awesome/scss/mixins';
 @import '~font-awesome/scss/variables';
 
-.svgicon-demo-0 {
+.svgicon-demo--particle-mixin {
   @include sprite('person');
   height: 40px;
   width: 40px;
@@ -22,7 +22,7 @@
 }
 
 // Font-Awesome Sass Examples
-.fontawesome-example {
+.svgicon-demo--fontawesome-mixin {
   &:before {
     @include fa-icon();
     content: $fa-var-user;
