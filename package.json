@@ -95,7 +95,7 @@
     "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2",
-    "yeoman-generator": "^2.0.5",
+    "yeoman-generator": "^3.0.0",
     "yo": "^2.0.2"
   }
 }
