@@ -14,7 +14,7 @@ const shared = require('../../webpack.particle.dev.js');
 const grav = {
   mode: 'production',
   entry: {
-    'app-grav': ['@babel/polyfill', path.resolve(__dirname, 'index.js')],
+    'app-grav': ['@babel/polyfill'],
   },
   plugins: [
     new webpack.DefinePlugin({
