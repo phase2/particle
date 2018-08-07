@@ -84,7 +84,7 @@
     "pretty-quick": "^1.6.0",
     "resolve-url-loader": "^2.3.0",
     "sass-loader": "^7.0.1",
-    "style-loader": "^0.21.0",
+    "style-loader": "^0.22.0",
     "stylelint": "^9.2.1",
     "stylelint-config-prettier": "^3.2.0",
     "stylelint-scss": "^3.0.0",
