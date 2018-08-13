@@ -2,7 +2,7 @@
 @import '../../../00-protons/variables';
 
 .svgicon-demo--particle-mixin {
-  @include sprite('person');
+  @include sprite('chevron-right');
   height: 40px;
   width: 40px;
 }
