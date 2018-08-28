@@ -35,9 +35,9 @@
               SVG:<br>Raw</a>
           </th>
           <td>
-              <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
-      svgpath: '@atoms/svgicon/svg/person.svg',
-    } %}{% endverbatim %}</code></pre>
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
+  svgpath: '@atoms/svgicon/svg/person.svg',
+} %}{% endverbatim %}</code></pre>
           </td>
           <td>
             <div class="text-center">
@@ -58,9 +58,9 @@
             <a href="#svg-spritesheet">Inline SVG:<br>Spritesheet</a>
           </th>
           <td>
-              <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
-      svgname: 'person',
-    } %}{% endverbatim %}</code></pre>
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+  svgname: 'person',
+} %}{% endverbatim %}</code></pre>
           </td>
           <td>
             <div>
@@ -81,11 +81,11 @@
             <a href="#svg-scss">Sass mixin</a>
           </th>
           <td>
-              <pre><code class="language-scss">{% verbatim %}.svgicon-demo--particle-mixin {
-      @include sprite('person');
-      height: 40px;
-      width: 40px;
-    }{% endverbatim %}</code></pre>
+<pre><code class="language-scss">{% verbatim %}.svgicon-demo--particle-mixin {
+  @include sprite('person');
+  height: 40px;
+  width: 40px;
+}{% endverbatim %}</code></pre>
           </td>
           <td>
             <div class="svgicon-demo--particle-mixin"></div>
@@ -136,13 +136,12 @@
             <a href="#fa-sass">Sass mixin</a>
           </th>
           <td>
-              <pre><code class="language-scss">{% verbatim %}.svgicon-demo--fontawesome-mixin {
-    &:before {
-      @include fa-icon();
-      content: $fa-var-user;
-    }
+<pre><code class="language-scss">{% verbatim %}.svgicon-demo--fontawesome-mixin {
+  &:before {
+    @include fa-icon();
+    content: $fa-var-user;
   }
-  {% endverbatim %}</code></pre>
+}{% endverbatim %}</code></pre>
           </td>
           <td><i class="svgicon-demo--fontawesome-mixin"></i></td>
           <td></td>
@@ -183,10 +182,9 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
   svgname: 'chevron-up',
-  }
-%}{% endverbatim %}</code></pre>
+} %}{% endverbatim %}</code></pre>
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
@@ -198,11 +196,10 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
   svgname: 'chevron-up',
   svgfill: 'danger',
-  }
-%}{% endverbatim %}</code></pre>
+} %}{% endverbatim %}</code></pre>
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
@@ -223,7 +220,7 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-        <pre><code class="language-scss">.svgicon-demo--particle-mixin {
+<pre><code class="language-scss">.svgicon-demo--particle-mixin {
   @include sprite('chevron-right');
   height: 40px;
   width: 40px;
@@ -242,13 +239,13 @@
       to the first <code>path</code> element.
     </p>
     <h5>Source SVG</h5>
-    <pre><code class="language-html">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"&gt;
+<pre><code class="language-html">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"&gt;
   &lt;path var:color.fill="#000" d="M460,463.6c0,19.6-15.9,35.4-35.4,35.4l0,0H69.8c-19.6,0-35.5-15.8-35.6-35.4c0,0,0,0,0-0.1V428 c0-93.4,141.9-141.9,141.9-141.9s8.2-14.5,0-35.5c-29.8-22-33.5-56.4-35.5-141.9C146.8,23.1,206.9,2.3,247.1,2.3 S347.4,23,353.6,108.7c-2,85.5-5.7,119.9-35.5,141.9c-8.2,20.9,0,35.5,0,35.5S460,334.6,460,428V463.6z"/&gt;
 &lt;/svg&gt;</code></pre>
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-        <pre><code class="language-scss">.svgicon-demo--particle-mixin {
+<pre><code class="language-scss">.svgicon-demo--particle-mixin {
   @include sprite('person', (color: theme-color('primary')));
   height: 40px;
   width: 40px;
