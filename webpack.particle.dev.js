@@ -94,10 +94,6 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        // Do NOT babel transpile anything inside node_modules except BOOTSTRAP because we use
-        // Bootstrap src modules that require transpiling. If you're not using Bootstrap, set this
-        // line to: exclude: /node_modules/,
-        exclude: /node_modules\/(?!(bootstrap)\/).*/,
         use: {
           loader: 'babel-loader',
         },
