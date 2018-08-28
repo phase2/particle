@@ -21,7 +21,7 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 // Custom Imports
 const { PATH_SOURCE } = require('./config');
 
-let svgo_config = {
+const svgoConfig = {
   full: true,
   multipass: false,
   js2svg: {
@@ -156,7 +156,7 @@ module.exports = {
         '_patterns/01-atoms/svgicon/scss/_icons-generated.scss',
       ),
       svg4everybody: true,
-      svgo: svgo_config,
+      svgo: svgoConfig,
     }),
   ],
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
