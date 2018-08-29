@@ -16,25 +16,34 @@
 
 {% set accordion_id = random() %}
 
-<div id="{{ 'accordion-' ~ accordion_id }}" role="tablist">
+<div id="{{ 'accordion-' ~ accordion_id }}">
   {% for card in accordion_card_list %}
+
+    {% set expanded = {
+      aria: card.card_expanded ? 'true' : 'false',
+      show: card.card_expanded ? 'show' : '',
+    } %}
+
     {% embed '@molecules/card/_card.twig' %}
+
       {% block card_header %}
-        <div class="card-header" role="tab" id="{{ 'heading-' ~ loop.index }}">
+        <div class="card-header" id="{{ 'heading-' ~ loop.index }}">
           <h5 class="mb-0">
-            <a data-toggle="collapse" href="{{ '#collapse-' ~ loop.index }}" aria-expanded="{{ card_expanded }}" aria-controls="{{ 'collapse-' ~ loop.index }}">
+            <button class="btn btn-link" data-toggle="collapse" data-target="{{ '#collapse-' ~ loop.index }}" aria-expanded="{{ expanded.aria }}" aria-controls="{{ 'collapse-' ~ loop.index }}">
               {{ card.card_header }}
-            </a>
+            </button>
           </h5>
         </div>
       {% endblock card_header %}
+
       {% block card_body %}
-        <div id="{{ 'collapse-' ~ loop.index }}" class="collapse" role="tabpanel" aria-labelledby="{{ 'heading-' ~ loop.index }}" data-parent="{{ 'accordion-' ~ accordion_id }}">
+        <div id="{{ 'collapse-' ~ loop.index }}" class="collapse {{ expanded.show }}" aria-labelledby="{{ 'heading-' ~ loop.index }}" data-parent="{{ '#accordion-' ~ accordion_id }}">
           <div class="card-body">
             {{ card.card_text }}
           </div>
         </div>
         {% endblock card_body %}
+
     {% endembed %}
   {% endfor %}
 </div>
