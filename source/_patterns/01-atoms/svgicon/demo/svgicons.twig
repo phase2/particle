@@ -108,8 +108,9 @@
           <td>
             <i class="icon--person"></i>
           </td>
-          <td></td>
-          <td></td>
+          <td>Yes. Add class with width and height overrides.</td>
+          <td>No. Cannot change color of SVG set with background property.</td>
+          <td>None. Attach CSS class to element.</td>
         </tr>
         </tbody>
       </table>
@@ -140,12 +141,15 @@
   &:before {
     @include fa-icon();
     content: $fa-var-user;
+    font-size: 40px;
+    color: black;
   }
 }{% endverbatim %}</code></pre>
           </td>
           <td><i class="svgicon-demo--fontawesome-mixin"></i></td>
-          <td></td>
-          <td></td>
+          <td>Yes. Adjust font-size property as shown in example.</td>
+          <td>Yes. Set color as shown in example.</td>
+          <td>None. Attach CSS class to element.</td>
         </tr>
 
         <tr>
@@ -160,7 +164,7 @@
           </td>
           <td>Yes. fa-lg, fa-2x, etc.</td>
           <td>Yes</td>
-          <td>Use i tags</td>
+          <td>None. Attach CSS class to element.</td>
         </tr>
 
         </tbody>

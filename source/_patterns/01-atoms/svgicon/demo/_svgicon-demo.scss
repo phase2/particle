@@ -2,7 +2,7 @@
 @import '../../../00-protons/variables';
 
 .svgicon-demo--particle-mixin {
-  @include sprite('chevron-right');
+  @include sprite('person');
   height: 40px;
   width: 40px;
 }
@@ -23,6 +23,8 @@
   &:before {
     @include fa-icon();
     content: $fa-var-user;
+    font-size: 40px;
+    color: black;
   }
 }
 
