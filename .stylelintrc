@@ -1,16 +1,14 @@
 {
-  "plugins": [
-    "stylelint-scss",
+  "extends": [
+    "stylelint-config-prettier"
   ],
-  "ignoreFiles": [
-    "apps/pl/pattern-lab/**/*",
-    "./node_modules/**/*",
-    "source/_patterns/01-atoms/icon/scss/_icons-generated.scss"
+  "plugins": [
+    "stylelint-scss"
   ],
   "rules": {
+    "indentation": 2,
     "declaration-colon-space-after": "always",
     "declaration-no-important": true,
-    "indentation": 2,
     "max-nesting-depth": 3,
     "selector-max-specificity": "0,3,3",
     "selector-max-id": 0,

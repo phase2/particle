@@ -7,11 +7,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-// Custom Imports
-const {
-  PATH_SOURCE,
-} = require('./config');
-
 // Loaders
 const autoprefixer = require('autoprefixer');
 const sassExportData = require('@theme-tools/sass-export-data')({
@@ -22,6 +17,10 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const IconFontPlugin = require('iconfont-plugin-webpack');
+
+// Custom Imports
+const { PATH_SOURCE } = require('./config');
+
 // Helper file used to generate a svg -> fonticon Sass map.
 const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
@@ -43,19 +42,23 @@ module.exports = {
         test: /\.(css|sass|scss)$/,
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
-          { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true, importLoaders: 2 },
+          },
           {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
               ident: 'postcss',
-              plugins: () => [
-                autoprefixer(),
-              ],
+              plugins: () => [autoprefixer()],
             },
           },
           { loader: 'resolve-url-loader' },
-          { loader: 'sass-loader', options: { sourceMap: true, functions: sassExportData } },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true, functions: sassExportData },
+          },
         ],
       },
       {
@@ -69,10 +72,6 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        // Do NOT babel transpile anything inside node_modules except BOOTSTRAP because we use
-        // Bootstrap src modules that require transpiling. If you're not using Bootstrap, set this
-        // line to: exclude: /node_modules/,
-        exclude: /node_modules\/(?!(bootstrap)\/).*/,
         use: {
           loader: 'babel-loader',
         },
@@ -124,11 +123,23 @@ module.exports = {
       src: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/'),
       family: 'iconfont',
       dest: {
-        font: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/font/[family].[type]'),
-        css: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/scss/_icons-generated.scss'),
+        font: path.resolve(
+          __dirname,
+          PATH_SOURCE,
+          '_patterns/01-atoms/icon/font/[family].[type]',
+        ),
+        css: path.resolve(
+          __dirname,
+          PATH_SOURCE,
+          '_patterns/01-atoms/icon/scss/_icons-generated.scss',
+        ),
       },
       watch: {
-        pattern: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/**/*.svg'),
+        pattern: path.resolve(
+          __dirname,
+          PATH_SOURCE,
+          '_patterns/01-atoms/icon/svg/**/*.svg',
+        ),
       },
       cssTemplate: IconFontTemplate,
     }),
@@ -138,9 +149,21 @@ module.exports = {
     alias: {
       protons: path.resolve(__dirname, PATH_SOURCE, '_patterns/00-protons/'),
       atoms: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/'),
-      molecules: path.resolve(__dirname, PATH_SOURCE, '_patterns/02-molecules/'),
-      organisms: path.resolve(__dirname, PATH_SOURCE, '_patterns/03-organisms/'),
-      templates: path.resolve(__dirname, PATH_SOURCE, '_patterns/04-templates/'),
+      molecules: path.resolve(
+        __dirname,
+        PATH_SOURCE,
+        '_patterns/02-molecules/',
+      ),
+      organisms: path.resolve(
+        __dirname,
+        PATH_SOURCE,
+        '_patterns/03-organisms/',
+      ),
+      templates: path.resolve(
+        __dirname,
+        PATH_SOURCE,
+        '_patterns/04-templates/',
+      ),
       pages: path.resolve(__dirname, PATH_SOURCE, '_patterns/05-pages/'),
     },
   },

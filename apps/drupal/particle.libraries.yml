@@ -10,17 +10,13 @@ core:
   # see all in Drupal's `core/core.libraries.yml`
   dependencies:
     - particle/jquery
-    - particle/lodash
     - core/drupal
     - core/drupalSettings
 
-# Create custom jQuery and Lodash libraries
+# Create custom jQuery libraries
 # that'll override the Drupal core jQuery and Underscore libraries
 # See `libraries-override` in particle.info.yml
 jquery:
   js:
-    /themes/particle/dist/assets/drupal-jquery.js: { minified: true, weight: -20 }
-
-lodash:
-  js:
-    /themes/particle/dist/assets/drupal-lodash.js: { minified: true, weight: -20 }
+    /themes/particle/dist/assets/drupal-jquery.js:
+      { minified: true, weight: -20 }

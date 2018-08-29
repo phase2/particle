@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
-import { name } from '../';
+import { name } from '..';
 import * as actions from '../src/actions';
 import * as types from '../src/action-types';
 import store from '../src/store';
-import attach from '../src/';
+import attach from '../src';
 
 import mockData from './mock-data.json';
 
@@ -12,7 +12,7 @@ beforeAll(() => {
   // Mock $.get() to avoid network calls during tests
   $.get = function mockGet() {
     // @TODO: Add `reject` to args in promise
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       resolve(mockData);
     });
   };

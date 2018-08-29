@@ -15,18 +15,31 @@ function render() {
           Filter: ${renderState.activeFilter} | Fetch: ${renderState.isFetching}
         </h5>
         <p>
-          ${renderState.allFilters.map(optionFilter => `
-            <a class="card-link ${optionFilter === renderState.activeFilter ? 'text-secondary' : ''}" href="#">
+          ${renderState.allFilters
+            .map(
+              optionFilter => `
+            <a class="card-link ${
+              optionFilter === renderState.activeFilter ? 'text-secondary' : ''
+            }" href="#">
               ${optionFilter}
             </a>
-          `).join('')}
+          `,
+            )
+            .join('')}
         </p>
       </div>
-      
+
       <ul class="list-group list-group-flush">
-        ${renderState.filteredData.map(crypto => `
-          <li class="list-group-item">${crypto.rank}. ${crypto.name} | $${crypto.price_usd} | ${crypto.symbol}</li>
-        `).join('')}
+        ${renderState.filteredData
+          .map(crypto => {
+            const { rank, name, price_usd: priceUSD, symbol } = crypto;
+            return `
+              <li class="list-group-item">
+                ${rank}. ${name} | $${priceUSD} | ${symbol}
+              </li>
+            `;
+          })
+          .join('')}
       </ul>
     </div>
   `;
@@ -36,7 +49,13 @@ function render() {
 
   // Attach events
   $dom.on('click', 'a', function filterClick() {
-    store.dispatch(setFilter($(this).text().trim()));
+    store.dispatch(
+      setFilter(
+        $(this)
+          .text()
+          .trim(),
+      ),
+    );
   });
 
   return $dom;

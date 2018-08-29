@@ -6,6 +6,7 @@
 
 // Library Imports
 const path = require('path');
+const { ProgressPlugin } = require('webpack');
 const merge = require('webpack-merge');
 
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
@@ -13,7 +14,6 @@ const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-fil
 // Custom Imports
 const particle = require('../../webpack.particle.dev');
 const pl = require('./webpack.pl.shared');
-
 
 // Webpack Entry Points
 const dev = {
@@ -30,7 +30,13 @@ const dev = {
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
     inline: true, // Injects all the webpack dev server code right in the page
+    // All stats available here: https://webpack.js.org/configuration/stats/
     stats: {
+      depth: true,
+      entrypoints: true,
+      chunkModules: true,
+      chunkOrigins: true,
+      env: true,
       colors: true,
       hash: true,
       version: true,
@@ -48,9 +54,13 @@ const dev = {
     },
   },
   plugins: [
+    new ProgressPlugin({ profile: false }),
     new RunScriptOnFiletypeChange({
-      test: /\.(twig|yml|yaml|md)$/,
-      exec: 'echo "\n🚀 PATTERN LAB REBUILD RUNNING 🚀" && npm run dev:pl:gulp',
+      test: /\.(twig|yml|md)$/,
+      exec: [
+        `echo 🚀 Pattern Lab ${process.env.NODE_ENV} rebuild running! 🚀`,
+        'npx gulp compile',
+      ],
     }),
   ],
 };

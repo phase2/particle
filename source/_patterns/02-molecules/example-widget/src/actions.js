@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 import * as types from './action-types';
 
 /*
@@ -31,14 +29,14 @@ export function requestCryptoSuccess(crypto, data) {
 }
 
 export function fetchCryptos(crypto) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(requestCrypto(crypto));
 
-    return $.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-      .then(response => dispatch(requestCryptoSuccess(crypto, response)))
+    return fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+      .then(response => response.json())
+      .then(cryptos => dispatch(requestCryptoSuccess(crypto, cryptos)))
       .then(() => dispatch(setFilter(crypto)));
   };
 }
-
 
 export default setFilter;
