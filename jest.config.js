@@ -1,6 +1,7 @@
 /* eslint max-len: 0 */
 module.exports = {
   verbose: true,
+  testURL: 'http://localhost/',
   // If jest can't find a library in node_modules, include it here
   transformIgnorePatterns: ['!node_modules/bootstrap'],
   moduleNameMapper: {
