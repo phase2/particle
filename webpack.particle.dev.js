@@ -17,13 +17,10 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const IconFontPlugin = require('iconfont-plugin-webpack');
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
 // Custom Imports
 const { PATH_SOURCE } = require('./config');
-
-// Helper file used to generate a svg -> fonticon Sass map.
-const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
 // Helps us track down deprecation during development
 // process.traceDeprecation = true;
@@ -133,30 +130,18 @@ module.exports = {
     }),
     // Yell at us while writing Sass
     new StyleLintPlugin(),
-    // Iconfont generation from SVGs
-    new IconFontPlugin({
-      src: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/icon/svg/'),
-      family: 'iconfont',
-      dest: {
-        font: path.resolve(
-          __dirname,
-          PATH_SOURCE,
-          '_patterns/01-atoms/icon/font/[family].[type]',
-        ),
-        css: path.resolve(
-          __dirname,
-          PATH_SOURCE,
-          '_patterns/01-atoms/icon/scss/_icons-generated.scss',
-        ),
-      },
-      watch: {
-        pattern: path.resolve(
-          __dirname,
-          PATH_SOURCE,
-          '_patterns/01-atoms/icon/svg/**/*.svg',
-        ),
-      },
-      cssTemplate: IconFontTemplate,
+    new SVGSpritemapPlugin({
+      src: path.resolve(
+        __dirname,
+        PATH_SOURCE,
+        '_patterns/01-atoms/svgicon/svg/**/*.svg',
+      ),
+      styles: path.resolve(
+        __dirname,
+        PATH_SOURCE,
+        '_patterns/01-atoms/svgicon/scss/_icons-generated.scss',
+      ),
+      svg4everybody: true,
     }),
   ],
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
