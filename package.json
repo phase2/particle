@@ -48,7 +48,8 @@
     "jquery": "^3.3.1",
     "popper.js": "^1.14.4",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "svg4everybody": "^2.1.9"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -75,7 +76,6 @@
     "glob-loader": "^0.3.0",
     "gulp": "^4.0.0",
     "husky": "^1.0.0-rc.13",
-    "iconfont-plugin-webpack": "^1.1.0",
     "jest": "^22.4.4",
     "js-yaml": "^3.12.0",
     "lodash": "^4.17.10",
@@ -83,6 +83,7 @@
     "postcss-loader": "^3.0.0",
     "prettier": "^1.14.2",
     "pretty-quick": "^1.6.0",
+    "prismjs": "^1.15.0",
     "resolve-url-loader": "^2.3.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
@@ -90,6 +91,7 @@
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-scss": "^3.3.0",
     "stylelint-webpack-plugin": "^0.10.5",
+    "svg-spritemap-webpack-plugin": "^2.6.0",
     "through2": "^2.0.3",
     "url-loader": "^1.1.1",
     "webpack": "^4.17.1",
