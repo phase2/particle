@@ -1,0 +1,43 @@
+// All component Sass needs non-printing base config
+@import '../../../00-protons/variables';
+
+.svgicon-demo--particle-mixin {
+  @include sprite('person');
+  height: 40px;
+  width: 40px;
+}
+
+.svgicon-demo-1 {
+  @include sprite(
+    'person',
+    (
+      color: theme-color('primary'),
+    )
+  );
+  width: 40px;
+  height: 40px;
+}
+
+// Font-Awesome Sass Examples
+.svgicon-demo--fontawesome-mixin {
+  &:before {
+    @include fa-icon();
+    content: $fa-var-user;
+    font-size: 40px;
+    color: black;
+  }
+}
+
+.fontawesome-example2 {
+  &:after {
+    @include fa-icon();
+    content: $fa-var-compass;
+  }
+}
+
+.fontawesome-example3 {
+  &:after {
+    @include fa-icon();
+    content: $fa-var-apple;
+  }
+}

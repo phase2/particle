@@ -1,0 +1,369 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+  {% block column_1 %}
+
+    <h1 class="mt-5">SVG Icons</h1>
+    <p class="lead">Store your SVG files in the SVG subdirectory to have them
+      made available via the <code>_svgicon.twig</code> partial or using a Sass
+      mixin. SVGs are rendered utilizing their filename as a variable. FontAwesome
+      icons can also be used through an HTML class or a Sass mixin.
+    </p>
+
+    <p class="subtext">Note: If you’ve exported from Illustrator or Sketch you should be good to use the svgs directly.
+      However if you’ve used Inkscape, there are some issues with the added markup from the application. Use the
+      following fiddle to clean extra markup:
+      <a href="https://jsfiddle.net/alexanderby/31nmr8f7/">https://jsfiddle.net/alexanderby/31nmr8f7/</a></p>
+
+    <h5>SVG File Techniques Overview</h5>
+    <div class="table-responsive">
+      <table class="table mt-2">
+        <thead>
+        <tr>
+          <th scope="col">Method</th>
+          <th scope="col">Example</th>
+          <th scope="col">Output</th>
+          <th scope="col">Sizing</th>
+          <th scope="col">Change Color</th>
+          <th scope="col">Rendered HTML</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+          <th scope="row" class="text-nowrap">
+            <a href="#svg-raw">Inline
+              SVG:<br>Raw</a>
+          </th>
+          <td>
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
+  svgpath: '@atoms/svgicon/svg/person.svg',
+} %}{% endverbatim %}</code></pre>
+          </td>
+          <td>
+            <div class="text-center">
+                <span style="width: 50%;">
+                  {% include '@atoms/_svg.twig' with {
+                    svgpath: '@atoms/svgicon/svg/person.svg',
+                  } %}
+                </span>
+            </div>
+          </td>
+          <td>Yes. Container div</td>
+          <td>Add class properties to container div.</td>
+          <td>Renders inline SVG</td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="text-nowrap">
+            <a href="#svg-spritesheet">Inline SVG:<br>Spritesheet</a>
+          </th>
+          <td>
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+  svgname: 'person',
+} %}{% endverbatim %}</code></pre>
+          </td>
+          <td>
+            <div>
+              {% include '@atoms/_svgicon.twig' with {
+                svgname: 'person',
+              } %}
+            </div>
+          </td>
+          <td>Yes. Container div</td>
+          <td>
+            <code>svgfill</code> property.
+          </td>
+          <td>Renders inline SVG</td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="text-nowrap">
+            <a href="#svg-scss">Sass mixin</a>
+          </th>
+          <td>
+<pre><code class="language-scss">{% verbatim %}.svgicon-demo--particle-mixin {
+  @include sprite('person');
+  height: 40px;
+  width: 40px;
+}{% endverbatim %}</code></pre>
+          </td>
+          <td>
+            <div class="svgicon-demo--particle-mixin"></div>
+          </td>
+          <td>Yes. Code width and height.</td>
+          <td>var:color.fill="#000" on raw SVG. Exposes color argument in
+            sprite()
+          </td>
+          <td>None. Attach CSS class to element.</td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="text-nowrap">
+            <a href="#icon-html">HTML Classes</a>
+          </th>
+          <td>
+            {% set htmlclassicon = '<i class="icon--person"></i>' %}
+            <pre><code class="language-markup">{% autoescape %}{{ htmlclassicon }}{% endautoescape %}</code></pre>
+          </td>
+          <td>
+            <i class="icon--person"></i>
+          </td>
+          <td>Yes. Add class with width and height overrides.</td>
+          <td>No. Cannot change color of SVG set with background property.</td>
+          <td>None. Attach CSS class to element.</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <h5>FontAwesome Techniques Overview</h5>
+    <div class="table-responsive">
+      <table class="table mt-2">
+        <thead>
+        <tr>
+          <th scope="col">Method</th>
+          <th scope="col">Example</th>
+          <th scope="col">Output</th>
+          <th scope="col">Sizing</th>
+          <th scope="col">Change Color</th>
+          <th scope="col">Rendered HTML</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+          <th scope="row" class="text-nowrap">
+            <a href="#fa-sass">Sass mixin</a>
+          </th>
+          <td>
+<pre><code class="language-scss">{% verbatim %}.svgicon-demo--fontawesome-mixin {
+  &:before {
+    @include fa-icon();
+    content: $fa-var-user;
+    font-size: 40px;
+    color: black;
+  }
+}{% endverbatim %}</code></pre>
+          </td>
+          <td><i class="svgicon-demo--fontawesome-mixin"></i></td>
+          <td>Yes. Adjust font-size property as shown in example.</td>
+          <td>Yes. Set color as shown in example.</td>
+          <td>None. Attach CSS class to element.</td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="text-nowrap">
+            <a href="#fa-html">HTML Classes</a>
+          </th>
+          <td>{% set htmlclassuser = '<i class="fa fa-user"></i>' %}
+            <pre><code class="language-markup">{% autoescape %}{{ htmlclassuser }}{% endautoescape %}</code></pre>
+          </td>
+          <td>
+            <i class="fa fa-user"></i>
+          </td>
+          <td>Yes. fa-lg, fa-2x, etc.</td>
+          <td>Yes</td>
+          <td>None. Attach CSS class to element.</td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <h2>SVG File Techniques</h2>
+    <h4 id="svg-raw" class="mt-5">Inline SVG: Raw</h4>
+    <p>We can print any SVG directly via <code>@atoms/image/_svg.twig</code>.
+      <a href="/pl/patterns/01-atoms-image-demo-image-inline/01-atoms-image-demo-image-inline.html">See
+        that component for details.</a></p>
+
+
+    <h4 id="svg-spritesheet" class="mt-5">Inline SVG: Spritesheet</h4>
+    <p>Using the Twig template renders an SVG element directly to the DOM. The
+      template accepts several arguments: <code>svgname</code> accepts the
+      filename of the SVG to render, <code>svgfill</code> accepts a value to set
+      the change the default fill color of the SVG element from black.</p>
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <h5>Example</h5>
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+  svgname: 'chevron-up',
+} %}{% endverbatim %}</code></pre>
+      </div>
+      <div class="col-sm-6">
+        <h5>Output</h5>
+        {% include '@atoms/_svgicon.twig' with {
+          svgname: 'chevron-up',
+        } %}
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <h5>Example</h5>
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+  svgname: 'chevron-up',
+  svgfill: 'danger',
+} %}{% endverbatim %}</code></pre>
+      </div>
+      <div class="col-sm-6">
+        <h5>Output</h5>
+        {% include '@atoms/_svgicon.twig' with {
+          svgname: 'chevron-up',
+          svgfill: 'danger',
+        } %}
+      </div>
+    </div>
+
+    <h4 id="svg-scss" class="mt-5">Sass mixin: Particle</h4>
+    <p>The Sass mixin is located in the components scss/_icons-generated.scss
+      file which is generated by the Webpack plugin on build. Use the <code>sprite()</code>
+      mixin on your CSS class with the SVG filename as an argument. This class
+      also needs to have a designated height and width. For your convenience, a
+      CSS class is created for each icon in svg/ with the settings below as a
+      default. These follow the pattern <code>icon--[svg-filename]</code></p>
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <h5>Example</h5>
+<pre><code class="language-scss">.svgicon-demo--particle-mixin {
+  @include sprite('chevron-right');
+  height: 40px;
+  width: 40px;
+}</code></pre>
+      </div>
+      <div class="col-sm-6">
+        <h5>Output</h5>
+        <div class="svgicon-demo--particle-mixin"></div>
+      </div>
+    </div>
+
+    <h5 id="icon-sass-mixin-custom-colors" class="mt-3">Sass mixin: Particle w/ colors</h5>
+    <p>To allow an SVG to be colorized, add <code>var:color.fill="#000"</code> to all path elements on the raw SVG. This
+      defaults the color to black, but allows an override when using the mixin. <strong
+        class="text-danger">Warning:</strong> this does involve altering the source SVG to add <code>var:color.fill="#000"</code>
+      to the first <code>path</code> element.
+    </p>
+    <h5>Source SVG</h5>
+<pre><code class="language-html">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"&gt;
+  &lt;path var:color.fill="#000" d="M460,463.6c0,19.6-15.9,35.4-35.4,35.4l0,0H69.8c-19.6,0-35.5-15.8-35.6-35.4c0,0,0,0,0-0.1V428 c0-93.4,141.9-141.9,141.9-141.9s8.2-14.5,0-35.5c-29.8-22-33.5-56.4-35.5-141.9C146.8,23.1,206.9,2.3,247.1,2.3 S347.4,23,353.6,108.7c-2,85.5-5.7,119.9-35.5,141.9c-8.2,20.9,0,35.5,0,35.5S460,334.6,460,428V463.6z"/&gt;
+&lt;/svg&gt;</code></pre>
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <h5>Example</h5>
+<pre><code class="language-scss">.svgicon-demo--particle-mixin {
+  @include sprite('person', (color: theme-color('primary')));
+  height: 40px;
+  width: 40px;
+}</code></pre>
+      </div>
+      <div class="col-sm-6">
+        <h4>Output</h4>
+        <div class="svgicon-demo-1 mb-3"></div>
+      </div>
+    </div>
+
+
+    <h4 id="icon-html-classes-custom" class="mt-5">SVG from HTML classes</h4>
+    <p>All icons placed into the @atoms/svgicon/svg/ folder have a class autogenerated in the format <code>icon--{icon-filename}</code>
+    </p>
+    {% set htmlclassicon = '<i class="icon--chevron-up"></i>' %}
+    <pre><code class="language-html">{% autoescape %}{{ htmlclassicon }}{% endautoescape %}</code></pre>
+    <h4 class="mt-3">SVG Library Reference</h4>
+    <div class="d-flex justify-content-between mt-2">
+      {% for icon in scssIcons %}
+        <div class="text-center">
+          <p><i class="icon--{{ icon }}"></i></p>
+          <small><code>.icon--{{ icon }}</code></small>
+        </div>
+      {% endfor %}
+    </div>
+
+
+
+    <h2 class="mt-5">Font Awesome Techniques</h2>
+    <p>
+      <a href="http://fontawesome.io/examples/" target="_blank" rel="noopener noreferrer">Font
+        Awesome</a> icons are also available for use inside patterns.</p>
+
+    <h4 id="fa-sass">Sass Mixin</h4>
+    <p>Font awesome icons can be implemented in Sass in just two lines:</p>
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <h4>Example</h4>
+        <pre><code class="language-scss">.svgicon-demo--fontawesome-mixin {
+  @include fa-icon();
+  content: $fa-icon-name;
+}</code></pre>
+      </div>
+      <div class="col-sm-6">
+        <h4 class="mt-3">Output</h4>
+        <div class="svgicon-demo--fontawesome-mixin"></div>
+      </div>
+    </div>
+    <p>See demo/_svgicon-demo.scss for an example of how the Sass approach
+      works.</p>
+
+    <h4 id="fa-html" class="mt-5">HTML Classes</h4>
+
+    <p>They can also be easily added to inline elements (we recommend using
+      <b>span</b> or <b>i</b> tags) with two classes: <code>fa</code> and <code>fa-icon-name</code>.
+    </p>
+    <pre><code class="language-html">{% autoescape %}{{ htmlclassuser }}{% endautoescape %}</code></pre>
+
+    <p>There are currently 675 icons available from
+      <a href="http://fontawesome.io/examples/" target="_blank">Font Awesome</a>,
+      sky's the limit.</p>
+
+    <div class="d-flex align-items-center flex-wrap" style="min-height: 10rem;">
+      <div class="col p-3 text-center">
+        <i class="fa fa-battery-full"></i>
+        <i class="fa fa-battery-full text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fa fa-battery-full bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa
+            fa-battery-full</code></p>
+      </div>
+
+      <div class="col p-3 text-center">
+        <i class="fa fa-moon-o"></i>
+        <i class="fa fa-moon-o text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fa fa-moon-o bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa
+            fa-moon-o</code></p>
+      </div>
+
+      <div class="col p-3 text-center">
+        <i class="fa fa-medkit"></i>
+        <i class="fa fa-medkit text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fa fa-medkit bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap;"><code>fa
+            fa-medkit</code></p>
+      </div>
+
+      <div class="col p-3 text-center" style="max-width: 240px;">
+        <i class="svgicon-demo--fontawesome-mixin"></i>
+        <i class="svgicon-demo--fontawesome-mixin text-primary" style="font-size: 1.5rem;"></i>
+        <i class="svgicon-demo--fontawesome-mixin bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;">
+          <code>@include fa-icon();</code><code>content: $fa-var-train;</code>
+        </p>
+      </div>
+
+      <div class="col p-3 text-center" style="max-width: 240px;">
+        <i class="fontawesome-example2"></i>
+        <i class="fontawesome-example2 text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fontawesome-example2 bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;">
+          <code>@include fa-icon();</code><code>content: $fa-var-compass;</code>
+        </p>
+      </div>
+
+      <div class="col p-3 text-center" style="max-width: 240px;">
+        <i class="fontawesome-example3"></i>
+        <i class="fontawesome-example3 text-primary" style="font-size: 1.5rem;"></i>
+        <i class="fontawesome-example3 bg-dark text-white" style="font-size: 2rem;"></i>
+        <p class="w-100 pt-3" style="white-space: nowrap; display: flex; flex-direction: column;">
+          <code>@include fa-icon();</code><code>content: $fa-var-apple;</code>
+        </p>
+      </div>
+    </div>
+
+  {% endblock column_1 %}

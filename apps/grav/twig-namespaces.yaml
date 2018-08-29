@@ -7,7 +7,6 @@ namespaces:
     paths:
       - user/themes/particle/source/_patterns/01-atoms
       - user/themes/particle/source/_patterns/01-atoms/grid
-      - user/themes/particle/source/_patterns/01-atoms/icon
       - user/themes/particle/source/_patterns/01-atoms/alert
       - user/themes/particle/source/_patterns/01-atoms/badge
       - user/themes/particle/source/_patterns/01-atoms/image
@@ -16,6 +15,7 @@ namespaces:
       - user/themes/particle/source/_patterns/01-atoms/dropdown
       - user/themes/particle/source/_patterns/01-atoms/breadcrumb
       - user/themes/particle/source/_patterns/01-atoms/list-group
+      - user/themes/particle/source/_patterns/01-atoms/svgicon
   molecules:
     paths:
       - user/themes/particle/source/_patterns/02-molecules
@@ -48,11 +48,11 @@ generated-namespaces:
     paths:
       - ../../source/_patterns/01-atoms
       - ../../source/_patterns/01-atoms/grid
-      - ../../source/_patterns/01-atoms/icon
       - ../../source/_patterns/01-atoms/alert
       - ../../source/_patterns/01-atoms/badge
       - ../../source/_patterns/01-atoms/image
       - ../../source/_patterns/01-atoms/button
+      - ../../source/_patterns/01-atoms/svgicon
       - ../../source/_patterns/01-atoms/branding
       - ../../source/_patterns/01-atoms/dropdown
       - ../../source/_patterns/01-atoms/breadcrumb
