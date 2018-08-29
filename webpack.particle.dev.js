@@ -8,9 +8,6 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 
-// Custom Imports
-const { PATH_SOURCE } = require('./config');
-
 // Loaders
 const autoprefixer = require('autoprefixer');
 const sassExportData = require('@theme-tools/sass-export-data')({
@@ -21,6 +18,10 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const IconFontPlugin = require('iconfont-plugin-webpack');
+
+// Custom Imports
+const { PATH_SOURCE } = require('./config');
+
 // Helper file used to generate a svg -> fonticon Sass map.
 const IconFontTemplate = require('./source/_patterns/01-atoms/icon/templates/iconfont-template');
 
@@ -82,10 +83,6 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        // Do NOT babel transpile anything inside node_modules except BOOTSTRAP because we use
-        // Bootstrap src modules that require transpiling. If you're not using Bootstrap, set this
-        // line to: exclude: /node_modules/,
-        exclude: /node_modules\/(?!(bootstrap)\/).*/,
         use: {
           loader: 'babel-loader',
           options: {

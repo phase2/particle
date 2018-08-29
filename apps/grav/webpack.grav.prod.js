@@ -4,7 +4,6 @@
  */
 
 // Library Imports
-const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 
@@ -14,7 +13,7 @@ const shared = require('../../webpack.particle.dev.js');
 const grav = {
   mode: 'production',
   entry: {
-    'app-grav': [path.resolve(__dirname, 'index.js')],
+    'app-grav': ['@babel/polyfill'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -23,4 +22,4 @@ const grav = {
   ],
 };
 
-module.exports = merge(shared, grav);
+module.exports = merge.strategy({ 'entry.app-grav': 'prepend' })(shared, grav);

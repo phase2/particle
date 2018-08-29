@@ -26,4 +26,3 @@ export function enable($context) {
 export function disable() {}
 
 export default enable;
-

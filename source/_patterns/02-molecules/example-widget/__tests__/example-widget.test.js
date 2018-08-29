@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
-import { name } from '../';
+import { name } from '..';
 import * as actions from '../src/actions';
 import * as types from '../src/action-types';
 import store from '../src/store';
-import attach from '../src/';
+import attach from '../src';
 
 import mockData from './mock-data.json';
 

@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const patternBase = './source/_patterns';
+const ignoreFiles = ['.DS_Store', '.DS_Store?', '._.DS_Store', '._.DS_Store?'];
 
 module.exports = class extends Generator {
   prompting() {
@@ -20,7 +21,10 @@ module.exports = class extends Generator {
         type: 'list',
         name: 'patternType',
         message: 'Where would you like this new component?',
-        choices: fs.readdirSync(patternBase, 'utf8'),
+        choices: fs
+          .readdirSync(patternBase, 'utf8')
+          // Ignore trash files
+          .filter(choicePath => !ignoreFiles.includes(choicePath)),
       },
       {
         type: 'list',
@@ -28,7 +32,10 @@ module.exports = class extends Generator {
         message: 'Where in here?',
         choices(answers) {
           const folder = path.join(patternBase, answers.patternType);
-          const subfolders = fs.readdirSync(folder, 'utf8');
+          const subfolders = fs
+            .readdirSync(folder, 'utf8')
+            // Ignore trash files
+            .filter(choicePath => !ignoreFiles.includes(choicePath));
           return ['./'].concat(subfolders);
         },
       },

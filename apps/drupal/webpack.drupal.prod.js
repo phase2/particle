@@ -10,6 +10,14 @@ const merge = require('webpack-merge');
 const particle = require('../../webpack.particle.prod');
 const drupal = require('./webpack.drupal.shared');
 
-const prod = {};
+const prod = {
+  entry: {
+    'app-drupal': ['@babel/polyfill'],
+  },
+};
 
-module.exports = merge(particle, drupal, prod);
+module.exports = merge.strategy({ 'entry.app-drupal': 'prepend' })(
+  particle,
+  drupal,
+  prod,
+);

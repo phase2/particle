@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import button, { name } from '../';
+import button, { name } from '..';
 
 test('button component is registered', () => {
   expect(name).toBe('button');

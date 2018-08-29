@@ -12,7 +12,7 @@ Vue.use(Vuex);
  * STATE
  */
 const state = {
-  message: 'Good news everyone! Store\'s open for business.',
+  message: "Good news everyone! Store's open for business.",
   card: '',
 };
 
@@ -32,7 +32,7 @@ const actions = {
   getCardItems: ({ commit }) => {
     // You can make whatever API call you need here in actions.
     // In this case, it's jquery grabbing an example json file.
-    $.getJSON('https://jsonplaceholder.typicode.com/users', (data) => {
+    $.getJSON('https://jsonplaceholder.typicode.com/users', data => {
       // Your action should commit a mutation on the state.
       commit('ADD_CARD_ITEMS', data);
     });
