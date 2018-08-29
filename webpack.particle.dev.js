@@ -21,31 +21,6 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 // Custom Imports
 const { PATH_SOURCE } = require('./config');
 
-const svgoConfig = {
-  full: true,
-  multipass: false,
-  js2svg: {
-    pretty: true,
-    indent: '  ',
-  },
-  plugins: [
-    {
-      removeEditorsNSData: {
-        additionalNamespaces: ['http://www.figma.com/figma/ns'],
-      },
-    },
-    {
-      removeDesc: { removeAny: true },
-    },
-    // 'removeTitle', // This doesn't actually enable disabled by default plugins
-    {
-      removeTitle: {},
-    }, // pass it an argument to enable
-    'removeComments', // does enable default plugins. (using { full: true } )
-    'removeMetadata',
-  ],
-};
-
 // Helps us track down deprecation during development
 // process.traceDeprecation = true;
 
@@ -152,7 +127,6 @@ module.exports = {
         '_patterns/01-atoms/svgicon/scss/_icons-generated.scss',
       ),
       svg4everybody: true,
-      svgo: svgoConfig,
     }),
   ],
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
