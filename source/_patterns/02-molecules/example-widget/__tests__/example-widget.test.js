@@ -74,3 +74,5 @@ test('renders if attachPoint is found in DOM', () => {
   const $found = $attachPoint.find('.example-widget');
   expect($found).toHaveLength(1);
 });
+
+// Note: jest-fetch-mock is available here to mock various fetch results. Use it!
