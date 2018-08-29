@@ -22,7 +22,7 @@
     "build:pl": "NODE_ENV='production' webpack --config ./apps/pl/webpack.pl.prod.js",
     "dev:drupal": "NODE_ENV='development' webpack --watch --progress --config ./apps/drupal/webpack.drupal.dev.js",
     "build:drupal": "NODE_ENV='production' webpack --config ./apps/drupal/webpack.drupal.prod.js",
-    "dev:grav": "NODE_ENV='development webpack --watch --progress --config ./apps/grav/webpack.grav.dev.js",
+    "dev:grav": "NODE_ENV='development' webpack --watch --progress --config ./apps/grav/webpack.grav.dev.js",
     "build:grav": "NODE_ENV='production' webpack --config ./apps/grav/webpack.grav.prod.js",
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '**/*.{css,scss}'",
@@ -60,10 +60,10 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.0",
-    "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.4.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^2.10.0",
+    "eslint-config-prettier": "^3.0.1",
     "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-loader": "^2.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -95,7 +95,7 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.6",
     "webpack-merge": "^4.1.4",
-    "yeoman-generator": "^2.0.5",
+    "yeoman-generator": "^3.1.1",
     "yo": "^2.0.5"
   }
 }
