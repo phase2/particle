@@ -11,6 +11,14 @@ const merge = require('webpack-merge');
 const particle = require('../../webpack.particle.prod');
 const pl = require('./webpack.pl.shared');
 
-const prod = {};
+const prod = {
+  entry: {
+    'app-pl': ['@babel/polyfill'],
+  },
+};
 
-module.exports = merge(particle, pl, prod);
+module.exports = merge.strategy({ 'entry.app-pl': 'prepend' })(
+  particle,
+  pl,
+  prod,
+);
