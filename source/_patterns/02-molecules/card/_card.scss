@@ -1,10 +1,12 @@
-// All component Sass needs non-printing base config
-@import '../../00-protons/variables';
+// The non-printing variables, functions, and mixins of 00-protons/variables
+// are provided to this file via:
+// webpack.particle.dev.js: sass-loader.data|includePaths
 
-// To change default bootstrap card variables, SEE ~bootstrap/scss/variables
-// Add bootstrap variables here
+// To change default Bootstrap card variables, see ~bootstrap/scss/variables
+// and then add Bootstrap variables here
 $card-border-width: 1px;
 
+// Then import the Bootstrap component styles
 @import '~bootstrap/scss/card';
 
 // Add custom code here
