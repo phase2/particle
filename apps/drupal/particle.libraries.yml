@@ -18,4 +18,5 @@ core:
 # See `libraries-override` in particle.info.yml
 jquery:
   js:
-    /themes/particle/dist/assets/drupal-jquery.js: { minified: true, weight: -20 }
+    /themes/particle/dist/assets/drupal-jquery.js:
+      { minified: true, weight: -20 }
