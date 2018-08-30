@@ -4,7 +4,6 @@
  */
 import Vue from 'vue';
 import Vuex from 'vuex';
-import $ from 'jquery';
 
 Vue.use(Vuex);
 
@@ -29,14 +28,12 @@ const mutations = {
  * ACTIONS
  */
 const actions = {
-  getCardItems: ({ commit }) => {
+  getCardItems: ({ commit }) =>
     // You can make whatever API call you need here in actions.
-    // In this case, it's jquery grabbing an example json file.
-    $.getJSON('https://jsonplaceholder.typicode.com/users', data => {
-      // Your action should commit a mutation on the state.
-      commit('ADD_CARD_ITEMS', data);
-    });
-  },
+    // In this case, we're using fetch to grab an example json file.
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => commit('ADD_CARD_ITEMS', data)),
 };
 
 /**

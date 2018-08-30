@@ -18,29 +18,26 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions, mapState } from 'vuex'
+import { mapGetters, mapActions, mapState } from 'vuex';
 
-  // import existing PRINTING styles through javascript
-  import '../../../card/_card.scss';
+// import existing PRINTING styles through javascript
+import '../../../card/_card.scss';
 
-  export default {
-    name: 'card',
-    data() {
-      return {
-        card: this.$store.state.card
-      }
-    },
-    methods: {
-      ...mapActions([
-      ]),
-    },
-    computed: {
-      ...mapGetters([
-        'getCard'
-      ]),
-    },
-    created() {
-      this.$store.dispatch('getCardItems');
-    }
-  }
+export default {
+  name: 'card',
+  data() {
+    return {
+      card: this.$store.state.card,
+    };
+  },
+  methods: {
+    ...mapActions([]),
+  },
+  computed: {
+    ...mapGetters(['getCard']),
+  },
+  created() {
+    this.$store.dispatch('getCardItems');
+  },
+};
 </script>

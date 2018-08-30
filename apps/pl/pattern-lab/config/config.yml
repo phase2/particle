@@ -73,8 +73,8 @@ plugins:
           - ../../../source/_patterns/02-molecules/card
           - ../../../source/_patterns/02-molecules/carousel
           - ../../../source/_patterns/02-molecules/jumbotron
-          - ../../../source/_patterns/02-molecules/vueWidget
           - ../../../source/_patterns/02-molecules/pagination
+          - ../../../source/_patterns/02-molecules/vue-widget
           - ../../../source/_patterns/02-molecules/example-widget
       organisms:
         paths:
