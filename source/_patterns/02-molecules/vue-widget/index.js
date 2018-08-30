@@ -10,6 +10,8 @@
  * Pattern Lab's iframe.
  */
 
+import $ from 'jquery';
+
 // Module dependencies
 import 'protons';
 import VueWidget from './src';
@@ -17,6 +19,9 @@ import VueWidget from './src';
 export const name = 'vueWidget';
 
 export function enable($context) {
+  if (!$('#vue-example-widget', $context).length) {
+    return;
+  }
   // We have to glue this app to some piece of DOM.
   // This is normally done where the Vue app is defined (vueWidget/src/index.js)
   // but we mount it manually here for consistency in Particle.
