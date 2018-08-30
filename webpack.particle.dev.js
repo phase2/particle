@@ -58,9 +58,12 @@ module.exports = {
               // ALL Sass partials should be provided with non-printing
               // variables, mixins, and functions
               data: '@import "00-protons/variables";',
+              // Enable Sass to import other components via, eg:
+              // `@import 01-atoms/thing/thing`
               includePaths: [path.resolve(__dirname, './source/_patterns')],
-              sourceMap: true,
+              // Used to generate JSON about variables like colors, fonts
               functions: sassExportData,
+              sourceMap: true,
             },
           },
         ],
