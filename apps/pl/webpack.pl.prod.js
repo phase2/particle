@@ -20,5 +20,5 @@ const prod = {
 module.exports = merge.strategy({ 'entry.app-pl': 'prepend' })(
   particle,
   pl,
-  prod,
+  prod
 );

@@ -10,10 +10,7 @@ module.exports = class extends Generator {
   prompting() {
     console.log('Hi! This will help you build a component folder with assets.');
     console.log(
-      `Templates for this are in: ${path.relative(
-        process.cwd(),
-        __dirname,
-      )} \n`,
+      `Templates for this are in: ${path.relative(process.cwd(), __dirname)} \n`
     );
 
     const prompts = [
@@ -131,13 +128,13 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath(file.templatePath),
           this.destinationPath(file.destinationPath),
-          this.props,
+          this.props
         );
       });
     });
 
     console.log(
-      `Your new component ${name} is being created. Please import it inside of source/design-system.js to see it on the chain.`,
+      `Your new component ${name} is being created. Please import it inside of source/design-system.js to see it on the chain.`
     );
   }
 };
