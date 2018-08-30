@@ -5,7 +5,6 @@
 
 // Library Imports
 const path = require('path');
-const fs = require('fs');
 const webpack = require('webpack');
 
 // Loaders
@@ -82,10 +81,6 @@ module.exports = {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
-          options: {
-            // For now, read .babelrc DIRECTLY within loader
-            ...JSON.parse(fs.readFileSync(path.resolve(__dirname, '.babelrc'))),
-          },
         },
       },
       {
