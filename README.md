@@ -14,7 +14,8 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 ## Prerequisites
 
-- [Node `6`, `8`, `10`](https://nodejs.org)
+- [Node `^6`, `^8`, `^10`](https://nodejs.org)
+- [NPM `^5`, `^6`](https://www.npmjs.com/)
 - [PHP `5.6`, `^7.0.0`](https://php.net)
 - [Composer `^1.0.0`](https://getcomposer.org)
 
