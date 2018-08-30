@@ -19,5 +19,5 @@ const prod = {
 module.exports = merge.strategy({ 'entry.app-drupal': 'prepend' })(
   particle,
   drupal,
-  prod,
+  prod
 );

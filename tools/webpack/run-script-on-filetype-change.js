@@ -46,7 +46,7 @@ class RunScriptOnFiletypeChange extends ShellHelper {
 
         // Fat arrow functions must return a value
         return true;
-      },
+      }
     );
   }
 }

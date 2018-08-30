@@ -23,7 +23,7 @@ function render() {
             }" href="#">
               ${optionFilter}
             </a>
-          `,
+          `
             )
             .join('')}
         </p>
@@ -53,8 +53,8 @@ function render() {
       setFilter(
         $(this)
           .text()
-          .trim(),
-      ),
+          .trim()
+      )
     );
   });
 

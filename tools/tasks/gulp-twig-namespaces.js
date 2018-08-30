@@ -46,7 +46,7 @@ module.exports = function GulpTwigNamespaces(opt) {
     //
     // Want output like: i.e. source/_patterns/00-protons/demo/type/text
     filefolders.push(
-      path.dirname(path.relative(vinylFile.cwd, vinylFile.path)),
+      path.dirname(path.relative(vinylFile.cwd, vinylFile.path))
     );
 
     callback();
@@ -76,7 +76,7 @@ module.exports = function GulpTwigNamespaces(opt) {
             .filter(
               folderPath =>
                 folderPath.includes(namePath.root) &&
-                !folderPath.includes(namePath.ignore),
+                !folderPath.includes(namePath.ignore)
             )
             // 01-atoms should come before 01-atoms/blerp
             .sortBy(pathString => pathString.length)
@@ -84,7 +84,7 @@ module.exports = function GulpTwigNamespaces(opt) {
             .sortedUniq()
             // Modify path to be relative to pathRelativeToDir for yaml config
             .map(folderPath =>
-              path.relative(output.pathRelativeToDir, folderPath),
+              path.relative(output.pathRelativeToDir, folderPath)
             )
             // Break out of lodash object
             .value();
@@ -104,12 +104,12 @@ module.exports = function GulpTwigNamespaces(opt) {
           // Avoiding spread operator for now to maintain Node v6 compatibility
           return Object.assign({}, result, namespace);
         },
-        {},
+        {}
       );
 
       // Read the yaml right off the filesystem. Yes, it's sync. Makes this sane.
       const configFile = yaml.safeLoad(
-        fs.readFileSync(output.configFile, 'utf8'),
+        fs.readFileSync(output.configFile, 'utf8')
       );
       // The 'atKey' is in the lodash _.set() path format.
       _.set(configFile, output.atKey, namespaces);

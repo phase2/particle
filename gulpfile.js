@@ -86,9 +86,9 @@ gulp.task('compile:twig-namespaces', () =>
             ignore: '/demo',
           },
         },
-      }),
+      })
     )
-    .pipe(gulp.dest('./')),
+    .pipe(gulp.dest('./'))
 );
 
 /**
@@ -100,7 +100,7 @@ gulp.task('compile:pl:notify', cb => {
   fs.writeFile(
     path.resolve(__dirname, PATH_DIST, 'CHANGED.txt'),
     +new Date(),
-    cb,
+    cb
   );
 });
 
@@ -119,7 +119,7 @@ gulp.task('compile:pl:env', cb => {
   fs.writeFile(
     path.resolve(__dirname, PATH_SOURCE, '_data/', 'env.json'),
     JSON.stringify(env),
-    cb,
+    cb
   );
 });
 
@@ -134,7 +134,7 @@ gulp.task(
     'compile:twig-namespaces',
     'compile:pl',
     'compile:pl:notify',
-  ]),
+  ])
 );
 
 /**
@@ -146,7 +146,7 @@ gulp.task(
   gulp.series([
     'compile:pl:env',
     'compile',
-  ]),
+  ])
 );
 
 /**

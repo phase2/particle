@@ -119,12 +119,12 @@ module.exports = {
       src: path.resolve(
         __dirname,
         PATH_SOURCE,
-        '_patterns/01-atoms/svgicon/svg/**/*.svg',
+        '_patterns/01-atoms/svgicon/svg/**/*.svg'
       ),
       styles: path.resolve(
         __dirname,
         PATH_SOURCE,
-        '_patterns/01-atoms/svgicon/scss/_icons-generated.scss',
+        '_patterns/01-atoms/svgicon/scss/_icons-generated.scss'
       ),
       svg4everybody: true,
     }),
@@ -137,17 +137,17 @@ module.exports = {
       molecules: path.resolve(
         __dirname,
         PATH_SOURCE,
-        '_patterns/02-molecules/',
+        '_patterns/02-molecules/'
       ),
       organisms: path.resolve(
         __dirname,
         PATH_SOURCE,
-        '_patterns/03-organisms/',
+        '_patterns/03-organisms/'
       ),
       templates: path.resolve(
         __dirname,
         PATH_SOURCE,
-        '_patterns/04-templates/',
+        '_patterns/04-templates/'
       ),
       pages: path.resolve(__dirname, PATH_SOURCE, '_patterns/05-pages/'),
     },

@@ -34,11 +34,11 @@ const options = {
  * @return {Array} pa11yPaths - a pa11y array to operate on.
  */
 const pa11yPaths = testPaths.map(testPath =>
-  pa11y(`${plPath}${testPath}`, options),
+  pa11y(`${plPath}${testPath}`, options)
 );
 
 Promise.all(pa11yPaths)
   .then(results =>
-    results.forEach(result => options.log.info(reporter.results(result))),
+    results.forEach(result => options.log.info(reporter.results(result)))
   )
   .catch(error => options.log.error(error.message));
