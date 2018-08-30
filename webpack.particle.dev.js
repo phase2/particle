@@ -54,7 +54,14 @@ module.exports = {
           { loader: 'resolve-url-loader' },
           {
             loader: 'sass-loader',
-            options: { sourceMap: true, functions: sassExportData },
+            options: {
+              // ALL Sass partials should be provided with non-printing
+              // variables, mixins, and functions
+              data: '@import "00-protons/variables";',
+              includePaths: [path.resolve(__dirname, './source/_patterns')],
+              sourceMap: true,
+              functions: sassExportData,
+            },
           },
         ],
       },
