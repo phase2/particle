@@ -27,7 +27,7 @@
     "lint:js": "eslint ./",
     "lint:scss": "stylelint '**/*.{css,scss}'",
     "lint": "npm run lint:js; npm run lint:scss",
-    "fmt:js": "npm run lint:js -- --fix && prettier --loglevel warn --write '**/*.{js,json}'",
+    "fmt:js": "npm run lint:js -- --fix && prettier --loglevel warn --write '**/*.{js,json,vue}'",
     "fmt:scss": "npm run lint:scss -- --fix && prettier --loglevel warn --write '**/*.{css,scss}'",
     "fmt": "npm run fmt:js; npm run fmt:scss",
     "test:pa11y": "node tools/tests/accessibility/pa11y.js",
