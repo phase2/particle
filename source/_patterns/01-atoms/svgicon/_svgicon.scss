@@ -1,6 +1,11 @@
-// All component Sass needs non-printing base config
-@import '../../00-protons/variables';
-@import './scss/_icons-generated';
+// The non-printing variables, functions, and mixins of 00-protons/variables
+// are provided to this file via:
+// webpack.particle.dev.js: sass-loader.data|includePaths
+
+// Note!
+// ./scss/_icons-generated is automatically made available because
+// 00-protons/variables is provided to every scss file and _icons-generated
+// is @import'd within 00-protons/variables
 
 // Default styles to maintain inline-block functionality
 // since the SVG is wrapped in a div

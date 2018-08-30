@@ -1,5 +1,6 @@
-// All component Sass needs non-printing base config
-@import '../../00-protons/variables';
+// The non-printing variables, functions, and mixins of 00-protons/variables
+// are provided to this file via:
+// webpack.particle.dev.js: sass-loader.data|includePaths
 
 // Accordion contains both Bootstrap Card and Collapse.
 // To change default bootstrap variables, SEE ~bootstrap/scss/variables
