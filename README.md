@@ -2,7 +2,7 @@
 
 [![GitHub (pre-)release](https://img.shields.io/github/release/phase2/particle/all.svg)](https://github.com/phase2/particle/releases) [![Build Status](https://travis-ci.org/phase2/particle.svg?branch=master)](https://travis-ci.org/phase2/particle) [![Greenkeeper badge](https://badges.greenkeeper.io/phase2/particle.svg)](https://greenkeeper.io/)
 
-![Particle mascot: Astrogoat](source/_patterns/01-atoms/image/demo/astrogoat.png?raw=true "Astrogoat")
+![Particle mascot: Astrogoat](source/_patterns/01-atoms/image/demo/astrogoat.png?raw=true 'Astrogoat')
 
 Particle is an opinionated set of tools and examples to:
 
@@ -14,7 +14,7 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 ## Prerequisites
 
-- [Node `^8.0.0`](https://nodejs.org)
+- [Node `6`, `8`, `10`](https://nodejs.org)
 - [PHP `5.6`, `^7.0.0`](https://php.net)
 - [Composer `^1.0.0`](https://getcomposer.org)
 
@@ -22,7 +22,7 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 ## Provides
 
-- Drupal theme, Grav theme,  and Pattern Lab app
+- Drupal theme, Grav theme, and Pattern Lab app
 - Strict [Atomic Design](http://atomicdesign.bradfrost.com/) component structure
 - Webpack bundling of all CSS, javascript, font, and static image assets for multiple targets (Drupal theme, Grav theme, Pattern Lab)
 - [Webpack Dev Server](https://github.com/webpack/webpack-dev-server) for local hosting and hot reloading of assets into Pattern Lab
@@ -37,17 +37,31 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 Particle builds design systems in dev mode for local hosting, or production mode for optimized asset generation.
 
-### Quickstart anywhere
+### Quickstart A
+
+1. Simply run:
+
+   ```bash
+   npx phase2/create-particle particle
+   ```
+
+1. Then `cd particle/` and run:
+
+   ```bash
+   npm start
+   ```
+
+### Quickstart B
 
 1. [Download the latest release](https://github.com/phase2/particle/releases)
 1. Extract anywhere (i.e. this readme should be at `any/where/particle/README.md`)
 1. Within the extracted folder run:
 
-```bash
-npm install
-npm run setup
-npm start
-```
+   ```bash
+   npm install
+   npm run setup
+   npm start
+   ```
 
 Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/pl](http://0.0.0.0:8080/pl) (or [http://localhost:8080/pl](http://localhost:8080/pl)) and start working.
 
