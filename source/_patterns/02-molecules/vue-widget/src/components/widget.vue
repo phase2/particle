@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss">
 // importing NON PRINTING styles in sass
-@import '../../../../00-protons/variables';
+@import '00-protons/variables';
 
 .vue-widget {
   margin: map-get($spacing, l);

@@ -22,11 +22,12 @@ const shared = require('./webpack.particle.dev.js');
 const prod = {
   mode: 'production',
   // See webpack.[app].prod.js for entry points
+  stats: 'minimal',
   module: {
     rules: [
       {
         // Wrapped with ExtractText to create a standalone file.
-        test: /\.(sass|scss)$/,
+        test: /\.(css|sass|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           publicPath: './',
@@ -72,4 +73,4 @@ const prod = {
   ],
 };
 
-module.exports = merge(shared, prod);
+module.exports = merge.smart(shared, prod);

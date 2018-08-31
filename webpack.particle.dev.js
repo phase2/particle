@@ -17,6 +17,7 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // Custom Imports
 const { PATH_SOURCE } = require('./config');
@@ -38,17 +39,12 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax', // <style lang="sass">
-          },
-        },
       },
       {
         test: /\.(css|sass|scss)$/,
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
+          { loader: 'vue-style-loader' },
           {
             loader: 'css-loader',
             options: { sourceMap: true, importLoaders: 2 },
@@ -148,6 +144,7 @@ module.exports = {
       ),
       svg4everybody: true,
     }),
+    new VueLoaderPlugin(),
   ],
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
   resolve: {
