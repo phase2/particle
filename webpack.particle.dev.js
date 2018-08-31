@@ -10,13 +10,13 @@ const path = require('path');
 const webpack = require('webpack');
 
 // Loaders
+const autoprefixer = require('autoprefixer');
 const sassExportData = require('@theme-tools/sass-export-data')({
   name: 'export_data',
   path: path.resolve(__dirname, 'source/_data/'),
 });
 
 // Plugins
-const autoprefixer = require('autoprefixer');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
