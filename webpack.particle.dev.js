@@ -1,6 +1,8 @@
 /**
- * Webpack shared config
- * The shared loaders, plugins, and processing that all our "apps" should use for dev.
+ * Particle dev config.
+ *
+ * The shared loaders, plugins, and processing that all our "apps" should use
+ * for dev. This is merged into prod!
  */
 
 // Library Imports
