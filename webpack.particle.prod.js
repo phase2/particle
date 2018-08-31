@@ -15,7 +15,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const shared = require('./webpack.particle.dev.js');
 
 // Wat: Pop off the style-loader rule so it doesn't explode MiniCssExtractPlugin
-shared.module.rules[0].use = shared.module.rules[0].use.slice(1);
+shared.module.rules[0].use.shift();
 
 const prod = {
   mode: 'production',
