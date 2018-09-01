@@ -6,16 +6,31 @@
 
 // Library Imports
 const path = require('path');
-const { ProgressPlugin } = require('webpack');
+const { spawnSync } = require('child_process');
+const { ProgressPlugin, DefinePlugin } = require('webpack');
 const merge = require('webpack-merge');
 
+// Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
 
-// Custom Imports
-const particle = require('../../webpack.particle.dev');
-const pl = require('./webpack.pl.shared');
+// Particle base settings
+const particle = require('../../webpack.particle');
 
-// Webpack Entry Points
+// Environment
+const { NODE_ENV } = process.env;
+
+const shared = {
+  entry: {
+    'app-pl': [path.resolve(__dirname, 'index.js')],
+  },
+  plugins: [
+    new ProgressPlugin({ profile: false }),
+    new DefinePlugin({
+      BUILD_TARGET: JSON.stringify('pl'),
+    }),
+  ],
+};
+
 const dev = {
   devServer: {
     host: '0.0.0.0',
@@ -54,7 +69,6 @@ const dev = {
     },
   },
   plugins: [
-    new ProgressPlugin({ profile: false }),
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md)$/,
       exec: [
@@ -65,4 +79,16 @@ const dev = {
   ],
 };
 
-module.exports = merge(particle, pl, dev);
+const prod = {};
+
+// Always Build Pattern Lab
+console.info(`🚀 Pattern Lab ${NODE_ENV} build running! 🚀`);
+// Run `npx gulp compile:startup`
+spawnSync('npx', ['gulp', 'compile:startup'], { stdio: 'inherit' });
+
+module.exports = merge(
+  particle,
+  shared,
+  // Load development or production settings based on environment
+  NODE_ENV === 'development' ? dev : prod
+);

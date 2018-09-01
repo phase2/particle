@@ -18,8 +18,8 @@
   ],
   "scripts": {
     "start": "npm run dev:pl",
-    "dev:pl": "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot",
-    "build:pl": "NODE_ENV='production' webpack --config ./apps/pl/webpack.pl.prod.js",
+    "dev:pl": "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.js --hot",
+    "build:pl": "NODE_ENV='production' webpack --config ./apps/pl/webpack.pl.js",
     "dev:drupal": "NODE_ENV='development' webpack --watch --progress --config ./apps/drupal/webpack.drupal.dev.js",
     "build:drupal": "NODE_ENV='production' webpack --config ./apps/drupal/webpack.drupal.prod.js",
     "dev:grav": "NODE_ENV='development' webpack --watch --progress --config ./apps/grav/webpack.grav.dev.js",

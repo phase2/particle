@@ -1,13 +1,12 @@
 /**
- * Particle dev config.
+ * Particle config.
  *
  * The shared loaders, plugins, and processing that all our "apps" should use
- * for dev. This is merged into prod!
  */
 
 // Library Imports
 const path = require('path');
-const webpack = require('webpack');
+const { ProvidePlugin } = require('webpack');
 
 // Loaders
 const autoprefixer = require('autoprefixer');
@@ -37,8 +36,14 @@ const { PATH_SOURCE } = require('./config');
 // Enable to track down deprecation during development
 // process.traceDeprecation = true;
 
-const shared = {
-  // entry: {}, // See webpack.[app].dev.js for entry points
+const particle = {
+  // See webpack.[app].js for more entry points
+  entry:
+    NODE_ENV === 'development'
+      ? // No special entry points in development
+        {}
+      : // Full polyfill for production
+        { particle: ['@babel/polyfill'] },
   mode: NODE_ENV, // development|production
   output: {
     filename: '[name].js',
@@ -136,7 +141,7 @@ const shared = {
   plugins: [
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery
     // plugins to assume that `window.jquery` is available
-    new webpack.ProvidePlugin({
+    new ProvidePlugin({
       // Bootstrap is dependant on jQuery and Popper
       $: 'jquery',
       jQuery: 'jquery',
@@ -196,4 +201,4 @@ const shared = {
   },
 };
 
-module.exports = shared;
+module.exports = particle;
