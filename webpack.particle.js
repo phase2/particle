@@ -19,16 +19,27 @@ const sassExportData = require('@theme-tools/sass-export-data')({
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+// Plugins:production
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// Custom Imports
+// Environment
+// NODE_ENV is set within all NPM scripts before running wepback, eg:
+//
+//  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot",
+//
+// NODE_ENV is either:
+// - development
+// - production
+const { NODE_ENV } = process.env;
+// Paths
 const { PATH_SOURCE } = require('./config');
 
-// Helps us track down deprecation during development
+// Enable to track down deprecation during development
 // process.traceDeprecation = true;
 
-module.exports = {
-  mode: 'development',
-  // See webpack.[app].dev.js for entry points
+const shared = {
+  // entry: {}, // See webpack.[app].dev.js for entry points
+  mode: NODE_ENV, // development|production
   output: {
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
@@ -40,7 +51,14 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          { loader: 'style-loader', options: { sourceMap: true } },
+          NODE_ENV === 'development'
+            ? // style-loader if development
+              { loader: 'style-loader', options: { sourceMap: true } }
+            : // MiniCssExtractPlugin if production
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: { publicPath: './' },
+              },
           {
             loader: 'css-loader',
             options: { sourceMap: true, importLoaders: 2 },
@@ -116,8 +134,8 @@ module.exports = {
     ],
   },
   plugins: [
-    // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery plugins to assume
-    // that `window.jquery` is available
+    // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery
+    // plugins to assume that `window.jquery` is available
     new webpack.ProvidePlugin({
       // Bootstrap is dependant on jQuery and Popper
       $: 'jquery',
@@ -127,6 +145,7 @@ module.exports = {
     }),
     // Yell at us while writing Sass
     new StyleLintPlugin(),
+    // Sprite system options
     new SVGSpritemapPlugin({
       src: path.resolve(
         __dirname,
@@ -140,7 +159,18 @@ module.exports = {
       ),
       svg4everybody: true,
     }),
-  ],
+  ].concat(
+    NODE_ENV === 'development'
+      ? // Nothing yet for development
+        []
+      : // MiniCssExtractPlugin for production only
+        [
+          new MiniCssExtractPlugin({
+            filename: '[name].styles.css',
+            chunkFilename: '[id].css',
+          }),
+        ]
+  ),
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
   resolve: {
     alias: {
@@ -165,3 +195,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = shared;

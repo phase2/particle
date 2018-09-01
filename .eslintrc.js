@@ -24,7 +24,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: {
-        config: 'webpack.particle.dev.js',
+        config: 'webpack.particle.js',
       },
     },
   },
