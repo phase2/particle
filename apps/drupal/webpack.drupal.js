@@ -10,7 +10,7 @@ const { DefinePlugin } = require('webpack');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
 // Particle base settings
-const { particlize } = require('../../particle');
+const { particle } = require('../../particle');
 
 // Environment
 // const { NODE_ENV } = process.env;
@@ -46,7 +46,7 @@ const dev = {
 
 const prod = {};
 
-module.exports = particlize(
+module.exports = particle(
   { shared, dev, prod },
   {
     cssMode: 'extract',

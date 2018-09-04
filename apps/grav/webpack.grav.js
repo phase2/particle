@@ -9,7 +9,7 @@ const webpack = require('webpack');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
 // Custom Imports
-const { particlize } = require('../../particle');
+const { particle } = require('../../particle');
 
 const shared = {
   entry: {
@@ -40,7 +40,7 @@ const dev = {
 
 const prod = {};
 
-module.exports = particlize(
+module.exports = particle(
   { shared, dev, prod },
   {
     cssMode: 'extract',

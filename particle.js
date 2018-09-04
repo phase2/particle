@@ -38,7 +38,7 @@ const { PATH_SOURCE } = require('./config');
 // process.traceDeprecation = true;
 
 const particleBase = {
-  // entry: {}, // See entryPrepend() and particlize() below for entry details
+  // entry: {}, // See entryPrepend() and particle() below for entry details
   mode: NODE_ENV, // development|production
   output: {
     filename: '[name].js',
@@ -239,7 +239,7 @@ const entryPrepend = entry => ({
         { [entry]: ['@babel/polyfill'] },
 });
 /**
- * Every app using Particle must run its config through this "particlize"
+ * Every app using Particle must run its config through this "particle"
  * function to ensure it adheres to Particle standards of dev/prod config.
  *
  * @param {Object} app - The collection of shared, dev, prod webpack config
@@ -251,7 +251,7 @@ const entryPrepend = entry => ({
  * @param {string} options.entry - The main entry point to prepend polyfills
  * @returns {*} - Fully merged and customized webpack config
  */
-const particlize = (app, options) => {
+const particle = (app, options) => {
   const { shared, dev, prod } = app;
 
   return merge.smartStrategy({
@@ -277,5 +277,5 @@ module.exports = {
   // Base webpack config for linters/tests etc
   particleBase,
   // Convert shared, dev, prod config into Particle compatible config
-  particlize,
+  particle,
 };

@@ -12,7 +12,7 @@ const { DefinePlugin } = require('webpack');
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
 
 // Particle base settings
-const { particlize } = require('../../particle');
+const { particle } = require('../../particle');
 
 // Environment
 const { NODE_ENV } = process.env;
@@ -83,7 +83,7 @@ console.info(`🚀 Pattern Lab ${NODE_ENV} build running! 🚀`);
 // Run `npx gulp compile:startup`
 spawnSync('npx', ['gulp', 'compile:startup'], { stdio: 'inherit' });
 
-module.exports = particlize(
+module.exports = particle(
   { shared, dev, prod },
   {
     cssMode: NODE_ENV === 'development' ? 'hot' : 'extract',
