@@ -261,8 +261,8 @@ const particlize = (app, options) => {
     // Particle standard config
     particleBase,
     // What kind of CSS handling, defaults to extract
-    options.cssMode ? cssModes[options.cssMode] : 'extract', // 'hot' | 'extract'
-    // Prepend loaders to the provided entry point, otherwise just the first entry point
+    options.cssMode ? cssModes[options.cssMode] : 'extract',
+    // Prepend loaders to provided entry point, defaults to first entry point
     options.entry
       ? entryPrepend(options.entry)
       : entryPrepend(Object.keys(shared.entry)[0]),
