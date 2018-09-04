@@ -260,10 +260,12 @@ const particlize = (app, options) => {
   })(
     // Particle standard config
     particleBase,
-    // What kind of CSS handling
-    cssModes[options.cssMode], // 'hot' | 'extract'
-    // Prepend things like polyfills for our main entry points
-    entryPrepend(options.entry),
+    // What kind of CSS handling, defaults to extract
+    options.cssMode ? cssModes[options.cssMode] : 'extract', // 'hot' | 'extract'
+    // Prepend loaders to the provided entry point, otherwise just the first entry point
+    options.entry
+      ? entryPrepend(options.entry)
+      : entryPrepend(Object.keys(shared.entry)[0]),
     // App config shared between dev and prod modes
     shared,
     // App config specific to dev or prod
