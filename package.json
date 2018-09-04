@@ -73,7 +73,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.22.0",
     "eslint-plugin-prettier": "^2.6.2",
-    "file-loader": "^1.1.11",
+    "file-loader": "^2.0.0",
     "glob-loader": "^0.3.0",
     "gulp": "^4.0.0",
     "husky": "^1.0.0-rc.13",
