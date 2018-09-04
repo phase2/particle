@@ -78,14 +78,12 @@ const dev = {
 
 const prod = {};
 
-const app = { shared, dev, prod };
-
 // Always Build Pattern Lab
 console.info(`🚀 Pattern Lab ${NODE_ENV} build running! 🚀`);
 // Run `npx gulp compile:startup`
 spawnSync('npx', ['gulp', 'compile:startup'], { stdio: 'inherit' });
 
 module.exports = particlize(
-  app,
+  { shared, dev, prod },
   NODE_ENV === 'development' ? 'hot' : 'extract'
 );

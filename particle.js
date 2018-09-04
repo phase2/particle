@@ -25,7 +25,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // Environment
 // NODE_ENV is set within all NPM scripts before running wepback, eg:
 //
-//  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.dev.js --hot",
+//  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.js --hot",
 //
 // NODE_ENV is either:
 // - development
@@ -189,6 +189,9 @@ const particleBase = {
  * reloading or full css file extraction.
  */
 const cssModes = {
+  // 'hot' uses the style-loader plugin which rewrites CSS inline via
+  // webpack-dev-server and is purely development-mode ONLY. style-loader
+  // CANNOT exists alongside MiniCsExtractPlugin
   hot: {
     // Webpack for hot starts here
     module: {
@@ -200,6 +203,8 @@ const cssModes = {
       ],
     },
   },
+  // 'extract' uses MiniCssExtractPlugin.loader to write out actual CSS files to
+  // the filesystem. This is useful for production builds, and webpack --watch
   extract: {
     // Webpack for extract starts here
     module: {

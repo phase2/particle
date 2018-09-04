@@ -46,6 +46,4 @@ const dev = {
 
 const prod = {};
 
-const app = { shared, dev, prod };
-
-module.exports = particlize(app, 'extract');
+module.exports = particlize({ shared, dev, prod }, 'extract');

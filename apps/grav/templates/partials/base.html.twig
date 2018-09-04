@@ -16,6 +16,7 @@
     {{ assets.css() }}
 
     {% block javascripts %}
+      {# @TODO: NEED TO CONDITIONALLY LOAD POLYFILL'D particle.js HERE BASED ON DEV/PROD#}
       {% do assets.addJs('theme://dist/assets/app-grav.js', {'group':'bottom'}) %}
     {% endblock %}
     {{ assets.js() }}
