@@ -4,6 +4,8 @@
  * Rule reference: http://eslint.org/docs/rules
  * Individual rule reference: http://eslint.org/docs/rules/NAME-OF-RULE
  */
+const { particleBase } = require('./particle');
+
 module.exports = {
   extends: ['airbnb-base', 'plugin:jest/recommended', 'prettier'],
   plugins: ['prettier'],
@@ -24,7 +26,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: {
-        config: 'webpack.particle.dev.js',
+        config: particleBase,
       },
     },
   },

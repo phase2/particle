@@ -14,7 +14,7 @@ core:
     - core/drupalSettings
 
 # Create custom jQuery libraries
-# that'll override the Drupal core jQuery and Underscore libraries
+# that'll override the Drupal core jQuery libraries
 # See `libraries-override` in particle.info.yml
 jquery:
   js:

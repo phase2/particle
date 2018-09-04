@@ -1,21 +1,33 @@
 /**
  * Pattern Lab-specific webpack config.
- * This is merged over top of webpack.particle.dev.js and uses
- * a hot-reloading server that does not generate assets inside dist/.
  */
 
 // Library Imports
 const path = require('path');
-const { ProgressPlugin } = require('webpack');
-const merge = require('webpack-merge');
+const { spawnSync } = require('child_process');
+const { DefinePlugin } = require('webpack');
+// const merge = require('webpack-merge');
 
+// Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
 
-// Custom Imports
-const particle = require('../../webpack.particle.dev');
-const pl = require('./webpack.pl.shared');
+// Particle base settings
+const { particle } = require('../../particle');
 
-// Webpack Entry Points
+// Environment
+const { NODE_ENV } = process.env;
+
+const shared = {
+  entry: {
+    'app-pl': [path.resolve(__dirname, 'index.js')],
+  },
+  plugins: [
+    new DefinePlugin({
+      BUILD_TARGET: JSON.stringify('pl'),
+    }),
+  ],
+};
+
 const dev = {
   devServer: {
     host: '0.0.0.0',
@@ -54,7 +66,6 @@ const dev = {
     },
   },
   plugins: [
-    new ProgressPlugin({ profile: false }),
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md)$/,
       exec: [
@@ -65,4 +76,17 @@ const dev = {
   ],
 };
 
-module.exports = merge(particle, pl, dev);
+const prod = {};
+
+// Always Build Pattern Lab
+console.info(`🚀 Pattern Lab ${NODE_ENV} build running! 🚀`);
+// Run `npx gulp compile:startup`
+spawnSync('npx', ['gulp', 'compile:startup'], { stdio: 'inherit' });
+
+module.exports = particle(
+  { shared, dev, prod },
+  {
+    cssMode: NODE_ENV === 'development' ? 'hot' : 'extract',
+    entry: 'app-pl',
+  }
+);
