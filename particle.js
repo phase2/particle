@@ -6,7 +6,8 @@
 
 // Library Imports
 const path = require('path');
-const { ProvidePlugin } = require('webpack');
+const { ProgressPlugin, ProvidePlugin } = require('webpack');
+const merge = require('webpack-merge');
 
 // Loaders
 const autoprefixer = require('autoprefixer');
@@ -36,7 +37,7 @@ const { PATH_SOURCE } = require('./config');
 // Enable to track down deprecation during development
 // process.traceDeprecation = true;
 
-const particle = {
+const particleBase = {
   // See webpack.[app].js for more entry points
   entry:
     NODE_ENV === 'development'
@@ -56,14 +57,6 @@ const particle = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          NODE_ENV === 'development'
-            ? // style-loader if development
-              { loader: 'style-loader', options: { sourceMap: true } }
-            : // MiniCssExtractPlugin if production
-              {
-                loader: MiniCssExtractPlugin.loader,
-                options: { publicPath: './' },
-              },
           {
             loader: 'css-loader',
             options: { sourceMap: true, importLoaders: 2 },
@@ -139,6 +132,7 @@ const particle = {
     ],
   },
   plugins: [
+    new ProgressPlugin({ profile: false }),
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery
     // plugins to assume that `window.jquery` is available
     new ProvidePlugin({
@@ -164,18 +158,7 @@ const particle = {
       ),
       svg4everybody: true,
     }),
-  ].concat(
-    NODE_ENV === 'development'
-      ? // Nothing yet for development
-        []
-      : // MiniCssExtractPlugin for production only
-        [
-          new MiniCssExtractPlugin({
-            filename: '[name].styles.css',
-            chunkFilename: '[id].css',
-          }),
-        ]
-  ),
+  ],
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
   resolve: {
     alias: {
@@ -201,4 +184,74 @@ const particle = {
   },
 };
 
-module.exports = particle;
+/**
+ * CSS modes are import to frontend dev. Particle currently supports hot
+ * reloading or full css file extraction.
+ */
+const cssModes = {
+  hot: {
+    // Webpack for hot starts here
+    module: {
+      rules: [
+        {
+          test: /\.(sa|sc|c)ss$/,
+          use: [{ loader: 'style-loader', options: { sourceMap: true } }],
+        },
+      ],
+    },
+  },
+  extract: {
+    // Webpack for extract starts here
+    module: {
+      rules: [
+        {
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: { publicPath: './' },
+            },
+          ],
+        },
+      ],
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: '[name].styles.css',
+        chunkFilename: '[id].css',
+      }),
+    ],
+  },
+};
+
+/**
+ * Every app using Particle must run its config through this "particlize"
+ * function to ensure it adheres to Particle standards of dev/prod config.
+ *
+ * @param {Object} app - The collection of shared, dev, prod webpack config
+ * @param {Object} app.shared - Shared webpack config common to dev and prod
+ * @param {Object} app.dev - Webpack config unique to prod
+ * @param {Object} app.prod - Webpack config unique to prod
+ * @param {('hot'|'extract')} cssMode - The method of handling CSS output
+ * @returns {*} - Fully merged and customized webpack config
+ */
+const particlize = (app, cssMode) => {
+  const { shared, dev, prod } = app;
+
+  return merge.smartStrategy({
+    // Prepend the css style-loader vs MiniExtractTextPlugin
+    'module.rules.use': 'prepend',
+  })(
+    particleBase,
+    cssModes[cssMode], // 'hot' | 'extract'
+    shared,
+    NODE_ENV === 'development' ? dev : prod
+  );
+};
+
+module.exports = {
+  // Base webpack config for linters/tests etc
+  particleBase,
+  // Convert shared, dev, prod config into Particle compatible config
+  particlize,
+};

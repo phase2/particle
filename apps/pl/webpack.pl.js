@@ -1,20 +1,18 @@
 /**
  * Pattern Lab-specific webpack config.
- * This is merged over top of webpack.particle.dev.js and uses
- * a hot-reloading server that does not generate assets inside dist/.
  */
 
 // Library Imports
 const path = require('path');
 const { spawnSync } = require('child_process');
-const { ProgressPlugin, DefinePlugin } = require('webpack');
-const merge = require('webpack-merge');
+const { DefinePlugin } = require('webpack');
+// const merge = require('webpack-merge');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
 
 // Particle base settings
-const particle = require('../../webpack.particle');
+const { particlize } = require('../../particle');
 
 // Environment
 const { NODE_ENV } = process.env;
@@ -24,7 +22,6 @@ const shared = {
     'app-pl': [path.resolve(__dirname, 'index.js')],
   },
   plugins: [
-    new ProgressPlugin({ profile: false }),
     new DefinePlugin({
       BUILD_TARGET: JSON.stringify('pl'),
     }),
@@ -81,14 +78,14 @@ const dev = {
 
 const prod = {};
 
+const app = { shared, dev, prod };
+
 // Always Build Pattern Lab
 console.info(`🚀 Pattern Lab ${NODE_ENV} build running! 🚀`);
 // Run `npx gulp compile:startup`
 spawnSync('npx', ['gulp', 'compile:startup'], { stdio: 'inherit' });
 
-module.exports = merge(
-  particle,
-  shared,
-  // Load development or production settings based on environment
-  NODE_ENV === 'development' ? dev : prod
+module.exports = particlize(
+  app,
+  NODE_ENV === 'development' ? 'hot' : 'extract'
 );

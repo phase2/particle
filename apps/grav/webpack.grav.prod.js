@@ -8,7 +8,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 // Custom Imports
-const shared = require('../../webpack.particle.dev.js');
+const shared = require('../../particle');
 
 const grav = {
   mode: 'production',
