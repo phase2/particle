@@ -46,4 +46,10 @@ const dev = {
 
 const prod = {};
 
-module.exports = particlize({ shared, dev, prod }, 'extract');
+module.exports = particlize(
+  { shared, dev, prod },
+  {
+    cssMode: 'extract',
+    entry: 'app-drupal',
+  }
+);

@@ -85,5 +85,8 @@ spawnSync('npx', ['gulp', 'compile:startup'], { stdio: 'inherit' });
 
 module.exports = particlize(
   { shared, dev, prod },
-  NODE_ENV === 'development' ? 'hot' : 'extract'
+  {
+    cssMode: NODE_ENV === 'development' ? 'hot' : 'extract',
+    entry: 'app-pl',
+  }
 );

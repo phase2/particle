@@ -38,13 +38,7 @@ const { PATH_SOURCE } = require('./config');
 // process.traceDeprecation = true;
 
 const particleBase = {
-  // See webpack.[app].js for more entry points
-  entry:
-    NODE_ENV === 'development'
-      ? // No special entry points in development
-        {}
-      : // Full polyfill for production
-        { particle: ['@babel/polyfill'] },
+  // entry: {}, // See entryPrepend() and particlize() below for entry details
   mode: NODE_ENV, // development|production
   output: {
     filename: '[name].js',
@@ -230,6 +224,21 @@ const cssModes = {
 };
 
 /**
+ * For production mode, we will run a big, heavy, full Babel polyfill build
+ * right into the bundle
+ * @param {string} entry
+ * @returns {{entry: {}}}
+ */
+const entryPrepend = entry => ({
+  // See webpack.[app].js for more entry points
+  entry:
+    NODE_ENV === 'development'
+      ? // No special entry points in development
+        {}
+      : // Full polyfill for production
+        { [entry]: ['@babel/polyfill'] },
+});
+/**
  * Every app using Particle must run its config through this "particlize"
  * function to ensure it adheres to Particle standards of dev/prod config.
  *
@@ -237,19 +246,27 @@ const cssModes = {
  * @param {Object} app.shared - Shared webpack config common to dev and prod
  * @param {Object} app.dev - Webpack config unique to prod
  * @param {Object} app.prod - Webpack config unique to prod
- * @param {('hot'|'extract')} cssMode - The method of handling CSS output
+ * @param {Object} options - Compile options
+ * @param {('hot'|'extract')} options.cssMode - The method of handling CSS output
+ * @param {string} options.entry - The main entry point to prepend polyfills
  * @returns {*} - Fully merged and customized webpack config
  */
-const particlize = (app, cssMode) => {
+const particlize = (app, options) => {
   const { shared, dev, prod } = app;
 
   return merge.smartStrategy({
     // Prepend the css style-loader vs MiniExtractTextPlugin
     'module.rules.use': 'prepend',
   })(
+    // Particle standard config
     particleBase,
-    cssModes[cssMode], // 'hot' | 'extract'
+    // What kind of CSS handling
+    cssModes[options.cssMode], // 'hot' | 'extract'
+    // Prepend things like polyfills for our main entry points
+    entryPrepend(options.entry),
+    // App config shared between dev and prod modes
     shared,
+    // App config specific to dev or prod
     NODE_ENV === 'development' ? dev : prod
   );
 };

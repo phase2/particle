@@ -5,8 +5,6 @@ core:
       /themes/particle/dist/assets/app-drupal.styles.css:
         preprocess: true
   js:
-    /themes/particle/dist/assets/particle.js:
-      preprocess: true
     /themes/particle/dist/assets/app-drupal.js:
       preprocess: true
   # see all in Drupal's `core/core.libraries.yml`

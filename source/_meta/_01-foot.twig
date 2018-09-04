@@ -1,9 +1,6 @@
 	<!--DO NOT REMOVE-->
 	{{ patternLabFoot | raw }}
 
-  {% if env == 'production' %}
-    <script src="{{ paths.assets }}/particle.js?cacheBuster={{ randomNumber }}"></script>
-  {% endif %}
   <script src="{{ paths.assets }}/app-pl.js?cacheBuster={{ randomNumber }}"></script>
 
 	</body>
