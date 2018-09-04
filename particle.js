@@ -56,7 +56,6 @@ const particleBase = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          { loader: 'vue-style-loader' },
           {
             loader: 'css-loader',
             options: { sourceMap: true, importLoaders: 2 },
@@ -199,7 +198,10 @@ const cssModes = {
       rules: [
         {
           test: /\.(sa|sc|c)ss$/,
-          use: [{ loader: 'style-loader', options: { sourceMap: true } }],
+          use: [
+            { loader: 'style-loader', options: { sourceMap: true } },
+            { loader: 'vue-style-loader' },
+          ],
         },
       ],
     },
