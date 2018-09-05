@@ -11,10 +11,6 @@ const merge = require('webpack-merge');
 
 // Loaders
 const autoprefixer = require('autoprefixer');
-const sassExportData = require('@theme-tools/sass-export-data')({
-  name: 'export_data',
-  path: path.resolve(__dirname, 'source/_data/'),
-});
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -22,7 +18,7 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 // Plugins:production
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// Environment
+// Constants
 // NODE_ENV is set within all NPM scripts before running wepback, eg:
 //
 //  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.js --hot",
@@ -31,8 +27,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // - development
 // - production
 const { NODE_ENV } = process.env;
-// Paths
-const { PATH_SOURCE } = require('./config');
+const { PATH_PATTERNS, PATH_DIST } = require('./config');
 
 // Enable to track down deprecation during development
 // process.traceDeprecation = true;
@@ -43,7 +38,7 @@ const particleBase = {
   output: {
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
-    path: path.resolve(__dirname, 'dist/assets/'),
+    path: path.resolve(PATH_DIST, 'assets/'),
     publicPath: '/assets/',
   },
   module: {
@@ -72,9 +67,9 @@ const particleBase = {
               data: '@import "00-protons/variables";',
               // Enable Sass to import other components via, eg:
               // `@import 01-atoms/thing/thing`
-              includePaths: [path.resolve(__dirname, './source/_patterns')],
+              includePaths: [PATH_PATTERNS],
               // Used to generate JSON about variables like colors, fonts
-              functions: sassExportData,
+              // functions: sassExportData,
               sourceMap: true,
             },
           },
@@ -135,15 +130,10 @@ const particleBase = {
     new StyleLintPlugin(),
     // Sprite system options
     new SVGSpritemapPlugin({
-      src: path.resolve(
-        __dirname,
-        PATH_SOURCE,
-        '_patterns/01-atoms/svgicon/svg/**/*.svg'
-      ),
+      src: path.resolve(PATH_PATTERNS, '01-atoms/svgicon/svg/**/*.svg'),
       styles: path.resolve(
-        __dirname,
-        PATH_SOURCE,
-        '_patterns/01-atoms/svgicon/scss/_icons-generated.scss'
+        PATH_PATTERNS,
+        '01-atoms/svgicon/scss/_icons-generated.scss'
       ),
       svg4everybody: true,
     }),
@@ -151,24 +141,12 @@ const particleBase = {
   // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
   resolve: {
     alias: {
-      protons: path.resolve(__dirname, PATH_SOURCE, '_patterns/00-protons/'),
-      atoms: path.resolve(__dirname, PATH_SOURCE, '_patterns/01-atoms/'),
-      molecules: path.resolve(
-        __dirname,
-        PATH_SOURCE,
-        '_patterns/02-molecules/'
-      ),
-      organisms: path.resolve(
-        __dirname,
-        PATH_SOURCE,
-        '_patterns/03-organisms/'
-      ),
-      templates: path.resolve(
-        __dirname,
-        PATH_SOURCE,
-        '_patterns/04-templates/'
-      ),
-      pages: path.resolve(__dirname, PATH_SOURCE, '_patterns/05-pages/'),
+      protons: path.resolve(PATH_PATTERNS, '00-protons/'),
+      atoms: path.resolve(PATH_PATTERNS, '01-atoms/'),
+      molecules: path.resolve(PATH_PATTERNS, '02-molecules/'),
+      organisms: path.resolve(PATH_PATTERNS, '03-organisms/'),
+      templates: path.resolve(PATH_PATTERNS, '04-templates/'),
+      pages: path.resolve(PATH_PATTERNS, '05-pages/'),
     },
   },
 };
@@ -249,7 +227,7 @@ const entryPrepend = entry => ({
 const particle = (app, options) => {
   const { shared, dev, prod } = app;
 
-  return merge.smartStrategy({
+  const merged = merge.smartStrategy({
     // Prepend the css style-loader vs MiniExtractTextPlugin
     'module.rules.use': 'prepend',
   })(
@@ -266,6 +244,8 @@ const particle = (app, options) => {
     // App config specific to dev or prod
     NODE_ENV === 'development' ? dev : prod
   );
+  console.log(merged.module.rules[0].use[3].options);
+  return merged;
 };
 
 module.exports = {

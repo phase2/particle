@@ -42,19 +42,19 @@ gulp.task('compile:twig-namespaces', () =>
         outputs: [
           {
             // Note: PL will NOT compile unless the namespaces are explicitly declared
-            configFile: path.join(PATH_PL, 'pattern-lab/config/config.yml'),
+            configFile: path.resolve(PATH_PL, 'pattern-lab/config/config.yml'),
             atKey: 'plugins.twigNamespaces.namespaces',
             pathRelativeToDir: path.join(PATH_PL, 'pattern-lab/'),
           },
           {
             // The component-libraries module wants to know about our namespaces
-            configFile: path.join(PATH_DRUPAL, 'particle.info.yml'),
+            configFile: path.resolve(PATH_DRUPAL, 'particle.info.yml'),
             atKey: 'component-libraries',
             pathRelativeToDir: path.join(PATH_DRUPAL, ''),
           },
           {
             // The twig-namespaces plugin wants to know about our namespaces
-            configFile: path.join(PATH_GRAV, 'twig-namespaces.yaml'),
+            configFile: path.resolve(PATH_GRAV, 'twig-namespaces.yaml'),
             atKey: 'generated-namespaces',
             pathRelativeToDir: path.join(PATH_GRAV, ''),
           },

@@ -6,7 +6,9 @@
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { DefinePlugin } = require('webpack');
-// const merge = require('webpack-merge');
+
+// Loaders
+const sassExportData = require('@theme-tools/sass-export-data');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
@@ -14,8 +16,9 @@ const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-fil
 // Particle base settings
 const { particle } = require('../../particle');
 
-// Environment
+// Constants
 const { NODE_ENV } = process.env;
+const { PATH_SOURCE } = require('../../config');
 
 const shared = {
   entry: {
@@ -23,7 +26,22 @@ const shared = {
   },
   module: {
     rules: [
-      // Used by Pattern Lab app to import all demo folder twig files
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: 'sass-loader',
+            options: {
+              functions: sassExportData({
+                name: 'export_data',
+                path: path.resolve(PATH_SOURCE, '_data/'),
+              }),
+            },
+          },
+        ],
+      },
+      // Used by Pattern Lab app to import all demo folder twig files, e.g.
+      //   import something from './thing.glob';
       {
         test: /\.(glob)$/,
         loader: 'glob-loader',
