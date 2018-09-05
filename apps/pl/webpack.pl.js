@@ -21,6 +21,15 @@ const shared = {
   entry: {
     'app-pl': [path.resolve(__dirname, 'index.js')],
   },
+  module: {
+    rules: [
+      // Used by Pattern Lab app to import all demo folder twig files
+      {
+        test: /\.(glob)$/,
+        loader: 'glob-loader',
+      },
+    ],
+  },
   plugins: [
     new DefinePlugin({
       BUILD_TARGET: JSON.stringify('pl'),

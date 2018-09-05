@@ -110,18 +110,13 @@ const particleBase = {
           },
         ],
       },
-      // Pattern Lab assets on the dependency chain
+      // Non-standard assets on the dependency chain
       {
         test: /\.(twig|yml|md)$/,
         loader: 'file-loader',
         options: {
           emitFile: false,
         },
-      },
-      // Used by Pattern Lab app to import all demo folder twig files
-      {
-        test: /\.(glob)$/,
-        loader: 'glob-loader',
       },
     ],
   },
