@@ -19,13 +19,12 @@ import VueWidget from './src';
 export const name = 'vueWidget';
 
 export function enable($context) {
-  if (!$('#vue-example-widget', $context).length) {
-    return;
+  if ($('#vue-example-widget', $context).length) {
+    // We have to glue this app to some piece of DOM.
+    // This is normally done where the Vue app is defined (vueWidget/src/index.js)
+    // but we mount it manually here for consistency in Particle.
+    new VueWidget().$mount('#vue-example-widget');
   }
-  // We have to glue this app to some piece of DOM.
-  // This is normally done where the Vue app is defined (vueWidget/src/index.js)
-  // but we mount it manually here for consistency in Particle.
-  VueWidget.$mount('#vue-example-widget', $context);
 }
 
 export function disable() {}

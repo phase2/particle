@@ -25,17 +25,15 @@ import '../../../card/_card.scss';
 
 export default {
   name: 'card',
-  data() {
-    return {
-      card: this.$store.state.card,
-    };
-  },
+  // data() {
+  //   return {
+  //     card: this.$store.state.card,
+  //   };
+  // },
   methods: {
     ...mapActions([]),
   },
-  computed: {
-    ...mapGetters(['getCard']),
-  },
+  computed: mapState({}),
   created() {
     this.$store.dispatch('getCardItems');
   },
