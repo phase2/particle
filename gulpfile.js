@@ -57,19 +57,21 @@ gulp.task('compile:twig-namespaces', () =>
             // Note: PL will NOT compile unless the namespaces are explicitly declared
             configFile: path.join(PATH_PL_REL, 'pattern-lab/config/config.yml'),
             atKey: 'plugins.twigNamespaces.namespaces',
-            pathRelativeToDir: path.join(PATH_PL_REL, 'pattern-lab/'),
+            transform: folderPath =>
+              path.relative(path.join(PATH_PL_REL, 'pattern-lab/'), folderPath),
           },
           {
             // The component-libraries module wants to know about our namespaces
             configFile: path.join(PATH_DRUPAL_REL, 'particle.info.yml'),
             atKey: 'component-libraries',
-            pathRelativeToDir: PATH_DRUPAL_REL,
+            transform: folderPath => path.relative(PATH_DRUPAL_REL, folderPath),
           },
           {
             // The twig-namespaces plugin wants to know about our namespaces
             configFile: path.join(PATH_GRAV_REL, 'twig-namespaces.yaml'),
-            atKey: 'generated-namespaces',
-            pathRelativeToDir: PATH_GRAV_REL,
+            atKey: 'namespaces',
+            transform: folderPath =>
+              path.join('user/themes/particle/', folderPath),
           },
         ],
         // What are the top-level namespace paths, and which sub paths should we ignore?

@@ -28,7 +28,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // - production
 const { NODE_ENV } = process.env;
 const { PATH_PATTERNS, PATH_DIST } = require('./config');
-// console.log(PATH_PATTERNS);
 
 // Enable to track down deprecation during development
 // process.traceDeprecation = true;
@@ -106,7 +105,7 @@ const particleBase = {
       },
       // Non-standard assets on the dependency chain
       {
-        test: /\.(twig|yml|md)$/,
+        test: /\.twig$/,
         loader: 'file-loader',
         options: {
           emitFile: false,

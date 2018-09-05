@@ -41,6 +41,14 @@ const shared = {
           },
         ],
       },
+      // Non-standard assets on the dependency chain
+      {
+        test: /\.(yml|md)$/,
+        loader: 'file-loader',
+        options: {
+          emitFile: false,
+        },
+      },
       // Used by Pattern Lab app to import all demo folder twig files, e.g.
       //   import something from './thing.glob';
       {
