@@ -41,10 +41,10 @@ const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
  * to relative paths, ie
  *   apps/drupal/
  */
-const PATH_PATTERNS_REL = path.join(path.relative(__dirname, PATH_PATTERNS));
-const PATH_PL_REL = path.join(path.relative(__dirname, PATH_PL));
-const PATH_DRUPAL_REL = path.join(path.relative(__dirname, PATH_DRUPAL));
-const PATH_GRAV_REL = path.join(path.relative(__dirname, PATH_GRAV));
+const PATH_PATTERNS_REL = path.relative(__dirname, PATH_PATTERNS);
+const PATH_PL_REL = path.relative(__dirname, PATH_PL);
+const PATH_DRUPAL_REL = path.relative(__dirname, PATH_DRUPAL);
+const PATH_GRAV_REL = path.relative(__dirname, PATH_GRAV);
 
 gulp.task('compile:twig-namespaces', () =>
   gulp
