@@ -117,7 +117,15 @@ module.exports = function GulpTwigNamespaces(opt) {
       // Make a new file using a clone of one we have lying around.
       const outputFile = latestFile.clone({ contents: false });
       // Base appears to be removed when gulp.dest() runs. SO ADD IT.
-      outputFile.path = path.join(latestFile.base, output.configFile);
+      outputFile.path = path.join(output.configFile);
+      outputFile.path = 'testing/';
+
+      console.info('latestFile.base');
+      console.log(latestFile.base);
+      // console.info('output.configFile');
+      // console.log(output.configFile);
+      console.info('outputFile.path');
+      console.log(outputFile.path);
 
       // Write it out in buffer safe way
       outputFile.contents = Buffer.from(yaml.safeDump(configFile));

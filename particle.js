@@ -28,6 +28,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // - production
 const { NODE_ENV } = process.env;
 const { PATH_PATTERNS, PATH_DIST } = require('./config');
+// console.log(PATH_PATTERNS);
 
 // Enable to track down deprecation during development
 // process.traceDeprecation = true;
@@ -68,8 +69,6 @@ const particleBase = {
               // Enable Sass to import other components via, eg:
               // `@import 01-atoms/thing/thing`
               includePaths: [PATH_PATTERNS],
-              // Used to generate JSON about variables like colors, fonts
-              // functions: sassExportData,
               sourceMap: true,
             },
           },

@@ -40,12 +40,6 @@ component-libraries:
   molecules:
     paths:
       - ../../source/_patterns/02-molecules
-      - ../../source/_patterns/02-molecules/nav
-      - ../../source/_patterns/02-molecules/card
-      - ../../source/_patterns/02-molecules/carousel
-      - ../../source/_patterns/02-molecules/jumbotron
-      - ../../source/_patterns/02-molecules/pagination
-      - ../../source/_patterns/02-molecules/example-widget
   organisms:
     paths:
       - ../../source/_patterns/03-organisms

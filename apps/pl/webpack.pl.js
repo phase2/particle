@@ -32,6 +32,7 @@ const shared = {
           {
             loader: 'sass-loader',
             options: {
+              // Used to generate JSON about variables like colors, fonts
               functions: sassExportData({
                 name: 'export_data',
                 path: path.resolve(PATH_SOURCE, '_data/'),
@@ -64,7 +65,7 @@ const dev = {
     watchOptions: {
       ignored: '/(node_modules|dist/pl)/',
     },
-    open: true, // Open browser immediately
+    open: false, // Open browser immediately
     openPage: 'pl', // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
