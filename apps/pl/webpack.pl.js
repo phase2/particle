@@ -6,7 +6,9 @@
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { DefinePlugin } = require('webpack');
-// const merge = require('webpack-merge');
+
+// Loaders
+const sassExportData = require('@theme-tools/sass-export-data');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
@@ -14,12 +16,46 @@ const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-fil
 // Particle base settings
 const { particle } = require('../../particle');
 
-// Environment
+// Constants
 const { NODE_ENV } = process.env;
+const { PATH_SOURCE, PATH_DIST } = require('../../config');
 
 const shared = {
   entry: {
     'app-pl': [path.resolve(__dirname, 'index.js')],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: 'sass-loader',
+            options: {
+              // Used to generate JSON about variables like colors, fonts
+              functions: sassExportData({
+                name: 'export_data',
+                path: path.resolve(PATH_SOURCE, '_data/'),
+              }),
+            },
+          },
+        ],
+      },
+      // Non-standard assets on the dependency chain
+      {
+        test: /\.(yml|md)$/,
+        loader: 'file-loader',
+        options: {
+          emitFile: false,
+        },
+      },
+      // Used by Pattern Lab app to import all demo folder twig files, e.g.
+      //   import something from './thing.glob';
+      {
+        test: /\.(glob)$/,
+        loader: 'glob-loader',
+      },
+    ],
   },
   plugins: [
     new DefinePlugin({
@@ -32,12 +68,12 @@ const dev = {
   devServer: {
     host: '0.0.0.0',
     port: '8080',
-    contentBase: path.resolve('dist/'), // dev server starts from this folder.
+    contentBase: PATH_DIST, // dev server starts from this folder.
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
     watchOptions: {
       ignored: '/(node_modules|dist/pl)/',
     },
-    open: true, // Open browser immediately
+    open: false, // Open browser immediately
     openPage: 'pl', // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root

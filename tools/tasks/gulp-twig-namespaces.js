@@ -83,9 +83,7 @@ module.exports = function GulpTwigNamespaces(opt) {
             // Remove dupes
             .sortedUniq()
             // Modify path to be relative to pathRelativeToDir for yaml config
-            .map(folderPath =>
-              path.relative(output.pathRelativeToDir, folderPath)
-            )
+            .map(folderPath => output.transform(folderPath))
             // Break out of lodash object
             .value();
 
