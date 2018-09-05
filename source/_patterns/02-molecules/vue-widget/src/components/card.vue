@@ -18,22 +18,16 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 // import existing PRINTING styles through javascript
-import '../../../card/_card.scss';
+import 'molecules/card';
 
 export default {
   name: 'card',
-  // data() {
-  //   return {
-  //     card: this.$store.state.card,
-  //   };
-  // },
-  methods: {
-    ...mapActions([]),
+  computed: {
+    ...mapGetters(['getCard']),
   },
-  computed: mapState({}),
   created() {
     this.$store.dispatch('getCardItems');
   },

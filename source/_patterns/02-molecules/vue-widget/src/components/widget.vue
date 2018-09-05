@@ -5,19 +5,14 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from 'vuex';
+import { mapState } from 'vuex';
+
 export default {
   name: 'widget',
-  data() {
-    return {
-      message: this.$store.state.message,
-    };
-  },
-  methods: {
-    ...mapActions([]),
-  },
   computed: {
-    ...mapGetters([]),
+    ...mapState({
+      message: state => state.vueWidget.message,
+    }),
   },
 };
 </script>

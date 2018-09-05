@@ -1,8 +1,7 @@
 <template>
   <div id="vue-example-widget">
-    <widget></widget>
-
-    <card></card>
+    <widget/>
+    <card/>
   </div>
 </template>
 
