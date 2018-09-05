@@ -12,9 +12,6 @@ const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 // Particle base settings
 const { particle } = require('../../particle');
 
-// Environment
-// const { NODE_ENV } = process.env;
-
 const shared = {
   entry: {
     'drupal-jquery': [path.resolve(__dirname, 'drupal-jquery.js')],
