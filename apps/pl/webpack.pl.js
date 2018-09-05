@@ -18,7 +18,7 @@ const { particle } = require('../../particle');
 
 // Constants
 const { NODE_ENV } = process.env;
-const { PATH_SOURCE } = require('../../config');
+const { PATH_SOURCE, PATH_DIST } = require('../../config');
 
 const shared = {
   entry: {
@@ -60,7 +60,7 @@ const dev = {
   devServer: {
     host: '0.0.0.0',
     port: '8080',
-    contentBase: path.resolve('dist/'), // dev server starts from this folder.
+    contentBase: PATH_DIST, // dev server starts from this folder.
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
     watchOptions: {
       ignored: '/(node_modules|dist/pl)/',

@@ -226,7 +226,7 @@ const entryPrepend = entry => ({
 const particle = (app, options) => {
   const { shared, dev, prod } = app;
 
-  const merged = merge.smartStrategy({
+  return merge.smartStrategy({
     // Prepend the css style-loader vs MiniExtractTextPlugin
     'module.rules.use': 'prepend',
   })(
@@ -243,8 +243,6 @@ const particle = (app, options) => {
     // App config specific to dev or prod
     NODE_ENV === 'development' ? dev : prod
   );
-  console.log(merged.module.rules[0].use[3].options);
-  return merged;
 };
 
 module.exports = {
