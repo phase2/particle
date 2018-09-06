@@ -14,7 +14,7 @@ const sassExportData = require('@theme-tools/sass-export-data');
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
 
 // Particle base settings
-const { particle } = require('../../particle');
+const particle = require('../../particle');
 
 // Constants
 const { NODE_ENV } = process.env;

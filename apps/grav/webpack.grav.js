@@ -9,7 +9,7 @@ const webpack = require('webpack');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
 // Custom Imports
-const { particle } = require('../../particle');
+const particle = require('../../particle');
 
 const shared = {
   entry: {
