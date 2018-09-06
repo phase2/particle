@@ -28,8 +28,10 @@ export default {
   computed: {
     ...mapGetters(['getCard']),
   },
-  created() {
-    this.$store.dispatch('getCardItems');
-  },
+  // We *could* get data immediately for this widget, but look for the contrived
+  // approach within enable()
+  // created() {
+  //   this.$store.dispatch('getCardItems');
+  // },
 };
 </script>

@@ -18,13 +18,10 @@ import VueWidget from './src';
 
 export const name = 'vueWidget';
 
-export function enable($context) {
-  if ($('#vue-example-widget', $context).length) {
-    // We have to glue this app to some piece of DOM.
-    // This is normally done where the Vue app is defined (vueWidget/src/index.js)
-    // but we mount it manually here for consistency in Particle.
-    new VueWidget().$mount('#vue-example-widget');
-  }
+export function enable($context, settings) {
+  // Since the app is mounted as soon as possible in src/index.js, enable() to
+  // pass in any data from outside apps (cough Drupal cough)
+  VueWidget.$store.dispatch('getCardItems');
 }
 
 export function disable() {}

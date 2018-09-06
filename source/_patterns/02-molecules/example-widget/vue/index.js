@@ -1,11 +1,8 @@
-/**
- * Vuex Store
- */
-
+/* eslint-disable no-param-reassign, no-shadow */
 import Vue from 'vue';
-import Vuex from 'vuex';
 
-Vue.use(Vuex);
+import store from 'protons/store';
+import FacetTable from './facet-table';
 
 /**
  * STATE
@@ -27,9 +24,4 @@ const actions = {};
  */
 const getters = {};
 
-export default new Vuex.Store({
-  state,
-  mutations,
-  actions,
-  getters,
-});
+store.registerModule;

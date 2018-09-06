@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign, no-shadow */
 import Vue from 'vue';
 
-import store from 'protons/store';
-import App from './App.vue';
+import store from '../../../00-protons/store';
+import App from './app.vue';
 
 /**
  * STATE
@@ -41,6 +41,9 @@ const getters = {
   getCard: state => state.card,
 };
 
+/**
+ * Register
+ */
 store.registerModule('vueWidget', {
   state,
   mutations,
@@ -48,8 +51,8 @@ store.registerModule('vueWidget', {
   getters,
 });
 
-const VueWidget = Vue.extend({
-  // el: '#vue-example-widget',
+const VueWidget = new Vue({
+  el: '#vue-example-widget',
   store,
   render: h => h(App),
 });
