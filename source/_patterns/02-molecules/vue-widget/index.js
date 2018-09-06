@@ -10,17 +10,15 @@
  * Pattern Lab's iframe.
  */
 
-import $ from 'jquery';
-
 // Module dependencies
 import 'protons';
 import VueWidget from './src';
 
 export const name = 'vueWidget';
 
-export function enable($context, settings) {
-  // Since the app is mounted as soon as possible in src/index.js, enable() to
-  // pass in any data from outside apps (cough Drupal cough)
+export function enable() {
+  // Since the app is mounted as soon as possible in src/index.js, use enable()
+  // to pass in any data from outside apps (cough Drupal cough)
   VueWidget.$store.dispatch('getCardItems');
 }
 

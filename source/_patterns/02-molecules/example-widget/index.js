@@ -20,6 +20,7 @@ import './_example-widget.twig';
 import './_example-widget.scss';
 
 import exampleWidget from './src';
+import facetTable from './vue';
 
 export const name = 'example-widget';
 
@@ -28,6 +29,9 @@ export function disable() {}
 export function enable($context) {
   // We have to glue this app to some piece of DOM
   exampleWidget($('#js-example-widget', $context));
+
+  // Vue work
+  facetTable.$store.dispatch('init');
 }
 
 export default enable;
