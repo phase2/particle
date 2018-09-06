@@ -10,7 +10,7 @@ const { DefinePlugin } = require('webpack');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
 // Particle base settings
-const { particle } = require('../../particle');
+const particle = require('../../particle');
 
 const shared = {
   entry: {
