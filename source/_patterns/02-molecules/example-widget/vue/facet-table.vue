@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 
 import FacetTableFacets from './components/facet-table-facets.vue';
 import FacetTableRow from './components/facet-table-row.vue';
@@ -15,7 +15,9 @@ import FacetTableRow from './components/facet-table-row.vue';
 export default {
   name: 'facet-table',
   computed: {
-    ...mapGetters(['title']),
+    ...mapState({
+      titleAlias: 'title',
+    }),
   },
   components: {
     FacetTableFacets,
