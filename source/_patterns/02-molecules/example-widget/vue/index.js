@@ -47,7 +47,12 @@ const actions = {
 /**
  * GETTERS
  */
-const getters = {};
+const getters = {
+  positiveWeek: state =>
+    state.cryptos.filter(
+      ({ percent_change_7d: change }) => parseFloat(change) > 0
+    ),
+};
 
 store.registerModule('vueFacetTable', {
   namespaced: true,

@@ -3,7 +3,7 @@
     <div class="card-header">{{ title }}</div>
     <div class="card-body">
       <h5 class="card-title">
-        Filter: <facet-table-facets/>
+        Filter: +Week <facet-table-facets/>
       </h5>
       <p></p>
     </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 import FacetTableFacets from './components/facet-table-facets.vue';
 import FacetTableRow from './components/facet-table-row.vue';
@@ -35,6 +35,7 @@ export default {
   },
   computed: {
     ...mapState('vueFacetTable', ['title', 'cryptos']),
+    ...mapGetters('vueFacetTable', ['positiveWeek']),
   },
   methods: {
     ...mapActions('vueFacetTable', ['fetchCryptos']),
