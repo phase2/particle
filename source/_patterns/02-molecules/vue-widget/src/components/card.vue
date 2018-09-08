@@ -26,7 +26,7 @@ import 'molecules/card';
 export default {
   name: 'card',
   computed: {
-    ...mapGetters(['getCard']),
+    ...mapGetters('vueWidget', ['getCard']),
   },
   // We *could* get data immediately for this widget, but look for the contrived
   // approach within enable()

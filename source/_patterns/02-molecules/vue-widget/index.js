@@ -19,7 +19,8 @@ export const name = 'vueWidget';
 export function enable() {
   // Since the app is mounted as soon as possible in src/index.js, use enable()
   // to pass in any data from outside apps (cough Drupal cough)
-  VueWidget.$store.dispatch('getCardItems');
+  // @TODO: This always fires. Update to run only on visible.
+  VueWidget.$store.dispatch('vueWidget/getCardItems');
 }
 
 export function disable() {}

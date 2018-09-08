@@ -12,17 +12,37 @@ import FacetTable from './facet-table.vue';
  */
 const state = {
   title: 'Cryptos',
+  cryptos: [],
+  requesting: false,
 };
 
 /**
  * MUTATIONS
  */
-const mutations = {};
+const mutations = {
+  REQUEST_CRYPTOS(state, requesting) {
+    state.requesting = requesting;
+  },
+  SET_CRYPTOS(state, cryptos) {
+    state.cryptos = cryptos;
+  },
+  SET_FILTER(state, filter) {
+    state.filter = filter;
+  },
+};
 
 /**
  * ACTIONS
  */
-const actions = {};
+const actions = {
+  fetchCryptos({ commit }) {
+    commit('REQUEST_CRYPTOS', true);
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+      .then(res => res.json())
+      .then(cryptos => commit('SET_CRYPTOS', cryptos))
+      .then(() => commit('REQUEST_CRYPTOS', false));
+  },
+};
 
 /**
  * GETTERS
@@ -30,6 +50,7 @@ const actions = {};
 const getters = {};
 
 store.registerModule('vueFacetTable', {
+  namespaced: true,
   state,
   mutations,
   actions,

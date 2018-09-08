@@ -45,14 +45,21 @@ const getters = {
  * Register
  */
 store.registerModule('vueWidget', {
+  namespaced: true,
   state,
   mutations,
   actions,
   getters,
 });
 
+console.log(store);
+
+// if (document.getElementById('vue-example-widget')) {
+//
+// }
+
 const VueWidget = new Vue({
-  el: '#vue-example-widget',
+  // el: '#vue-example-widget',
   store,
   render: h => h(App),
 });

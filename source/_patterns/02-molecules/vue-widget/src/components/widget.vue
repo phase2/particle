@@ -10,9 +10,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'widget',
   computed: {
-    ...mapState({
-      message: state => state.vueWidget.message,
-    }),
+    ...mapState('vueWidget', ['message']),
   },
 };
 </script>

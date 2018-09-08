@@ -31,7 +31,7 @@ export function enable($context) {
   exampleWidget($('#js-example-widget', $context));
 
   // Vue work
-  facetTable.$store.dispatch('init');
+  // facetTable.$store.dispatch('init');
 }
 
 export default enable;
