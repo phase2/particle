@@ -1,6 +1,14 @@
 <template>
-  <div class="row" style="justify-content: center;">
-    <div v-for="item in getCard" class="card text-dark col-5" style="margin: 5px;">
+  <div 
+    class="row" 
+    style="justify-content: center;"
+  >
+    <div 
+      v-for="item in getCard"
+      :key="item.phone"
+      class="card text-dark col-5" 
+      style="margin: 5px;"
+    >
       <div class="card-body">
         <h4 class="card-title">{{ item.name }}</h4>
         <h6 class="card-subtitle mb-2 text-muted">{{ item.id }}</h6>
@@ -24,7 +32,7 @@ import { mapGetters } from 'vuex';
 import 'molecules/card';
 
 export default {
-  name: 'card',
+  name: 'Card',
   computed: {
     ...mapGetters('vueWidget', ['getCard']),
   },

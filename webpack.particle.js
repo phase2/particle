@@ -82,7 +82,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.(js|vue)$/,
         enforce: 'pre',
         exclude: /node_modules/,
         loader: 'eslint-loader',
@@ -145,9 +145,15 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
   ],
-  // Shorthand to import modules, i.e. `import thing from 'atoms/thing'`
   resolve: {
     alias: {
+      // Since we operate in a world where random Vue templates might have to
+      // be output via twig, we need the Vue build that includes the whole
+      // template compiling engine. If we are on a build that will NEVER read
+      // HTML from teh DOM and use it as a template, then remove this line.
+      vue$: 'vue/dist/vue.esm.js',
+      // Shorthand to import modules, i.e. `import thing from 'atoms/thing';`
+      // @TODO: We should probably prefix these with a symbol.
       protons: path.resolve(PATH_PATTERNS, '00-protons/'),
       atoms: path.resolve(PATH_PATTERNS, '01-atoms/'),
       molecules: path.resolve(PATH_PATTERNS, '02-molecules/'),

@@ -8,7 +8,7 @@
 import { mapState } from 'vuex';
 
 export default {
-  name: 'widget',
+  name: 'Widget',
   computed: {
     ...mapState('vueWidget', ['message']),
   },

@@ -13,11 +13,11 @@ import './_vue-facet-table-vuex.twig';
 // Module styles
 import './_example-widget.scss';
 
-import FacetTable from './src'; // mount only if dom found
+import FacetTable from './src/vuex-example'; // mount only if dom found
 
 // Render Vue elements as soon as possible
-if (document.getElementById('vue-facet-table')) {
-  new FacetTable().$mount('#vue-facet-table');
+if (document.getElementById('vue-facet-table-vuex')) {
+  new FacetTable().$mount('#vue-facet-table-vuex');
 }
 
 export const name = 'example-widget';

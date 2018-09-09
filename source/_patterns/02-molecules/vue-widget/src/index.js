@@ -52,8 +52,6 @@ store.registerModule('vueWidget', {
   getters,
 });
 
-console.log(store);
-
 // if (document.getElementById('vue-example-widget')) {
 //
 // }

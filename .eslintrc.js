@@ -6,7 +6,12 @@
  */
 
 module.exports = {
-  extends: ['airbnb-base', 'plugin:jest/recommended', 'prettier'],
+  extends: [
+    'airbnb-base',
+    'plugin:jest/recommended',
+    'plugin:vue/recommended',
+    'plugin:prettier/recommended',
+  ],
   plugins: ['prettier'],
   root: true,
   globals: {
@@ -20,7 +25,6 @@ module.exports = {
   },
   rules: {
     'no-console': [0], // turned off for now while we are console.logging everywhere.
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
   settings: {
     'import/resolver': {

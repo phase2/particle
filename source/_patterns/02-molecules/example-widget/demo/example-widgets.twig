@@ -4,11 +4,41 @@
 {% block column_1 %}
   <h1>Example Vue Apps</h1>
 
+  <p class="lead">
+    Vue is flexible and robust. The following examples show off various ways to leverage Vue to meet feature requirements.
+  </p>
+  <p>Vue resources:</p>
+  <ul>
+    <li><a href="https://www.smashingmagazine.com/2018/02/jquery-vue-javascript/">Replacing jQuery With Vue.js: No Build Step Necessary</a></li>
+    <li><a href="https://vuejs.org/v2/guide/index.html">Vue documentation</a></li>
+    <li><a href="https://vuex.vuejs.org/">VueX documentation</a></li>
+  </ul>
+
+  <h2>Vue in existing markup</h2>
+  <p>View can work with markup that already exists in the DOM, similar to how we've always used jQuery.</p>
   <div class="row">
     <div class="col-sm-6">
-
+      <h3>Example:</h3>
+      <form id="vue-html-example">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input class="form-control" id="name" type="text" v-model="name" /> <!--v-model is doing the magic here-->
+          <p>{% raw %}{{ name }}{% endraw %}</p>
+        </div>
+      </form>
     </div>
     <div class="col-sm-6">
+      <p>The widget on the left is instantiated entirely from HTML already existing in the page. </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Vue</h2>
+      {% include '@molecules/example-widget/_vue-facet-table-vue.twig' %}
+    </div>
+    <div class="col-sm-6">
+      <h2>Vue + VueX</h2>
       {% include '@molecules/example-widget/_vue-facet-table-vuex.twig' %}
     </div>
   </div>

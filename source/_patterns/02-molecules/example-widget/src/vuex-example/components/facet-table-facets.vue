@@ -1,13 +1,18 @@
 <template>
-  <div class="btn-group" role="group" aria-label="List filters">
+  <div 
+    class="btn-group" 
+    role="group" 
+    aria-label="List filters"
+  >
     <button
       v-for="facet in facets"
+      :key="facet"
       type="button"
       class="btn btn-secondary text-uppercase"
-      v-on:click="setFilter(facet)"
-      v-bind:class="{ active: filter === facet }"
+      :class="{ active: filter === facet }"
+      @click="setFilter(facet)"
     >
-      {{facet}}
+      {{ facet }}
     </button>
   </div>
 </template>
@@ -15,8 +20,15 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: 'facet-table-facets',
-  props: ['facets'],
+  name: 'FacetTableFacets',
+  props: {
+    facets: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+  },
   computed: {
     ...mapState('vueFacetTable', ['filter']),
   },

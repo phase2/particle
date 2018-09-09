@@ -3,13 +3,19 @@
     <div class="card-header">{{ title }}</div>
     <div class="card-body">
       <h5 class="card-title">
-        Filter: <span class="text-uppercase">{{ filter }}</span> | Requesting: {{requesting}}
+        Filter:
+        <span class="text-uppercase">{{ filter }}</span> |
+        Requesting: {{ requesting }}
       </h5>
-      <facet-table-facets v-bind:facets="['all', 'winners', 'losers']"/>
+      <facet-table-facets :facets="['all', 'winners', 'losers']" />
     </div>
     <ul class="list-group list-group-flush">
-      <li v-for="{id: key, rank, name, price_usd, symbol, percent_change_7d: change} in filteredCryptos" class="list-group-item">
-        <facet-table-row v-bind="{key, rank, name, price_usd, symbol, change}"/>
+      <li 
+        v-for="{id: key, rank, name, price_usd, symbol, percent_change_7d: change} in filteredCryptos"
+        :key="key"
+        class="list-group-item"
+      >
+        <facet-table-row v-bind="{key, rank, name, price_usd, symbol, change}" />
       </li>
     </ul>
   </div>
@@ -22,7 +28,7 @@ import FacetTableFacets from './components/facet-table-facets.vue';
 import FacetTableRow from './components/facet-table-row.vue';
 
 export default {
-  name: 'facet-table',
+  name: 'FacetTable',
   components: {
     FacetTableFacets,
     FacetTableRow,
@@ -31,11 +37,11 @@ export default {
     ...mapState('vueFacetTable', ['title', 'filter', 'requesting']),
     ...mapGetters('vueFacetTable', ['filteredCryptos']),
   },
-  methods: {
-    ...mapActions('vueFacetTable', ['fetchCryptos']),
-  },
   created() {
     this.fetchCryptos();
+  },
+  methods: {
+    ...mapActions('vueFacetTable', ['fetchCryptos']),
   },
 };
 </script>
