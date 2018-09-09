@@ -3,12 +3,14 @@ import Vue from 'vue';
 // Demo twig
 import twig from './example-widgets.twig';
 
-// Render Vue elements as soon as possible
-if (document.getElementById('vue-html-example')) {
+import VueExample2 from './vue-html-example.vue';
+
+// Render Vue element from pre-existing markup in HTML
+if (document.getElementById('vue-html-example-1')) {
   // Use an IIFE for "new"
   (() =>
     new Vue({
-      el: '#vue-html-example',
+      el: '#vue-html-example-1',
       data: {
         name: '',
       },
@@ -17,6 +19,16 @@ if (document.getElementById('vue-html-example')) {
           alert(this.name); // eslint-disable-line no-alert
         },
       },
+    }))();
+}
+
+// Render Vue element with template provided in .vue file
+if (document.getElementById('vue-html-example-2')) {
+  (() =>
+    new Vue({
+      el: '#vue-html-example-2',
+      components: { VueExample2 },
+      template: '<VueExample2 />',
     }))();
 }
 

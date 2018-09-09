@@ -19,12 +19,12 @@
 
   <h3>Example:</h3>
 
-  <form id="vue-html-example" class="p-5">
+  <form id="vue-html-example-1" class="p-5">
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">You typed: <strong>{% raw %}{{ name }}{% endraw %}</strong></span>
       </div>
-      <input class="form-control" id="name" type="text" v-model="name" placeholder="Send this text to outer space" />
+      <input class="form-control" type="text" v-model="name" placeholder="Send this text to outer space" />
       <div class="input-group-append">
         <button
           class="btn btn-outline-primary"
@@ -36,11 +36,12 @@
     </div>
   </form>
 
-  <p>The form above is instantiated entirely from HTML already existing in the page. </p>
+  <p>The form above is instantiated entirely from HTML already existing in the page. This isn't optimal, but it is an option.</p>
+
   <div class="row">
     <div class="col-sm-6">
       <h4>HTML</h4>
-      {% set example = '<form id="vue-html-example">
+      {% set example = '<form id="vue-html-example-1">
   <span>{{ name }}</span>
   <input v-model="name"/>
   <button @click="toSpace(name)">🚀 Send to space</button>
@@ -50,7 +51,7 @@
     <div class="col-sm-6">
       <h4>JavaScript</h4>
 <pre><code class="language-javascript">new Vue({
-  el: '#vue-html-example',
+  el: '#vue-html-example-1',
   data: {
     name: '',
   },
@@ -62,6 +63,52 @@
 })</code></pre>
     </div>
   </div>
+
+  <h2 class="mt-3">Vue using .vue files</h2>
+
+  <p>We can achieve the same application using a .vue file and attach it to an id.</p>
+  <h3>Example:</h3>
+  <div id="vue-html-example-2"></div>
+  <p>The .vue file encapsulates templating, logic, AND styles. This is ideal.</p>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>.vue</h4>
+      {% set example = '<template>
+  <form id="vue-html-example-1">
+    <span>{{ name }}</span>
+    <input v-model="name"/>
+    <button @click="toSpace(name)">🚀 Send to space</button>
+  </form>
+</template>
+<script>
+export default {
+  data: () => ({
+    name: \'\',
+  }),
+  methods: {
+    toSpace() {
+      alert(this.name);
+    },
+  },
+};
+</script>'%}
+      <pre><code class="language-html">{% autoescape %}{{ example }}{% endautoescape %}</code></pre>
+    </div>
+    <div class="col-sm-6">
+      <h4>JavaScript</h4>
+      {% set example = "import VueExample2 from './vue-html-example.vue';
+
+new Vue({
+  el: '#vue-html-example-2',
+  components: { VueExample2 },
+  template: '<VueExample2/>',
+})" %}
+<pre><code class="language-javascript">{% autoescape %}{{ example }}{% endautoescape %}</code></pre>
+    </div>
+  </div>
+
+  <h2 class="mt-3">VueX</h2>
+  <p>Below is an same application implemented in both regular Vue and then in Vue + VueX. Check src/ for respective implementation details.</p>
 
   <div class="row">
     <div class="col-sm-6">
