@@ -2,7 +2,14 @@
 {% set container = true %}
 
 {% block column_1 %}
-  <h1>Example Widget</h1>
+  <h1>Example Vue Apps</h1>
 
-  {% include '@molecules/example-widget/_example-widget.twig' %}
+  <div class="row">
+    <div class="col-sm-6">
+      {% include '@molecules/example-widget/_example-widget.twig' %}
+    </div>
+    <div class="col-sm-6">
+      {% include '@molecules/example-widget/_vue-facet-table-vuex.twig' %}
+    </div>
+  </div>
 {% endblock column_1 %}

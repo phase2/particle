@@ -15,12 +15,18 @@ import 'molecules/card';
 
 // Module template
 import './_example-widget.twig';
+import './_vue-facet-table-vuex.twig';
 
 // Module styles
 import './_example-widget.scss';
 
 import exampleWidget from './src';
-import facetTable from './vue';
+import FacetTable from './vue'; // mount only if dom found
+
+// Render Vue element as soon as possible
+if (document.getElementById('vue-facet-table')) {
+  new FacetTable().$mount('#vue-facet-table');
+}
 
 export const name = 'example-widget';
 
@@ -31,7 +37,7 @@ export function enable($context) {
   exampleWidget($('#js-example-widget', $context));
 
   // Vue work
-  // facetTable.$store.dispatch('init');
+  // FacetTable.$store.dispatch('init');
 }
 
 export default enable;

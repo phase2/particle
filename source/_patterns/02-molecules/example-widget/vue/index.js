@@ -5,7 +5,7 @@
 import Vue from 'vue';
 
 import store from 'protons/store';
-import FacetTable from './facet-table.vue';
+import FacetTableComponent from './facet-table.vue';
 
 /**
  * STATE
@@ -14,6 +14,7 @@ const state = {
   title: 'Cryptos',
   cryptos: [],
   requesting: false,
+  filter: 'all',
 };
 
 /**
@@ -42,6 +43,9 @@ const actions = {
       .then(cryptos => commit('SET_CRYPTOS', cryptos))
       .then(() => commit('REQUEST_CRYPTOS', false));
   },
+  setFilter({ commit }, filter) {
+    commit('SET_FILTER', filter);
+  },
 };
 
 /**
@@ -52,6 +56,26 @@ const getters = {
     state.cryptos.filter(
       ({ percent_change_7d: change }) => parseFloat(change) > 0
     ),
+  filteredCryptos: state => {
+    const { cryptos, filter } = state;
+    switch (filter) {
+      case 'winners':
+        return cryptos.sort(
+          ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
+            parseFloat(changeA) < parseFloat(changeB)
+        );
+      case 'losers':
+        return cryptos.sort(
+          ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
+            parseFloat(changeA) > parseFloat(changeB)
+        );
+      default:
+        return cryptos.sort(
+          ({ rank: rankA }, { rank: rankB }) =>
+            parseInt(rankA, 10) > parseInt(rankB, 10)
+        );
+    }
+  },
 };
 
 store.registerModule('vueFacetTable', {
@@ -62,10 +86,10 @@ store.registerModule('vueFacetTable', {
   getters,
 });
 
-const FacetTableInit = new Vue({
-  el: '#vue-facet-table',
+const FacetTable = Vue.extend({
+  // el: '#vue-facet-table',
   store,
-  render: h => h(FacetTable),
+  render: h => h(FacetTableComponent),
 });
 
-export default FacetTableInit;
+export default FacetTable;

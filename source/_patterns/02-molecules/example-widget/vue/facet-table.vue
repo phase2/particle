@@ -2,19 +2,18 @@
   <div id="js-example-widget-vue" class="card">
     <div class="card-header">{{ title }}</div>
     <div class="card-body">
-      <h5 class="card-title">
-        Filter: +Week <facet-table-facets/>
-      </h5>
-      <p></p>
+      <h5 class="card-title">Filter: <span class="text-uppercase">{{ filter }}</span> | Requesting: {{requesting}}<br/></h5>
+      <div class="btn-group" role="group" aria-label="List filters">
+        <button type="button" class="btn btn-secondary text-uppercase" v-on:click="setFilter('all')">All</button>
+        <button type="button" class="btn btn-secondary text-uppercase" v-on:click="setFilter('winners')">Winners</button>
+        <button type="button" class="btn btn-secondary text-uppercase" v-on:click="setFilter('losers')">Losers</button>
+      </div>
+        <facet-table-facets/>
     </div>
     <ul class="list-group list-group-flush">
-      <li v-for="crypto in cryptos" class="list-group-item">
-        <facet-table-row
-          v-bind:key="crypto.id"
-          v-bind:rank="crypto.rank"
-          v-bind:name="crypto.name"
-          v-bind:price-usd="crypto.price_usd"
-          v-bind:symbol="crypto.symbol"
+      <li v-for="{id, rank, name, price_usd, symbol} in filteredCryptos" class="list-group-item">
+        <facet-table-row v-bind:key="id"
+          v-bind="{rank, name, price_usd, symbol}"
         />
       </li>
     </ul>
@@ -34,11 +33,11 @@ export default {
     FacetTableRow,
   },
   computed: {
-    ...mapState('vueFacetTable', ['title', 'cryptos']),
-    ...mapGetters('vueFacetTable', ['positiveWeek']),
+    ...mapState('vueFacetTable', ['title', 'filter', 'cryptos', 'requesting']),
+    ...mapGetters('vueFacetTable', ['filteredCryptos']),
   },
   methods: {
-    ...mapActions('vueFacetTable', ['fetchCryptos']),
+    ...mapActions('vueFacetTable', ['fetchCryptos', 'setFilter']),
   },
   created() {
     this.fetchCryptos();
