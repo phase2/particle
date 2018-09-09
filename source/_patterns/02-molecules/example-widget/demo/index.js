@@ -12,6 +12,11 @@ if (document.getElementById('vue-html-example')) {
       data: {
         name: '',
       },
+      methods: {
+        toSpace() {
+          alert(this.name); // eslint-disable-line no-alert
+        },
+      },
     }))();
 }
 
