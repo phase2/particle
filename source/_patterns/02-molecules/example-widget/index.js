@@ -1,29 +1,21 @@
 /**
- * Example JS widget
+ * Example Vue widgets
  *
- * An example of a testable, standalone, javascript-driven widget that makes an api call, writes
- * HTML, and does basic logic. This is a pretty naive re-render-on-data-change approach, using
- * poor-man's Redux and jQuery
- *
- * Note the use of this file (`example-widget/index.js`) as the "implementation" of the actual
- * javascript application that resides in `example-widget/src/index.js`.
+ * Mount all widgets via the root index.js file.
  */
-import $ from 'jquery';
 
 import 'protons';
 import 'molecules/card';
 
 // Module template
-import './_example-widget.twig';
 import './_vue-facet-table-vuex.twig';
 
 // Module styles
 import './_example-widget.scss';
 
-import exampleWidget from './src';
-import FacetTable from './vue'; // mount only if dom found
+import FacetTable from './src'; // mount only if dom found
 
-// Render Vue element as soon as possible
+// Render Vue elements as soon as possible
 if (document.getElementById('vue-facet-table')) {
   new FacetTable().$mount('#vue-facet-table');
 }
@@ -32,12 +24,9 @@ export const name = 'example-widget';
 
 export function disable() {}
 
-export function enable($context) {
-  // We have to glue this app to some piece of DOM
-  exampleWidget($('#js-example-widget', $context));
-
-  // Vue work
-  // FacetTable.$store.dispatch('init');
+export function enable() {
+  // Send data from settings or post-docready() work here
+  // FacetTable.$store.dispatch('exampleAction', settings.vueExampleData');
 }
 
 export default enable;

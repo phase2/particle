@@ -1,38 +1,95 @@
+/* eslint-disable no-param-reassign, no-shadow */
+
 /**
- * This is the entry point of our widget. It doesn't know/care that it may be used in Drupal,
- * Grav, Pattern Lab, Wordpress, etc. It's just an app that needs a piece of DOM to which to attach.
- *
- * Note that it exports a simple interface and also prevents itself from running if the attach point
- * is not visible on the page.
- *
- * The widget uses Redux to manage state, and jQuery to make AJAX calls and HTML. A future iteration
- * of this widget should use combineReducers() from Redux to allow *all* widgets to share a single
- * state tree.
+ * A simple table that fetches data and is then sortable on facets
  */
+import Vue from 'vue';
 
-import $ from 'jquery';
+import store from 'protons/store';
+import FacetTableComponent from './facet-table.vue';
 
-import store from './store';
-import render from './template';
-import { fetchCryptos } from './actions';
+/**
+ * STATE
+ */
+const state = {
+  title: 'Cryptos',
+  cryptos: [],
+  requesting: false,
+  filter: 'all',
+};
 
-function attach(attachPoint) {
-  // Make absolutely sure attachPoint is jQuery object
-  const $attachPoint = $(attachPoint);
+/**
+ * MUTATIONS
+ */
+const mutations = {
+  REQUEST_CRYPTOS(state, requesting) {
+    state.requesting = requesting;
+  },
+  SET_CRYPTOS(state, cryptos) {
+    state.cryptos = cryptos;
+  },
+  SET_FILTER(state, filter) {
+    state.filter = filter;
+  },
+};
 
-  // Bail if our attach point is not on screen
-  if (!$attachPoint.length) {
-    return;
-  }
+/**
+ * ACTIONS
+ */
+const actions = {
+  fetchCryptos({ commit }) {
+    commit('REQUEST_CRYPTOS', true);
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+      .then(res => res.json())
+      .then(cryptos => commit('SET_CRYPTOS', cryptos))
+      .then(() => commit('REQUEST_CRYPTOS', false));
+  },
+  setFilter({ commit }, filter) {
+    commit('SET_FILTER', filter);
+  },
+};
 
-  // Immediately render
-  $attachPoint.html(render());
+/**
+ * GETTERS
+ */
+const getters = {
+  filteredCryptos: state => {
+    const { cryptos, filter } = state;
 
-  // Re-render and replace all HTML on every store change
-  store.subscribe(() => $attachPoint.html(render()));
+    switch (filter) {
+      // Sort by positive change
+      case 'winners':
+        return cryptos.sort(
+          ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
+            parseFloat(changeA) < parseFloat(changeB)
+        );
+      // Sort by negative change
+      case 'losers':
+        return cryptos.sort(
+          ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
+            parseFloat(changeA) > parseFloat(changeB)
+        );
+      // Filter by "rank" by default
+      default:
+        return cryptos.sort(
+          ({ rank: rankA }, { rank: rankB }) =>
+            parseInt(rankA, 10) > parseInt(rankB, 10)
+        );
+    }
+  },
+};
 
-  // Immediate kick-off of request
-  store.dispatch(fetchCryptos('ALL'));
-}
+store.registerModule('vueFacetTable', {
+  namespaced: true,
+  state,
+  mutations,
+  actions,
+  getters,
+});
 
-export default attach;
+const FacetTable = Vue.extend({
+  store,
+  render: h => h(FacetTableComponent),
+});
+
+export default FacetTable;
