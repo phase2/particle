@@ -77,7 +77,6 @@ export default {
         .then(res => res.json())
         .then(data => {
           this.cryptos = data;
-          console.log('THIS IS CRYPTOS!@#!@#', this.crypto);
         });
     },
   },
