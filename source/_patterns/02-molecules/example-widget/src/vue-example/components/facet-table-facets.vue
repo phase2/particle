@@ -17,8 +17,6 @@
   </div>
 </template>
 <script>
-// import { mapState, mapActions } from 'vuex';
-
 export default {
   name: 'FacetTableFacets',
   props: {
@@ -29,16 +27,12 @@ export default {
       },
     },
   },
-  computed: {
-    // ...mapState('vueFacetTable', ['filter']),
-  },
   methods: {
     setFilter: function(facet) {
       console.log('called', facet);
       this.$emit('updateFilter', facet);
       return facet;
     },
-    // ...mapActions('vueFacetTable', ['setFilter']),
   },
 };
 </script>

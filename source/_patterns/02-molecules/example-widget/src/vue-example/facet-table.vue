@@ -44,7 +44,6 @@ export default {
   },
   computed: {
     filteredCryptos() {
-      console.log('called FilterCryptos', cryptos);
       const { cryptos, filter } = this;
 
       switch (filter) {
@@ -78,12 +77,10 @@ export default {
       fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
         .then(res => res.json())
         .then(data => {
-          console.log(data);
-          this.crypto = data;
+          this.cryptos = data;
           console.log('THIS IS CRYPTOS!@#!@#', this.crypto);
         });
     },
-    // ...mapActions('vueFacetTable', ['fetchCryptos']),
   },
 };
 </script>
