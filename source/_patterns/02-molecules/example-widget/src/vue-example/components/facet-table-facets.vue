@@ -34,7 +34,7 @@ export default {
     },
   },
   methods: {
-    setFilter: function(facet) {
+    setFilter(facet) {
       console.log('called', facet);
       this.$emit('updateFilter', facet);
       return facet;
