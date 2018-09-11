@@ -14,9 +14,9 @@
     </div>
     <ul class="list-group list-group-flush">
       <li
-              v-for="{id: key, rank, name, price_usd, symbol, percent_change_7d: change} in filteredCryptos"
-              v-bind:key="key"
-              class="list-group-item"
+        v-for="{id: key, rank, name, price_usd, symbol, percent_change_7d: change} in filteredCryptos"
+        :key="key"
+        class="list-group-item"
       >
         <facet-table-row v-bind="{key, rank, name, price_usd, symbol, change}" />
       </li>
@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex';
-
 import FacetTableFacets from './components/facet-table-facets.vue';
 import FacetTableRow from './components/facet-table-row.vue';
 
@@ -40,6 +38,7 @@ export default {
     return {
       cryptos: [],
       filter: 'all',
+      title: 'Cryptos',
     };
   },
   computed: {
