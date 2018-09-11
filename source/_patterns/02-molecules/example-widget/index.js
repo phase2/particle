@@ -9,6 +9,7 @@ import 'molecules/card';
 
 // Module template
 import './_vue-facet-table-vuex.twig';
+import './_vue-facet-table-vue.twig';
 
 // Module styles
 import './_example-widget.scss';

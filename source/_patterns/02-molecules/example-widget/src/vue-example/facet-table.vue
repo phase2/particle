@@ -34,14 +34,14 @@ export default {
     FacetTableRow,
   },
   computed: {
-    ...mapState('vueFacetTable', ['title', 'filter', 'requesting']),
-    ...mapGetters('vueFacetTable', ['filteredCryptos']),
+    // ...mapState('vueFacetTable', ['title', 'filter', 'requesting']),
+    // ...mapGetters('vueFacetTable', ['filteredCryptos']),
   },
   created() {
-    this.fetchCryptos();
+    // this.fetchCryptos();
   },
   methods: {
-    ...mapActions('vueFacetTable', ['fetchCryptos']),
+    // ...mapActions('vueFacetTable', ['fetchCryptos']),
   },
 };
 </script>

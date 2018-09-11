@@ -33,6 +33,10 @@ export default {
     // ...mapState('vueFacetTable', ['filter']),
   },
   methods: {
+    setFilter: function(facet) {
+      console.log('called', facet);
+      return facet;
+    },
     // ...mapActions('vueFacetTable', ['setFilter']),
   },
 };
