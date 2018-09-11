@@ -26,6 +26,12 @@ export default {
         return [];
       },
     },
+    filter: {
+      type: String,
+      default() {
+        return 'ALL';
+      },
+    },
   },
   methods: {
     setFilter: function(facet) {

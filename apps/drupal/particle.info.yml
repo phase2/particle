@@ -50,8 +50,8 @@ component-libraries:
   organisms:
     paths:
       - ../../source/_patterns/03-organisms
-      - ../../source/_patterns/03-organisms/navbar
       - ../../source/_patterns/03-organisms/footer
+      - ../../source/_patterns/03-organisms/navbar
       - ../../source/_patterns/03-organisms/article
       - ../../source/_patterns/03-organisms/accordion
       - ../../source/_patterns/03-organisms/card-grid
