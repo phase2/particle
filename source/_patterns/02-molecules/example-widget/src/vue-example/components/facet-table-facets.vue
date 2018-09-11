@@ -35,6 +35,7 @@ export default {
   methods: {
     setFilter: function(facet) {
       console.log('called', facet);
+      this.$emit('updateFilter', facet);
       return facet;
     },
     // ...mapActions('vueFacetTable', ['setFilter']),

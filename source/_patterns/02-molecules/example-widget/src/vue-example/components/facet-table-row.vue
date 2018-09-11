@@ -35,6 +35,9 @@ export default {
       default: () => '',
     },
   },
+  created() {
+    console.log(this.rank, 'THIS IS RANKS');
+  },
   computed: {
     percentClass() {
       return Math.sign(parseFloat(this.change)) === -1
