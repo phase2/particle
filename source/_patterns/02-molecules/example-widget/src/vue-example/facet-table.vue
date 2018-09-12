@@ -71,12 +71,12 @@ export default {
     this.fetchCryptos();
   },
   methods: {
-    fetchCryptos() {
-      fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-        .then(res => res.json())
-        .then(data => {
-          this.cryptos = data;
-        });
+    async fetchCryptos() {
+      const data = await fetch(
+        'https://api.coinmarketcap.com/v1/ticker/?limit=10'
+      );
+      const json = await data.json();
+      this.cryptos = await json;
     },
   },
 };
