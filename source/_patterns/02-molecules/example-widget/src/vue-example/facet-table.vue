@@ -72,7 +72,6 @@ export default {
   },
   methods: {
     fetchCryptos() {
-      console.log('called');
       fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
         .then(res => res.json())
         .then(data => {
