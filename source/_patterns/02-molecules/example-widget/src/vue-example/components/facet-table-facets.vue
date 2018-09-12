@@ -29,14 +29,14 @@ export default {
     filter: {
       type: String,
       default() {
-        return 'ALL';
+        return 'all';
       },
     },
   },
   methods: {
     setFilter(facet) {
       this.$emit('updateFilter', facet);
-      return facet;
+      this.filter = facet;
     },
   },
 };
