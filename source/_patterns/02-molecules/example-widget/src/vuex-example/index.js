@@ -37,12 +37,14 @@ const mutations = {
  * ACTIONS
  */
 const actions = {
-  fetchCryptos({ commit }) {
+  async fetchCryptos({ commit }) {
     commit('REQUEST_CRYPTOS', true);
-    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-      .then(res => res.json())
-      .then(cryptos => commit('SET_CRYPTOS', cryptos))
-      .then(() => commit('REQUEST_CRYPTOS', false));
+    const data = await fetch(
+      'https://api.coinmarketcap.com/v1/ticker/?limit=10'
+    );
+    const json = data.json();
+    await json.then(jsonData => commit('SET_CRYPTOS', jsonData));
+    await json.then(() => commit('REQUEST_CRYPTOS', false));
   },
   setFilter({ commit }, filter) {
     commit('SET_FILTER', filter);
