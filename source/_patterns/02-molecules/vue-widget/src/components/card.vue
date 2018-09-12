@@ -1,13 +1,14 @@
 <template>
-  <div 
-    class="row" 
+  <div
+    class="row"
     style="justify-content: center;"
   >
-    <div 
+    <div
       v-for="item in getCard"
       :key="item.phone"
-      class="card text-dark col-5" 
-      style="margin: 5px;"
+      class="card text-dark col-5"
+      :style="styleObject"
+      @click="toggleBackground()"
     >
       <div class="card-body">
         <h4 class="card-title">{{ item.name }}</h4>
@@ -31,10 +32,37 @@ import { mapGetters } from 'vuex';
 // import existing PRINTING styles through javascript
 import 'molecules/card';
 
+// We will unpack this using the spread operator.
+const initialStyle = {
+  margin: '5px',
+  backgroundColor: 'white',
+  transform: 'scale(1)',
+};
+
 export default {
   name: 'Card',
+  data() {
+    return {
+      styleObject: { ...initialStyle },
+      toggle: false,
+    };
+  },
   computed: {
     ...mapGetters('vueWidget', ['getCard']),
+  },
+  methods: {
+    toggleBackground() {
+      console.log('clicked');
+      // The object needs to exist first before it changes state.
+      if (this.toggle === false) {
+        this.styleObject.backgroundColor = '#db9200';
+        this.styleObject.transform = 'scale(.8)';
+        this.toggle = true;
+      } else {
+        this.styleObject = { ...initialStyle };
+        this.toggle = false;
+      }
+    },
   },
   // We *could* get data immediately for this widget, but look for the contrived
   // approach within enable()
