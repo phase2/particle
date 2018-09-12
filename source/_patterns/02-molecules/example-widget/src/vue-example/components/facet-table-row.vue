@@ -42,8 +42,5 @@ export default {
         : 'text-success';
     },
   },
-  created() {
-    console.log(this.rank, 'THIS IS RANKS');
-  },
 };
 </script>
