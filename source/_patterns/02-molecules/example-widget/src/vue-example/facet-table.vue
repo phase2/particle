@@ -75,7 +75,7 @@ export default {
       const data = await fetch(
         'https://api.coinmarketcap.com/v1/ticker/?limit=10'
       );
-      const json = await data.json();
+      const json = data.json();
       this.cryptos = await json;
     },
   },
