@@ -35,7 +35,6 @@ export default {
       default: () => '',
     },
   },
-
   computed: {
     percentClass() {
       return Math.sign(parseFloat(this.change)) === -1

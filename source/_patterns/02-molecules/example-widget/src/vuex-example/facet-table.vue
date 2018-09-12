@@ -28,7 +28,7 @@ import FacetTableFacets from './components/facet-table-facets.vue';
 import FacetTableRow from './components/facet-table-row.vue';
 
 export default {
-  name: 'FacetTable',
+  name: 'FacetTableVueX',
   components: {
     FacetTableFacets,
     FacetTableRow,

@@ -37,12 +37,14 @@ const mutations = {
  * ACTIONS
  */
 const actions = {
-  fetchCryptos({ commit }) {
+  async fetchCryptos({ commit }) {
     commit('REQUEST_CRYPTOS', true);
-    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-      .then(res => res.json())
-      .then(cryptos => commit('SET_CRYPTOS', cryptos))
-      .then(() => commit('REQUEST_CRYPTOS', false));
+    const data = await (await fetch(
+      'https://api.coinmarketcap.com/v1/ticker/?limit=10'
+    )).json();
+
+    commit('SET_CRYPTOS', data);
+    commit('REQUEST_CRYPTOS', false);
   },
   setFilter({ commit }, filter) {
     commit('SET_FILTER', filter);
@@ -87,9 +89,9 @@ store.registerModule('vueFacetTable', {
   getters,
 });
 
-const FacetTable = Vue.extend({
-  store,
-  render: h => h(FacetTableComponent),
-});
-
-export default FacetTable;
+export default el =>
+  new Vue({
+    el,
+    store,
+    render: h => h(FacetTableComponent),
+  });

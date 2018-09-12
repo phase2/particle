@@ -29,8 +29,8 @@ namespaces:
   organisms:
     paths:
       - user/themes/particle/source/_patterns/03-organisms/
-      - user/themes/particle/source/_patterns/03-organisms/navbar
       - user/themes/particle/source/_patterns/03-organisms/footer
+      - user/themes/particle/source/_patterns/03-organisms/navbar
       - user/themes/particle/source/_patterns/03-organisms/article
       - user/themes/particle/source/_patterns/03-organisms/accordion
       - user/themes/particle/source/_patterns/03-organisms/card-grid
