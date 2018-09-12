@@ -69,20 +69,18 @@ const cssModes = {
 };
 
 /**
- * For production mode, we will run a big, heavy, full Babel polyfill build
- * right into the bundle
+ * Polyfill ALL modern JS to support for browsers within .browserslistrc
+ *
  * @param {string} entry
  * @returns {{entry: {}}}
  */
 const entryPrepend = entry => ({
   // See webpack.[app].js for more entry points
-  entry:
-    NODE_ENV === 'development'
-      ? // No special entry points in development
-        {}
-      : // Full polyfill for production
-        { [entry]: ['@babel/polyfill'] },
+  entry: {
+    [entry]: ['@babel/polyfill'],
+  },
 });
+
 /**
  * Every app using Particle must run its config through this "particle"
  * function to ensure it adheres to Particle standards of dev/prod config.
