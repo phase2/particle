@@ -7,8 +7,9 @@ import Vue from 'vue';
 
 import FacetTableComponent from './facet-table.vue';
 
-const FacetTable = Vue.extend({
-  render: h => h(FacetTableComponent),
-});
-
-export default FacetTable;
+export default () => {
+  new Vue({
+    el: '#vue-facet-table-vue',
+    render: h => h(FacetTableComponent),
+  });
+};
