@@ -89,9 +89,9 @@ store.registerModule('vueFacetTable', {
   getters,
 });
 
-export default () =>
+export default el =>
   new Vue({
-    el: '#vue-facet-table-vuex',
+    el,
     store,
     render: h => h(FacetTableComponent),
   });
