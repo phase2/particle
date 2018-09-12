@@ -22,7 +22,7 @@ if (document.getElementById('vue-facet-table-vue')) {
   FacetTable();
 }
 if (document.getElementById('vue-facet-table-vuex')) {
-  new FacetTableVuex().$mount('#vue-facet-table-vuex');
+  FacetTableVuex();
 }
 
 export const name = 'example-widget';
