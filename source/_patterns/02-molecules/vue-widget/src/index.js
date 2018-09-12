@@ -57,7 +57,7 @@ store.registerModule('vueWidget', {
 // }
 
 const VueWidget = new Vue({
-  // el: '#vue-example-widget',
+  el: '#vue-example-widget',
   store,
   render: h => h(App),
 });

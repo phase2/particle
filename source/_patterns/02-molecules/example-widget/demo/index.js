@@ -4,6 +4,7 @@ import Vue from 'vue';
 import twig from './example-widgets.twig';
 
 import VueExample2 from './vue-html-example.vue';
+import VueWidget from '../../vue-widget/src/app.vue';
 
 // Render Vue element from pre-existing markup in HTML
 if (document.getElementById('vue-html-example-1')) {
@@ -32,6 +33,14 @@ if (document.getElementById('vue-html-example-2')) {
     }))();
 }
 
+if (document.getElementById('vue-style-example')) {
+  (() =>
+    new Vue({
+      el: '#vue-style-example',
+      components: { VueWidget },
+      template: '<VueWidget />',
+    }))();
+}
 export default {
   twig,
 };
