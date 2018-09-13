@@ -28,10 +28,9 @@
   >
     <div
       v-for="item in getCard"
-      :id="item.id"
       :key="item.phone"
-      :class="[classObject, classObject2]"
-      @click="toggle(item)"
+      :class="[classObject, activeHighlight(item.id)]"
+      @click="[toggle(item)]"
     >
       <div class="card-body">
         <h4 class="card-title">{{ item.name }}</h4>
@@ -59,36 +58,57 @@ export default {
   name: 'Card',
   data() {
     return {
-      filter: 1,
+      filter: new Set(),
+      filterArray: [],
       error: null,
+      state: {
+        clicks: 0,
+        'text-dark': true,
+        'col-5': true,
+        'card-hover': true,
+        resize: true,
+        'scoped-background': true,
+        card: true,
+      },
+      target: -1,
     };
   },
   computed: {
     ...mapGetters('vueWidget', ['getCard']),
     classObject() {
+      console.log('called comp');
       return {
         'text-dark': false,
-        'col-5': true,
-        'card-hover': true,
-        resize: true,
-        'scoped-background': false,
+        'col-5': this.state['text-dark'],
+        'card-hover': this.state['card-hover'],
+        resize: this.state.resize,
+        'scoped-background': this.state['scoped-background'],
         card: true,
-      };
-    },
-    classObject2() {
-      return {
-        'text-dark1': false,
-        'col-51': true,
-        'card-hover1': true,
-        resiz1e: true,
-        'scop1ed-background': false,
-        card1: true,
       };
     },
   },
   methods: {
-    toggle(val) {
-      this.filter = val.id;
+    toggle(item) {
+      if (this.filter.has(item.id)) {
+        this.filter.delete(item.id);
+      } else {
+        this.filter.add(item.id);
+      }
+      // We use this to force the Vue component to update. This is pretty hacky
+      this.state['card-hover'] = !this.state['card-hover'];
+    },
+    activeHighlight(id) {
+      let isTrue = false;
+      if (this.filter.has(id) === true) {
+        isTrue = true;
+        return {
+          active: isTrue,
+        };
+      }
+      console.log('failed to contain');
+      return {
+        active: false,
+      };
     },
   },
   // We *could* get data immediately for this widget, but look for the contrived
