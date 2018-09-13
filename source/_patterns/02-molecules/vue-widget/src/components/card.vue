@@ -1,14 +1,34 @@
+<style scoped>
+.resize {
+}
+.card-hover:hover {
+  background-color: rgba(0, 0, 0, 0.46);
+}
+.card-hover:active {
+  background-color: #db9200;
+}
+.scoped-background {
+  background-color: white;
+}
+.scoped-row {
+  justify-content: center;
+}
+.active {
+  background-color: #ee9900;
+}
+</style>
+
 <template>
   <div
-    class="row"
-    style="justify-content: center;"
+    class="row scoped-row"
   >
     <div
       v-for="item in getCard"
+      :id="item.id"
       :key="item.phone"
-      class="card text-dark col-5"
-      :style="styleObject"
-      @click="toggleBackground()"
+      class="card text-dark col-5 card-hover resize scoped-background"
+      :class="{ active: (item.id === filter) }"
+      @click="toggle(item)"
     >
       <div class="card-body">
         <h4 class="card-title">{{ item.name }}</h4>
@@ -33,35 +53,20 @@ import { mapGetters } from 'vuex';
 import 'molecules/card';
 
 // We will unpack this using the spread operator.
-const initialStyle = {
-  margin: '5px',
-  backgroundColor: 'white',
-  transform: 'scale(1)',
-};
 
 export default {
   name: 'Card',
   data() {
     return {
-      styleObject: { ...initialStyle },
-      toggle: false,
+      filter: -1,
     };
   },
   computed: {
     ...mapGetters('vueWidget', ['getCard']),
   },
   methods: {
-    toggleBackground() {
-      console.log('clicked');
-      // The object needs to exist first before it changes state.
-      if (this.toggle === false) {
-        this.styleObject.backgroundColor = '#db9200';
-        this.styleObject.transform = 'scale(.8)';
-        this.toggle = true;
-      } else {
-        this.styleObject = { ...initialStyle };
-        this.toggle = false;
-      }
+    toggle(val) {
+      this.filter = val.id;
     },
   },
   // We *could* get data immediately for this widget, but look for the contrived
