@@ -1,6 +1,10 @@
 <style scoped>
 .resize {
 }
+.card-hover {
+  /*padding: 10px;*/
+  /*margin: 10px;*/
+}
 .card-hover:hover {
   background-color: rgba(0, 0, 0, 0.46);
 }
@@ -26,7 +30,7 @@
       v-for="item in getCard"
       :id="item.id"
       :key="item.phone"
-      :class="classObject"
+      :class="[classObject, classObject2]"
       @click="toggle(item)"
     >
       <div class="card-body">
@@ -51,9 +55,6 @@ import { mapGetters } from 'vuex';
 // import existing PRINTING styles through javascript
 import 'molecules/card';
 
-// We will unpack this using the spread operator.
-// text-dark col-5 card-hover resize scoped-background
-
 export default {
   name: 'Card',
   data() {
@@ -71,6 +72,17 @@ export default {
         'card-hover': true,
         resize: true,
         'scoped-background': false,
+        card: true,
+      };
+    },
+    classObject2() {
+      return {
+        'text-dark1': false,
+        'col-51': true,
+        'card-hover1': true,
+        resiz1e: true,
+        'scop1ed-background': false,
+        card1: true,
       };
     },
   },
