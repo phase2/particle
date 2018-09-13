@@ -76,7 +76,6 @@ export default {
   computed: {
     ...mapGetters('vueWidget', ['getCard']),
     classObject() {
-      console.log('called comp');
       return {
         'text-dark': false,
         'col-5': this.state['text-dark'],
@@ -105,7 +104,6 @@ export default {
           active: isTrue,
         };
       }
-      console.log('failed to contain');
       return {
         active: false,
       };
