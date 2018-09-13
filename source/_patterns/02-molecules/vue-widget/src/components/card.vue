@@ -26,8 +26,7 @@
       v-for="item in getCard"
       :id="item.id"
       :key="item.phone"
-      class="card text-dark col-5 card-hover resize scoped-background"
-      :class="{ active: (item.id === filter) }"
+      :class="classObject"
       @click="toggle(item)"
     >
       <div class="card-body">
@@ -53,16 +52,27 @@ import { mapGetters } from 'vuex';
 import 'molecules/card';
 
 // We will unpack this using the spread operator.
+// text-dark col-5 card-hover resize scoped-background
 
 export default {
   name: 'Card',
   data() {
     return {
-      filter: -1,
+      filter: 1,
+      error: null,
     };
   },
   computed: {
     ...mapGetters('vueWidget', ['getCard']),
+    classObject() {
+      return {
+        'text-dark': false,
+        'col-5': true,
+        'card-hover': true,
+        resize: true,
+        'scoped-background': false,
+      };
+    },
   },
   methods: {
     toggle(val) {
