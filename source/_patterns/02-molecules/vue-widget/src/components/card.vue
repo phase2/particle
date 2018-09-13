@@ -30,7 +30,7 @@
       v-for="item in getCard"
       :key="item.phone"
       :class="[classObject, activeHighlight(item.id)]"
-      @click="[toggle(item)]"
+      @click="[toggle($event,item)]"
     >
       <div class="card-body">
         <h4 class="card-title">{{ item.name }}</h4>
@@ -87,13 +87,21 @@ export default {
     },
   },
   methods: {
-    toggle(item) {
+    toggle(event, item) {
+      event.preventDefault();
       if (this.filter.has(item.id)) {
         this.filter.delete(item.id);
       } else {
         this.filter.add(item.id);
       }
-      // We use this to force the Vue component to update. This is pretty hacky
+      /*
+        This forces the Vue component to update.
+          This is no optimal.
+          Need to find a better way to tell state to update for singular components inside V-for.
+
+        Changed twice to reset the value back to default.
+       */
+      this.state['card-hover'] = !this.state['card-hover'];
       this.state['card-hover'] = !this.state['card-hover'];
     },
     activeHighlight(id) {
