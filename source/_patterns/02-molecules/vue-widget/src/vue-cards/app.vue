@@ -1,5 +1,6 @@
 <template>
-  <div id="vue-example-widget">
+  <div id="vue-cards">
+    <h1 id="mt-3'">Vue Styles:</h1>
     <widget />
     <cards
       :cards="cardsArray"
