@@ -27,7 +27,7 @@
     class="row scoped-row"
   >
     <div
-      v-for="item in getCard"
+      v-for="item in cards"
       :key="item.phone"
       :class="[classObject, activeHighlight(item.id)]"
       @click="[toggle($event,item)]"
@@ -49,13 +49,19 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 // import existing PRINTING styles through javascript
 import 'molecules/card';
 
 export default {
   name: 'Card',
+  props: {
+    cards: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+  },
   data() {
     return {
       active_elements: [],
@@ -74,7 +80,6 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('vueWidget', ['getCard']),
     classObject() {
       return {
         'text-dark': false,
@@ -108,18 +113,6 @@ export default {
       return {
         active: false,
       };
-
-      // check.length === 1 ? active: true : active: false
-      // let isTrue = false;
-      // if (this.filter.has(id) === true) {
-      //   isTrue = true;
-      //   return {
-      //     active: isTrue,
-      //   };
-      // }
-      // return {
-      //   active: false,
-      // };
     },
   },
   // We *could* get data immediately for this widget, but look for the contrived

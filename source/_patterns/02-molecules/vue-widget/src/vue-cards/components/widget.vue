@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   name: 'Widget',
   data() {
@@ -18,11 +16,10 @@ export default {
       styles: {
         'background-color': 'white',
       },
+      message: "Good news everyone! Store's open for business.",
     };
   },
-  computed: {
-    ...mapState('vueWidget', ['message']),
-  },
+  computed: {},
   created() {
     this.randomColor();
     setInterval(() => {

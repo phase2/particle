@@ -1,10 +1,10 @@
 import Vue from 'vue';
 
 // Demo twig
-import twig from './example-widgets.twig';
+import twig from './vue-widgets.twig';
 
 import VueExample2 from './vue-html-example.vue';
-import VueWidget from '../src/vue-widget/app.vue';
+import VueWidget from '../src/vue-cards/app.vue';
 
 // Render Vue element from pre-existing markup in HTML
 if (document.getElementById('vue-html-example-1')) {
