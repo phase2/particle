@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign, no-shadow */
 import Vue from 'vue';
 
-import store from '../../../00-protons/store';
+import store from '../../../../00-protons/store';
 import App from './app.vue';
 
 /**
@@ -52,14 +52,13 @@ store.registerModule('vueWidget', {
   getters,
 });
 
-// if (document.getElementById('vue-example-widget')) {
+// if (document.getElementById('vue-vue-widget')) {
 //
 // }
 
-const VueWidget = new Vue({
-  el: '#vue-example-widget',
-  store,
-  render: h => h(App),
-});
-
-export default VueWidget;
+export default el =>
+  new Vue({
+    el,
+    store,
+    render: h => h(App),
+  });

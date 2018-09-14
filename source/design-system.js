@@ -14,7 +14,6 @@ import * as listGroup from 'atoms/list-group';
 import * as nav from 'molecules/nav';
 import * as card from 'molecules/card';
 import * as carousel from 'molecules/carousel';
-import * as exampleWidget from 'molecules/example-widget';
 import * as jumbotron from 'molecules/jumbotron';
 import * as pagination from 'molecules/pagination';
 import * as vueWidget from 'molecules/vue-widget';
@@ -37,7 +36,6 @@ const components = {
   nav,
   card,
   carousel,
-  exampleWidget,
   jumbotron,
   pagination,
   vueWidget,
