@@ -58,7 +58,7 @@ export default {
   name: 'Card',
   data() {
     return {
-      filter: new Set(),
+      active_elements: [],
       filterArray: [],
       error: null,
       state: {
@@ -88,33 +88,38 @@ export default {
   },
   methods: {
     toggle(event, item) {
+      // Check to see if the item clicked has already been assigned the active status.
       event.preventDefault();
-      if (this.filter.has(item.id)) {
-        this.filter.delete(item.id);
-      } else {
-        this.filter.add(item.id);
+      const check = this.active_elements.filter(id => id !== item.id);
+      if (this.active_elements.length > check.length) {
+        this.active_elements = check;
+      } else if (check.length === this.active_elements.length) {
+        this.active_elements.push(item.id);
       }
-      /*
-        This forces the Vue component to update.
-          This is no optimal.
-          Need to find a better way to tell state to update for singular components inside V-for.
-
-        Changed twice to reset the value back to default.
-       */
-      this.state['card-hover'] = !this.state['card-hover'];
-      this.state['card-hover'] = !this.state['card-hover'];
     },
     activeHighlight(id) {
-      let isTrue = false;
-      if (this.filter.has(id) === true) {
-        isTrue = true;
+      const check = this.active_elements.filter(_id => _id === id);
+      if (check.length > 0) {
         return {
-          active: isTrue,
+          active: true,
         };
       }
+
       return {
         active: false,
       };
+
+      // check.length === 1 ? active: true : active: false
+      // let isTrue = false;
+      // if (this.filter.has(id) === true) {
+      //   isTrue = true;
+      //   return {
+      //     active: isTrue,
+      //   };
+      // }
+      // return {
+      //   active: false,
+      // };
     },
   },
   // We *could* get data immediately for this widget, but look for the contrived
