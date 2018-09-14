@@ -10,7 +10,7 @@ const path = require('path');
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
 
 // Loaders
-const autoprefixer = require('autoprefixer');
+const postcssPresetEnv = require('postcss-preset-env');
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -53,7 +53,7 @@ module.exports = {
             options: {
               sourceMap: true,
               ident: 'postcss',
-              plugins: () => [autoprefixer()],
+              plugins: () => [postcssPresetEnv()],
             },
           },
           { loader: 'resolve-url-loader' },
