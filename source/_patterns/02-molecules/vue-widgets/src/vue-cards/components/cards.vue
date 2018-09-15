@@ -1,27 +1,3 @@
-<style scoped>
-.resize {
-}
-.card-hover {
-  /*padding: 10px;*/
-  /*margin: 10px;*/
-}
-.card-hover:hover {
-  background-color: rgba(0, 0, 0, 0.46);
-}
-.card-hover:active {
-  background-color: #db9200;
-}
-.scoped-background {
-  background-color: white;
-}
-.scoped-row {
-  justify-content: center;
-}
-.active {
-  background-color: #ee9900;
-}
-</style>
-
 <template>
   <div
     class="row scoped-row"
@@ -122,3 +98,30 @@ export default {
   // },
 };
 </script>
+<style lang="scss" scoped>
+@import '00-protons/variables';
+.resize {
+}
+.card-hover {
+  /*padding: 10px;*/
+  /*margin: 10px;*/
+}
+.card-hover:hover {
+  background-color: $light;
+}
+.card-hover:active {
+  background-color: $light;
+}
+.scoped-background {
+  background-color: $white;
+}
+.scoped-row {
+  justify-content: center;
+}
+.active {
+  background-color: $success;
+}
+.active:hover {
+  background-color: green;
+}
+</style>
