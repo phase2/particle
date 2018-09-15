@@ -39,6 +39,7 @@ deploy:
   bucket: p2-particle
   local-dir: dist
   acl: public_read
+  skip_cleanup: true
   on:
     repo: phase2/particle
     branch: master
