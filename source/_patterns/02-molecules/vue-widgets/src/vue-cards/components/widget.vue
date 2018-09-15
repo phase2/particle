@@ -50,7 +50,7 @@ export default {
   background-color: map-get($theme-colors, 'new');
 
   h3 {
-    color: $primary;
+    color: $white;
   }
 }
 </style>
