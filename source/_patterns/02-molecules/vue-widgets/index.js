@@ -29,7 +29,7 @@ if (document.getElementById('vue-cards')) {
   VueCards('#vue-cards');
 }
 
-export const name = 'vue-widget';
+export const name = 'vue-widgets';
 
 export function disable() {}
 

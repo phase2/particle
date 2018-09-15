@@ -45,7 +45,7 @@ component-libraries:
       - ../../source/_patterns/02-molecules/carousel
       - ../../source/_patterns/02-molecules/jumbotron
       - ../../source/_patterns/02-molecules/pagination
-      - ../../source/_patterns/02-molecules/vue-widget
+      - ../../source/_patterns/02-molecules/vue-widgets
   organisms:
     paths:
       - ../../source/_patterns/03-organisms

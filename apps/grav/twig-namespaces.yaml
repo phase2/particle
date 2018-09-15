@@ -24,7 +24,7 @@ namespaces:
       - user/themes/particle/source/_patterns/02-molecules/carousel
       - user/themes/particle/source/_patterns/02-molecules/jumbotron
       - user/themes/particle/source/_patterns/02-molecules/pagination
-      - user/themes/particle/source/_patterns/02-molecules/vue-widget
+      - user/themes/particle/source/_patterns/02-molecules/vue-widgets
   organisms:
     paths:
       - user/themes/particle/source/_patterns/03-organisms/
