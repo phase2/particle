@@ -8,8 +8,9 @@ import 'protons';
 import 'molecules/card';
 
 // Module template
-import './_vue-facet-table-vuex.twig';
-import './_vue-facet-table-vue.twig';
+import './_vuex-cryptos.twig';
+import './_vue-cryptos.twig';
+import './_vue-cards.twig';
 
 // Module styles
 import './_vue-widgets.scss';

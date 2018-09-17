@@ -112,17 +112,16 @@ new Vue({
   <div class="row">
     <div class="col-sm-6">
       <h2>Vue</h2>
-      {% include '@molecules/vue-widgets/_vue-facet-table-vue.twig' %}
+      {% include '@molecules/vue-widgets/_vue-cryptos.twig' %}
     </div>
     <div class="col-sm-6">
       <h2>Vue + VueX</h2>
-      {% include '@molecules/vue-widgets/_vue-facet-table-vuex.twig' %}
+      {% include '@molecules/vue-widgets/_vuex-cryptos.twig' %}
     </div>
   </div>
 
 
   {# vue-cards component is insert inside this div#}
-  <div id="vue-cards">
-  </div>
+  {% include '@molecules/vue-widgets/_vue-cards.twig' %}
   {# --- End of Vue.js Component ----#}
 {% endblock column_1 %}

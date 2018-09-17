@@ -1,3 +1,5 @@
+<script src="../../../demo/index.js">
+</script>
 <template>
   <div
     class="row scoped-row"
