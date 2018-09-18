@@ -19,7 +19,6 @@ export default {
       message: "Good news everyone! Store's open for business.",
     };
   },
-  computed: {},
   created() {
     setInterval(() => {
       this.randomColor();
