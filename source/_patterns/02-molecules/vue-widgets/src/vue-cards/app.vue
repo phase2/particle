@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Vue Styles</h2>
-    <widget />
+    <banner />
     <cards
       :cards="cardsArray"
       @updateCards="update($event)"
@@ -11,12 +11,12 @@
 
 <script>
 import cards from './components/cards.vue';
-import widget from './components/widget.vue';
+import banner from './components/banner.vue';
 
 export default {
   components: {
     cards,
-    widget,
+    banner,
   },
   data() {
     return {

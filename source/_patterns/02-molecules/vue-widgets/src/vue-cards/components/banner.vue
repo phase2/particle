@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="vue-widget" 
+    class="vue-banner"
     :style="styles"
     @click="randomColor()"
   >
@@ -43,7 +43,7 @@ export default {
 // importing NON PRINTING styles in sass
 @import '00-protons/variables';
 
-.vue-widget {
+.vue-banner {
   margin: map-get($spacing, l);
   padding: map-get($spacing, m);
   font-size: $font-size-lg;
