@@ -60,10 +60,13 @@ export default {
     },
   },
   created() {
-    this.updateSecondsPosition();
+    this.updatePosition();
   },
   methods: {
-    updateSecondsPosition() {
+    /**
+     * Updates the seconds position
+     */
+    updatePosition() {
       this.updateClock = setInterval(() => {
         const time = new Date()
           .toString()
@@ -77,19 +80,23 @@ export default {
 
         const hours = time[0];
 
-        const degrees = 6 * parseInt(seconds, 10);
         if (this.initial) {
           this.updateMinutesPosition(minutes);
           this.updateHoursPosition(hours);
           this.initial = false;
         }
-        this.secondsPosition = {
-          transform: `rotate(${degrees}deg)`,
-        };
+
+        this.updateSecondsPosition(seconds)
         if (this.secondsPosition === '00') this.updateMinutesPosition(minutes);
         if (this.hoursPosition === '00') this.updateHoursPosition(hours);
       }, 1000);
     },
+    updateSecondsPosition(seconds) {
+      const degrees = 6 * parseInt(seconds, 10);
+      this.secondsPosition = {
+        transform: `rotate(${degrees}deg)`,
+      };
+    }
     updateMinutesPosition(minutes) {
       this.$set(this.time, 'minutes', minutes);
       const degrees = 6 * parseInt(minutes, 10);
