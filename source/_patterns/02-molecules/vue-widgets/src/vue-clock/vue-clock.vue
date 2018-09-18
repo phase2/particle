@@ -54,7 +54,18 @@ export default {
   computed: {
     dynamicClasses() {
       const classObject = {
-        salmon: this.time.seconds > 30 && this.time.seconds < 50,
+        success:
+          (this.time.seconds < 5 && this.time.seconds >= 0) ||
+          (this.time.seconds < 45 && this.time.seconds >= 40),
+        primary:
+          (this.time.seconds < 10 && this.time.seconds >= 5) ||
+          (this.time.seconds < 50 && this.time.seconds >= 45),
+        salmon: this.time.seconds < 15 && this.time.seconds >= 10,
+        purple: this.time.seconds < 20 && this.time.seconds >= 15,
+        orange: this.time.seconds < 25 && this.time.seconds >= 20,
+        yellow: this.time.seconds < 30 && this.time.seconds >= 25,
+        dark: this.time.seconds < 35 && this.time.seconds >= 30,
+        cyan: this.time.seconds < 40 && this.time.seconds >= 35,
       };
       return classObject;
     },
@@ -115,7 +126,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scope>
+@import '00-protons/variables';
 .container {
   display: flex;
   flex-direction: column;
@@ -173,5 +185,26 @@ export default {
 }
 .salmon {
   background-color: salmon;
+}
+.success {
+  background-color: $success;
+}
+.primary {
+  background-color: $primary;
+}
+.dark {
+  background-color: $dark;
+}
+.yellow {
+  background-color: $yellow;
+}
+.purple {
+  background-color: $purple;
+}
+.orange {
+  background-color: $orange;
+}
+.cyan {
+  background-color: $cyan;
 }
 </style>
