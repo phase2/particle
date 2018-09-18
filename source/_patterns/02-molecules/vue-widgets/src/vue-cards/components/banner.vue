@@ -26,12 +26,10 @@ export default {
   },
   methods: {
     randomColor() {
-      const o = Math.round;
-      const r = Math.random;
-      const s = 255;
-      this.styles['background-color'] = `rgba(${o(r() * s)},${o(r() * s)},${o(
-        r() * s
-      )},${r().toFixed(1)})`;
+      const rand255 = () => Math.round(Math.random() * 255);
+      this.styles[
+        'background-color'
+      ] = `rgba(${rand255()},${rand255()},${rand255()},${1})`;
     },
   },
 };
