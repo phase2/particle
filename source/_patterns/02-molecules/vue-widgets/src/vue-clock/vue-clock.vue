@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-
+    <h1>Dynamic classes based on Time</h1>
     <div class="vue-clock">
       <div
         class="clock"
+        :class="[dynamicClasses]"
       >
         <div 
           class="secondsAxis"
@@ -33,6 +34,11 @@ export default {
   name: 'VueClock',
   data() {
     return {
+      time: {
+        seconds: 0,
+        minutes: 0,
+        hours: 0,
+      },
       secondsPosition: {
         transform: 'rotate(0deg)',
       },
@@ -44,6 +50,14 @@ export default {
       },
       initial: true,
     };
+  },
+  computed: {
+    dynamicClasses() {
+      const classObject = {
+        blueBg: this.seconds > 30,
+      };
+      return classObject;
+    },
   },
   created() {
     this.updateSecondsPosition();
@@ -76,12 +90,14 @@ export default {
       }, 1000);
     },
     updateMinutesPosition(minutes) {
+      this.$set(this.time, 'minutes', minutes);
       const degrees = 6 * parseInt(minutes, 10);
       this.minutesPosition = {
         transform: `rotate(${degrees}deg)`,
       };
     },
     updateHoursPosition(hours) {
+      this.$set(this.time, 'hours', hours);
       const degrees = 30 * parseInt(hours, 10);
       this.hoursPosition = {
         transform: `rotate(${degrees}deg)`,
@@ -94,6 +110,7 @@ export default {
 <style scoped>
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -145,5 +162,8 @@ export default {
   width: 4px;
   height: 50%;
   background-color: black;
+}
+.blueBg {
+  background-color: blue;
 }
 </style>
