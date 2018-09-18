@@ -1,5 +1,3 @@
-<script src="../../../demo/index.js">
-</script>
 <template>
   <div
     class="row scoped-row"
@@ -76,6 +74,6 @@ export default {
   background-color: $success;
 }
 .active:hover {
-  background-color: green;
+  background-color: $green;
 }
 </style>
