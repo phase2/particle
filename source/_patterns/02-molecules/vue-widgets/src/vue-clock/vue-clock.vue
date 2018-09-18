@@ -74,7 +74,6 @@ export default {
           .split(':');
 
         const seconds = time[2];
-        this.$set(this.time, 'seconds', seconds);
 
         const minutes = time[1];
 
@@ -92,6 +91,7 @@ export default {
       }, 1000);
     },
     updateSecondsPosition(seconds) {
+      this.$set(this.time, 'seconds', seconds);
       const degrees = 6 * parseInt(seconds, 10);
       this.secondsPosition = {
         transform: `rotate(${degrees}deg)`,
