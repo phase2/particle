@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'Widget',
+  name: 'Banner',
   data() {
     return {
       styles: {
