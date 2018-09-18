@@ -7,9 +7,21 @@
       >
         <div 
           class="secondsAxis"
-          :style="[position]"
+          :style="[secondsPosition]"
         >
           <div class="secondsHand" />
+        </div>
+        <div
+          class="minutesAxis"
+          :style="[minutesPosition]"
+        >
+          <div class="minutesHand" />
+        </div>
+        <div
+          class="hoursAxis"
+          :style="[hoursPosition]"
+        >
+          <div class="hoursHand" />
         </div>
       </div>
     </div>
@@ -21,26 +33,58 @@ export default {
   name: 'VueClock',
   data() {
     return {
-      position: {
-        transform: 'rotate(9deg)',
+      secondsPosition: {
+        transform: 'rotate(0deg)',
       },
+      minutesPosition: {
+        transform: 'rotate(0deg)',
+      },
+      hoursPosition: {
+        transform: 'rotate(0deg)',
+      },
+      initial: false,
     };
   },
   created() {
-    this.updatePosition();
+    this.updateSecondsPosition();
   },
   methods: {
-    updatePosition() {
+    updateSecondsPosition() {
       this.updateClock = setInterval(() => {
-        const seconds = new Date()
+        const time = new Date()
           .toString()
           .split(' ')[4]
-          .split(':')[2];
+          .split(':');
+        const seconds = time[2];
+        const minutes = time[1];
+        const hours = time[0];
+        console.log(typeof hours, hours);
+        this.updateMinutesPosition(minutes);
+        this.updateHoursPosition(hours);
         const degrees = 6 * parseInt(seconds, 10);
-        this.position = {
+        if (this.initial === true) {
+          this.updateMinutesPosition(minutes);
+          this.updateHoursPosition(hours);
+          this.initial = false;
+        }
+        this.secondsPosition = {
           transform: `rotate(${degrees}deg)`,
         };
       }, 1000);
+    },
+    updateMinutesPosition(minutes) {
+      const degrees = 6 * parseInt(minutes, 10);
+      console.log('this is minutes', degrees);
+      this.minutesPosition = {
+        transform: `rotate(${degrees}deg)`,
+      };
+    },
+    updateHoursPosition(hours) {
+      const degrees = 30 * parseInt(hours, 10);
+      console.log(degrees, 'hours');
+      this.hoursPosition = {
+        transform: `rotate(${degrees}deg)`,
+      };
     },
   },
 };
@@ -72,12 +116,33 @@ export default {
 }
 .secondsAxis {
   position: relative;
+  z-index: 2;
 }
 .secondsHand {
   position: relative;
-  width: 5px;
+  width: 2px;
   height: 100px;
   border-radius: 20%;
+  background-color: red;
+}
+.minutesAxis {
+  position: relative;
+  z-index: 1;
+}
+.minutesHand {
+  position: absolute;
+  width: 3px;
+  height: 50%;
+  border-radius: 20%;
+  background-color: gray;
+}
+.hoursAxis {
+  position: relative;
+}
+.hoursHand {
+  position: absolute;
+  width: 4px;
+  height: 50%;
   background-color: black;
 }
 </style>
