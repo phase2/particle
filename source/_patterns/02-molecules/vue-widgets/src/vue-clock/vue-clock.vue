@@ -54,7 +54,7 @@ export default {
   computed: {
     dynamicClasses() {
       const classObject = {
-        blueBg: this.seconds > 30,
+        salmon: this.time.seconds > 30 && this.time.seconds < 50,
       };
       return classObject;
     },
@@ -71,6 +71,7 @@ export default {
           .split(':');
 
         const seconds = time[2];
+        this.$set(this.time, 'seconds', seconds);
 
         const minutes = time[1];
 
@@ -163,7 +164,7 @@ export default {
   height: 50%;
   background-color: black;
 }
-.blueBg {
-  background-color: blue;
+.salmon {
+  background-color: salmon;
 }
 </style>
