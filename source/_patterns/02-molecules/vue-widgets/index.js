@@ -11,6 +11,7 @@ import 'molecules/card';
 import './_vuex-cryptos.twig';
 import './_vue-cryptos.twig';
 import './_vue-cards.twig';
+import './_vue-clock.twig';
 
 // Module styles
 import './_vue-widgets.scss';
@@ -18,6 +19,7 @@ import './_vue-widgets.scss';
 import FacetTableVue from './src/vue-cryptos'; // load only if dom found
 import FacetTableVueX from './src/vuex-cryptos'; // load only if dom found
 import VueCards from './src/vue-cards'; // load only if dom found
+import VueClock from './src/vue-clock'; // load only if dom found
 
 // Render Vue elements as soon as possible
 if (document.getElementById('vue-cryptos')) {
@@ -30,7 +32,7 @@ if (document.getElementById('vue-cards')) {
   VueCards('#vue-cards');
 }
 if (document.getElementById('vue-clock')) {
-  VueCards('#vue-clock');
+  VueClock('#vue-clock');
 }
 
 export const name = 'vue-widgets';
