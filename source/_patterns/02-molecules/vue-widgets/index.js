@@ -14,7 +14,7 @@ import './_vue-cards.twig';
 import './_vue-clock.twig';
 
 // Module styles
-import './_vue-widgets.scss';
+import './_vue-widget.scss';
 
 import FacetTableVue from './src/vue-cryptos'; // load only if dom found
 import FacetTableVueX from './src/vuex-cryptos'; // load only if dom found
