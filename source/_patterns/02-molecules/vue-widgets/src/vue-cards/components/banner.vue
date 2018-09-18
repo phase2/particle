@@ -14,14 +14,13 @@ export default {
   data() {
     return {
       styles: {
-        'background-color': 'white',
+        'background-color': 'black',
       },
       message: "Good news everyone! Store's open for business.",
     };
   },
   computed: {},
   created() {
-    this.randomColor();
     setInterval(() => {
       this.randomColor();
     }, 3000);
