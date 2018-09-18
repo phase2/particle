@@ -55,12 +55,15 @@ export default {
           .toString()
           .split(' ')[4]
           .split(':');
+
         const seconds = time[2];
+
         const minutes = time[1];
+
         const hours = time[0];
-        console.log(typeof hours, hours);
+
         const degrees = 6 * parseInt(seconds, 10);
-        if (this.initial === true) {
+        if (this.initial) {
           this.updateMinutesPosition(minutes);
           this.updateHoursPosition(hours);
           this.initial = false;
@@ -74,14 +77,12 @@ export default {
     },
     updateMinutesPosition(minutes) {
       const degrees = 6 * parseInt(minutes, 10);
-      console.log('this is minutes', degrees);
       this.minutesPosition = {
         transform: `rotate(${degrees}deg)`,
       };
     },
     updateHoursPosition(hours) {
       const degrees = 30 * parseInt(hours, 10);
-      console.log(degrees, 'hours');
       this.hoursPosition = {
         transform: `rotate(${degrees}deg)`,
       };
