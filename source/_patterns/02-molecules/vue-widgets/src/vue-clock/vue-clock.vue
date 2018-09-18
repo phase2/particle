@@ -4,9 +4,11 @@
     <div class="vue-clock">
       <div
         class="clock"
-        :data="getCurrentTime"
       >
-        <div className="secondsAxis">
+        <div 
+          class="secondsAxis"
+          :style="[position]"
+        >
           <div class="secondsHand" />
         </div>
       </div>
@@ -17,9 +19,28 @@
 <script>
 export default {
   name: 'VueClock',
+  data() {
+    return {
+      position: {
+        transform: 'rotate(9deg)',
+      },
+    };
+  },
+  created() {
+    this.updatePosition();
+  },
   methods: {
-    getCurrentTime() {
-      console.log(new Date());
+    updatePosition() {
+      this.updateClock = setInterval(() => {
+        const seconds = new Date()
+          .toString()
+          .split(' ')[4]
+          .split(':')[2];
+        const degrees = 6 * parseInt(seconds, 10);
+        this.position = {
+          transform: `rotate(${degrees}deg)`,
+        };
+      }, 1000);
     },
   },
 };
@@ -35,10 +56,11 @@ export default {
   position: relative;
   display: flex;
   justify-content: center;
-  background-color: blue;
+  background-color: white;
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  border: solid 2px;
 }
 .vue-clock {
   display: flex;
@@ -46,18 +68,16 @@ export default {
   align-items: center;
   height: 400px;
   width: 400px;
-  background-color: green;
+  /*background-color: green;*/
 }
 .secondsAxis {
   position: relative;
-  /*transform: rotate(90deg);*/
-  background-color: red;
 }
 .secondsHand {
-  /*position: relative;*/
-  width: 10px;
+  position: relative;
+  width: 5px;
   height: 100px;
   border-radius: 20%;
-  background-color: orange;
+  background-color: black;
 }
 </style>
