@@ -42,7 +42,7 @@ export default {
       hoursPosition: {
         transform: 'rotate(0deg)',
       },
-      initial: false,
+      initial: true,
     };
   },
   created() {
@@ -59,8 +59,6 @@ export default {
         const minutes = time[1];
         const hours = time[0];
         console.log(typeof hours, hours);
-        this.updateMinutesPosition(minutes);
-        this.updateHoursPosition(hours);
         const degrees = 6 * parseInt(seconds, 10);
         if (this.initial === true) {
           this.updateMinutesPosition(minutes);
@@ -70,6 +68,8 @@ export default {
         this.secondsPosition = {
           transform: `rotate(${degrees}deg)`,
         };
+        if (this.secondsPosition === '00') this.updateMinutesPosition(minutes);
+        if (this.hoursPosition === '00') this.updateHoursPosition(hours);
       }, 1000);
     },
     updateMinutesPosition(minutes) {
