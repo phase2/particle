@@ -19,7 +19,6 @@ module.exports = {
     jQuery: true,
     _: true,
     BUILD_TARGET: true,
-    $event: true,
   },
   env: {
     browser: true,
