@@ -18,7 +18,10 @@
 
   <h3>Example:</h3>
 
-  <form id="vue-html-example-1" class="p-5">
+  {#
+    The form below is one way to have a view component. Note that it relies on ./demo/index.js to function.
+  #}
+  <form id="vue-input-text-html" class="p-5">
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">You typed: <strong>{% raw %}{{ name }}{% endraw %}</strong></span>
@@ -67,7 +70,10 @@
 
   <p>We can achieve the same application using a .vue file and attach it to an id.</p>
   <h3>Example:</h3>
-  <div id="vue-html-example-2"></div>
+  {#
+    Vue component is placed in the line below
+  #}
+  <div id="vue-input-text-component"></div>
   <p>The .vue file encapsulates templating, logic, AND styles. This is ideal.</p>
   <div class="row">
     <div class="col-sm-6">
@@ -120,9 +126,10 @@ new Vue({
     </div>
   </div>
 
-
+  <h2>Vue Styles</h2>
   {# vue-cards component is insert inside this div#}
   {% include '@molecules/vue-widgets/_vue-cards.twig' %}
+  <h2>Dynamic classes based on Time</h2>
   {# --- End of Vue.js Component ----#}
   {% include '@molecules/vue-widgets/_vue-clock.twig' %}
 {% endblock column_1 %}

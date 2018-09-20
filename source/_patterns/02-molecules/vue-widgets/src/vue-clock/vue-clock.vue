@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h1>Dynamic classes based on Time</h1>
     <div class="vue-clock">
       <div
         class="clock"

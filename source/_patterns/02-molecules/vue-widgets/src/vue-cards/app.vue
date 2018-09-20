@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>Vue Styles</h2>
     <banner />
     <cards
       :cards="cardsArray"
