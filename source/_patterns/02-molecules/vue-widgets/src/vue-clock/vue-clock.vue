@@ -84,42 +84,37 @@ export default {
           .split(':');
 
         const seconds = time[2];
-
         const minutes = time[1];
-
         const hours = time[0];
 
         if (this.initial) {
-          this.updateMinutesPosition(minutes);
-          this.updateHoursPosition(hours);
+          this.updateHand(minutes, 'minutes');
+          this.updateHand(hours, 'hours');
           this.initial = false;
         }
-
-        this.updateSecondsPosition(seconds);
-        if (this.secondsPosition === '00') this.updateMinutesPosition(minutes);
-        if (this.hoursPosition === '00') this.updateHoursPosition(hours);
+        this.updateHand(seconds, 'seconds');
+        if (this.secondsPosition === '00') this.updateHand(minutes, 'minutes');
+        if (this.hoursPosition === '00') this.updateHand(hours, 'hours');
       }, 1000);
     },
-    updateSecondsPosition(seconds) {
-      this.$set(this.time, 'seconds', seconds);
-      const degrees = 6 * parseInt(seconds, 10);
-      this.secondsPosition = {
-        transform: `rotate(${degrees}deg)`,
-      };
-    },
-    updateMinutesPosition(minutes) {
-      this.$set(this.time, 'minutes', minutes);
-      const degrees = 6 * parseInt(minutes, 10);
-      this.minutesPosition = {
-        transform: `rotate(${degrees}deg)`,
-      };
-    },
-    updateHoursPosition(hours) {
-      this.$set(this.time, 'hours', hours);
-      const degrees = 30 * parseInt(hours, 10);
-      this.hoursPosition = {
-        transform: `rotate(${degrees}deg)`,
-      };
+    updateHand(time, type) {
+      this.$set(this.time, type, time);
+      switch (type) {
+        case 'hours': {
+          const degrees = 30 * parseInt(time, 10);
+          this[`${type}Position`] = {
+            transform: `rotate(${degrees}deg)`,
+          };
+          break;
+        }
+        default: {
+          const degrees = 6 * parseInt(time, 10);
+          this[`${type}Position`] = {
+            transform: `rotate(${degrees}deg)`,
+          };
+          break;
+        }
+      }
     },
   },
 };
