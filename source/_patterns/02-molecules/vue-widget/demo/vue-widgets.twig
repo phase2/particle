@@ -118,18 +118,18 @@ new Vue({
   <div class="row">
     <div class="col-sm-6">
       <h2>Vue</h2>
-      {% include '@molecules/vue-widgets/_vue-cryptos.twig' %}
+      {% include '@molecules/vue-widget/_vue-cryptos.twig' %}
     </div>
     <div class="col-sm-6">
       <h2>Vue + VueX</h2>
-      {% include '@molecules/vue-widgets/_vuex-cryptos.twig' %}
+      {% include '@molecules/vue-widget/_vuex-cryptos.twig' %}
     </div>
   </div>
 
   <h2>Vue Styles</h2>
   {# vue-cards component is insert inside this div#}
-  {% include '@molecules/vue-widgets/_vue-cards.twig' %}
+  {% include '@molecules/vue-widget/_vue-cards.twig' %}
   <h2>Dynamic classes based on Time</h2>
   {# --- End of Vue.js Component ----#}
-  {% include '@molecules/vue-widgets/_vue-clock.twig' %}
+  {% include '@molecules/vue-widget/_vue-clock.twig' %}
 {% endblock column_1 %}

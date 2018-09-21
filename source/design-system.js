@@ -16,7 +16,7 @@ import * as card from 'molecules/card';
 import * as carousel from 'molecules/carousel';
 import * as jumbotron from 'molecules/jumbotron';
 import * as pagination from 'molecules/pagination';
-import * as vueWidgets from 'molecules/vue-widgets';
+import * as vueWidgets from 'molecules/vue-widget';
 import * as accordion from 'organisms/accordion';
 import * as article from 'organisms/article';
 import * as footer from 'organisms/footer';
