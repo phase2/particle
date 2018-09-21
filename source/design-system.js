@@ -11,17 +11,25 @@ import * as grid from 'atoms/grid';
 import * as image from 'atoms/image';
 import * as svgicon from 'atoms/svgicon';
 import * as listGroup from 'atoms/list-group';
-import * as nav from 'molecules/nav';
-import * as card from 'molecules/card';
-import * as carousel from 'molecules/carousel';
-import * as exampleWidget from 'molecules/example-widget';
-import * as jumbotron from 'molecules/jumbotron';
-import * as pagination from 'molecules/pagination';
+// import * as nav from 'molecules/nav';
+// import * as card from 'molecules/card';
+// import * as carousel from 'molecules/carousel';
+// import * as exampleWidget from 'molecules/example-widget';
+// import * as jumbotron from 'molecules/jumbotron';
+// import * as pagination from 'molecules/pagination';
 import * as accordion from 'organisms/accordion';
 import * as article from 'organisms/article';
 import * as footer from 'organisms/footer';
 import * as navbar from 'organisms/navbar';
 import * as basicPage from 'templates/basic-page';
+
+const molecules = require.context(
+  './_patterns/02-molecules',
+  true,
+  /index.js$/
+);
+console.log(molecules);
+molecules.keys().forEach(filename => console.log(filename));
 
 const components = {
   alert,
@@ -33,12 +41,12 @@ const components = {
   image,
   svgicon,
   listGroup,
-  nav,
-  card,
-  carousel,
-  exampleWidget,
-  jumbotron,
-  pagination,
+  // nav,
+  // card,
+  // carousel,
+  // exampleWidget,
+  // jumbotron,
+  // pagination,
   accordion,
   article,
   footer,
