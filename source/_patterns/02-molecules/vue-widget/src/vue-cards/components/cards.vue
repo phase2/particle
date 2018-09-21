@@ -42,15 +42,10 @@ export default {
       this.$set(card, 'isClicked', !card.isClicked);
     },
   },
-  // We *could* get data immediately for this widget, but look for the contrived
-  // approach within enable()
-  // created() {
-  //   this.$store.dispatch('getCardItems');
-  // },
 };
 </script>
 <style lang="scss" scoped>
-@import '00-protons/variables';
+// 00-protons/variables is provided by Webpack
 .resize {
 }
 .card-hover {

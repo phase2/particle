@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '00-protons/variables';
+// 00-protons/variables is provided by Webpack
 .active {
   background-color: $success;
 }
