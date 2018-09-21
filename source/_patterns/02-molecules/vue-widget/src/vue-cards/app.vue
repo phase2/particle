@@ -3,7 +3,6 @@
     <banner />
     <cards
       :cards="cardsArray"
-      @updateCards="update($event)"
     />
   </div>
 </template>
@@ -22,6 +21,7 @@ export default {
       cardsArray: [],
     };
   },
+  // Fetch data on creation of widget
   created() {
     this.getCards();
   },
@@ -30,12 +30,6 @@ export default {
       this.cardsArray = await (await fetch(
         'https://jsonplaceholder.typicode.com/users'
       )).json();
-    },
-    update(eventId) {
-      // eventId starts at 1 we need the index which starts at 0.
-      const id = eventId - 1;
-      const target = this.cardsArray[id];
-      this.$set(target, 'isClicked', !target.isClicked);
     },
   },
 };

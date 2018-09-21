@@ -4,10 +4,9 @@
   >
     <div
       v-for="card in cards"
-      :id="card.id"
       :key="card.phone"
       class="card-wrapper"
-      @click="toggle(card.id)"
+      @click="toggle(card)"
     >
       <Card
         :card="card"
@@ -18,7 +17,8 @@
 </template>
 
 <script>
-// import existing PRINTING styles through javascript
+// Import existing PRINTING styles through JavaScript. This does NOT duplicate
+// since JavaScript imports are handled by Webpack.
 import 'molecules/card';
 
 // Import the card component
@@ -38,9 +38,8 @@ export default {
     },
   },
   methods: {
-    toggle(id) {
-      // Cards is an array of objects
-      this.$emit('updateCards', id);
+    toggle(card) {
+      this.$set(card, 'isClicked', !card.isClicked);
     },
   },
   // We *could* get data immediately for this widget, but look for the contrived
@@ -55,8 +54,6 @@ export default {
 .resize {
 }
 .card-hover {
-  /*padding: 10px;*/
-  /*margin: 10px;*/
 }
 .card-hover:hover {
   background-color: $light;
@@ -69,11 +66,5 @@ export default {
 }
 .scoped-row {
   justify-content: center;
-}
-.active {
-  background-color: $success;
-}
-.active:hover {
-  background-color: $green;
 }
 </style>

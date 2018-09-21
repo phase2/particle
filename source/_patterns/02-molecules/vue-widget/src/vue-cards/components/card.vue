@@ -1,24 +1,24 @@
 <template>
   <div
-    class=""
+    class="card-body"
+    :class="{ active: card.isClicked }"
   >
-    <div class="card-body">
-      <h4 class="card-title">{{ card.name }}</h4>
-      <h6 class="card-subtitle mb-2 text-muted">{{ card.id }}</h6>
-      <div class="card-text">
-        <ul>
-          <li>{{ card.phone }}</li>
-          <li>{{ card.website }}</li>
-          <li>{{ card.email }}</li>
-          <li>{{ !!card.isClicked }}</li>
-        </ul>
-      </div>
+    <h4 class="card-title">{{ card.name }}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">{{ card.id }}</h6>
+    <div class="card-text">
+      <ul>
+        <li>{{ card.phone }}</li>
+        <li>{{ card.website }}</li>
+        <li>{{ card.email }}</li>
+        <li>{{ !!card.isClicked }}</li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-// import existing PRINTING styles through javascript
+// Import existing PRINTING styles through JavaScript. This does NOT duplicate
+// since JavaScript imports are handled by Webpack.
 import 'molecules/card';
 
 export default {
@@ -27,19 +27,16 @@ export default {
     card: {
       type: Object,
       default() {
-        return {};
+        return { isClicked: false };
       },
     },
   },
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 @import '00-protons/variables';
 .active {
   background-color: $success;
-}
-.active:hover {
-  background-color: green;
 }
 </style>

@@ -16,10 +16,11 @@ import './_vue-clock.twig';
 // Module styles
 import './_vue-widget.scss';
 
-import FacetTableVue from './src/vue-cryptos'; // load only if dom found
-import FacetTableVueX from './src/vuex-cryptos'; // load only if dom found
-import VueCards from './src/vue-cards'; // load only if dom found
-import VueClock from './src/vue-clock'; // load only if dom found
+// All Vue widgets only execute on existence of DOM
+import FacetTableVue from './src/vue-cryptos';
+import FacetTableVueX from './src/vuex-cryptos';
+import VueCards from './src/vue-cards';
+import VueClock from './src/vue-clock';
 
 // Render Vue elements as soon as possible
 if (document.getElementById('vue-cryptos')) {
@@ -40,8 +41,8 @@ export const name = 'vue-widgets';
 export function disable() {}
 
 export function enable() {
-  // Send data from settings or post-docready() work here
-  // FacetTableVue.$store.dispatch('exampleAction', settings.vueExampleData');
+  // Send data from settings or post-docready() work here, e.g.
+  // FacetTableVueX.$store.dispatch('exampleAction', settings.vueExampleData');
 }
 
 export default enable;
