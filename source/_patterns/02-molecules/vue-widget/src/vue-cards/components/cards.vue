@@ -38,14 +38,21 @@ export default {
     },
   },
   methods: {
+    // We have to use a full method here instead of just an inline:
+    //   @click="card.isClicked = !card.isClicked"
+    // because isClicked is not part of the reactive props initially. Therefore
+    // we use a method (toggle) that uses the $set utility to create the new
+    // key and make it reactive.
     toggle(card) {
       this.$set(card, 'isClicked', !card.isClicked);
     },
   },
 };
 </script>
+
 <style lang="scss" scoped>
-// 00-protons/variables is provided by Webpack
+// 00-protons/variables is provided by Webpack, but it is possible to:
+//   @import '00-protons/variables';
 .resize {
 }
 .card-hover {
