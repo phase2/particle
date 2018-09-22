@@ -4,8 +4,10 @@
       :class="{ active: card.isClicked }"
     >
       <div class="card-body">
-        <h5 class="card-title">{{ card.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ card.id }}</h6>
+        <h5 class="card-title">
+          <span class="badge badge-secondary">{{ card.id }}</span>
+          {{ card.name }}
+        </h5>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">{{ card.phone }}</li>
@@ -38,9 +40,12 @@ export default {
 <style lang="scss" scoped>
 // 00-protons/variables is provided by Webpack, but it is possible to:
 //   @import '00-protons/variables';
+
+// Make .active green for just these demo cards
 .active {
   background-color: $success;
 }
+// Hide list-group-item backgrounds for just these demo cards
 .list-group-item {
   background: none;
 }

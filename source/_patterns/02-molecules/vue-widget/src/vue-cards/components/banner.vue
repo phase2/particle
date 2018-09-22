@@ -1,44 +1,67 @@
+/**
+ * A super contrived example to show off a few things like:
+ *   - Intervals
+ *   - Computed derived from Data
+ *   - Methods called within template affecting data, thus affecting computed
+ *   - Props
+**/
 <template>
   <div 
     class="vue-banner"
     :style="styles"
-    @click="randomColor()"
+    @click="bg = randomColor()"
   >
-    <h3><marquee>{{ message }}</marquee></h3>
+    <h3>
+      <marquee>
+        <span v-if="!username">{{ message }}</span>
+        <span v-else>{{ username }} was clicked!</span>
+      </marquee>
+    </h3>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Banner',
+  props: {
+    username: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
-      styles: {
-        'background-color': 'black',
-      },
-      message: "Good news everyone! Store's open for business.",
+      bg: 'rgba(0,0,0,1)',
+      message: 'Click me! I change color!',
     };
+  },
+  computed: {
+    styles() {
+      return {
+        background: this.bg,
+      };
+    },
   },
   created() {
     setInterval(() => {
-      this.randomColor();
+      this.bg = this.randomColor();
     }, 3000);
   },
   methods: {
     randomColor() {
-      const rand255 = () => Math.round(Math.random() * 255);
-      this.styles[
-        'background-color'
-      ] = `rgba(${rand255()},${rand255()},${rand255()},${1})`;
+      const randRGB = () => Math.round(Math.random() * 255);
+      return `rgba(${randRGB()},${randRGB()},${randRGB()},1)`;
     },
   },
 };
 </script>
 
 <style lang="scss">
-// importing NON PRINTING styles in sass
-@import '00-protons/variables';
+// 00-protons/variables is provided by Webpack, but it is possible to:
+//   @import '00-protons/variables';
 
+// This is mainly here to show that all variables and mixins are available to
+// Sass here.
 .vue-banner {
   margin: map-get($spacing, l);
   padding: map-get($spacing, m);
@@ -46,7 +69,7 @@ export default {
   background-color: map-get($theme-colors, 'new');
 
   h3 {
-    color: $white;
+    color: map-get($theme-colors, 'light');
   }
 }
 </style>
