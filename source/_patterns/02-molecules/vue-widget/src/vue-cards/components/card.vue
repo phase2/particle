@@ -1,16 +1,17 @@
 <template>
-  <div
-    class="card-body"
-    :class="{ active: card.isClicked }"
-  >
-    <h4 class="card-title">{{ card.name }}</h4>
-    <h6 class="card-subtitle mb-2 text-muted">{{ card.id }}</h6>
-    <div class="card-text">
-      <ul>
-        <li>{{ card.phone }}</li>
-        <li>{{ card.website }}</li>
-        <li>{{ card.email }}</li>
-        <li>{{ !!card.isClicked }}</li>
+  <div class="card">
+    <div
+      :class="{ active: card.isClicked }"
+    >
+      <div class="card-body">
+        <h5 class="card-title">{{ card.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ card.id }}</h6>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ card.phone }}</li>
+        <li class="list-group-item">{{ card.website }}</li>
+        <li class="list-group-item">{{ card.email }}</li>
+        <li class="list-group-item">{{ !!card.isClicked }}</li>
       </ul>
     </div>
   </div>
@@ -39,5 +40,8 @@ export default {
 //   @import '00-protons/variables';
 .active {
   background-color: $success;
+}
+.list-group-item {
+  background: none;
 }
 </style>
