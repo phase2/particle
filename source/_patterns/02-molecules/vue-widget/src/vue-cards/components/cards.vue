@@ -6,7 +6,7 @@
       v-for="card in cards"
       :key="card.phone"
       class="card-wrapper"
-      @click="toggle(card)"
+      @click="[toggle(card), $emit('set-name', card.name)]"
     >
       <Card
         :card="card"

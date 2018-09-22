@@ -1,8 +1,12 @@
 <template>
-  <div class="banner-cards">
+  <div
+    class="banner-cards"
+  >
     <banner />
+    <p v-if="cardName">Clicked name: {{ cardName }}</p>
     <cards
       :cards="cardsArray"
+      @set-name="cardName = $event"
     />
   </div>
 </template>
@@ -19,6 +23,7 @@ export default {
   data() {
     return {
       cardsArray: [],
+      cardName: false,
     };
   },
   // Fetch data on creation of widget
