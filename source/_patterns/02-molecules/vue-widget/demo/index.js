@@ -10,7 +10,7 @@ if (document.getElementById('vue-input-text-html')) {
   // Use an IIFE for "new"
   (() =>
     new Vue({
-      el: '#vue-input-text-html',
+      el: '#vue-input-text-html', // Template from HTML here
       data: {
         name: '',
       },
@@ -27,8 +27,7 @@ if (document.getElementById('vue-input-text-component')) {
   (() =>
     new Vue({
       el: '#vue-input-text-component',
-      components: { VueInputExample },
-      template: '<VueInputExample />',
+      render: h => h(VueInputExample),
     }))();
 }
 
