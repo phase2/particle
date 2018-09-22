@@ -1,19 +1,19 @@
 <template>
   <div class="card">
     <div
-      :class="{ active: card.isClicked }"
+      :class="{ active: isClicked }"
     >
       <div class="card-body">
         <h5 class="card-title">
-          <span class="badge badge-secondary">{{ card.id }}</span>
-          {{ card.name }}
+          <span class="badge badge-secondary">{{ id }}</span>
+          {{ name }}
         </h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{ card.phone }}</li>
-        <li class="list-group-item">{{ card.website }}</li>
-        <li class="list-group-item">{{ card.email }}</li>
-        <li class="list-group-item">{{ !!card.isClicked }}</li>
+        <li class="list-group-item">{{ phone }}</li>
+        <li class="list-group-item">{{ website }}</li>
+        <li class="list-group-item">{{ email }}</li>
+        <li class="list-group-item">{{ !!isClicked }}</li>
       </ul>
     </div>
   </div>
@@ -27,11 +27,29 @@ import 'molecules/card';
 export default {
   name: 'Card',
   props: {
-    card: {
-      type: Object,
-      default() {
-        return { isClicked: false };
-      },
+    id: {
+      type: Number,
+      default: 0,
+    },
+    name: {
+      type: String,
+      default: '',
+    },
+    phone: {
+      type: String,
+      default: '',
+    },
+    website: {
+      type: String,
+      default: '',
+    },
+    email: {
+      type: String,
+      default: '',
+    },
+    isClicked: {
+      type: Boolean,
+      default: false,
     },
   },
 };

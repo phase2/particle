@@ -4,6 +4,7 @@
  *   - Computed derived from Data
  *   - Methods called within template affecting data, thus affecting computed
  *   - Props
+ *   - Utility functions used within methods()
 **/
 <template>
   <div 

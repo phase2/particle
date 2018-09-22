@@ -1,13 +1,28 @@
+/**
+ * Cards here wraps individual Card with click behavior. Note the unique:
+ *
+ *   <card v-bind="card" />
+ *
+ * This "spreads" all the attributes of `card` individually as props to <card/>.
+ * Note also that @click fires 2 methods, one to call toggle() and the other to:
+ *
+ *   $emit('set-name', card.name)
+ *
+ * This provides data back up to the parent app.
+ */
 <template>
   <div class="row">
     <div
       v-for="card in cards"
       :key="card.phone"
       class="card-wrapper col-sm-12 col-md-6 col-lg-4 mb-3 card-hover"
-      @click="[toggle(card), $emit('set-name', card.name)]"
+      @click="[
+        toggle(card),
+        $emit('set-name', card.name)
+      ]"
     >
       <card
-        :card="card"
+        v-bind="card"
       />
     </div>
   </div>
