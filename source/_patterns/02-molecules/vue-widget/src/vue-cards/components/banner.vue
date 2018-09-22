@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { randRGB } from 'protons/utilities';
+
 export default {
   name: 'Banner',
   props: {
@@ -49,7 +51,6 @@ export default {
   },
   methods: {
     randomColor() {
-      const randRGB = () => Math.round(Math.random() * 255);
       return `rgba(${randRGB()},${randRGB()},${randRGB()},1)`;
     },
   },
