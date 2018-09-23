@@ -4,23 +4,17 @@
     :class="dynamicClasses"
   >
     <div
-      class="secondsAxis"
-      :style="handSeconds"
-    >
-      <div class="secondsHand" />
-    </div>
+      class="seconds-hand hand"
+      :style="hands.seconds"
+    />
     <div
-      class="minutesAxis"
-      :style="handMinutes"
-    >
-      <div class="minutesHand" />
-    </div>
+      class="minutes-hand hand"
+      :style="hands.minutes"
+    />
     <div
-      class="hoursAxis"
-      :style="handHours"
-    >
-      <div class="hoursHand" />
-    </div>
+      class="hours-hand hand"
+      :style="hands.hours"
+    />
   </div>
 </template>
 
@@ -33,40 +27,36 @@ export default {
     };
   },
   computed: {
-    seconds() {
-      return this.now.getSeconds();
-    },
-    minutes() {
-      return this.now.getMinutes();
-    },
-    hours() {
-      return this.now.getHours();
-    },
-    handSeconds() {
+    time() {
       return {
-        transform: `rotate(${6 * this.seconds}deg)`,
+        seconds: this.now.getSeconds(),
+        minutes: this.now.getMinutes(),
+        hours: this.now.getHours(),
       };
     },
-    handMinutes() {
+    hands() {
       return {
-        transform: `rotate(${6 * this.minutes}deg)`,
-      };
-    },
-    handHours() {
-      return {
-        transform: `rotate(${30 * this.hours}deg)`,
+        seconds: {
+          transform: `rotate(${(this.time.seconds / 60) * 360}deg)`,
+        },
+        minutes: {
+          transform: `rotate(${(this.time.minutes / 60) * 360}deg)`,
+        },
+        hours: {
+          transform: `rotate(${(this.time.hours / 12) * 360}deg)`,
+        },
       };
     },
     dynamicClasses() {
       return {
-        success: this.seconds >= 0 && this.seconds < 8,
-        primary: this.seconds >= 8 && this.seconds < 16,
-        salmon: this.seconds >= 16 && this.seconds < 24,
-        purple: this.seconds >= 24 && this.seconds < 32,
-        orange: this.seconds >= 32 && this.seconds < 40,
-        yellow: this.seconds >= 40 && this.seconds < 48,
-        dark: this.seconds >= 48 && this.seconds < 56,
-        cyan: this.seconds >= 56 && this.seconds <= 60,
+        success: this.time.seconds >= 0 && this.time.seconds < 8,
+        primary: this.time.seconds >= 8 && this.time.seconds < 16,
+        salmon: this.time.seconds >= 16 && this.time.seconds < 24,
+        purple: this.time.seconds >= 24 && this.time.seconds < 32,
+        orange: this.time.seconds >= 32 && this.time.seconds < 40,
+        yellow: this.time.seconds >= 40 && this.time.seconds < 48,
+        dark: this.time.seconds >= 48 && this.time.seconds < 56,
+        cyan: this.time.seconds >= 56 && this.time.seconds <= 60,
       };
     },
   },
@@ -84,40 +74,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$clock-radius: 100px;
+
 .clock {
   position: relative;
-  display: flex;
-  justify-content: center;
   background-color: white;
-  width: 200px;
-  height: 200px;
+  width: $clock-radius * 2;
+  height: $clock-radius * 2;
   border-radius: 50%;
   border: solid 2px;
 }
-.secondsAxis {
-  position: relative;
+.hand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
-.secondsHand {
+.seconds-hand {
   width: 2px;
   height: 100px;
   border-radius: 20%;
   background-color: red;
 }
-.minutesAxis {
-  position: relative;
-}
-.minutesHand {
-  position: absolute;
+.minutes-hand {
   width: 3px;
   height: 50%;
   border-radius: 20%;
   background-color: gray;
 }
-.hoursAxis {
-  position: relative;
-}
-.hoursHand {
-  position: absolute;
+.hours-hand {
   width: 4px;
   height: 50%;
   background-color: black;
