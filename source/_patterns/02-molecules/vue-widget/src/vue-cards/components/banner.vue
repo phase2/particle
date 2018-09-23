@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       bg: 'rgba(0,0,0,1)',
-      message: 'Click me! I change color!',
+      message: 'Click me! I change color! Click cards!',
     };
   },
   computed: {

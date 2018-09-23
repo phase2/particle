@@ -113,7 +113,10 @@ new Vue({
   </div>
 
   <h2 class="mt-3">VueX</h2>
-  <p>Below is an same application implemented in both regular Vue and then in Vue + VueX. Check src/ for respective implementation details.</p>
+  <p>Below is an same application implemented in both regular Vue and then in Vue + VueX.</p>
+  <div class="alert alert-primary" role="alert">
+    Check vue-cryptos/ and vuex-cryptos/ for respective implementation details.
+  </div>
 
   <div class="row">
     <div class="col-sm-6">
@@ -129,13 +132,21 @@ new Vue({
   <div class="row">
     <div class="col">
       <h2 class="mt-3">Styles + Events in Vue</h2>
+      <p>Below are multiple components communicating with each other through props and events.</p>
+      <div class="alert alert-primary" role="alert">
+        Check vue-cards/ for respective implementation details.
+      </div>
       {% include '@molecules/vue-widget/_vue-cards.twig' %}
     </div>
   </div>
 
   <div class="row">
     <div class="col">
-    <h2 class="mt-3">Dynamic classes based on Time</h2>
+    <h2 class="mt-3">Dynamic classes and the power of "computed"</h2>
+      <p>Below is a clock deriving most of its state from a single data property, with changes triggered by an interval.</p>
+      <div class="alert alert-primary" role="alert">
+        Check vue-clock/ for respective implementation details.
+      </div>
     {% include '@molecules/vue-widget/_vue-clock.twig' %}
     </div>
   </div>
