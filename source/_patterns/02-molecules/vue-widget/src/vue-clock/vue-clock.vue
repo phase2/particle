@@ -1,20 +1,33 @@
+/**
+ * An example leveraging a few Vue features like:
+ *   - computed returning objects
+ *   - computed object keys being used within template (:style="hands.seconds")
+ *   - methods starting an interval
+ *   - created() calling an initialization method
+ *   - Deriving much state from a single data() value (data.now)
+ *   - Classes as dynamic computed values
+ *   - The power of transform() in CSS
+ */
+
 <template>
   <div
     class="clock"
     :class="dynamicClasses"
   >
-    <div
-      class="seconds-hand hand"
-      :style="hands.seconds"
-    />
-    <div
-      class="minutes-hand hand"
-      :style="hands.minutes"
-    />
-    <div
-      class="hours-hand hand"
-      :style="hands.hours"
-    />
+    <div class="clock-face">
+      <div
+        class="seconds-hand hand"
+        :style="hands.seconds"
+      />
+      <div
+        class="minutes-hand hand"
+        :style="hands.minutes"
+      />
+      <div
+        class="hours-hand hand"
+        :style="hands.hours"
+      />
+    </div>
   </div>
 </template>
 
@@ -34,29 +47,39 @@ export default {
         hours: this.now.getHours(),
       };
     },
+    degrees() {
+      const { seconds, minutes, hours } = this.time;
+      return {
+        seconds: parseInt((seconds / 60) * 360, 10),
+        minutes: parseInt((minutes / 60 + seconds / 60 / 60) * 360, 10),
+        hours: parseInt((hours / 12 + minutes / 60 / 12) * 360, 10),
+      };
+    },
     hands() {
+      const { seconds, minutes, hours } = this.degrees;
       return {
         seconds: {
-          transform: `rotate(${(this.time.seconds / 60) * 360}deg)`,
+          transform: `rotate(${seconds}deg)`,
         },
         minutes: {
-          transform: `rotate(${(this.time.minutes / 60) * 360}deg)`,
+          transform: `rotate(${minutes}deg)`,
         },
         hours: {
-          transform: `rotate(${(this.time.hours / 12) * 360}deg)`,
+          transform: `rotate(${hours}deg)`,
         },
       };
     },
     dynamicClasses() {
+      const { seconds } = this.time;
       return {
-        success: this.time.seconds >= 0 && this.time.seconds < 8,
-        primary: this.time.seconds >= 8 && this.time.seconds < 16,
-        salmon: this.time.seconds >= 16 && this.time.seconds < 24,
-        purple: this.time.seconds >= 24 && this.time.seconds < 32,
-        orange: this.time.seconds >= 32 && this.time.seconds < 40,
-        yellow: this.time.seconds >= 40 && this.time.seconds < 48,
-        dark: this.time.seconds >= 48 && this.time.seconds < 56,
-        cyan: this.time.seconds >= 56 && this.time.seconds <= 60,
+        success: seconds >= 0 && seconds < 8,
+        primary: seconds >= 8 && seconds < 16,
+        salmon: seconds >= 16 && seconds < 24,
+        purple: seconds >= 24 && seconds < 32,
+        orange: seconds >= 32 && seconds < 40,
+        yellow: seconds >= 40 && seconds < 48,
+        dark: seconds >= 48 && seconds < 56,
+        cyan: seconds >= 56 && seconds <= 60,
       };
     },
   },
@@ -75,6 +98,7 @@ export default {
 
 <style lang="scss" scoped>
 $clock-radius: 100px;
+$hand-thickness: 6px;
 
 .clock {
   position: relative;
@@ -84,29 +108,44 @@ $clock-radius: 100px;
   border-radius: 50%;
   border: solid 2px;
 }
+.clock-face {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  // rotate(90deg) because divs sit horizontally by default
+  // translateY(-3px) because hand height affects positioning
+  transform: rotate(90deg) translateY(-$hand-thickness/2);
+}
 .hand {
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 0;
+  height: $hand-thickness;
+  width: 50%;
+  transform-origin: 100%;
+  // Pseudo elements are the visible hands
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: black;
+  }
 }
-.seconds-hand {
-  width: 2px;
-  height: 100px;
-  border-radius: 20%;
-  background-color: red;
+.seconds-hand::after {
+  background: red;
 }
-.minutes-hand {
-  width: 3px;
-  height: 50%;
-  border-radius: 20%;
-  background-color: gray;
+.minutes-hand::after {
+  left: 10px;
 }
-.hours-hand {
-  width: 4px;
-  height: 50%;
-  background-color: black;
+.hours-hand::after {
+  left: 40px;
 }
-
 .salmon {
   background-color: salmon;
 }
