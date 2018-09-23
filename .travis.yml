@@ -1,35 +1,45 @@
 language: php
 php:
-- 5.6
-- 7.1
-- 7.2
+  - 5.6
+  - 7.1
+  - 7.2
 env:
   matrix:
-  - TRAVIS_NODE_VERSION="6"
-  - TRAVIS_NODE_VERSION="8"
-  - TRAVIS_NODE_VERSION="10"
+    - TRAVIS_NODE_VERSION="6"
+    - TRAVIS_NODE_VERSION="8"
+    - TRAVIS_NODE_VERSION="10"
 before_install:
-- composer self-update
-- . $HOME/.nvm/nvm.sh
-- nvm install $TRAVIS_NODE_VERSION
-- nvm use $TRAVIS_NODE_VERSION
-- npm install -g npm@latest
+  - composer self-update
+  - '. $HOME/.nvm/nvm.sh'
+  - nvm install $TRAVIS_NODE_VERSION
+  - nvm use $TRAVIS_NODE_VERSION
+  - npm install -g npm@latest
 install:
-- composer clear-cache
-- npm ci
-- npm run setup
+  - composer clear-cache
+  - npm ci
+  - npm run setup
 cache:
   directories:
-    - "$HOME/.npm"
+    - '$HOME/.npm'
 before_script:
-- php --version
-- composer --version
-- node --version
-- npm --version
+  - php --version
+  - composer --version
+  - node --version
+  - npm --version
 script: npm run ci
 notifications:
   email:
     on_success: always
     on_failure: always
-  flowdock:
-    secure: dE853wBiC+WZkrB1IWks/pALiBu/CjCVgulay9A7ptW2uWuv2Y4Wr+pLcELVUl0AYBMTBc20mwWilDO0nf0vnwBrX7oXkCRkAwlDcNt+u/ZR3dykCaDlUq88+2XBBFLBDGriCI1bZ2eTS14ED7QbfnHf71caYKJjrUa2nXwBGc0=
+deploy:
+  provider: s3
+  access_key_id: AKIAJBL5BZGAV2VFZZNA
+  secret_access_key:
+    secure: Fss1itHfFSEIM+lO0c9avjZcOKWFNlz10V1ml2lFETmLW/rLiNXExy2cEStMgpodV9IwzcvRtfnyRIi6n9f+GzZFiPm7q8krlBT8T7pROzEM9AvIV273Q6hK687HrGrOiq/0hhXhA8aUI7QRGw7e4eZoI71/w2NiFk+r22fSDug=
+  bucket: p2-particle
+  local-dir: dist
+  acl: public_read
+  skip_cleanup: true
+  on:
+    repo: phase2/particle
+    branch: master
