@@ -5,7 +5,7 @@
       <h5 class="card-title">
         Filter:
         <span class="text-uppercase">{{ filter }}</span> |
-        Requesting: {{ filter }}
+        Requesting: {{ requesting }}
       </h5>
       <facet-table-facets 
         :facets="['all', 'winners', 'losers']"
@@ -37,6 +37,7 @@ export default {
   data() {
     return {
       cryptos: [],
+      requesting: false,
       filter: 'all',
       title: 'Cryptos',
     };
@@ -72,9 +73,11 @@ export default {
   },
   methods: {
     async fetchCryptos() {
+      this.requesting = true;
       this.cryptos = await (await fetch(
         'https://api.coinmarketcap.com/v1/ticker/?limit=10'
       )).json();
+      this.requesting = false;
     },
   },
 };

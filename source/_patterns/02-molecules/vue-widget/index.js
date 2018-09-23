@@ -1,28 +1,48 @@
 /**
- * Example Vue widget
+ * Example Vue widgets
  *
- * An example of a testable, standalone, javascript-driven widget that has its own store
- * for state-based logic. That store can make whatever api calls you need it to.
- *
- * Note the use of this file (`vueWidget/index.js`) as the "implementation" of the actual
- * javascript application that resides in `vueWidget/src/index.js`. Double note that if you
- * are trying to see the Vue devtools in browser, you need to open the pattern outside
- * Pattern Lab's iframe.
+ * Mount all widgets via the root index.js file.
  */
 
-// Module dependencies
 import 'protons';
-import VueWidget from './src';
+import 'molecules/card';
 
-export const name = 'vueWidget';
+// Module template
+import './_vuex-cryptos.twig';
+import './_vue-cryptos.twig';
+import './_vue-cards.twig';
+import './_vue-clock.twig';
 
-export function enable() {
-  // Since the app is mounted as soon as possible in src/index.js, use enable()
-  // to pass in any data from outside apps (cough Drupal cough)
-  // @TODO: This always fires. Update to run only on visible.
-  VueWidget.$store.dispatch('vueWidget/getCardItems');
+// Module styles
+import './_vue-widget.scss';
+
+// All Vue widgets only execute on existence of DOM
+import FacetTableVue from './src/vue-cryptos';
+import FacetTableVueX from './src/vuex-cryptos';
+import VueCards from './src/vue-cards';
+import VueClock from './src/vue-clock';
+
+// Render Vue elements as soon as possible
+if (document.getElementById('vue-cryptos')) {
+  FacetTableVue('#vue-cryptos');
+}
+if (document.getElementById('vuex-cryptos')) {
+  FacetTableVueX('#vuex-cryptos');
+}
+if (document.getElementById('vue-cards')) {
+  VueCards('#vue-cards');
+}
+if (document.getElementById('vue-clock')) {
+  VueClock('#vue-clock');
 }
 
+export const name = 'vue-widgets';
+
 export function disable() {}
+
+export function enable() {
+  // Send data from settings or post-docready() work here, e.g.
+  // FacetTableVueX.$store.dispatch('exampleAction', settings.vueExampleData');
+}
 
 export default enable;

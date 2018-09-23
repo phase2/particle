@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign, no-shadow */
-
 /**
  * A simple table that fetches data and is then sortable on facets
  */
