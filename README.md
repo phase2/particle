@@ -6,9 +6,9 @@
 
 Particle is an opinionated set of tools and examples to:
 
-1. Build an application-agnostic **design system**
-1. Apply that design system to a locally-served **Pattern Lab** for rapid prototyping
-1. Apply that design system to a **Drupal theme**
+1.  Build an application-agnostic **design system**
+1.  Apply that design system to a locally-served **Pattern Lab** for rapid prototyping
+1.  Apply that design system to a **Drupal theme**
 
 In depth documentation about frontend approach using this project at [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/)
 
@@ -54,15 +54,15 @@ Particle builds design systems in dev mode for local hosting, or production mode
 
 ### Quickstart B
 
-1. [Download the latest release](https://github.com/phase2/particle/releases)
-1. Extract anywhere (i.e. this readme should be at `any/where/particle/README.md`)
-1. Within the extracted folder run:
+1.  [Download the latest release](https://github.com/phase2/particle/releases)
+1.  Extract anywhere (i.e. this readme should be at `any/where/particle/README.md`)
+1.  Within the extracted folder run:
 
-   ```bash
-   npm install
-   npm run setup
-   npm start
-   ```
+```bash
+npm install
+npm run setup
+npm start
+```
 
 Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/pl](http://0.0.0.0:8080/pl) (or [http://localhost:8080/pl](http://localhost:8080/pl)) and start working.
 

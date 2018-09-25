@@ -6,7 +6,12 @@
  */
 
 module.exports = {
-  extends: ['airbnb-base', 'plugin:jest/recommended', 'prettier'],
+  extends: [
+    'airbnb-base',
+    'plugin:jest/recommended',
+    'plugin:vue/recommended',
+    'plugin:prettier/recommended',
+  ],
   plugins: ['prettier'],
   root: true,
   globals: {
