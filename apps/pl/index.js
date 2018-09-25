@@ -9,7 +9,6 @@ import 'atoms/grid';
 
 // Prism highlighting in PL.
 // Prism is kind of dumb and just operates globally.
-// import 'prismjs/components/';
 import 'prismjs/components/prism-core.min';
 import 'prismjs/components/prism-clike.min';
 import 'prismjs/components/prism-javascript.min';

@@ -33,10 +33,3 @@ streams:
 ```
 
 This config file is what allows Grav to see Particle's compiled app as the source of the theme.
-
-## Roadmap
-
-- Webpack for Grav Assets
-- Update `base.html.twig` to use new Grav Assets
-- Update default starting layout in `base.html.twig`
-- Fix Gulp Task to Write Namespaced Paths for New Components to `twig-namespaces.yaml`

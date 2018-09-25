@@ -150,7 +150,7 @@ module.exports = {
       // Since we operate in a world where random Vue templates might have to
       // be output via twig, we need the Vue build that includes the whole
       // template compiling engine. If we are on a build that will NEVER read
-      // HTML from teh DOM and use it as a template, then remove this line.
+      // HTML from the DOM and use it as a template, then remove this line.
       vue$: 'vue/dist/vue.esm.js',
       // Shorthand to import modules, i.e. `import thing from 'atoms/thing';`
       // @TODO: We should probably prefix these with a symbol.
