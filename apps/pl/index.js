@@ -9,11 +9,13 @@ import 'atoms/grid';
 
 // Prism highlighting in PL.
 // Prism is kind of dumb and just operates globally.
-import 'prismjs/components/prism-core';
-import 'prismjs/components/prism-twig';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-scss';
-import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-core.min';
+import 'prismjs/components/prism-clike.min';
+import 'prismjs/components/prism-javascript.min';
+import 'prismjs/components/prism-twig.min';
+import 'prismjs/components/prism-css.min';
+import 'prismjs/components/prism-scss.min';
+import 'prismjs/components/prism-markup.min';
 
 // Full design system. May dupe the above, but Webpack don't care.
 import { enableAllComponents } from '../../source/design-system';

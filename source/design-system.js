@@ -14,9 +14,9 @@ import * as listGroup from 'atoms/list-group';
 import * as nav from 'molecules/nav';
 import * as card from 'molecules/card';
 import * as carousel from 'molecules/carousel';
-import * as exampleWidget from 'molecules/example-widget';
 import * as jumbotron from 'molecules/jumbotron';
 import * as pagination from 'molecules/pagination';
+import * as vueWidgets from 'molecules/vue-widget';
 import * as accordion from 'organisms/accordion';
 import * as article from 'organisms/article';
 import * as footer from 'organisms/footer';
@@ -36,9 +36,9 @@ const components = {
   nav,
   card,
   carousel,
-  exampleWidget,
   jumbotron,
   pagination,
+  vueWidgets,
   accordion,
   article,
   footer,
