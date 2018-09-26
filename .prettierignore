@@ -4,7 +4,7 @@ node_modules/
 
 dist/
 apps/pl/pattern-lab/
-tools/new-component/templates/_pattern.scss
+tools/new-component/templates/
 
 package.json
 package-lock.json
