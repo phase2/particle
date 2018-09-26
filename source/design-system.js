@@ -6,6 +6,7 @@
 
 import { basename, dirname } from 'path';
 
+// The components collection. Keys are folder names.
 const components = {};
 
 /**
@@ -16,7 +17,7 @@ const components = {};
  *
  * results in:
  *
- *   context['vue-widget'] = {name: 'vue-widget', enable() {}, disable() {}}
+ *   components['vue-widget'] = {name: 'vue-widget', enable() {}, disable() {}}
  *
  * @param context
  */
