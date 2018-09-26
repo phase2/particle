@@ -19,4 +19,8 @@ module.exports = {
     '^templates/(.+)': '<rootDir>/source/_patterns/04-templates/$1',
     '^pages/(.+)': '<rootDir>/source/_patterns/05-pages/$1',
   },
+  transform: {
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
+    '.*\\.(vue)$': '<rootDir>/node_modules/jest-vue-preprocessor',
+  },
 };
