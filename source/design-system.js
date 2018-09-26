@@ -41,7 +41,7 @@ importAll(
   require.context(
     './_patterns/01-atoms',
     true,
-    /^(?!.*(demo|src)).*index\.js$/ //
+    /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
   )
 );
 // Molecules
@@ -49,7 +49,7 @@ importAll(
   require.context(
     './_patterns/02-molecules',
     true,
-    /^(?!.*(demo|src)).*index\.js$/
+    /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
   )
 );
 // Organisms
@@ -57,7 +57,7 @@ importAll(
   require.context(
     './_patterns/03-organisms',
     true,
-    /^(?!.*(demo|src)).*index\.js$/
+    /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
   )
 );
 // Templates (skipping for design system)
