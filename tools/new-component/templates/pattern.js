@@ -2,6 +2,8 @@
  * <%= camelCaseName %>
  */
 
+import $ from 'jquery';
+
 // Module dependencies
 import 'protons';
 
@@ -15,6 +17,14 @@ export const name = '<%= camelCaseName %>';
 
 export function disable() {}
 
-export function enable() {}
+export function enable($context) {
+  const $<%= camelCaseName %> = $('.<%= camelCaseName %>', $context);
+  // Bail if component does not exist
+  if (!$<%= camelCaseName %>.length) {
+    return;
+  }
+  // Only do stuff to component if it exists
+  $<%= camelCaseName %>.addClass('js-exists'); // Please remove/change this
+}
 
 export default enable;
