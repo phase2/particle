@@ -2,8 +2,6 @@
  * Navbar
  */
 
-// Import dropdown js from bootstrap
-import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/collapse';
 
 // Custom
