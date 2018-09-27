@@ -45,7 +45,9 @@ describe('banner.vue', () => {
     };
 
     const { getByText } = render(banner, { props });
-    expect(getByText('krieger', { exact: false }));
+    expect(getByText('krieger', { exact: false }).textContent).toContain(
+      'krieger'
+    );
   });
 });
 
