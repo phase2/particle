@@ -1,19 +1,37 @@
 /**
  * Design System
- * The kitchen sink of all design components. There is a little bit of "magic"
- * below, so be sure to read each section.
+ *
+ * The kitchen sink of all design components. Essentially, we build up a
+ * `components` object that is exported that contains every component in our
+ * design system that should be available.
+ *
+ * There is a little bit of "magic" below, so be sure to read each section.
+ *
+ * If you prefer NO MAGIC, then simply modify this file so that you import each
+ * component manually, and provide keys to the `components` module, ie.
+ *
+ *   import * as vueWidget from '@molecules/vue-widget';
+ *   import * as card from '@molecules/card';
+ *   // ...
+ *   export const components = {
+ *     vueWidget,
+ *     card,
+ *     // ...
+ *   };
  */
 
-import { basename, dirname } from 'path';
-
-// The components collection. Keys are folder names.
-const components = {};
+/**
+ * The components collection. Keys will be the exported name of each component,
+ * values will be the component itself.
+ */
+export const components = {};
 
 /**
  * Accepts the result of require.context() to add it all to our great big
- * components object with keys that are the folder names of components, ie
+ * components object with keys that are the name of components, i.e.
  *
- *   01-atoms/vue-widget/index.js
+ *   // 01-atoms/vue-widget/index.js
+ *   export const name = 'vue-widget';
  *
  * results in:
  *
@@ -23,15 +41,24 @@ const components = {};
  */
 function importAll(context) {
   context.keys().forEach(componentPath => {
-    const componentName = basename(dirname(componentPath));
-    components[componentName] = context(componentPath);
+    // "require" the component
+    const component = context(componentPath);
+    // Add a key to the components object that is the component's name, and a
+    // value that is full component
+    components[component.name] = component;
   });
 }
 
 /**
  * Dynamically discover all root patterns using Webpack's require.context().
  * This attempts to find ONLY the first index.js file within a component folder.
- * Important: the regex must be "statically analyzable", meaning we cannot set
+ *
+ * Usually the first argument to require.context() would be a folder path, but
+ * we have our Atomic Design paths aliased, i.e.
+ *
+ *   'atoms' is actually './_patterns/01-atoms'
+ *
+ * IMPORTANT: the regex must be "statically analyzable", meaning we cannot set
  * the regex to a variable. (https://github.com/webpack/webpack/issues/4772).
  *
  * @TODO: A cleaner regex to get only the first level index.js, no deeper
@@ -39,7 +66,7 @@ function importAll(context) {
 // Atoms
 importAll(
   require.context(
-    './_patterns/01-atoms',
+    'atoms',
     true,
     /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
   )
@@ -47,7 +74,7 @@ importAll(
 // Molecules
 importAll(
   require.context(
-    './_patterns/02-molecules',
+    'molecules',
     true,
     /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
   )
@@ -55,31 +82,26 @@ importAll(
 // Organisms
 importAll(
   require.context(
-    './_patterns/03-organisms',
+    'organisms',
     true,
     /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
   )
 );
-// Templates (skipping for design system)
+// Templates. Skipping for design system. Include per-app.
 // importAll(
 //   require.context(
-//     './_patterns/04-templates',
+//     'templates',
 //     true,
 //     /^(?!.*(demo|src)).*index\.js$/
 //   )
 // );
-// Pages (skipping for design system)
+// Pages. Skipping for design system. Include per-app.
 // importAll(
 //   require.context(
-//     './_patterns/05-pages',
+//     'pages',
 //     true, /^(?!.*(demo|src)).*index\.js$/
 //   )
 // );
-
-/**
- * Default export of object containing all components
- */
-export default components;
 
 /**
  * All component names as an array
@@ -93,3 +115,5 @@ export const componentNames = () =>
  */
 export const enableAllComponents = ($dom, settings) =>
   Object.values(components).forEach(({ enable }) => enable($dom, settings));
+
+export default components;
