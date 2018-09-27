@@ -1,6 +1,7 @@
 import { render } from 'vue-testing-library';
 import card from '../../src/vue-cards/components/card.vue';
 import cards from '../../src/vue-cards/components/cards.vue';
+import banner from '../../src/vue-cards/components/banner.vue';
 
 describe('card.vue', () => {
   it('renders component with supplied props', () => {
@@ -37,16 +38,16 @@ describe('card.vue', () => {
 });
 
 // TODO: troubleshoot error caused by banner.vue import
-// describe('banner.vue', () => {
-//   it('renders component with supplied props', () => {
-//     const props = {
-//       username: 'krieger',
-//     };
-//
-//     const { getByText } = render(banner, { props });
-//     expect(getByText('krieger').textContent).toContain('krieger');
-//   });
-// });
+describe('banner.vue', () => {
+  it('renders component with supplied props', () => {
+    const props = {
+      username: 'krieger',
+    };
+
+    const { getByText } = render(banner, { props });
+    expect(getByText('krieger', { exact: false }));
+  });
+});
 
 describe('cards.vue', () => {
   it('renders component with supplied props', () => {

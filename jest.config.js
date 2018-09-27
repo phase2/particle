@@ -13,6 +13,7 @@ module.exports = {
     // Protons use a slightly different pattern because it's the only source pattern directory that
     // has a base-level index.js (this is how all components ensure access to base-level styles & variables).
     '^protons$': '<rootDir>/source/_patterns/00-protons/',
+    '^protons/(.+)': '<rootDir>/source/_patterns/00-protons/$1',
     '^atoms/(.+)': '<rootDir>/source/_patterns/01-atoms/$1',
     '^molecules/(.+)': '<rootDir>/source/_patterns/02-molecules/$1',
     '^organisms/(.+)': '<rootDir>/source/_patterns/03-organisms/$1',
