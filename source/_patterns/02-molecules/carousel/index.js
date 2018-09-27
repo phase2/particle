@@ -3,7 +3,6 @@
  */
 
 import $ from 'jquery';
-import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/carousel';
 
 // Module dependencies
@@ -41,10 +40,14 @@ export function disable($context, settings) {}
  * @param {Object} settings - Settings object
  */
 export function enable($context, { carousel = {} }) {
+  const $carousel = $('.carousel', $context);
+  if (!$carousel.length) {
+    return;
+  }
   const settings = Object.assign(defaults, carousel);
 
   // Initialize the carousel with overridable settings
-  $('.carousel', $context).carousel({
+  $carousel.carousel({
     interval: settings.interval,
   });
 }
