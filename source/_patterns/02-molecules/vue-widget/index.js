@@ -36,7 +36,7 @@ if (document.getElementById('vue-clock')) {
   VueClock('#vue-clock');
 }
 
-export const name = 'vue-widgets';
+export const name = 'vue-widget';
 
 export function disable() {}
 
