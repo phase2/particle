@@ -40,13 +40,15 @@ export function disable($context, settings) {}
  * @param {Object} settings - Settings object
  */
 export function enable($context, { carousel = {} }) {
+  // Find carousel elements on the page
   const $carousel = $('.carousel', $context);
+  // Bail if none exist
   if (!$carousel.length) {
     return;
   }
+  // Override defaults with upstream settings
   const settings = Object.assign(defaults, carousel);
-
-  // Initialize the carousel with overridable settings
+  // Initialize the carousel with (potentially) overridden settings
   $carousel.carousel({
     interval: settings.interval,
   });
