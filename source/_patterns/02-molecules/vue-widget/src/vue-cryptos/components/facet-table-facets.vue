@@ -36,7 +36,6 @@ export default {
   methods: {
     setFilter(facet) {
       this.$emit('updateFilter', facet);
-      this.filter = facet;
     },
   },
 };
