@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b01800193a379139c13f204d381a025",
+    "content-hash": "43f329956c3c5d44fcd0ccab2ef348e0",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -109,20 +109,20 @@
         },
         {
             "name": "doctrine/collections",
-            "version": "v1.5.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "a01ee38fcd999f34d9bfbcee59dbda5105449cbf"
+                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/a01ee38fcd999f34d9bfbcee59dbda5105449cbf",
-                "reference": "a01ee38fcd999f34d9bfbcee59dbda5105449cbf",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/1a4fb7e902202c33cce8c55989b945612943c2ba",
+                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "~0.1@dev",
@@ -172,7 +172,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2017-07-22T10:37:32+00:00"
+            "time": "2017-01-03T10:49:41+00:00"
         },
         {
             "name": "evanlovely/plugin-twig-namespaces",
@@ -444,20 +444,21 @@
         },
         {
             "name": "pattern-lab/core",
-            "version": "v2.8.1",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/drupal-pattern-lab/patternlab-php-core.git",
-                "reference": "ed89147c334acc576191bdd3462b4b2e6a5f8b31"
+                "url": "https://github.com/pattern-lab/patternlab-php-core.git",
+                "reference": "009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-pattern-lab/patternlab-php-core/zipball/ed89147c334acc576191bdd3462b4b2e6a5f8b31",
-                "reference": "ed89147c334acc576191bdd3462b4b2e6a5f8b31",
+                "url": "https://api.github.com/repos/pattern-lab/patternlab-php-core/zipball/009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3",
+                "reference": "009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3",
                 "shasum": ""
             },
             "require": {
                 "alchemy/zippy": "^0.3",
+                "doctrine/collections": "1.4.0",
                 "kevinlebrun/colors.php": "^1.0",
                 "michelf/php-markdown": "^1.6",
                 "php": ">=5.4",
@@ -480,10 +481,20 @@
             ],
             "authors": [
                 {
+                    "name": "Evan Lovely",
+                    "homepage": "http://evanlovely.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Salem Ghoweri",
+                    "homepage": "https://github.com/sghoweri",
+                    "role": "Developer"
+                },
+                {
                     "name": "Dave Olsen",
                     "email": "dmolsen@gmail.com",
                     "homepage": "http://dmolsen.com",
-                    "role": "Lead Developer"
+                    "role": "Former Lead Developer"
                 },
                 {
                     "name": "Brad Frost",
@@ -501,11 +512,11 @@
                 "styleguide"
             ],
             "support": {
-                "issues": "https://github.com/drupal-pattern-lab/patternlab-php-core/issues",
+                "issues": "https://github.com/pattern-lab/patternlab-php-core/issues",
                 "wiki": "http://patternlab.io/docs/",
-                "source": "https://github.com/drupal-pattern-lab/patternlab-php-core/releases"
+                "source": "https://github.com/pattern-lab/patternlab-php-core/releases"
             },
-            "time": "2017-09-03T18:20:59+00:00"
+            "time": "2018-02-27T22:12:27+00:00"
         },
         {
             "name": "pattern-lab/drupal-twig-components",
@@ -689,16 +700,16 @@
         },
         {
             "name": "pattern-lab/styleguidekit-assets-default",
-            "version": "v3.4.2",
+            "version": "v3.5.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/drupal-pattern-lab/styleguidekit-assets-default.git",
-                "reference": "9452f6e032766a0675c2e446d65e6054d2a08a97"
+                "url": "https://github.com/pattern-lab/styleguidekit-assets-default.git",
+                "reference": "7c1b51195c17a19cc3e87890b8fb3d8c27f33870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-pattern-lab/styleguidekit-assets-default/zipball/9452f6e032766a0675c2e446d65e6054d2a08a97",
-                "reference": "9452f6e032766a0675c2e446d65e6054d2a08a97",
+                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-assets-default/zipball/7c1b51195c17a19cc3e87890b8fb3d8c27f33870",
+                "reference": "7c1b51195c17a19cc3e87890b8fb3d8c27f33870",
                 "shasum": ""
             },
             "type": "patternlab-styleguidekit",
@@ -748,7 +759,7 @@
                 "wiki": "http://patternlab.io/docs/",
                 "source": "https://github.com/pattern-lab/styleguidekit-assets-default/releases"
             },
-            "time": "2017-05-25T23:00:23+00:00"
+            "time": "2017-10-31T12:19:46+00:00"
         },
         {
             "name": "pattern-lab/styleguidekit-twig-default",
