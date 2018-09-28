@@ -1,4 +1,4 @@
-import { render } from 'vue-testing-library';
+import { render, Simulate } from 'vue-testing-library';
 import card from '../../src/vue-cards/components/card.vue';
 import cards from '../../src/vue-cards/components/cards.vue';
 import banner from '../../src/vue-cards/components/banner.vue';
@@ -39,7 +39,7 @@ describe('card.vue', () => {
 
 // TODO: troubleshoot error caused by banner.vue import
 describe('banner.vue', () => {
-  it('renders component with supplied props', () => {
+  it('shows the username passed in', () => {
     const props = {
       username: 'krieger',
     };
@@ -49,26 +49,56 @@ describe('banner.vue', () => {
       'krieger'
     );
   });
+
+  it('changes color on click', () => {
+    const bannerElement = document.querySelector('.vue-banner');
+    expect(bannerElement.style['background-color']).toBe('rgb(0, 0, 0)');
+    Simulate.click(bannerElement);
+    expect(bannerElement.style['background-color']).not.toBe('rgb(0, 0, 0)');
+  });
 });
 
 describe('cards.vue', () => {
-  it('renders component with supplied props', () => {
-    const props = {
-      cards: [
-        {
-          id: 77,
-          name: 'waffles',
-          phone: '555-555-5555',
-          website: 'waffles.com',
-          email: 'admin@waffles.com',
-        },
-      ],
-    };
+  const CARDS_DATA = [
+    {
+      id: 77,
+      name: 'waffles',
+      phone: '555-555-5555',
+      website: 'waffles.com',
+      email: 'admin@waffles.com',
+    },
+    {
+      id: 78,
+      name: 'bacon',
+      phone: '555-555-5556',
+      website: 'bacon.com',
+      email: 'admin@bacon.com',
+    },
+  ];
 
+  it('renders component with supplied props', () => {
+    const props = { cards: CARDS_DATA };
     const { getByText } = render(cards, { props });
+
     expect(getByText('waffles').textContent).toContain('waffles');
     expect(getByText('555-555-5555').textContent).toBe('555-555-5555');
     expect(getByText('waffles.com').textContent).toBe('waffles.com');
     expect(getByText('admin@waffles.com').textContent).toContain('admin');
   });
+
+  it('displays the correct number of cards', () => {
+    const props = { cards: CARDS_DATA };
+    const { getAllByTestId } = render(cards, { props });
+
+    expect(getAllByTestId('active-status').length).toBe(2);
+  });
+
+  // TODO: figure out why Simulate.click isn't triggering active class
+  // it('adds active status to a card on click', () => {
+  //   const props = { cards: CARDS_DATA };
+  //
+  //   const { getByTestId, getAllByTestId } = render(cards, { props });
+  //   const card2 = getAllByTestId('active-status')[1];
+  //   Simulate.click(getByTestId('card-wrapper-78'));
+  // });
 });

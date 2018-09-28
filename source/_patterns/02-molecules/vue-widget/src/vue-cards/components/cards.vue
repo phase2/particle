@@ -16,6 +16,7 @@
       v-for="card in cards"
       :key="card.phone"
       class="card-wrapper col-sm-12 col-md-6 col-lg-4 mb-3 card-hover"
+      :data-testid="`card-wrapper-${card.id}`"
       @click="[
         toggle(card),
         $emit('set-name', card.name)

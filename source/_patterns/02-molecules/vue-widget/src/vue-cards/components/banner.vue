@@ -9,6 +9,7 @@
 <template>
   <div 
     class="vue-banner"
+    data-testid="banner"
     :style="styles"
     @click="bg = randomColor()"
   >

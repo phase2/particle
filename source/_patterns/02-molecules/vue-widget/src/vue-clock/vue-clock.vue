@@ -17,14 +17,17 @@
     <div class="clock-face">
       <div
         class="seconds-hand hand"
+        data-testid="seconds-hand"
         :style="hands.seconds"
       />
       <div
         class="minutes-hand hand"
+        data-testid="minutes-hand"
         :style="hands.minutes"
       />
       <div
         class="hours-hand hand"
+        data-testid="hours-hand"
         :style="hands.hours"
       />
     </div>
