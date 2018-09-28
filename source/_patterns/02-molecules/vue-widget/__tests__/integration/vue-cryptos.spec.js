@@ -32,8 +32,18 @@ describe('facet-table-row.vue', () => {
 
   const { getByText } = render(facetTableRow, { props });
 
-  it('renders row properties', () => {
+  it('renders name property', () => {
     const nameElement = getByText('Bitcoin', { exact: false });
     expect(nameElement.textContent).toContain('Bitcoin');
+  });
+
+  it('renders price property', () => {
+    const priceElement = getByText('15015', { exact: false });
+    expect(priceElement.textContent).toContain('15015.0');
+  });
+
+  it('renders symbol property', () => {
+    const symbolElement = getByText('BTC', { exact: false });
+    expect(symbolElement.textContent).toContain('BTC');
   });
 });
