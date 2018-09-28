@@ -47,7 +47,8 @@
     "pattern-lab/styleguidekit-twig-default": "^3.0.3",
     "pattern-lab/drupal-twig-components": "^2.2.0",
     "pattern-lab/plugin-faker": "^2.0",
-    "evanlovely/plugin-twig-namespaces": "^1.1.1"
+    "evanlovely/plugin-twig-namespaces": "^1.1.1",
+    "asm89/twig-lint": "@stable"
   },
   "scripts": {
     "post-install-cmd": [
@@ -69,6 +70,9 @@
     ],
     "pre-package-uninstall": [
       "PatternLab\\Installer::prePackageUninstall"
+    ],
+    "twig-lint": [
+      "twig-lint --ansi"
     ]
   },
   "extra": {
