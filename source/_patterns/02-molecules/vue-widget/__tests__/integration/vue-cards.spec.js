@@ -26,15 +26,6 @@ describe('card.vue', () => {
 
     expect(clickStatus.textContent).toBe('clicked: false');
   });
-
-  it('changes active status if isClicked is true', () => {
-    const props = { isClicked: true };
-    const { getByText, getByTestId } = render(card, { props });
-    const clickStatus = getByText('clicked:', { exact: false });
-
-    expect(clickStatus.textContent).toBe('clicked: true');
-    expect(getByTestId('active-status').className).toBe('active');
-  });
 });
 
 describe('banner.vue', () => {
