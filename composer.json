@@ -1,0 +1,13 @@
+{
+    "name": "phase2/particle",
+    "description": "A system of tools to build design systems in Pattern Lab for Drupal and Grav.",
+    "type": "project",
+    "license": "GNU General Public License v2.0",
+    "authors": [
+        {
+            "name": "Christopher Bloom",
+            "email": "bloomcb@gmail.com"
+        }
+    ],
+    "require": {}
+}

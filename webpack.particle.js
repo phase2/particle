@@ -36,10 +36,10 @@ module.exports = {
   mode: NODE_ENV, // development|production
   output: {
     filename: '[name].js',
-    chunkFilename: '[id].chunk.js',
     path: path.resolve(PATH_DIST, 'assets/'),
     publicPath: '/assets/',
   },
+  devtool: NODE_ENV === 'development' ? 'eval' : 'source-map',
   module: {
     rules: [
       {

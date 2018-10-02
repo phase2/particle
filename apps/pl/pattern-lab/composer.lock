@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b01800193a379139c13f204d381a025",
+    "content-hash": "2c806350f8bfd2b568985be3ce5cba7f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -69,6 +69,57 @@
             "time": "2016-02-15T22:46:40+00:00"
         },
         {
+            "name": "asm89/twig-lint",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asm89/twig-lint.git",
+                "reference": "bbf7bc49689ed55d2900de7528c528c93db19431"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asm89/twig-lint/zipball/bbf7bc49689ed55d2900de7528c528c93db19431",
+                "reference": "bbf7bc49689ed55d2900de7528c528c93db19431",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "^2.1 || ^3.0",
+                "symfony/finder": "^2.1 || ^3.0",
+                "twig/twig": "^1.16.2"
+            },
+            "bin": [
+                "bin/twig-lint"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Asm89\\Twig\\Lint\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                }
+            ],
+            "description": "Standalone twig linter.",
+            "homepage": "https://github.com/asm89/twig-lint",
+            "keywords": [
+                "lint",
+                "twig"
+            ],
+            "time": "2016-07-25T21:02:13+00:00"
+        },
+        {
             "name": "basaltinc/twig-tools",
             "version": "v1.4.2",
             "source": {
@@ -109,20 +160,20 @@
         },
         {
             "name": "doctrine/collections",
-            "version": "v1.5.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "a01ee38fcd999f34d9bfbcee59dbda5105449cbf"
+                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/a01ee38fcd999f34d9bfbcee59dbda5105449cbf",
-                "reference": "a01ee38fcd999f34d9bfbcee59dbda5105449cbf",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/1a4fb7e902202c33cce8c55989b945612943c2ba",
+                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "~0.1@dev",
@@ -172,7 +223,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2017-07-22T10:37:32+00:00"
+            "time": "2017-01-03T10:49:41+00:00"
         },
         {
             "name": "evanlovely/plugin-twig-namespaces",
@@ -444,20 +495,21 @@
         },
         {
             "name": "pattern-lab/core",
-            "version": "v2.8.1",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/drupal-pattern-lab/patternlab-php-core.git",
-                "reference": "ed89147c334acc576191bdd3462b4b2e6a5f8b31"
+                "url": "https://github.com/pattern-lab/patternlab-php-core.git",
+                "reference": "009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-pattern-lab/patternlab-php-core/zipball/ed89147c334acc576191bdd3462b4b2e6a5f8b31",
-                "reference": "ed89147c334acc576191bdd3462b4b2e6a5f8b31",
+                "url": "https://api.github.com/repos/pattern-lab/patternlab-php-core/zipball/009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3",
+                "reference": "009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3",
                 "shasum": ""
             },
             "require": {
                 "alchemy/zippy": "^0.3",
+                "doctrine/collections": "1.4.0",
                 "kevinlebrun/colors.php": "^1.0",
                 "michelf/php-markdown": "^1.6",
                 "php": ">=5.4",
@@ -480,10 +532,20 @@
             ],
             "authors": [
                 {
+                    "name": "Evan Lovely",
+                    "homepage": "http://evanlovely.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Salem Ghoweri",
+                    "homepage": "https://github.com/sghoweri",
+                    "role": "Developer"
+                },
+                {
                     "name": "Dave Olsen",
                     "email": "dmolsen@gmail.com",
                     "homepage": "http://dmolsen.com",
-                    "role": "Lead Developer"
+                    "role": "Former Lead Developer"
                 },
                 {
                     "name": "Brad Frost",
@@ -501,11 +563,11 @@
                 "styleguide"
             ],
             "support": {
-                "issues": "https://github.com/drupal-pattern-lab/patternlab-php-core/issues",
+                "issues": "https://github.com/pattern-lab/patternlab-php-core/issues",
                 "wiki": "http://patternlab.io/docs/",
-                "source": "https://github.com/drupal-pattern-lab/patternlab-php-core/releases"
+                "source": "https://github.com/pattern-lab/patternlab-php-core/releases"
             },
-            "time": "2017-09-03T18:20:59+00:00"
+            "time": "2018-02-27T22:12:27+00:00"
         },
         {
             "name": "pattern-lab/drupal-twig-components",
@@ -689,16 +751,16 @@
         },
         {
             "name": "pattern-lab/styleguidekit-assets-default",
-            "version": "v3.4.2",
+            "version": "v3.5.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/drupal-pattern-lab/styleguidekit-assets-default.git",
-                "reference": "9452f6e032766a0675c2e446d65e6054d2a08a97"
+                "url": "https://github.com/pattern-lab/styleguidekit-assets-default.git",
+                "reference": "7c1b51195c17a19cc3e87890b8fb3d8c27f33870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-pattern-lab/styleguidekit-assets-default/zipball/9452f6e032766a0675c2e446d65e6054d2a08a97",
-                "reference": "9452f6e032766a0675c2e446d65e6054d2a08a97",
+                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-assets-default/zipball/7c1b51195c17a19cc3e87890b8fb3d8c27f33870",
+                "reference": "7c1b51195c17a19cc3e87890b8fb3d8c27f33870",
                 "shasum": ""
             },
             "type": "patternlab-styleguidekit",
@@ -748,7 +810,7 @@
                 "wiki": "http://patternlab.io/docs/",
                 "source": "https://github.com/pattern-lab/styleguidekit-assets-default/releases"
             },
-            "time": "2017-05-25T23:00:23+00:00"
+            "time": "2017-10-31T12:19:46+00:00"
         },
         {
             "name": "pattern-lab/styleguidekit-twig-default",
@@ -797,6 +859,53 @@
                 "source": "https://github.com/pattern-lab/styleguidekit-twig-default/releases"
             },
             "time": "2017-08-28T18:42:55+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "seld/jsonlint",
@@ -886,6 +995,131 @@
             "description": "ArrayFinder component",
             "homepage": "https://github.com/Shudrum/ArrayFinder",
             "time": "2016-02-01T12:23:32+00:00"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v3.4.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "6b217594552b9323bcdcfc14f8a0ce126e84cd73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/6b217594552b9323bcdcfc14f8a0ce126e84cd73",
+                "reference": "6b217594552b9323bcdcfc14f8a0ce126e84cd73",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/debug": "~2.8|~3.0|~4.0",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "symfony/dependency-injection": "<3.4",
+                "symfony/process": "<3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~3.3|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
+                "symfony/lock": "~3.4|~4.0",
+                "symfony/process": "~3.3|~4.0"
+            },
+            "suggest": {
+                "psr/log-implementation": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/lock": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-07-26T11:19:56+00:00"
+        },
+        {
+            "name": "symfony/debug",
+            "version": "v4.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/debug.git",
+                "reference": "47ead688f1f2877f3f14219670f52e4722ee7052"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/47ead688f1f2877f3f14219670f52e4722ee7052",
+                "reference": "47ead688f1f2877f3f14219670f52e4722ee7052",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/log": "~1.0"
+            },
+            "conflict": {
+                "symfony/http-kernel": "<3.4"
+            },
+            "require-dev": {
+                "symfony/http-kernel": "~3.4|~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Debug\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Debug Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-08-03T11:13:38+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1104,6 +1338,65 @@
                 "ctype",
                 "polyfill",
                 "portable"
+            ],
+            "time": "2018-08-06T14:22:27+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d0cd638f4634c16d8df4508e847f14e9e43168b8",
+                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
             ],
             "time": "2018-08-06T14:22:27+00:00"
         },
@@ -1381,7 +1674,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "asm89/twig-lint": 0
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -2,8 +2,6 @@
  * Alert
  */
 
-// JS from Bootstrap
-import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/alert';
 
 // Module Dependencies

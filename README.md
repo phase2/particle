@@ -58,11 +58,11 @@ Particle builds design systems in dev mode for local hosting, or production mode
 1.  Extract anywhere (i.e. this readme should be at `any/where/particle/README.md`)
 1.  Within the extracted folder run:
 
-   ```bash
-   npm install
-   npm run setup
-   npm start
-   ```
+```bash
+npm install
+npm run setup
+npm start
+```
 
 Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/pl](http://0.0.0.0:8080/pl) (or [http://localhost:8080/pl](http://localhost:8080/pl)) and start working.
 
