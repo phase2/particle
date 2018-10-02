@@ -80,6 +80,8 @@ module.exports = function GulpTwigNamespaces(opt) {
             )
             // 01-atoms should come before 01-atoms/blerp
             .sortBy(pathString => pathString.length)
+            // Ensure alphanumeric order second
+            .sortBy(pathString => pathString)
             // Remove dupes
             .sortedUniq()
             // Modify path to be relative to pathRelativeToDir for yaml config
