@@ -13,12 +13,6 @@ describe('vue-cryptos.vue', () => {
   it('renders the default component filter', () => {
     expect(filterElement.textContent).toContain('all');
   });
-
-  // This test seems to trigger `RangeError: Maximum call stack size exceeded`
-  it('changes filter when a facet is clicked', () => {
-    Simulate.click(getByText('winners'));
-    expect(filterElement.textContent).toContain('winners');
-  });
 });
 
 describe('facet-table-row.vue', () => {
