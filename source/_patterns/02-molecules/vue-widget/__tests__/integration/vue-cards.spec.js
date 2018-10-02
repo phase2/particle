@@ -37,7 +37,6 @@ describe('card.vue', () => {
   });
 });
 
-// TODO: troubleshoot error caused by banner.vue import
 describe('banner.vue', () => {
   it('shows the username passed in', () => {
     const props = {
@@ -92,13 +91,4 @@ describe('cards.vue', () => {
 
     expect(getAllByTestId('active-status').length).toBe(2);
   });
-
-  // TODO: figure out why Simulate.click isn't triggering active class
-  // it('adds active status to a card on click', () => {
-  //   const props = { cards: CARDS_DATA };
-  //
-  //   const { getByTestId, getAllByTestId } = render(cards, { props });
-  //   const card2 = getAllByTestId('active-status')[1];
-  //   Simulate.click(getByTestId('card-wrapper-78'));
-  // });
 });
