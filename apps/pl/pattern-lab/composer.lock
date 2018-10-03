@@ -694,7 +694,7 @@
         },
         {
             "name": "pattern-lab/plugin-faker",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pattern-lab/plugin-php-faker.git",
