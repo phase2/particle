@@ -40,13 +40,15 @@ export const components = {};
  * @param context
  */
 function importAll(context) {
-  context.keys().forEach(componentPath => {
-    // "require" the component
-    const component = context(componentPath);
-    // Add a key to the components object that is the component's name, and a
-    // value that is full component
-    components[component.name] = component;
-  });
+  console.log(context.keys());
+
+  // context.keys().forEach(componentPath => {
+  //   // "require" the component
+  //   const component = context(componentPath);
+  //   // Add a key to the components object that is the component's name, and a
+  //   // value that is full component
+  //   components[component.name] = component;
+  // });
 }
 
 /**
@@ -72,21 +74,27 @@ importAll(
   )
 );
 // Molecules
-importAll(
-  require.context(
-    'molecules',
-    true,
-    /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
-  )
-);
-// Organisms
-importAll(
-  require.context(
-    'organisms',
-    true,
-    /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
-  )
-);
+import * as card from 'molecules/card';
+components.card = card;
+
+// importAll(
+//   require.context(
+//     './_patterns/02-molecules/',
+//     true,
+//     /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
+//   )
+// );
+
+console.log(components);
+
+// // Organisms
+// importAll(
+//   require.context(
+//     'organisms',
+//     true,
+//     /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
+//   )
+// );
 // Templates. Skipping for design system. Include per-app.
 // importAll(
 //   require.context(

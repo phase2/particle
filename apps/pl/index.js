@@ -9,21 +9,21 @@ import 'atoms/grid';
 
 // Prism highlighting in PL.
 // Prism is kind of dumb and just operates globally.
-import 'prismjs/components/prism-core.min';
-import 'prismjs/components/prism-clike.min';
-import 'prismjs/components/prism-javascript.min';
-import 'prismjs/components/prism-twig.min';
-import 'prismjs/components/prism-css.min';
-import 'prismjs/components/prism-scss.min';
-import 'prismjs/components/prism-markup.min';
+// import 'prismjs/components/prism-core.min';
+// import 'prismjs/components/prism-clike.min';
+// import 'prismjs/components/prism-javascript.min';
+// import 'prismjs/components/prism-twig.min';
+// import 'prismjs/components/prism-css.min';
+// import 'prismjs/components/prism-scss.min';
+// import 'prismjs/components/prism-markup.min';
 
 // Full design system. May dupe the above, but Webpack don't care.
 import { enableAllComponents } from '../../source/design-system';
 
 // Watch all demo folders in source
-import demoSystem from './demo/demos.glob';
+// import demoSystem from './demo/demos.glob';
 // Watch all files in the source/_data folder
-import './demo/data.glob';
+// import './demo/data.glob';
 
 // Adds PL-only styles, ie color swatches.
 import './scss/_styleguide.scss';
@@ -45,12 +45,12 @@ const settings = {
 enableAllComponents($context, settings);
 
 // Not every demo will need be enabled, but some might.
-Object.values(demoSystem).forEach(component => {
-  if (Object.prototype.hasOwnProperty.call(component, 'enable')) {
-    // console.log(component.name);
-    component.enable($context, settings);
-  }
-});
+// Object.values(demoSystem).forEach(component => {
+//   if (Object.prototype.hasOwnProperty.call(component, 'enable')) {
+//     // console.log(component.name);
+//     component.enable($context, settings);
+//   }
+// });
 
 // Remove a pl-only helper class to hide the pre-load spinner on the welcome page.
 $('body').removeClass('pl-loading');
