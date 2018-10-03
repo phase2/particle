@@ -135,14 +135,25 @@ module.exports = {
     // Yell at us while writing Sass
     new StyleLintPlugin(),
     // Sprite system options
-    new SVGSpritemapPlugin({
-      src: path.resolve(PATH_PATTERNS, '01-atoms/svgicon/svg/**/*.svg'),
-      styles: path.resolve(
-        PATH_PATTERNS,
-        '01-atoms/svgicon/scss/_icons-generated.scss'
-      ),
-      svg4everybody: true,
-    }),
+    new SVGSpritemapPlugin(
+      path.resolve(PATH_PATTERNS, '01-atoms/svgicon/svg/**/*.svg'),
+      {
+        styles: {
+          filename: path.resolve(
+            PATH_PATTERNS,
+            '01-atoms/svgicon/scss/_icons-generated.scss'
+          ),
+          variables: {
+            sizes: 'svgicon-sizes', // Prevent collision with Bootstrap $sizes
+            variables: 'svgicon-variables',
+          },
+        },
+        output: {
+          svg4everybody: true,
+          svgo: true,
+        },
+      }
+    ),
     new VueLoaderPlugin(),
   ],
   resolve: {
