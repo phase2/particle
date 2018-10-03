@@ -13,6 +13,8 @@ class RunScriptOnFiletypeChange extends ShellHelper {
       (compilation, callback) => {
         // Convert fileTimestamps to array of arrays to filter it and find
         // changed files we care about
+        console.log(compilation.fileTimestamps);
+        console.log(compilation);
         const changed = [...compilation.fileTimestamps].filter(([file]) => {
           // Uncomment to debug
           // if (file.match(this.options.test)) { console.log(file); }

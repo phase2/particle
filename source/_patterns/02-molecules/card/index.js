@@ -17,6 +17,8 @@ export const name = 'card';
 
 export function disable() {}
 
-export function enable() {}
+export function enable() {
+  console.log('hello from card');
+}
 
 export default enable;
