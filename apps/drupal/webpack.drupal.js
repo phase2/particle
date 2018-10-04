@@ -41,7 +41,12 @@ const dev = {
   ],
 };
 
-const prod = {};
+const prod = {
+  stats: {
+    children: false,
+    entrypoints: false,
+  },
+};
 
 module.exports = particle(
   { shared, dev, prod },
