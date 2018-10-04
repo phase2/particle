@@ -25,7 +25,7 @@ import './scss/_styleguide.scss';
 import './scss/_scss2json.scss';
 
 // Watch the big pieces of PL like demos, _meta, data
-import './glob';
+import demoSystem from './glob';
 
 // Send each component the $(document) as its context
 const $context = $(document);
@@ -43,12 +43,12 @@ const settings = {
 enableAllComponents($context, settings);
 
 // Not every demo will need be enabled, but some might.
-// Object.values(demoSystem).forEach(component => {
-//   if (Object.prototype.hasOwnProperty.call(component, 'enable')) {
-//     // console.log(component.name);
-//     component.enable($context, settings);
-//   }
-// });
+Object.values(demoSystem).forEach(component => {
+  if (Object.prototype.hasOwnProperty.call(component, 'enable')) {
+    // console.log(component.name);
+    component.enable($context, settings);
+  }
+});
 
 // Remove a pl-only helper class to hide the pre-load spinner on the welcome page
 $('body').removeClass('pl-loading');
