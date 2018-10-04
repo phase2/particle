@@ -10,7 +10,7 @@ Particle is an opinionated set of tools and examples to:
 1.  Apply that design system to a locally-served **Pattern Lab** for rapid prototyping
 1.  Apply that design system to a **Drupal theme**
 
-In depth documentation about frontend approach using this project at [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/)
+In depth documentation about frontend approach using this project at [Phase2 Frontend Docs](https://phase2.gitbook.io/frontend/)
 
 ## Prerequisites
 
@@ -66,4 +66,4 @@ npm start
 
 Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/pl](http://0.0.0.0:8080/pl) (or [http://localhost:8080/pl](http://localhost:8080/pl)) and start working.
 
-That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.github.io/frontend-docs/).
+That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.gitbook.io/frontend/).
