@@ -1,7 +1,7 @@
 import { render, Simulate } from 'vue-testing-library';
-import card from '../../src/vue-cards/components/card.vue';
-import cards from '../../src/vue-cards/components/cards.vue';
-import banner from '../../src/vue-cards/components/banner.vue';
+import card from '../src/vue-cards/components/card.vue';
+import cards from '../src/vue-cards/components/cards.vue';
+import banner from '../src/vue-cards/components/banner.vue';
 
 describe('card.vue', () => {
   it('renders component with supplied props', () => {
