@@ -13,7 +13,7 @@
  */
 function importAll(context) {
   return context.keys().reduce((accumulator, componentPath) => {
-    console.log(componentPath);
+    // console.log(componentPath);
     // "require" the component
     const component = context(componentPath);
     // Add a key to the components object that is the component's name, and a

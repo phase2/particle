@@ -53,7 +53,6 @@ const atomicContext = require.context(
  * values will be the component itself.
  */
 export const components = importAll(atomicContext);
-console.log(components);
 
 // Templates. Skipping for design system. Include per-app.
 // importAll(
