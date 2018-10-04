@@ -20,34 +20,7 @@
  *   };
  */
 
-/**
- * The components collection. Keys will be the exported name of each component,
- * values will be the component itself.
- */
-export const components = {};
-
-/**
- * Accepts the result of require.context() to add it all to our great big
- * components object with keys that are the name of components, i.e.
- *
- *   // 01-atoms/vue-widget/index.js
- *   export const name = 'vue-widget';
- *
- * results in:
- *
- *   components['vue-widget'] = {name: 'vue-widget', enable() {}, disable() {}}
- *
- * @param context
- */
-function importAll(context) {
-  context.keys().forEach(componentPath => {
-    // "require" the component
-    const component = context(componentPath);
-    // Add a key to the components object that is the component's name, and a
-    // value that is full component
-    components[component.name] = component;
-  });
-}
+import importAll from '../tools/webpack/import-all';
 
 /**
  * Dynamically discover all root patterns using Webpack's require.context().
@@ -61,45 +34,40 @@ function importAll(context) {
  * IMPORTANT: the regex must be "statically analyzable", meaning we cannot set
  * the regex to a variable. (https://github.com/webpack/webpack/issues/4772).
  *
- * @TODO: A cleaner regex to get only the first level index.js, no deeper
+ * A note on the regex below: Given paths like:
+ *   ./01-atoms/thing-component/blah/blah/
+ * the regex finds only the top atomic level path (./thing-component) to include
  */
-// Atoms
-importAll(
-  require.context(
-    'atoms',
-    true,
-    /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
-  )
+
+const atomicContext = require.context(
+  // From patterns folder
+  './_patterns',
+  // Deep dive all directories below
+  true,
+  // Get the first folders after atoms|molecules|organisms
+  /^\.\/(01-atoms|02-molecules|03-organisms)\/[\w-]+$/
 );
-// Molecules
-importAll(
-  require.context(
-    'molecules',
-    true,
-    /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
-  )
-);
-// Organisms
-importAll(
-  require.context(
-    'organisms',
-    true,
-    /^(?!.*(demo|src)).*index\.js$/ // See note on static regex
-  )
-);
+
+/**
+ * The components collection. Keys will be the exported name of each component,
+ * values will be the component itself.
+ */
+export const components = importAll(atomicContext);
+
 // Templates. Skipping for design system. Include per-app.
 // importAll(
 //   require.context(
 //     'templates',
 //     true,
-//     /^(?!.*(demo|src)).*index\.js$/
+//     /^\.\/[\w-]+$/ // See note on static regex
 //   )
 // );
 // Pages. Skipping for design system. Include per-app.
 // importAll(
 //   require.context(
 //     'pages',
-//     true, /^(?!.*(demo|src)).*index\.js$/
+//     true,
+//     /^\.\/[\w-]+$/ // See note on static regex
 //   )
 // );
 

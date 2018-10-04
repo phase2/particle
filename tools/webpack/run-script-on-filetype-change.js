@@ -13,6 +13,7 @@ class RunScriptOnFiletypeChange extends ShellHelper {
       (compilation, callback) => {
         // Convert fileTimestamps to array of arrays to filter it and find
         // changed files we care about
+
         const changed = [...compilation.fileTimestamps].filter(([file]) => {
           // Uncomment to debug
           // if (file.match(this.options.test)) { console.log(file); }
@@ -34,6 +35,15 @@ class RunScriptOnFiletypeChange extends ShellHelper {
 
         // If none of the file types have changed, emit as usual
         if (!changed.length) {
+          callback();
+          return true;
+        }
+
+        // Bail if the file modified is not actually on the dep chain
+        const isDep = changed.some(([changedFilePath]) =>
+          compilation.fileDependencies.has(changedFilePath)
+        );
+        if (!isDep) {
           callback();
           return true;
         }
