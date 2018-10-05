@@ -7,8 +7,9 @@
  *   - Utility functions used within methods()
 **/
 <template>
-  <div 
+  <div
     class="vue-banner"
+    data-testid="banner"
     :style="styles"
     @click="bg = randomColor()"
   >

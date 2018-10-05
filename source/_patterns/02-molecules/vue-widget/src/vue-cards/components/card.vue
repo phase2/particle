@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <div
+      data-testid="active-status"
       :class="{ active: isClicked }"
     >
       <div class="card-body">
@@ -13,7 +14,7 @@
         <li class="list-group-item">{{ phone }}</li>
         <li class="list-group-item">{{ website }}</li>
         <li class="list-group-item">{{ email }}</li>
-        <li class="list-group-item">{{ !!isClicked }}</li>
+        <li class="list-group-item">clicked: {{ !!isClicked }}</li>
       </ul>
     </div>
   </div>
