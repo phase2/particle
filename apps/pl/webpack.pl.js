@@ -98,10 +98,7 @@ const dev = {
     // Recompile PL on any globbed PL file (see glob.js)
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md|json)$/,
-      exec: [
-        `echo \n🚀 Pattern Lab ${process.env.NODE_ENV} rebuild running! 🚀\n`,
-        'npx gulp compile',
-      ],
+      exec: ['npx gulp compile'],
     }),
   ],
 };
