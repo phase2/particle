@@ -1,15 +1,3 @@
 // The non-printing variables, functions, and mixins of 00-protons/variables
 // are provided to this file via:
-// particle.js: sass-loader.data|includePaths
-
-// To change default Bootstrap card variables, see ~bootstrap/scss/variables
-// and then add Bootstrap variables here
-$card-border-width: 1px;
-
-// Then import the Bootstrap component styles
-@import '~bootstrap/scss/card';
-
-// Add custom code here
-.border-none {
-  border-style: none;
-}
+//   webpack.particle.js: sass-loader.data|includePaths

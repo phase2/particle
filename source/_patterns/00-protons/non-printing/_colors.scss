@@ -1,9 +1,4 @@
-// Custom colors
+// Custom colors variables and mixins
 
-// Bootstrap overrides
-// Add colors to $theme-colors var here. Find other vars to override at ~bootstrap/scss/_variables.scss
-// Be sure to add new colors in quotes.
-$theme-colors: (
-  'test': pink,
-  'new': green,
-);
+$color-test: pink;
+$color-new: green;

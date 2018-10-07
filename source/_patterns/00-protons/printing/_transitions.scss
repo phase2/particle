@@ -1,12 +1,5 @@
+// Custom transitions printing styles
+
 // The non-printing variables, functions, and mixins of 00-protons/variables
 // are provided to this file via:
-// particle.js: sass-loader.data|includePaths
-
-// Bootstrap override variables go here.
-// See available vars in ~bootstrap/scss/_variables.scss, i.e.
-//$enable-transitions
-//$transition-fade
-//$btn-transition
-@import '~bootstrap/scss/transitions';
-
-// Custom transitions rules go here
+//   webpack.particle.js: sass-loader.data|includePaths

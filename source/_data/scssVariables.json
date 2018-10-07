@@ -45,7 +45,8 @@
       "Liberation Mono",
       "Courier New",
       "monospace"
-    ]
+    ],
+    "$headings-font-family": ["Oswald", "sans-serif"]
   },
   "fontSizes": {
     "base": "1rem",

@@ -20,24 +20,11 @@
 @import 'non-printing/functions';
 @import 'non-printing/colors';
 @import 'non-printing/mixins';
+@import 'non-printing/type';
+@import 'non-printing/spacing';
 
-// (Other non-printing .scss), ie font families, spacing, etc
-$spacing: (
-  s: 5px,
-  m: 25px,
-  l: 50px,
-);
-
-// This is a good place to globally override bootstrap variables that aren't
-// just overridden in a component later on.
-
-// Bootstrap non-printing tools
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-
-// import anything else non-printing that may depend on variables in this file!
-// @import 'non-printing/project-specific-mixins'
+// Bootstrap non-printing overrides
+@import 'non-printing/bootstrap-overrides';
 
 // Generated SVG icons and sprite mixins
 @import '01-atoms/svgicon/scss/_icons-generated';
@@ -45,3 +32,6 @@ $spacing: (
 // Font Awesome tools
 @import '~font-awesome/scss/variables';
 @import '~font-awesome/scss/mixins';
+
+// import anything else non-printing that may depend on variables in this file!
+// @import 'non-printing/project-specific-mixins'
