@@ -22,23 +22,23 @@
 // Font-Awesome Sass Examples
 .svgicon-demo--fontawesome-mixin {
   &:before {
-    @include fa-icon();
-    content: $fa-var-user;
-    font-size: 40px;
-    color: black;
+    //@include fa-icon();
+    //content: $fa-var-user;
+    //font-size: 40px;
+    //color: black;
   }
 }
 
 .fontawesome-example2 {
   &:after {
-    @include fa-icon();
-    content: $fa-var-compass;
+    //@include fa-icon();
+    //content: $fa-var-compass;
   }
 }
 
 .fontawesome-example3 {
   &:after {
-    @include fa-icon();
-    content: $fa-var-apple;
+    //@include fa-icon();
+    //content: $fa-var-apple;
   }
 }
