@@ -8,8 +8,8 @@
     "danger": "rgb(220, 53, 69)",
     "light": "rgb(248, 249, 250)",
     "dark": "rgb(52, 58, 64)",
-    "test": "rgb(255, 192, 203)",
-    "new": "rgb(0, 128, 0)"
+    "blerp": "rgb(255, 192, 203)",
+    "derp": "rgb(0, 128, 0)"
   },
   "scssBreakpoints": {
     "xs": 0,
@@ -46,7 +46,10 @@
       "Courier New",
       "monospace"
     ],
-    "$headings-font-family": ["Oswald", "sans-serif"]
+    "$headings-font-family": [
+      "Oswald",
+      "sans-serif"
+    ]
   },
   "fontSizes": {
     "base": "1rem",
