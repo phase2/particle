@@ -1,4 +1,4 @@
-import { render, Simulate } from 'vue-testing-library';
+import { render } from 'vue-testing-library';
 import vueCryptos from 'molecules/vue-widget/src/vue-cryptos/facet-table.vue';
 import facetTableRow from 'molecules/vue-widget/src/vue-cryptos/components/facet-table-row.vue';
 

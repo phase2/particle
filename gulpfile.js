@@ -111,8 +111,12 @@ gulp.task('compile:twig-namespaces', () =>
  * writes a file to the root of dist/ so that Webpack can trigger a reload.
  */
 gulp.task('compile:pl:notify', cb => {
-  // Write to dist/ root a file named CHANGED.txt, casts Date to text, calls callback
-  fs.writeFile(path.resolve(PATH_DIST, 'CHANGED.txt'), +new Date(), cb);
+  // Write to dist/ root a file named index.html, casts Date to text, calls callback
+  fs.writeFile(
+    path.resolve(PATH_DIST, 'index.html'),
+    `<!doctype html><title>Particle</title><a href="/pl">Open Pattern Lab (Last changed: ${+new Date()})</a>`,
+    cb
+  );
 });
 
 /**
