@@ -20,10 +20,6 @@
 //   00-protons/non-printing/_bootstrap-overrides.scss
 @import 'printing/bootstrap-printing';
 
-// Font Awesome icons
-//$fa-font-path: '~font-awesome/fonts/';
-//@import '~font-awesome/scss/font-awesome';
-
 // Custom CSS-generating output
 @import 'printing/type';
 @import 'printing/forms';
