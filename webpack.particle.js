@@ -19,7 +19,7 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // Constants
-// NODE_ENV is set within all NPM scripts before running wepback, eg:
+// NODE_ENV is set within all NPM scripts before running Webpack, eg:
 //
 //  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.js --hot",
 //
