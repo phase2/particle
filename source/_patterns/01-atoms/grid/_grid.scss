@@ -1,13 +1,7 @@
-// The non-printing variables, functions, and mixins of 00-protons/variables
-// are provided to this file via:
-//   webpack.particle.js: sass-loader.data|includePaths
+// Grid customizations
 
 // The non-printing variables, functions, and mixins of 00-protons/variables
 // are provided to this file via:
 //   webpack.particle.js: sass-loader.data|includePaths
-
-// Bootstrap override variables go here.
-// See available vars in ~bootstrap/scss/_variables.scss
-@import '~bootstrap/scss/grid';
 
 // Custom grid mixins/CSS-generating rules below
