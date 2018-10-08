@@ -68,6 +68,7 @@ const dev = {
   devServer: {
     host: '0.0.0.0',
     port: '8080',
+    allowedHosts: ['.docksal', '.vm', '0.0.0.0', 'localhost'],
     contentBase: PATH_DIST, // dev server starts from this folder.
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
     watchOptions: {
