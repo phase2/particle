@@ -11,6 +11,7 @@ const { ProgressPlugin, ProvidePlugin } = require('webpack');
 
 // Loaders
 const postcssPresetEnv = require('postcss-preset-env');
+const cssnano = require('cssnano');
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -18,7 +19,7 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // Constants
-// NODE_ENV is set within all NPM scripts before running wepback, eg:
+// NODE_ENV is set within all NPM scripts before running Webpack, eg:
 //
 //  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.js --hot",
 //
@@ -56,27 +57,37 @@ module.exports = {
         use: [
           {
             loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 2 },
+            options: {
+              sourceMap: true,
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
               ident: 'postcss',
-              plugins: () => [postcssPresetEnv()],
+              plugins: () =>
+                NODE_ENV === 'development'
+                  ? [postcssPresetEnv()] // Light processing for dev
+                  : [postcssPresetEnv(), cssnano()], // Heavy processing for prod
             },
           },
-          { loader: 'resolve-url-loader' },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
           {
             loader: 'sass-loader',
             options: {
+              sourceMap: true,
               // ALL Sass partials should be provided with non-printing
               // variables, mixins, and functions
               data: '@import "00-protons/variables";',
               // Enable Sass to import other components via, eg:
               // `@import 01-atoms/thing/thing`
               includePaths: [PATH_PATTERNS],
-              sourceMap: true,
             },
           },
         ],

@@ -1,0 +1,22 @@
+// Bootstrap variable customization
+// See all variables available at: ~bootstrap/scss/_variables.scss
+
+// Colors
+$theme-colors: (
+  'blerp': $color-blerp,
+  'derp': $color-derp,
+);
+
+// Fonts
+$headings-font-family: 'Oswald', sans-serif;
+
+// Buttons
+$btn-border-radius: 0.25rem;
+
+// Cards
+$card-border-width: 1px;
+
+// Bootstrap non-printing tools. DO NOT REMOVE.
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';

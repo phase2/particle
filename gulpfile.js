@@ -110,9 +110,21 @@ gulp.task('compile:twig-namespaces', () =>
  * When PL is done compiling do stuff here to notify anything that needs to know. Currently it just
  * writes a file to the root of dist/ so that Webpack can trigger a reload.
  */
-gulp.task('compile:pl:notify', cb => {
-  // Write to dist/ root a file named CHANGED.txt, casts Date to text, calls callback
-  fs.writeFile(path.resolve(PATH_DIST, 'CHANGED.txt'), +new Date(), cb);
+gulp.task('compile:pl:notify:post', cb => {
+  // Write to dist/ root a file named index.html, casts Date to text, calls callback
+  fs.writeFile(
+    path.resolve(PATH_DIST, 'index.html'),
+    `<!doctype html><title>Particle</title><a href="/pl">Open Pattern Lab (Last changed: ${+new Date()})</a>`,
+    cb
+  );
+});
+
+/**
+ * Simple notification that PL compile is starting
+ */
+gulp.task('compile:pl:notify:pre', cb => {
+  console.info(`\n🚀 Pattern Lab ${process.env.NODE_ENV} build running! 🚀\n`);
+  cb();
 });
 
 /**
@@ -142,9 +154,10 @@ gulp.task(
   'compile',
   // prettier-ignore
   gulp.series([
+    'compile:pl:notify:pre',
     'compile:twig-namespaces',
     'compile:pl',
-    'compile:pl:notify',
+    'compile:pl:notify:post',
   ])
 );
 

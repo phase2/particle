@@ -1,13 +1,3 @@
 // The non-printing variables, functions, and mixins of 00-protons/variables
 // are provided to this file via:
-// particle.js: sass-loader.data|includePaths
-
-// To change default bootstrap jumbotron variables, SEE ~bootstrap/scss/variables
-// Add bootstrap variables here
-
-//$jumbotron-padding: some_override_value;
-//$jumbotron-bg: some_override_value;
-
-@import '~bootstrap/scss/jumbotron';
-
-// Add custom code here
+//   webpack.particle.js: sass-loader.data|includePaths

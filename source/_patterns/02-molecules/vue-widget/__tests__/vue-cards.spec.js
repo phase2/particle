@@ -80,6 +80,6 @@ describe('cards.vue', () => {
     const props = { cards: CARDS_DATA };
     const { getAllByTestId } = render(cards, { props });
 
-    expect(getAllByTestId('active-status').length).toBe(2);
+    expect(getAllByTestId('active-status')).toHaveLength(2);
   });
 });

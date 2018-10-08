@@ -43,7 +43,7 @@ Particle builds design systems in dev mode for local hosting, or production mode
 1. Simply run:
 
    ```bash
-   npx phase2/create-particle particle
+   npm create @phase2/particle particle
    ```
 
 1. Then `cd particle/` and run:
