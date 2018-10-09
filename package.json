@@ -1,6 +1,6 @@
 {
   "name": "particle",
-  "version": "10.0.0",
+  "version": "10.1.0",
   "description": "A starterkit to build a design system shared to Pattern Lab, Drupal, Grav",
   "main": "gulpfile.js",
   "license": "GPL-2.0",
