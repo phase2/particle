@@ -1,13 +1,6 @@
 // The non-printing variables, functions, and mixins of 00-protons/variables
 // are provided to this file via:
-// particle.js: sass-loader.data|includePaths
-
-// To change default bootstrap nav variables,
-// copy from ~bootstrap/scss/variables to here
-
-$nav-link-disabled-color: $gray-600;
-
-@import '~bootstrap/scss/nav';
+//   webpack.particle.js: sass-loader.data|includePaths
 
 // Add custom code here
 .nav {

@@ -4,7 +4,6 @@
 
 // Library Imports
 const path = require('path');
-const { spawnSync } = require('child_process');
 const { DefinePlugin } = require('webpack');
 
 // Loaders
@@ -49,12 +48,6 @@ const shared = {
           emitFile: false,
         },
       },
-      // Used by Pattern Lab app to import all demo folder twig files, e.g.
-      //   import something from './thing.glob';
-      {
-        test: /\.(glob)$/,
-        loader: 'glob-loader',
-      },
     ],
   },
   plugins: [
@@ -68,6 +61,7 @@ const dev = {
   devServer: {
     host: '0.0.0.0',
     port: '8080',
+    allowedHosts: ['.docksal', '.vm', '0.0.0.0', 'localhost'],
     contentBase: PATH_DIST, // dev server starts from this folder.
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
     watchOptions: {
@@ -102,22 +96,15 @@ const dev = {
     },
   },
   plugins: [
+    // Recompile PL on any globbed PL file (see glob.js)
     new RunScriptOnFiletypeChange({
-      test: /\.(twig|yml|md)$/,
-      exec: [
-        `echo \n🚀 Pattern Lab ${process.env.NODE_ENV} rebuild running! 🚀\n`,
-        'npx gulp compile',
-      ],
+      test: /\.(twig|yml|md|json)$/,
+      exec: ['npx gulp compile'],
     }),
   ],
 };
 
 const prod = {};
-
-// Always Build Pattern Lab
-console.info(`🚀 Pattern Lab ${NODE_ENV} build running! 🚀`);
-// Run `npx gulp compile:startup`
-spawnSync('npx', ['gulp', 'compile:startup'], { stdio: 'inherit' });
 
 module.exports = particle(
   { shared, dev, prod },

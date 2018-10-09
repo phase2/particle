@@ -12,3 +12,4 @@ package-lock.json
 _icons-generated.scss
 
 source/_data/env.json
+source/_data/scssVariables.json

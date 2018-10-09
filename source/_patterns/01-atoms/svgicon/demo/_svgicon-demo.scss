@@ -1,6 +1,6 @@
 // The non-printing variables, functions, and mixins of 00-protons/variables
 // are provided to this file via:
-// particle.js: sass-loader.data|includePaths
+//   webpack.particle.js: sass-loader.data|includePaths
 
 .svgicon-demo--particle-mixin {
   @include sprite('person');
@@ -17,28 +17,4 @@
   );
   width: 40px;
   height: 40px;
-}
-
-// Font-Awesome Sass Examples
-.svgicon-demo--fontawesome-mixin {
-  &:before {
-    @include fa-icon();
-    content: $fa-var-user;
-    font-size: 40px;
-    color: black;
-  }
-}
-
-.fontawesome-example2 {
-  &:after {
-    @include fa-icon();
-    content: $fa-var-compass;
-  }
-}
-
-.fontawesome-example3 {
-  &:after {
-    @include fa-icon();
-    content: $fa-var-apple;
-  }
 }
