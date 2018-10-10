@@ -16,7 +16,7 @@ const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-fil
 const particle = require('../../particle');
 
 // Constants
-const { NODE_ENV, PUBLIC_HOST = '' } = process.env;
+const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 const { PATH_SOURCE, PATH_DIST } = require('../../config');
 
 const shared = {
@@ -63,7 +63,7 @@ const dev = {
     port: '8080',
     allowedHosts: ['.docksal', '.vm', '0.0.0.0', 'localhost'],
     contentBase: PATH_DIST, // dev server starts from this folder.
-    public: PUBLIC_HOST, // local host name for devServer
+    public: PARTICLE_PL_HOST, // local host name for devServer
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
     watchOptions: {
       ignored: '/(node_modules|dist/pl)/',
