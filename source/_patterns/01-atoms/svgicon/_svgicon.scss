@@ -11,13 +11,13 @@
 // since the SVG is wrapped in a div
 .svgicon-default {
   display: inline-block;
-  width: 40px;
+  width: rem-calc(40px);
 
   svg {
     display: block;
-    width: 300px;
+    width: rem-calc(300px);
     max-width: 100%;
-    max-height: 300px;
+    max-height: rem-calc(300px);
     height: auto;
   }
 }
@@ -29,8 +29,8 @@ $svgicons: map-keys($sprites);
   .icon--#{$icon} {
     @include sprite(#{$icon});
     display: inline-block;
-    height: 40px;
-    width: 40px;
+    height: rem-calc(40px);
+    width: rem-calc(40px);
   }
 }
 

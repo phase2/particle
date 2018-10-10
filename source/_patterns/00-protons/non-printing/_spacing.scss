@@ -1,7 +1,7 @@
 // Custom spacing variables and mixins
 
 $spacing: (
-  s: 5px,
-  m: 25px,
-  l: 50px,
+  s: rem-calc(5px),
+  m: rem-calc(25px),
+  l: rem-calc(50px),
 );

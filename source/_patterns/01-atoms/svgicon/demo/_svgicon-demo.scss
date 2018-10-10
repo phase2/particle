@@ -4,8 +4,8 @@
 
 .svgicon-demo--particle-mixin {
   @include sprite('person');
-  height: 40px;
-  width: 40px;
+  height: rem-calc(40px);
+  width: rem-calc(40px);
 }
 
 .svgicon-demo-1 {
@@ -15,6 +15,6 @@
       color: theme-color('primary'),
     )
   );
-  width: 40px;
-  height: 40px;
+  width: rem-calc(40px);
+  height: rem-calc(40px);
 }

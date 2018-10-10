@@ -10,14 +10,14 @@
     position: relative;
   }
   @include media-breakpoint-up(xl) {
-    width: 1200px;
+    width: rem-calc(1200px);
   }
 
   &__inner {
-    padding: 50px 20px;
+    padding: rem-calc(50px 20px);
 
     @include media-breakpoint-up(md) {
-      padding: 50px;
+      padding: rem-calc(50px);
     }
 
     p {

@@ -14,7 +14,7 @@ $headings-font-family: 'Oswald', sans-serif;
 $btn-border-radius: 0.25rem;
 
 // Cards
-$card-border-width: 1px;
+$card-border-width: rem-calc(1px);
 
 // Bootstrap non-printing tools. DO NOT REMOVE.
 @import '~bootstrap/scss/functions';
