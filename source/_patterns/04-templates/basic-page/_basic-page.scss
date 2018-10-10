@@ -21,7 +21,7 @@
     }
 
     p {
-      line-height: 2;
+      line-height: rem-calc(32px);
     }
   }
 }
