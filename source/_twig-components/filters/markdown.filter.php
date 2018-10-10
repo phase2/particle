@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @file
+ */
+
+use Michelf\MarkdownExtra;
+
 $filter = new Twig_SimpleFilter('markdown', function ($string) {
-  return \Michelf\MarkdownExtra::defaultTransform($string);
+  return MarkdownExtra::defaultTransform($string);
 });

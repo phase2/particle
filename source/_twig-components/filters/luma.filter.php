@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @file
  * Take in an rgba associative array return a luminance value
  * according to ITU-R BT.709.
  *
@@ -11,9 +12,11 @@
  *                ["b"] => int(255)
  *                ["a"] => int(1)
  *              }
+ *
  * @return float
  */
+
 $filter = new Twig_SimpleFilter('luma', function ($rgba) {
-  // Doesn't handle alpha, yet
+  // Doesn't handle alpha, yet.
   return 0.2126 * $rgba['r'] + 0.7152 * $rgba['g'] + 0.0722 * $rgba['b'];
 });
