@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme to display an error page for missing the Component Libraries module.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+body {
+  background-color: goldenrod;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.components_error {
+  width: 50%;
+  padding: 0 10% 0 10%;
+  margin: auto;
+}
+
+.components_error--image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.components_error--blinker {
+  animation: blinker 1s linear infinite;
+  color: #102E37;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
+
+<div class="components_error">
+  <h1 class="components_error--blinker">CRITIAL FAILURE OMG</h1>
+  <p>It looks like you forgot to install the  <a href="https://www.drupal.org/project/components">Component Libraries</a> module. Please install it and come back! Have a great day!</p>
+</div>
+<img class="components_error--image" src="https://media1.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?cid=3640f6095bbff9f35873486a55d52ada" alt="funny cat GIF">

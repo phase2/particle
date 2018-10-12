@@ -9,6 +9,7 @@
  * Available variables:
  *
  * General utility variables:
+ * - components: The boolean value of the components module requirement.
  * - base_path: The base URL path of the Drupal installation. Will usually be
  *   "/" unless you have installed Drupal in a sub-directory.
  * - is_front: A flag indicating if the current page is the front page.
@@ -44,6 +45,9 @@
  */
 #}
 
+{% if not components %}
+  {% include '@particle/layout/components--error-message.html.twig' %}
+{% else %}
 <div class="layout-container">
 
   {{ page.primary_menu }}
@@ -98,3 +102,4 @@
   <hr>
   {{ page.footer }}
 </footer>
+{% endif %}
