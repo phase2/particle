@@ -13,7 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
 function particle_preprocess_page(&$variables) {
   $moduleHandler = \Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('components')){
-    $variables['components'] = TRUE;
+    $variables['has_components_module'] = TRUE;
   }
 }
 
