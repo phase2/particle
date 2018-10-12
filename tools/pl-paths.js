@@ -1,11 +1,9 @@
-// run with : node tools/pl-paths.js
-
 const {
   patternPaths,
 } = require('../dist/pl/styleguide/data/patternlab-data.json');
 
-// Concats and spreads all urls of the atomic particles that exist
-// in the project.
+// Returns an array of urls for the particles that exist
+// in a particle project.
 // Example output:
 // [
 //   '00-protons-demo-borders',
