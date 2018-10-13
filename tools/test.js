@@ -1,3 +1,5 @@
 const testMod = require('./pattern-lab-urls');
 
-console.log(testMod());
+const gimmeMyUrls = testMod;
+
+console.log(gimmeMyUrls);
