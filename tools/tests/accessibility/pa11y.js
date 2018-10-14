@@ -2,7 +2,7 @@
 const plPartials = require('../../pl-paths');
 
 const plRoot = 'http://0.0.0.0:8080/pl'; // @TODO: move this to config
-const plPaths = plPartials.map(partial => `${plRoot}/${partial}`);
+const urls = plPartials.map(partial => `${plRoot}/${partial}`);
 
 // Put together some options to use in each test.
 // See pa11y config https://github.com/pa11y/pa11y-ci#usage
@@ -18,5 +18,5 @@ module.exports = {
     wait: 2000,
     ignore: [],
   },
-  urls: plPaths,
+  urls,
 };
