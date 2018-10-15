@@ -25,4 +25,9 @@ const paths = [].concat(
   )
 );
 
-module.exports = paths.map(path => `patterns/${path}/${path}.html`);
+console.log(paths);
+
+module.exports = {
+  paths,
+  htmlPaths: paths.map(path => `patterns/${path}/${path}.html`),
+};

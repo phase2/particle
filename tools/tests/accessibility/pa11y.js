@@ -1,8 +1,8 @@
 // All PL paths
-const plPartials = require('../../pl-paths');
+const { htmlPaths } = require('../../pl-paths');
 
 const plRoot = 'http://0.0.0.0:8080/pl'; // @TODO: move this to config
-const urls = plPartials.map(partial => `${plRoot}/${partial}`);
+const urls = htmlPaths.map(partial => `${plRoot}/${partial}`);
 
 // Put together some options to use in each test.
 // See pa11y config https://github.com/pa11y/pa11y-ci#usage
