@@ -41,7 +41,7 @@ body {
 </style>
 
 <div class="components_error">
-  <h1 class="components_error--blinker">CRITICAL FAILURE OMG</h1>
-  <p>It looks like you forgot to install the  <a href="https://www.drupal.org/project/components">Component Libraries</a> module. Please install it and come back! Have a great day!</p>
+  <h1 class="components_error--blinker">{{ 'CRITICAL FAILURE OMG'|t }}</h1>
+  <p class="components_error--body">{{ 'It looks like you forgot to install the <a href=":url">Component Libraries</a> module. Please install it and come back! Have a great day!'|t({ ':url': 'https://www.drupal.org/project/components' }) }}</p>
 </div>
-<img class="components_error--image" src="https://media1.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?cid=3640f6095bbff9f35873486a55d52ada" alt="funny cat GIF">
+<img class="components_error--image" src="https://media1.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?cid=3640f6095bbff9f35873486a55d52ada" alt="{{ 'funny cat GIF'|t }}">
