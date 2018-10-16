@@ -1,0 +1,138 @@
+helper_card_main: "<p>Bootstrap's cards provide a flexible and extensible content container with multiple variants and options.</p><p>Each card has at least the <code>card_title</code> and <code>card_text</code> variables in use and will have a card like this one above it explaining the other variables it is using. Also, each row is demonstrating a different feature of the bootstrap grid system.</p>"
+
+helper_card_text: 'Variables: <code>card_subtitle, text_alignment, card_link, card_link_text, text_color, card_flush</code> <p>Grid: This row is using the standard hand-coded <code>class="col-sm"</code> bootstrap system</p>'
+
+helper_card_text_2: 'Grid: This row uses the pattern lab "grid-3" atom located in <code>source/_patterns/01-atoms/grid</code>'
+
+helper_card_width: 'Variables: <code>card_width</code><p>Grid: This row is occupying the whole container by using the <code>col-sm-12</code> class.'
+
+helper_card_image: 'Variables: <code>card_image, card_image_location, card_image_overlay</code><p>Grid: This row is using the  <code>card-deck</code> class which is unique to cards. It sets all of its cards to an equal width and height.</p>'
+
+helper_card_structure: 'Variables: <code>card_header, card_footer, button_text, button_color, card_list</code><p>Grid: This row is using the <code>card-group</code> class which is unique to cards. It renders cards as a single, attached element with equal width and height columns.</p>'
+
+helper_card_colors: 'Variables: <code>card_background, card_border</code><p>Grid: This row is using the <code>card-columns</code> class which is unique to cards. It renders cards in the optimal position based on vertical space. </p>'
+
+helper_card_blocks: "This example card uses twig's block system to override the provided default body template with new elements"
+
+text_card_1:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_subtitle: Card subtitle
+
+text_card_2:
+  text_alignment: center
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_subtitle: Card subtitle
+  card_link: 'https://github.com/phase2/particle'
+  card_link_text: 'Card link'
+
+text_card_3:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  text_color: danger
+  card_flush: true
+
+card_width_1:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_width: 25
+
+card_width_2:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_width: 50
+
+card_width_3:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_width: 75
+
+top_image:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_image_location: top
+#  #  card_image is commented out to allow holderjs placeholder
+
+bottom_image:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_image_location: bottom
+#  #  card_image is commented out to allow holderjs placeholder
+
+overlay_image:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_image_overlay: Hi! I'm an overlay!
+  card_image_location: top
+#  #  card_image is commented out to allow holderjs placeholder
+
+header_card:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_header: Header
+
+footer_card:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_footer: Footer
+  button:
+    button_text: click me!
+    button_color: danger
+
+list_card:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  list:
+    list_flush: True
+    items:
+      - item_text: Cras justo odio
+      - item_text: Dapibus ac facilisis in
+      - item_text: Vestibulum at eros
+
+card_background_1:
+  card_title: Card Title
+  card_text: These cards have variable body length
+  card_background: primary
+  text_color: white
+
+card_background_2:
+  card_title: Card Title
+  card_text: In order to show off bootstrap's column functionality
+  card_background: secondary
+  text_color: white
+
+card_background_3:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_background: success
+  text_color: white
+
+card_background_4:
+  card_title: Card Title
+  card_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet facilisis erat. Suspendisse ultrices sed massa a faucibus. Vivamus scelerisque eleifend dui, ut consectetur tellus rutrum in. Nullam lobortis, ex vel rutrum volutpat, magna eros tristique nisi, quis bibendum urna erat consequat sapien.
+  card_background: danger
+  text_color: white
+
+card_border_1:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_border: warning
+  text_color: warning
+
+card_border_2:
+  card_title: Card Title
+  card_text: I'm using a lot of extra words and characters in this sentence to make sure it takes at least three lines!
+  card_border: info
+  text_color: info
+
+card_border_3:
+  card_title: Card Title
+  card_text: This card takes two lines. Oops, not quite enough characters, heres some more.
+  card_border: light
+
+card_border_4:
+  card_title: Card Title
+  card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
+  card_border: dark
+  text_color: dark
