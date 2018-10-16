@@ -20,12 +20,8 @@ const {
 // }
 
 const paths = [].concat(
-  ...Object.values(patternPaths).map(atomic =>
-    Object.values(atomic).map(path => path)
-  )
+  ...Object.values(patternPaths).map(atomic => Object.values(atomic))
 );
-
-console.log(paths);
 
 module.exports = {
   paths,
