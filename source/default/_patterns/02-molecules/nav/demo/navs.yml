@@ -47,7 +47,7 @@ nav_items_dropdown:
       - dropdown_menu_item_text: Another Action
       - dropdown_menu_item_text: Something else here
   - nav_item_text: Link
-    ? nav_item_link_other_classes
+    nav_item_link_other_classes: []
   - nav_item_text: Disabled
     nav_item_link_other_classes:
       - disabled

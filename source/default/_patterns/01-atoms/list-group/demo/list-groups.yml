@@ -23,20 +23,20 @@ list_group_text:
 list_group_active:
   - item_classes:
       - active
-  - ? item_classes
+  - item_classes: []
   - item_classes:
       - active
-  - ? item_classes
+  - item_classes: []
   - item_classes:
       - active
 
 list_group_disabled:
   - item_classes:
       - disabled
-  - ? item_classes
+  - item_classes: []
   - item_classes:
       - disabled
-  - ? item_classes
+  - item_classes: []
   - item_classes:
       - disabled
 
