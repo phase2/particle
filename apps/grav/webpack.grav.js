@@ -8,6 +8,9 @@ const webpack = require('webpack');
 // Library Imports
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
+// Design system
+const designSystem = require('../../source/default/webpack.default');
+
 // Custom Imports
 const particle = require('../../particle');
 
@@ -41,7 +44,11 @@ const dev = {
 const prod = {};
 
 module.exports = particle(
+  // app
   { shared, dev, prod },
+  // Default design system
+  designSystem,
+  // Use extract cssMod
   {
     cssMode: 'extract',
     entry: 'app-grav',

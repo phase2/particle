@@ -9,6 +9,9 @@ const { DefinePlugin } = require('webpack');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
+// Design system
+const designSystem = require('../../source/default/webpack.default');
+
 // Particle base settings
 const particle = require('../../particle');
 
@@ -49,7 +52,11 @@ const prod = {
 };
 
 module.exports = particle(
+  // app
   { shared, dev, prod },
+  // Default design system
+  designSystem,
+  // Use extract css
   {
     cssMode: 'extract',
     entry: 'app-drupal',
