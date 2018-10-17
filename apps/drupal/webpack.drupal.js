@@ -9,6 +9,8 @@ const { DefinePlugin } = require('webpack');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
+const { PATH_DIST } = require('../../config');
+
 // Design system
 const designSystem = require('../../source/default/webpack.default');
 
@@ -19,6 +21,10 @@ const shared = {
   entry: {
     'drupal-jquery': [path.resolve(__dirname, 'drupal-jquery.js')],
     'app-drupal': [path.resolve(__dirname, 'index.js')],
+  },
+  output: {
+    path: path.resolve(PATH_DIST, 'app-drupal/assets'),
+    publicPath: 'app-drupal/assets',
   },
   plugins: [
     new DefinePlugin({
@@ -59,6 +65,6 @@ module.exports = particle(
   // Use extract css
   {
     cssMode: 'extract',
-    entry: 'app-drupal',
+    entry: 'app-drupal', // Called out specifically because 2 entry points
   }
 );

@@ -8,6 +8,8 @@ const webpack = require('webpack');
 // Library Imports
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
+const { PATH_DIST } = require('../../config');
+
 // Design system
 const designSystem = require('../../source/default/webpack.default');
 
@@ -17,6 +19,10 @@ const particle = require('../../particle');
 const shared = {
   entry: {
     'app-grav': [path.resolve(__dirname, 'index.js')],
+  },
+  output: {
+    path: path.resolve(PATH_DIST, 'app-grav/assets'),
+    publicPath: 'app-grav/assets',
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -51,6 +57,5 @@ module.exports = particle(
   // Use extract cssMod
   {
     cssMode: 'extract',
-    entry: 'app-grav',
   }
 );
