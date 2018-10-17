@@ -5,21 +5,25 @@
 const path = require('path');
 const fs = require('fs');
 const gulp = require('gulp');
+const { argv } = require('yargs');
 
 const {
-  PATH_PL,
-  PATH_DRUPAL,
-  PATH_GRAV,
+  // PATH_PL,
+  // PATH_DRUPAL,
+  // PATH_GRAV,
   PATH_SOURCE,
   PATH_DIST,
   PATH_PATTERNS,
 } = require('./config');
 
+const { APP_PATH } = require(argv.config); // eslint-disable-line import/no-dynamic-require
+console.log(APP_PATH);
+
 /**
  * Pattern Lab raw compile function.
  */
 // Config: Path to Pattern Lab installation.
-const plPath = path.resolve(PATH_PL, 'pattern-lab');
+const plPath = path.resolve(APP_PATH, 'pattern-lab');
 // PL compilation function, loaded up with the the PL path
 const plCompile = require('./tools/tasks/pl-compile')(plPath);
 
@@ -42,9 +46,11 @@ const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
  *   apps/drupal/
  */
 const PATH_PATTERNS_REL = path.relative(__dirname, PATH_PATTERNS);
-const PATH_PL_REL = path.relative(__dirname, PATH_PL);
-const PATH_DRUPAL_REL = path.relative(__dirname, PATH_DRUPAL);
-const PATH_GRAV_REL = path.relative(__dirname, PATH_GRAV);
+const PATH_PL_REL = path.relative(__dirname, APP_PATH);
+console.log(path.join(PATH_PL_REL, 'pattern-lab/config/config.yml'));
+
+// const PATH_DRUPAL_REL = path.relative(__dirname, PATH_DRUPAL);
+// const PATH_GRAV_REL = path.relative(__dirname, PATH_GRAV);
 
 gulp.task('compile:twig-namespaces', () =>
   gulp
@@ -55,24 +61,24 @@ gulp.task('compile:twig-namespaces', () =>
         outputs: [
           {
             // Note: PL will NOT compile unless the namespaces are explicitly declared
-            configFile: path.join(PATH_PL_REL, 'pattern-lab/config/config.yml'),
+            configFile: path.join(APP_PATH, 'pattern-lab/config/config.yml'),
             atKey: 'plugins.twigNamespaces.namespaces',
             transform: folderPath =>
               path.relative(path.join(PATH_PL_REL, 'pattern-lab/'), folderPath),
           },
-          {
-            // The component-libraries module wants to know about our namespaces
-            configFile: path.join(PATH_DRUPAL_REL, 'particle.info.yml'),
-            atKey: 'component-libraries',
-            transform: folderPath => path.relative(PATH_DRUPAL_REL, folderPath),
-          },
-          {
-            // The twig-namespaces plugin wants to know about our namespaces
-            configFile: path.join(PATH_GRAV_REL, 'twig-namespaces.yaml'),
-            atKey: 'namespaces',
-            transform: folderPath =>
-              path.join('user/themes/particle/', folderPath),
-          },
+          // {
+          //   // The component-libraries module wants to know about our namespaces
+          //   configFile: path.join(PATH_DRUPAL_REL, 'particle.info.yml'),
+          //   atKey: 'component-libraries',
+          //   transform: folderPath => path.relative(PATH_DRUPAL_REL, folderPath),
+          // },
+          // {
+          //   // The twig-namespaces plugin wants to know about our namespaces
+          //   configFile: path.join(PATH_GRAV_REL, 'twig-namespaces.yaml'),
+          //   atKey: 'namespaces',
+          //   transform: folderPath =>
+          //     path.join('user/themes/particle/', folderPath),
+          // },
         ],
         // What are the top-level namespace paths, and which sub paths should we ignore?
         sets: {

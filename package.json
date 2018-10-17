@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "start": "npm run dev:pl",
-    "dev:pl": "cross-env-shell NODE_ENV=development \"gulp compile:startup & webpack-dev-server --config ./apps/pl/webpack.pl.js --hot\"",
+    "dev:pl": "cross-env-shell NODE_ENV=development \"gulp compile:startup --config ./apps/pl/config.js & webpack-dev-server --config ./apps/pl/webpack.pl.js --hot\"",
     "build:pl": "cross-env-shell NODE_ENV=production \"gulp compile:startup && webpack --config ./apps/pl/webpack.pl.js\"",
     "dev:drupal": "cross-env NODE_ENV=development webpack --watch --config ./apps/drupal/webpack.drupal.js",
     "build:drupal": "cross-env NODE_ENV=production webpack --config ./apps/drupal/webpack.drupal.js",
@@ -66,6 +66,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "cssnano": "^4.1.4",
+    "directory-tree": "^2.1.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.1.0",
@@ -107,6 +108,7 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4",
+    "yargs": "^12.0.2",
     "yeoman-generator": "^3.1.1",
     "yo": "^2.0.5"
   }
