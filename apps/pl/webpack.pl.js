@@ -15,6 +15,9 @@ const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-fil
 // Particle base settings
 const particle = require('../../particle');
 
+// Design system
+const designSystem = require('../../source/default/webpack.default');
+
 // Constants
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 const { PATH_SOURCE, PATH_DIST } = require('../../config');
@@ -108,7 +111,11 @@ const dev = {
 const prod = {};
 
 module.exports = particle(
+  // App
   { shared, dev, prod },
+  // Design System
+  designSystem,
+  // Options
   {
     cssMode: NODE_ENV === 'development' ? 'hot' : 'extract',
     entry: 'app-pl',

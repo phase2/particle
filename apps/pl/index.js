@@ -4,9 +4,6 @@
 
 import $ from 'jquery';
 
-// PL-only components, regardless of design system
-import 'atoms/grid';
-
 // Prism highlighting in PL.
 // Prism is kind of dumb and just operates globally.
 import 'prismjs/components/prism-core.min';

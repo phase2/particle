@@ -89,12 +89,13 @@ const entryPrepend = entry => ({
  * @param {Object} app.shared - Shared webpack config common to dev and prod
  * @param {Object} app.dev - Webpack config unique to prod
  * @param {Object} app.prod - Webpack config unique to prod
+ * @param {Object} designSystem - Webpack config per-design system
  * @param {Object} options - Compile options
  * @param {('hot'|'extract')} options.cssMode - The method of handling CSS output
  * @param {string} options.entry - The main entry point to prepend polyfills
  * @returns {*} - Fully merged and customized webpack config
  */
-const particle = (app, options) => {
+const particle = (app, designSystem, options) => {
   const { shared, dev, prod } = app;
 
   return merge.smartStrategy({
@@ -109,6 +110,8 @@ const particle = (app, options) => {
     options.entry
       ? entryPrepend(options.entry)
       : entryPrepend(Object.keys(shared.entry)[0]),
+    // Design system-specific config
+    designSystem,
     // App config shared between dev and prod modes
     shared,
     // App config specific to dev or prod

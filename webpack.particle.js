@@ -69,7 +69,8 @@ module.exports = {
               plugins: () =>
                 NODE_ENV === 'development'
                   ? [postcssPresetEnv()] // Light processing for dev
-                  : [postcssPresetEnv(), cssnano()], // Heavy processing for prod
+                  : // Heavy processing for prod
+                    [postcssPresetEnv(), cssnano()],
             },
           },
           {
@@ -174,14 +175,6 @@ module.exports = {
       // template compiling engine. If we are on a build that will NEVER read
       // HTML from the DOM and use it as a template, then remove this line.
       vue$: 'vue/dist/vue.esm.js',
-      // Shorthand to import modules, i.e. `import thing from 'atoms/thing';`
-      // @TODO: We should probably prefix these with a symbol.
-      protons: path.resolve(PATH_PATTERNS, '00-protons/'),
-      atoms: path.resolve(PATH_PATTERNS, '01-atoms/'),
-      molecules: path.resolve(PATH_PATTERNS, '02-molecules/'),
-      organisms: path.resolve(PATH_PATTERNS, '03-organisms/'),
-      templates: path.resolve(PATH_PATTERNS, '04-templates/'),
-      pages: path.resolve(PATH_PATTERNS, '05-pages/'),
     },
   },
 };
