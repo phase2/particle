@@ -19,7 +19,7 @@ patternStates:
 styleGuideExcludes: ''
 cacheBusterOn: 'true'
 exportDir: export
-publicDir: ../../../dist/pl/
+publicDir: ../../../dist/app-pl/pl/
 sourceDir: ../../../source/default/
 defaultPattern: protons-welcome
 defaultShowPatternInfo: false

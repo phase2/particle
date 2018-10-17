@@ -46,7 +46,10 @@
       "Courier New",
       "monospace"
     ],
-    "$headings-font-family": ["Oswald", "sans-serif"]
+    "$headings-font-family": [
+      "Oswald",
+      "sans-serif"
+    ]
   },
   "fontSizes": {
     "base": "1rem",

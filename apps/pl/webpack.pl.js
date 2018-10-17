@@ -6,9 +6,6 @@
 const path = require('path');
 const { DefinePlugin } = require('webpack');
 
-// Loaders
-const sassExportData = require('@theme-tools/sass-export-data');
-
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
 
@@ -20,29 +17,18 @@ const designSystem = require('../../source/default/webpack.default');
 
 // Constants
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
-const { PATH_SOURCE, PATH_DIST } = require('../../config');
+const { PATH_DIST } = require('../../config');
 
 const shared = {
   entry: {
     'app-pl': [path.resolve(__dirname, 'index.js')],
   },
+  output: {
+    path: path.resolve(PATH_DIST, 'app-pl/assets'),
+    publicPath: 'app-pl/assets',
+  },
   module: {
     rules: [
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          {
-            loader: 'sass-loader',
-            options: {
-              // Used to generate JSON about variables like colors, fonts
-              functions: sassExportData({
-                name: 'export_data',
-                path: path.resolve(PATH_SOURCE, '_data/'),
-              }),
-            },
-          },
-        ],
-      },
       // Non-standard assets on the dependency chain
       {
         test: /\.(yml|md)$/,
@@ -69,10 +55,10 @@ const dev = {
     public: PARTICLE_PL_HOST, // local host name for devServer
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
     watchOptions: {
-      ignored: '/(node_modules|dist/pl)/',
+      ignored: '/(node_modules|pl)/',
     },
     open: false, // Open browser immediately
-    openPage: 'pl', // Open browser to the PL landing page so it's very clear where to go
+    openPage: 'app-pl/pl', // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
     inline: true, // Injects all the webpack dev server code right in the page

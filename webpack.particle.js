@@ -27,7 +27,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 // - development
 // - production
 const { NODE_ENV } = process.env;
-const { PATH_PATTERNS, PATH_DIST } = require('./config');
+const { PATH_PATTERNS } = require('./config');
 
 // Enable to track down deprecation during development
 // process.traceDeprecation = true;
@@ -37,8 +37,6 @@ module.exports = {
   mode: NODE_ENV, // development|production
   output: {
     filename: '[name].js',
-    path: path.resolve(PATH_DIST, 'assets/'),
-    publicPath: '/assets/',
   },
   devtool: NODE_ENV === 'development' ? 'eval' : 'source-map',
   module: {
