@@ -1,3 +1,5 @@
+/* eslint-disable import/no-dynamic-require */
+
 /**
  * Pattern Lab-specific webpack config.
  */
@@ -8,19 +10,14 @@ const { DefinePlugin } = require('webpack');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
-
-// Particle base settings
 const particle = require('../../particle');
-
-// Design system
-const designSystem = require('../../source/default/webpack.default');
 
 // Constants: environment
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 // Constants: root
 const { PATH_DIST } = require('../../config');
 // Constants: app
-const { APP_NAME, APP_PATH } = require('./config');
+const { APP_NAME, APP_PATH, APP_DESIGN_SYSTEM } = require('./config');
 
 const shared = {
   entry: {
@@ -105,7 +102,7 @@ module.exports = particle(
   // App
   { shared, dev, prod },
   // Design System
-  designSystem,
+  APP_DESIGN_SYSTEM,
   // Options
   {
     cssMode: NODE_ENV === 'development' ? 'hot' : 'extract',

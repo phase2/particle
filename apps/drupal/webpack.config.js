@@ -8,19 +8,14 @@ const { DefinePlugin } = require('webpack');
 // Plugins
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
+const particle = require('../../particle');
 
 // Constants: environment
 const { NODE_ENV } = process.env;
 // Constants: root
 const { PATH_DIST } = require('../../config');
 // Constants: app
-const { APP_NAME } = require('./config');
-
-// Design system
-const designSystem = require('../../source/default/webpack.default');
-
-// Particle base settings
-const particle = require('../../particle');
+const { APP_NAME, APP_DESIGN_SYSTEM } = require('./config');
 
 const shared = {
   entry: {
@@ -48,7 +43,7 @@ const dev = {
       exec: [
         // prettier-ignore
         `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete! 
-        Edit apps/drupal/webpack.drupal.js to replace this line with 
+        Edit apps/drupal/webpack.config.js to replace this line with 
         'drupal cr all' now. 🚀\n`,
       ],
     }),
@@ -66,7 +61,7 @@ module.exports = particle(
   // app
   { shared, dev, prod },
   // Default design system
-  designSystem,
+  APP_DESIGN_SYSTEM,
   // Use extract css
   {
     cssMode: 'extract',
