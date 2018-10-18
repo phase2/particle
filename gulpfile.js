@@ -5,25 +5,19 @@
 const path = require('path');
 const fs = require('fs');
 const gulp = require('gulp');
+const _ = require('lodash');
+const yaml = require('js-yaml');
 const { argv } = require('yargs');
 
-const {
-  // PATH_PL,
-  // PATH_DRUPAL,
-  // PATH_GRAV,
-  PATH_SOURCE,
-  PATH_DIST,
-  PATH_PATTERNS,
-} = require('./config');
+const { PATH_SOURCE, PATH_DIST } = require('./config');
 
-const { APP_PATH } = require(argv.config); // eslint-disable-line import/no-dynamic-require
-console.log(APP_PATH);
+const config = require(argv.config); // eslint-disable-line import/no-dynamic-require
 
 /**
  * Pattern Lab raw compile function.
  */
 // Config: Path to Pattern Lab installation.
-const plPath = path.resolve(APP_PATH, 'pattern-lab');
+const plPath = path.resolve(config.APP_PATH, 'pattern-lab');
 // PL compilation function, loaded up with the the PL path
 const plCompile = require('./tools/tasks/pl-compile')(plPath);
 
@@ -33,84 +27,57 @@ const plCompile = require('./tools/tasks/pl-compile')(plPath);
 gulp.task('compile:pl', plCompile);
 
 /**
- * Gulp namespace, ensures that ./apps/pl/pattern-lab/config.yml & ./apps/drupal/themename.info.yml
- * are updated with all pattern namespaces for error-free compiling.
- */
-const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
-
-/**
  * Gulp needs to work in relative paths, NOT absolute like we've configured in
  * config.js. So convert all absolute config paths, ie
  *   /Users/username/dev/particle/apps/drupal/
  * to relative paths, ie
  *   apps/drupal/
  */
-const PATH_PATTERNS_REL = path.relative(__dirname, PATH_PATTERNS);
-const PATH_PL_REL = path.relative(__dirname, APP_PATH);
-console.log(path.join(PATH_PL_REL, 'pattern-lab/config/config.yml'));
+// eslint-disable-next-line import/no-dynamic-require
+const { namespaces } = require(path.resolve(
+  config.APP_DESIGN_SYSTEM,
+  'namespaces'
+));
 
-// const PATH_DRUPAL_REL = path.relative(__dirname, PATH_DRUPAL);
-// const PATH_GRAV_REL = path.relative(__dirname, PATH_GRAV);
+gulp.task('compile:namespaces', cb => {
+  // Create namespace paths in the correct relative path each app needs
+  const relNamespaces = Object.keys(namespaces).reduce((acc, cat) => {
+    acc[cat] = {
+      paths: [].concat(
+        ...namespaces[cat].paths.map(atomicPath =>
+          // Each app provides its own transform function :)
+          config.namespaces.transform(atomicPath)
+        )
+      ),
+    };
+    return acc;
+  }, {});
 
-gulp.task('compile:twig-namespaces', () =>
-  gulp
-    .src(path.join(PATH_PATTERNS_REL, '**/*.twig'))
-    .pipe(
-      twigNamespaces({
-        // Which files to read and overwrite with namespace info
-        outputs: [
-          {
-            // Note: PL will NOT compile unless the namespaces are explicitly declared
-            configFile: path.join(APP_PATH, 'pattern-lab/config/config.yml'),
-            atKey: 'plugins.twigNamespaces.namespaces',
-            transform: folderPath =>
-              path.relative(path.join(PATH_PL_REL, 'pattern-lab/'), folderPath),
-          },
-          // {
-          //   // The component-libraries module wants to know about our namespaces
-          //   configFile: path.join(PATH_DRUPAL_REL, 'particle.info.yml'),
-          //   atKey: 'component-libraries',
-          //   transform: folderPath => path.relative(PATH_DRUPAL_REL, folderPath),
-          // },
-          // {
-          //   // The twig-namespaces plugin wants to know about our namespaces
-          //   configFile: path.join(PATH_GRAV_REL, 'twig-namespaces.yaml'),
-          //   atKey: 'namespaces',
-          //   transform: folderPath =>
-          //     path.join('user/themes/particle/', folderPath),
-          // },
-        ],
-        // What are the top-level namespace paths, and which sub paths should we ignore?
-        sets: {
-          protons: {
-            root: path.join(PATH_PATTERNS_REL, '00-protons/'),
-            ignore: '/demo',
-          },
-          atoms: {
-            root: path.join(PATH_PATTERNS_REL, '01-atoms/'),
-            ignore: '/demo',
-          },
-          molecules: {
-            root: path.join(PATH_PATTERNS_REL, '02-molecules/'),
-            ignore: '/demo',
-          },
-          organisms: {
-            root: path.join(PATH_PATTERNS_REL, '03-organisms/'),
-            ignore: '/demo',
-          },
-          templates: {
-            root: path.join(PATH_PATTERNS_REL, '04-templates/'),
-            ignore: '/demo',
-          },
-          pages: {
-            root: path.join(PATH_PATTERNS_REL, '05-pages/'),
-            ignore: '/demo',
-          },
-        },
-      })
-    )
-    .pipe(gulp.dest('./'))
-);
+  // Read and then write app config
+  fs.readFile(config.namespaces.config, 'utf8', (readErr, data) => {
+    if (readErr) {
+      console.error(readErr);
+      return cb();
+    }
+    // Now load contents
+    const appConfigContents = yaml.safeLoad(data);
+    // Use lodash and key shorthand to set key/values
+    _.set(appConfigContents, config.namespaces.atKey, relNamespaces);
+    // Write to fs
+    return fs.writeFile(
+      config.namespaces.config,
+      yaml.safeDump(appConfigContents),
+      'utf8',
+      writeErr => {
+        if (writeErr) {
+          console.error(writeErr);
+          return cb();
+        }
+        return cb();
+      }
+    );
+  });
+});
 
 /**
  * When PL is done compiling do stuff here to notify anything that needs to know. Currently it just
@@ -161,7 +128,7 @@ gulp.task(
   // prettier-ignore
   gulp.series([
     'compile:pl:notify:pre',
-    'compile:twig-namespaces',
+    'compile:namespaces',
     'compile:pl',
     'compile:pl:notify:post',
   ])

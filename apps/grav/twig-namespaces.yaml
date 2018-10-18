@@ -2,10 +2,10 @@ enabled: true
 namespaces:
   protons:
     paths:
-      - user/themes/particle/source/default/_patterns/00-protons/
+      - user/themes/particle/source/default/_patterns/00-protons
   atoms:
     paths:
-      - user/themes/particle/source/default/_patterns/01-atoms/
+      - user/themes/particle/source/default/_patterns/01-atoms
       - user/themes/particle/source/default/_patterns/01-atoms/alert
       - user/themes/particle/source/default/_patterns/01-atoms/badge
       - user/themes/particle/source/default/_patterns/01-atoms/branding
@@ -18,7 +18,7 @@ namespaces:
       - user/themes/particle/source/default/_patterns/01-atoms/svgicon
   molecules:
     paths:
-      - user/themes/particle/source/default/_patterns/02-molecules/
+      - user/themes/particle/source/default/_patterns/02-molecules
       - user/themes/particle/source/default/_patterns/02-molecules/card
       - user/themes/particle/source/default/_patterns/02-molecules/carousel
       - user/themes/particle/source/default/_patterns/02-molecules/jumbotron
@@ -27,7 +27,7 @@ namespaces:
       - user/themes/particle/source/default/_patterns/02-molecules/vue-widget
   organisms:
     paths:
-      - user/themes/particle/source/default/_patterns/03-organisms/
+      - user/themes/particle/source/default/_patterns/03-organisms
       - user/themes/particle/source/default/_patterns/03-organisms/accordion
       - user/themes/particle/source/default/_patterns/03-organisms/article
       - user/themes/particle/source/default/_patterns/03-organisms/card-grid
@@ -35,8 +35,8 @@ namespaces:
       - user/themes/particle/source/default/_patterns/03-organisms/navbar
   templates:
     paths:
-      - user/themes/particle/source/default/_patterns/04-templates/
+      - user/themes/particle/source/default/_patterns/04-templates
       - user/themes/particle/source/default/_patterns/04-templates/basic-page
   pages:
     paths:
-      - user/themes/particle/source/default/_patterns/05-pages/
+      - user/themes/particle/source/default/_patterns/05-pages
