@@ -70,6 +70,6 @@ module.exports = particle(
   // Use extract css
   {
     cssMode: 'extract',
-    entry: 'app-drupal', // Called out specifically because 2 entry points
+    entry: APP_NAME, // Called out specifically because 2 entry points
   }
 );

@@ -20,7 +20,7 @@ const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 // Constants: root
 const { PATH_DIST } = require('../../config');
 // Constants: app
-const { APP_NAME } = require('./config');
+const { APP_NAME, APP_PATH } = require('./config');
 
 const shared = {
   entry: {
@@ -92,7 +92,9 @@ const dev = {
     // Recompile PL on any globbed PL file (see glob.js)
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md|json)$/,
-      exec: ['npx gulp compile'],
+      exec: [
+        `npx gulp compile --config ${path.resolve(APP_PATH, 'config.js')}`,
+      ],
     }),
   ],
 };
