@@ -98,10 +98,11 @@ const entryPrepend = entry => ({
  */
 const particle = (app, designSystemPath, options) => {
   // Dynamically pull in design system config. Must be named webpack.config.js
+  // eslint-disable-next-line
   const designSystemConfig = require(path.resolve(
     designSystemPath,
     'webpack.config.js'
-  )); // eslint-disable-line
+  ));
 
   const { shared, dev, prod } = app;
 
