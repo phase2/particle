@@ -34,7 +34,6 @@ const namespaces = Object.keys(sets).reduce((acc, atomic) => {
   acc[atomic].paths.push(...patterns);
   // Sort
   acc[atomic].paths.sort();
-  // console.log(category);
 
   return acc;
 }, {});
