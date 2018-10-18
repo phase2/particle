@@ -1,3 +1,5 @@
+/* eslint-disable import/no-dynamic-require */
+
 /**
  * Gulp tasks for non-webpack concerns
  * The following tasks do rote work that isn't covered in webpack asset bundling
@@ -5,16 +7,17 @@
 const path = require('path');
 const fs = require('fs');
 const gulp = require('gulp');
-const _ = require('lodash');
-const yaml = require('js-yaml');
 const { argv } = require('yargs');
 
+// Constants: environment
+const { NODE_ENV = 'production' } = process.env;
+// Constants: root
 const { PATH_DIST } = require('./config');
-
-const config = require(argv.config); // eslint-disable-line import/no-dynamic-require
+// Per-app config, sent in via command line args
+const config = require(argv.config);
 
 /**
- * Pattern Lab raw compile function.
+ * Pattern Lab compile config and closure
  */
 // Config: Path to Pattern Lab installation.
 const plPath = path.resolve(config.APP_PATH, 'pattern-lab');
@@ -22,72 +25,39 @@ const plPath = path.resolve(config.APP_PATH, 'pattern-lab');
 const plCompile = require('./tools/tasks/pl-compile')(plPath);
 
 /**
- * Compile Pattern Lab completely.
+ * Pattern Lab compile task
  */
 gulp.task('compile:pl', plCompile);
 
 /**
- * Gulp needs to work in relative paths, NOT absolute like we've configured in
- * config.js. So convert all absolute config paths, ie
- *   /Users/username/dev/particle/apps/drupal/
- * to relative paths, ie
- *   apps/drupal/
+ * Relative path conversion for all namespaces in design system relative to app,
+ * ie this actual path in a design system:
+ *   /Users/username/dev/particle/source/default/_patterns/01-atoms/card
+ * converts to relative paths, ie
+ *   ../../source/default/_patterns/01-atoms/card
  */
-// eslint-disable-next-line import/no-dynamic-require
 const { namespaces } = require(path.resolve(
   config.APP_DESIGN_SYSTEM,
   'namespaces'
 ));
-
-gulp.task('compile:namespaces', cb => {
-  // Create namespace paths in the correct relative path each app needs
-  const relNamespaces = Object.keys(namespaces).reduce((acc, cat) => {
-    acc[cat] = {
-      paths: [].concat(
-        ...namespaces[cat].paths.map(atomicPath =>
-          // Each app provides its own transform function :)
-          config.namespaces.transform(atomicPath)
-        )
-      ),
-    };
-    return acc;
-  }, {});
-
-  // Read and then write app config
-  fs.readFile(config.namespaces.config, 'utf8', (readErr, data) => {
-    if (readErr) {
-      console.error(readErr);
-      return cb();
-    }
-    // Now load contents
-    const appConfigContents = yaml.safeLoad(data);
-    // Use lodash and key shorthand to set key/values
-    _.set(appConfigContents, config.namespaces.atKey, relNamespaces);
-    // Write to fs
-    return fs.writeFile(
-      config.namespaces.config,
-      yaml.safeDump(appConfigContents),
-      'utf8',
-      writeErr => {
-        if (writeErr) {
-          console.error(writeErr);
-          return cb();
-        }
-        return cb();
-      }
-    );
-  });
-});
+// Closure the tool with our config, since gulp task sends in callback by default
+const nsWriter = require('./tools/tasks/namespace-writer')(namespaces, config);
 
 /**
- * When PL is done compiling do stuff here to notify anything that needs to know. Currently it just
- * writes a file to the root of dist/ so that Webpack can trigger a reload.
+ * Namespace generation task
+ */
+gulp.task('compile:namespaces', nsWriter);
+
+/**
+ * When PL is done compiling do stuff here to notify anything that needs to know.
+ * Currently just writes to root of dist/ so that Webpack can trigger a reload.
  */
 gulp.task('compile:pl:notify:post', cb => {
   // Write to dist/ root a file named index.html, casts Date to text, calls callback
   fs.writeFile(
     path.resolve(PATH_DIST, 'index.html'),
-    `<!doctype html><title>Particle</title><a href="/pl">Open Pattern Lab (Last changed: ${+new Date()})</a>`,
+    // prettier-ignore
+    `<!doctype html><title>Particle</title><a href="/${config.APP_NAME}/pl">Open Pattern Lab (Last changed: ${+new Date()})</a>`,
     cb
   );
 });
@@ -96,7 +66,7 @@ gulp.task('compile:pl:notify:post', cb => {
  * Simple notification that PL compile is starting
  */
 gulp.task('compile:pl:notify:pre', cb => {
-  console.info(`\n🚀 Pattern Lab ${process.env.NODE_ENV} build running! 🚀\n`);
+  console.info(`\n🚀 Pattern Lab ${NODE_ENV} build running! 🚀\n`);
   cb();
 });
 
@@ -109,9 +79,7 @@ gulp.task('compile:pl:env', cb => {
   //
   //   NODE_ENV='development' npx gulp compile:pl:env
   //
-  const env = {
-    env: process.env.NODE_ENV ? process.env.NODE_ENV : 'production',
-  };
+  const env = { env: NODE_ENV };
   fs.writeFile(
     path.resolve(config.APP_DESIGN_SYSTEM, '_data/', 'env.json'),
     JSON.stringify(env),

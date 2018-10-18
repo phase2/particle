@@ -9,7 +9,12 @@ const { DefinePlugin } = require('webpack');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
+// Constants: environment
+const { NODE_ENV } = process.env;
+// Constants: root
 const { PATH_DIST } = require('../../config');
+// Constants: app
+const { APP_NAME } = require('./config');
 
 // Design system
 const designSystem = require('../../source/default/webpack.default');
@@ -20,15 +25,15 @@ const particle = require('../../particle');
 const shared = {
   entry: {
     'drupal-jquery': [path.resolve(__dirname, 'drupal-jquery.js')],
-    'app-drupal': [path.resolve(__dirname, 'index.js')],
+    [APP_NAME]: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: path.resolve(PATH_DIST, 'app-drupal/assets'),
-    publicPath: 'app-drupal/assets',
+    path: path.resolve(PATH_DIST, `${APP_NAME}/assets`),
+    publicPath: `${APP_NAME}/assets`,
   },
   plugins: [
     new DefinePlugin({
-      BUILD_TARGET: JSON.stringify('drupal'),
+      BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
   ],
 };
@@ -42,7 +47,7 @@ const dev = {
     new RunScriptAfterEmit({
       exec: [
         // prettier-ignore
-        `echo \n🚀 Webpack Drupal ${process.env.NODE_ENV} build complete! 
+        `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete! 
         Edit apps/drupal/webpack.drupal.js to replace this line with 
         'drupal cr all' now. 🚀\n`,
       ],

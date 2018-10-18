@@ -8,7 +8,12 @@ const webpack = require('webpack');
 // Library Imports
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 
+// Constants: environment
+const { NODE_ENV } = process.env;
+// Constants: root
 const { PATH_DIST } = require('../../config');
+// Constants: app
+const { APP_NAME } = require('./config');
 
 // Design system
 const designSystem = require('../../source/default/webpack.default');
@@ -18,15 +23,15 @@ const particle = require('../../particle');
 
 const shared = {
   entry: {
-    'app-grav': [path.resolve(__dirname, 'index.js')],
+    [APP_NAME]: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: path.resolve(PATH_DIST, 'app-grav/assets'),
-    publicPath: 'app-grav/assets',
+    path: path.resolve(PATH_DIST, `${APP_NAME}/assets`),
+    publicPath: `${APP_NAME}/assets`,
   },
   plugins: [
     new webpack.DefinePlugin({
-      BUILD_TARGET: JSON.stringify('grav'),
+      BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
   ],
 };
@@ -39,7 +44,7 @@ const dev = {
   plugins: [
     new RunScriptAfterEmit({
       exec: [
-        `echo \n🚀 Webpack Grav ${process.env.NODE_ENV} build complete! 
+        `echo \n🚀 Webpack Grav ${NODE_ENV} build complete! 
         Edit apps/grav/webpack.grav.js to run run any command you need!
         Great for using tasks to re-generate twig-namespaces! 🚀\n`,
       ],

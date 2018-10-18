@@ -39,8 +39,6 @@ const namespaces = Object.keys(sets).reduce((acc, atomic) => {
   return acc;
 }, {});
 
-// console.log(namespaces);
-
 module.exports = {
   sets,
   namespaces,
