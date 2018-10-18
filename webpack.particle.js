@@ -6,7 +6,6 @@
  */
 
 // Library Imports
-const path = require('path');
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
 
 // Loaders
@@ -15,7 +14,6 @@ const cssnano = require('cssnano');
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // Constants
@@ -26,8 +24,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 // NODE_ENV is either:
 // - development
 // - production
-const { NODE_ENV } = process.env;
-const { PATH_PATTERNS } = require('./config');
+// Defaults to 'production'
+const { NODE_ENV = 'production' } = process.env;
 
 // Enable to track down deprecation during development
 // process.traceDeprecation = true;
@@ -84,9 +82,6 @@ module.exports = {
               // ALL Sass partials should be provided with non-printing
               // variables, mixins, and functions
               data: '@import "00-protons/variables";',
-              // Enable Sass to import other components via, eg:
-              // `@import 01-atoms/thing/thing`
-              includePaths: [PATH_PATTERNS],
             },
           },
         ],
@@ -144,26 +139,7 @@ module.exports = {
     }),
     // Yell at us while writing Sass
     new StyleLintPlugin(),
-    // Sprite system options
-    new SVGSpritemapPlugin(
-      path.resolve(PATH_PATTERNS, '01-atoms/svgicon/svg/**/*.svg'),
-      {
-        styles: {
-          filename: path.resolve(
-            PATH_PATTERNS,
-            '01-atoms/svgicon/scss/_icons-generated.scss'
-          ),
-          variables: {
-            sizes: 'svgicon-sizes', // Prevent collision with Bootstrap $sizes
-            variables: 'svgicon-variables',
-          },
-        },
-        output: {
-          svg4everybody: true,
-          svgo: true,
-        },
-      }
-    ),
+    // Handle .vue files
     new VueLoaderPlugin(),
   ],
   resolve: {
