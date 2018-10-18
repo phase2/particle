@@ -15,17 +15,20 @@ const particle = require('../../particle');
 // Design system
 const designSystem = require('../../source/default/webpack.default');
 
-// Constants
+// Constants: environment
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
+// Constants: root
 const { PATH_DIST } = require('../../config');
+// Constants: app
+const { APP_NAME } = require('./config');
 
 const shared = {
   entry: {
-    'app-pl': [path.resolve(__dirname, 'index.js')],
+    [APP_NAME]: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: path.resolve(PATH_DIST, 'app-pl/assets'),
-    publicPath: 'app-pl/assets',
+    path: path.resolve(PATH_DIST, `${APP_NAME}/assets`),
+    publicPath: `${APP_NAME}/assets`,
   },
   module: {
     rules: [
@@ -41,7 +44,7 @@ const shared = {
   },
   plugins: [
     new DefinePlugin({
-      BUILD_TARGET: JSON.stringify('pl'),
+      BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
   ],
 };
@@ -58,7 +61,7 @@ const dev = {
       ignored: '/(node_modules|pl)/',
     },
     open: false, // Open browser immediately
-    openPage: 'app-pl/pl', // Open browser to the PL landing page so it's very clear where to go
+    openPage: `${APP_NAME}/pl`, // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
     inline: true, // Injects all the webpack dev server code right in the page
@@ -104,6 +107,5 @@ module.exports = particle(
   // Options
   {
     cssMode: NODE_ENV === 'development' ? 'hot' : 'extract',
-    entry: 'app-pl',
   }
 );

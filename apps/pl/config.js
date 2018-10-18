@@ -1,3 +1,7 @@
+/**
+ * App config
+ */
+
 const path = require('path');
 
 const config = {

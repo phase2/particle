@@ -14,6 +14,8 @@ import 'prismjs/components/prism-css.min';
 import 'prismjs/components/prism-scss.min';
 import 'prismjs/components/prism-markup.min';
 
+// Local config
+import { APP_NAME } from './config';
 // Full design system. May dupe the above, but Webpack don't care.
 import { enableAllComponents } from '../../source/default/design-system';
 
@@ -31,7 +33,7 @@ const $context = $(document);
 const settings = {
   // card wants to know if it should enable holder.js.
   // BUILD_TARGET is either 'pl' or 'drupal', and comes from webpack
-  enableHolder: BUILD_TARGET === 'pl',
+  enableHolder: BUILD_TARGET === APP_NAME,
   // a random drupalSetting
   color: 'orange',
 };

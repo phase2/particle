@@ -9,7 +9,7 @@ const _ = require('lodash');
 const yaml = require('js-yaml');
 const { argv } = require('yargs');
 
-const { PATH_SOURCE, PATH_DIST } = require('./config');
+const { PATH_DIST } = require('./config');
 
 const config = require(argv.config); // eslint-disable-line import/no-dynamic-require
 
@@ -113,7 +113,7 @@ gulp.task('compile:pl:env', cb => {
     env: process.env.NODE_ENV ? process.env.NODE_ENV : 'production',
   };
   fs.writeFile(
-    path.resolve(PATH_SOURCE, '_data/', 'env.json'),
+    path.resolve(config.APP_DESIGN_SYSTEM, '_data/', 'env.json'),
     JSON.stringify(env),
     cb
   );
