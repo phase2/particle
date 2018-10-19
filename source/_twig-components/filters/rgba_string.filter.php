@@ -1,8 +1,12 @@
 <?php
 
+/**
+ * @file
+ */
+
 $filter = new Twig_SimpleFilter('rgba_string', function ($string) {
   $rgba = trim(str_replace(' ', '', $string));
-  if (stripos($rgba, 'rgba') !== false) {
+  if (stripos($rgba, 'rgba') !== FALSE) {
     $res = sscanf($rgba, "rgba(%d, %d, %d, %f)");
   }
   else {

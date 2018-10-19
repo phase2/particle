@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * @file
+ */
+
 $function = new Twig_SimpleFunction(
     'link',
     function ($title, $url, $attributes) {
       if (isset($attributes) && isset($attributes['class'])) {
         $classes = join(' ', $attributes['class']);
         return '<a href="' . $url . '" class="' . $classes . '">' . $title . '</a>';
-      } else {
+      }
+      else {
         return '<a href="' . $url . '">' . $title . '</a>';
       }
     },
