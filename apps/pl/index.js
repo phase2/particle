@@ -17,7 +17,7 @@ import 'prismjs/components/prism-markup.min';
 // Local config
 import { APP_NAME } from './config';
 // Full design system. May dupe the above, but Webpack don't care.
-import { enableAllComponents } from '../../source/default/design-system';
+import { enableAllComponents } from '../../source/default';
 
 // Adds PL-only styles, ie color swatches.
 import './scss/_styleguide.scss';

@@ -1,7 +1,7 @@
 /**
  * Apply the Design System to a single Drupal behavior
  */
-import { enableAllComponents } from '../../source/default/design-system';
+import { enableAllComponents } from '../../source/default';
 
 require('./scss/_drupal-styles.scss');
 

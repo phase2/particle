@@ -4,7 +4,7 @@
 
 import $ from 'jquery';
 
-import { enableAllComponents } from '../../source/default/design-system';
+import { enableAllComponents } from '../../source/default';
 
 require('./scss/_grav-styles.scss');
 

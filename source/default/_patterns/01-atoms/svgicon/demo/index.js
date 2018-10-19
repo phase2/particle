@@ -1,7 +1,7 @@
 /**
  * Demo of svgicon. Pulls in svgicon assets, and provides demo-only assets.
  *
- * This file is NOT imported by design-system.js, but is included as part of apps/pl/index.js
+ * This file is NOT imported by the design system, but is included as part of apps/pl/index.js
  */
 
 // Import component assets
