@@ -15,6 +15,10 @@ const config = {
     transform: folderPath =>
       path.relative(path.join(config.APP_PATH, 'pattern-lab'), folderPath),
   },
+  commands: {
+    dev: 'echo "HELLO WORLD dev"',
+    prod: 'echo "HELLO WORLD prod"',
+  },
 };
 
 module.exports = config;
