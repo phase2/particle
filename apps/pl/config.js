@@ -16,8 +16,8 @@ const config = {
       path.relative(path.join(config.APP_PATH, 'pattern-lab'), folderPath),
   },
   commands: {
-    dev: 'echo "HELLO WORLD dev"',
-    prod: 'echo "HELLO WORLD prod"',
+    development: 'echo "HELLO WORLD dev"',
+    production: 'echo "HELLO WORLD prod"',
   },
 };
 
