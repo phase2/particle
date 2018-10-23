@@ -34,8 +34,11 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { TimeInt, TimeStyles } from './types';
+
+export default Vue.extend({
   name: 'VueClock',
   data() {
     return {
@@ -43,22 +46,22 @@ export default {
     };
   },
   computed: {
-    time() {
+    time(): TimeInt {
       return {
         seconds: this.now.getSeconds(),
         minutes: this.now.getMinutes(),
         hours: this.now.getHours(),
       };
     },
-    degrees() {
-      const { seconds, minutes, hours } = this.time;
+    degrees(): TimeInt {
+      const { seconds, minutes, hours }: TimeInt = this.time;
       return {
-        seconds: parseInt((seconds / 60) * 360, 10),
-        minutes: parseInt((minutes / 60 + seconds / 60 / 60) * 360, 10),
-        hours: parseInt((hours / 12 + minutes / 60 / 12) * 360, 10),
+        seconds: (seconds / 60) * 360,
+        minutes: (minutes / 60 + seconds / 60 / 60) * 360,
+        hours: (hours / 12 + minutes / 60 / 12) * 360,
       };
     },
-    hands() {
+    hands(): TimeStyles {
       const { seconds, minutes, hours } = this.degrees;
       return {
         seconds: {
@@ -73,7 +76,7 @@ export default {
       };
     },
     dynamicClasses() {
-      const { seconds } = this.time;
+      const { seconds }: TimeInt = this.time;
       return {
         success: seconds >= 0 && seconds < 8,
         primary: seconds >= 8 && seconds < 16,
@@ -96,7 +99,7 @@ export default {
       }, 1000);
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
