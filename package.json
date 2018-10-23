@@ -34,7 +34,8 @@
     "test:pa11y": "pa11y-ci --config tools/tests/accessibility/pa11y.js",
     "test:unit": "NODE_ENV=test jest",
     "test": "npm run test:unit",
-    "setup": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
+    "setup:pl": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
+    "setup": "composer install --no-interaction --ignore-platform-reqs && npm run setup:pl",
     "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal && npm run build:grav",
     "new": "yo ./tools/new-component/index.js"
   },
