@@ -12,7 +12,7 @@ module.exports = {
     'plugin:vue/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['prettier'],
+  plugins: ['prettier', 'typescript'],
   root: true,
   globals: {
     Drupal: true,
@@ -26,5 +26,17 @@ module.exports = {
   rules: {
     'no-console': [0], // turned off for now while we are console.logging everywhere.
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+  },
+  overrides: {
+    files: ['*.vue'],
+    parser: 'vue-eslint-parser',
+    parserOptions: {
+      parser: 'typescript-eslint-parser',
+    },
+    rules: {
+      // https://github.com/eslint/typescript-eslint-parser#known-issues
+      'no-undef': 'off',
+      'no-unused-vars': 'off',
+    },
   },
 };
