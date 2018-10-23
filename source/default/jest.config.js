@@ -2,6 +2,7 @@
  * Merge shared jest config with local design system config
  */
 const path = require('path');
+
 const { merge } = require('lodash');
 
 const sharedConfig = require('../../jest.config');
@@ -20,12 +21,14 @@ const rootDir = '../../';
  *     '^templates[/]?(.*)': '<rootDir>/source/default/_patterns/04-templates/$1',
  *     '^pages[/]?(.*)': '<rootDir>/source/default/_patterns/05-pages/$1',
  *   },
+ *
+ *   @TODO: Use Object.entries() when dropping support for Node 6
  */
-const moduleNameMapper = Object.entries(sets).reduce((acc, entry) => {
+const moduleNameMapper = Object.keys(sets).reduce((acc, entry) => {
   // i.e '^protons[/]?(.*)'
-  const nameRegex = `^${entry[0]}[/]?(.*)`;
+  const nameRegex = `^${entry}[/]?(.*)`;
   // i.e source/default/_patterns/04-templates
-  const namePath = path.relative(path.join(__dirname, rootDir), entry[1]);
+  const namePath = path.relative(path.join(__dirname, rootDir), sets[entry]);
   // i.e. moduleNameMapper['^protons[/]?(.*)'] = '<rootDir>/source/default/_patterns/00-protons/$1';
   acc[nameRegex] = `<rootDir>/${namePath}/$1`;
   return acc;
