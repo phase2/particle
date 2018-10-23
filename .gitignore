@@ -2,6 +2,7 @@
 dist/
 env.json
 _icons-generated.scss
+tsDist/
 
 # OS generated files
 *.swp
