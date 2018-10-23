@@ -1,10 +1,7 @@
-# Ignore any path/file using .gitignore syntax, ie:
-# js/vendor
+# Ignore any path/file using .gitignore syntax
 
 dist/
 apps/pl/pattern-lab
+
 # Ignore yeoman new-component templates
 tools/new-component/templates
-
-# Ignore iconfont template file for now
-source/_patterns/01-atoms/icon/templates

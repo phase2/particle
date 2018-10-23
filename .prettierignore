@@ -1,6 +1,7 @@
 # Ignore any path/file using .gitignore syntax, ie:
 
 node_modules/
+vendor/
 
 dist/
 apps/pl/pattern-lab/
@@ -11,5 +12,5 @@ package-lock.json
 
 _icons-generated.scss
 
-source/_data/env.json
-source/_data/scssVariables.json
+env.json
+scssVariables.json

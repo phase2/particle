@@ -6,15 +6,17 @@
 import importAll from '../../tools/webpack/import-all';
 
 // PL meta
-import '../../source/_meta/_00-head.twig';
-import '../../source/_meta/_01-foot.twig';
+import '../../source/default/_meta/_00-head.twig';
+import '../../source/default/_meta/_01-foot.twig';
 
 // Watch all demo folders in source
 const demoSystem = importAll(
-  require.context('../../source/_patterns', true, /demo$/)
+  require.context('../../source/default/_patterns', true, /demo$/)
 );
 
 // Watch all files in the source/_data folder
-importAll(require.context('../../source/_data/', false, /\.(yml|json)$/));
+importAll(
+  require.context('../../source/default/_data/', false, /\.(yml|json)$/)
+);
 
 export default demoSystem;

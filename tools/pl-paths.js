@@ -4,7 +4,7 @@
 
 const {
   patternPaths,
-} = require('../dist/pl/styleguide/data/patternlab-data.json');
+} = require('../dist/app-pl/pl/styleguide/data/patternlab-data.json');
 
 // Shape of data:
 //

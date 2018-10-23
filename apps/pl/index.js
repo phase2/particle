@@ -4,9 +4,6 @@
 
 import $ from 'jquery';
 
-// PL-only components, regardless of design system
-import 'atoms/grid';
-
 // Prism highlighting in PL.
 // Prism is kind of dumb and just operates globally.
 import 'prismjs/components/prism-core.min';
@@ -17,8 +14,10 @@ import 'prismjs/components/prism-css.min';
 import 'prismjs/components/prism-scss.min';
 import 'prismjs/components/prism-markup.min';
 
+// Local config
+import { APP_NAME } from './config';
 // Full design system. May dupe the above, but Webpack don't care.
-import { enableAllComponents } from '../../source/design-system';
+import { enableAllComponents } from '../../source/default';
 
 // Adds PL-only styles, ie color swatches.
 import './scss/_styleguide.scss';
@@ -34,7 +33,7 @@ const $context = $(document);
 const settings = {
   // card wants to know if it should enable holder.js.
   // BUILD_TARGET is either 'pl' or 'drupal', and comes from webpack
-  enableHolder: BUILD_TARGET === 'pl',
+  enableHolder: BUILD_TARGET === APP_NAME,
   // a random drupalSetting
   color: 'orange',
 };

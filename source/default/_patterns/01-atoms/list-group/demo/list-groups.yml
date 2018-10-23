@@ -1,0 +1,103 @@
+list_group_helper: '<p>List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.</p><p>Every example is using at least the <code>item_text</code> variable. Because of how many classes can be applied to each list item, <code>item_classes</code> is an empty array for the user to put their classes in.</p>'
+
+list_group_helper_basic: "This shows a basic list group and how individual list items' color can be changed by adding <code>list-group-item-(color)</code> to the <code>item_classes</code> variable"
+
+list_group_helper_active: 'Add the <code>active</code> class to a list-item to indicate the current active selection. Add the <code>disabled</code> class to a list-item to make it appear disabled. Add the <code>action</code> class to make the list-item change on hover'
+
+list_group_helper_elements: 'Lists are usually made of <code>li</code> tags, but they can be made of <code>div</code>, <code>a</code>, and <code>button</code> tags as well'
+
+list_group_helper_adding: 'List items can contain things like badges and custom html. The badges are using several utility classes to display correctly including <code>list-group-item-warning</code>, <code>justify-content-between</code>, <code>d-flex</code>, <code>align-items-center</code>'
+
+list_group_helper_toggleable:
+  'List items can use the tab Javascript plugin to allow list group to create tabbable panes of content. You can activate a list group navigation without writing any JavaScript by simply specifying <code>data-toggle="list"</code> or on an element. Use these data attributes on <code>.list-group-item</code>.
+  <p>To make tabs panel fade in, add <code>.fade</code> to each <code>.tab-pane</code>. The first tab pane must also have <code>.show</code> to make the initial content visible.</p>'
+
+list_group_text:
+  items:
+    - item_text: Cras justo odio
+    - item_text: Dapibus ac facilisis in
+    - item_text: Morbi leo risus
+    - item_text: Porta ac consectetur ac
+    - item_text: Vestibulum at eros
+
+list_group_active:
+  - item_classes:
+      - active
+  - item_classes: []
+  - item_classes:
+      - active
+  - item_classes: []
+  - item_classes:
+      - active
+
+list_group_disabled:
+  - item_classes:
+      - disabled
+  - item_classes: []
+  - item_classes:
+      - disabled
+  - item_classes: []
+  - item_classes:
+      - disabled
+
+list_group_custom_text:
+  items:
+    - item_text: '<div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small>3 days ago</small>
+        </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small>Donec id elit non mi porta.</small>'
+    - item_text: '<div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Donec 8id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>'
+    - item_text: '<div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>'
+
+list_group_toggleable:
+  parent_element: div
+  list_id: mylist
+  items:
+    - item_id: list-home-list
+      item_classes:
+        - list-group-item-action active
+      item_attributes:
+        - 'data-toggle="list"'
+        - 'href="#list-home"'
+        - 'role="tab"'
+        - 'aria-controls="home"'
+      item_text: Home
+    - item_id: list-profile-list
+      item_classes:
+        - list-group-item-action
+      item_attributes:
+        - 'data-toggle="list"'
+        - 'href="#list-profile"'
+        - 'role="tab"'
+        - 'aria-controls="profile"'
+      item_text: Profile
+    - item_id: list-messages-list
+      item_classes:
+        - list-group-item-action
+      item_attributes:
+        - 'data-toggle="list"'
+        - 'href="#list-messages"'
+        - 'role="tab"'
+        - 'aria-controls="messages"'
+      item_text: Messages
+    - item_id: list-settings-list
+      item_classes:
+        - list-group-item-action
+      item_attributes:
+        - 'data-toggle="list"'
+        - 'href="#list-settings"'
+        - 'role="tab"'
+        - 'aria-controls="settings"'
+      item_text: Settings
