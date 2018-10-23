@@ -69,9 +69,6 @@
     ],
     "pre-package-uninstall": [
       "PatternLab\\Installer::prePackageUninstall"
-    ],
-    "twig-lint": [
-      "twig-lint --ansi"
     ]
   },
   "extra": {
