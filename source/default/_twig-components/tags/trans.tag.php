@@ -1,12 +1,15 @@
 <?php
 
 /**
+ * @file
  * Code based on `Drupal\Core\Template\TwigNodeTrans` and `Drupal\Core\Template\TwigTransTokenParser` from Drupal 8 core.
  */
 
-// these files are loaded three times and we can't re-set a class
+// These files are loaded three times and we can't re-set a class.
 if (!class_exists("Project_trans_Node")) {
-
+  /**
+   *
+   */
   class Project_trans_Node extends Twig_Node {
 
     /**
@@ -140,9 +143,11 @@ if (!class_exists("Project_trans_Node")) {
 
 }
 
-// these files are loaded three times and we can't re-set a class
+// These files are loaded three times and we can't re-set a class.
 if (!class_exists("Project_trans_TokenParser")) {
-
+  /**
+   *
+   */
   class Project_trans_TokenParser extends Twig_TokenParser {
 
     /**
@@ -208,7 +213,7 @@ if (!class_exists("Project_trans_TokenParser")) {
      *
      * @param \Twig_Node $body
      *   The expression to check.
-     * @param integer $lineno
+     * @param int $lineno
      *   The source line.
      *
      * @throws \Twig_Error_Syntax
