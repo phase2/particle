@@ -10,6 +10,8 @@ const { sets } = require('./namespaces');
 
 const rootDir = '../../';
 
+// i.e. source/default
+const dsPath = path.relative(path.join(__dirname, rootDir), __dirname);
 /**
  * Jest config per folder needs:
  *   rootDir: '../../',
@@ -37,4 +39,5 @@ const moduleNameMapper = Object.keys(sets).reduce((acc, entry) => {
 module.exports = merge({}, sharedConfig, {
   rootDir,
   moduleNameMapper,
+  testMatch: [`<rootDir>/${dsPath}/**/*.test.js`],
 });
