@@ -1,8 +1,8 @@
 /**
  * Full Page Demos
  *
- * This file is NOT imported by the design system, but is included as part of
- * particle/apps/pl/index.js
+ * (This file is NOT imported by the design system, but is included as part of
+ * a Pattern Lab app.)
  */
 
 import $ from 'jquery';

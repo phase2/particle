@@ -1,5 +1,5 @@
 module.exports = {
-  projects: ['<rootDir>/source/*'],
+  projects: ['<rootDir>/source/*/jest.config.js'],
 
   // Everything below here is used by merging into per-design-system jest config
   verbose: true,

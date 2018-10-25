@@ -21,7 +21,7 @@ const { APP_NAME, APP_PATH, APP_DESIGN_SYSTEM } = require('./config');
 
 const shared = {
   entry: {
-    [APP_NAME]: [path.resolve(__dirname, 'index.js')],
+    app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
     path: path.resolve(PATH_DIST, `${APP_NAME}/assets`),

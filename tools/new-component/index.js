@@ -1,56 +1,66 @@
+const { join, relative } = require('path');
+const { readdirSync, statSync } = require('fs');
+
 const Generator = require('yeoman-generator');
 const { camelCase } = require('lodash');
-const path = require('path');
-const fs = require('fs');
 
-const patternBase = './source/_patterns';
-const ignoreFiles = ['.DS_Store', '.DS_Store?', '._.DS_Store', '._.DS_Store?'];
+let { PATH_SOURCE: componentPath } = require('../../config');
+
+const patternFeatures = ['twig', 'scss', 'js', 'demo'];
+const prompts = [
+  {
+    type: 'list',
+    name: 'designSystem',
+    message: 'To which design system would you like to add this new component?',
+    choices: readdirSync(componentPath, 'utf8').filter(folder =>
+      statSync(join(componentPath, folder)).isDirectory()
+    ),
+  },
+  {
+    type: 'list',
+    name: 'patternType',
+    message: 'Where would you like this new component?',
+    choices(answers) {
+      componentPath = join(componentPath, answers.designSystem, '_patterns');
+      return readdirSync(componentPath, 'utf8').filter(folder =>
+        statSync(join(componentPath, folder)).isDirectory()
+      );
+    },
+  },
+  {
+    type: 'list',
+    name: 'patternSubType',
+    message: 'Where in here?',
+    choices(answers) {
+      componentPath = join(componentPath, answers.patternType);
+      const subfolders = readdirSync(componentPath, 'utf8').filter(folder =>
+        statSync(join(componentPath, folder)).isDirectory()
+      );
+      return ['./'].concat(subfolders);
+    },
+  },
+  {
+    type: 'checkbox',
+    name: 'files',
+    message: 'What files would you like in there?',
+    choices: patternFeatures,
+    default: patternFeatures,
+  },
+  {
+    name: 'name',
+    message: 'What shall we name it?',
+    filter(answer) {
+      return answer.replace(/ /g, '-').toLowerCase();
+    },
+  },
+];
 
 module.exports = class extends Generator {
   prompting() {
-    console.log('Hi! This will help you build a component folder with assets.');
     console.log(
-      `Templates for this are in: ${path.relative(process.cwd(), __dirname)} \n`
+      `Hi! This will help you build a component folder with assets.
+      Templates for this are in: ${relative(process.cwd(), __dirname)}`
     );
-
-    const prompts = [
-      {
-        type: 'list',
-        name: 'patternType',
-        message: 'Where would you like this new component?',
-        choices: fs
-          .readdirSync(patternBase, 'utf8')
-          // Ignore trash files
-          .filter(choicePath => !ignoreFiles.includes(choicePath)),
-      },
-      {
-        type: 'list',
-        name: 'patternSubType',
-        message: 'Where in here?',
-        choices(answers) {
-          const folder = path.join(patternBase, answers.patternType);
-          const subfolders = fs
-            .readdirSync(folder, 'utf8')
-            // Ignore trash files
-            .filter(choicePath => !ignoreFiles.includes(choicePath));
-          return ['./'].concat(subfolders);
-        },
-      },
-      {
-        type: 'checkbox',
-        name: 'files',
-        message: 'What files would you like in there?',
-        choices: ['twig', 'scss', 'js', 'demo'],
-        default: ['twig', 'scss', 'js', 'demo'],
-      },
-      {
-        name: 'name',
-        message: 'What shall we name it?',
-        filter(answer) {
-          return answer.replace(/ /g, '-').toLowerCase();
-        },
-      },
-    ];
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
@@ -65,57 +75,57 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const { files, patternType, patternSubType, name } = this.props;
+    const { files, patternSubType, name } = this.props;
 
-    const destPath = path.join(patternBase, patternType, patternSubType, name);
+    componentPath = join(componentPath, patternSubType, name);
 
     /*
-     * generatorAssets has a key for each filetype that Particle creates.
+     * generatorAssets has a key for each file type that Particle creates.
      * Each of those is an array of objects, each of which must contain
      * the properties templatePath and destinationPath. These arrays are
      * looped over in the function below. The array pattern is necessary
-     * to accomodate the varying number of files generated for each type.
+     * to accommodate the varying number of files generated for each type.
      */
 
     const generatorAssets = {
       scss: [
         {
           templatePath: '_pattern.scss',
-          destinationPath: path.join(destPath, `_${name}.scss`),
+          destinationPath: join(componentPath, `_${name}.scss`),
         },
       ],
       twig: [
         {
           templatePath: '_pattern.twig',
-          destinationPath: path.join(destPath, `_${name}.twig`),
+          destinationPath: join(componentPath, `_${name}.twig`),
         },
       ],
       js: [
         {
           templatePath: 'pattern.js',
-          destinationPath: path.join(destPath, 'index.js'),
+          destinationPath: join(componentPath, 'index.js'),
         },
         {
           templatePath: 'pattern-test.js',
-          destinationPath: path.join(destPath, '__tests__', `${name}.test.js`),
+          destinationPath: join(componentPath, '__tests__', `${name}.test.js`),
         },
       ],
       demo: [
         {
           templatePath: 'demo-pattern.twig',
-          destinationPath: path.join(destPath, 'demo', `${name}s.twig`),
+          destinationPath: join(componentPath, 'demo', `${name}s.twig`),
         },
         {
           templatePath: 'demo-pattern.js',
-          destinationPath: path.join(destPath, 'demo', 'index.js'),
+          destinationPath: join(componentPath, 'demo', 'index.js'),
         },
         {
           templatePath: 'pattern.md',
-          destinationPath: path.join(destPath, 'demo', `${name}s.md`),
+          destinationPath: join(componentPath, 'demo', `${name}s.md`),
         },
         {
           templatePath: 'pattern.yml',
-          destinationPath: path.join(destPath, 'demo', `${name}s.yml`),
+          destinationPath: join(componentPath, 'demo', `${name}s.yml`),
         },
       ],
     };
@@ -134,7 +144,7 @@ module.exports = class extends Generator {
     });
 
     console.log(
-      `Your new component ${name} is being created. Please import it inside of source/design-system.js to see it on the chain.`
+      `Your new component ${name} is being created. It should be available in your bundle!`
     );
   }
 };
