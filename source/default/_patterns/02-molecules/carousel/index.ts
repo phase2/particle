@@ -17,13 +17,13 @@ import './_carousel.scss';
 
 export const name = 'carousel';
 
-export const defaults = {
-  interval: 3000,
-};
-
 interface CarouselSettings {
   interval: number;
 }
+
+export const defaults = {
+  interval: 3000,
+};
 
 /**
  * Components may need to run clean-up tasks if they are removed from DOM.
