@@ -2,10 +2,10 @@
 core:
   css:
     theme:
-      /themes/particle/dist/app-drupal/assets/app-drupal.styles.css:
+      /themes/particle/dist/app-drupal/assets/app.styles.css:
         preprocess: true
   js:
-    /themes/particle/dist/app-drupal/assets/app-drupal.js:
+    /themes/particle/dist/app-drupal/assets/app.js:
       preprocess: true
   # see all in Drupal's `core/core.libraries.yml`
   dependencies:
