@@ -10,6 +10,6 @@
     "target": "ESNext",
     "experimentalDecorators": true
   },
-  "include": ["source/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["tools/**/*", "source/**/*"],
+  "exclude": ["node_modules", "dist", "tools/new-component"]
 }
