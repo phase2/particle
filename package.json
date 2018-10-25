@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "start": "npm run dev:pl",
-    "check-types": "tsc -w --noEmit",
+    "type-check": "tsc -w --noEmit",
     "dev:pl": "cross-env-shell NODE_ENV=development \"gulp compile:startup --config ./apps/pl/config.js & webpack-dev-server --config ./apps/pl/webpack.config.js --hot\"",
     "build:pl": "cross-env-shell NODE_ENV=production \"gulp compile:startup --config ./apps/pl/config.js && webpack --config ./apps/pl/webpack.config.js\"",
     "dev:drupal": "cross-env-shell NODE_ENV=development \"gulp compile:namespaces --config ./apps/drupal/config.js && webpack --watch --config ./apps/drupal/webpack.config.js\"",
