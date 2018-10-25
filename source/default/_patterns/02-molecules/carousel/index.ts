@@ -2,7 +2,7 @@
  * Carousel
  */
 
-import $ from 'jquery';
+import * as $ from 'jquery';
 import 'bootstrap/js/dist/carousel';
 
 // Module dependencies
@@ -21,14 +21,18 @@ export const defaults = {
   interval: 3000,
 };
 
+interface CarouselSettings {
+  interval: number;
+}
+
 /**
  * Components may need to run clean-up tasks if they are removed from DOM.
  *
  * @param {jQuery} $context - A piece of DOM
  * @param {Object} settings - Pertinent settings
  */
-// eslint-disable-next-line no-unused-vars
-export function disable($context, settings) {}
+// tslint:disable-next-line no-empty
+export function disable($context: JQuery, settings: CarouselSettings) {}
 
 /**
  * Each component has a chance to run when its enable function is called. It is
@@ -39,7 +43,7 @@ export function disable($context, settings) {}
  * @param {jQuery} $context - A piece of DOM
  * @param {Object} settings - Settings object
  */
-export function enable($context, { carousel = {} }) {
+export function enable($context: JQuery, { carousel = {} }) {
   // Find carousel elements on the page
   const $carousel = $('.carousel', $context);
   // Bail if none exist
