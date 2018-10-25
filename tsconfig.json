@@ -5,9 +5,9 @@
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
-    "module": "es2015",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "ESNext",
     "experimentalDecorators": true
   },
   "include": ["source/**/*"]
