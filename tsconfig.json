@@ -10,5 +10,6 @@
     "target": "ESNext",
     "experimentalDecorators": true
   },
-  "include": ["source/**/*"]
+  "include": ["source/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
