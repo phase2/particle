@@ -20,7 +20,7 @@ const { APP_NAME, APP_DESIGN_SYSTEM } = require('./config');
 const shared = {
   entry: {
     'drupal-jquery': [path.resolve(__dirname, 'drupal-jquery.js')],
-    [APP_NAME]: [path.resolve(__dirname, 'index.js')],
+    app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
     path: path.resolve(PATH_DIST, `${APP_NAME}/assets`),
@@ -65,6 +65,6 @@ module.exports = particle(
   // Use extract css
   {
     cssMode: 'extract',
-    entry: APP_NAME, // Called out specifically because 2 entry points
+    entry: 'app', // Called out specifically because 2 entry points
   }
 );
