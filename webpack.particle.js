@@ -96,10 +96,29 @@ module.exports = {
         },
       },
       {
+        test: /(?<!vue)\.ts/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+      },
+      {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'ts-loader',
+            options: {
+              appendTsSuffixTo: [/\.vue$/],
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -150,5 +169,6 @@ module.exports = {
       // HTML from the DOM and use it as a template, then remove this line.
       vue$: 'vue/dist/vue.esm.js',
     },
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
 };
