@@ -4,7 +4,7 @@ node_modules/
 vendor/
 
 dist/
-apps/pl/pattern-lab/
+pattern-lab/
 tools/new-component/templates/
 
 package.json

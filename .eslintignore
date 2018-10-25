@@ -1,7 +1,7 @@
 # Ignore any path/file using .gitignore syntax
 
 dist/
-apps/pl/pattern-lab
+pattern-lab/
 
 # Ignore yeoman new-component templates
 tools/new-component/templates
