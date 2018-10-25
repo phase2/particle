@@ -3,7 +3,8 @@ const { camelCase } = require('lodash');
 const path = require('path');
 const fs = require('fs');
 
-const patternBase = './source/_patterns';
+let { PATH_SOURCE: componentPath } = require('../../config');
+
 const ignoreFiles = ['.DS_Store', '.DS_Store?', '._.DS_Store', '._.DS_Store?'];
 
 module.exports = class extends Generator {
@@ -16,21 +17,40 @@ module.exports = class extends Generator {
     const prompts = [
       {
         type: 'list',
-        name: 'patternType',
-        message: 'Where would you like this new component?',
+        name: 'designSystem',
+        message:
+          'To which design system would you like to add this new component?',
         choices: fs
-          .readdirSync(patternBase, 'utf8')
+          .readdirSync(componentPath, 'utf8')
           // Ignore trash files
           .filter(choicePath => !ignoreFiles.includes(choicePath)),
+      },
+      {
+        type: 'list',
+        name: 'patternType',
+        message: 'Where would you like this new component?',
+        choices(answers) {
+          componentPath = path.join(
+            componentPath,
+            answers.designSystem,
+            '_patterns'
+          );
+          return (
+            fs
+              .readdirSync(componentPath, 'utf8')
+              // Ignore trash files
+              .filter(choicePath => !ignoreFiles.includes(choicePath))
+          );
+        },
       },
       {
         type: 'list',
         name: 'patternSubType',
         message: 'Where in here?',
         choices(answers) {
-          const folder = path.join(patternBase, answers.patternType);
+          componentPath = path.join(componentPath, answers.patternType);
           const subfolders = fs
-            .readdirSync(folder, 'utf8')
+            .readdirSync(componentPath, 'utf8')
             // Ignore trash files
             .filter(choicePath => !ignoreFiles.includes(choicePath));
           return ['./'].concat(subfolders);
@@ -65,9 +85,9 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const { files, patternType, patternSubType, name } = this.props;
+    const { files, patternSubType, name } = this.props;
 
-    const destPath = path.join(patternBase, patternType, patternSubType, name);
+    componentPath = path.join(componentPath, patternSubType, name);
 
     /*
      * generatorAssets has a key for each filetype that Particle creates.
@@ -81,41 +101,45 @@ module.exports = class extends Generator {
       scss: [
         {
           templatePath: '_pattern.scss',
-          destinationPath: path.join(destPath, `_${name}.scss`),
+          destinationPath: path.join(componentPath, `_${name}.scss`),
         },
       ],
       twig: [
         {
           templatePath: '_pattern.twig',
-          destinationPath: path.join(destPath, `_${name}.twig`),
+          destinationPath: path.join(componentPath, `_${name}.twig`),
         },
       ],
       js: [
         {
           templatePath: 'pattern.js',
-          destinationPath: path.join(destPath, 'index.js'),
+          destinationPath: path.join(componentPath, 'index.js'),
         },
         {
           templatePath: 'pattern-test.js',
-          destinationPath: path.join(destPath, '__tests__', `${name}.test.js`),
+          destinationPath: path.join(
+            componentPath,
+            '__tests__',
+            `${name}.test.js`
+          ),
         },
       ],
       demo: [
         {
           templatePath: 'demo-pattern.twig',
-          destinationPath: path.join(destPath, 'demo', `${name}s.twig`),
+          destinationPath: path.join(componentPath, 'demo', `${name}s.twig`),
         },
         {
           templatePath: 'demo-pattern.js',
-          destinationPath: path.join(destPath, 'demo', 'index.js'),
+          destinationPath: path.join(componentPath, 'demo', 'index.js'),
         },
         {
           templatePath: 'pattern.md',
-          destinationPath: path.join(destPath, 'demo', `${name}s.md`),
+          destinationPath: path.join(componentPath, 'demo', `${name}s.md`),
         },
         {
           templatePath: 'pattern.yml',
-          destinationPath: path.join(destPath, 'demo', `${name}s.yml`),
+          destinationPath: path.join(componentPath, 'demo', `${name}s.yml`),
         },
       ],
     };
