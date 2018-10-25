@@ -171,6 +171,6 @@ module.exports = {
       // HTML from the DOM and use it as a template, then remove this line.
       vue$: 'vue/dist/vue.esm.js',
     },
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.json', '.vue', '.ts', '.tsx'],
   },
 };
