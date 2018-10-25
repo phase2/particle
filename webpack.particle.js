@@ -96,7 +96,9 @@ module.exports = {
         },
       },
       {
-        test: /(?<!vue)\.ts/,
+        // We need to ignore .vue files for tslint. They are always piped
+        // through ESLint. Node 6 doesn't support negative look-behind.
+        test: /^(?!.*vue\.ts).*\.tsx?$/,
         enforce: 'pre',
         loader: 'tslint-loader',
       },
