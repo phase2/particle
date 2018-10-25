@@ -65,8 +65,7 @@ module.exports = {
               plugins: () =>
                 NODE_ENV === 'development'
                   ? [postcssPresetEnv()] // Light processing for dev
-                  : // Heavy processing for prod
-                    [postcssPresetEnv(), cssnano()],
+                  : [postcssPresetEnv(), cssnano()], // Heavy processing for prod
             },
           },
           {
