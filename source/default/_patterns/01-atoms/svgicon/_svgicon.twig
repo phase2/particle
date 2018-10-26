@@ -12,6 +12,6 @@
 
 <div class="svgicon-default{{ svgfill ? " color-fill--" ~ svgfill : ""}}">
   <svg viewBox="0 0 500 500">
-      <use xlink:href="{{paths.assets}}/spritemap.svg?cacheBuster={{ random(randomNumberRange) }}#sprite-{{svgname}}"></use>
+      <use xlink:href="{{paths.assets}}/spritemap.svg?cacheBuster={{ random() }}#sprite-{{svgname}}"></use>
   </svg>
 </div>
