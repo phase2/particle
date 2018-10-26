@@ -1,7 +1,7 @@
 // All PL paths
 const { htmlPaths } = require('../../pl-paths');
 
-const plRoot = 'http://0.0.0.0:8080/pl'; // @TODO: move this to config
+const plRoot = 'http://localhost:8080/app-pl/pl'; // @TODO: move this to config
 const urls = htmlPaths.map(partial => `${plRoot}/${partial}`);
 
 // Put together some options to use in each test.
