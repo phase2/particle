@@ -6,7 +6,7 @@ const path = require('path');
 const { DefinePlugin } = require('webpack');
 
 // Plugins
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 const particle = require('../../particle');
 
@@ -16,6 +16,10 @@ const { NODE_ENV } = process.env;
 const { PATH_DIST } = require('../../config');
 // Constants: app
 const { APP_NAME, APP_DESIGN_SYSTEM } = require('./config');
+
+console.log(process.env.PWD);
+console.log(__dirname);
+console.log(path.relative(process.env.PWD, APP_DESIGN_SYSTEM));
 
 const shared = {
   entry: {
@@ -29,6 +33,16 @@ const shared = {
   plugins: [
     new DefinePlugin({
       BUILD_TARGET: JSON.stringify(APP_NAME),
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: '**/*.twig',
+        to: 'atomic/',
+        context: path.relative(process.env.PWD, APP_DESIGN_SYSTEM),
+        // fromArgs: { cwd: APP_DESIGN_SYSTEM },
+      },
+    ], {
+      ignore: [{glob: 'demo/**/*'}],
     }),
   ],
 };
