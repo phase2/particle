@@ -13,7 +13,11 @@ const particle = require('../../particle');
 // Constants: environment
 const { NODE_ENV } = process.env;
 // Constants: root
-const { PATH_DIST } = require('../../config');
+const {
+  PATH_DIST,
+  ASSETS_BUNDLE_FOLDER,
+  ASSETS_ATOMIC_FOLDER,
+} = require('../../config');
 // Constants: app
 const { APP_NAME, APP_DESIGN_SYSTEM } = require('./config');
 
@@ -23,18 +27,20 @@ const shared = {
     app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: path.resolve(PATH_DIST, `${APP_NAME}/assets`),
-    publicPath: `${APP_NAME}/assets`,
+    path: path.resolve(PATH_DIST, APP_NAME, ASSETS_BUNDLE_FOLDER),
+    publicPath: `${APP_NAME}/${ASSETS_BUNDLE_FOLDER}`,
   },
   plugins: [
     new DefinePlugin({
       BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
+    // Copy all design system twig to `dist/${APP_NAME}/assets/atomic/` so source/
+    // doesn't have to deploy to prod
     new CopyWebpackPlugin(
       [
         {
           from: '**/*.twig',
-          to: 'atomic/',
+          to: ASSETS_ATOMIC_FOLDER,
           context: path.relative(process.env.PWD, APP_DESIGN_SYSTEM),
         },
       ],
