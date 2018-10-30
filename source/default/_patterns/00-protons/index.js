@@ -3,11 +3,10 @@
  */
 
 import './_base.scss';
-import { mediaBreakpoint } from './utilities';
 
-import enquire from '../../../node_modules/enquire.js';
+import enquire from '../../../../node_modules/enquire.js';
 import $ from 'jquery';
-
+import { mediaBreakpoint } from './utilities';
 // Get the breakpoints set to :root by _bootstrap-overrides.scss.
 const breakpoints = {};
 
