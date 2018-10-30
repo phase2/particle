@@ -13,15 +13,11 @@ const particle = require('../../particle');
 // Constants: environment
 const { NODE_ENV } = process.env;
 // Constants: root
-const {
-  PATH_DIST,
-  ASSETS_BUNDLE_FOLDER,
-  ASSETS_ATOMIC_FOLDER,
-} = require('../../config');
+const { ASSETS_ATOMIC_FOLDER } = require('../../config');
 // Constants: app
 const appConfig = require('./config');
 
-const { APP_NAME, APP_DESIGN_SYSTEM } = appConfig;
+const { APP_NAME, APP_DESIGN_SYSTEM, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 
 const shared = {
   entry: {
@@ -29,8 +25,8 @@ const shared = {
     app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: path.resolve(PATH_DIST, APP_NAME, ASSETS_BUNDLE_FOLDER),
-    publicPath: `${APP_NAME}/${ASSETS_BUNDLE_FOLDER}`,
+    path: APP_DIST,
+    publicPath: APP_DIST_PUBLIC,
   },
   plugins: [
     new DefinePlugin({

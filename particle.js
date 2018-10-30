@@ -102,7 +102,7 @@ const particle = (appWebpack, appConfig, options) => {
 
   // Dynamically pull in design system config. Must be named webpack.config.js
   // eslint-disable-next-line
-  const dsWebpack = require(path.resolve(APP_DESIGN_SYSTEM, 'webpack.config.js'));
+  const dsWebpack = require(path.resolve(APP_DESIGN_SYSTEM, 'webpack.config'));
 
   return merge.smartStrategy({
     // Prepend the css style-loader vs MiniExtractTextPlugin

@@ -11,20 +11,18 @@ const particle = require('../../particle');
 
 // Constants: environment
 const { NODE_ENV } = process.env;
-// Constants: root
-const { PATH_DIST } = require('../../config');
 // Constants: app
 const appConfig = require('./config');
 
-const { APP_NAME } = appConfig;
+const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 
 const shared = {
   entry: {
     app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: path.resolve(PATH_DIST, `${APP_NAME}/assets`),
-    publicPath: `${APP_NAME}/assets`,
+    path: APP_DIST,
+    publicPath: APP_DIST_PUBLIC,
   },
   plugins: [
     new webpack.DefinePlugin({

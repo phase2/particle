@@ -1,5 +1,3 @@
-/* eslint-disable import/no-dynamic-require */
-
 /**
  * Pattern Lab-specific webpack config.
  */
@@ -19,15 +17,15 @@ const { PATH_DIST } = require('../../config');
 // Constants: app
 const appConfig = require('./config');
 
-const { APP_NAME, APP_PATH } = appConfig;
+const { APP_NAME, APP_PATH, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 
 const shared = {
   entry: {
     app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: path.resolve(PATH_DIST, `${APP_NAME}/assets`),
-    publicPath: `${APP_NAME}/assets`,
+    path: APP_DIST,
+    publicPath: APP_DIST_PUBLIC,
   },
   module: {
     rules: [
@@ -59,7 +57,7 @@ const dev = {
     watchOptions: {
       ignored: '/(node_modules|pl)/',
     },
-    open: false, // Open browser immediately
+    open: true, // Open browser immediately
     openPage: `${APP_NAME}/pl`, // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
