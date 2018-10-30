@@ -6,15 +6,18 @@ const path = require('path');
 const webpack = require('webpack');
 
 // Library Imports
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 const particle = require('../../particle');
 
 // Constants: environment
-const { NODE_ENV } = process.env;
+const { NODE_ENV, PWD } = process.env;
+// Constants: root
+const { ASSETS_ATOMIC_FOLDER } = require('../../config');
 // Constants: app
 const appConfig = require('./config');
 
-const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
+const { APP_NAME, APP_DESIGN_SYSTEM, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 
 const shared = {
   entry: {
@@ -28,6 +31,20 @@ const shared = {
     new webpack.DefinePlugin({
       BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
+    // Copy all design system twig to `dist/${APP_NAME}/assets/atomic/` so source/
+    // doesn't have to deploy to prod
+    new CopyWebpackPlugin(
+      [
+        {
+          from: '**/*.twig',
+          to: ASSETS_ATOMIC_FOLDER,
+          context: path.relative(PWD, APP_DESIGN_SYSTEM),
+        },
+      ],
+      {
+        ignore: ['**/{demo,_meta}/**/*'],
+      }
+    ),
   ],
 };
 

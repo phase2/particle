@@ -4,7 +4,12 @@
 
 const path = require('path');
 
-const { PATH_DIST, ASSETS_BUNDLE_FOLDER } = require('../../config');
+const { PWD } = process.env;
+const {
+  PATH_DIST,
+  ASSETS_BUNDLE_FOLDER,
+  ASSETS_ATOMIC_FOLDER,
+} = require('../../config');
 
 // Used as folder name within PATH_DIST, does not have to be folder name of app
 const APP_NAME = 'app-grav';
@@ -25,8 +30,20 @@ const namespaces = {
   atKey: 'namespaces',
   // The namespaces module runs a transform function, providing to it the path
   // to the pattern within source/
-  transform: folderPath =>
-    path.join('user/themes/particle', path.relative('./', folderPath)),
+  transform: folderPath => {
+    const gravPre = 'user/themes/particle';
+    // We have to get from a path like:
+    //   /Users/username/dev/p2/p2/particle/source/default/_patterns/01-atoms/badge
+    // To:
+    //   user/themes/particle/dist/app-grav/assets/atomic/_patterns/01-atoms/badge
+
+    // e.g. default/_patterns/01-atoms/badge
+    const appDistPath = path.relative(PWD, APP_DIST);
+    // e.g. _patterns/01-atoms/badge
+    const patternPath = path.relative(APP_DESIGN_SYSTEM, folderPath);
+    // e.g. user/themes/particle/dist/app-grav/assets/atomic/_patterns/01-atoms/badge
+    return path.join(gravPre, appDistPath, ASSETS_ATOMIC_FOLDER, patternPath);
+  },
 };
 
 module.exports = {
