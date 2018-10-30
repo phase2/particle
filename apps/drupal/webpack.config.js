@@ -11,7 +11,7 @@ const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 const particle = require('../../particle');
 
 // Constants: environment
-const { NODE_ENV } = process.env;
+const { NODE_ENV, PWD } = process.env;
 // Constants: root
 const { ASSETS_ATOMIC_FOLDER } = require('../../config');
 // Constants: app
@@ -39,7 +39,7 @@ const shared = {
         {
           from: '**/*.twig',
           to: ASSETS_ATOMIC_FOLDER,
-          context: path.relative(process.env.PWD, APP_DESIGN_SYSTEM),
+          context: path.relative(PWD, APP_DESIGN_SYSTEM),
         },
       ],
       {
