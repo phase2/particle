@@ -17,7 +17,9 @@ const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 // Constants: root
 const { PATH_DIST } = require('../../config');
 // Constants: app
-const { APP_NAME, APP_PATH, APP_DESIGN_SYSTEM } = require('./config');
+const appConfig = require('./config');
+
+const { APP_NAME, APP_PATH } = appConfig;
 
 const shared = {
   entry: {
@@ -99,10 +101,10 @@ const dev = {
 const prod = {};
 
 module.exports = particle(
-  // App
+  // app: webpack
   { shared, dev, prod },
-  // Design System
-  APP_DESIGN_SYSTEM,
+  // app: config
+  appConfig,
   // Options
   {
     cssMode: NODE_ENV === 'development' ? 'hot' : 'extract',

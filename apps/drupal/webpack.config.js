@@ -19,7 +19,9 @@ const {
   ASSETS_ATOMIC_FOLDER,
 } = require('../../config');
 // Constants: app
-const { APP_NAME, APP_DESIGN_SYSTEM } = require('./config');
+const appConfig = require('./config');
+
+const { APP_NAME, APP_DESIGN_SYSTEM } = appConfig;
 
 const shared = {
   entry: {
@@ -76,10 +78,10 @@ const prod = {
 };
 
 module.exports = particle(
-  // app
+  // app: webpack
   { shared, dev, prod },
-  // Default design system
-  APP_DESIGN_SYSTEM,
+  // app: config
+  appConfig,
   // Use extract css
   {
     cssMode: 'extract',

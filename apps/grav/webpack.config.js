@@ -14,7 +14,9 @@ const { NODE_ENV } = process.env;
 // Constants: root
 const { PATH_DIST } = require('../../config');
 // Constants: app
-const { APP_NAME, APP_DESIGN_SYSTEM } = require('./config');
+const appConfig = require('./config');
+
+const { APP_NAME } = appConfig;
 
 const shared = {
   entry: {
@@ -50,10 +52,10 @@ const dev = {
 const prod = {};
 
 module.exports = particle(
-  // app
+  // app: webpack
   { shared, dev, prod },
-  // Default design system
-  APP_DESIGN_SYSTEM,
+  // app: config
+  appConfig,
   // Use extract cssMod
   {
     cssMode: 'extract',

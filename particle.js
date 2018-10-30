@@ -86,25 +86,23 @@ const entryPrepend = entry => ({
  * Every app using Particle must run its config through this "particle"
  * function to ensure it adheres to Particle standards of dev/prod config.
  *
- * @param {Object} app - The collection of shared, dev, prod webpack config
- * @param {Object} app.shared - Shared webpack config common to dev and prod
- * @param {Object} app.dev - Webpack config unique to prod
- * @param {Object} app.prod - Webpack config unique to prod
- * @param {string} designSystemPath - Webpack config per-design system
+ * @param {Object} appWebpack - The collection of shared, dev, prod webpack config
+ * @param {Object} appWebpack.shared - Shared webpack config common to dev and prod
+ * @param {Object} appWebpack.dev - Webpack config unique to prod
+ * @param {Object} appWebpack.prod - Webpack config unique to prod
+ * @param {Object} appConfig - Full app config
  * @param {Object} options - Compile options
  * @param {('hot'|'extract')} options.cssMode - The method of handling CSS output
  * @param {string} [options.entry] - The main entry point to prepend polyfills
  * @returns {*} - Fully merged and customized webpack config
  */
-const particle = (app, designSystemPath, options) => {
+const particle = (appWebpack, appConfig, options) => {
+  const { shared, dev, prod } = appWebpack;
+  const { APP_DESIGN_SYSTEM } = appConfig;
+
   // Dynamically pull in design system config. Must be named webpack.config.js
   // eslint-disable-next-line
-  const designSystemConfig = require(path.resolve(
-    designSystemPath,
-    'webpack.config.js'
-  ));
-
-  const { shared, dev, prod } = app;
+  const dsWebpack = require(path.resolve(APP_DESIGN_SYSTEM, 'webpack.config.js'));
 
   return merge.smartStrategy({
     // Prepend the css style-loader vs MiniExtractTextPlugin
@@ -119,7 +117,7 @@ const particle = (app, designSystemPath, options) => {
       ? entryPrepend(options.entry)
       : entryPrepend(Object.keys(shared.entry)[0]),
     // Design system-specific config
-    designSystemConfig,
+    dsWebpack,
     // App config shared between dev and prod modes
     shared,
     // App config specific to dev or prod
