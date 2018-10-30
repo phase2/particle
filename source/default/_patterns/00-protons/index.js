@@ -3,30 +3,35 @@
  */
 
 import './_base.scss';
-
-import { mediaBreakpoint } from 'protons/utilities';
-import scssVariables from '../../_data/scssVariables.json';
+import { mediaBreakpoint } from './utilities';
 
 import enquire from '../../../node_modules/enquire.js';
+import $ from 'jquery';
 
-export function enable() {
-  // Example usage of the Enquire.js module JS breakpoints.
-  const { GLOBAL_BREAKPOINTS } = scssVariables;
+// Get the breakpoints set to :root by _bootstrap-overrides.scss.
+const breakpoints = {};
 
-  enquire.register(mediaBreakpoint.down(GLOBAL_BREAKPOINTS.lg), {
-    match: () => {
-      console.log('Screen is below Large sized.');
-    },
-    unmatch: () => {
-      console.log('Screen is above Large sized.');
-    },
+$('html')
+  .css('--breakpoints')
+  .split(' ')
+  .forEach(breakpoint => {
+    const value = $('html').css(`--breakpoint-${breakpoint}`);
+    if (value) {
+      breakpoints[breakpoint] = value;
+    }
   });
-}
 
-// Exported variables and constants can be used by importing 'protons' to a
-// container variable, then accessing.
+// Example usage of the Enquire.js module JS breakpoints.
+enquire.register(mediaBreakpoint.down(breakpoints.lg), {
+  match: () => {
+    console.log('Screen is below Large sized.');
+  },
+  unmatch: () => {
+    console.log('Screen is above Large sized.');
+  },
+});
+
 export default {
   GLOBAL_CONSTANT: 'blerp',
-  GLOBAL_BREAKPOINTS: scssVariables.scssBreakpoints,
-  GLOBAL_COLORS: scssVariables.scssColors,
+  GLOBAL_BREAKPOINTS: breakpoints,
 };
