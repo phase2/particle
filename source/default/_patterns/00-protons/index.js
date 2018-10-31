@@ -7,6 +7,7 @@ import './_base.scss';
 import enquire from 'enquire.js';
 import $ from 'jquery';
 import { mediaBreakpoint } from './utilities';
+
 // Get the breakpoints set to :root by _bootstrap-overrides.scss.
 const breakpoints = {};
 
