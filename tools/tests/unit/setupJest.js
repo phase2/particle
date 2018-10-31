@@ -4,12 +4,10 @@ import '@babel/polyfill';
 global.fetch = require('jest-fetch-mock');
 
 // Mock matchMedia to prevent polyfill errors with enquire.js.
-window.matchMedia =
-  window.matchMedia ||
-  function() {
-    return {
-      matches: false,
-      addListener: function() {},
-      removeListener: function() {}
-    };
-  };
+if (!window.matchMedia) {
+  window.matchMedia = () => ({
+    matches: false,
+    addListener: () => {},
+    removeListener: () => {},
+  });
+}
