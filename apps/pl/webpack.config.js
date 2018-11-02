@@ -15,7 +15,7 @@ const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 // Constants: root
 const { PATH_DIST } = require('../../config');
 // Constants: app
-const appConfig = require('./config');
+const appConfig = require('./particle.app.config');
 
 const { APP_NAME, APP_PATH, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 

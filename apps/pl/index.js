@@ -15,7 +15,7 @@ import 'prismjs/components/prism-scss.min';
 import 'prismjs/components/prism-markup.min';
 
 // Local config
-import { APP_NAME } from './config';
+import { APP_NAME } from './particle.app.config';
 // Full design system. May dupe the above, but Webpack don't care.
 import { enableAllComponents } from '../../source/default';
 
