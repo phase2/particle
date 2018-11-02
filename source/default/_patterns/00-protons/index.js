@@ -2,24 +2,27 @@
  * Base css generation and global js logic.
  */
 
-import './_base.scss';
-
-import enquire from 'enquire.js';
 import $ from 'jquery';
+import enquire from 'enquire.js';
+
 import { mediaBreakpoint } from './utilities';
 
-// Get the breakpoints set to :root by _bootstrap-overrides.scss.
-const breakpointsString = $('html').css('--breakpoints');
-const breakpoints = {};
+import './_base.scss';
 
-if (breakpointsString) {
-  breakpointsString.split(' ').forEach(breakpoint => {
-    const value = $('html').css(`--breakpoint-${breakpoint}`);
-    if (value) {
-      breakpoints[breakpoint] = value;
-    }
-  });
-}
+const $root = $(':root');
+
+// Get the breakpoints set to :root by _bootstrap-overrides.scss.
+const breakpoints = $root
+  .css('--breakpoints')
+  .split(', ')
+  // Map the breakpoints to the Sass variables also stored in :root
+  .reduce(
+    (bps, bp) => ({
+      ...bps,
+      [bp]: $root.css(`--breakpoint-${bp}`),
+    }),
+    {}
+  );
 
 // Example usage of the Enquire.js module JS breakpoints.
 enquire.register(mediaBreakpoint.down(breakpoints.lg), {
@@ -31,6 +34,7 @@ enquire.register(mediaBreakpoint.down(breakpoints.lg), {
   },
 });
 
+// Export global variables.
 export default {
   GLOBAL_CONSTANT: 'blerp',
   GLOBAL_BREAKPOINTS: breakpoints,
