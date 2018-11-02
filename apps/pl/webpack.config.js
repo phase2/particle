@@ -13,7 +13,7 @@ const particle = require('../../particle');
 // Constants: environment
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 // Constants: root
-const { PATH_DIST } = require('../../config');
+const { PATH_DIST } = require('../../particle.root.config');
 // Constants: app
 const appConfig = require('./particle.app.config');
 

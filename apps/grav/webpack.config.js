@@ -12,7 +12,7 @@ const particle = require('../../particle');
 // Constants: environment
 const { NODE_ENV } = process.env;
 // Constants: root
-const { ASSETS_ATOMIC_FOLDER } = require('../../config');
+const { ASSETS_ATOMIC_FOLDER } = require('../../particle.root.config');
 // Constants: app
 const appConfig = require('./particle.app.config');
 
