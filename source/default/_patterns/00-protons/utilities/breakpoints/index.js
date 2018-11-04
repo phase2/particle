@@ -2,12 +2,20 @@
  * Breakpoints Sass -> DOM
  */
 
-import $ from 'jquery';
 import enquire from 'enquire.js';
 
 import 'protons'; // Guarantees :root CSS variables referenced below
 
+import { sass2Array, cssVars2Obj } from '..';
+
 import './_breakpoints.scss'; // Custom, e.g. --breakpoints: xs, sm, md, lg, xl;
+
+// Constants of design system
+const BP_VAR_NAME = '--breakpoints';
+const BP_PREFIX = '--breakpoint-';
+const replacePrefix = new RegExp(BP_PREFIX, 'g');
+// Prepare a cssVarReader (calls to :root, caches reference)
+const cssVarReader = cssVars2Obj();
 
 // Generate media queries for breakpointing.
 export const mediaBreakpoint = {
@@ -15,26 +23,30 @@ export const mediaBreakpoint = {
   up: breakpoint => `screen and (min-width: ${breakpoint})`,
 };
 
-const $root = $(':root');
-const bpList = $root.css('--breakpoints');
+// Get the string value of the --breakpoints list (first value in object)
+// i.e. " xs, sm, md, lg, xl"
+const bpListString = cssVarReader([BP_VAR_NAME])[BP_VAR_NAME];
+// Transform string to array, i.e. ['xs', 'sm', 'md', 'lg', 'xl']
+const bpListArray = sass2Array(bpListString).map(bp => `${BP_PREFIX}${bp}`);
 
-// Map the breakpoints to the Sass variables also stored in :root
-export const breakpoints = bpList
-  ? bpList
-      // Remove whitespace
-      .replace(/ /g, '')
-      // Split on comma
-      .split(',')
-      // Starting with an empty object (second arg to .reduce()), return a new
-      // object that spreads the prior keys into it plus our new key + value
-      .reduce(
-        (bps, bp) => ({
-          ...bps,
-          [bp]: $root.css(`--breakpoint-${bp}`),
-        }),
-        {}
-      )
-  : {};
+/**
+ * Breakpoint object that looks like:
+ * {
+ *   xs: "0",
+ *   sm: "576px",
+ *   md: "768px",
+ *   lg: "992px",
+ *   xl: "1200px"
+ * }
+ * Requires changing keys from e.g. '--breakpoint-sm' to 'sm'
+ */
+export const breakpoints = Object.entries(cssVarReader(bpListArray)).reduce(
+  (acc, [key, value]) => ({
+    ...acc,
+    [key.replace(replacePrefix, '')]: value,
+  }),
+  {}
+);
 
 /**
  * Provide enquire functions to run at specified breakpoints.
