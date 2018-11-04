@@ -3,6 +3,7 @@ namespaces:
   protons:
     paths:
       - user/themes/particle/source/default/_patterns/00-protons
+      - user/themes/particle/source/default/_patterns/00-protons/utilities
   atoms:
     paths:
       - user/themes/particle/source/default/_patterns/01-atoms
