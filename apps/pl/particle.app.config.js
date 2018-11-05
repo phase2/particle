@@ -4,7 +4,10 @@
 
 const path = require('path');
 
-const { PATH_DIST, ASSETS_BUNDLE_FOLDER } = require('../../particle.root.config');
+const {
+  PATH_DIST,
+  ASSETS_BUNDLE_FOLDER,
+} = require('../../particle.root.config');
 
 // Used as folder name within PATH_DIST, does not have to be folder name of app
 const APP_NAME = 'app-pl';
