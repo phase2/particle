@@ -53,6 +53,7 @@ plugins:
       protons:
         paths:
           - ../../../source/default/_patterns/00-protons
+          - ../../../source/default/_patterns/00-protons/utilities
       atoms:
         paths:
           - ../../../source/default/_patterns/01-atoms
