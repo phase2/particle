@@ -1,3 +1,5 @@
+/* eslint-disable import/no-dynamic-require */
+
 /**
  * Gulp tasks for non-webpack concerns
  * The following tasks do rote work that isn't covered in webpack asset bundling
@@ -5,116 +7,57 @@
 const path = require('path');
 const fs = require('fs');
 const gulp = require('gulp');
+const { argv } = require('yargs');
 
-const {
-  PATH_PL,
-  PATH_DRUPAL,
-  PATH_GRAV,
-  PATH_SOURCE,
-  PATH_DIST,
-  PATH_PATTERNS,
-} = require('./config');
+// Constants: environment
+const { NODE_ENV = 'production' } = process.env;
+// Constants: root
+const { PATH_DIST } = require('./config');
+// Per-app config, sent in via command line args
+const config = require(argv.config);
 
 /**
- * Pattern Lab raw compile function.
+ * Pattern Lab compile config and closure
  */
 // Config: Path to Pattern Lab installation.
-const plPath = path.resolve(PATH_PL, 'pattern-lab');
+const plPath = path.resolve(config.APP_PATH, 'pattern-lab');
 // PL compilation function, loaded up with the the PL path
 const plCompile = require('./tools/tasks/pl-compile')(plPath);
 
 /**
- * Compile Pattern Lab completely.
+ * Pattern Lab compile task
  */
 gulp.task('compile:pl', plCompile);
 
 /**
- * Gulp namespace, ensures that ./apps/pl/pattern-lab/config.yml & ./apps/drupal/themename.info.yml
- * are updated with all pattern namespaces for error-free compiling.
+ * Relative path conversion for all namespaces in design system relative to app,
+ * ie this actual path in a design system:
+ *   /Users/username/dev/particle/source/default/_patterns/01-atoms/card
+ * converts to relative paths, ie
+ *   ../../source/default/_patterns/01-atoms/card
  */
-const twigNamespaces = require('./tools/tasks/gulp-twig-namespaces');
+const { namespaces } = require(path.resolve(
+  config.APP_DESIGN_SYSTEM,
+  'namespaces'
+));
+// Closure the tool with our config, since gulp task sends in callback by default
+const nsWriter = require('./tools/tasks/namespace-writer')(namespaces, config);
 
 /**
- * Gulp needs to work in relative paths, NOT absolute like we've configured in
- * config.js. So convert all absolute config paths, ie
- *   /Users/username/dev/particle/apps/drupal/
- * to relative paths, ie
- *   apps/drupal/
+ * Namespace generation task
  */
-const PATH_PATTERNS_REL = path.relative(__dirname, PATH_PATTERNS);
-const PATH_PL_REL = path.relative(__dirname, PATH_PL);
-const PATH_DRUPAL_REL = path.relative(__dirname, PATH_DRUPAL);
-const PATH_GRAV_REL = path.relative(__dirname, PATH_GRAV);
-
-gulp.task('compile:twig-namespaces', () =>
-  gulp
-    .src(path.join(PATH_PATTERNS_REL, '**/*.twig'))
-    .pipe(
-      twigNamespaces({
-        // Which files to read and overwrite with namespace info
-        outputs: [
-          {
-            // Note: PL will NOT compile unless the namespaces are explicitly declared
-            configFile: path.join(PATH_PL_REL, 'pattern-lab/config/config.yml'),
-            atKey: 'plugins.twigNamespaces.namespaces',
-            transform: folderPath =>
-              path.relative(path.join(PATH_PL_REL, 'pattern-lab/'), folderPath),
-          },
-          {
-            // The component-libraries module wants to know about our namespaces
-            configFile: path.join(PATH_DRUPAL_REL, 'particle.info.yml'),
-            atKey: 'component-libraries',
-            transform: folderPath => path.relative(PATH_DRUPAL_REL, folderPath),
-          },
-          {
-            // The twig-namespaces plugin wants to know about our namespaces
-            configFile: path.join(PATH_GRAV_REL, 'twig-namespaces.yaml'),
-            atKey: 'namespaces',
-            transform: folderPath =>
-              path.join('user/themes/particle/', folderPath),
-          },
-        ],
-        // What are the top-level namespace paths, and which sub paths should we ignore?
-        sets: {
-          protons: {
-            root: path.join(PATH_PATTERNS_REL, '00-protons/'),
-            ignore: '/demo',
-          },
-          atoms: {
-            root: path.join(PATH_PATTERNS_REL, '01-atoms/'),
-            ignore: '/demo',
-          },
-          molecules: {
-            root: path.join(PATH_PATTERNS_REL, '02-molecules/'),
-            ignore: '/demo',
-          },
-          organisms: {
-            root: path.join(PATH_PATTERNS_REL, '03-organisms/'),
-            ignore: '/demo',
-          },
-          templates: {
-            root: path.join(PATH_PATTERNS_REL, '04-templates/'),
-            ignore: '/demo',
-          },
-          pages: {
-            root: path.join(PATH_PATTERNS_REL, '05-pages/'),
-            ignore: '/demo',
-          },
-        },
-      })
-    )
-    .pipe(gulp.dest('./'))
-);
+gulp.task('compile:namespaces', nsWriter);
 
 /**
- * When PL is done compiling do stuff here to notify anything that needs to know. Currently it just
- * writes a file to the root of dist/ so that Webpack can trigger a reload.
+ * When PL is done compiling do stuff here to notify anything that needs to know.
+ * Currently just writes to root of dist/ so that Webpack can trigger a reload.
  */
 gulp.task('compile:pl:notify:post', cb => {
   // Write to dist/ root a file named index.html, casts Date to text, calls callback
   fs.writeFile(
     path.resolve(PATH_DIST, 'index.html'),
-    `<!doctype html><title>Particle</title><a href="/pl">Open Pattern Lab (Last changed: ${+new Date()})</a>`,
+    // prettier-ignore
+    `<!doctype html><title>Particle</title><a href="/${config.APP_NAME}/pl">Open Pattern Lab (Last changed: ${+new Date()})</a>`,
     cb
   );
 });
@@ -123,7 +66,7 @@ gulp.task('compile:pl:notify:post', cb => {
  * Simple notification that PL compile is starting
  */
 gulp.task('compile:pl:notify:pre', cb => {
-  console.info(`\n🚀 Pattern Lab ${process.env.NODE_ENV} build running! 🚀\n`);
+  console.info(`\n🚀 Pattern Lab ${NODE_ENV} build running! 🚀\n`);
   cb();
 });
 
@@ -136,11 +79,9 @@ gulp.task('compile:pl:env', cb => {
   //
   //   NODE_ENV='development' npx gulp compile:pl:env
   //
-  const env = {
-    env: process.env.NODE_ENV ? process.env.NODE_ENV : 'production',
-  };
+  const env = { env: NODE_ENV };
   fs.writeFile(
-    path.resolve(PATH_SOURCE, '_data/', 'env.json'),
+    path.resolve(config.APP_DESIGN_SYSTEM, '_data/', 'env.json'),
     JSON.stringify(env),
     cb
   );
@@ -155,7 +96,7 @@ gulp.task(
   // prettier-ignore
   gulp.series([
     'compile:pl:notify:pre',
-    'compile:twig-namespaces',
+    'compile:namespaces',
     'compile:pl',
     'compile:pl:notify:post',
   ])

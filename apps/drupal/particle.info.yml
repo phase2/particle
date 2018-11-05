@@ -23,41 +23,41 @@ regions:
 component-libraries:
   protons:
     paths:
-      - ../../source/_patterns/00-protons
+      - ../../source/default/_patterns/00-protons
   atoms:
     paths:
-      - ../../source/_patterns/01-atoms
-      - ../../source/_patterns/01-atoms/alert
-      - ../../source/_patterns/01-atoms/badge
-      - ../../source/_patterns/01-atoms/branding
-      - ../../source/_patterns/01-atoms/breadcrumb
-      - ../../source/_patterns/01-atoms/button
-      - ../../source/_patterns/01-atoms/dropdown
-      - ../../source/_patterns/01-atoms/grid
-      - ../../source/_patterns/01-atoms/image
-      - ../../source/_patterns/01-atoms/list-group
-      - ../../source/_patterns/01-atoms/svgicon
+      - ../../source/default/_patterns/01-atoms
+      - ../../source/default/_patterns/01-atoms/alert
+      - ../../source/default/_patterns/01-atoms/badge
+      - ../../source/default/_patterns/01-atoms/branding
+      - ../../source/default/_patterns/01-atoms/breadcrumb
+      - ../../source/default/_patterns/01-atoms/button
+      - ../../source/default/_patterns/01-atoms/dropdown
+      - ../../source/default/_patterns/01-atoms/grid
+      - ../../source/default/_patterns/01-atoms/image
+      - ../../source/default/_patterns/01-atoms/list-group
+      - ../../source/default/_patterns/01-atoms/svgicon
   molecules:
     paths:
-      - ../../source/_patterns/02-molecules
-      - ../../source/_patterns/02-molecules/card
-      - ../../source/_patterns/02-molecules/carousel
-      - ../../source/_patterns/02-molecules/jumbotron
-      - ../../source/_patterns/02-molecules/nav
-      - ../../source/_patterns/02-molecules/pagination
-      - ../../source/_patterns/02-molecules/vue-widget
+      - ../../source/default/_patterns/02-molecules
+      - ../../source/default/_patterns/02-molecules/card
+      - ../../source/default/_patterns/02-molecules/carousel
+      - ../../source/default/_patterns/02-molecules/jumbotron
+      - ../../source/default/_patterns/02-molecules/nav
+      - ../../source/default/_patterns/02-molecules/pagination
+      - ../../source/default/_patterns/02-molecules/vue-widget
   organisms:
     paths:
-      - ../../source/_patterns/03-organisms
-      - ../../source/_patterns/03-organisms/accordion
-      - ../../source/_patterns/03-organisms/article
-      - ../../source/_patterns/03-organisms/card-grid
-      - ../../source/_patterns/03-organisms/footer
-      - ../../source/_patterns/03-organisms/navbar
+      - ../../source/default/_patterns/03-organisms
+      - ../../source/default/_patterns/03-organisms/accordion
+      - ../../source/default/_patterns/03-organisms/article
+      - ../../source/default/_patterns/03-organisms/card-grid
+      - ../../source/default/_patterns/03-organisms/footer
+      - ../../source/default/_patterns/03-organisms/navbar
   templates:
     paths:
-      - ../../source/_patterns/04-templates
-      - ../../source/_patterns/04-templates/basic-page
+      - ../../source/default/_patterns/04-templates
+      - ../../source/default/_patterns/04-templates/basic-page
   pages:
     paths:
-      - ../../source/_patterns/05-pages
+      - ../../source/default/_patterns/05-pages

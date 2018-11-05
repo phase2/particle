@@ -27,11 +27,4 @@ module.exports = {
     'no-console': [0], // turned off for now while we are console.logging everywhere.
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: 'webpack.particle.js',
-      },
-    },
-  },
 };

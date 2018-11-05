@@ -6,7 +6,6 @@
  */
 
 // Library Imports
-const path = require('path');
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
 
 // Loaders
@@ -15,19 +14,18 @@ const cssnano = require('cssnano');
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // Constants
 // NODE_ENV is set within all NPM scripts before running Webpack, eg:
 //
-//  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.pl.js --hot",
+//  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.config.js --hot",
 //
 // NODE_ENV is either:
 // - development
 // - production
-const { NODE_ENV } = process.env;
-const { PATH_PATTERNS, PATH_DIST } = require('./config');
+// Defaults to 'production'
+const { NODE_ENV = 'production' } = process.env;
 
 // Enable to track down deprecation during development
 // process.traceDeprecation = true;
@@ -37,8 +35,6 @@ module.exports = {
   mode: NODE_ENV, // development|production
   output: {
     filename: '[name].js',
-    path: path.resolve(PATH_DIST, 'assets/'),
-    publicPath: '/assets/',
   },
   devtool: NODE_ENV === 'development' ? 'eval' : 'source-map',
   module: {
@@ -85,9 +81,6 @@ module.exports = {
               // ALL Sass partials should be provided with non-printing
               // variables, mixins, and functions
               data: '@import "00-protons/variables";',
-              // Enable Sass to import other components via, eg:
-              // `@import 01-atoms/thing/thing`
-              includePaths: [PATH_PATTERNS],
             },
           },
         ],
@@ -145,26 +138,7 @@ module.exports = {
     }),
     // Yell at us while writing Sass
     new StyleLintPlugin(),
-    // Sprite system options
-    new SVGSpritemapPlugin(
-      path.resolve(PATH_PATTERNS, '01-atoms/svgicon/svg/**/*.svg'),
-      {
-        styles: {
-          filename: path.resolve(
-            PATH_PATTERNS,
-            '01-atoms/svgicon/scss/_icons-generated.scss'
-          ),
-          variables: {
-            sizes: 'svgicon-sizes', // Prevent collision with Bootstrap $sizes
-            variables: 'svgicon-variables',
-          },
-        },
-        output: {
-          svg4everybody: true,
-          svgo: true,
-        },
-      }
-    ),
+    // Handle .vue files
     new VueLoaderPlugin(),
   ],
   resolve: {
@@ -174,14 +148,6 @@ module.exports = {
       // template compiling engine. If we are on a build that will NEVER read
       // HTML from the DOM and use it as a template, then remove this line.
       vue$: 'vue/dist/vue.esm.js',
-      // Shorthand to import modules, i.e. `import thing from 'atoms/thing';`
-      // @TODO: We should probably prefix these with a symbol.
-      protons: path.resolve(PATH_PATTERNS, '00-protons/'),
-      atoms: path.resolve(PATH_PATTERNS, '01-atoms/'),
-      molecules: path.resolve(PATH_PATTERNS, '02-molecules/'),
-      organisms: path.resolve(PATH_PATTERNS, '03-organisms/'),
-      templates: path.resolve(PATH_PATTERNS, '04-templates/'),
-      pages: path.resolve(PATH_PATTERNS, '05-pages/'),
     },
   },
 };

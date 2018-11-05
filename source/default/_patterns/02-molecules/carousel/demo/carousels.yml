@@ -1,0 +1,46 @@
+carousel_1:
+  carousel_images:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+
+carousel_2:
+  carousel_controls: TRUE
+  carousel_images:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+
+carousel_3:
+  carousel_controls: TRUE
+  carousel_indicators:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+  carousel_images:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+
+carousel_4:
+  carousel_controls: TRUE
+  carousel_caption: TRUE
+  carousel_indicators:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+  carousel_images:
+    - active: TRUE
+      caption_title: 'First slide label'
+      caption_body: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    - active: FALSE
+      caption_title: 'Second slide label'
+      caption_body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    - active: FALSE
+      caption_title: 'Third slide label'
+      caption_body: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+
+alert:
+  type: 'info'
+  alert_title: 'Carousel in Pattern Lab'
+  alert_primary: 'Please note that clicking carousel control arrows skips page down to that element due to the Pattern Lab iFrame. To see the Carousel outside of the iFrame, either click the gear icon at the top right of the page and select "Open in New Window" or right-click the control and select "open in new tab."'

@@ -1,0 +1,30 @@
+navbar_helper: Documentation and examples for Bootstrap's powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse plugin.
+
+navbar_other_classes:
+  - navbar-expand-lg
+  - navbar-light
+  - bg-light
+navbar_brand_link: #
+navbar_brand_text: Navbar
+navbar_id: navbarSupportedContent
+
+navbar_items:
+  - nav_item_text: Home
+    nav_item_link_classes: active
+  - nav_item_dropdown: true
+    buttonless_dropdown: true
+    dropdown_text: Dropdown
+    unique_classes: nav-link
+    unique_attributes: href="#"
+    button_element: a
+    dropdown_element: li
+    dropdown_other_classes: nav-item
+    dropdown_menu_items:
+      - dropdown_menu_item_text: Action
+      - dropdown_menu_item_text: Another Action
+      - dropdown_menu_item_text: Something else here
+  - nav_item_text: Link
+    nav_item_link_classes: []
+  - nav_item_text: Disabled
+    nav_item_link_classes:
+      - disabled
