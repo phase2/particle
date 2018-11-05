@@ -12,7 +12,7 @@ const { argv } = require('yargs');
 // Constants: environment
 const { NODE_ENV = 'production' } = process.env;
 // Constants: root
-const { PATH_DIST } = require('./config');
+const { PATH_DIST } = require('./particle.root.config');
 // Per-app config, sent in via command line args
 const config = require(argv.config);
 
