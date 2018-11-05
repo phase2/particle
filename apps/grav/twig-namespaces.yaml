@@ -3,6 +3,7 @@ namespaces:
   protons:
     paths:
       - user/themes/particle/dist/app-grav/assets/atomic/_patterns/00-protons
+      - user/themes/particle/dist/app-grav/assets/atomic/_patterns/00-protons/utilities
   atoms:
     paths:
       - user/themes/particle/dist/app-grav/assets/atomic/_patterns/01-atoms

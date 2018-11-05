@@ -24,6 +24,7 @@ component-libraries:
   protons:
     paths:
       - ../../dist/app-drupal/assets/atomic/_patterns/00-protons
+      - ../../dist/app-drupal/assets/atomic/_patterns/00-protons/utilities
   atoms:
     paths:
       - ../../dist/app-drupal/assets/atomic/_patterns/01-atoms
