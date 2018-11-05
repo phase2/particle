@@ -4,6 +4,7 @@
 
 const {
   patternPaths,
+  // eslint-disable-next-line import/no-unresolved
 } = require('../dist/app-pl/pl/styleguide/data/patternlab-data.json');
 
 // Shape of data:

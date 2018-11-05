@@ -13,7 +13,7 @@
 		<!-- End Pattern Lab -->
 
     {% if env == 'production' %}
-    <link rel="stylesheet" href="{{ paths.assets }}/app.styles.css?cacheBuster={{ randomNumber }}">
+    <link rel="stylesheet" href="{{ paths.assets }}/app.styles.css?cacheBuster={{ random() }}">
     {% endif %}
 
 		<style>
