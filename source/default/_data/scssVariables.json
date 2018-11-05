@@ -19,9 +19,9 @@
     "xl": "1200px"
   },
   "scssSpacing": {
-    "s": "5px",
-    "m": "25px",
-    "l": "50px"
+    "s": "rem-calc(5px)",
+    "m": "rem-calc(25px)",
+    "l": "rem-calc(50px)"
   },
   "fontFamilies": {
     "$font-family-base": [

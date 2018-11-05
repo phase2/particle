@@ -16,7 +16,8 @@ $btn-border-radius: 0.25rem;
 // Cards
 $card-border-width: rem-calc(1px);
 
-// Bootstrap non-printing tools. DO NOT REMOVE.
+// Bootstrap non-printing tools. DO NOT REMOVE, because Sass overrides must be
+// defined BEFORE the !default values are.
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
