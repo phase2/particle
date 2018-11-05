@@ -21,7 +21,7 @@
   {#
     The form below is one way to have a view component. Note that it relies on ./demo/index.js to function.
   #}
-  <form id="vue-html-example-1" class="p-5">
+  <form id="vue-html-example-1" onsubmit="return false" class="p-5">
     <label for="vue-html-example-1-input">Send some text to space!</label>
     <div class="input-group">
       <div class="input-group-prepend">
@@ -31,7 +31,7 @@
       <div class="input-group-append">
         <button
           class="btn btn-outline-primary"
-          type="button"
+          type="submit"
           @click="toSpace(name)"
         >🚀 Send to space
         </button>
