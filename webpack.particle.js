@@ -16,7 +16,7 @@ const cssnano = require('cssnano');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-// Constants
+// Constants: environment
 // NODE_ENV is set within all NPM scripts before running Webpack, eg:
 //
 //  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.config.js --hot",

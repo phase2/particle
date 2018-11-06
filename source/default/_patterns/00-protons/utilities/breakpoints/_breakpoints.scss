@@ -1,0 +1,4 @@
+// Assign breakpoints to --variable at root for reference by Enquire breakpoints.
+:root {
+  --breakpoints: #{map-keys($grid-breakpoints)};
+}

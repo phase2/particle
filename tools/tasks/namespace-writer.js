@@ -43,7 +43,7 @@ module.exports = function namespaceWriter(namespaces, config) {
       // Write to fs
       return fs.writeFile(
         config.namespaces.config,
-        yaml.safeDump(appConfig),
+        yaml.safeDump(appConfig, { lineWidth: Infinity }),
         'utf8',
         writeErr => {
           if (writeErr) {

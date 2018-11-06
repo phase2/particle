@@ -4,7 +4,7 @@ const { readdirSync, statSync } = require('fs');
 const Generator = require('yeoman-generator');
 const { camelCase } = require('lodash');
 
-let { PATH_SOURCE: componentPath } = require('../../config');
+let { PATH_SOURCE: componentPath } = require('../../particle.root.config');
 
 const patternFeatures = ['twig', 'scss', 'js', 'demo'];
 const prompts = [
