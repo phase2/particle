@@ -17,14 +17,17 @@
 //
 
 // Custom non-printing tools
-@import 'non-printing/functions';
 @import 'non-printing/colors';
-@import 'non-printing/mixins';
 @import 'non-printing/type';
 @import 'non-printing/spacing';
 
-// Bootstrap non-printing overrides
+// Bootstrap non-printing overrides.
 @import 'non-printing/bootstrap-overrides';
+
+// Other functions and mixins must go after bootstrap-overrides to use the
+// variables defined therein.
+@import 'non-printing/mixins';
+@import 'non-printing/functions';
 
 // Generated SVG icons and sprite mixins
 @import '01-atoms/svgicon/scss/_icons-generated';
