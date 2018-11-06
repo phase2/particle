@@ -1,6 +1,7 @@
 <template>
   <form 
-    id="vue-html-example-2" 
+    id="vue-html-example-2"
+    onsubmit="return false"
     class="p-5"
   >
     <label for="vue-html-example-2-input">Send some text to space!</label>
@@ -18,7 +19,7 @@
       <div class="input-group-append">
         <button
           class="btn btn-outline-primary"
-          type="button"
+          type="submit"
           @click="toSpace(name)"
         >🚀 Send to space
         </button>

@@ -33,7 +33,9 @@
 <div class="{{ alert_classes }}" {{ alert_degree }}>
   {% block alert_header %}
     <a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">&times;</span></a>
-    <h4 class="alert-heading">{{ alert_title }}</h4>
+    {% if alert_title %}
+      <h4 class="alert-heading">{{ alert_title }}</h4>
+    {% endif %}
   {% endblock alert_header %}
   {% block alert_content %}
     <p>{{ alert_primary }}</p>
