@@ -2,7 +2,7 @@
 
 [![GitHub (pre-)release](https://img.shields.io/github/release/phase2/particle/all.svg)](https://github.com/phase2/particle/releases) [![Build Status](https://travis-ci.org/phase2/particle.svg?branch=master)](https://travis-ci.org/phase2/particle) [![Greenkeeper badge](https://badges.greenkeeper.io/phase2/particle.svg)](https://greenkeeper.io/)
 
-![Particle mascot: Astrogoat](source/_patterns/01-atoms/image/demo/astrogoat.png?raw=true 'Astrogoat')
+![Particle mascot: Astrogoat](source/default/_patterns/01-atoms/image/demo/astrogoat.png?raw=true 'Astrogoat')
 
 Particle is an opinionated set of tools and examples to:
 
