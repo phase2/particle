@@ -1,7 +1,17 @@
+# Files produced by bad patch & diff runs
+*~*~
+*.rej
+*.diff
+*.orig
+interdiff*.txt
+
 # Compiled files
 dist/
 env.json
 _icons-generated.scss
+
+# Build output
+/build
 
 # OS generated files
 *.swp
@@ -19,7 +29,20 @@ vendor
 .eslintcache
 *unison.*
 
-#IDE plugins
+# Site Content
+/src/sites/*/files
+
+# Local Settings
+/src/sites/default/services.local.yml
+/src/sites/default/settings.local.php
+
+# IDE artifacts
+*~
+\#*\#
+*.swp
+.DS*
+._.DS*
+.project
 .idea
 
 # Errors

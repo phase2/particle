@@ -1,26 +1,131 @@
 {
-    "name": "phase2/particle",
-    "description": "A system of tools to build design systems in Pattern Lab for Drupal and Grav.",
-    "type": "drupal-custom-theme",
-    "license": "GPL-2.0",
-    "homepage": "https://github.com/phase2/particle",
-    "authors": [
-        {
-            "name": "Christopher Bloom (illepic)",
-            "email": "bloomcb@gmail.com"
+    "name": "phase2/octane",
+    "description": "Template for Drupal 8 sites built using the Octane distribution.",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "dev": {
+            "type": "github",
+            "url": "https://github.com/phase2/octane-dev"
         }
-    ],
-    "require": {
-        "asm89/twig-lint": "^1.0"
     },
-    "support": {
-        "docs": "https://phase2.github.io/frontend-docs/",
-        "issues": "https://github.com/phase2/particle/issues",
-        "source": "https://github.com/phase2/particle/tree/master"
+    "require-dev": {
+        "asm89/twig-lint": "^1.0",
+        "behat/behat": "^3.0",
+        "behat/mink": "1.7.x-dev",
+        "behat/mink-goutte-driver": "^1.2",
+        "behat/mink-selenium2-driver": "1.3.x-dev",
+        "behat/mink-zombie-driver": "^1.2",
+        "dmore/behat-chrome-extension": "^1.1",
+        "drupal/coder": "^8.2.12",
+        "drupal/console": "^1.8",
+        "drupal/devel": "^1.0",
+        "drupal/drupal-extension": "^3.4.0",
+        "drush/drush": "^9",
+        "jcalderonzumba/gastonjs": "^1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
+        "mikey179/vfsStream": "^1.2",
+        "phpunit/phpunit": "^6.5",
+        "phpmd/phpmd": "^2.1",
+        "phpspec/prophecy": "^1.4",
+        "se/selenium-server-standalone": "^2.53",
+        "symfony/css-selector": "^3.4.0",
+        "symfony/phpunit-bridge": "^3.4.3",
+        "symfony/debug": "^3.4.0"
+    },
+    "require": {
+        "acquia/lightning": "^4.0@alpha",
+        "composer/installers": "^1.0",
+        "cweagans/composer-patches": "^1.6",
+        "drupal-composer/drupal-scaffold": "^2.0.0",
+        "drupal/chosen": "^2.4",
+        "drupal/components": "^1.0",
+        "drupal/config_split": "^1.1",
+        "drupal/field_group": "^1.0",
+        "drupal/paragraphs": "^1.2",
+        "drupal/redirect": "^1.0@beta",
+        "drupal/restui": "^1.0",
+        "drupal/search_api_solr": "^2.1",
+        "drupal/twig_extender": "^2.0",
+        "drupal/twig_field_value": "^1.1",
+        "drupal/twig_tweak": "^1.9",
+        "harvesthq/chosen": "^1.7",
+        "kporras07/composer-symlinks": "^0.1.0@dev",
+        "roave/security-advisories": "dev-master"
     },
     "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "project-scaffold": [
+            "Kporras07\\ComposerSymlinks\\ScriptHandler::createSymlinks"
+        ],
+        "post-install-cmd": [
+            "@project-scaffold",
+            "@drupal-scaffold"
+        ],
+        "post-update-cmd": [
+            "@project-scaffold",
+            "@drupal-scaffold"
+        ],
         "twig-lint": [
             "twig-lint --ansi"
         ]
+    },
+    "extra": {
+        "enable-patching": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/core": {
+                "2699157 - Plugin Lazy loading can cause usort warning": "https://www.drupal.org/files/issues/2699157-23.drupal.Plugin-Lazy-loading-can-cause-usort-warning.patch",
+                "2759397 - Patch EntityReferenceItemNormalizer to prevent recursion": "https://www.drupal.org/files/issues/2759397-1-entity_reference_recursion.patch",
+                "2679775 - Fixes float issue with inline label fields (entity references on most cases).": "https://www.drupal.org/files/issues/2679775-11-inline-labels.patch"
+            }
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "build/html/core": [
+                "type:drupal-core"
+            ],
+            "build/html/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "build/html/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "build/html/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "src/themes/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "build/html/drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
+        },
+        "symlinks": {
+            "src/modules": "build/html/modules/custom",
+            "src/themes": "build/html/themes/custom",
+            "src/profiles": "build/html/profiles/custom",
+            "src/libraries": "build/html/libraries/custom",
+            "src/sites/default": "build/html/sites/default",
+            "src/sites/settings.common.php": "build/html/sites/settings.common.php",
+            "src/sites/settings.common-client.php": "build/html/sites/settings.common-client.php",
+            "src/sites/settings.common-local.php": "build/html/sites/settings.common-local.php",
+            "src/sites/settings.memcache.php": "build/html/sites/settings.memcache.php"
+        }
     }
 }

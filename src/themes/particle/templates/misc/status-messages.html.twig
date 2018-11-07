@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * Theme override for status messages.
+ *
+ * Displays status, error, and warning messages, grouped by type.
+ *
+ * An invisible heading identifies the messages for assistive technology.
+ * Sighted users see a colored box. See http://www.w3.org/TR/WCAG-TECHS/H69.html
+ * for info.
+ *
+ * Add an ARIA label to the contentinfo area so that assistive technology
+ * user agents will better describe this landmark.
+ *
+ * Available variables:
+ * - message_list: List of messages to be displayed, grouped by type.
+ * - status_headings: List of all status types.
+ * - display: (optional) May have a value of 'status' or 'error' when only
+ *   displaying messages of that specific type.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ */
+#}
+
+{% set status_heading = {
+  'status': 'Status message'|t,
+  'error': 'Error message'|t,
+  'warning': 'Warning message'|t,
+  'info': 'Informative message'|t,
+  }
+%}
+
+{% for type, messages in message_list %}
+
+  <div role="contentinfo" aria-label="{{ status_heading[type] }}"{{ attributes|without('role', 'aria-label') }}>
+    {% embed '@atoms/alert/_alert.twig' %}
+      {% block alert_header %}
+        <a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">&times;</span></a>
+        {% if status_headings[type] %}
+          <h2 class="sr-only">{{ status_headings[type] }}</h2>
+        {% endif %}
+      {% endblock alert_header %}
+      {% block alert_content %}
+        {% if messages|length > 1 %}
+          {% for message in messages %}
+            <div>{{ message }}</div>
+          {% endfor %}
+        {% else %}
+          <div>{{ messages|first }}</div>
+        {% endif %}
+      {% endblock alert_content %}
+      {% block alert_footer %}
+      {% endblock alert_footer %}
+    {% endembed %}
+  </div>
+{% endfor %}

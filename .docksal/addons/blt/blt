@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Run a BLT command inside the cli container.
+##
+## Usage: fin blt [command]
+
+fin exec /var/www/vendor/bin/blt "$@"

@@ -1,0 +1,43 @@
+version: '2.1'
+services:
+  cli:
+    labels:
+      # Set host and port of CLI container for Pattern Lab.
+      - io.docksal.virtual-host=design.${VIRTUAL_HOST}
+      - io.docksal.virtual-port=8080
+    expose:
+      - "8080"
+    environment:
+      # Include the DOCKER_ENV so Drupal settings can be aware of environment.
+      DOCKER_ENV: ${DOCKER_ENV}
+      # Adjust IDE Config for xdebug to work on command line PHP scripts.
+      PHP_IDE_CONFIG: serverName=${VIRTUAL_HOST}
+
+  web:
+    environment:
+      # Include the DOCKER_ENV so Drupal settings can be aware of environment.
+      DOCKER_ENV: ${DOCKER_ENV}
+
+  db:
+    environment:
+      # override the default database name
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+
+# Optional Memcached service.
+# Uncomment if needed (or replace with Redis)
+# Requires installing the memcache module for Drupal,
+# then edit src/sites/settings.common.php to enable memcache config.
+#  memcached:
+#    extends:
+#      file: ${HOME}/.docksal/stacks/services.yml
+#        service: memcached
+#    command: ["-m", "256"]
+
+# Optional mailhog service for local dev.
+# Uncomment if needed.
+#  mail:
+#    extends:
+#      file: ${HOME}/.docksal/stacks/services.yml
+#      service: mail

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Causes this script to run inside the docksal cli container.
+#: exec_target = cli
+
+bin/rebuild.sh

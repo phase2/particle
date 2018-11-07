@@ -1,0 +1,64 @@
+name: Particle
+type: theme
+description: A Theme with Pattern Lab
+base theme: stable
+core: 8.x
+libraries:
+  - particle/core
+libraries-override:
+  core/jquery: particle/jquery
+regions:
+  primary_menu: Primary menu
+  highlighted: Highlighted
+  header_branding: Header branding
+  header_cta: Header CTA
+  secondary_menu: Secondary menu
+  page_top: Page top
+  page_bottom: Page bottom
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: Sidebar first
+  sidebar_second: Sidebar second
+  footer: Footer
+component-libraries:
+  protons:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/00-protons
+      - ../../../dist/app-drupal/assets/atomic/_patterns/00-protons/utilities
+  atoms:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/alert
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/badge
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/branding
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/breadcrumb
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/button
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/dropdown
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/grid
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/image
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/list-group
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms/svgicon
+  molecules:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules/card
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules/carousel
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules/jumbotron
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules/nav
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules/pagination
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules/vue-widget
+  organisms:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms
+      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms/accordion
+      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms/article
+      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms/card-grid
+      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms/footer
+      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms/navbar
+  templates:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/04-templates
+      - ../../../dist/app-drupal/assets/atomic/_patterns/04-templates/basic-page
+  pages:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/05-pages
