@@ -31,6 +31,7 @@ vendor
 
 # Site Content
 /src/sites/*/files
+/src/sites/default/default.*
 
 # Local Settings
 /src/sites/default/services.local.yml
