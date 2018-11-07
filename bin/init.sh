@@ -22,9 +22,12 @@ if [ -z "$PROFILE" ]; then
   PROFILE="lightning"
 fi
 
-# Install project requirements.
+# Install project php-based dependencies.
 composer clear-cache
 COMPOSER_PROCESS_TIMEOUT=2000 COMPOSER_DISCARD_CHANGES=1 composer install
+
+# Install project node-based dependencies
+npm install
 
 # Install Drupal site
 if [ -e "src/config/default/system.site.yml" ]; then
