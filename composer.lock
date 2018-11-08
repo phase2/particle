@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b25ea607420c9347bdd7e9a104b9948",
+    "content-hash": "ad5fdfad01d06e40c7b8a0663a3b9571",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -699,20 +699,20 @@
         },
         {
             "name": "doctrine/collections",
-            "version": "v1.5.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "a01ee38fcd999f34d9bfbcee59dbda5105449cbf"
+                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/a01ee38fcd999f34d9bfbcee59dbda5105449cbf",
-                "reference": "a01ee38fcd999f34d9bfbcee59dbda5105449cbf",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/1a4fb7e902202c33cce8c55989b945612943c2ba",
+                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "~0.1@dev",
@@ -762,7 +762,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2017-07-22T10:37:32+00:00"
+            "time": "2017-01-03T10:49:41+00:00"
         },
         {
             "name": "doctrine/common",
@@ -2142,6 +2142,8 @@
                     "2679775 - Fixes float issue with inline label fields (entity references on most cases).": "https://www.drupal.org/files/issues/2679775-11-inline-labels.patch",
                     "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
                     "2885441 - EntityReferenceAutocompleteWidget should define its size setting as an integer": "https://www.drupal.org/files/issues/2885441-2.patch",
+                    "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2018-09-24/2815221-109.patch",
+                    "1356276 - Allow profiles to define a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/2018-10-12/1356276-531.patch",
                     "2914389 - Allow profiles to exclude dependencies of their parent": "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch",
                     "2952390 - Off-canvas styles override CKEditor's reset and theme": "https://www.drupal.org/files/issues/2018-08-16/2952390-53.patch",
                     "2955065 - Customized layout does not display for node with customizations enabled when using full content view mode": "https://www.drupal.org/files/issues/2018-07-27/2955065-17.patch",
@@ -3391,30 +3393,30 @@
         },
         {
             "name": "drupal/lightning_core",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/lightning_core",
-                "reference": "8.x-3.2"
+                "reference": "8.x-3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/lightning_core-8.x-3.2.zip",
-                "reference": "8.x-3.2",
-                "shasum": "f818791a68e72112d5af06db8311f49108ad06df"
+                "url": "https://ftp.drupal.org/files/projects/lightning_core-8.x-3.3.zip",
+                "reference": "8.x-3.3",
+                "shasum": "a8c73162fe3f9379e3f685273f518cf44b3bbc34"
             },
             "require": {
                 "cweagans/composer-patches": "^1.6.4",
                 "drupal-composer/drupal-scaffold": "^2.0.0",
                 "drupal/acquia_connector": "^1.1",
                 "drupal/contact_storage": "^1.0",
-                "drupal/core": "~8.6.2",
+                "drupal/core": "~8.6.3",
                 "drupal/metatag": "^1.0",
                 "drupal/pathauto": "^1.3",
                 "drupal/search_api": "^1.0",
                 "drupal/token": "^1.0",
                 "oomphinc/composer-installers-extender": "^1.1",
-                "phpdocumentor/reflection-docblock": "^3.0|^4.0"
+                "phpdocumentor/reflection-docblock": "^3.0 || ^4.0"
             },
             "conflict": {
                 "drupal/drupal-extension": "<3.4.0"
@@ -3432,17 +3434,19 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.2",
-                    "datestamp": "1539817084",
+                    "version": "8.x-3.3",
+                    "datestamp": "1541623381",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
                 },
-                "installer-types": [
-                    "bower-asset",
-                    "npm-asset"
-                ],
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                },
+                "enable-patching": true,
                 "installer-paths": {
                     "docroot/core": [
                         "type:drupal-core"
@@ -3462,26 +3466,27 @@
                         "type:drupal-theme"
                     ]
                 },
+                "installer-types": [
+                    "bower-asset",
+                    "npm-asset"
+                ],
                 "patches": {
                     "drupal/core": {
                         "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
                         "2885441 - EntityReferenceAutocompleteWidget should define its size setting as an integer": "https://www.drupal.org/files/issues/2885441-2.patch",
-                        "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2018-10-17/2815221-reroll-8.6.1.patch",
-                        "1356276 - Allow profiles to define a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/2018-10-05/1356276-515.patch",
+                        "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2018-09-24/2815221-109.patch",
+                        "1356276 - Allow profiles to define a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/2018-10-12/1356276-531.patch",
                         "2914389 - Allow profiles to exclude dependencies of their parent": "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
                     }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^9"
-                    }
-                },
-                "enable-patching": true
+                }
             },
             "autoload": {
                 "classmap": [
                     "tests/contexts/AwaitTrait.inc"
-                ]
+                ],
+                "psr-4": {
+                    "Drupal\\Tests\\lightning_core\\": "tests/src"
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "scripts": {
@@ -3507,7 +3512,7 @@
                 ]
             },
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -9073,41 +9078,39 @@
     "packages-dev": [
         {
             "name": "alchemy/zippy",
-            "version": "0.4.3",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alchemy-fr/Zippy.git",
-                "reference": "5ffdc93de0af2770d396bf433d8b2667c77277ea"
+                "reference": "92c773f7bbe47fdb30c61dbaea3dcbf4dd13a40a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alchemy-fr/Zippy/zipball/5ffdc93de0af2770d396bf433d8b2667c77277ea",
-                "reference": "5ffdc93de0af2770d396bf433d8b2667c77277ea",
+                "url": "https://api.github.com/repos/alchemy-fr/Zippy/zipball/92c773f7bbe47fdb30c61dbaea3dcbf4dd13a40a",
+                "reference": "92c773f7bbe47fdb30c61dbaea3dcbf4dd13a40a",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "~1.0",
                 "ext-mbstring": "*",
-                "php": ">=5.5",
+                "php": ">=5.3.3",
                 "symfony/filesystem": "^2.0.5|^3.0",
                 "symfony/process": "^2.1|^3.0"
             },
             "require-dev": {
                 "ext-zip": "*",
                 "guzzle/guzzle": "~3.0",
-                "guzzlehttp/guzzle": "^6.0",
                 "phpunit/phpunit": "^4.0|^5.0",
                 "symfony/finder": "^2.0.5|^3.0"
             },
             "suggest": {
                 "ext-zip": "To use the ZipExtensionAdapter",
-                "guzzle/guzzle": "To use the GuzzleTeleporter with Guzzle 3",
-                "guzzlehttp/guzzle": "To use the GuzzleTeleporter with Guzzle 6"
+                "guzzle/guzzle": "To use the GuzzleTeleporter"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.4.x-dev"
+                    "dev-master": "0.2.x-dev"
                 }
             },
             "autoload": {
@@ -9133,7 +9136,7 @@
                 "tar",
                 "zip"
             ],
-            "time": "2016-11-03T16:10:31+00:00"
+            "time": "2016-02-15T22:46:40+00:00"
         },
         {
             "name": "asm89/twig-lint",
@@ -9185,6 +9188,45 @@
                 "twig"
             ],
             "time": "2016-07-25T21:02:13+00:00"
+        },
+        {
+            "name": "basaltinc/twig-tools",
+            "version": "v1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/basaltinc/twig-tools.git",
+                "reference": "06d174c63aa0b2bfbc0aad2887349e11f9a60ef8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/basaltinc/twig-tools/zipball/06d174c63aa0b2bfbc0aad2887349e11f9a60ef8",
+                "reference": "06d174c63aa0b2bfbc0aad2887349e11f9a60ef8",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "^1.7",
+                "justinrainbow/json-schema": "^5.2",
+                "symfony/yaml": "^3.2",
+                "twig/twig": "^1.0",
+                "webmozart/path-util": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BasaltInc\\TwigTools\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evan Lovely",
+                    "email": "evanlovely@gmail.com"
+                }
+            ],
+            "time": "2018-08-30T21:00:44+00:00"
         },
         {
             "name": "behat/behat",
@@ -10194,66 +10236,6 @@
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
-            "name": "dflydev/dot-access-configuration",
-            "version": "v1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dflydev/dflydev-dot-access-configuration.git",
-                "reference": "2e6eb0c8b8830b26bb23defcfc38d4276508fc49"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-dot-access-configuration/zipball/2e6eb0c8b8830b26bb23defcfc38d4276508fc49",
-                "reference": "2e6eb0c8b8830b26bb23defcfc38d4276508fc49",
-                "shasum": ""
-            },
-            "require": {
-                "dflydev/dot-access-data": "1.*",
-                "dflydev/placeholder-resolver": "1.*",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "symfony/yaml": "~2.1"
-            },
-            "suggest": {
-                "symfony/yaml": "Required for using the YAML Configuration Builders"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Dflydev\\DotAccessConfiguration": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dragonfly Development Inc.",
-                    "email": "info@dflydev.com",
-                    "homepage": "http://dflydev.com"
-                },
-                {
-                    "name": "Beau Simensen",
-                    "email": "beau@dflydev.com",
-                    "homepage": "http://beausimensen.com"
-                }
-            ],
-            "description": "Given a deep data structure representing a configuration, access configuration by dot notation.",
-            "homepage": "https://github.com/dflydev/dflydev-dot-access-configuration",
-            "keywords": [
-                "config",
-                "configuration"
-            ],
-            "time": "2018-09-08T23:00:17+00:00"
-        },
-        {
             "name": "dflydev/dot-access-data",
             "version": "v1.1.0",
             "source": {
@@ -10311,58 +10293,6 @@
                 "notation"
             ],
             "time": "2017-01-20T21:14:22+00:00"
-        },
-        {
-            "name": "dflydev/placeholder-resolver",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dflydev/dflydev-placeholder-resolver.git",
-                "reference": "c498d0cae91b1bb36cc7d60906dab8e62bb7c356"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-placeholder-resolver/zipball/c498d0cae91b1bb36cc7d60906dab8e62bb7c356",
-                "reference": "c498d0cae91b1bb36cc7d60906dab8e62bb7c356",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Dflydev\\PlaceholderResolver": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dragonfly Development Inc.",
-                    "email": "info@dflydev.com",
-                    "homepage": "http://dflydev.com"
-                },
-                {
-                    "name": "Beau Simensen",
-                    "email": "beau@dflydev.com",
-                    "homepage": "http://beausimensen.com"
-                }
-            ],
-            "description": "Given a data source representing key => value pairs, resolve placeholders like ${foo.bar} to the value associated with the 'foo.bar' key in the data source.",
-            "homepage": "https://github.com/dflydev/dflydev-placeholder-resolver",
-            "keywords": [
-                "placeholder",
-                "resolver"
-            ],
-            "time": "2012-10-28T21:08:28+00:00"
         },
         {
             "name": "dmore/behat-chrome-extension",
@@ -10584,262 +10514,6 @@
             "time": "2018-09-21T14:22:49+00:00"
         },
         {
-            "name": "drupal/console",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hechoendrupal/drupal-console.git",
-                "reference": "368bbfa44dc6b957eb4db01977f7c39e83032d18"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/drupal-console/zipball/368bbfa44dc6b957eb4db01977f7c39e83032d18",
-                "reference": "368bbfa44dc6b957eb4db01977f7c39e83032d18",
-                "shasum": ""
-            },
-            "require": {
-                "alchemy/zippy": "0.4.3",
-                "composer/installers": "~1.0",
-                "doctrine/annotations": "^1.2",
-                "doctrine/collections": "^1.3",
-                "drupal/console-core": "1.8.0",
-                "drupal/console-extend-plugin": "~0",
-                "guzzlehttp/guzzle": "~6.1",
-                "php": "^5.5.9 || ^7.0",
-                "psy/psysh": "0.6.* || ~0.8",
-                "symfony/css-selector": "~2.8|~3.0",
-                "symfony/dom-crawler": "~2.8|~3.0",
-                "symfony/http-foundation": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/thanks": "Thank your favorite PHP projects on Github using the CLI!",
-                "vlucas/phpdotenv": "Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically."
-            },
-            "bin": [
-                "bin/drupal"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Drupal\\Console\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "David Flores",
-                    "email": "dmousex@gmail.com",
-                    "homepage": "http://dmouse.net"
-                },
-                {
-                    "name": "Jesus Manuel Olivas",
-                    "email": "jesus.olivas@gmail.com",
-                    "homepage": "http://jmolivas.com"
-                },
-                {
-                    "name": "Eduardo Garcia",
-                    "email": "enzo@enzolutions.com",
-                    "homepage": "http://enzolutions.com/"
-                },
-                {
-                    "name": "Omar Aguirre",
-                    "email": "omersguchigu@gmail.com"
-                },
-                {
-                    "name": "Drupal Console Contributors",
-                    "homepage": "https://github.com/hechoendrupal/drupal-console/graphs/contributors"
-                }
-            ],
-            "description": "The Drupal CLI. A tool to generate boilerplate code, interact with and debug Drupal.",
-            "homepage": "http://drupalconsole.com/",
-            "keywords": [
-                "console",
-                "development",
-                "drupal",
-                "symfony"
-            ],
-            "time": "2018-03-21T20:50:16+00:00"
-        },
-        {
-            "name": "drupal/console-core",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hechoendrupal/drupal-console-core.git",
-                "reference": "bf1fb4a6f689377acec1694267f674178d28e5d1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/drupal-console-core/zipball/bf1fb4a6f689377acec1694267f674178d28e5d1",
-                "reference": "bf1fb4a6f689377acec1694267f674178d28e5d1",
-                "shasum": ""
-            },
-            "require": {
-                "dflydev/dot-access-configuration": "^1.0",
-                "drupal/console-en": "1.8.0",
-                "php": "^5.5.9 || ^7.0",
-                "stecman/symfony-console-completion": "~0.7",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/console": "~2.8|~3.0",
-                "symfony/debug": "~2.8|~3.0",
-                "symfony/dependency-injection": "~2.8|~3.0",
-                "symfony/event-dispatcher": "~2.8|~3.0",
-                "symfony/filesystem": "~2.8|~3.0",
-                "symfony/finder": "~2.8|~3.0",
-                "symfony/process": "~2.8|~3.0",
-                "symfony/translation": "~2.8|~3.0",
-                "symfony/yaml": "~2.8|~3.0",
-                "twig/twig": "^1.23.1",
-                "webflo/drupal-finder": "^1.0",
-                "webmozart/path-util": "^2.3"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/functions.php"
-                ],
-                "psr-4": {
-                    "Drupal\\Console\\Core\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "David Flores",
-                    "email": "dmousex@gmail.com",
-                    "homepage": "http://dmouse.net"
-                },
-                {
-                    "name": "Jesus Manuel Olivas",
-                    "email": "jesus.olivas@gmail.com",
-                    "homepage": "http://jmolivas.com"
-                },
-                {
-                    "name": "Drupal Console Contributors",
-                    "homepage": "https://github.com/hechoendrupal/DrupalConsole/graphs/contributors"
-                },
-                {
-                    "name": "Eduardo Garcia",
-                    "email": "enzo@enzolutions.com",
-                    "homepage": "http://enzolutions.com/"
-                },
-                {
-                    "name": "Omar Aguirre",
-                    "email": "omersguchigu@gmail.com"
-                }
-            ],
-            "description": "Drupal Console Core",
-            "homepage": "http://drupalconsole.com/",
-            "keywords": [
-                "console",
-                "development",
-                "drupal",
-                "symfony"
-            ],
-            "time": "2018-03-21T19:33:23+00:00"
-        },
-        {
-            "name": "drupal/console-en",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hechoendrupal/drupal-console-en.git",
-                "reference": "ea956ddffab04f519a89858810e5f695b9def92b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/drupal-console-en/zipball/ea956ddffab04f519a89858810e5f695b9def92b",
-                "reference": "ea956ddffab04f519a89858810e5f695b9def92b",
-                "shasum": ""
-            },
-            "type": "drupal-console-language",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "David Flores",
-                    "email": "dmousex@gmail.com",
-                    "homepage": "http://dmouse.net"
-                },
-                {
-                    "name": "Jesus Manuel Olivas",
-                    "email": "jesus.olivas@gmail.com",
-                    "homepage": "http://jmolivas.com"
-                },
-                {
-                    "name": "Drupal Console Contributors",
-                    "homepage": "https://github.com/hechoendrupal/DrupalConsole/graphs/contributors"
-                },
-                {
-                    "name": "Eduardo Garcia",
-                    "email": "enzo@enzolutions.com",
-                    "homepage": "http://enzolutions.com/"
-                },
-                {
-                    "name": "Omar Aguirre",
-                    "email": "omersguchigu@gmail.com"
-                }
-            ],
-            "description": "Drupal Console English Language",
-            "homepage": "http://drupalconsole.com/",
-            "keywords": [
-                "console",
-                "development",
-                "drupal",
-                "symfony"
-            ],
-            "time": "2018-03-21T19:16:27+00:00"
-        },
-        {
-            "name": "drupal/console-extend-plugin",
-            "version": "0.9.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hechoendrupal/drupal-console-extend-plugin.git",
-                "reference": "f3bac233fd305359c33e96621443b3bd065555cc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/drupal-console-extend-plugin/zipball/f3bac233fd305359c33e96621443b3bd065555cc",
-                "reference": "f3bac233fd305359c33e96621443b3bd065555cc",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0",
-                "symfony/finder": "~2.7|~3.0",
-                "symfony/yaml": "~2.7|~3.0"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Drupal\\Console\\Composer\\Plugin\\Extender"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Drupal\\Console\\Composer\\Plugin\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Jesus Manuel Olivas",
-                    "email": "jesus.olivas@gmail.com"
-                }
-            ],
-            "description": "Drupal Console Extend Plugin",
-            "time": "2017-07-28T17:11:54+00:00"
-        },
-        {
             "name": "drupal/devel",
             "version": "1.2.0",
             "source": {
@@ -11052,86 +10726,53 @@
         },
         {
             "name": "drush/drush",
-            "version": "9.5.2",
+            "version": "9.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "17f0106706391675a281c6d212850853bdbe90f9"
+                "reference": "9d46a2a67554ae8b6f6edec234a1272c3b4c6a9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/17f0106706391675a281c6d212850853bdbe90f9",
-                "reference": "17f0106706391675a281c6d212850853bdbe90f9",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/9d46a2a67554ae8b6f6edec234a1272c3b4c6a9e",
+                "reference": "9d46a2a67554ae8b6f6edec234a1272c3b4c6a9e",
                 "shasum": ""
             },
             "require": {
-                "chi-teck/drupal-code-generator": "^1.27.0",
+                "chi-teck/drupal-code-generator": "^1.24.0",
                 "composer/semver": "^1.4",
-                "consolidation/annotated-command": "^2.9.1",
+                "consolidation/annotated-command": "^2.8.1",
                 "consolidation/config": "^1.1.0",
                 "consolidation/output-formatters": "^3.1.12",
                 "consolidation/robo": "^1.1.5",
-                "consolidation/site-alias": "^1.1.5",
+                "consolidation/site-alias": "^1.1.2",
                 "ext-dom": "*",
                 "grasmash/yaml-expander": "^1.1.1",
                 "league/container": "~2",
                 "php": ">=5.6.0",
                 "psr/log": "~1.0",
                 "psy/psysh": "~0.6",
-                "symfony/config": "^3.4",
-                "symfony/console": "^3.4",
-                "symfony/event-dispatcher": "^3.4",
-                "symfony/finder": "^3.4",
-                "symfony/process": "^3.4",
-                "symfony/var-dumper": "^3.4",
-                "symfony/yaml": "^3.4",
+                "symfony/config": "~2.2|^3",
+                "symfony/console": "~2.7|^3",
+                "symfony/event-dispatcher": "~2.7|^3",
+                "symfony/finder": "~2.7|^3",
+                "symfony/process": "~2.7|^3",
+                "symfony/var-dumper": "~2.7|^3|^4",
+                "symfony/yaml": "~2.3|^3",
                 "webflo/drupal-finder": "^1.1",
                 "webmozart/path-util": "^2.1.0"
             },
             "require-dev": {
-                "composer/installers": "^1.2",
-                "cweagans/composer-patches": "~1.0",
-                "drupal/alinks": "1.0.0",
-                "drupal/devel": "^1.0@RC",
-                "drupal/empty_theme": "1.0",
                 "g1a/composer-test-scenarios": "^2.2.0",
                 "lox/xhprof": "dev-master",
-                "phpunit/phpunit": "^4.8.36 || ^6.1",
-                "squizlabs/php_codesniffer": "^2.7",
-                "vlucas/phpdotenv": "^2.4",
-                "webflo/drupal-core-strict": "8.6.x-dev"
+                "phpunit/phpunit": "^4.8.36|^5.5.4",
+                "squizlabs/php_codesniffer": "^2.7"
             },
             "bin": [
                 "drush"
             ],
             "type": "library",
             "extra": {
-                "installer-paths": {
-                    "sut/core": [
-                        "type:drupal-core"
-                    ],
-                    "sut/libraries/{$name}": [
-                        "type:drupal-library"
-                    ],
-                    "sut/modules/unish/{$name}": [
-                        "drupal/devel"
-                    ],
-                    "sut/themes/unish/{$name}": [
-                        "drupal/empty_theme"
-                    ],
-                    "sut/modules/contrib/{$name}": [
-                        "type:drupal-module"
-                    ],
-                    "sut/profiles/contrib/{$name}": [
-                        "type:drupal-profile"
-                    ],
-                    "sut/themes/contrib/{$name}": [
-                        "type:drupal-theme"
-                    ],
-                    "sut/drush/contrib/{$name}": [
-                        "type:drupal-drush"
-                    ]
-                },
                 "branch-alias": {
                     "dev-master": "9.x-dev"
                 }
@@ -11183,7 +10824,62 @@
             ],
             "description": "Drush is a command line shell and scripting interface for Drupal, a veritable Swiss Army knife designed to make life easier for those of us who spend some of our working hours hacking away at the command prompt.",
             "homepage": "http://www.drush.org",
-            "time": "2018-10-17T18:37:53+00:00"
+            "time": "2018-09-04T17:24:36+00:00"
+        },
+        {
+            "name": "evanlovely/plugin-twig-namespaces",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EvanLovely/plugin-twig-namespaces.git",
+                "reference": "184b77172b64760b4507dfcaf63153c1565c96fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EvanLovely/plugin-twig-namespaces/zipball/184b77172b64760b4507dfcaf63153c1565c96fd",
+                "reference": "184b77172b64760b4507dfcaf63153c1565c96fd",
+                "shasum": ""
+            },
+            "require": {
+                "basaltinc/twig-tools": "^1.0",
+                "php": ">=5.4"
+            },
+            "type": "patternlab-plugin",
+            "extra": {
+                "patternlab": {
+                    "config": {
+                        "plugins": {
+                            "twigNamespaces": {
+                                "enabled": false,
+                                "roots": []
+                            }
+                        }
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PatternLab\\TwigNamespaces": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evan Lovely",
+                    "homepage": "http://evanlovely.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Twig Namespaces for Pattern Lab",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "pattern lab",
+                "twig"
+            ],
+            "time": "2017-11-10T23:21:38+00:00"
         },
         {
             "name": "fabpot/goutte",
@@ -11239,6 +10935,56 @@
                 "scraper"
             ],
             "time": "2018-06-29T15:13:57+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "f72816b43e74063c8b10357394b6bba8cb1c10de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/f72816b43e74063c8b10357394b6bba8cb1c10de",
+                "reference": "f72816b43e74063c8b10357394b6bba8cb1c10de",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
+                "squizlabs/php_codesniffer": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2018-07-12T10:23:15+00:00"
         },
         {
             "name": "g1a/composer-test-scenarios",
@@ -11631,6 +11377,123 @@
             "time": "2016-12-01T10:57:30+00:00"
         },
         {
+            "name": "justinrainbow/json-schema",
+            "version": "5.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/justinrainbow/json-schema.git",
+                "reference": "8560d4314577199ba51bf2032f02cd1315587c23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/8560d4314577199ba51bf2032f02cd1315587c23",
+                "reference": "8560d4314577199ba51bf2032f02cd1315587c23",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.1",
+                "json-schema/json-schema-test-suite": "1.2.0",
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "bin": [
+                "bin/validate-json"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JsonSchema\\": "src/JsonSchema/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Prieto Reis",
+                    "email": "bruno.p.reis@gmail.com"
+                },
+                {
+                    "name": "Justin Rainbow",
+                    "email": "justin.rainbow@gmail.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Robert Schönthal",
+                    "email": "seroscho@googlemail.com"
+                }
+            ],
+            "description": "A library to validate a json schema.",
+            "homepage": "https://github.com/justinrainbow/json-schema",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2018-02-14T22:26:30+00:00"
+        },
+        {
+            "name": "kevinlebrun/colors.php",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevinlebrun/colors.php.git",
+                "reference": "cdda5eee41314b87cd5a8bb91b1ffc7c0210e673"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/cdda5eee41314b87cd5a8bb91b1ffc7c0210e673",
+                "reference": "cdda5eee41314b87cd5a8bb91b1ffc7c0210e673",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "1.0.*",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Colors": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Le Brun",
+                    "email": "lebrun.k@gmail.com",
+                    "homepage": "http://kevinlebrun.fr",
+                    "role": "developer"
+                }
+            ],
+            "description": "Colors for PHP CLI scripts",
+            "homepage": "https://github.com/kevinlebrun/colors.php",
+            "keywords": [
+                "cli",
+                "color",
+                "colors",
+                "console",
+                "shell"
+            ],
+            "time": "2018-05-30T08:34:23+00:00"
+        },
+        {
             "name": "league/container",
             "version": "2.4.1",
             "source": {
@@ -11694,6 +11557,52 @@
                 "service"
             ],
             "time": "2017-05-10T09:20:27+00:00"
+        },
+        {
+            "name": "michelf/php-markdown",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michelf/php-markdown.git",
+                "reference": "01ab082b355bf188d907b9929cd99b2923053495"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/01ab082b355bf188d907b9929cd99b2923053495",
+                "reference": "01ab082b355bf188d907b9929cd99b2923053495",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Michelf\\": "Michelf/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Fortin",
+                    "email": "michel.fortin@michelf.ca",
+                    "homepage": "https://michelf.ca/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "John Gruber",
+                    "homepage": "https://daringfireball.net/"
+                }
+            ],
+            "description": "PHP Markdown",
+            "homepage": "https://michelf.ca/projects/php-markdown/",
+            "keywords": [
+                "markdown"
+            ],
+            "time": "2018-01-15T00:49:33+00:00"
         },
         {
             "name": "mikey179/vfsStream",
@@ -11841,6 +11750,357 @@
             "time": "2018-10-10T09:24:14+00:00"
         },
         {
+            "name": "pattern-lab/core",
+            "version": "v2.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pattern-lab/patternlab-php-core.git",
+                "reference": "009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pattern-lab/patternlab-php-core/zipball/009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3",
+                "reference": "009399c5cb175f1d5a1fafc7b07abc1f2d13a0a3",
+                "shasum": ""
+            },
+            "require": {
+                "alchemy/zippy": "^0.3",
+                "doctrine/collections": "1.4.0",
+                "kevinlebrun/colors.php": "^1.0",
+                "michelf/php-markdown": "^1.6",
+                "php": ">=5.4",
+                "seld/jsonlint": "^1.0",
+                "shudrum/array-finder": "^1.0",
+                "symfony/event-dispatcher": "^3.0",
+                "symfony/filesystem": "^3.0",
+                "symfony/finder": "^3.0",
+                "symfony/process": "^3.1",
+                "symfony/yaml": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PatternLab": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brad Frost",
+                    "homepage": "http://bradfrostweb.com",
+                    "role": "Creator"
+                },
+                {
+                    "name": "Evan Lovely",
+                    "homepage": "http://evanlovely.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Salem Ghoweri",
+                    "homepage": "https://github.com/sghoweri",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dave Olsen",
+                    "email": "dmolsen@gmail.com",
+                    "homepage": "http://dmolsen.com",
+                    "role": "Former Lead Developer"
+                }
+            ],
+            "description": "The core functionality for Pattern Lab.",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "atomic",
+                "atomic design",
+                "pattern lab",
+                "style guide",
+                "styleguide"
+            ],
+            "time": "2018-02-27T22:12:27+00:00"
+        },
+        {
+            "name": "pattern-lab/drupal-twig-components",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pattern-lab/plugin-drupal-twig-components.git",
+                "reference": "3f4e2ad80051ac66950c97e6a07e08376b001614"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pattern-lab/plugin-drupal-twig-components/zipball/3f4e2ad80051ac66950c97e6a07e08376b001614",
+                "reference": "3f4e2ad80051ac66950c97e6a07e08376b001614",
+                "shasum": ""
+            },
+            "type": "patternlab-plugin",
+            "extra": {
+                "patternlab": {
+                    "dist": {
+                        "sourceDir": [
+                            {
+                                "filters/*": "_twig-components/filters/*"
+                            },
+                            {
+                                "functions/*": "_twig-components/functions/*"
+                            },
+                            {
+                                "tags/*": "_twig-components/tags/*"
+                            },
+                            {
+                                "tests/*": "_twig-components/tests/*"
+                            }
+                        ]
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Olsen",
+                    "email": "dmolsen@gmail.com",
+                    "homepage": "http://dmolsen.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A collection of Twig components to be used with Drupal- and Twig-related StarterKits.",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "drupal",
+                "pattern lab",
+                "twig"
+            ],
+            "time": "2016-09-07T19:28:17+00:00"
+        },
+        {
+            "name": "pattern-lab/patternengine-twig",
+            "version": "v2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pattern-lab/patternengine-php-twig.git",
+                "reference": "edeb27a56a7a389e8f369e02ba9c50ee83a84cbb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pattern-lab/patternengine-php-twig/zipball/edeb27a56a7a389e8f369e02ba9c50ee83a84cbb",
+                "reference": "edeb27a56a7a389e8f369e02ba9c50ee83a84cbb",
+                "shasum": ""
+            },
+            "require": {
+                "pattern-lab/core": "^2.0.0",
+                "twig/twig": "~1.0"
+            },
+            "type": "patternlab-patternengine",
+            "extra": {
+                "patternlab": {
+                    "config": {
+                        "lineageMatch": "{%([ ]+)?(?:include|extends|embed)( |\\()[&quot;\\&#039;]([\\/.@A-Za-z0-9-_]+)[&quot;\\&#039;]([\\s\\S+]*?)%}",
+                        "lineageMatchKey": 3,
+                        "patternExtension": "twig",
+                        "twigDebug": false,
+                        "twigAutoescape": "html",
+                        "twigDefaultDateFormat": "",
+                        "twigDefaultIntervalFormat": "",
+                        "twigMacroExt": "macro.twig",
+                        "twigFilterExt": "filter.php",
+                        "twigFunctionExt": "function.php",
+                        "twigTagExt": "tag.php",
+                        "twigTestExt": "test.php"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PatternLab\\PatternEngine\\Twig": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Olsen",
+                    "email": "dmolsen@gmail.com",
+                    "homepage": "http://dmolsen.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Twig-based PatternEngine for Pattern Lab.",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "pattern engine",
+                "pattern lab",
+                "twig"
+            ],
+            "time": "2018-02-08T00:11:23+00:00"
+        },
+        {
+            "name": "pattern-lab/plugin-faker",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pattern-lab/plugin-php-faker.git",
+                "reference": "2e64b752a085e6b92af598f17e80d899ec9ddfcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pattern-lab/plugin-php-faker/zipball/2e64b752a085e6b92af598f17e80d899ec9ddfcf",
+                "reference": "2e64b752a085e6b92af598f17e80d899ec9ddfcf",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "^1.0.0",
+                "pattern-lab/core": "^2.3.0",
+                "php": ">=5.4"
+            },
+            "type": "patternlab-plugin",
+            "extra": {
+                "patternlab": {
+                    "config": {
+                        "plugins": {
+                            "faker": {
+                                "enabled": true,
+                                "locale": "en_US"
+                            }
+                        }
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PatternLab\\Faker": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Olsen",
+                    "email": "dmolsen@gmail.com",
+                    "homepage": "http://dmolsen.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Faker Support for Pattern Lab",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "faker",
+                "pattern lab"
+            ],
+            "time": "2018-10-02T21:14:45+00:00"
+        },
+        {
+            "name": "pattern-lab/styleguidekit-assets-default",
+            "version": "v3.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pattern-lab/styleguidekit-assets-default.git",
+                "reference": "7c1b51195c17a19cc3e87890b8fb3d8c27f33870"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-assets-default/zipball/7c1b51195c17a19cc3e87890b8fb3d8c27f33870",
+                "reference": "7c1b51195c17a19cc3e87890b8fb3d8c27f33870",
+                "shasum": ""
+            },
+            "type": "patternlab-styleguidekit",
+            "extra": {
+                "patternlab": {
+                    "dist": {
+                        "publicDir": [
+                            {
+                                "*": "*"
+                            }
+                        ]
+                    },
+                    "config": {
+                        "ishMinimum": "240",
+                        "ishMaximum": "2600",
+                        "ishControlsHide": [
+                            "hay"
+                        ]
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Olsen",
+                    "email": "dmolsen@gmail.com",
+                    "homepage": "http://dmolsen.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Brad Frost",
+                    "homepage": "http://bradfrostweb.com",
+                    "role": "Creator"
+                }
+            ],
+            "description": "The assets for the default StyleguideKit for Pattern Lab. Contains styles and mark-up for Pattern Lab's front-end.",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "mustache",
+                "pattern lab",
+                "styleguide"
+            ],
+            "time": "2017-10-31T12:19:46+00:00"
+        },
+        {
+            "name": "pattern-lab/styleguidekit-twig-default",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pattern-lab/styleguidekit-twig-default.git",
+                "reference": "7b38bfe2fb60cde3850cfe8f4f948cdc206d7188"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pattern-lab/styleguidekit-twig-default/zipball/7b38bfe2fb60cde3850cfe8f4f948cdc206d7188",
+                "reference": "7b38bfe2fb60cde3850cfe8f4f948cdc206d7188",
+                "shasum": ""
+            },
+            "require": {
+                "pattern-lab/styleguidekit-assets-default": "^3.0.0"
+            },
+            "type": "patternlab-styleguidekit",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Olsen",
+                    "email": "dmolsen@gmail.com",
+                    "homepage": "http://dmolsen.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Brad Frost",
+                    "homepage": "http://bradfrostweb.com",
+                    "role": "Creator"
+                }
+            ],
+            "description": "The default Twig-based StyleguideKit for Pattern Lab. Contains styles and mark-up for Pattern Lab's front-end.",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "pattern lab",
+                "styleguide",
+                "twig"
+            ],
+            "time": "2016-07-04T01:24:27+00:00"
+        },
+        {
             "name": "pdepend/pdepend",
             "version": "2.5.2",
             "source": {
@@ -11981,6 +12241,46 @@
             ],
             "description": "Library for handling version information and constraints",
             "time": "2017-03-05T17:38:23+00:00"
+        },
+        {
+            "name": "phase2/pattern-lab",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phase2/pattern-lab.git",
+                "reference": "44d69d8347df236bf0548e77bff166432ac1c381"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phase2/pattern-lab/zipball/44d69d8347df236bf0548e77bff166432ac1c381",
+                "reference": "44d69d8347df236bf0548e77bff166432ac1c381",
+                "shasum": ""
+            },
+            "require": {
+                "evanlovely/plugin-twig-namespaces": "^1.1",
+                "pattern-lab/core": "^2.9",
+                "pattern-lab/drupal-twig-components": "^2.2",
+                "pattern-lab/patternengine-twig": "^2.2",
+                "pattern-lab/plugin-faker": "^2.0",
+                "pattern-lab/styleguidekit-assets-default": "^3.5",
+                "pattern-lab/styleguidekit-twig-default": "^3.0"
+            },
+            "type": "project",
+            "extra": {
+                "patternlab": []
+            },
+            "autoload": {
+                "psr-0": {
+                    "PatternLab": "core/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Composer package to bring Pattern Lab into Particle",
+            "homepage": "https://github.com/phase2/pattern-lab",
+            "time": "2018-11-07T20:33:25+00:00"
         },
         {
             "name": "phpmd/phpmd",
@@ -13176,6 +13476,95 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "seld/jsonlint",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/jsonlint.git",
+                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/d15f59a67ff805a44c50ea0516d2341740f81a38",
+                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+            },
+            "bin": [
+                "bin/jsonlint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Seld\\JsonLint\\": "src/Seld/JsonLint/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "JSON Linter",
+            "keywords": [
+                "json",
+                "linter",
+                "parser",
+                "validator"
+            ],
+            "time": "2018-01-24T12:46:19+00:00"
+        },
+        {
+            "name": "shudrum/array-finder",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Shudrum/ArrayFinder.git",
+                "reference": "42380f01017371b7a1e8e02b0bf12cb534e454d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Shudrum/ArrayFinder/zipball/42380f01017371b7a1e8e02b0bf12cb534e454d7",
+                "reference": "42380f01017371b7a1e8e02b0bf12cb534e454d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Shudrum\\Component\\ArrayFinder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Julien Martin",
+                    "email": "martin.julien82@gmail.com"
+                }
+            ],
+            "description": "ArrayFinder component",
+            "homepage": "https://github.com/Shudrum/ArrayFinder",
+            "time": "2016-02-01T12:23:32+00:00"
+        },
+        {
             "name": "squizlabs/php_codesniffer",
             "version": "3.3.2",
             "source": {
@@ -13225,51 +13614,6 @@
                 "standards"
             ],
             "time": "2018-09-23T23:08:17+00:00"
-        },
-        {
-            "name": "stecman/symfony-console-completion",
-            "version": "0.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stecman/symfony-console-completion.git",
-                "reference": "cd738867503477e91dbe84173dfabd431c883431"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stecman/symfony-console-completion/zipball/cd738867503477e91dbe84173dfabd431c883431",
-                "reference": "cd738867503477e91dbe84173dfabd431c883431",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/console": "~2.3 || ~3.0 || ~4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8.36 || ~5.7 || ~6.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.6.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Stecman\\Component\\Symfony\\Console\\BashCompletion\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Stephen Holdaway",
-                    "email": "stephen@stecman.co.nz"
-                }
-            ],
-            "description": "Automatic BASH completion for Symfony Console Component based applications.",
-            "time": "2018-02-10T04:28:01+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -13447,25 +13791,25 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.4.18",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "c705bee03ade5b47c087807dd9ffaaec8dda2722"
+                "reference": "80e60271bb288de2a2259662cff125cff4f93f95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/c705bee03ade5b47c087807dd9ffaaec8dda2722",
-                "reference": "c705bee03ade5b47c087807dd9ffaaec8dda2722",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/80e60271bb288de2a2259662cff125cff4f93f95",
+                "reference": "80e60271bb288de2a2259662cff125cff4f93f95",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^7.1.3",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "require-dev": {
-                "symfony/css-selector": "~2.8|~3.0|~4.0"
+                "symfony/css-selector": "~3.4|~4.0"
             },
             "suggest": {
                 "symfony/css-selector": ""
@@ -13473,7 +13817,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -13500,7 +13844,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:28:39+00:00"
+            "time": "2018-10-02T12:40:59+00:00"
         },
         {
             "name": "symfony/finder",
@@ -13618,39 +13962,100 @@
             "time": "2018-10-02T12:28:39+00:00"
         },
         {
-            "name": "symfony/var-dumper",
-            "version": "v3.4.18",
+            "name": "symfony/polyfill-php72",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "ff8ac19e97e5c7c3979236b584719a1190f84181"
+                "url": "https://github.com/symfony/polyfill-php72.git",
+                "reference": "9050816e2ca34a8e916c3a0ae8b9c2fccf68b631"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/ff8ac19e97e5c7c3979236b584719a1190f84181",
-                "reference": "ff8ac19e97e5c7c3979236b584719a1190f84181",
+                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/9050816e2ca34a8e916c3a0ae8b9c2fccf68b631",
+                "reference": "9050816e2ca34a8e916c3a0ae8b9c2fccf68b631",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/polyfill-mbstring": "~1.0"
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php72\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2018-09-21T13:07:52+00:00"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v4.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "60319b45653580b0cdacca499344577d87732f16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/60319b45653580b0cdacca499344577d87732f16",
+                "reference": "60319b45653580b0cdacca499344577d87732f16",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/polyfill-php72": "~1.5"
             },
             "conflict": {
-                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
+                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+                "symfony/console": "<3.4"
             },
             "require-dev": {
                 "ext-iconv": "*",
+                "symfony/process": "~3.4|~4.0",
                 "twig/twig": "~1.34|~2.4"
             },
             "suggest": {
                 "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
                 "ext-intl": "To show region name in time zone dump",
-                "ext-symfony_debug": ""
+                "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
             },
+            "bin": [
+                "Resources/bin/var-dump-server"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -13684,7 +14089,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2018-10-02T16:33:53+00:00"
+            "time": "2018-10-02T16:36:10+00:00"
         },
         {
             "name": "textalk/websocket",
@@ -13857,7 +14262,8 @@
         "kporras07/composer-symlinks": 20,
         "roave/security-advisories": 20,
         "behat/mink": 20,
-        "behat/mink-selenium2-driver": 20
+        "behat/mink-selenium2-driver": 20,
+        "phase2/pattern-lab": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

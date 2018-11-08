@@ -28,13 +28,13 @@
         "behat/mink-zombie-driver": "^1.2",
         "dmore/behat-chrome-extension": "^1.1",
         "drupal/coder": "^8.2.12",
-        "drupal/console": "^1.8",
         "drupal/devel": "^1.0",
         "drupal/drupal-extension": "^3.4.0",
         "drush/drush": "^9",
         "jcalderonzumba/gastonjs": "^1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
         "mikey179/vfsStream": "^1.2",
+        "phase2/pattern-lab": "dev-master",
         "phpunit/phpunit": "^6.5",
         "phpmd/phpmd": "^2.1",
         "phpspec/prophecy": "^1.4",
@@ -102,6 +102,9 @@
             ],
             "build/html/modules/contrib/{$name}": [
                 "type:drupal-module"
+            ],
+            "build/html/libraries/contrib/{$name}": [
+                "type:drupal-library"
             ],
             "build/html/profiles/contrib/{$name}": [
                 "type:drupal-profile"
