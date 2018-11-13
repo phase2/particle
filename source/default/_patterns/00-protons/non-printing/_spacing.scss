@@ -1,7 +1,13 @@
 // Custom spacing variables and mixins
+// You can add more entries to the $spacers map, should you need more variation.
 
-$spacing: (
-  s: 5px,
-  m: 25px,
-  l: 50px,
-);
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    s: ($spacer * 0.3125), //5px
+    m: ($spacer * 1.5625), //25px
+    l: ($spacer * 3.125), //50px
+  ),
+    $spacers
+  );
