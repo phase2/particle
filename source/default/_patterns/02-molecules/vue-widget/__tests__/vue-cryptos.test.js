@@ -1,8 +1,10 @@
-import { render } from 'vue-testing-library';
-import vueCryptos from 'molecules/vue-widget/src/vue-cryptos/facet-table.vue';
-import facetTableRow from 'molecules/vue-widget/src/vue-cryptos/components/facet-table-row.vue';
+import { render, Simulate } from 'vue-testing-library';
+import vueCryptos from '../src/vue-cryptos/facet-table.vue';
+import facetTableRow from '../src/vue-cryptos/components/facet-table-row.vue';
+import mockData from './mock-data.json';
 
 describe('vue-cryptos.vue', () => {
+  fetch.mockResponse(JSON.stringify(mockData));
   const { getByText } = render(vueCryptos);
   const filterElement = getByText('Filter:', { exact: false });
 
@@ -12,6 +14,20 @@ describe('vue-cryptos.vue', () => {
 
   it('renders the default component filter', () => {
     expect(filterElement.textContent).toContain('all');
+  });
+
+  it('button becomes active on click and unselected buttons remain nonactive', () => {
+    const getBtns = () => document.querySelectorAll('.btn');
+    let allBtns = getBtns();
+    expect(allBtns[0].className).toBe(
+      'btn btn-secondary text-uppercase active'
+    );
+    Simulate.click(allBtns[1]);
+    allBtns = getBtns();
+    expect(allBtns[0].className).toBe('btn btn-secondary text-uppercase');
+    expect(allBtns[1].className).toBe(
+      'btn btn-secondary text-uppercase active'
+    );
   });
 });
 

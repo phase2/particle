@@ -9,6 +9,7 @@
       </h5>
       <facet-table-facets 
         :facets="['all', 'winners', 'losers']"
+        :filter="filter"
         @updateFilter="filter = $event"
       />
     </div>
