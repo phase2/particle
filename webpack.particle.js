@@ -15,6 +15,7 @@ const cssnano = require('cssnano');
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 // Constants: environment
 // NODE_ENV is set within all NPM scripts before running Webpack, eg:
@@ -123,6 +124,14 @@ module.exports = {
           emitFile: false,
         },
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+      }),
     ],
   },
   plugins: [
