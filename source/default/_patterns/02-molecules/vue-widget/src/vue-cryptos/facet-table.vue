@@ -19,7 +19,9 @@
         :key="key"
         class="list-group-item"
       >
-        <facet-table-row v-bind="{key, rank, name, price_usd, symbol, change}" />
+        <facet-table-row
+          v-bind="{key, rank, name, price_usd, symbol, change}"
+        />
       </li>
     </ul>
   </div>
@@ -28,6 +30,9 @@
 <script>
 import FacetTableFacets from './components/facet-table-facets.vue';
 import FacetTableRow from './components/facet-table-row.vue';
+
+const sortBy = require('lodash/sortBy');
+const map = require('lodash/map');
 
 export default {
   name: 'FacetTableVue',
@@ -46,26 +51,16 @@ export default {
   computed: {
     filteredCryptos() {
       const { cryptos, filter } = this;
-
       switch (filter) {
         // Sort by positive change
         case 'winners':
-          return cryptos.sort(
-            ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
-              parseFloat(changeA) < parseFloat(changeB)
-          );
+          return sortBy(cryptos, 'percent_change_7d').reverse();
         // Sort by negative change
         case 'losers':
-          return cryptos.sort(
-            ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
-              parseFloat(changeA) > parseFloat(changeB)
-          );
+          return sortBy(cryptos, 'percent_change_7d');
         // Filter by "rank" by default
         default:
-          return cryptos.sort(
-            ({ rank: rankA }, { rank: rankB }) =>
-              parseInt(rankA, 10) > parseInt(rankB, 10)
-          );
+          return sortBy(cryptos, 'rank');
       }
     },
   },
@@ -75,9 +70,16 @@ export default {
   methods: {
     async fetchCryptos() {
       this.requesting = true;
-      this.cryptos = await (await fetch(
+      const cryptosData = await (await fetch(
         'https://api.coinmarketcap.com/v1/ticker/?limit=10'
       )).json();
+      const fixedData = map(cryptosData, data => {
+        const newData = data;
+        newData.percent_change_7d = parseFloat(newData.percent_change_7d);
+        newData.rank = parseInt(newData.rank, 10);
+        return newData;
+      });
+      this.cryptos = fixedData;
       this.requesting = false;
     },
   },

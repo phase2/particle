@@ -14,7 +14,7 @@ export default {
   name: 'FacetTableRow',
   props: {
     rank: {
-      type: String,
+      type: Number,
       default: () => '',
     },
     name: {
@@ -31,7 +31,7 @@ export default {
       default: () => '',
     },
     change: {
-      type: String,
+      type: Number,
       default: () => '',
     },
   },

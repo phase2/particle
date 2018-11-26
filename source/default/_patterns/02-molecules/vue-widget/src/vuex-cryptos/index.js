@@ -8,6 +8,9 @@ import Vue from 'vue';
 import store from 'protons/store';
 import FacetTableComponent from './facet-table.vue';
 
+const map = require('lodash/map');
+const sortBy = require('lodash/sortBy');
+
 /**
  * STATE
  */
@@ -39,11 +42,18 @@ const mutations = {
 const actions = {
   async fetchCryptos({ commit }) {
     commit('REQUEST_CRYPTOS', true);
-    const data = await (await fetch(
+    const cryptosData = await (await fetch(
       'https://api.coinmarketcap.com/v1/ticker/?limit=10'
     )).json();
 
-    commit('SET_CRYPTOS', data);
+    const fixedData = map(cryptosData, data => {
+      const newData = data;
+      newData.percent_change_7d = parseFloat(newData.percent_change_7d);
+      newData.rank = parseInt(newData.rank, 10);
+      return newData;
+    });
+
+    commit('SET_CRYPTOS', fixedData);
     commit('REQUEST_CRYPTOS', false);
   },
   setFilter({ commit }, filter) {
@@ -61,22 +71,13 @@ const getters = {
     switch (filter) {
       // Sort by positive change
       case 'winners':
-        return cryptos.sort(
-          ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
-            parseFloat(changeA) < parseFloat(changeB)
-        );
+        return sortBy(cryptos, 'percent_change_7d').reverse();
       // Sort by negative change
       case 'losers':
-        return cryptos.sort(
-          ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
-            parseFloat(changeA) > parseFloat(changeB)
-        );
+        return sortBy(cryptos, 'percent_change_7d');
       // Filter by "rank" by default
       default:
-        return cryptos.sort(
-          ({ rank: rankA }, { rank: rankB }) =>
-            parseInt(rankA, 10) > parseInt(rankB, 10)
-        );
+        return sortBy(cryptos, 'rank');
     }
   },
 };

@@ -35,9 +35,9 @@ describe('facet-table-row.vue', () => {
   const props = {
     name: 'Bitcoin',
     symbol: 'BTC',
-    rank: '1',
+    rank: 1,
     price_usd: '15015.0',
-    change: '1.11',
+    change: 1.11,
   };
 
   const { getByText } = render(facetTableRow, { props });
