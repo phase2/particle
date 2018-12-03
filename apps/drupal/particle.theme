@@ -8,6 +8,15 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * Implements hook_preprocess().
+ */
+function particle_preprocess(&$variables) {
+  // Set the paths.assets variable globally, so that drupal can
+  // find webpack-compiled assets.
+  $variables['paths']['assets'] = drupal_get_path('theme', 'particle') . '/../../dist/assets';
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  */
 function particle_preprocess_page(&$variables) {
