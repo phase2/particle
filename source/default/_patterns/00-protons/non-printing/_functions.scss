@@ -18,7 +18,7 @@
  * Numbers are space delimited. If you want to delimit using commas, wrap it in another pair of parens.
  * @example rem-calc((10, 20, 30, 40px));
  */
-@function rem-calc($values, $base-value: $font-size-base) {
+@function rem-calc($values, $base-value: 16px) {
   $max: length($values);
 
   @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
