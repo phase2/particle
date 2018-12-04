@@ -31,9 +31,6 @@
 import FacetTableFacets from './components/facet-table-facets.vue';
 import FacetTableRow from './components/facet-table-row.vue';
 
-const sortBy = require('lodash/sortBy');
-const map = require('lodash/map');
-
 export default {
   name: 'FacetTableVue',
   components: {
@@ -54,13 +51,21 @@ export default {
       switch (filter) {
         // Sort by positive change
         case 'winners':
-          return sortBy(cryptos, 'percent_change_7d').reverse();
+          return cryptos.sort(
+            ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
+              changeB - changeA
+          );
         // Sort by negative change
         case 'losers':
-          return sortBy(cryptos, 'percent_change_7d');
+          return cryptos.sort(
+            ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
+              changeA - changeB
+          );
         // Filter by "rank" by default
         default:
-          return sortBy(cryptos, 'rank');
+          return cryptos.sort(
+            ({ rank: rankA }, { rank: rankB }) => rankA - rankB
+          );
       }
     },
   },
@@ -70,16 +75,14 @@ export default {
   methods: {
     async fetchCryptos() {
       this.requesting = true;
-      const cryptosData = await (await fetch(
-        'https://api.coinmarketcap.com/v1/ticker/?limit=10'
+      const data = await (await fetch(
+        'https://api.coinmarketcap.com/v2/ticker/?limit=10'
       )).json();
-      const fixedData = map(cryptosData, data => {
-        const newData = data;
-        newData.percent_change_7d = parseFloat(newData.percent_change_7d);
-        newData.rank = parseInt(newData.rank, 10);
-        return newData;
-      });
-      this.cryptos = fixedData;
+      this.cryptos = Object.keys(data.data).map(key => ({
+        ...data.data[key],
+        percent_change_7d: data.data[key].quotes.USD.percent_change_7d,
+        price_usd: data.data[key].quotes.USD.price,
+      }));
       this.requesting = false;
     },
   },

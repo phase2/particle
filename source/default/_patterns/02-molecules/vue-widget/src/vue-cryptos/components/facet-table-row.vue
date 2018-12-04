@@ -15,7 +15,7 @@ export default {
   props: {
     rank: {
       type: Number,
-      default: () => '',
+      default: () => 0,
     },
     name: {
       type: String,
@@ -23,8 +23,8 @@ export default {
     },
     // eslint-disable-next-line vue/prop-name-casing
     price_usd: {
-      type: String,
-      default: () => '',
+      type: Number,
+      default: () => 0,
     },
     symbol: {
       type: String,
@@ -32,14 +32,12 @@ export default {
     },
     change: {
       type: Number,
-      default: () => '',
+      default: () => 0,
     },
   },
   computed: {
     percentClass() {
-      return Math.sign(parseFloat(this.change)) === -1
-        ? 'text-danger'
-        : 'text-success';
+      return Math.sign(this.change) === -1 ? 'text-danger' : 'text-success';
     },
   },
 };

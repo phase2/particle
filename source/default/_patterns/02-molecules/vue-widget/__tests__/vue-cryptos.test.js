@@ -36,7 +36,7 @@ describe('facet-table-row.vue', () => {
     name: 'Bitcoin',
     symbol: 'BTC',
     rank: 1,
-    price_usd: '15015.0',
+    price_usd: 15015.0,
     change: 1.11,
   };
 
@@ -49,7 +49,7 @@ describe('facet-table-row.vue', () => {
 
   it('renders price property', () => {
     const priceElement = getByText('15015', { exact: false });
-    expect(priceElement.textContent).toContain('15015.0');
+    expect(priceElement.textContent).toContain('15015');
   });
 
   it('renders symbol property', () => {
