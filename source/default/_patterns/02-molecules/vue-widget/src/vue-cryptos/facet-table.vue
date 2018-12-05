@@ -39,7 +39,6 @@ export default {
   },
   data() {
     return {
-      cryptos: [],
       requesting: false,
       filter: 'all',
       title: 'Cryptos',
@@ -70,6 +69,7 @@ export default {
     },
   },
   created() {
+    this.cryptos = [];
     this.fetchCryptos();
   },
   methods: {
