@@ -51,19 +51,19 @@ export default {
       switch (filter) {
         // Sort by positive change
         case 'winners':
-          return cryptos.sort(
+          return [...cryptos].sort(
             ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
               changeB - changeA
           );
         // Sort by negative change
         case 'losers':
-          return cryptos.sort(
+          return [...cryptos].sort(
             ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
               changeA - changeB
           );
         // Filter by "rank" by default
         default:
-          return cryptos.sort(
+          return [...cryptos].sort(
             ({ rank: rankA }, { rank: rankB }) => rankA - rankB
           );
       }

@@ -16,19 +16,19 @@ describe('vue-cryptos.vue', () => {
     expect(filterElement.textContent).toContain('all');
   });
 
-  // it('button becomes active on click and unselected buttons remain nonactive', () => {
-  //   const getBtns = () => document.querySelectorAll('.btn');
-  //   let allBtns = getBtns();
-  //   expect(allBtns[0].className).toBe(
-  //     'btn btn-secondary text-uppercase active'
-  //   );
-  //   Simulate.click(allBtns[1]);
-  //   allBtns = getBtns();
-  //   expect(allBtns[0].className).toBe('btn btn-secondary text-uppercase');
-  //   expect(allBtns[1].className).toBe(
-  //     'btn btn-secondary text-uppercase active'
-  //   );
-  // });
+  it('button becomes active on click and unselected buttons remain nonactive', () => {
+    const getBtns = () => document.querySelectorAll('.btn');
+    let allBtns = getBtns();
+    expect(allBtns[0].className).toBe(
+      'btn btn-secondary text-uppercase active'
+    );
+    Simulate.click(allBtns[1]);
+    allBtns = getBtns();
+    expect(allBtns[0].className).toBe('btn btn-secondary text-uppercase');
+    expect(allBtns[1].className).toBe(
+      'btn btn-secondary text-uppercase active'
+    );
+  });
 });
 
 describe('facet-table-row.vue', () => {
