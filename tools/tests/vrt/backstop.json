@@ -1,0 +1,51 @@
+{
+  "id": "particle_backstop",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1401,
+      "height": 1500
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "article",
+      "url": "http://0.0.0.0:8080/pl/?p=pages-article",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectorExpansion": true,
+      "selectors": [],
+      "readyEvent": null,
+      "delay": 500,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions" : true,
+      "onBeforeScript": "",
+      "onReadyScript": ""
+    },
+    {
+      "label": "homepage",
+      "url": "http://0.0.0.0:8080/pl/?p=pages-homepage",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectorExpansion": true,
+      "selectors": [],
+      "readyEvent": null,
+      "delay": 500,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions" : true,
+      "onBeforeScript": "",
+      "onReadyScript": ""
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "casper_scripts": "backstop_data/casper_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "casperFlags": [],
+  "engine": "phantomjs",
+  "report": ["browser", "CI"],
+  "debug": false
+}
