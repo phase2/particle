@@ -66,8 +66,8 @@ export default {
 // This is mainly here to show that all variables and mixins are available to
 // Sass here.
 .vue-banner {
-  margin: map-get($spacing, l);
-  padding: map-get($spacing, m);
+  margin: map-get($spacers, 5);
+  padding: map-get($spacers, 4);
   font-size: $font-size-lg;
   background-color: map-get($theme-colors, 'new');
 
