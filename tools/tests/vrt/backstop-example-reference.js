@@ -1,8 +1,8 @@
 /**
- * A barebones Backstop test using example settings.
+ * A barebones Backstop reference using example settings.
  */
 
-const backstopConfig = require('./backstop-example-settings.js')();
 const backstop = require('backstopjs');
+const backstopConfig = require('./backstop-example-settings.js')();
 
-backstop('reference', {config: backstopConfig});
+backstop('reference', { config: backstopConfig });
