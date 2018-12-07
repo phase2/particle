@@ -9,6 +9,7 @@
       </h5>
       <facet-table-facets 
         :facets="['all', 'winners', 'losers']"
+        :filter="filter"
         @updateFilter="filter = $event"
       />
     </div>
@@ -18,7 +19,9 @@
         :key="key"
         class="list-group-item"
       >
-        <facet-table-row v-bind="{key, rank, name, price_usd, symbol, change}" />
+        <facet-table-row
+          v-bind="{key, rank, name, price_usd, symbol, change}"
+        />
       </li>
     </ul>
   </div>
@@ -45,25 +48,23 @@ export default {
   computed: {
     filteredCryptos() {
       const { cryptos, filter } = this;
-
       switch (filter) {
         // Sort by positive change
         case 'winners':
-          return cryptos.sort(
+          return [...cryptos].sort(
             ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
-              parseFloat(changeA) < parseFloat(changeB)
+              changeB - changeA
           );
         // Sort by negative change
         case 'losers':
-          return cryptos.sort(
+          return [...cryptos].sort(
             ({ percent_change_7d: changeA }, { percent_change_7d: changeB }) =>
-              parseFloat(changeA) > parseFloat(changeB)
+              changeA - changeB
           );
         // Filter by "rank" by default
         default:
-          return cryptos.sort(
-            ({ rank: rankA }, { rank: rankB }) =>
-              parseInt(rankA, 10) > parseInt(rankB, 10)
+          return [...cryptos].sort(
+            ({ rank: rankA }, { rank: rankB }) => rankA - rankB
           );
       }
     },
@@ -74,9 +75,14 @@ export default {
   methods: {
     async fetchCryptos() {
       this.requesting = true;
-      this.cryptos = await (await fetch(
-        'https://api.coinmarketcap.com/v1/ticker/?limit=10'
+      const data = await (await fetch(
+        'https://api.coinmarketcap.com/v2/ticker/?limit=10'
       )).json();
+      this.cryptos = Object.keys(data.data).map(key => ({
+        ...data.data[key],
+        percent_change_7d: data.data[key].quotes.USD.percent_change_7d,
+        price_usd: data.data[key].quotes.USD.price,
+      }));
       this.requesting = false;
     },
   },
