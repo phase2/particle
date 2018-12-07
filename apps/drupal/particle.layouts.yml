@@ -1,7 +1,7 @@
 particle_one_col:
-  label: 'Particle One Column'
-  path: layouts/test-onecol
-  template: test-onecol
+  label: 'Particle one column'
+  path: layout/particle-onecol
+  template: particle-onecol
   category: 'Columns: 1'
   default_region: content
   icon_map:
@@ -10,9 +10,9 @@ particle_one_col:
     content:
       label: Main Content
 particle_two_col:
-  label: 'Particle Two Column'
-  path: layouts/test-twocol
-  template: test-twocol
+  label: 'Particle two column'
+  path: layout/particle-twocol
+  template: particle-twocol
   category: 'Columns: 2'
   default_region: first
   icon_map:
@@ -23,9 +23,9 @@ particle_two_col:
     second:
       label: Second
 particle_three_col:
-  label: 'Particle Three Column'
-  path: layouts/test-threecol
-  template: test-threecol
+  label: 'Particle three column'
+  path: layout/particle-threecol
+  template: particle-threecol
   category: 'Columns: 3'
   default_region: first
   icon_map:
@@ -38,9 +38,9 @@ particle_three_col:
     third:
       label: Third
 particle_four_col:
-  label: 'Particle Four Column'
-  path: layouts/test-fourcol
-  template: test-fourcol
+  label: 'Particle four column'
+  path: layout/particle-fourcol
+  template: particle-fourcol
   category: 'Columns: 4'
   default_region: first
   icon_map:

@@ -1,0 +1,10 @@
+{% extends '@atoms/grid/_grid-2-up.twig' %}
+{% set container = true %}
+
+  {% block column_1 %}
+    {{ content.first }}
+  {% endblock %}
+  {% block column_2 %}
+    {{ content.second }}
+  {% endblock %}
+
