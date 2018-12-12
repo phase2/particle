@@ -1,0 +1,16 @@
+{% extends '@atoms/grid/_grid-4-up.twig' %}
+{# This presumes the main content area already contains a class of container. #}
+{% set container = false %}
+
+{% block column_1 %}
+  {{ content.first }}
+{% endblock %}
+{% block column_2 %}
+  {{ content.second }}
+{% endblock %}
+{% block column_3 %}
+  {{ content.third }}
+{% endblock %}
+{% block column_4 %}
+  {{ content.fourth }}
+{% endblock %}
