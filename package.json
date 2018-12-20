@@ -76,7 +76,7 @@
     "eslint-plugin-jest": "^21.26.1",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-vue": "^5.0.0-beta.3",
-    "file-loader": "^2.0.0",
+    "file-loader": "^3.0.0",
     "gulp": "^4.0.0",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^1.6.6",
