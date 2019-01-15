@@ -76,12 +76,17 @@ export const components = importAll(atomicContext);
  * @returns {Array} List of components name strings
  */
 export const componentNames = () =>
-  Object.values(components).map(({ name }) => name);
+  // Adding temporary fallbacks to account for new ParticleElement typescript classes
+  Object.values(components).map(props => props.name || props.default.name);
 
 /**
  * Enable all components against a piece of DOM with some settings
  */
 export const enableAllComponents = ($dom, settings) =>
-  Object.values(components).forEach(({ enable }) => enable($dom, settings));
+  Object.values(components).forEach(props => {
+    // Adding temporary fallbacks to account for new ParticleElement typescript classes
+    const enable = props.enable || props.default.enable;
+    return enable($dom, settings);
+  });
 
 export default components;
