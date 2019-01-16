@@ -1,8 +1,10 @@
 import $ from 'jquery';
-import button, { name } from '..';
+import Button from '..';
+
+console.log(Button);
 
 test('button component is registered', () => {
-  expect(name).toBe('button');
+  expect(Button.name).toBe('button');
 });
 
 test('simple .text() is verified', () => {
@@ -21,7 +23,7 @@ test('non-#blah button is not active', () => {
     </div>
   `;
 
-  button($(document));
+  Button.enable($(document));
   expect($('#button').hasClass('active')).toBe(false);
 });
 
@@ -32,6 +34,6 @@ test('#blah button is immediately active', () => {
     </div>
   `;
 
-  button($(document));
+  Button.enable($(document));
   expect($('#blah').hasClass('active')).toBe(true);
 });

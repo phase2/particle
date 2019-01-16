@@ -3,7 +3,7 @@ export default class ParticleElement {
         public name: string
     ) {}
 
-    enable(): any {
+    enable($context: {}): any {
         console.log('default particle enable');
     }
 
