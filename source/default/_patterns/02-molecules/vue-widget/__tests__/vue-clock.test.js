@@ -1,5 +1,5 @@
 import { render } from 'vue-testing-library';
-import vueClock from 'molecules/vue-widget/src/vue-clock/vue-clock.vue';
+import vueClock from 'default_molecules/vue-widget/src/vue-clock/vue-clock.vue';
 
 describe('vue-clock.vue', () => {
   it('sets rotate property for the seconds hand', () => {
