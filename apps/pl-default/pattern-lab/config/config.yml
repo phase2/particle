@@ -64,11 +64,6 @@ plugins:
           - ../../../source/default/_patterns/01-atoms/grid
           - ../../../source/default/_patterns/01-atoms/image
           - ../../../source/default/_patterns/01-atoms/list-group
-          - ../../../source/default/_patterns/01-atoms/new-cool-thing
-          - ../../../source/default/_patterns/01-atoms/new-thang
-          - ../../../source/default/_patterns/01-atoms/newer-cool-thing
-          - ../../../source/default/_patterns/01-atoms/smelly-diapers
-          - ../../../source/default/_patterns/01-atoms/sooper-important-atom
           - ../../../source/default/_patterns/01-atoms/svgicon
       default_molecules:
         paths:
@@ -77,8 +72,6 @@ plugins:
           - ../../../source/default/_patterns/02-molecules/carousel
           - ../../../source/default/_patterns/02-molecules/jumbotron
           - ../../../source/default/_patterns/02-molecules/nav
-          - ../../../source/default/_patterns/02-molecules/new-molecule
-          - ../../../source/default/_patterns/02-molecules/newer-molecule
           - ../../../source/default/_patterns/02-molecules/pagination
           - ../../../source/default/_patterns/02-molecules/vue-widget
       default_organisms:
@@ -89,7 +82,6 @@ plugins:
           - ../../../source/default/_patterns/03-organisms/card-grid
           - ../../../source/default/_patterns/03-organisms/footer
           - ../../../source/default/_patterns/03-organisms/navbar
-          - ../../../source/default/_patterns/03-organisms/throat-punch
       default_templates:
         paths:
           - ../../../source/default/_patterns/04-templates
