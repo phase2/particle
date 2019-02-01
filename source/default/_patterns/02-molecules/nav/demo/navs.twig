@@ -1,9 +1,9 @@
-{% extends '@atoms/grid/_grid-1-up.twig' %}
+{% extends '@default_atoms/grid/_grid-1-up.twig' %}
   {% set container = true %}
 
   {% block column_1 %}
     <h1>Navs</h1>
-    {% include '@molecules/card/_card-helper.twig' with {
+    {% include '@default_molecules/card/_card-helper.twig' with {
       card_text: navs_helper,
       card_background: 'secondary',
       text_color: 'light',
@@ -15,15 +15,15 @@
     <div class="mb-3">
     <h1>Horizontal Alignment</h1>
       <div class="nav--border">
-        {% include '@molecules/nav/_nav.twig' %}
+        {% include '@default_molecules/nav/_nav.twig' %}
       </div>
       <div class="nav--border">
-        {% include '@molecules/nav/_nav.twig' with {
+        {% include '@default_molecules/nav/_nav.twig' with {
           nav_alignment: 'center',
         } %}
       </div>
       <div class="nav--border">
-        {% include '@molecules/nav/_nav.twig' with {
+        {% include '@default_molecules/nav/_nav.twig' with {
         nav_alignment: 'end',
         } %}
       </div>
@@ -31,28 +31,28 @@
     </div>
     <div class=" mb-3">
       <h1>Vertical Alignment</h1>
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_vertical: true,
       } %}
     </div>
 
     <div class=" mb-3">
       <h1>Tabs</h1>
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_tabs: true,
       } %}
     </div>
 
     <div class=" mb-3">
       <h1>Pills</h1>
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_pill: true,
       } %}
     </div>
 
     <div class=" mb-3">
       <h1>Fill</h1>
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_pill: true,
         nav_fill: true,
       } %}
@@ -60,7 +60,7 @@
 
     <div class=" mb-3">
       <h1>Justify</h1>
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_pill: true,
         nav_justify: true,
       } %}
@@ -73,7 +73,7 @@
         {% set temp_item = item | merge({nav_item_element: 'a'}) %}
         {% set responsive_items = responsive_items|merge([temp_item]) %}
       {% endfor %}
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_pill: true,
         nav_other_classes: 'flex-column flex-sm-row',
         nav_items: responsive_items,
@@ -82,7 +82,7 @@
 
     <div class=" mb-3">
       <h1>Dropdown</h1>
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_element: 'ul',
         nav_tabs: 'true',
         nav_items: nav_items_dropdown,
@@ -96,7 +96,7 @@
         {% set temp_item = item | merge({nav_item_js: 'true'}) %}
         {% set javascript_items = javascript_items|merge([temp_item]) %}
       {% endfor %}
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_element: 'ul',
         nav_tabs: 'true',
         nav_id: 'myTab',

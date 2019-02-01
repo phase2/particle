@@ -3,7 +3,7 @@
  */
 
 // Custom
-import 'protons';
+import 'default_protons';
 
 // Module template
 import './_breadcrumb.twig';

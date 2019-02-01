@@ -5,9 +5,9 @@
 import 'bootstrap/js/dist/collapse';
 
 // Module dependencies
-import 'protons';
-import 'atoms/button';
-import 'molecules/card';
+import 'default_protons';
+import 'default_atoms/button';
+import 'default_molecules/card';
 
 // Module template
 import './_accordion.twig';

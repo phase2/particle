@@ -35,9 +35,9 @@
   {% block nav_items %}
     {% for item in nav_items %}
       {% if item.nav_item_dropdown %}
-        {% include '@atoms/dropdown/_dropdown.twig' with item %}
+        {% include '@default_atoms/dropdown/_dropdown.twig' with item %}
       {% else %}
-        {% include '@molecules/nav/_nav-item.twig' with item %}
+        {% include '@default_molecules/nav/_nav-item.twig' with item %}
       {% endif %}
     {% endfor %}
   {% endblock nav_items %}

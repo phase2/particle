@@ -38,9 +38,9 @@
 
 <{{ dropdown_element }} class="{{ dropdown_classes }}">
   {% if dropdown_split %}
-    {% include '@atoms/button/_button-dropdown-split.twig' %}
+    {% include '@default_atoms/button/_button-dropdown-split.twig' %}
   {% else %}
-    {% include '@atoms/button/_button-dropdown.twig' with {
+    {% include '@default_atoms/button/_button-dropdown.twig' with {
       button_text: dropdown_text,
       button_color: dropdown_color,
     } %}

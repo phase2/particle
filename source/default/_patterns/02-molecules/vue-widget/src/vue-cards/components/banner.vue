@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { randRGB } from 'protons/utilities';
+import { randRGB } from 'default_protons/utilities';
 
 export default {
   name: 'Banner',

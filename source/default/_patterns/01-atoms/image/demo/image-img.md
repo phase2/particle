@@ -1,16 +1,16 @@
 # How to handle static assets!
 
-Please note how `@atoms/image/demo/logo.twig` contains this code:
+Please note how `@default_atoms/image/demo/logo.twig` contains this code:
 
 ```
-{% include "@atoms/_image.twig" with {
+{% include "@default_atoms/_image.twig" with {
   img: {
     src: paths.assets ~ '/logo.svg',
   }
 } %}
 ```
 
-And also notice how `@atoms/image/index.js` contains this code:
+And also notice how `@default_atoms/image/index.js` contains this code:
 
 ```
 import './logo.svg';

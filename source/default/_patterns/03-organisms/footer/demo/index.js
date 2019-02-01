@@ -6,7 +6,7 @@
  */
 
 // Import component assets
-import 'organisms/footer';
+import 'default_organisms/footer';
 
 // Import demo assets
 import twig from './footers.twig';

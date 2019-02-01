@@ -1,9 +1,9 @@
-{% extends '@templates/site-container.twig' %}
+{% extends '@default_templates/site-container.twig' %}
   {% block content %}
 
-     {% embed '@templates/_basic-page.twig' %}
+     {% embed '@default_templates/_basic-page.twig' %}
        {% block content %}
-         {% include '@organisms/_article.twig' %}
+         {% include '@default_organisms/_article.twig' %}
        {% endblock %}
      {% endembed %}
 

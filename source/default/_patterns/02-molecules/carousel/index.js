@@ -6,8 +6,8 @@ import $ from 'jquery';
 import 'bootstrap/js/dist/carousel';
 
 // Module dependencies
-import 'protons';
-import 'atoms/image';
+import 'default_protons';
+import 'default_atoms/image';
 
 // Module template
 import './_carousel.twig';

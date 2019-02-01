@@ -3,9 +3,9 @@
  */
 
 // Module dependencies
-import 'protons';
-import 'atoms/image';
-import 'atoms/button';
+import 'default_protons';
+import 'default_atoms/image';
+import 'default_atoms/button';
 
 // Module template
 import './_jumbotron.twig';

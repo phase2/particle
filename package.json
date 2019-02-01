@@ -18,8 +18,10 @@
   ],
   "scripts": {
     "start": "npm run dev:pl",
-    "dev:pl": "cross-env-shell NODE_ENV=development \"gulp compile:startup --config ./apps/pl/particle.app.config.js & webpack-dev-server --config ./apps/pl/webpack.config.js --hot\"",
-    "build:pl": "cross-env-shell NODE_ENV=production \"gulp compile:startup --config ./apps/pl/particle.app.config.js && webpack --config ./apps/pl/webpack.config.js\"",
+    "dev:pl": "npm run dev:pl:default",
+    "dev:pl:default": "cross-env-shell NODE_ENV=development \"gulp compile:startup --config ./apps/pl-default/particle.app.config.js & webpack-dev-server --config ./apps/pl-default/webpack.config.js --hot\"",
+    "build:pl": "npm run build:pl:default",
+    "build:pl:default": "cross-env-shell NODE_ENV=production \"gulp compile:startup --config ./apps/pl-default/particle.app.config.js && webpack --config ./apps/pl-default/webpack.config.js\"",
     "dev:drupal": "cross-env-shell NODE_ENV=development \"gulp compile:namespaces --config ./apps/drupal/particle.app.config.js && webpack --watch --config ./apps/drupal/webpack.config.js\"",
     "build:drupal": "cross-env-shell NODE_ENV=production \"gulp compile:namespaces --config ./apps/drupal/particle.app.config.js && webpack --config ./apps/drupal/webpack.config.js\"",
     "dev:grav": "cross-env-shell NODE_ENV=development \"gulp compile:namespaces --config ./apps/grav/particle.app.config.js && webpack --watch --config ./apps/grav/webpack.config.js\"",
@@ -35,7 +37,7 @@
     "test:unit:default": "NODE_ENV=test jest --projects source/default/",
     "test:unit": "npm run test:unit:default",
     "test": "npm run test:unit",
-    "setup:pl": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
+    "setup:pl": "cd ./apps/pl-default/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "setup": "composer install --no-interaction --ignore-platform-reqs && npm run setup:pl",
     "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal && npm run build:grav",
     "new": "yo ./tools/new-component/index.js"

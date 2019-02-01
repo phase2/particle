@@ -3,8 +3,8 @@
  */
 
 // Module dependencies
-import 'protons';
-import 'atoms/svgicon';
+import 'default_protons';
+import 'default_atoms/svgicon';
 
 // Module template
 import './_pagination.twig';

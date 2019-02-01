@@ -57,7 +57,7 @@ const dev = {
     watchOptions: {
       ignored: '/(node_modules|pl)/',
     },
-    open: true, // Open browser immediately
+    open: false, // Open browser immediately
     openPage: `${APP_NAME}/pl`, // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root

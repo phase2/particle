@@ -57,7 +57,7 @@ gulp.task('compile:pl:notify:post', cb => {
   fs.writeFile(
     path.resolve(PATH_DIST, 'index.html'),
     // prettier-ignore
-    `<!doctype html><title>Particle</title><a href="/${config.APP_NAME}/pl">Open Pattern Lab (Last changed: ${+new Date()})</a>`,
+    `<!doctype html><head><title>Particle</title></head><body><ul><li><a href="/${config.APP_NAME}">Pattern Lab: <strong>${config.APP_NAME}</strong></a><br/><small>(Last changed: ${+new Date()})</small></li></ul></body>`,
     cb
   );
 });

@@ -23,7 +23,7 @@
 <script>
 // Import existing PRINTING styles through JavaScript. This does NOT duplicate
 // since JavaScript imports are handled by Webpack.
-import 'molecules/card';
+import 'default_molecules/card';
 
 export default {
   name: 'Card',

@@ -1,14 +1,14 @@
-{% extends '@atoms/grid/_grid-1-up.twig' %}
+{% extends '@default_atoms/grid/_grid-1-up.twig' %}
   {% set container = true %}
 
   {% block column_1 %}
 
     {% block jumbo_basic %}
-      {% include '@molecules/jumbotron/_jumbotron.twig' with basic_jumbotron %}
+      {% include '@default_molecules/jumbotron/_jumbotron.twig' with basic_jumbotron %}
     {% endblock %}
 
     {% block jumbo_fluid %}
-      {% include '@molecules/jumbotron/_jumbotron.twig' with fluid_jumbotron %}
+      {% include '@default_molecules/jumbotron/_jumbotron.twig' with fluid_jumbotron %}
     {% endblock %}
 
     <p>

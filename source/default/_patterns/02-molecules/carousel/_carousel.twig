@@ -25,7 +25,7 @@
   <div class="carousel-inner">
     {% for image in carousel_images %}
       <div class="carousel-item {{ (image.active) ? 'active' }}">
-        {% include '@atoms/image/_image.twig' with {
+        {% include '@default_atoms/image/_image.twig' with {
           imageStyleName: 'carousel',
           class: 'img img-fluid',
         } %}

@@ -6,7 +6,7 @@
  */
 
 // Import component assets
-import 'atoms/svgicon';
+import 'default_atoms/svgicon';
 
 // Demo-only styles
 import './_svgicon-demo.scss';

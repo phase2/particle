@@ -3,7 +3,7 @@
  */
 
 // Module Dependencies
-import 'protons';
+import 'default_protons';
 
 // Module template
 import './_badge.twig';

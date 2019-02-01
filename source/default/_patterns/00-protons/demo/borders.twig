@@ -74,7 +74,7 @@
       <p>Add classes to an element to easily round its corners.</p>
       <div class="border">
         {% for class in radius_classes %}
-          {% include '@atoms/image/_image.twig' with {
+          {% include '@default_atoms/image/_image.twig' with {
             imageStyleName: 'thumbnail',
             class: 'm-2 rounded' ~ class,
           } %}

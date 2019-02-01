@@ -11,7 +11,7 @@ id:
   - .sass-cache
   - fonts
   - icons
-cleanPublic: 'true'
+cleanPublic: 'false'
 patternStates:
   - inprogress
   - inreview
@@ -19,7 +19,7 @@ patternStates:
 styleGuideExcludes: ''
 cacheBusterOn: 'true'
 exportDir: export
-publicDir: ../../../dist/app-pl/pl/
+publicDir: ../../../dist/pl-default/
 sourceDir: ../../../source/default/
 defaultPattern: protons-welcome
 defaultShowPatternInfo: false
@@ -48,15 +48,16 @@ plugins:
   twigNamespaces:
     enabled: true
     namespaces:
-      protons:
+      default_protons:
         paths:
           - ../../../source/default/_patterns/00-protons
           - ../../../source/default/_patterns/00-protons/utilities
-      atoms:
+      default_atoms:
         paths:
           - ../../../source/default/_patterns/01-atoms
           - ../../../source/default/_patterns/01-atoms/alert
           - ../../../source/default/_patterns/01-atoms/badge
+          - ../../../source/default/_patterns/01-atoms/boogie-bear
           - ../../../source/default/_patterns/01-atoms/branding
           - ../../../source/default/_patterns/01-atoms/breadcrumb
           - ../../../source/default/_patterns/01-atoms/button
@@ -64,17 +65,24 @@ plugins:
           - ../../../source/default/_patterns/01-atoms/grid
           - ../../../source/default/_patterns/01-atoms/image
           - ../../../source/default/_patterns/01-atoms/list-group
+          - ../../../source/default/_patterns/01-atoms/new-cool-thing
+          - ../../../source/default/_patterns/01-atoms/new-thang
+          - ../../../source/default/_patterns/01-atoms/newer-cool-thing
+          - ../../../source/default/_patterns/01-atoms/smelly-diapers
+          - ../../../source/default/_patterns/01-atoms/sooper-important-atom
           - ../../../source/default/_patterns/01-atoms/svgicon
-      molecules:
+      default_molecules:
         paths:
           - ../../../source/default/_patterns/02-molecules
           - ../../../source/default/_patterns/02-molecules/card
           - ../../../source/default/_patterns/02-molecules/carousel
           - ../../../source/default/_patterns/02-molecules/jumbotron
           - ../../../source/default/_patterns/02-molecules/nav
+          - ../../../source/default/_patterns/02-molecules/new-molecule
+          - ../../../source/default/_patterns/02-molecules/newer-molecule
           - ../../../source/default/_patterns/02-molecules/pagination
           - ../../../source/default/_patterns/02-molecules/vue-widget
-      organisms:
+      default_organisms:
         paths:
           - ../../../source/default/_patterns/03-organisms
           - ../../../source/default/_patterns/03-organisms/accordion
@@ -82,10 +90,11 @@ plugins:
           - ../../../source/default/_patterns/03-organisms/card-grid
           - ../../../source/default/_patterns/03-organisms/footer
           - ../../../source/default/_patterns/03-organisms/navbar
-      templates:
+          - ../../../source/default/_patterns/03-organisms/throat-punch
+      default_templates:
         paths:
           - ../../../source/default/_patterns/04-templates
           - ../../../source/default/_patterns/04-templates/basic-page
-      pages:
+      default_pages:
         paths:
           - ../../../source/default/_patterns/05-pages

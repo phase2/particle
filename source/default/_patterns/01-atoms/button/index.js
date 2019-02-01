@@ -6,7 +6,7 @@ import $ from 'jquery';
 import 'bootstrap/js/dist/button';
 
 // Custom
-import 'protons';
+import 'default_protons';
 
 // Module template
 import './_button.twig';

@@ -39,7 +39,7 @@
   <{{element}} class="{{ classes }}" {{ item_id }}{{ attributes }}>
     {{ item.item_text }}
     {% if item.item_badge %}
-      {% include '@atoms/badge/_badge.twig' with item.item_badge %}
+      {% include '@default_atoms/badge/_badge.twig' with item.item_badge %}
     {% endif %}
     </{{element}}>
   {% endfor %}

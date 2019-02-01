@@ -1,7 +1,7 @@
 pl: true
 BUILD_TARGET: pl
 paths:
-  assets: '../../../assets'
+  assets: '../../assets'
 bodyClass: 'pl pl-loading'
 title: Faker.words(2, true)
 text: Faker.words(3, true)

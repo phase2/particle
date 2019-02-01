@@ -5,7 +5,7 @@
 import 'bootstrap/js/dist/alert';
 
 // Module Dependencies
-import 'protons';
+import 'default_protons';
 
 // Module template
 import './_alert.twig';

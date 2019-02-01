@@ -1,4 +1,4 @@
-import 'protons';
+import 'default_protons';
 
 // Module template
 import './_grid-1-up.twig';

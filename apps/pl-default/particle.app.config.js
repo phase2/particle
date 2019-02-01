@@ -10,7 +10,7 @@ const {
 } = require('../../particle.root.config');
 
 // Used as folder name within PATH_DIST, does not have to be folder name of app
-const APP_NAME = 'app-pl';
+const APP_NAME = 'pl-default';
 // Full path to app
 const APP_PATH = path.resolve(__dirname);
 // Full path to design system used in this app

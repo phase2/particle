@@ -33,7 +33,7 @@
 <script>
 // Import existing PRINTING styles through JavaScript. This does NOT duplicate
 // since JavaScript imports are handled by Webpack.
-import 'atoms/grid';
+import 'default_atoms/grid';
 
 // Import the card component
 import card from './card.vue';

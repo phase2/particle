@@ -5,7 +5,7 @@
 import 'bootstrap/js/dist/collapse';
 
 // Custom
-import 'protons';
+import 'default_protons';
 
 // Module template
 import './_navbar.twig';

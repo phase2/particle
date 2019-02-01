@@ -30,12 +30,12 @@
 
 <header class="site__header" role="banner">
   {% block header %}
-    {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
+    {% embed '@default_molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
       {% block jumbotron_branding %}
-        {% include '@atoms/branding/_branding.twig' with {
+        {% include '@default_atoms/branding/_branding.twig' with {
           site_name: site.title|e('html'),
           url: base_url == '' ? '/' : base_url,
-          logo_svg_inline: '@atoms/image/logo.svg'
+          logo_svg_inline: '@default_atoms/image/logo.svg'
         } %}
       {% endblock jumbotron_branding %}
     {% endembed %}

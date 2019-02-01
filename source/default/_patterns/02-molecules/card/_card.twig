@@ -47,7 +47,7 @@
   {% if card_image_location == 'top' %}
     {% block card_image_top %}
       {# if `card_image` is null, this falls back to a holderjs placeholder #}
-      {% include '@atoms/image/_image.twig' with {
+      {% include '@default_atoms/image/_image.twig' with {
         imageStyleName: 'card',
         class: 'card-img-top',
         img: card_image,
@@ -83,13 +83,13 @@
         <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
       {% endif %}
       {% if button %}
-        {% include "@atoms/button/_button.twig" with button %}
+        {% include "@default_atoms/button/_button.twig" with button %}
       {% endif %}
     </div>
   {% endblock %}
 
   {% if list %}
-    {% include '@atoms/list-group/_list-group.twig' with list %}
+    {% include '@default_atoms/list-group/_list-group.twig' with list %}
   {% endif %}
 
   {% if card_footer %}
@@ -101,7 +101,7 @@
   {% if card_image_location == 'bottom' %}
     {% block card_image_bottom %}
       {# if `card_image` is null, this falls back to a holderjs placeholder #}
-      {% include '@atoms/image/_image.twig' with {
+      {% include '@default_atoms/image/_image.twig' with {
         imageStyleName: 'card',
         class: 'card-img-bottom',
         img: card_image,

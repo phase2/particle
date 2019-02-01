@@ -8,9 +8,9 @@
 import $ from 'jquery';
 
 // Ensure all assets required by demos are present.
-import 'protons';
-import 'templates/site-container.twig';
-import 'templates/basic-page';
+import 'default_protons';
+import 'default_templates/site-container.twig';
+import 'default_templates/basic-page';
 
 // Demo templates.
 import './article.twig';

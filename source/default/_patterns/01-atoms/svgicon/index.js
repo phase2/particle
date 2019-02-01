@@ -5,7 +5,7 @@
 import svg4everybody from 'svg4everybody';
 
 // Module dependencies
-import 'protons';
+import 'default_protons';
 import fontawesome from './fontawesome';
 
 // Module styles

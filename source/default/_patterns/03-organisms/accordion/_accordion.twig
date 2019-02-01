@@ -24,7 +24,7 @@
       show: card.card_expanded ? 'show' : '',
     } %}
 
-    {% embed '@molecules/card/_card.twig' %}
+    {% embed '@default_molecules/card/_card.twig' %}
 
       {% block card_header %}
         <div class="card-header" id="{{ 'heading-' ~ loop.index }}">

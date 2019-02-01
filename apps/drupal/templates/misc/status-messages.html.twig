@@ -33,7 +33,7 @@
 {% for type, messages in message_list %}
 
   <div role="contentinfo" aria-label="{{ status_heading[type] }}"{{ attributes|without('role', 'aria-label') }}>
-    {% embed '@atoms/alert/_alert.twig' %}
+    {% embed '@default_atoms/alert/_alert.twig' %}
       {% block alert_header %}
         <a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">&times;</span></a>
         {% if status_headings[type] %}

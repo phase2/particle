@@ -5,7 +5,7 @@
 import 'bootstrap/js/dist/dropdown';
 
 // Custom
-import 'protons';
+import 'default_protons';
 
 // Module template
 import './_dropdown.twig';

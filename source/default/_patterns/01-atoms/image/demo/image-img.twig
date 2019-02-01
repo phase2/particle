@@ -3,12 +3,12 @@ All paths reference distributed OUTPUT, not local. Static assets are only
 referencable post-build.
 #}
 
-{% extends '@atoms/_grid-2-up.twig' %}
+{% extends '@default_atoms/_grid-2-up.twig' %}
   {% set container = true %}
 
   {% block column_1 %}
     <h2>SVG (in pattern)</h2>
-    {% include "@atoms/_image.twig" with {
+    {% include "@default_atoms/_image.twig" with {
       img: {
         src: paths.assets ~ '/logo.svg',
       }
@@ -17,7 +17,7 @@ referencable post-build.
 
   {% block column_2 %}
     <h2>PNG (demo-only)</h2>
-    {% include '@atoms/_image.twig' with {
+    {% include '@default_atoms/_image.twig' with {
       img: {
         src: paths.assets ~ '/astrogoat.png',
       }

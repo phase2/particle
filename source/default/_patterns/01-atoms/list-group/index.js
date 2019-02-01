@@ -5,8 +5,8 @@
 import 'bootstrap/js/dist/tab';
 
 // Module dependencies
-import 'protons';
-import 'atoms/badge';
+import 'default_protons';
+import 'default_atoms/badge';
 
 // Module template
 import './_list-group.twig';

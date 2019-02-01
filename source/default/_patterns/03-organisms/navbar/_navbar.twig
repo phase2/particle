@@ -18,7 +18,7 @@
   {% block navbar_brand %}
     <a class="navbar-brand" href="{{ navbar_brand_link }}">{{ navbar_brand_text }}</a>
     {# collapse button #}
-    {% include '@atoms/button/_button.twig' with {
+    {% include '@default_atoms/button/_button.twig' with {
       button_color: 'none',
       button_other_classes: 'navbar-toggler',
       button_toggle: 'collapse',
@@ -30,7 +30,7 @@
   {# navbar #}
   {% block navbar_content %}
     <div class="collapse navbar-collapse" id="{{ navbar_id }}">
-      {% include '@molecules/nav/_nav.twig' with {
+      {% include '@default_molecules/nav/_nav.twig' with {
         nav_element: 'ul',
         nav_other_classes: 'navbar-nav mr-auto',
         nav_items: navbar_items,
@@ -38,7 +38,7 @@
 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        {% include '@atoms/button/_button.twig' with {
+        {% include '@default_atoms/button/_button.twig' with {
           button_color: 'primary',
           button_outline: true,
           button_other_classes: 'my-2 my-sm-0',

@@ -75,7 +75,7 @@
   'ml-5',
 ] | sort | join(' ') | trim %}
 
-{% embed '@organisms/article/_article.twig' %}
+{% embed '@default_organisms/article/_article.twig' %}
 
   {% block article_header %}
     {{ title_prefix }}

@@ -8,7 +8,7 @@
   jumbotron_link: String: the path to another URL
   jumbotron_link_text: String: the link's text
 
-  button vars see @atoms/button
+  button vars see @default_atoms/button
   button_text: String: Display text on the button
   button_color: String: primary|secondary|success|danger|warning|info|light|dark
   button_size: String: lg|sm set whether the button is large or small
@@ -45,7 +45,7 @@
 
     {% if button_text %}
       <p class="lead">
-        {% include "@atoms/button/_button.twig" with {
+        {% include "@default_atoms/button/_button.twig" with {
           button_text: button_text,
           button_color: button_color,
           button_size: button_size,

@@ -1,4 +1,4 @@
-{% extends '@atoms/grid/_grid-1-up.twig' %}
+{% extends '@default_atoms/grid/_grid-1-up.twig' %}
 {% set container = true %}
 
 {% block column_1 %}
@@ -122,11 +122,11 @@ new Vue({
   <div class="row">
     <div class="col-sm-6">
       <h2>Vue</h2>
-      {% include '@molecules/vue-widget/_vue-cryptos.twig' %}
+      {% include '@default_molecules/vue-widget/_vue-cryptos.twig' %}
     </div>
     <div class="col-sm-6">
       <h2>Vue + VueX</h2>
-      {% include '@molecules/vue-widget/_vuex-cryptos.twig' %}
+      {% include '@default_molecules/vue-widget/_vuex-cryptos.twig' %}
     </div>
   </div>
 
@@ -137,7 +137,7 @@ new Vue({
       <div class="alert alert-primary" role="alert">
         Check vue-cards/ for respective implementation details.
       </div>
-      {% include '@molecules/vue-widget/_vue-cards.twig' %}
+      {% include '@default_molecules/vue-widget/_vue-cards.twig' %}
     </div>
   </div>
 
@@ -148,7 +148,7 @@ new Vue({
       <div class="alert alert-primary" role="alert">
         Check vue-clock/ for respective implementation details.
       </div>
-    {% include '@molecules/vue-widget/_vue-clock.twig' %}
+    {% include '@default_molecules/vue-widget/_vue-clock.twig' %}
     </div>
   </div>
 

@@ -3,8 +3,8 @@
  */
 
 // Module dependencies
-import 'protons';
-import 'atoms/image';
+import 'default_protons';
+import 'default_atoms/image';
 
 // Module template
 import './_branding.twig';

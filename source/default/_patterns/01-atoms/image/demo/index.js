@@ -3,7 +3,7 @@
  */
 
 // Ensure all image pattern deps are present
-import 'atoms/image';
+import 'default_atoms/image';
 
 // Demo-only styles
 import './_image-demo.scss';

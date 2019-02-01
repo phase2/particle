@@ -4,13 +4,13 @@
   {% set colors = colors|merge([name]) %}
 {% endfor %}
 
-{% extends '@atoms/grid/_grid-1-up.twig' %}
+{% extends '@default_atoms/grid/_grid-1-up.twig' %}
   {% set container = true %}
 
   {% block column_1 %}
     <div class="mb-3">
       <h1>List Group</h1>
-      {% include '@molecules/card/_card-helper.twig' with {
+      {% include '@default_molecules/card/_card-helper.twig' with {
         card_text: list_group_helper,
         card_background: 'secondary',
         text_color: 'light',
@@ -19,14 +19,14 @@
 
     {# Basic examples #}
     <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
+      {% include '@default_molecules/card/_card-helper.twig' with {
         card_title: 'Basic Examples',
         card_text: list_group_helper_basic,
       } %}
     </div>
     <div class="row mb-3">
       <div class="col-sm-6">
-        {% include '@atoms/list-group/_list-group.twig' with list_group_text %}
+        {% include '@default_atoms/list-group/_list-group.twig' with list_group_text %}
       </div>
       <div class="col-sm-6">
         {# This block of code is going to appear multiple times. It exists because the _list-group.twig
@@ -41,7 +41,7 @@
           {# Build up the color_items array #}
           {% set color_items = color_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           items: color_items
         } %}
       </div>
@@ -49,7 +49,7 @@
 
     {# Active and Disabled Items #}
     <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
+      {% include '@default_molecules/card/_card-helper.twig' with {
         card_title: 'Active and Disabled Items',
         card_text: list_group_helper_active,
       } %}
@@ -62,7 +62,7 @@
           {% set temp_item = item | merge(random(list_group_text.items)) %}
           {% set active_items = active_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           items: active_items
         } %}
       </div>
@@ -73,7 +73,7 @@
           {% set temp_item = item | merge(random(list_group_text.items)) %}
           {% set disabled_items = disabled_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           items: disabled_items
         } %}
       </div>
@@ -84,7 +84,7 @@
           {% set temp_item = item | merge({item_color: random(colors)}) | merge({item_classes: ['list-group-item-action']}) %}
           {% set action_items = action_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           items: action_items
         } %}
       </div>
@@ -92,7 +92,7 @@
 
     {# Other Elements #}
     <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
+      {% include '@default_molecules/card/_card-helper.twig' with {
         card_title: 'Other elements',
         card_text: list_group_helper_elements,
       } %}
@@ -105,7 +105,7 @@
           {% set temp_item = item | merge({item_color: random(colors)}) | merge({item_element: 'a'}) %}
           {% set link_items = link_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           items: link_items,
         } %}
       </div>
@@ -116,7 +116,7 @@
           {% set temp_item = item | merge({item_color: random(colors)}) | merge({item_element: 'button'}) %}
           {% set button_items = button_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           items: button_items,
         } %}
       </div>
@@ -124,7 +124,7 @@
 
     {# Adding Elements #}
     <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
+      {% include '@default_molecules/card/_card-helper.twig' with {
         card_title: 'Adding Elements',
         card_text: list_group_helper_adding,
       } %}
@@ -147,7 +147,7 @@
           {% set temp_item = item | merge({item_color: random(colors)}) | merge({item_badge: badge_data}) | merge({item_classes: badge_classes}) %}
           {% set badge_items = badge_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           items: badge_items,
         } %}
       </div>
@@ -164,7 +164,7 @@
           {% set temp_item = item | merge({item_classes: custom_classes}) %}
           {% set custom_items = custom_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           items: custom_items,
         } %}
       </div>
@@ -172,7 +172,7 @@
 
     {#Toggleable Items#}
     <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
+      {% include '@default_molecules/card/_card-helper.twig' with {
         card_title: 'Toggleable Items',
         card_text: list_group_helper_toggleable,
         button: {
@@ -188,7 +188,7 @@
           {% set temp_item = item | merge({item_element: 'a'}) %}
           {% set toggle_items = toggle_items|merge([temp_item]) %}
         {% endfor %}
-        {% include '@atoms/list-group/_list-group.twig' with {
+        {% include '@default_atoms/list-group/_list-group.twig' with {
           parent_element: 'div',
           list_id: 'mylist',
           items: toggle_items,

@@ -4,8 +4,8 @@
  * Mount all widgets via the root index.js file.
  */
 
-import 'protons';
-import 'molecules/card';
+import 'default_protons';
+import 'default_molecules/card';
 
 // Module template
 import './_vuex-cryptos.twig';
