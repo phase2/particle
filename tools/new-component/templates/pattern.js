@@ -5,7 +5,7 @@
 import $ from 'jquery';
 
 // Module dependencies
-import 'default_protons';
+import '<%= designSystem %>_protons';
 
 // Module styles
 import './_<%= name %>.scss';

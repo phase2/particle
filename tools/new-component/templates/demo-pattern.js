@@ -6,7 +6,7 @@
  */
 
 // Import component assets
-import '<%= cleanPatternType %>/<%= name %>';
+import '<%= designSystem %>_<%= cleanPatternType %>/<%= name %>';
 
 // Import demo assets
 import twig from './<%= name %>s.twig';
