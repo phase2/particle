@@ -109,7 +109,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(woff|woff2|eot|ttf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(woff|woff2|eot|ttf|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
           {
             loader: 'url-loader',
