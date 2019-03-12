@@ -78,7 +78,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
+              sourceMap: NODE_ENV !== 'development',
               // ALL Sass partials should be provided with non-printing
               // variables, mixins, and functions
               data: '@import "00-protons/variables";',
