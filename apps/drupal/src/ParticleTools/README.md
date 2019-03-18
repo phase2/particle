@@ -1,0 +1,39 @@
+# Particle Tools
+
+ParticleTools adds a suite of Theme Helper functions common to Drupal. 
+These can be used across Particle Drupal Application.
+
+## Configuration
+
+`ParticleToolsInterface.php` includes a set constants configuration specific to 
+a installation of Particle: 
+
+* `THEME_NAME`: The Drupal theme name, default is set as Particle.
+* `ASSETS_PATH`: The path to the compiled assets for Drupal to consume. 
+
+Be aware that this configuration should be updated based on your Particle. 
+If you change these variables of your theme, these `const` should be updated.  
+
+
+## Usage
+
+If you have a helper function you'd like to include in your app, 
+simply add the functionality to `ParticleTools.php`. 
+
+Particle Tools have already been added to `particle.theme`, however if you'd 
+like to use the Tools elsewhere in PHP simply include the namespace to the file:
+
+`use Drupal\particle\ParticleTools\ParticleTools;`
+
+Now whenever you wish to use a helper:
+
+`ParticleTools::yourHelperFunction()`
+
+Note this usage assumes you've declared a public static function and that it's
+return is not tied specifically to the context of the instance. If you need a
+more context specific approach, consider using public functions and declaring
+your tools as an instance:
+
+`$tools = new ParticleTools`
+
+`$tools->yourHelperFunction()`
