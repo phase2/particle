@@ -4,6 +4,7 @@
 
 const path = require('path');
 
+const { PWD } = process.env;
 const {
   PATH_DIST,
   ASSETS_BUNDLE_FOLDER,
@@ -27,6 +28,10 @@ const namespaces = {
   config: path.resolve(__dirname, 'particle.info.yml'),
   // The key within the file where the namespaces will be written
   atKey: 'component-libraries',
+  // For drupal and grav the existence of generated patterns in the filesystem is checked
+  // before the namespaces are added to their config. This is not necessary for patternlab,
+  // as all components need to be registered.
+  skipFileExistenceCheck: false,
   // The namespaces module runs a transform function, providing to it the path
   // to the pattern within source/
   transform: folderPath => {
@@ -39,8 +44,17 @@ const namespaces = {
     const appDistPath = path.relative(APP_PATH, APP_DIST);
     // e.g. ../../dist/app-drupal/assets
     const patternPath = path.relative(APP_DESIGN_SYSTEM, folderPath);
-    // e.g. ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/badge
-    return path.join(appDistPath, ASSETS_ATOMIC_FOLDER, patternPath);
+
+    return {
+      // System specific component path e.g. ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/badge
+      componentPath: path.join(appDistPath, ASSETS_ATOMIC_FOLDER, patternPath),
+      // Relative path from particle root e.g. dist/app-grav/assets/atomic/_patterns/01-atoms/badge
+      relativePath: path.join(
+        path.relative(PWD, APP_DIST),
+        ASSETS_ATOMIC_FOLDER,
+        patternPath
+      ),
+    };
   },
 };
 

@@ -19,14 +19,25 @@ module.exports = function namespaceWriter(namespaces, config) {
   return done => {
     // Create namespace paths in the correct relative path each app needs
     const relNamespaces = Object.keys(namespaces).reduce((acc, cat) => {
-      acc[cat] = {
-        paths: [].concat(
-          ...namespaces[cat].paths.map(atomicPath =>
-            // Each app provides its own transform function :)
-            config.namespaces.transform(atomicPath)
-          )
-        ),
-      };
+      const validPaths = namespaces[cat].paths.reduce((paths, atomicPath) => {
+        // Each app provides its own transform function :)
+        const { componentPath, relativePath } = config.namespaces.transform(
+          atomicPath
+        );
+
+        // Check if the path has been written to dist, see https://github.com/phase2/particle/issues/503
+        if (config.namespaces.skipFileExistenceCheck) {
+          paths.push(componentPath);
+        } else if (fs.existsSync(relativePath)) {
+          paths.push(componentPath);
+        }
+        return paths;
+      }, []);
+      if (validPaths.length > 0) {
+        acc[cat] = {
+          paths: validPaths,
+        };
+      }
       return acc;
     }, {});
 

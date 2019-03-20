@@ -8,6 +8,7 @@ const { DefinePlugin } = require('webpack');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
+const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 const particle = require('../../particle');
 
 // Constants: environment
@@ -42,6 +43,12 @@ const shared = {
   plugins: [
     new DefinePlugin({
       BUILD_TARGET: JSON.stringify(APP_NAME),
+    }),
+    new RunScriptAfterEmit({
+      exec: [
+        // Recreate component paths in particle.info.yaml.
+        `gulp compile:namespaces --config ./apps/grav/particle.app.config.js`,
+      ],
     }),
   ],
 };

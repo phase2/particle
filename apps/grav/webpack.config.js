@@ -44,6 +44,12 @@ const shared = {
     new webpack.DefinePlugin({
       BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
+    new RunScriptAfterEmit({
+      exec: [
+        // Recreate component paths in particle.info.yaml.
+        `gulp compile:namespaces --config ./apps/grav/particle.app.config.js`,
+      ],
+    }),
   ],
 };
 

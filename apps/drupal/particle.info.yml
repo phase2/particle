@@ -21,10 +21,6 @@ regions:
   sidebar_second: Sidebar second
   footer: Footer
 component-libraries:
-  protons:
-    paths:
-      - ../../dist/app-drupal/assets/atomic/_patterns/00-protons
-      - ../../dist/app-drupal/assets/atomic/_patterns/00-protons/utilities
   atoms:
     paths:
       - ../../dist/app-drupal/assets/atomic/_patterns/01-atoms
@@ -55,10 +51,3 @@ component-libraries:
       - ../../dist/app-drupal/assets/atomic/_patterns/03-organisms/card-grid
       - ../../dist/app-drupal/assets/atomic/_patterns/03-organisms/footer
       - ../../dist/app-drupal/assets/atomic/_patterns/03-organisms/navbar
-  templates:
-    paths:
-      - ../../dist/app-drupal/assets/atomic/_patterns/04-templates
-      - ../../dist/app-drupal/assets/atomic/_patterns/04-templates/basic-page
-  pages:
-    paths:
-      - ../../dist/app-drupal/assets/atomic/_patterns/05-pages

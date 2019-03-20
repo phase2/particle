@@ -28,6 +28,10 @@ const namespaces = {
   config: path.resolve(__dirname, 'twig-namespaces.yaml'),
   // The key within the file where the namespaces will be written
   atKey: 'namespaces',
+  // For drupal and grav the existence of generated patterns in the filesystem is checked
+  // before the namespaces are added to their config. This is not necessary for patternlab,
+  // as all components need to be registered.
+  skipFileExistenceCheck: false,
   // The namespaces module runs a transform function, providing to it the path
   // to the pattern within source/
   transform: folderPath => {
@@ -41,8 +45,18 @@ const namespaces = {
     const appDistPath = path.relative(PWD, APP_DIST);
     // e.g. _patterns/01-atoms/badge
     const patternPath = path.relative(APP_DESIGN_SYSTEM, folderPath);
-    // e.g. user/themes/particle/dist/app-grav/assets/atomic/_patterns/01-atoms/badge
-    return path.join(gravPre, appDistPath, ASSETS_ATOMIC_FOLDER, patternPath);
+
+    return {
+      // System specific component path e.g. user/themes/particle/dist/app-grav/assets/atomic/_patterns/01-atoms/badge
+      componentPath: path.join(
+        gravPre,
+        appDistPath,
+        ASSETS_ATOMIC_FOLDER,
+        patternPath
+      ),
+      // Relative path from particle root e.g. dist/app-grav/assets/atomic/_patterns/01-atoms/badge
+      relativePath: path.join(appDistPath, ASSETS_ATOMIC_FOLDER, patternPath),
+    };
   },
 };
 
