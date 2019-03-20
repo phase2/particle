@@ -1,6 +1,8 @@
 <?php
 
-namespace Drupal\particle\ParticleTools;
+namespace Drupal\particle\Tools;
+
+use Drupal\particle\Particle;
 
 /**
  * Provides utility functions for all preprocessors.
@@ -11,7 +13,7 @@ namespace Drupal\particle\ParticleTools;
  * @see https://bitbucket.org/phase2tech/adventist/src/develop/src/themes/ahs_theme/src/ThemeTools.php
  *
  */
-class ParticleTools implements ParticleToolsInterface {
+class ParticleTools {
 
   /**
    * Return the theme path relative to the Drupal root.
@@ -20,7 +22,7 @@ class ParticleTools implements ParticleToolsInterface {
    *   The theme path.
    */
   public static function getThemePath() {
-    return drupal_get_path('theme', self::THEME_NAME);
+    return drupal_get_path('theme', Particle::THEME_NAME);
   }
 
   /**
@@ -30,7 +32,7 @@ class ParticleTools implements ParticleToolsInterface {
    *   The theme's assets path.
    */
   public static function getAssetsPath() {
-    return self::getThemePath() . self::ASSETS_PATH;
+    return static::getThemePath() . Particle::ASSETS_PATH;
   }
 
 }

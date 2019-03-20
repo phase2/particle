@@ -5,7 +5,7 @@
 * Functions to support theming miscellaneous things the Particle theme.
 */
 
-use Drupal\particle\ParticleTools\ParticleTools;
+use Drupal\particle\Tools\ParticleTools;
 
 /**
  * Implements hook_preprocess().

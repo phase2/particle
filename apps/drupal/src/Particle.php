@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\particle\ParticleTools;
+namespace Drupal\particle;
 
 /**
- * Provides a tools interface for theme preprocessing.
+ * Provides a primary particle class.
  *
  */
-interface ParticleToolsInterface {
+class Particle {
 
   /**
    * Provides theme name constant.
@@ -19,5 +19,11 @@ interface ParticleToolsInterface {
    *
    */
   const ASSETS_PATH = '/../../dist/assets';
+
+  /**
+   * Provides the frontend docs for reference.
+   *
+   */
+  const FRONTEND_DOCS = 'https://phase2.github.io/frontend-docs/';
 
 }

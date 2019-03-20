@@ -5,11 +5,12 @@ These can be used across Particle Drupal Application.
 
 ## Configuration
 
-`ParticleToolsInterface.php` includes a set constants configuration specific to 
+`Particle.php` includes a set of global constants configuration specific to 
 a installation of Particle: 
 
 * `THEME_NAME`: The Drupal theme name, default is set as Particle.
-* `ASSETS_PATH`: The path to the compiled assets for Drupal to consume. 
+* `ASSETS_PATH`: The path to the compiled assets for Drupal to consume.
+* `FRONTEND_DOCS`: A direct link to Phase2's Front End Particle docs. 
 
 Be aware that this configuration should be updated based on your Particle. 
 If you change these variables of your theme, these `const` should be updated.  
@@ -20,10 +21,10 @@ If you change these variables of your theme, these `const` should be updated.
 If you have a helper function you'd like to include in your app, 
 simply add the functionality to `ParticleTools.php`. 
 
-Particle Tools have already been added to `particle.theme`, however if you'd 
+Particle Tools have already been added to individual `theme.inc` files, however if you'd 
 like to use the Tools elsewhere in PHP simply include the namespace to the file:
 
-`use Drupal\particle\ParticleTools\ParticleTools;`
+`use Drupal\particle\Tools\ParticleTools;`
 
 Now whenever you wish to use a helper:
 
