@@ -18,8 +18,8 @@ $card-border-width: rem-calc(1px);
 
 // Spacing
 $spacers: (
-  6: (1rem * 3.5),
-  7: (1rem * 4),
+  6: 1rem * 3.5,
+  7: 1rem * 4,
 );
 
 // Bootstrap non-printing tools. DO NOT REMOVE, because Sass overrides must be

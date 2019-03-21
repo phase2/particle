@@ -19,7 +19,7 @@ module.exports = {
   defaults: {
     chromeLaunchConfig: {
       // this is needed to run in docker
-      args: ["--no-sandbox"]
+      args: ['--no-sandbox'],
     },
     hideElements: 'img[data-holder-rendered]',
     ignore: [
