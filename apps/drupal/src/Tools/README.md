@@ -24,17 +24,22 @@ simply add the functionality to `ParticleTools.php`.
 Particle Tools have already been added to individual `theme.inc` files, however if you'd 
 like to use the Tools elsewhere in PHP simply include the namespace to the file:
 
-`use Drupal\particle\Tools\ParticleTools;`
+```php
+use Drupal\particle\Tools\ParticleTools;
+```
 
 Now whenever you wish to use a helper:
 
-`ParticleTools::yourHelperFunction()`
+```php
+ParticleTools::yourHelperFunction()
+```
 
 Note this usage assumes you've declared a public static function and that it's
 return is not tied specifically to the context of the instance. If you need a
 more context specific approach, consider using public functions and declaring
 your tools as an instance:
 
-`$tools = new ParticleTools`
-
-`$tools->yourHelperFunction()`
+```php
+$tools = new ParticleTools
+$tools->yourHelperFunction()
+```

@@ -20,5 +20,5 @@ function particle_preprocess(&$variables) {
  * Implements hook_preprocess_user().
  */
 function particle_preprocess_user(&$variables) {
-  $variables['content']['member_for']['#markup'] = '';
+  unset($variables['content']['member_for']);
 }

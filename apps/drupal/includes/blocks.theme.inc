@@ -32,7 +32,7 @@ function particle_preprocess_block__system_branding_block(&$variables) {
   $logo_url = theme_get_setting('logo.url');
 
   $logo_svg_theme = drupal_get_path('theme', Particle::THEME_NAME) . '/logo.svg';
-  $logo_svg_assets = drupal_get_path('theme', Particle::THEME_NAME) . '/../../dist/app-drupal/assets/logo.svg';
+  $logo_svg_assets = Particle::ASSETS_PATH . '/logo.svg';
   $logo_svg_inline = file_exists($logo_svg_assets) ? $logo_svg_assets : $logo_svg_theme;
 
   // Set the logo to PL if default.

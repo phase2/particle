@@ -7,11 +7,6 @@ use Drupal\particle\Particle;
 /**
  * Provides utility functions for all preprocessors.
  *
- * This approach is influenced by Adventist's theme tools system.
- * For advanced examples including implementing custom services,
- *
- * @see https://bitbucket.org/phase2tech/adventist/src/develop/src/themes/ahs_theme/src/ThemeTools.php
- *
  */
 class ParticleTools {
 
@@ -32,7 +27,7 @@ class ParticleTools {
    *   The theme's assets path.
    */
   public static function getAssetsPath() {
-    return static::getThemePath() . Particle::ASSETS_PATH;
+    return Particle::ASSETS_PATH;
   }
 
 }

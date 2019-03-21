@@ -18,7 +18,7 @@ class Particle {
    * Provides the path for compiled Drupal assets in build system.
    *
    */
-  const ASSETS_PATH = '/../../dist/app-drupal/assets';
+  const ASSETS_PATH = 'themes/particle/dist/app-drupal/assets';
 
   /**
    * Provides the frontend docs for reference.
