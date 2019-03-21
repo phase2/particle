@@ -20,7 +20,7 @@
     },
     "scripts": {
         "twig-lint": [
-            "twig-lint --ansi"
+            "twig-lint --ansi --only-print-errors"
         ]
     }
 }
