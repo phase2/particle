@@ -2,10 +2,11 @@ module.exports = {
   presets: [
     [
       '@babel/preset-env',
-      {
-        useBuiltIns: 'entry',
-        corejs: 3,
-      },
+      // @TODO: Do we need useBuiltIns?
+      // {
+      //   useBuiltIns: 'entry',
+      //   corejs: 2,
+      // },
     ],
   ],
   plugins: [

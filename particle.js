@@ -114,9 +114,9 @@ const particle = (appWebpack, appConfig, options) => {
     options.cssMode ? cssModes[options.cssMode] : 'extract',
 
     // Prepend loaders to provided entry point, defaults to first entry point
-    // options.entry
-    //   ? entryPrepend(options.entry)
-    //   : entryPrepend(Object.keys(shared.entry)[0]),
+    options.entry
+      ? entryPrepend(options.entry)
+      : entryPrepend(Object.keys(shared.entry)[0]),
 
     // Design system-specific config
     dsWebpack,
