@@ -1,12 +1,13 @@
 <template>
-  <div 
-    class="btn-group" 
-    role="group" 
+  <div
+    class="btn-group"
+    role="group"
     aria-label="List filters"
   >
     <button
       v-for="facet in facets"
       :key="facet"
+      :data-testid="`facet-button-${facet}`"
       type="button"
       class="btn btn-secondary text-uppercase"
       :class="{ active: filter === facet }"

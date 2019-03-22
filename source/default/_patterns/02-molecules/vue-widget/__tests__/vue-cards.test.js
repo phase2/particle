@@ -1,8 +1,10 @@
-import { render, Simulate } from 'vue-testing-library';
+import { render, cleanup, fireEvent } from 'vue-testing-library';
 
 import card from 'molecules/vue-widget/src/vue-cards/components/card.vue';
 import cards from 'molecules/vue-widget/src/vue-cards/components/cards.vue';
 import banner from 'molecules/vue-widget/src/vue-cards/components/banner.vue';
+
+afterEach(cleanup);
 
 describe('card.vue', () => {
   it('renders component with supplied props', () => {
@@ -41,10 +43,12 @@ describe('banner.vue', () => {
     );
   });
 
-  it('changes color on click', () => {
-    const bannerElement = document.querySelector('.vue-banner');
+  it('changes color on click', async () => {
+    const { getByTestId } = render(banner);
+    const bannerElement = getByTestId('banner');
+
     expect(bannerElement.style['background-color']).toBe('rgb(0, 0, 0)');
-    Simulate.click(bannerElement);
+    await fireEvent.click(bannerElement);
     expect(bannerElement.style['background-color']).not.toBe('rgb(0, 0, 0)');
   });
 });
