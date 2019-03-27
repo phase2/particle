@@ -15,7 +15,6 @@ function particle_preprocess_page(&$variables) {
   PreprocessorManager::loadByVariables('page', $variables)
     ->process($variables);
 
-
   $moduleHandler = \Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('components')) {
     $variables['has_components_module'] = TRUE;
