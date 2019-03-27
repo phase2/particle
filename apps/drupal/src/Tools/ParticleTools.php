@@ -30,4 +30,14 @@ class ParticleTools {
     return Particle::ASSETS_PATH;
   }
 
+  /**
+   * Return the theme's name.
+   *
+   * @return string
+   *   The theme's name.
+   */
+  public static function getThemeName() {
+    return Particle::THEME_NAME;
+  }
+
 }
