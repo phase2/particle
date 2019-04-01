@@ -11,25 +11,33 @@ use Drupal\particle\Tools\ParticleTools;
  * Drupal core does not provide built-in plugin support for theme files.
  * The plugin discovery might before the front end theme is not active.
  *
+ * The approach here is to use Drupal's State API to handle Preprocessor Class.
+ * New suggestions are read on page load and added to State API via STATE_ID.
+ * The Preprocessor Class Map is stored in cache and refreshed on change.
+ *
  */
 class PreprocessorManager {
 
   /**
-   * Cached preprocessor class map.
+   * The State API ID for this Manager.
    *
-   * @var array
+   * @var string
    */
-  protected static $preprocessorClassMap;
+  const STATE_ID = 'preprocessor.map';
 
   /**
    * Appended suggestions.
+   *
+   * @see getSuggestions()
    *
    * @var array
    */
   protected static $allSuggestions = [];
 
   /**
-   * Cached instances.
+   * Cached Preprocessor instances.
+   *
+   * @see load()
    *
    * @var array
    */
@@ -39,6 +47,7 @@ class PreprocessorManager {
    * Particle tools instance for all preprocessors.
    *
    * @var Drupal\particle\Tools\ParticleTools
+   *   Particle's suite of helper functions and utilities.
    */
   protected static $tools;
 
@@ -97,36 +106,82 @@ class PreprocessorManager {
    *   An array with keys of preprocess name and values of full class path.
    */
   public static function getPreprocessorsClassMap() {
-    if (!isset(static::$preprocessorClassMap)) {
-      static::$preprocessorClassMap = [];
-
-      // Initialize Preprocessors Map with Base.
-      $map = [
-        'default' => __NAMESPACE__ . '\\Preprocessors\\Base'
-      ];
-
-      $suggestions = static::$allSuggestions;
-      $mapped_suggestions = [];
-      foreach ($suggestions as $suggestion) {
-        $mapped_suggestions[$suggestion] =  str_replace('_', '', $suggestion);
+    $preprocessor_map = &drupal_static(__FUNCTION__);
+    if (is_null($preprocessor_map)) {
+      $preprocessor_map = \Drupal::state()->get(static::STATE_ID);
+      if ($preprocessor_map && is_array($preprocessor_map)) {
+        return $preprocessor_map;
       }
+    }
 
-      if ($preprocessors = static::getPreprocessors()) {
-        foreach ($preprocessors as $preprocessor => $type) {
-          if (!is_dir($preprocessor)) {
-            $key = array_search(strtolower($preprocessor), $mapped_suggestions);
-            if ($key) {
-              $map[$key] = __NAMESPACE__ . '\\Preprocessors' . '\\' . $type . '\\' . $preprocessor;
-            }
+    return isset($preprocessor_map) ? $preprocessor_map : [];
+  }
+
+  /**
+   * Merge the updateable maps into the original set.
+   *
+   * @param array $suggestions
+   *   The suggestions from Drupal.
+   *
+   * @param array $preprocessor_map
+   *   The cached state api map.
+   *
+   * @return array
+   *   Maps available for update.
+   */
+  public static function mergedMaps(array $suggestions, array $preprocessor_map) {
+    $map = [];
+    // If the Processor Matches a Suggestion, Merge into Preprocessor Map.
+    if ($preprocessors = static::getPreprocessors()) {
+      foreach ($preprocessors as $preprocessor => $type) {
+        if (!is_dir($preprocessor)) {
+          $key = array_search(strtolower($preprocessor), $suggestions);
+          if ($key) {
+            $map[$key] = __NAMESPACE__ . '\\Preprocessors' . '\\' . $type . '\\' . $preprocessor;
           }
         }
       }
+    }
 
-      if ($map && is_array($map)) {
-        static::$preprocessorClassMap = $map;
+    return array_unique(array_merge($preprocessor_map, $map));
+  }
+
+  /**
+   * Make the preprocessor class map.
+   *
+   * @param array $preprocessor_map
+   *   The cached state api map.
+   *
+   * @param array $new_suggestions
+   *   The suggestions from Drupal.
+   *
+   * @return array
+   *   An array with keys of preprocess name and values of full class path.
+   */
+  public static function makePreprocessorsClassMap(array $preprocessor_map, array $new_suggestions = []) {
+    $state = \Drupal::state();
+
+    // Initialize Preprocessors Map with Base.
+    if (!array_key_exists('default', $preprocessor_map)) {
+      $map['default'] = __NAMESPACE__ . '\\Preprocessors\\Base';
+      drupal_static_reset('preprocessor_map');
+      $state->set(static::STATE_ID, $map);
+      $preprocessor_map = static::getPreprocessorsClassMap();
+    }
+
+    // If we have new suggestions, try to update the preprocessor map state.
+    if (!empty($new_suggestions)) {
+      $new_maps = static::mergedMaps($new_suggestions, $preprocessor_map);
+      if (!empty($new_maps) && $new_maps !== $preprocessor_map) {
+        // If we have new maps, reset the static class map.
+        drupal_static_reset('preprocessor_map');
+        $state->set(static::STATE_ID, $new_maps);
+        $preprocessor_map = static::getPreprocessorsClassMap();
       }
     }
-    return static::$preprocessorClassMap;
+
+    // Return the map state to use as the new map.
+    return $preprocessor_map;
   }
 
   /**
@@ -170,6 +225,7 @@ class PreprocessorManager {
    *
    * @param string $hook
    *   The preprocess hook name. Example: 'node' for hook_preprocess_node.
+   *
    * @param array $variables
    *   The preprocess variables to alter.
    *
@@ -177,10 +233,25 @@ class PreprocessorManager {
    *   A cached instance of the preprocessor.
    */
   public static function loadByVariables($hook, array &$variables = []) {
-    $suggestions = static::getSuggestions($hook, $variables);
-    $map = static::getPreprocessorsClassMap();
 
-    $possible_suggestions = array_values(array_intersect($suggestions, array_keys($map)));
+    $suggestions = static::getSuggestions($hook, $variables);
+    $preprocessor_map = static::getPreprocessorsClassMap();
+
+    $new_suggestions = [];
+    foreach ($suggestions as $suggestion) {
+      // If the suggestion as an id is not in the map,
+      if (!array_key_exists($suggestion, $preprocessor_map)) {
+        // We may have a new preprocessor - prepare for comparison and merge.
+        $new_suggestions[$suggestion] =  str_replace('_', '', $suggestion);
+      }
+    }
+
+    if (!empty($new_suggestions)) {
+      $preprocessor_map = static::makePreprocessorsClassMap($preprocessor_map, $new_suggestions);
+    }
+
+    // After determining updated maps, reduce the suggestions to matches.
+    $possible_suggestions = array_values(array_intersect($suggestions, array_keys($preprocessor_map)));
     foreach ($possible_suggestions as $suggestion) {
       $instance = static::load($suggestion);
       if (isset($instance)) {
@@ -199,8 +270,6 @@ class PreprocessorManager {
 
   /**
    * Loads a preprocessor for the given variables.
-   *
-   * This is not used in base implementation and exists as example.
    *
    * @param array $properties
    *   An array with the following options currently supported:
@@ -235,13 +304,12 @@ class PreprocessorManager {
       $id = implode('__', $ids);
       return static::load($id);
     }
+
     return null;
   }
 
   /**
    * Loads a preprocessor by entity.
-   *
-   * This is not used in base implementation and exists as example.
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity to preprocess.
@@ -254,7 +322,6 @@ class PreprocessorManager {
   public static function loadByEntity(EntityInterface $entity, $view_mode = NULL) {
     $entity_type = $entity->getEntityTypeId();
     if (empty($entity_type)) {
-      // @TODO Better handle empty return.
       return null;
     }
 
@@ -420,8 +487,6 @@ class PreprocessorManager {
       // Reverse so that most specific is first.
       $suggestions = array_values(array_reverse($suggestions));
 
-      // If we haven't seen the suggestion before, add it for id mapping.
-      static::$allSuggestions = array_unique(array_merge($suggestions, static::$allSuggestions));
 
       return $suggestions;
     }
