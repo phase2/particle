@@ -164,7 +164,7 @@ class PreprocessorManager {
     // Initialize Preprocessors Map with Base.
     if (!array_key_exists('default', $preprocessor_map)) {
       $map['default'] = __NAMESPACE__ . '\\Preprocessors\\Base';
-      drupal_static_reset('preprocessor_map');
+      drupal_static_reset();
       $state->set(static::STATE_ID, $map);
       $preprocessor_map = static::getPreprocessorsClassMap();
     }
@@ -174,7 +174,7 @@ class PreprocessorManager {
       $new_maps = static::mergedMaps($new_suggestions, $preprocessor_map);
       if (!empty($new_maps) && $new_maps !== $preprocessor_map) {
         // If we have new maps, reset the static class map.
-        drupal_static_reset('preprocessor_map');
+        drupal_static_reset();
         $state->set(static::STATE_ID, $new_maps);
         $preprocessor_map = static::getPreprocessorsClassMap();
       }
@@ -464,7 +464,7 @@ class PreprocessorManager {
           $entity_suggestions[] = $entity_type_base . '__' . $entity_view_mode;
         }
 
-        // Hook - Entity Type  - Bundle.
+        // Hook - Entity Type - Bundle.
         if ($entity_bundle) {
           $entity_suggestions[] = $entity_type_base . '__' . $entity_bundle;
 
