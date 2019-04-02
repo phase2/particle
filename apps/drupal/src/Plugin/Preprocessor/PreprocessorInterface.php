@@ -8,7 +8,7 @@ namespace Drupal\particle\Plugin\Preprocessor;
 interface PreprocessorInterface {
 
   /**
-   * Ensures $vars has been initialized with base variables.
+   * Ensures $variables has been initialized with base variables.
    *
    * Internally, this should call an init() function only once per process()
    * call.

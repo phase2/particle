@@ -66,7 +66,12 @@ class PreprocessorManager {
   }
 
   /**
-   * Returns the full path to the directory of the preprocess classes.
+   * Returns the full path to the directory of the preprocessor classes.
+   *
+   * Base should be the only root level preprocessor in this directory.
+   * All other types should be located in subdirectories.
+   *
+   * @see getPreprocessors()
    *
    * @return string
    *   The directory path.
@@ -100,10 +105,10 @@ class PreprocessorManager {
   }
 
   /**
-   * Get the preprocessor class map.
+   * Get the preprocessor class map from State API or in memory store.
    *
    * @return array
-   *   An array with keys of preprocess name and values of full class path.
+   *   Array of keys of preprocess name and values of full class path or empty.
    */
   public static function getPreprocessorsClassMap() {
     $preprocessor_map = &drupal_static(__FUNCTION__);
@@ -118,7 +123,7 @@ class PreprocessorManager {
   }
 
   /**
-   * Merge the updateable maps into the original set.
+   * Merge suggestions with a matching Preprocessor Class into Preprocessor Map.
    *
    * @param array $suggestions
    *   The suggestions from Drupal.
@@ -127,7 +132,7 @@ class PreprocessorManager {
    *   The cached state api map.
    *
    * @return array
-   *   Maps available for update.
+   *   Merged Map combination of original Map and Classes.
    */
   public static function mergedMaps(array $suggestions, array $preprocessor_map) {
     $map = [];
@@ -159,13 +164,11 @@ class PreprocessorManager {
    *   An array with keys of preprocess name and values of full class path.
    */
   public static function makePreprocessorsClassMap(array $preprocessor_map, array $new_suggestions = []) {
-    $state = \Drupal::state();
-
     // Initialize Preprocessors Map with Base.
     if (!array_key_exists('default', $preprocessor_map)) {
       $map['default'] = __NAMESPACE__ . '\\Preprocessors\\Base';
       drupal_static_reset();
-      $state->set(static::STATE_ID, $map);
+      \Drupal::state()->set(static::STATE_ID, $map);
       $preprocessor_map = static::getPreprocessorsClassMap();
     }
 
@@ -175,7 +178,7 @@ class PreprocessorManager {
       if (!empty($new_maps) && $new_maps !== $preprocessor_map) {
         // If we have new maps, reset the static class map.
         drupal_static_reset();
-        $state->set(static::STATE_ID, $new_maps);
+        \Drupal::state()->set(static::STATE_ID, $new_maps);
         $preprocessor_map = static::getPreprocessorsClassMap();
       }
     }
@@ -199,11 +202,11 @@ class PreprocessorManager {
       return static::$preprocessorInstances[$id];
     }
 
-    $map = static::getPreprocessorsClassMap();
-    if (isset($map[$id]) && class_exists($map[$id])) {
+    $preprocessor_map = static::getPreprocessorsClassMap();
+    if (isset($preprocessor_map[$id]) && class_exists($preprocessor_map[$id])) {
       $instance = NULL;
       try {
-        $instance = new $map[$id](static::getTools());
+        $instance = new $preprocessor_map[$id](static::getTools());
       }
       catch (\Exception $error) {
         // Pass and let fail and log.
@@ -217,11 +220,11 @@ class PreprocessorManager {
       }
     }
 
-    return null;
+    return NULL;
   }
 
   /**
-   * Create an instance of the preprocessor class.
+   * Load an instance of the preprocessor class by theme variables.
    *
    * @param string $hook
    *   The preprocess hook name. Example: 'node' for hook_preprocess_node.
@@ -265,7 +268,7 @@ class PreprocessorManager {
       return $instance;
     }
 
-    return null;
+    return NULL;
   }
 
   /**
@@ -305,7 +308,7 @@ class PreprocessorManager {
       return static::load($id);
     }
 
-    return null;
+    return NULL;
   }
 
   /**
@@ -479,18 +482,18 @@ class PreprocessorManager {
       }
     }
 
-    // Return suggestions.
-    if ($suggestions) {
+    // If there are suggestions return them as expected.
+    if (isset($suggestions)) {
       // Ensure suggestions are unique.
       $suggestions = array_unique($suggestions);
 
       // Reverse so that most specific is first.
       $suggestions = array_values(array_reverse($suggestions));
 
-
       return $suggestions;
     }
 
+    // We have no suggestions, so return an empty array in place.
     return [];
   }
 
