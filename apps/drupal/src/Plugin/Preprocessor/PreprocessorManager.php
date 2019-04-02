@@ -245,7 +245,7 @@ class PreprocessorManager {
       // If the suggestion as an id is not in the map,
       if (!array_key_exists($suggestion, $preprocessor_map)) {
         // We may have a new preprocessor - prepare for comparison and merge.
-        $new_suggestions[$suggestion] =  str_replace('_', '', $suggestion);
+        $new_suggestions[$suggestion] = str_replace('_', '', $suggestion);
       }
     }
 
