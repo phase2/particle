@@ -87,21 +87,23 @@ class PreprocessorManager {
    *   An array of preprocessors from the file system.
    */
   public static function getPreprocessors() {
-    $preprocessors = [];
-    $directory = scandir(static::getPreprocessorsDirectory());
-    // Remove Base, '.' and '..' values and return directory names.
-    $types = array_slice($directory, 3);
-    foreach ($types as $type) {
-      $items = scandir(static::getPreprocessorsDirectory() . '/' . $type);
-      foreach ($items as $item) {
-        if (!is_dir($item)) {
-          $item = str_replace('.php', '', $item);
-          $preprocessors[$item] = $type;
+    $preprocessors = &drupal_static(__FUNCTION__);
+    if (is_null($preprocessors)) {
+      $directory = scandir(static::getPreprocessorsDirectory());
+      // Remove Base, '.' and '..' values and return directory names.
+      $types = array_slice($directory, 3);
+      foreach ($types as $type) {
+        $items = scandir(static::getPreprocessorsDirectory() . '/' . $type);
+        foreach ($items as $item) {
+          if (!is_dir($item)) {
+            $item = str_replace('.php', '', $item);
+            $preprocessors[$item] = $type;
+          }
         }
       }
     }
 
-    return $preprocessors;
+    return isset($preprocessors) ? $preprocessors : [];
   }
 
   /**
@@ -175,7 +177,7 @@ class PreprocessorManager {
     // If we have new suggestions, try to update the preprocessor map state.
     if (!empty($new_suggestions)) {
       $new_maps = static::mergedMaps($new_suggestions, $preprocessor_map);
-      if (!empty($new_maps) && $new_maps !== $preprocessor_map) {
+      if (!empty($new_maps) && asort($new_maps) !== asort($preprocessor_map)) {
         // If we have new maps, reset the static class map.
         drupal_static_reset();
         \Drupal::state()->set(static::STATE_ID, $new_maps);
