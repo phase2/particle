@@ -1,11 +1,3 @@
-/**
- * A super contrived example to show off a few things like:
- *   - Intervals
- *   - Computed derived from Data
- *   - Methods called within template affecting data, thus affecting computed
- *   - Props
- *   - Utility functions used within methods()
-**/
 <template>
   <div
     class="vue-banner"
@@ -23,6 +15,15 @@
 </template>
 
 <script>
+/**
+ * A super contrived example to show off a few things like:
+ * - Intervals
+ * - Computed derived from Data
+ * - Methods called within template affecting data,thus affecting computed
+ * - Props
+ * - Utility functions used within methods()
+ */
+
 import { randRGB } from 'protons/utilities';
 
 export default {

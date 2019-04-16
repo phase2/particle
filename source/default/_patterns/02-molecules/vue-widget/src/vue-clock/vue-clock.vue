@@ -1,19 +1,5 @@
-/**
- * An example leveraging a few Vue features like:
- *   - computed returning objects
- *   - computed object keys being used within template (:style="hands.seconds")
- *   - methods starting an interval
- *   - created() calling an initialization method
- *   - Deriving much state from a single data() value (data.now)
- *   - Classes as dynamic computed values
- *   - The power of transform() in CSS
- */
-
 <template>
-  <div
-    class="clock"
-    :class="dynamicClasses"
-  >
+  <div class="clock" :class="dynamicClasses">
     <div class="clock-face">
       <div
         class="seconds-hand hand"
@@ -35,6 +21,14 @@
 </template>
 
 <script>
+/**
+ * An example leveraging a few Vue features like:
+ * - computed returning objects
+ * - computed object keys being used within template (:style="hands.seconds")
+ * - methods starting an interval * - created() calling an initialization method
+ * - Deriving much state from a single data() value (data.now)
+ * - Classes as dynamic computed values * - The power of transform() in CSS
+ */
 export default {
   name: 'VueClock',
   data() {

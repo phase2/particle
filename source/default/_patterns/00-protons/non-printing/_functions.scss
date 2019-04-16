@@ -4,9 +4,13 @@
  * Does the main work of converting to a standardized unit by stripping a number
  * and multiplying by the rem value.
  */
-@function convert-to-rem($value, $base-value)  {
-  @if ($value != auto) { $value: strip-unit($value) / strip-unit($base-value) * 1rem }
-  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+@function convert-to-rem($value, $base-value) {
+  @if ($value != auto) {
+    $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  }
+  @if ($value == 0rem) {
+    $value: 0;
+  } // Turn 0rem into 0
   @return $value;
 }
 
@@ -21,11 +25,16 @@
 @function rem-calc($values, $base-value: 16px) {
   $max: length($values);
 
-  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
 
   $remValues: ();
   @for $i from 1 through $max {
-    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+    $remValues: append(
+      $remValues,
+      convert-to-rem(nth($values, $i), $base-value)
+    );
   }
   @return $remValues;
 }

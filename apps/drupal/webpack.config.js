@@ -69,6 +69,7 @@ const prod = {
   stats: {
     children: false,
     entrypoints: false,
+    chunks: false,
   },
 };
 

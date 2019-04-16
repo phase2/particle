@@ -1,5 +1,8 @@
-import { render } from 'vue-testing-library';
+import { render, cleanup } from 'vue-testing-library';
 import vueClock from 'molecules/vue-widget/src/vue-clock/vue-clock.vue';
+
+jest.useFakeTimers();
+afterEach(cleanup);
 
 describe('vue-clock.vue', () => {
   it('sets rotate property for the seconds hand', () => {
@@ -20,14 +23,14 @@ describe('vue-clock.vue', () => {
     expect(hoursHand.style.transform).toContain('rotate');
   });
 
-  it('updates the seconds hand', done => {
+  it('updates the seconds hand', () => {
     const { getByTestId } = render(vueClock);
     const secondsHand = getByTestId('seconds-hand');
     const before = secondsHand.style.transform;
+
     setTimeout(() => {
       const after = secondsHand.style.transform;
       expect(before).not.toEqual(after);
-      done();
     }, 1000);
   });
 });
