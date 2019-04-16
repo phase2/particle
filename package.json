@@ -92,7 +92,7 @@
     "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "stylelint": "^9.10.1",
+    "stylelint": "^10.0.1",
     "stylelint-config-prettier": "^5.0.0",
     "stylelint-scss": "^3.5.4",
     "stylelint-webpack-plugin": "^0.10.5",
