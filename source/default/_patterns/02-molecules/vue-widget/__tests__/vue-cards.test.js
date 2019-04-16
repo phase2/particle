@@ -17,10 +17,12 @@ describe('card.vue', () => {
     };
 
     const { getByText } = render(card, { props });
-    expect(getByText('waffles').textContent).toContain('waffles');
-    expect(getByText('555-555-5555').textContent).toBe('555-555-5555');
-    expect(getByText('waffles.com').textContent).toBe('waffles.com');
-    expect(getByText('admin@waffles.com').textContent).toContain('admin');
+
+    // getByText() fails test if text not found
+    getByText('waffles');
+    getByText('555-555-5555');
+    getByText('waffles.com');
+    getByText('admin@waffles.com');
   });
 
   it('initializes isClicked status as false', () => {
@@ -75,10 +77,11 @@ describe('cards.vue', () => {
     const props = { cards: CARDS_DATA };
     const { getByText } = render(cards, { props });
 
-    expect(getByText('waffles').textContent).toContain('waffles');
-    expect(getByText('555-555-5555').textContent).toBe('555-555-5555');
-    expect(getByText('waffles.com').textContent).toBe('waffles.com');
-    expect(getByText('admin@waffles.com').textContent).toContain('admin');
+    // getByText() fails test if text not found
+    getByText('waffles');
+    getByText('555-555-5555');
+    getByText('waffles.com');
+    getByText('admin@waffles.com');
   });
 
   it('displays the correct number of cards', () => {

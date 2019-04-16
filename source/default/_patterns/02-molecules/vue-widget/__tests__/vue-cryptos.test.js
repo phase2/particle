@@ -10,7 +10,7 @@ describe('vue-cryptos.vue', () => {
 
   it('renders the component title', () => {
     const { getByText } = render(FacetTable);
-    expect(getByText('Cryptos').textContent).toBe('Cryptos');
+    getByText('Cryptos');
   });
 
   it('renders the default component filter', () => {
@@ -31,12 +31,8 @@ describe('vue-cryptos.vue', () => {
     expect(winnersButton.className).toBe(
       'btn btn-secondary text-uppercase active'
     );
-    expect(allButton.className).toBe(
-      'btn btn-secondary text-uppercase'
-    );
-    expect(losersButton.className).toBe(
-      'btn btn-secondary text-uppercase'
-    );
+    expect(allButton.className).toBe('btn btn-secondary text-uppercase');
+    expect(losersButton.className).toBe('btn btn-secondary text-uppercase');
   });
 });
 
