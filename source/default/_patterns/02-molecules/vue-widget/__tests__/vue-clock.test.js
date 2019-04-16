@@ -31,7 +31,6 @@ describe('vue-clock.vue', () => {
     setTimeout(() => {
       const after = secondsHand.style.transform;
       expect(before).not.toEqual(after);
-      // done();
     }, 1000);
   });
 });
