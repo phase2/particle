@@ -2,6 +2,7 @@
 
 dist/
 pattern-lab/
+vendor/
 
 # Ignore yeoman new-component templates
 tools/new-component/templates
