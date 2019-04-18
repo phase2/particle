@@ -21,8 +21,9 @@ If you change these variables of your theme, these `const` should be updated.
 If you have a helper function you'd like to include in your app, 
 simply add the functionality to `ParticleTools.php`. 
 
-Particle Tools have already been added to individual `theme.inc` files, however if you'd 
-like to use the Tools elsewhere in PHP simply include the namespace to the file:
+Particle Tools have already been added to individual `theme.inc` files, however
+if you'd like to use the Tools elsewhere in PHP simply include the namespace to
+the file:
 
 ```php
 use Drupal\particle\Tools\ParticleTools;

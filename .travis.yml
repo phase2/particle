@@ -24,7 +24,9 @@ before_script:
   - composer --version
   - node --version
   - npm --version
-script: npm run ci
+script:
+  - npm run ci
+  - composer test 
 notifications:
   email:
     on_success: always
