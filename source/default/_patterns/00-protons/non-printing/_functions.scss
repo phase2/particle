@@ -38,3 +38,22 @@
   }
   @return $remValues;
 }
+
+/**
+ * A function to reliably retrieve the value of a Bootstrap $spacers list.
+ *
+ * @param $key
+ *   The key in the Bootstrap spacers list you wish to access.
+ *
+ * @example spacers(1);
+ *
+ */
+@function spacers($key) {
+  @if map-has-key($spacers, $key) {
+    @return map-get($spacers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $spacers.";
+
+  @return null;
+}

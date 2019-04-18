@@ -3,14 +3,14 @@
     <div class="col mt-sm-5">
 
       <h1>Spacing</h1>
-      <p class="lead">To add to these items, adjust <code>$spacers()</code> in <code>non-printing/_bootstrap-overrides.scss</code>.</p>
-      <p><code>$spacers(0)</code> produces a value of <code>0</code> and is allowed but not shown in this demo.</p>
+      <p class="lead">To add to these items, adjust <code>spacers()</code> in <code>non-printing/_bootstrap-overrides.scss</code>.</p>
+      <p><code>spacers(0)</code> produces a value of <code>0</code> and is allowed but not shown in this demo.</p>
       <p>The math for rem calculations here is based on a browser value of 16px as a <code>$spacer</code> value. To find out your spacer in pixels, simply multiply the rem value in the spacers list by this spacer value. For example, a 1.5rem value in <code>$spacers</code> is equivalent to 24px.</p>
       {% for spacer, value in scssSpacing %}
         {% if spacer != 0 %}
           <div style="margin: 10px;">
             <div style="height: {{ value }}; width: {{ value }}; outline: solid 1px black; display: inline-block; margin-right: 5px;"></div>
-            <span>{{ value }} : <code>$spacers({{ spacer }})</code></span>
+            <span>{{ value }} : <code>spacers({{ spacer }})</code></span>
           </div>
         {% endif %}
       {% endfor %}
