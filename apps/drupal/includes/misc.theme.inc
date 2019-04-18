@@ -1,9 +1,9 @@
 <?php
 
 /**
-* @file
-* Functions to support theming miscellaneous things the Particle theme.
-*/
+ * @file
+ * Functions to support theming miscellaneous things the Particle theme.
+ */
 
 use Drupal\particle\Tools\ParticleTools;
 
