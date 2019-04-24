@@ -1,8 +1,10 @@
-import { render, Simulate } from 'vue-testing-library';
+import { render, cleanup, fireEvent } from 'vue-testing-library';
 
 import card from 'molecules/vue-widget/src/vue-cards/components/card.vue';
 import cards from 'molecules/vue-widget/src/vue-cards/components/cards.vue';
 import banner from 'molecules/vue-widget/src/vue-cards/components/banner.vue';
+
+afterEach(cleanup);
 
 describe('card.vue', () => {
   it('renders component with supplied props', () => {
@@ -15,10 +17,12 @@ describe('card.vue', () => {
     };
 
     const { getByText } = render(card, { props });
-    expect(getByText('waffles').textContent).toContain('waffles');
-    expect(getByText('555-555-5555').textContent).toBe('555-555-5555');
-    expect(getByText('waffles.com').textContent).toBe('waffles.com');
-    expect(getByText('admin@waffles.com').textContent).toContain('admin');
+
+    // getByText() fails test if text not found
+    getByText('waffles');
+    getByText('555-555-5555');
+    getByText('waffles.com');
+    getByText('admin@waffles.com');
   });
 
   it('initializes isClicked status as false', () => {
@@ -41,10 +45,12 @@ describe('banner.vue', () => {
     );
   });
 
-  it('changes color on click', () => {
-    const bannerElement = document.querySelector('.vue-banner');
+  it('changes color on click', async () => {
+    const { getByTestId } = render(banner);
+    const bannerElement = getByTestId('banner');
+
     expect(bannerElement.style['background-color']).toBe('rgb(0, 0, 0)');
-    Simulate.click(bannerElement);
+    await fireEvent.click(bannerElement);
     expect(bannerElement.style['background-color']).not.toBe('rgb(0, 0, 0)');
   });
 });
@@ -71,10 +77,11 @@ describe('cards.vue', () => {
     const props = { cards: CARDS_DATA };
     const { getByText } = render(cards, { props });
 
-    expect(getByText('waffles').textContent).toContain('waffles');
-    expect(getByText('555-555-5555').textContent).toBe('555-555-5555');
-    expect(getByText('waffles.com').textContent).toBe('waffles.com');
-    expect(getByText('admin@waffles.com').textContent).toContain('admin');
+    // getByText() fails test if text not found
+    getByText('waffles');
+    getByText('555-555-5555');
+    getByText('waffles.com');
+    getByText('admin@waffles.com');
   });
 
   it('displays the correct number of cards', () => {

@@ -6,7 +6,6 @@ use Drupal\particle\Particle;
 
 /**
  * Provides utility functions for all preprocessors.
- *
  */
 class ParticleTools {
 

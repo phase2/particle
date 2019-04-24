@@ -21,6 +21,17 @@
     "scripts": {
         "twig-lint": [
             "twig-lint --ansi --only-print-errors"
+        ],
+        "cs": "phpcs -p --standard=./vendor/drupal/coder/coder_sniffer/Drupal apps/drupal",
+        "cbf": "phpcbf -p --standard=./vendor/drupal/coder/coder_sniffer/Drupal apps/drupal",
+        "php-lint": "parallel-lint apps/drupal",
+        "test": [
+          "@php-lint",
+          "@cs"
         ]
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "jakub-onderka/php-parallel-lint": "^1.0"
     }
 }

@@ -17,9 +17,12 @@ $btn-border-radius: 0.25rem;
 $card-border-width: rem-calc(1px);
 
 // Spacing
+// Bootstrap Spacers use $spacer var of 1rem and assumes browser 16px default.
+// Updating the values in $spacers list adds the value to Bootstrap's utility spacers.
+// Example, the below adds a mb-6 utility spacing class.
+$spacer: 1rem;
 $spacers: (
-  6: (1rem * 3.5),
-  7: (1rem * 4),
+  6: ($spacer * 4), // 64px
 );
 
 // Bootstrap non-printing tools. DO NOT REMOVE, because Sass overrides must be

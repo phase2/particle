@@ -14,9 +14,9 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 
 ## Prerequisites
 
-- [Node `^6`, `^8`, `^10`](https://nodejs.org)
+- [Node `^8`, `^10`](https://nodejs.org)
 - [NPM `^5`, `^6`](https://www.npmjs.com/)
-- [PHP `5.6`, `^7.0.0`](https://php.net)
+- [PHP `^7.0.0`](https://php.net)
 - [Composer `^1.0.0`](https://getcomposer.org)
 
 [Step-by-step instructions to install all dependencies for OSX can be found in this Gist.](https://gist.github.com/illepic/efd6ab9f452af2a99b7ade78257e6b96)

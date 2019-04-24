@@ -6,11 +6,11 @@
  */
 
 /**
- * Please put any preprocess functions in one of the following .theme files, or make a new one if necessary.
+ * Place any preprocess functions in .theme.inc files, or make a new one.
  *
- * The .theme files should contain logic for the elements in their corresponding template directories
- * (ie 'blocks.theme.inc' should modify templates in 'templates/blocks')
- *
+ * The .theme files should contain logic for the elements in their corresponding
+ * template directories (ie 'blocks.theme.inc' should modify templates in
+ * 'templates/blocks'.)
  */
 
 include 'includes/blocks.theme.inc';
