@@ -177,7 +177,9 @@ class PreprocessorManager {
     // If we have new suggestions, try to update the preprocessor map state.
     if (!empty($new_suggestions)) {
       $new_maps = static::mergedMaps($new_suggestions, $preprocessor_map);
-      if (!empty($new_maps) && asort($new_maps) !== asort($preprocessor_map)) {
+      asort($new_maps);
+      asort($preprocessor_map);
+      if (!empty($new_maps) && $new_maps !== $preprocessor_map) {
         // If we have new maps, reset the static class map.
         drupal_static_reset();
         \Drupal::state()->set(static::STATE_ID, $new_maps);
