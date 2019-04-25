@@ -5,8 +5,6 @@
  * Functions to support theming page layout in the Particle theme.
  */
 
-use Drupal\particle\Plugin\Preprocessor\PreprocessorManager;
-
 /**
  * Implements hook_preprocess_HOOK().
  */
