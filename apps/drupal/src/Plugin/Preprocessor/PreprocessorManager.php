@@ -89,16 +89,21 @@ class PreprocessorManager {
   public static function getPreprocessors() {
     $preprocessors = &drupal_static(__FUNCTION__);
     if (is_null($preprocessors)) {
-      $directory = scandir(static::getPreprocessorsDirectory());
-      // Remove Base, '.' and '..' values and return directory names.
-      $types = array_slice($directory, 3);
-      foreach ($types as $type) {
-        $items = scandir(static::getPreprocessorsDirectory() . '/' . $type);
-        foreach ($items as $item) {
-          if (!is_dir($item)) {
-            $item = str_replace('.php', '', $item);
-            $preprocessors[$item] = $type;
-          }
+      // Get all files in the preprocessors directory.
+      $files = file_scan_directory(static::getPreprocessorsDirectory(), '/.php/');
+      $preprocessors = [];
+      // Process each file into a preprocessors array structure of namespace => type.
+      foreach ($files as $file) {
+        $pieces = explode('/', $file->uri);
+        end($pieces);
+        // The entity / page type is the penultimate item in the exploded array.
+        $type = prev($pieces);
+        // If the file has a parent directory of the root folder, skip it.
+        // This is only an issue for the Base.php file,
+        // which we always include in the map under a different key.
+        if ($type !== 'Preprocessors') {
+          // Add to the preprocessors array the namespace => entity/page type.
+          $preprocessors[$file->name] = $type;
         }
       }
     }
