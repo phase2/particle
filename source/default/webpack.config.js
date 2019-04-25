@@ -27,6 +27,9 @@ module.exports = {
               // Enable Sass to import other components via, eg:
               // `@import 01-atoms/thing/thing`
               includePaths: [PATH_PATTERNS],
+              // ALL Sass partials should be provided with non-printing
+              // variables, mixins, and functions
+              data: '@import "00-protons/variables";',
             },
           },
         ],
