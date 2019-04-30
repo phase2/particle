@@ -29,7 +29,7 @@
 
 {% set button_classes = [
   buttonless_dropdown ? '' : 'btn',
-  button_color ? 'btn-' ~ button_color,
+  (button_color and button_outline !== true) ? 'btn-' ~ button_color,
   button_outline ? 'btn-outline-' ~ button_color,
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
