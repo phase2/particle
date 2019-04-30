@@ -14,7 +14,7 @@ class Node extends Base {
    */
   public function init(array &$variables) {
     parent::init($variables);
-
+    parent::process($variables);
   }
 
 }
