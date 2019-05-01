@@ -14,7 +14,6 @@ use Drupal\particle\Tools\ParticleTools;
  * The approach here is to use Drupal's State API to handle Preprocessor Class.
  * New suggestions are read on page load and added to State API via STATE_ID.
  * The Preprocessor Class Map is stored in cache and refreshed on change.
- *
  */
 class PreprocessorManager {
 
@@ -28,18 +27,18 @@ class PreprocessorManager {
   /**
    * Appended suggestions.
    *
-   * @see getSuggestions()
-   *
    * @var array
+   *
+   * @see getSuggestions()
    */
   protected static $allSuggestions = [];
 
   /**
    * Cached Preprocessor instances.
    *
-   * @see load()
-   *
    * @var array
+   *
+   * @see load()
    */
   protected static $preprocessorInstances = [];
 
@@ -90,9 +89,11 @@ class PreprocessorManager {
     $preprocessors = &drupal_static(__FUNCTION__);
     if (is_null($preprocessors)) {
       // Get all files in the preprocessors directory.
-      $files = file_scan_directory(static::getPreprocessorsDirectory(), '/.php/');
+      $files =
+        file_scan_directory(static::getPreprocessorsDirectory(),
+          '/.php/');
       $preprocessors = [];
-      // Process each file into a preprocessors array structure of namespace => type.
+      // Array structure of namespace => type.
       foreach ($files as $file) {
         $pieces = explode('/', $file->uri);
         end($pieces);
@@ -134,7 +135,6 @@ class PreprocessorManager {
    *
    * @param array $suggestions
    *   The suggestions from Drupal.
-   *
    * @param array $preprocessor_map
    *   The cached state api map.
    *
@@ -163,7 +163,6 @@ class PreprocessorManager {
    *
    * @param array $preprocessor_map
    *   The cached state api map.
-   *
    * @param array $new_suggestions
    *   The suggestions from Drupal.
    *
@@ -237,7 +236,6 @@ class PreprocessorManager {
    *
    * @param string $hook
    *   The preprocess hook name. Example: 'node' for hook_preprocess_node.
-   *
    * @param array $variables
    *   The preprocess variables to alter.
    *
@@ -251,7 +249,7 @@ class PreprocessorManager {
 
     $new_suggestions = [];
     foreach ($suggestions as $suggestion) {
-      // If the suggestion as an id is not in the map,
+      // If the suggestion as an id is not in the map.
       if (!array_key_exists($suggestion, $preprocessor_map)) {
         // We may have a new preprocessor - prepare for comparison and merge.
         $new_suggestions[$suggestion] = str_replace('_', '', $suggestion);
@@ -334,7 +332,7 @@ class PreprocessorManager {
   public static function loadByEntity(EntityInterface $entity, $view_mode = NULL) {
     $entity_type = $entity->getEntityTypeId();
     if (empty($entity_type)) {
-      return null;
+      return NULL;
     }
 
     // Build vars with minimum expected in getSuggestions().

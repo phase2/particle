@@ -112,4 +112,3 @@ class Base implements PreprocessorInterface {
   }
 
 }
-
