@@ -140,11 +140,4 @@ class NodeArticleTeaser extends Node {
 
 While the above is a contrived example, it shows how we easily assembled a
 _pattern_ that we recognize from Pattern Lab. Now in the template file for your
-Node Article Teaser, `node--article--teaser.html.twig`:
-
-```twig
-{% if alert %}
-  {% include '@atoms/alert/_alert.twig' with alert %}
-{% endif %}
-
-```
+Node Article Teaser, node--article--teaser.html.twig.

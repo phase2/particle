@@ -12,9 +12,9 @@ class Page extends Base {
   /**
    * {@inheritdoc}
    */
+  // phpcs:ignore
   public function init(array &$variables) {
     parent::init($variables);
-    // Do good work.
   }
 
   /**
@@ -23,7 +23,6 @@ class Page extends Base {
   public function process(array &$variables) {
     parent::process($variables);
     // Update Page Variables Here.
-
     return $this;
   }
 

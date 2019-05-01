@@ -12,9 +12,9 @@ class Node extends Base {
   /**
    * {@inheritdoc}
    */
+  // phpcs:ignore
   public function init(array &$variables) {
     parent::init($variables);
-    // Do good work.
   }
 
   /**
