@@ -1,22 +1,26 @@
 {#
-  Dropdown!
-
-  dropdown_element: String: div|li|ul: Choose the html element of the dropdown.
-  dropdown_button: Boolean: True|False: Choose whether the dropdown will be a button element or not.
-  dropdown_other_classes: String: Allows use of other bootstrap utility classes.
-  dropup: Boolean: True|False: Set the dropdown to dropup instead.
-  dropdown_color: String: primary|secondary|success|danger|warning|info|light|dark: The color of the dropdown.
-  dropdown_split: Boolean: True|False: Set the dropdown button to split between text and the arrow.
-  dropdown_text: String: Set the dropdown's text.
-  dropdown_menu_right: Boolean: True| False: Set the menu to drop on the right side.
-  dropdown_menu_element: String: a|button: Set the element of the menu items
-  dropdown_menu_aria_label: Do not set: Will set automatically if you assign an button_id
-  dropdown_menu_content: Block: Set content that will be within the dropdown menu.
-  dropdown_menu_items: Array: An array of menu items.
-  dropdown_menu_item_disabled: Boolean: True|False: Set an individual menu option as disabled.
-  dropdown_menu_item_text: String: Set the text of an individual menu item.
-
-  See https://getbootstrap.com/docs/4.0/components/dropdowns/ fro more details
+/**
+ * @file Dropdown!
+ * Documenting Dropdown Examples from Bootstrap.
+ *
+ * Available variables:
+ * - dropdown_element: [string]: div|li|ul: Choose the html element of the dropdown.
+ * - dropdown_button: [boolean]: True|False: Choose whether the dropdown will be a button element or not.
+ * - dropdown_other_classes: [string]: Allows use of other bootstrap utility classes.
+ * - dropup: [boolean]: True|False: Set the dropdown to dropup instead.
+ * - dropdown_color: [string]: primary|secondary|success|danger|warning|info|light|dark: The color of the dropdown.
+ * - dropdown_split: [boolean]: True|False: Set the dropdown button to split between text and the arrow.
+ * - dropdown_text: [string]: Set the dropdown's text.
+ * - dropdown_menu_right: [boolean]: True| False: Set the menu to drop on the right side.
+ * - dropdown_menu_element: [string]: a|button: Set the element of the menu items
+ * - dropdown_menu_aria_label: Do not set: Will set automatically if you assign an button_id
+ * - dropdown_menu_content: Block: Set content that will be within the dropdown menu.
+ * - dropdown_menu_items: [array]: An array of menu items.
+ * - dropdown_menu_item_disabled: [boolean]: True|False: Set an individual menu option as disabled.
+ * - dropdown_menu_item_text: [string]: Set the text of an individual menu item.
+ *
+ * @see https://getbootstrap.com/docs/4.0/components/dropdowns/
+ */
 #}
 
 {% set dropdown_element = dropdown_element | default('div') %}
