@@ -15,15 +15,21 @@ a installation of Particle:
 Be aware that this configuration should be updated based on your Particle. 
 If you change these variables of your theme, these `const` should be updated.  
 
-
 ## Usage
 
-If you have a helper function you'd like to include in your app, 
-simply add the functionality to `ParticleTools.php`. 
+If you have an additional helper function you'd like to include in your app, 
+simply extend the functionality of `ParticleTools.php`:
+
+```php
+class MyCustomThemeTools extends ParticleTools
+``` 
+
+This step will make sure any changes to your theme are not lost if you update
+Particle in the future.
 
 Particle Tools have already been added to individual `theme.inc` files, however
 if you'd like to use the Tools elsewhere in PHP simply include the namespace to
-the file:
+the file (or your custom Tools):
 
 ```php
 use Drupal\particle\Tools\ParticleTools;
