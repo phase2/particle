@@ -1,4 +1,4 @@
-list_group_helper: '<p>List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.</p><p>Every example is using at least the <code>item_text</code> variable. Because of how many classes can be applied to each list item, <code>item_classes</code> is an empty array for the user to put their classes in.</p>'
+list_group_helper: 'List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.Every example is using at least the <code>item_text</code> variable. Because of how many classes can be applied to each list item, <code>item_classes</code> is an empty array for the user to put their classes in.'
 
 list_group_helper_basic: "This shows a basic list group and how individual list items' color can be changed by adding <code>list-group-item-(color)</code> to the <code>item_classes</code> variable"
 
@@ -10,7 +10,7 @@ list_group_helper_adding: 'List items can contain things like badges and custom 
 
 list_group_helper_toggleable:
   'List items can use the tab Javascript plugin to allow list group to create tabbable panes of content. You can activate a list group navigation without writing any JavaScript by simply specifying <code>data-toggle="list"</code> or on an element. Use these data attributes on <code>.list-group-item</code>.
-  <p>To make tabs panel fade in, add <code>.fade</code> to each <code>.tab-pane</code>. The first tab pane must also have <code>.show</code> to make the initial content visible.</p>'
+  To make tabs panel fade in, add <code>.fade</code> to each <code>.tab-pane</code>. The first tab pane must also have <code>.show</code> to make the initial content visible.'
 
 list_group_text:
   items:

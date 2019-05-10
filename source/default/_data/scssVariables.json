@@ -8,8 +8,8 @@
     "danger": "rgb(220, 53, 69)",
     "light": "rgb(248, 249, 250)",
     "dark": "rgb(52, 58, 64)",
-    "blerp": "rgb(255, 192, 203)",
-    "derp": "rgb(0, 128, 0)"
+    "pink": "rgb(255, 192, 203)",
+    "goldenrod": "rgb(218, 165, 32)"
   },
   "scssBreakpoints": {
     "xs": 0,

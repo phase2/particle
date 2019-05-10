@@ -1,21 +1,15 @@
-{#
-  Layout!
-  Demonstration of Containers from Bootstrap.
-  See https://getbootstrap.com/docs/4.0/layout/overview/
-#}
-
-<div class="container ">
-  <h1>Layout Demo</h1>
-  <p class="py-3 h3">Containers</p>
-  <p>
-    Containers are the most basic layout element in Bootstrap and are required when using our default grid system.
-    Choose from a responsive, fixed-width container (meaning its <code>max-width</code> changes at each breakpoint) or fluid-width (meaning it’s <code>100%</code> wide all the time).
-    While containers can be nested, most layouts do not require a nested container.
-  </p>
-  <p>
-    While nesting containers is possible, it's not recommended.
-    See <a href="https://getbootstrap.com/docs/4.0/layout/overview/" target="_blank" rel="noopener noreferrer">Bootstrap</a> for usage details.
-  </p>
+<div class="container">
+  <h1 class="mb-3">Layout Demo</h1>
+  <div class="mb-3 p-3 bg-light border border-secondary rounded">
+    <p class="lead">Containers are the most basic layout element in Bootstrap and are required when using our default grid system.</p>
+    <p>
+      Choose from a responsive, fixed-width container (meaning its <code>max-width</code> changes at each breakpoint) or fluid-width (meaning it’s <code>100%</code> wide all the time).
+      While containers can be nested, most layouts do not require a nested container.
+    </p>
+    <p>While nesting containers is possible, it's not recommended.</p>
+    <div><a href="https://getbootstrap.com/docs/4.0/layout/overview/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
+  </div>
+  <hr>
 </div>
 
 <div class="container bg-secondary" style="height: 20rem;">

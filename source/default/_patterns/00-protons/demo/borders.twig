@@ -1,14 +1,14 @@
 {#
-  Borders!
-
-  Documenting Border Examples from Bootstrap. These are Bootstrap Utilities we gain via Base.
-
-  All our Bootstrap Utilities are Belong to Base.
-
-  border_classes: Array: Used to demonstrate available border utility classes.
-  radius_classes: Array: Used to demonstrate available boder-radius utility classes.
-
-  see https://getbootstrap.com/docs/4.0/utilities/borders/
+/**
+ * @file Borders!
+ * Documenting Border Examples from Bootstrap. These are Bootstrap Utilities we gain via Base.
+ *
+ * Available variables:
+ * - border_classes: [array] Used to demonstrate available border utility classes.
+ * - radius_classes: [array] Used to demonstrate available boder-radius utility classes.
+ *
+ * @see https://getbootstrap.com/docs/4.0/utilities/borders/
+ */
 #}
 
 {% set border_classes = [
@@ -32,12 +32,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="col mt-sm-5">
-
-      <h1>Borders</h1>
-      <p class="lead">Use border utilities to quickly style the border and
-        border-radius of an element. Great for images, buttons, or any other
-        element.</p>
+    <div class="col">
+      <h1 class="mb-3">Borders</h1>
+      <div class="mb-3 p-3 bg-light border border-secondary rounded">
+        <p class="lead">Use border utilities to quickly style the border and
+          border-radius of an element. Great for images, buttons, or any other
+          element.
+        </p>
+        <div><a href="https://getbootstrap.com/docs/4.0/utilities/borders/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
+      </div>
+      <hr>
 
       <h2 class="py-3">Border</h2>
       <p>Add classes to an element to remove all borders or some borders.</p>
@@ -54,7 +58,7 @@
           </code></pre>
       </div>
 
-      <h2 class="py-3">Border color</h2>
+      <h2 class="py-3">Border Color</h2>
       <p>Change the border color using utilities built on our theme colors.</p>
       <div class="border">
         {% for colorName, colorValue in scssColors %}

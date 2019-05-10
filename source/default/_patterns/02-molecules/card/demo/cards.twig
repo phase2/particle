@@ -1,24 +1,13 @@
-{% extends '@atoms/grid/_grid-1-up.twig' %}
+{% embed '@atoms/grid/_grid-1-up.twig' %}
   {% set container = true %}
 
   {% block column_1 %}
-    <h1>Cards</h1>
-    <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_text: helper_card_main,
-        card_background: 'secondary',
-        text_color: 'light',
-      } %}
+    <h1 class="mb-3">Cards</h1>
+    <div class="mb-3 p-3 bg-light border border-secondary rounded">
+      <p class="lead">{{ helper_card_main }}</p>
+      <div><a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
     </div>
-    <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_title: 'Text',
-        card_text: helper_card_text,
-        button: {
-          button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works' ~ ' target="_blank" rel="noopener noreferrer"',
-        },
-      } %}
-    </div>
+
     <div class="row">
       <div class="col-sm mb-3">
         {% include '@molecules/card/_card.twig' with text_card_1 %}
@@ -30,11 +19,11 @@
         {% include '@molecules/card/_card.twig' with text_card_3 %}
       </div>
     </div>
+    <hr>
 
-    <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_text: helper_card_text_2,
-      } %}
+    <h2>Grid 3</h2>
+    <div class="mb-3 p-3 bg-light border border-secondary rounded">
+      <p>{{ helper_card_text_2 }}</p>
     </div>
     <div class="mb-3">
       {% embed '@atoms/grid/_grid-3-up.twig' %}
@@ -49,15 +38,11 @@
         {% endblock column_3 %}
       {% endembed %}
     </div>
+    <hr>
 
-    <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_title: 'Width',
-        card_text: helper_card_width,
-        button: {
-          button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works' ~ ' target="_blank" rel="noopener noreferrer"',
-        },
-      } %}
+    <h2>Widths</h2>
+    <div class="mb-3 p-3 bg-light border border-secondary rounded">
+      <p>{{ helper_card_width }}</p>
     </div>
     <div class="row">
       <div class="col-sm-12 mb-3">
@@ -66,45 +51,33 @@
         {% include '@molecules/card/_card.twig' with card_width_3 %}
       </div>
     </div>
+    <hr>
 
-    <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_title: 'Image',
-        card_text: helper_card_image,
-        button: {
-          button_link: 'https://getbootstrap.com/docs/4.0/components/card/#card-decks' ~ ' target="_blank" rel="noopener noreferrer"',
-        },
-      } %}
+    <h2>Image</h2>
+    <div class="mb-3 p-3 bg-light border border-secondary rounded">
+      <p>{{ helper_card_image }}</p>
     </div>
     <div class="card-deck mb-3">
       {% include '@molecules/card/_card.twig' with top_image %}
       {% include '@molecules/card/_card.twig' with bottom_image %}
       {% include '@molecules/card/_card.twig' with overlay_image %}
     </div>
+    <hr>
 
-    <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_title: 'Structure',
-        card_text: helper_card_structure,
-        button: {
-          button_link: 'https://getbootstrap.com/docs/4.0/components/card/#header-and-footer' ~ ' target="_blank" rel="noopener noreferrer"',
-        },
-      } %}
+    <h2>Structure</h2>
+    <div class="mb-3 p-3 bg-light border border-secondary rounded">
+      <p>{{ helper_card_structure }}</p>
     </div>
     <div class="card-group mb-3">
       {% include '@molecules/card/_card.twig' with header_card %}
       {% include '@molecules/card/_card.twig' with footer_card %}
       {% include '@molecules/card/_card.twig' with list_card %}
     </div>
+    <hr>
 
-    <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_title: 'Background and Border',
-        card_text: helper_card_colors,
-        button: {
-          button_link: 'https://getbootstrap.com/docs/4.0/components/card/#card-columns' ~ ' target="_blank" rel="noopener noreferrer"',
-        },
-      } %}
+    <h2>Background and Border</h2>
+    <div class="mb-3 p-3 bg-light border border-secondary rounded">
+      <p>{{ helper_card_colors }}</p>
     </div>
     <div class="card-columns mb-3">
       {% include '@molecules/card/_card.twig' with card_background_1 %}
@@ -116,11 +89,11 @@
       {% include '@molecules/card/_card.twig' with card_border_3 %}
       {% include '@molecules/card/_card.twig' with card_border_4 %}
     </div>
-    <div class="mb-3">
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_title: 'Variation',
-        card_text: helper_card_blocks,
-      } %}
+    <hr>
+
+    <h2>Variation</h2>
+    <div class="mb-3 p-3 bg-light border border-secondary rounded">
+      <p>{{ helper_card_blocks }}</p>
     </div>
     <div class="mb3">
       {% embed '@molecules/card/_card.twig' %}
@@ -131,4 +104,7 @@
         {% endblock %}
       {% endembed %}
     </div>
+    <hr>
+
   {% endblock column_1 %}
+{% endembed %}

@@ -1,17 +1,26 @@
 {#
-  Typography!
-
-  This is a demo file for our typography.
-
-  See https://getbootstrap.com/docs/4.0/content/typography/ for more!
-
+/**
+ * @file Typography!
+ * Documenting Typography for Particle.
+ *
+ * Available variables:
+ * - fontFamilies: [array] A list of values from _scss2json.scss.
+ *
+ * @see https://getbootstrap.com/docs/4.0/content/typography/
+ */
 #}
+
 <div class="container">
   <div class="row">
-    <div class="col mt-sm-5">
+    <div class="col">
+      <h1 class="mb-3">Typography</h1>
+      <div class="mb-3 p-3 bg-light border border-secondary rounded">
+        <p class="lead">Typography examples. Particle includes many overrideable typography by default. Much of these can be overwritten in <code>~/_patterns/00-protons/non-printing/_bootstrap-overrides.scss</code></p>
+        <div><a href="https://getbootstrap.com/docs/4.0/content/typography/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
+      </div>
+      <hr>
 
-      <h1>Font Families</h1>
-
+      <h2>Font Families</h2>
       <p class="lead">
         Font families can be added via <code>_type.scss</code> and imported to
         this list via <code>styleguide/_scss2json.scss</code>.
@@ -45,7 +54,7 @@
         </div>
       {% endfor %}
 
-      <h1>Font Sizes</h1>
+      <h2>Font Sizes</h2>
       <p class="lead">
         Font sizes can be added via <code>_type.scss</code> and imported to this
         list via <code>styleguide/_scss2json.scss</code>.</p>
@@ -60,7 +69,7 @@
         </ul>
       </div>
 
-      <h1>Headings</h1>
+      <h2>Headings</h2>
       <p class="lead">
         These are heading styles, including both element and classed version.
         Use the element version in markup following Accessibility guidelines.
@@ -81,7 +90,7 @@
             <th scope="row">
               <h{{ i }} contenteditable>{{ headline.short }}</h{{ i }}>
             </th>
-            <td><code>&lt;h{{ i }} contenteditable&gt;h1. {{ headline.short }}
+            <td><code>&lt;h{{ i }} contenteditable&gt;h2. {{ headline.short }}
                 &lt;/h{{ i }}
                 &gt;</code></td>
           </tr>
@@ -111,7 +120,7 @@
       </table>
       <hr>
 
-      <h1>Display headings</h1>
+      <h2>Display headings</h2>
       <p class="my-4">Bootstrap style for larger headlines. For example:</p>
 
       <table class="table table-responsive-sm">

@@ -1,12 +1,19 @@
 {#
-  Navbar!
-  navbar_classes: Array: The html classes for the navbar.
-  navbar_other_classes: Array: The classes from YAML to merge into navbar_classes.
-  navbar_arialebelledby: String: The aria labelled by value.
-  navbar_attributes: Array: Attributes for the Navbar.
-  navbar_brand_link: String: The URL the brand text will link to.
-  navbar_brand_text: String: The text of the brand.
-  navbar_id: String: The html id for the navbar.
+/**
+ * @file Navbar!
+ * Documenting Navbar Examples from Bootstrap.
+ *
+ * Available variables:
+ * - navbar_classes: Array: The html classes for the navbar.
+ * - navbar_other_classes: Array: The classes from YAML to merge into navbar_classes.
+ * - navbar_arialebelledby: String: The aria labelled by value.
+ * -   navbar_attributes: Array: Attributes for the Navbar.
+ * -   navbar_brand_link: String: The URL the brand text will link to.
+ * -   navbar_brand_text: String: The text of the brand.
+ * -   navbar_id: String: The html id for the navbar.
+ *
+ * @see https://getbootstrap.com/docs/4.0/components/navbar/
+ */
 #}
 
 {% set navbar_classes = navbar_other_classes|default([])|merge([
@@ -40,7 +47,6 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         {% include '@atoms/button/_button.twig' with {
           button_color: 'primary',
-          button_outline: true,
           button_other_classes: 'my-2 my-sm-0',
           button_type: 'submit',
           button_text: 'Search'
