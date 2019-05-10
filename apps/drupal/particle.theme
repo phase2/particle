@@ -14,6 +14,7 @@
  */
 
 include 'includes/blocks.theme.inc';
+include 'includes/content.theme.inc';
 include 'includes/form.theme.inc';
 include 'includes/layout.theme.inc';
 include 'includes/media.theme.inc';
