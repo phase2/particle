@@ -1,1 +1,9 @@
-{% include '@<%= cleanPatternType %>/_<%= name %>.twig' %}
+{% embed '@protons/demo/demo-block.twig' with {
+  demo: <%= underscoreName %>_demo_block
+} %}
+
+  {% block content %}
+    {% include '@<%= cleanPatternType %>/_<%= name %>.twig' %}
+  {% endblock %}
+
+{% endembed %}
