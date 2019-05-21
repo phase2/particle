@@ -54,8 +54,6 @@ component-libraries:
       - ../../dist/app-drupal/assets/atomic/_patterns/03-organisms/footer
       - ../../dist/app-drupal/assets/atomic/_patterns/03-organisms/navbar
   templates:
-    paths:
-      - ../../dist/app-drupal/assets/atomic/_patterns/04-templates
-      - ../../dist/app-drupal/assets/atomic/_patterns/04-templates/basic-page
+    paths: []
   pages:
     paths: []

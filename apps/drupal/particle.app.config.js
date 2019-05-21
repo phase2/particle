@@ -30,7 +30,7 @@ const APP_DIST_PUBLIC = path.join(APP_NAME, ASSETS_BUNDLE_FOLDER);
 //     .filter(name => name.includes('atomic'))
 // );
 
-const rejectNamespaces = /(00-protons|05-pages)/;
+const rejectNamespaces = /(00-protons|04-templates|05-pages)/;
 // Namespace formatting, required by the namespaces module
 const namespaces = {
   // The yml file that will be modified
