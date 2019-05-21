@@ -21,6 +21,16 @@ const APP_DIST = path.join(PATH_DIST, APP_NAME, ASSETS_BUNDLE_FOLDER);
 // Base path for all assets
 const APP_DIST_PUBLIC = path.join(APP_NAME, ASSETS_BUNDLE_FOLDER);
 
+// Drupal does not use protons or pages for its namespaces. Referencing
+// folder paths that are not output to dist/ causes Drupal to kersplode.
+// const actualPaths = require('../../stats');
+// console.log(
+//   actualPaths.assets
+//     .map(asset => asset.name)
+//     .filter(name => name.includes('atomic'))
+// );
+
+const rejectNamespaces = /(00-protons|05-pages)/;
 // Namespace formatting, required by the namespaces module
 const namespaces = {
   // The yml file that will be modified
@@ -30,6 +40,10 @@ const namespaces = {
   // The namespaces module runs a transform function, providing to it the path
   // to the pattern within source/
   transform: folderPath => {
+    // Reject some namespaces because Drupal
+    if (rejectNamespaces.test(folderPath)) {
+      return false;
+    }
     // We have to get from a path like:
     //   /Users/username/dev/p2/p2/particle/source/default/_patterns/01-atoms/badge
     // To:

@@ -22,9 +22,7 @@ regions:
   footer: Footer
 component-libraries:
   protons:
-    paths:
-      - ../../dist/app-drupal/assets/atomic/_patterns/00-protons
-      - ../../dist/app-drupal/assets/atomic/_patterns/00-protons/utilities
+    paths: []
   atoms:
     paths:
       - ../../dist/app-drupal/assets/atomic/_patterns/01-atoms
@@ -60,5 +58,4 @@ component-libraries:
       - ../../dist/app-drupal/assets/atomic/_patterns/04-templates
       - ../../dist/app-drupal/assets/atomic/_patterns/04-templates/basic-page
   pages:
-    paths:
-      - ../../dist/app-drupal/assets/atomic/_patterns/05-pages
+    paths: []
