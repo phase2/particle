@@ -1,9 +1,7 @@
-{% embed '@protons/demo/demo-block.twig' with {
-  demo: <%= underscoreName %>_demo_block
-} %}
+{% extends '@protons/demo/demo-block.twig' %}
 
-  {% block content %}
-    {% include '@<%= cleanPatternType %>/_<%= name %>.twig' %}
-  {% endblock %}
+{% set demo = <%= underscoreName %>_demo_block %}
 
-{% endembed %}
+{% block content %}
+  {% include '@<%= cleanPatternType %>/_<%= name %>.twig' %}
+{% endblock %}
