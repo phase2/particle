@@ -57,7 +57,7 @@ const prompts = [
 
 module.exports = class extends Generator {
   prompting() {
-    console.log(
+    this.log(
       `Hi! This will help you build a component folder with assets.
       Templates for this are in: ${relative(process.cwd(), __dirname)}`
     );
@@ -143,7 +143,7 @@ module.exports = class extends Generator {
       });
     });
 
-    console.log(
+    this.log(
       `Your new component ${name} is being created. It should be available in your bundle!`
     );
   }

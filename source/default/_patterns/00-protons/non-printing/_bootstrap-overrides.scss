@@ -3,8 +3,8 @@
 
 // Colors
 $theme-colors: (
-  'blerp': $color-blerp,
-  'derp': $color-derp,
+  'pink': $color-pink,
+  'goldenrod': $color-goldenrod,
 );
 
 // Fonts
@@ -15,6 +15,17 @@ $btn-border-radius: 0.25rem;
 
 // Cards
 $card-border-width: rem-calc(1px);
+
+// Spacing
+// Bootstrap Spacers use $spacer var of 1rem and assumes browser 16px default.
+// Updating the values in $spacers list adds the value to Bootstrap's utility spacers.
+// Example, the below adds a mb-6 utility spacing class.
+$spacer: 1rem;
+$spacers: (
+  6: (
+    $spacer * 4,
+  ),
+);
 
 // Bootstrap non-printing tools. DO NOT REMOVE, because Sass overrides must be
 // defined BEFORE the !default values are.

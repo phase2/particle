@@ -4,12 +4,12 @@ test('0 >= randRGB <= 255', () => {
   const rand = randRGB();
   expect(rand).toBeGreaterThanOrEqual(0);
   expect(rand).toBeLessThanOrEqual(255);
-})
+});
 
 test('sass2Array properly cleans string for array', () => {
   const trimString = sass2Array(' flerp, derp, merp ');
   expect(trimString).toEqual(['flerp', 'derp', 'merp']);
-})
+});
 
 test('single root css props are read successfully', () => {
   // Note: jest (jsdom) does not support reading css vars, so we'll test with
@@ -20,7 +20,7 @@ test('single root css props are read successfully', () => {
   expect(cssReader(['background'])).toEqual({
     background: 'blue',
   });
-})
+});
 
 test('multiple root css props are read successfully', () => {
   // Note: jest (jsdom) does not support reading css vars, so we'll test with
@@ -33,4 +33,4 @@ test('multiple root css props are read successfully', () => {
     background: 'blue',
     color: 'red',
   });
-})
+});

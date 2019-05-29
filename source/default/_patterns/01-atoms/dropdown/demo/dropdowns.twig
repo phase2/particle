@@ -1,20 +1,16 @@
-{% extends '@atoms/grid/_grid-1-up.twig' %}
+{% embed '@atoms/grid/_grid-1-up.twig' %}
   {% set container = true %}
 
     {% block column_1 %}
-
-      <h1>Dropdowns</h1>
-      {% include '@molecules/card/_card-helper.twig' with {
-        card_text: dropdowns_helper,
-        card_background: 'secondary',
-        text_color: 'light',
-        button: {
-          button_link: 'https://getbootstrap.com/docs/4.0/components/dropdowns/' ~ ' target="_blank" rel="noopener noreferrer"',
-        }
-      } %}
+      <h1 class="mb-3">Dropdowns</h1>
+      <div class="mb-3 p-3 bg-light border border-secondary rounded">
+        <p class="lead">{{dropdowns_helper }}</p>
+        <div><a href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
+      </div>
+      <hr>
 
       <div class="mb-3">
-        <h1>Basic Dropdown</h1>
+        <h2>Basic Dropdown</h2>
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_text: 'Dropdown button',
@@ -22,7 +18,7 @@
         } %}
       </div>
       <div class="mb-3">
-        <h1>&lt;a&gt; element dropdown</h1>
+        <h2>&lt;a&gt; element dropdown</h2>
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_text: 'Dropdown link',
@@ -34,7 +30,7 @@
       </div>
 
       <div class="mb-3">
-        <h1>Colors</h1>
+        <h2>Colors</h2>
         {% for name, rgb in scssColors %}
           {% include '@atoms/dropdown/_dropdown.twig' with {
             dropdown_button: 'true',
@@ -45,7 +41,7 @@
       </div>
 
       <div class="mb-3">
-        <h1>Split Button Drop Down</h1>
+        <h2>Split Button Drop Down</h2>
         {% for name, rgb in scssColors %}
           {% include '@atoms/dropdown/_dropdown.twig' with {
             dropdown_button: 'true',
@@ -57,7 +53,7 @@
       </div>
 
       <div class="mb-3">
-        <h1>Sizing</h1>
+        <h2>Sizing</h2>
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_button: 'true',
@@ -90,7 +86,7 @@
       </div>
 
       <div class="mb-3">
-        <h1>Dropup</h1>
+        <h2>Dropup</h2>
         <p>Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown</p>
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
@@ -109,7 +105,7 @@
       </div>
 
       <div class="mb-3">
-        <h1>Menu Items</h1>
+        <h2>Menu Items</h2>
         <p>Note: Historically dropdown menu contents had to be links, but that’s no longer the case with Bootstrap v4. Now you can optionally use &ltbutton&gt elements in your dropdowns instead of just &lta&gts.</p>
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
@@ -120,7 +116,7 @@
       </div>
 
       <div class="mb-3">
-        <h1>Menu alignment</h1>
+        <h2>Menu alignment</h2>
         {% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_text: "This dropdown's menu is right-aligned",
@@ -129,7 +125,7 @@
       </div>
 
       <div class="mb-3">
-        <h1>In-menu options</h1>
+        <h2>In-menu options</h2>
         {% embed '@atoms/grid/_grid-3-up.twig' with { container: false } %}
           {% block column_1 %}
             {% embed '@atoms/dropdown/_dropdown.twig' with {
@@ -168,7 +164,7 @@
       </div>
 
       <div class="mb-3">
-        <h1>Menu forms</h1>
+        <h2>Menu forms</h2>
         {% embed '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_text: "Menu form",
@@ -199,3 +195,4 @@
       </div>
 
     {% endblock column_1 %}
+{% endembed %}

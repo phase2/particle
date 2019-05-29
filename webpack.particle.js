@@ -79,9 +79,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              // ALL Sass partials should be provided with non-printing
-              // variables, mixins, and functions
-              data: '@import "00-protons/variables";',
             },
           },
         ],
@@ -109,10 +106,19 @@ module.exports = {
         },
       },
       {
-        test: /\.(woff|woff2|eot|ttf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        // base64 encode all referenced font files for simple loading.
+        test: /\.(woff|woff2|eot|ttf|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
           {
             loader: 'url-loader',
+            options: {
+              limit: 50000,
+
+              // If a font file is over 50k, output below fonts directory.
+              // This prevents massive .css file bloat.
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
           },
         ],
       },

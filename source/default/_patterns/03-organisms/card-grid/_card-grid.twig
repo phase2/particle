@@ -1,10 +1,12 @@
 {#
-  Card Grid!
-
-  This is provided to show you an example of our Cards in grid in Pattern Lab.
-  Additional implementations are app-specific and should be handled on a case-by-case basis.
-
-  see https://getbootstrap.com/docs/4.0/components/card/ for more details
+/**
+ * @file Card Grid!
+ * Implements a grid of cards using Bootstrap layout.
+ *
+ * Available variables:
+ * - card_grid_title: [string]: The title of the card grid.
+ * - card_grid_rows: [array]: A collection of cards to display.
+ */
 #}
 
 {% set card_grid_classes = [
@@ -17,6 +19,7 @@
 {% if card_grid_title %}
   <h3>{{ card_grid_title }}</h3>
 {% endif %}
+
 <div class="row">
   {% for item_card in card_grid_rows %}
     {% set item_card = {

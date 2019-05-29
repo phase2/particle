@@ -8,8 +8,8 @@
     "danger": "rgb(220, 53, 69)",
     "light": "rgb(248, 249, 250)",
     "dark": "rgb(52, 58, 64)",
-    "blerp": "rgb(255, 192, 203)",
-    "derp": "rgb(0, 128, 0)"
+    "pink": "rgb(255, 192, 203)",
+    "goldenrod": "rgb(218, 165, 32)"
   },
   "scssBreakpoints": {
     "xs": 0,
@@ -19,9 +19,13 @@
     "xl": "1200px"
   },
   "scssSpacing": {
-    "s": "rem-calc(5px)",
-    "m": "rem-calc(25px)",
-    "l": "rem-calc(50px)"
+    "0": 0,
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "1rem",
+    "4": "1.5rem",
+    "5": "3rem",
+    "6": "4rem"
   },
   "fontFamilies": {
     "$font-family-base": [
@@ -31,6 +35,7 @@
       "Roboto",
       "Helvetica Neue",
       "Arial",
+      "Noto Sans",
       "sans-serif",
       "Apple Color Emoji",
       "Segoe UI Emoji",

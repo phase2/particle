@@ -1,9 +1,6 @@
 <template>
   <div class="card">
-    <div
-      data-testid="active-status"
-      :class="{ active: isClicked }"
-    >
+    <div data-testid="active-status" :class="{ active: isClicked }">
       <div class="card-body">
         <h5 class="card-title">
           <span class="badge badge-secondary">{{ id }}</span>
@@ -11,9 +8,15 @@
         </h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{ phone }}</li>
-        <li class="list-group-item">{{ website }}</li>
-        <li class="list-group-item">{{ email }}</li>
+        <li class="list-group-item">
+          {{ phone }}
+        </li>
+        <li class="list-group-item">
+          {{ website }}
+        </li>
+        <li class="list-group-item">
+          {{ email }}
+        </li>
         <li class="list-group-item">clicked: {{ !!isClicked }}</li>
       </ul>
     </div>

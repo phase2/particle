@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      {% block usage %}
+        {% if demo.title %}
+          <h1 class="mb-3">{{ demo.title|capitalize }}</h1>
+        {% endif %}
+        {% if demo.text %}
+          <div class="mb-3 p-3 bg-light border rounded">
+            {% if demo.text.lead %}
+              <p class="lead">{{ demo.text.lead }}</p>
+            {% endif %}
+            {% if demo.text.summary %}
+              <p class="summary">{{ demo.text.summary }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endblock usage %}
+
+      {% block content %}
+        <div>A simple demo block for new components.</div>
+      {% endblock content %}
+    </div>
+  </div>
+</div>
