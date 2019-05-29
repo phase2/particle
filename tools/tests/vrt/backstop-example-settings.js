@@ -4,6 +4,10 @@
  * tests and test groups for running Backstop VRT.
  */
 
+const { partials } = require('../../pl-paths.js');
+
+const plroot = 'http://0.0.0.0:8080/app-pl/pl';
+
 module.exports = () => {
   // Set which resolutions to take screenshots at.
   const viewports = [
@@ -35,18 +39,13 @@ module.exports = () => {
   };
 
   // Set which pages to capture, and how to label them.
-  const scenarios = [
-    {
-      label: 'article',
-      url: 'http://0.0.0.0:8080/pl/?p=pages-article',
+  const scenarios = partials.map(partial => {
+    return {
+      label: partial,
+      url: `${plroot}?p=${partial}`,
       ...defaultScenarioSettings,
-    },
-    {
-      label: 'homepage',
-      url: 'http://0.0.0.0:8080/pl/?p=pages-homepage',
-      ...defaultScenarioSettings,
-    },
-  ];
+    };
+  });
 
   return {
     id: 'particle_backstop',
