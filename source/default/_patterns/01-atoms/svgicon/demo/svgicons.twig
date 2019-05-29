@@ -37,6 +37,33 @@
           <td>
 <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
   svgpath: '@atoms/svgicon/svg/person.svg',
+  colorOriginal: true,
+} %}{% endverbatim %}</code></pre>
+          </td>
+          <td>
+            <div class="text-center">
+                <span style="width: 50%;">
+                  {% include '@atoms/_svg.twig' with {
+                    svgpath: '@atoms/image/logo.svg',
+                    colorOriginal: true,
+                  } %}
+                </span>
+            </div>
+          </td>
+          <td>Yes. Container div. Unless SVG has <code>width</code> and <code>height</code> set.</td>
+          <td>If <code>colorOriginal: true</code> is added color from original SVG will be used.
+          Will not be able to change color.</td>
+          <td>Renders inline SVG</td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="text-nowrap">
+            <a href="#svg-raw">Inline
+              SVG:<br>Raw Change Color</a>
+          </th>
+          <td>
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
+  svgpath: '@atoms/svgicon/svg/person.svg',
 } %}{% endverbatim %}</code></pre>
           </td>
           <td>
@@ -154,7 +181,7 @@
     <h2>SVG File Techniques</h2>
     <h4 id="svg-raw" class="mt-5">Inline SVG: Raw</h4>
     <p>We can print any SVG directly via <code>@atoms/image/_svg.twig</code>.
-      <a href="/pl/patterns/01-atoms-image-demo-image-inline/01-atoms-image-demo-image-inline.html">See
+      <a href="/app-pl/pl/patterns/01-atoms-image-demo-image-inline/01-atoms-image-demo-image-inline.html">See
         that component for details.</a></p>
 
 

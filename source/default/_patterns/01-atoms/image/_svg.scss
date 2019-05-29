@@ -1,0 +1,7 @@
+.svg--colorable {
+  // Set svg elements to current color.
+  @include svg-elements() {
+    color: currentColor;
+    fill: currentColor;
+  }
+}

@@ -20,6 +20,12 @@
     max-height: rem-calc(300px);
     height: auto;
   }
+
+  // Set svgicon elements to current color.
+  @include svg-elements() {
+    color: currentColor;
+    fill: currentColor;
+  }
 }
 
 // Get the sprite name from generated scss in generated file
@@ -39,18 +45,4 @@ $svgicons: map-keys($sprites);
   .color-fill--#{$color} {
     color: theme-color(#{$color});
   }
-}
-
-svg,
-g,
-circle,
-ellipse,
-line,
-path,
-polygon,
-polyline,
-rect,
-text {
-  color: currentColor;
-  fill: currentColor;
 }
