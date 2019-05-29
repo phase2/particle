@@ -2,7 +2,7 @@ const { join, relative } = require('path');
 const { readdirSync, statSync } = require('fs');
 
 const Generator = require('yeoman-generator');
-const { camelCase } = require('lodash');
+const { camelCase, capitalize } = require('lodash');
 
 let { PATH_SOURCE: componentPath } = require('../../particle.root.config');
 
@@ -43,7 +43,7 @@ const prompts = [
     type: 'checkbox',
     name: 'files',
     message: 'What files would you like in there?',
-    choices: patternFeatures,
+    choices: ['twig', 'scss', 'js', 'demo', 'vue'],
     default: patternFeatures,
   },
   {
@@ -69,6 +69,7 @@ module.exports = class extends Generator {
         dashlessName: props.name.replace(/-/g, ''),
         underscoreName: props.name.replace(/-/g, '_'),
         camelCaseName: camelCase(props.name),
+        capitalizedName: capitalize(props.name),
         cleanPatternType: props.patternType.replace(/([0-9])\w+-/g, ''),
       };
     });
@@ -108,6 +109,40 @@ module.exports = class extends Generator {
         {
           templatePath: 'pattern-test.js',
           destinationPath: join(componentPath, '__tests__', `${name}.test.js`),
+        },
+      ],
+      vue: [
+        {
+          templatePath: 'vue-pattern.js',
+          destinationPath: join(componentPath, 'index.js'),
+        },
+        {
+          templatePath: 'vue-pattern.twig',
+          destinationPath: join(componentPath, `_${name}.twig`),
+        },
+        {
+          templatePath: 'pattern-test.js',
+          destinationPath: join(componentPath, '__tests__', `${name}.test.js`),
+        },
+        {
+          templatePath: 'vue-store.js',
+          destinationPath: join(componentPath, 'src', 'index.js'),
+        },
+        {
+          templatePath: 'vue-component.vue',
+          destinationPath: join(componentPath, 'src', `${name}.vue`),
+        },
+        {
+          templatePath: 'vue-demo-pattern.js',
+          destinationPath: join(componentPath, 'demo', 'index.js'),
+        },
+        {
+          templatePath: 'demo-pattern.twig',
+          destinationPath: join(componentPath, 'demo', `${name}s.twig`),
+        },
+        {
+          templatePath: 'vue-demo-assets.json',
+          destinationPath: join(componentPath, 'demo', `${name}.json`),
         },
       ],
       demo: [

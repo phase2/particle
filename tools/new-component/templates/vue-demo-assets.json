@@ -1,0 +1,14 @@
+[
+  {
+    "title": "This is your new component!",
+    "message": "This data can all be overwritten by Drupal or some other source. This is just dummy data for demonstration purposes. Neat!",
+    "date": "May 29, 2019",
+    "tag": "Article"
+  },
+  {
+    "title": "This is your new component!",
+    "message": "This data can all be overwritten by Drupal or some other source. This is just dummy data for demonstration purposes. Neat!",
+    "date": "June 1, 2019",
+    "tag": "Event"
+  }
+]
