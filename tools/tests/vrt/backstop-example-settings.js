@@ -6,7 +6,7 @@
 
 const { partials } = require('../../pl-paths.js');
 
-const plroot = 'http://0.0.0.0:8080/app-pl/pl';
+const plRoot = 'http://0.0.0.0:8080/app-pl/pl';
 
 module.exports = () => {
   // Set which resolutions to take screenshots at.
@@ -42,7 +42,7 @@ module.exports = () => {
   const scenarios = partials.map(partial => {
     return {
       label: partial,
-      url: `${plroot}?p=${partial}`,
+      url: `${plRoot}?p=${partial}`,
       ...defaultScenarioSettings,
     };
   });
@@ -59,7 +59,7 @@ module.exports = () => {
       ci_report: 'tools/tests/vrt/backstop_data/ci_report',
     },
     casperFlags: [],
-    engine: 'phantomjs',
+    engine: 'chrome',
     report: ['browser', 'CI'],
     debug: false,
   };

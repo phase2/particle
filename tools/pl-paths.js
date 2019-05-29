@@ -55,6 +55,8 @@ const componentPaths = [].concat(
 //   ]
 // }
 
+// Backstop, or other VRT testing platforms, will use the query forms of the pattern
+// demo paths in order to ensure all styles are present and rendered.
 const partials = [].concat(
   ...navItems.patternTypes.map(patternType => {
     const patterns = [];
