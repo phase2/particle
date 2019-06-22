@@ -2,13 +2,13 @@
 // are provided to this file via:
 //   webpack.particle.js: sass-loader.data|includePaths
 
-.svgicon-demo--particle-mixin {
-  @include sprite('person');
+.svgicon-demo--particle-mixin-chevron-right {
+  @include sprite('chevron-right');
   height: rem-calc(40px);
   width: rem-calc(40px);
 }
 
-.svgicon-demo-1 {
+.svgicon-demo--particle-mixin-person {
   @include sprite(
     'person',
     (

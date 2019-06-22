@@ -1,0 +1,8 @@
+svg_demo_block:
+  title: 'SVG Component'
+  text:
+    lead: 'Implements our SVG and SVG Icons.'
+    summary: 'Store your SVG files in the SVG subdirectory to have them
+      made available via the <code>_svg--icon.twig</code> partial or using a Sass
+      mixin. SVGs are rendered utilizing their filename as a variable. FontAwesome
+      icons can also be used through an HTML class or a Sass mixin.'

@@ -1,26 +1,26 @@
 /**
- * Demo of Image. Pull in image assets, but provide demo-only assets.
+ * Demo of image. Pulls in image assets, and provides demo-only assets.
+ *
+ * (This file is NOT imported by the design system, but is included as part of
+ * a Pattern Lab app.)
  */
 
-// Ensure all image pattern deps are present
+// Import component assets
 import 'atoms/image';
 
 // Demo-only styles
 import './_image-demo.scss';
 
-// Demo-only asset: astrogoat.png
-import './astrogoat.png';
+// Holder JS for Demos Only.
+import 'holderjs';
 
-import imageImgMarkdown from './image-img.md';
-import imageImgTwig from './image-img.twig';
-import imageInlineTwig from './image-inline.twig';
-import imageStylesTwig from './image-styles.twig';
-import imageBgTwig from './image-bg.twig';
+// Import demo assets
+import twig from './images.twig';
+import yaml from './images.yml';
+import markdown from './images.md';
 
 export default {
-  imageImgMarkdown,
-  imageImgTwig,
-  imageInlineTwig,
-  imageStylesTwig,
-  imageBgTwig,
+  twig,
+  yaml,
+  markdown,
 };

@@ -1,0 +1,64 @@
+{% embed '@protons/demo/demo-block.twig' with {
+  demo: image_demo_block
+} %}
+
+  {% block content %}
+
+    <div class="primary-image-demo m-3">
+      <h2 class="mb-3">Primary Image</h2>
+        {% for imageStyleName, imageStyleSetting in imageStyles %}
+          {% set image = {
+            variant: 'primary',
+            style: imageStyleName,
+            placeholder: true,
+          } %}
+
+          {% include "@atoms/_image.twig" with {
+            image: image,
+            image_classes: ['d-inline', 'm-1']
+          } %}
+        {% endfor %}
+    </div>
+
+    <div class="picture-image-demo m-3">
+      <h2>Picture with Multiple Source</h2>
+      <div>
+        {% include '@atoms/_image.twig' with {
+          image: image_picture_demo,
+        } %}
+      </div>
+    </div>
+
+    <div class="background-image-demo m-3">
+      <h2>Background Images</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <h3>SVG</h3>
+          {% set image_bg_logo_demo = {
+            variant: 'bg',
+            src: paths.assets ~ '/logo.svg',
+            alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
+          } %}
+
+          {% include '@atoms/_image.twig' with {
+            image: image_bg_logo_demo
+          } %}
+        </div>
+        <div class="col-lg-6">
+          <h3>PNG</h3>
+          {% set image_bg_astrogoat_demo = {
+            variant: 'bg',
+            src: paths.assets ~ '/astrogoat.png',
+            alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
+          } %}
+
+          {% include '@atoms/_image.twig' with {
+            image: image_bg_astrogoat_demo
+          } %}
+        </div>
+      </div>
+    </div>
+
+  {% endblock content %}
+
+{% endembed %}

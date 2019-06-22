@@ -1,22 +1,28 @@
 /**
- * image
+ * svg
  */
 
 import $ from 'jquery';
+import svg4everybody from 'svg4everybody';
 
 // Module dependencies
 import 'protons';
+import fontawesome from './fontawesome';
 
 // Module styles
-import './_image.scss';
+import './_svg.scss';
 
 // Module template
-import './_image.twig';
+import './_svg.twig';
+import './_svg--icon.twig';
 
-export const name = 'image';
+// Enable Fontawesome immediately
+fontawesome();
+
+export const name = 'svg';
 
 export const defaults = {
-  dummyClass: 'js-image-exists',
+  dummyClass: 'js-svg-exists',
 };
 
 /**
@@ -37,17 +43,21 @@ export function disable($context, settings) {}
  * @param {jQuery} $context - A piece of DOM
  * @param {Object} settings - Settings object
  */
-export function enable($context, { image = {} }) {
+export function enable($context, { svg = {} }) {
   // Find our component within the DOM
-  const $image = $('.image', $context);
+  const $svg = $('.svg', $context);
   // Bail if component does not exist
-  if (!$image.length) {
+  if (!$svg.length) {
     return;
   }
+
+  // Enable svg4everybody.
+  svg4everybody();
+
   // Merge defaults with incoming settings
-  const settings = Object.assign(defaults, image);
+  const settings = Object.assign(defaults, svg);
   // An example of what could be done with this component
-  $image.addClass(settings.dummyClass);
+  $svg.addClass(settings.dummyClass);
 }
 
 export default enable;

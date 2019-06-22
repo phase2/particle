@@ -16,16 +16,19 @@
   <div class="branding__site-logo">
     <a href="{{ url }}" title="{{ site_name }}" rel="home">
       {% if logo_svg_inline %}
-        {% include '@atoms/image/_svg.twig' with {
-          svgpath: logo_svg_inline,
-          colorOriginal: true,
+        {% include '@atoms/_svg.twig' with {
+          svg: {
+            svgpath: logo_svg_inline,
+            colorOriginal: true,
+          }
         } %}
       {% elseif logo_img_src %}
         {% include "@atoms/_image.twig" with {
-          img: {
+          image: {
+            variant: 'primary',
             src: logo_img_src,
             alt: site_name ~ ' site logo',
-            }
+          }
         } %}
       {% endif %}
     </a>

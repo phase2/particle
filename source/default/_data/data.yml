@@ -95,3 +95,15 @@ article_tags:
     url: '#'
   - word: 'Dolor'
     url: '#'
+
+border_radius_image:
+  variant: 'primary'
+  style: 'thumbnail'
+  placeholder: true
+
+article_image:
+  variant: 'primary'
+  src: ''
+  alt: ''
+  style: 'small'
+  placeholder: true

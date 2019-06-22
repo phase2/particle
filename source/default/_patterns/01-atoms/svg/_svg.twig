@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * svg
+ *
+ * Available variables for svg:
+ *  - svg.svgpath [string]: Generic element to define shape of svg.
+ *  - svg.colorOriginal [bool]: Whether to display the color.
+ */
+#}
+
+{% set svg_classes = svg_classes|default([])|merge([
+  'svg',
+  not svg.colorOriginal ? 'svg--colorable' : '',
+]) | sort | join(' ') | trim %}
+
+<span class="{{ svg_classes }}">{{ source(svg.svgpath) }}</span>

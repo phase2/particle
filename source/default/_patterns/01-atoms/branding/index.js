@@ -6,6 +6,8 @@
 import 'protons';
 import 'atoms/image';
 
+import './logo.svg';
+
 // Module template
 import './_branding.twig';
 

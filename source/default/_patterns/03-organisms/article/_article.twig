@@ -14,11 +14,9 @@
 
 {% set image_classes = [
   'm-3',
-  'img',
-  'img-fluid',
   'rounded-circle',
   'float-right'
-] | sort | join(' ') | trim %}
+] | sort %}
 
 <article{{ (BUILD_TARGET == 'pl') ? ' class=' ~ classes : attributes.addClass(classes) }}>
 
@@ -29,9 +27,8 @@
   {% block article_content %}
     <div class="ml-5 text-justify">
       {% include '@atoms/image/_image.twig' with {
-        imageStyleName: 'small',
-        class: image_classes,
-        img: card_image,
+        image: article_image,
+        image_classes: image_classes,
       } %}
       {{ article_body }}
     </div>

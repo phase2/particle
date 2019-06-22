@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * svg--icon
+ *
+ * Available variables for svgicon:
+ *    - svgicon.svgname [string]: String filename of the SVG to use from svg/
+ *    - svgicon.svgfill [string]: Pass in a theme-color to colorize the SVG.
+ *    Otherwise it will default to black.
+ */
+#}
+
+{% set svg_classes = svg_classes|default([])|merge([
+  'svg',
+  'svg--icon',
+  svgicon.svgfill ? 'color-fill--' ~ svgicon.svgfill : '',
+]) | sort | join(' ') | trim %}
+
+<div class="{{ svg_classes }}">
+  <svg viewBox="0 0 500 500">
+    <use xlink:href="{{ paths.assets }}/spritemap.svg?cacheBuster={{ random() }}#sprite-{{ svgicon.svgname }}"></use>
+  </svg>
+</div>
