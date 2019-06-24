@@ -25,7 +25,7 @@ $spacing-demo: $spacers;
 // Import your Customized Variables here, example:
 //@import '../_patterns/01-atoms/button/_button.scss';
 
-// Return an array of the SVG filenames located within svgicon/svg/
+// Return an array of the SVG filenames located within svg/svg/
 $svgicons: map-keys($sprites);
 
 // Exports Data to source/_data/scssVariables.json

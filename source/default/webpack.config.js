@@ -39,12 +39,12 @@ module.exports = {
   plugins: [
     // Sprite system options
     new SVGSpritemapPlugin(
-      path.resolve(PATH_PATTERNS, '01-atoms/svgicon/svg/**/*.svg'),
+      path.resolve(PATH_PATTERNS, '01-atoms/svg/svg/**/*.svg'),
       {
         styles: {
           filename: path.resolve(
             PATH_PATTERNS,
-            '01-atoms/svgicon/scss/_icons-generated.scss'
+            '01-atoms/svg/scss/_icons-generated.scss'
           ),
           variables: {
             sizes: 'svgicon-sizes', // Prevent collision with Bootstrap $sizes
