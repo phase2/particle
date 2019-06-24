@@ -16,7 +16,7 @@
 {% set image_classes = image_classes|default([])|merge([
   'image',
   'img-fluid',
-  image.style ? image.style : '',
+  image.style ? 'image--' ~ image.style : '',
   image.variant ? 'image--' ~ image.variant : '',
 ]) | sort | join(' ') | trim %}
 
