@@ -25,25 +25,23 @@
     image: image,
     image_classes: image_classes
   } %}
-{% endif %}
 
-{% if image.variant == 'primary' and not image.placeholder %}
+{% elseif image.variant == 'primary' and not image.placeholder %}
   {% include '@atoms/_image--primary.twig' with {
     image: image,
     image_classes: image_classes
   } %}
-{% endif %}
 
-{% if image.variant == 'bg' and not image.placeholder %}
+{% elseif image.variant == 'bg' and not image.placeholder %}
   {% include '@atoms/_image--bg.twig' with {
     image: image,
     image_classes: image_classes
   } %}
-{% endif %}
 
-{% if image.variant == 'picture' and not image.placeholder %}
+{% elseif image.variant == 'picture' and not image.placeholder %}
   {% include '@atoms/_image--picture.twig' with {
     image: image,
     image_classes: image_classes
   } %}
+
 {% endif %}
