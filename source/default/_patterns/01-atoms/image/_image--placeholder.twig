@@ -9,18 +9,18 @@
  */
 #}
 
-{% set imageStyleName = image.style|default('medium') %}
+{% set placeholderStyleName = image.style|default('medium') %}
 
 {# `imageStyles` defined in `_data/imageStyles.yaml` #}
-{% set imageStyle = imageStyles[imageStyleName] %}
+{% set placeholderStyle = imageStyles[placeholderStyleName] %}
 
-{% set imageText = imageStyle.width ~ 'x' ~ imageStyle.height %}
+{% set placeholderText = placeholderStyle.width ~ 'x' ~ placeholderStyle.height %}
 
 {# if there's no height, let's randomly get one somewhere between .75 and 1.25 times the width, in increments of 10 #}
-{% if not imageStyle.height %}
-  {% set height = random(range(imageStyle.width * 0.75, imageStyle.width * 1.25, 10)) %}
-  {% set imageStyle = imageStyle|merge({height: height}) %}
-  {% set imageText = imageStyle.width ~ 'wide, height varies' %}
+{% if not placeholderStyle.height %}
+  {% set height = random(range(placeholderStyle.width * 0.75, placeholderStyle.width * 1.25, 10)) %}
+  {% set placeholderStyle = placeholderStyle|merge({height: height}) %}
+  {% set placeholderText = placeholderStyle.width ~ 'wide, height varies' %}
 {% endif %}
 
 {# @TODO Move to dedicated JS #}
@@ -30,13 +30,15 @@
   auto: 'yes',
   size: '8',
   lineWrap: '.9',
-  text: imageStyleName ~ ' \n (' ~ imageText ~ ')',
+  text: placeholderStyleName ~ ' \n (' ~ placeholderText ~ ')',
 } %}
 
-{% set imgSrc = 'holder.js/' ~ imageStyle.width ~ 'x' ~ imageStyle.height|round ~ '?' ~ options|url_encode %}
+{% set imgSrc = 'holder.js/' ~ placeholderStyle.width ~ 'x' ~ placeholderStyle.height|round ~ '?' ~ options|url_encode %}
 
-{% if image.variant == 'bg' %}
-  <div data-background-src="?{{ imgSrc }}" class="bg-img holderjs {{ image_classes }}"></div>
-{% else %}
+{% if image.variant == 'primary'%}
   <img data-src="{{ imgSrc }}"{% if image_classes %} class="{{ image_classes }}"{% endif %} alt="A placeholder image">
+
+{% elseif image.variant == 'bg' %}
+  <div data-background-src="?{{ imgSrc }}" class="bg-img holderjs {{ image_classes }}"></div>
+
 {% endif %}
