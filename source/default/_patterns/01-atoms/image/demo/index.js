@@ -14,6 +14,9 @@ import './_image-demo.scss';
 // Holder JS for Demos Only.
 import 'holderjs';
 
+// Import demo only astrogoat.
+import './astrogoat.png';
+
 // Import demo assets
 import twig from './images.twig';
 import yaml from './images.yml';

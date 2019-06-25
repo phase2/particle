@@ -11,16 +11,11 @@
  */
 #}
 
-{% set bp = [
-  "sm",
-  "md",
-  "lg",
-  "xl"
-] %}
+{% set bp = scssBreakpoints|keys %}
 
 <picture>
   {% for item in image.srcset %}
-    {% set key = (bp[loop.index0]|length) ? bp[loop.index0] : 'xl' %}
+    {% set key = (bp[loop.index]|length) ? bp[loop.index] : 'xl' %}
     <source srcset="{{ item }}" media="(max-width: {{ scssBreakpoints[key] }})">
   {% endfor %}
   {% include '@atoms/_image--primary.twig' with {
