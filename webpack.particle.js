@@ -112,10 +112,8 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 50000,
-
-              // If a font file is over 50k, output below fonts directory.
-              // This prevents massive .css file bloat.
+              // If a font file is over 1k, output below fonts directory.
+              limit: 1000,
               name: '[name].[ext]',
               outputPath: 'fonts/',
             },
