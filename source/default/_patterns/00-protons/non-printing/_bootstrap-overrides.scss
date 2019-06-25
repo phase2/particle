@@ -22,9 +22,7 @@ $card-border-width: rem-calc(1px);
 // Example, the below adds a mb-6 utility spacing class.
 $spacer: 1rem;
 $spacers: (
-  6: (
-    $spacer * 4,
-  ),
+  6: $spacer * 4,
 );
 
 // Bootstrap non-printing tools. DO NOT REMOVE, because Sass overrides must be
