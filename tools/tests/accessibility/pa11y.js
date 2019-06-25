@@ -1,11 +1,10 @@
 // All non-protons PL paths
 const { componentPaths } = require('../../pl-paths.js');
 
+const { PL_BASE_DOMAIN } = process.env;
+
 // The PL_BASE_DOMAIN environment variable should be set to override the default.
-let plRootDomain = '0.0.0.0:8080';
-if (process.env.PL_BASE_DOMAIN) {
-  plRootDomain = process.env.PL_BASE_DOMAIN;
-}
+const plRootDomain = PL_BASE_DOMAIN || '0.0.0.0:8080';
 const plRoot = `http://${plRootDomain}/app-pl/pl`;
 
 // urls comes from particle, includes all demo paths from atoms+
