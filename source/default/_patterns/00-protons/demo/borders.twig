@@ -79,8 +79,8 @@
       <div class="border">
         {% for class in radius_classes %}
           {% include '@atoms/image/_image.twig' with {
-            imageStyleName: 'thumbnail',
-            class: 'm-2 rounded' ~ class,
+            image: border_radius_image,
+            image_classes: ['m-2 rounded' ~ class],
           } %}
         {% endfor %}
         <pre class="bg-light mb-0">

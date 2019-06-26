@@ -1,14 +1,8 @@
-{% extends '@atoms/grid/_grid-1-up.twig' %}
-  {% set container = true %}
-  {% block column_1 %}
+{% embed '@protons/demo/demo-block.twig' with {
+  demo: svg_demo_block
+} %}
 
-    <h1 class="mt-5">SVG Icons</h1>
-    <p class="lead">Store your SVG files in the SVG subdirectory to have them
-      made available via the <code>_svgicon.twig</code> partial or using a Sass
-      mixin. SVGs are rendered utilizing their filename as a variable. FontAwesome
-      icons can also be used through an HTML class or a Sass mixin.
-    </p>
-
+  {% block content %}
     <p class="subtext">Note: If you’ve exported from Illustrator or Sketch you should be good to use the svgs directly.
       However if you’ve used Inkscape, there are some issues with the added markup from the application. Use the
       following fiddle to clean extra markup:
@@ -36,23 +30,27 @@
           </th>
           <td>
 <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
-  svgpath: '@atoms/svgicon/svg/person.svg',
-  colorOriginal: true,
+  svg: {
+    svgpath: '@atoms/svg/person.svg',
+    colorOriginal: true,
+  }
 } %}{% endverbatim %}</code></pre>
           </td>
           <td>
             <div class="text-center">
                 <span style="width: 50%;">
                   {% include '@atoms/_svg.twig' with {
-                    svgpath: '@atoms/image/logo.svg',
-                    colorOriginal: true,
+                    svg: {
+                      svgpath: '@atoms/svg/person.svg',
+                      colorOriginal: true,
+                    }
                   } %}
                 </span>
             </div>
           </td>
           <td>Yes. Container div. Unless SVG has <code>width</code> and <code>height</code> set.</td>
           <td>If <code>colorOriginal: true</code> is added color from original SVG will be used.
-          Will not be able to change color.</td>
+            Will not be able to change color.</td>
           <td>Renders inline SVG</td>
         </tr>
 
@@ -63,14 +61,18 @@
           </th>
           <td>
 <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
-  svgpath: '@atoms/svgicon/svg/person.svg',
+  svg: {
+    svgpath: '@atoms/svg/person.svg',
+  }
 } %}{% endverbatim %}</code></pre>
           </td>
           <td>
             <div class="text-center">
                 <span style="width: 50%;">
                   {% include '@atoms/_svg.twig' with {
-                    svgpath: '@atoms/svgicon/svg/person.svg',
+                    svg: {
+                      svgpath: '@atoms/svg/person.svg',
+                    }
                   } %}
                 </span>
             </div>
@@ -85,14 +87,18 @@
             <a href="#svg-spritesheet">Inline SVG:<br>Spritesheet</a>
           </th>
           <td>
-<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
-  svgname: 'person',
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
+  svgicon: {
+    svgname: 'person',
+  }
 } %}{% endverbatim %}</code></pre>
           </td>
           <td>
             <div>
-              {% include '@atoms/_svgicon.twig' with {
-                svgname: 'person',
+              {% include '@atoms/_svg--icon.twig' with {
+                svgicon: {
+                  svgname: 'person',
+                }
               } %}
             </div>
           </td>
@@ -108,14 +114,14 @@
             <a href="#svg-scss">Sass mixin</a>
           </th>
           <td>
-<pre><code class="language-scss">{% verbatim %}.svgicon-demo--particle-mixin {
+<pre><code class="language-scss">{% verbatim %}.svgicon-demo--particle-mixin-person {
   @include sprite('person');
   height: 40px;
   width: 40px;
 }{% endverbatim %}</code></pre>
           </td>
           <td>
-            <div class="svgicon-demo--particle-mixin"></div>
+            <div class="svgicon-demo--particle-mixin-person"></div>
           </td>
           <td>Yes. Code width and height.</td>
           <td>var:color.fill="#000" on raw SVG. Exposes color argument in
@@ -193,30 +199,34 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
   svgname: 'chevron-up',
 } %}{% endverbatim %}</code></pre>
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
-        {% include '@atoms/_svgicon.twig' with {
-          svgname: 'chevron-up',
+        {% include '@atoms/_svg--icon.twig' with {
+          svgicon: {
+            svgname: 'chevron-up',
+          }
         } %}
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svgicon.twig' with {
+        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
   svgname: 'chevron-up',
   svgfill: 'danger',
 } %}{% endverbatim %}</code></pre>
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
-        {% include '@atoms/_svgicon.twig' with {
-          svgname: 'chevron-up',
-          svgfill: 'danger',
+        {% include '@atoms/_svg--icon.twig' with {
+          svgicon: {
+            svgname: 'chevron-up',
+            svgfill: 'danger',
+          }
         } %}
       </div>
     </div>
@@ -231,7 +241,7 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-<pre><code class="language-scss">.svgicon-demo--particle-mixin {
+        <pre><code class="language-scss">.svgicon-demo--particle-mixin-chevron-right {
   @include sprite('chevron-right');
   height: 40px;
   width: 40px;
@@ -239,7 +249,7 @@
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
-        <div class="svgicon-demo--particle-mixin"></div>
+        <div class="svgicon-demo--particle-mixin-chevron-right"></div>
       </div>
     </div>
 
@@ -250,13 +260,13 @@
       to the first <code>path</code> element.
     </p>
     <h5>Source SVG</h5>
-<pre><code class="language-html">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"&gt;
+    <pre><code class="language-html">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"&gt;
   &lt;path var:color.fill="#000" d="M460,463.6c0,19.6-15.9,35.4-35.4,35.4l0,0H69.8c-19.6,0-35.5-15.8-35.6-35.4c0,0,0,0,0-0.1V428 c0-93.4,141.9-141.9,141.9-141.9s8.2-14.5,0-35.5c-29.8-22-33.5-56.4-35.5-141.9C146.8,23.1,206.9,2.3,247.1,2.3 S347.4,23,353.6,108.7c-2,85.5-5.7,119.9-35.5,141.9c-8.2,20.9,0,35.5,0,35.5S460,334.6,460,428V463.6z"/&gt;
 &lt;/svg&gt;</code></pre>
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-<pre><code class="language-scss">.svgicon-demo--particle-mixin {
+        <pre><code class="language-scss">.svgicon-demo--particle-mixin-person {
   @include sprite('person', (color: theme-color('primary')));
   height: 40px;
   width: 40px;
@@ -264,7 +274,7 @@
       </div>
       <div class="col-sm-6">
         <h4>Output</h4>
-        <div class="svgicon-demo-1 mb-3"></div>
+        <div class="svgicon-demo--particle-mixin-person mb-3"></div>
       </div>
     </div>
 
@@ -315,5 +325,6 @@
     <h4 id="fa-sass">Font Awesome Sass</h4>
     <p>Font Awesome Sass support is currently disabled in Particle to reduce the volume of generated CSS and font files. However, Font Awesome Sass can be easily included by following the <a href="https://fontawesome.com/how-to-use/on-the-web/using-with/sass" target="_blank" rel="noopener noreferrer">Font Awesome Sass guide.</a></p>
 
+  {% endblock %}
 
-  {% endblock column_1 %}
+{% endembed %}

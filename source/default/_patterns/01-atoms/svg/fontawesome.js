@@ -11,7 +11,7 @@ import {
   faRocket,
   faSpaceShuttle,
   faUser,
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons/index';
 
 // Add specific icons required
 library.add(faUserAstronaut, faRocket, faSpaceShuttle, faUser);

@@ -10,13 +10,16 @@
           <div class="double-bounce2"></div>
         </div>
 
-
         <h1 class="mb-4">Welcome to Particle</h1>
 
+        {% set welcome_image = {
+          variant: 'primary',
+          src: paths.assets ~ '/astrogoat.png',
+          alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
+        } %}
+
         {% include "@atoms/_image.twig" with {
-          img: {
-            src: paths.assets ~ '/astrogoat.png',
-          },
+          image: welcome_image
         } %}
 
         <p class="mt-4">Particle is a starterkit to help you make design systems

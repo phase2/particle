@@ -35,7 +35,7 @@ const settings = {
   // BUILD_TARGET is either 'pl' or 'drupal', and comes from webpack
   enableHolder: BUILD_TARGET === APP_NAME,
   // a random drupalSetting
-  color: 'orange',
+  color: '#ce8500',
 };
 
 // Just execute everything in the design system and pass in $(document), settings

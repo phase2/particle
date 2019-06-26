@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * image--placeholder
+ *   Implements holder.js for placeholder images.
+ *
+ * Available variables for image:
+ *  - Inherit variables from @atoms/_image.twig
+ */
+#}
+
+{% set placeholderStyleName = image.style|default('medium') %}
+
+{# `imageStyles` defined in `_data/imageStyles.yaml` #}
+{% set placeholderStyle = imageStyles[placeholderStyleName] %}
+
+{% set placeholderText = placeholderStyle.width ~ 'x' ~ placeholderStyle.height %}
+
+{# if there's no height, let's randomly get one somewhere between .75 and 1.25 times the width, in increments of 10 #}
+{% if not placeholderStyle.height %}
+  {% set height = random(range(placeholderStyle.width * 0.75, placeholderStyle.width * 1.25, 10)) %}
+  {% set placeholderStyle = placeholderStyle|merge({height: height}) %}
+  {% set placeholderText = placeholderStyle.width ~ 'wide, height varies' %}
+{% endif %}
+
+{# holder.js options #}
+{% set options = {
+  theme: 'gray',
+  auto: 'yes',
+  size: '8',
+  lineWrap: '.9',
+  text: placeholderStyleName ~ ' \n (' ~ placeholderText ~ ')',
+} %}
+
+{% set imgSrc = 'holder.js/' ~ placeholderStyle.width ~ 'x' ~ placeholderStyle.height|round ~ '?' ~ options|url_encode %}
+
+{% if image.variant == 'primary'%}
+  <img data-src="{{ imgSrc }}"{% if image_classes %} class="{{ image_classes }}"{% endif %} alt="A placeholder image">
+
+{% elseif image.variant == 'bg' %}
+  <div data-background-src="?{{ imgSrc }}" class="bg-img holderjs {{ image_classes }}"></div>
+
+{% endif %}

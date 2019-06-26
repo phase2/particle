@@ -1,15 +1,20 @@
+// Custom styles for svg
+
 // The non-printing variables, functions, and mixins of 00-protons/variables
 // are provided to this file via:
 //   webpack.particle.js: sass-loader.data|includePaths
 
-// Note!
-// ./scss/_icons-generated is automatically made available because
-// 00-protons/variables is provided to every scss file and _icons-generated
-// is @import'd within 00-protons/variables
+.svg {
+  .svg--colorable {
+    // Set svg elements to current color.
+    @include svg-elements() {
+      color: currentColor;
+      fill: currentColor;
+    }
+  }
+}
 
-// Default styles to maintain inline-block functionality
-// since the SVG is wrapped in a div
-.svgicon-default {
+.svg--icon {
   display: inline-block;
   width: rem-calc(40px);
 

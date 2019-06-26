@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * image--picture
+ *   Implements images with picture properties.
+ *
+ * Available variables for image:
+ *  - Inherit variables from @atoms/_image.twig
+ *  - image.srcset [array]: An array of image src to pull from (falls back to image.src)
+ *      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
+ */
+#}
+
+{% set bp = scssBreakpoints|keys %}
+
+<picture>
+  {% for item in image.srcset %}
+    {% set key = bp[loop.index]|default('xl') %}
+    <source srcset="{{ item }}" media="(max-width: {{ scssBreakpoints[key] }})">
+  {% endfor %}
+  {% include '@atoms/_image--primary.twig' with {
+    image: image,
+    image_classes: image_classes
+  } %}
+</picture>

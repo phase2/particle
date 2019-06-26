@@ -35,7 +35,7 @@ component-libraries:
       - ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/grid
       - ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/image
       - ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/list-group
-      - ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/svgicon
+      - ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/svg
   molecules:
     paths:
       - ../../dist/app-drupal/assets/atomic/_patterns/02-molecules
