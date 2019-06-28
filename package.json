@@ -46,7 +46,8 @@
     "install:node:pl": "patternlab install --config ./apps/pattern-lab/patternlab-config.json",
     "serve:node:pl": "patternlab serve --config ./apps/pattern-lab/patternlab-config.json",
     "start:node:pl": "npm run serve:node:pl",
-    "version:node:pl": "patternlab --version"
+    "version:node:pl": "patternlab --version",
+    "start:node:pl:build": "cross-env-shell NODE_ENV=development \"gulp compile:startup --config ./apps/pattern-lab/particle.app.config.js & npm run build:node:pl & webpack-dev-server --config ./apps/pattern-lab/webpack.config.js --hot\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
