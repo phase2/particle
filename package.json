@@ -40,11 +40,21 @@
     "setup:pl": "cd ./apps/pl/pattern-lab && composer install --no-interaction --ignore-platform-reqs",
     "setup": "composer install --no-interaction --ignore-platform-reqs && npm run setup:pl",
     "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal && npm run build:grav",
-    "new": "yo ./tools/new-component/index.js"
+    "new": "yo ./tools/new-component/index.js",
+    "build:node:pl": "patternlab build --config ./apps/pattern-lab/patternlab-config.json",
+    "help:pl": "patternlab --help",
+    "install:node:pl": "patternlab install --config ./apps/pattern-lab/patternlab-config.json",
+    "serve:node:pl": "patternlab serve --config ./apps/pattern-lab/patternlab-config.json",
+    "start:node:pl": "npm run serve:node:pl",
+    "version:node:pl": "patternlab --version"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@pattern-lab/cli": "^0.0.3",
+    "@pattern-lab/core": "^3.0.1",
+    "@pattern-lab/engine-twig-php": "^3.0.1",
+    "@pattern-lab/uikit-workshop": "^1.0.1",
     "bootstrap": "^4.3.1",
     "enquire.js": "^2.1.6",
     "holderjs": "^2.9.6",
