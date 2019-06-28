@@ -54,7 +54,7 @@
   },
   "paths": {
     "source": {
-      "root": "./source/default/",
+      "root": "./source/default",
       "patterns": "./source/default/_patterns/",
       "data": "./source/default/_data/",
       "meta": "./source/default/_meta/",
