@@ -111,6 +111,6 @@
     "webpack-merge": "^4.2.1",
     "yargs": "^13.2.2",
     "yeoman-generator": "^3.2.0",
-    "yo": "^2.0.6"
+    "yo": "^3.0.0"
   }
 }
