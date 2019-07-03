@@ -20,8 +20,8 @@ import { APP_NAME } from './particle.app.config';
 import { enableAllComponents } from '../../source/default';
 
 // Adds PL-only styles, ie color swatches.
-import './css/_styleguide.scss';
-import './css/_scss2json.scss';
+import './pattern-lab/css/_styleguide.scss';
+import './pattern-lab/css/_scss2json.scss';
 
 // Watch the big pieces of PL like demos, _meta, data
 import demoSystem from './glob';

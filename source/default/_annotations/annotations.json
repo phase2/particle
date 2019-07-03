@@ -1,5 +1,5 @@
 {
-  "comments" : [
+  "comments": [
     {
       "el": "header[role=banner]",
       "title" : "Masthead",

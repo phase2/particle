@@ -58,7 +58,7 @@ const dev = {
       ignored: '/(node_modules|pl)/',
     },
     open: true, // Open browser immediately
-    openPage: `${APP_NAME}`, // Open browser to the PL landing page so it's very clear where to go
+    openPage: `${APP_NAME}/pl`, // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
     inline: true, // Injects all the webpack dev server code right in the page

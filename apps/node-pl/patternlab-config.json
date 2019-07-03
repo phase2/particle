@@ -67,21 +67,21 @@
         "patternSectionSubtype": "views/partials/patternSectionSubtype.mustache",
         "viewall": "views/viewall.mustache"
       },
-      "js": "./apps/pattern-lab/js",
-      "images": "./apps/pattern-lab/images",
-      "fonts": "./apps/pattern-lab/fonts",
-      "css": "./apps/pattern-lab/css"
+      "js": "./apps/node-pl/pattern-lab/js",
+      "images": "./apps/node-pl/pattern-lab/images",
+      "fonts": "./apps/node-pl/pattern-lab/fonts",
+      "css": "./apps/node-pl/pattern-lab/css"
     },
     "public": {
-      "root": "dist/app-node-pl/",
-      "patterns": "dist/app-node-pl/patterns/",
-      "data": "dist/app-node-pl/styleguide/data/",
-      "annotations": "dist/app-node-pl/annotations/",
-      "styleguide": "dist/app-node-pl/styleguide/",
-      "js": "dist/app-node-pl/js",
-      "images": "dist/app-node-pl/images",
-      "fonts": "dist/app-node-pl/fonts",
-      "css": "dist/app-node-pl/css"
+      "root": "dist/app-node-pl/pl",
+      "patterns": "dist/app-node-pl/pl/patterns/",
+      "data": "dist/app-node-pl/pl/styleguide/data/",
+      "annotations": "dist/app-node-pl/pl/annotations/",
+      "styleguide": "dist/app-node-pl/pl/",
+      "js": "dist/app-node-pl/pl/js/",
+      "images": "dist/app-node-pl/pl/images/",
+      "fonts": "dist/app-node-pl/pl/fonts/",
+      "css": "dist/app-node-pl/pl/css/"
     }
   },
   "patternExtension": "twig",
@@ -193,7 +193,7 @@
       ],
       "alterTwigEnv": [
         {
-          "file": "./apps/pattern-lab/alter-twig.php",
+          "file": "./apps/node-pl/pattern-lab/alter-twig.php",
           "functions": [
             "addCustomExtension"
           ]
