@@ -195,7 +195,8 @@
         {
           "file": "./apps/node-pl/pattern-lab/alter-twig.php",
           "functions": [
-            "addCustomExtension"
+            "addFilters",
+            "addFunctions"
           ]
         }
       ]
