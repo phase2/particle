@@ -142,38 +142,45 @@
           ]
         },
         {
+          "id": "protons",
+          "recursive": true,
+          "paths": [
+            "source/default/_patterns/00-protons"
+          ]
+        },
+        {
           "id": "atoms",
           "recursive": true,
           "paths": [
-            "source/default/_patterns/00-atoms"
+            "source/default/_patterns/01-atoms"
           ]
         },
         {
           "id": "molecules",
           "recursive": true,
           "paths": [
-            "source/default/_patterns/01-molecules"
+            "source/default/_patterns/02-molecules"
           ]
         },
         {
           "id": "organisms",
           "recursive": true,
           "paths": [
-            "source/default/_patterns/02-organisms"
+            "source/default/_patterns/03-organisms"
           ]
         },
         {
           "id": "templates",
           "recursive": true,
           "paths": [
-            "source/default/_patterns/03-templates"
+            "source/default/_patterns/04-templates"
           ]
         },
         {
           "id": "pages",
           "recursive": true,
           "paths": [
-            "source/default/_patterns/04-pages"
+            "source/default/_patterns/05-pages"
           ]
         },
         {
