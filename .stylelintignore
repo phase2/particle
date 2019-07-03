@@ -7,7 +7,3 @@ dist/
 pattern-lab/
 
 _icons-generated.scss
-
-source/default/_annotations/
-source/default/js/
-source/default/css/

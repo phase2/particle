@@ -7,7 +7,3 @@ tools/tests/vrt/backstop_data
 
 # Ignore yeoman new-component templates
 tools/new-component/templates
-
-source/default/_annotations/
-source/default/js/
-source/default/css/

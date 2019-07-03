@@ -67,10 +67,10 @@
         "patternSectionSubtype": "views/partials/patternSectionSubtype.mustache",
         "viewall": "views/viewall.mustache"
       },
-      "js": "./source/default/js",
-      "images": "./source/default/images",
-      "fonts": "./source/default/fonts",
-      "css": "./source/default/css"
+      "js": "./apps/pattern-lab/js",
+      "images": "./apps/pattern-lab/images",
+      "fonts": "./apps/pattern-lab/fonts",
+      "css": "./apps/pattern-lab/css"
     },
     "public": {
       "root": "dist/app-node-pl/",
