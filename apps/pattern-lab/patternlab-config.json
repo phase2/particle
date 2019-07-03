@@ -193,7 +193,7 @@
       ],
       "alterTwigEnv": [
         {
-          "file": "alter-twig.php",
+          "file": "./apps/pattern-lab/alter-twig.php",
           "functions": [
             "addCustomExtension"
           ]

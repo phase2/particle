@@ -2,6 +2,7 @@
 dist/
 env.json
 _icons-generated.scss
+dependencyGraph.json
 
 # OS generated files
 *.swp
