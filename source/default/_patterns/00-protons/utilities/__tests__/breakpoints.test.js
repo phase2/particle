@@ -1,4 +1,4 @@
-import { mediaBreakpoint, breakpoints } from '..';
+import { mediaBreakpoint, breakpoints } from '../breakpoints';
 
 test('breakpoints is empty object without DOM', () => {
   expect(breakpoints).toEqual({});

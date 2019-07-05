@@ -65,6 +65,7 @@ plugins:
           - ../../../source/default/_patterns/01-atoms/image
           - ../../../source/default/_patterns/01-atoms/list-group
           - ../../../source/default/_patterns/01-atoms/svg
+          - ../../../source/default/_patterns/01-atoms/svgicon
       molecules:
         paths:
           - ../../../source/default/_patterns/02-molecules

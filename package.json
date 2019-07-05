@@ -41,10 +41,8 @@
     "setup": "composer install --no-interaction --ignore-platform-reqs && npm run setup:pl",
     "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal && npm run build:grav",
     "new": "yo ./tools/new-component/index.js",
-
-
     "build:node:pl": "patternlab build --config ./apps/node-pl/patternlab-config.json",
-    "build:node:assets": "coss-env-shell NODE_ENV=production \"webpack --config ./apps/node-pl/webpack.config.js\"",
+    "build:node:assets": "cross-env-shell NODE_ENV=production \"webpack --config ./apps/node-pl/webpack.config.js\"",
     "help:pl": "patternlab --help",
     "install:node:pl": "patternlab install --config ./apps/node-pl/patternlab-config.json",
     "serve:node:pl": "patternlab serve --config ./apps/node-pl/patternlab-config.json",
