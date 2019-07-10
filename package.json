@@ -49,7 +49,8 @@
     "start:node:pl": "npm run serve:node:pl",
     "version:node:pl": "patternlab --version",
     "dev:pl-node": "cross-env-shell NODE_ENV=development \"gulp compile:startup --config ./apps/node-pl/particle.app.config.js & npm run build:node:pl & webpack-dev-server --config ./apps/node-pl/webpack.config.js --hot\"",
-    "build:pl-node": "cross-env-shell NODE_ENV=production \"gulp compile:pl:env --config ./apps/node-pl/particle.app.config.js && npm run build:node:pl & webpack --config ./apps/node-pl/webpack.config.js\""
+    "build:pl-node": "cross-env-shell NODE_ENV=production \"gulp compile:pl:env --config ./apps/node-pl/particle.app.config.js && npm run build:node:pl & webpack --config ./apps/node-pl/webpack.config.js\"",
+    "export:pl": "patternlab export --config ./apps/node-pl/patternlab-config.json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",

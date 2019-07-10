@@ -96,7 +96,7 @@
     "inreview",
     "complete"
   ],
-  "patternExportDirectory": "./pattern_exports/",
+  "patternExportDirectory": "apps/node-pl/pattern_exports/",
   "patternExportPatternPartials": [],
   "serverOptions": {
     "wait": 1000
