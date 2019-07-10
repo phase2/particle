@@ -16,7 +16,7 @@
   <div class="branding__site-logo">
     <a href="{{ url }}" title="{{ site_name }}" rel="home">
       {% if logo_svg_inline %}
-        {% include '@atoms/_svg.twig' with {
+        {% include '@atoms/svg/_svg.twig' with {
           svg: {
             svgpath: logo_svg_inline,
             colorOriginal: true,
