@@ -4,13 +4,11 @@
 // are provided to this file via:
 //   webpack.particle.js: sass-loader.data|includePaths
 
-.svg {
-  .svg--colorable {
-    // Set svg elements to current color.
-    @include svg-elements() {
-      color: currentColor;
-      fill: currentColor;
-    }
+.svg--colorable {
+  // Set svg elements to current color.
+  @include svg-elements() {
+    color: currentColor;
+    fill: currentColor;
   }
 }
 
