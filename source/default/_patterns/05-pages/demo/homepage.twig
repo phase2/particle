@@ -1,14 +1,14 @@
 {% extends '@templates/site-container.twig' %}
   {% block content %}
 
-    {% include '@atoms/_alert.twig' with {
+    {% include '@atoms/alert/_alert.twig' with {
       type: 'info',
       alert_primary: 'This is an alert on our homepage template!'
     } %}
 
-    {% embed '@molecules/_jumbotron.twig' with { jumbotron_fluid: true } %}
+    {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
       {% block jumbotron_branding %}
-        {% include "@atoms/_branding.twig" with {
+        {% include "@atoms/branding/_branding.twig" with {
         url: '#',
         logo_svg_inline: '@atoms/branding/logo.svg',
         site_name: 'Particle',
@@ -17,7 +17,7 @@
       {% endblock jumbotron_branding %}
     {% endembed %}
 
-    {% embed '@templates/_basic-page.twig' %}
+    {% embed '@templates/basic-page/_basic-page.twig' %}
       {% block content %}
         <h1 class="homepage__header">Sample Homepage Content</h1>
 

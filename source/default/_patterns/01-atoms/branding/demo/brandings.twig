@@ -12,7 +12,7 @@
     {% embed '@atoms/grid/_grid-2-up.twig' with { container: false } %}
 
       {% block column_1 %}
-        {% include "@atoms/_branding.twig" with {
+        {% include "@atoms/branding/_branding.twig" with {
           url: '#',
           logo_svg_inline: '@atoms/branding/logo.svg',
           site_name: 'Particle',
@@ -21,7 +21,7 @@
       {% endblock column_1 %}
 
       {% block column_2 %}
-        {% include "@atoms/_branding.twig" with {
+        {% include "@atoms/branding/_branding.twig" with {
           url: '#',
           logo_img_src: paths.assets ~ '/logo.svg',
           site_name: 'Particle',

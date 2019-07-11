@@ -13,7 +13,7 @@
             placeholder: true,
           } %}
 
-          {% include "@atoms/_image.twig" with {
+          {% include "@atoms/image/_image.twig" with {
             image: image,
             image_classes: ['d-inline', 'm-1']
           } %}
@@ -23,7 +23,7 @@
     <div class="picture-image-demo m-3">
       <h2>Picture with Multiple Source</h2>
       <div>
-        {% include '@atoms/_image.twig' with {
+        {% include '@atoms/image/_image.twig' with {
           image: image_picture_demo,
         } %}
       </div>
@@ -40,7 +40,7 @@
             alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
           } %}
 
-          {% include '@atoms/_image.twig' with {
+          {% include '@atoms/image/_image.twig' with {
             image: image_bg_logo_demo
           } %}
         </div>
@@ -52,7 +52,7 @@
             alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
           } %}
 
-          {% include '@atoms/_image.twig' with {
+          {% include '@atoms/image/_image.twig' with {
             image: image_bg_astrogoat_demo
           } %}
         </div>

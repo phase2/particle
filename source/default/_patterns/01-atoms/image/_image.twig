@@ -21,25 +21,25 @@
 ]) | sort | join(' ') | trim %}
 
 {% if image.placeholder %}
-  {% include '@atoms/_image--placeholder.twig' with {
+  {% include '@atoms/image/_image--placeholder.twig' with {
     image: image,
     image_classes: image_classes
   } %}
 
 {% elseif image.variant == 'primary' %}
-  {% include '@atoms/_image--primary.twig' with {
+  {% include '@atoms/image/_image--primary.twig' with {
     image: image,
     image_classes: image_classes
   } %}
 
 {% elseif image.variant == 'bg' %}
-  {% include '@atoms/_image--bg.twig' with {
+  {% include '@atoms/image/_image--bg.twig' with {
     image: image,
     image_classes: image_classes
   } %}
 
 {% elseif image.variant == 'picture' %}
-  {% include '@atoms/_image--picture.twig' with {
+  {% include '@atoms/image/_image--picture.twig' with {
     image: image,
     image_classes: image_classes
   } %}
