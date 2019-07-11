@@ -4,11 +4,11 @@
  * An Article implementation.
  *
  * Available variables:
- * - article_title: [string]: The title of the article.
- * - article_body: [string]: Body content for a article.
- * - article_author_name: [string]: The name of the author.
- * - article_date: [string]: A simple string date.
- * - article_tags: [array]: An array of tags.
+ * - article.title: [string]: The title of the article.
+ * - article.body: [string]: Body content for a article.
+ * - article.author_name: [string]: The name of the author.
+ * - article.date: [string]: A simple string date.
+ * - article.tags: [array]: An array of tags.
  */
 #}
 
@@ -21,16 +21,16 @@
 <article{{ (BUILD_TARGET == 'pl') ? ' class=' ~ classes : attributes.addClass(classes) }}>
 
   {% block article_header %}
-    <h2 class="ml-0">{{ article_title }}</h2>
+    <h2 class="ml-0">{{ article.title }}</h2>
   {% endblock article_header %}
 
   {% block article_content %}
     <div class="ml-5 text-justify">
       {% include '@atoms/image/_image.twig' with {
-        image: article_image,
+        image: article.image,
         image_classes: image_classes,
       } %}
-      {{ article_body }}
+      {{ article.body }}
     </div>
   {% endblock article_content %}
 
@@ -38,14 +38,14 @@
     <div>
       <span class="font-weight-bold">Tags:</span>
       <ul class="list-inline">
-        {% for tag in article_tags  %}
+        {% for tag in article.tags  %}
           <li class="list-inline-item"><a href="{{ tag.url }}" target="_blank">{{ tag.word }}</a></li>
         {% endfor %}
       </ul>
     </div>
     <blockquote class="text-right">
       <footer class="blockquote-footer">
-        Submitted by {{ article_author_name }} on {{ article_date }}
+        Submitted by {{ article.author_name }} on {{ article.date }}
       </footer>
     </blockquote>
   {% endblock article_footer %}

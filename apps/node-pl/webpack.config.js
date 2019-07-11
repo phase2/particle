@@ -94,6 +94,7 @@ const dev = {
           APP_PATH,
           'particle.app.config.js'
         )}`,
+        `npm run build:node:pl`,
       ],
     }),
   ],

@@ -9,7 +9,9 @@
     </div>
     <hr>
 
-    {% include '@organisms/article/_article.twig' with article_1 %}
+    {% include '@organisms/article/_article.twig' with {
+      article: article_demo
+    } %}
 
   {% endblock %}
 {% endembed %}

@@ -46,12 +46,12 @@
 
   {% if card_image_location == 'top' %}
     {% block card_image_top %}
-      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+
       {% include '@atoms/image/_image.twig' with {
-        imageStyleName: 'card',
-        class: 'card-img-top',
-        img: card_image,
+        image: card_image,
+        image_classes: ['card-img-top'],
       } %}
+
     {% endblock %}
   {% endif %}
 
@@ -100,12 +100,12 @@
 
   {% if card_image_location == 'bottom' %}
     {% block card_image_bottom %}
-      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+
       {% include '@atoms/image/_image.twig' with {
-        imageStyleName: 'card',
-        class: 'card-img-bottom',
-        img: card_image,
+        image: card_image,
+        image_classes: ['card-img-bottom'],
       } %}
+
     {% endblock card_image_bottom %}
   {% endif %}
 
