@@ -16,7 +16,7 @@ bodyClass: 'pl pl-loading'
 # Generic Starter Template Data
 title: Pattern Lab
 headline:
-  tiny: Lorem
+  tiny: Lorem Ipsum
   short: Lorem ipsum dolor sit (37 characters)
   medium: Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)
 excerpt:

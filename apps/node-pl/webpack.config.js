@@ -90,6 +90,7 @@ const dev = {
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md|json)$/,
       exec: [
+        `rm -rf dist/app-node-pl/pl/patterns/`,
         `npx gulp compile --config ${path.resolve(
           APP_PATH,
           'particle.app.config.js'

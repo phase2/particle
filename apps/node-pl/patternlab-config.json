@@ -66,22 +66,14 @@
         "patternSection": "views/partials/patternSection.mustache",
         "patternSectionSubtype": "views/partials/patternSectionSubtype.mustache",
         "viewall": "views/viewall.mustache"
-      },
-      "js": "./apps/node-pl/pattern-lab/js",
-      "images": "./apps/node-pl/pattern-lab/images",
-      "fonts": "./apps/node-pl/pattern-lab/fonts",
-      "css": "./apps/node-pl/pattern-lab/css"
+      }
     },
     "public": {
       "root": "dist/app-node-pl/pl",
       "patterns": "dist/app-node-pl/pl/patterns/",
       "data": "dist/app-node-pl/pl/styleguide/data/",
       "annotations": "dist/app-node-pl/pl/annotations/",
-      "styleguide": "dist/app-node-pl/pl/",
-      "js": "dist/app-node-pl/pl/js/",
-      "images": "dist/app-node-pl/pl/images/",
-      "fonts": "dist/app-node-pl/pl/fonts/",
-      "css": "dist/app-node-pl/pl/css/"
+      "styleguide": "dist/app-node-pl/pl/"
     }
   },
   "patternExtension": "twig",
