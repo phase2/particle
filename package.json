@@ -41,11 +41,13 @@
     "setup": "composer install --no-interaction --ignore-platform-reqs && npm run setup:pl",
     "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal && npm run build:grav",
     "new": "yo ./tools/new-component/index.js",
+
     "build:node:pl": "node ./apps/node-pl/pl-app.js",
     "build:node:assets": "cross-env-shell NODE_ENV=production \"webpack --config ./apps/node-pl/webpack.config.js\"",
     "install:node:pl": "patternlab install --config ./apps/node-pl/patternlab-config.json",
-    "dev:pl-node": "cross-env-shell NODE_ENV=development \"npm run build:node:pl && webpack-dev-server --config ./apps/node-pl/webpack.config.js --hot\"",
-    "build:pl-node": "cross-env-shell NODE_ENV=production \"gulp compile:pl:env --config ./apps/node-pl/particle.app.config.js && npm run build:node:pl && webpack --config ./apps/node-pl/webpack.config.js\"",
+
+    "dev:pl-node": "cross-env-shell NODE_ENV=development \"npm run build:node:pl & webpack-dev-server --config ./apps/node-pl/webpack.config.js --hot\"",
+    "build:pl-node": "cross-env-shell NODE_ENV=production \"npm run build:node:pl & webpack --config ./apps/node-pl/webpack.config.js\"",
     "export:pl": "patternlab export --config ./apps/node-pl/patternlab-config.json"
   },
   "dependencies": {
