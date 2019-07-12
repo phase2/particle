@@ -96,8 +96,8 @@ gulp.task(
   // prettier-ignore
   gulp.series([
     'compile:pl:notify:pre',
-    'compile:namespaces',
-    'compile:pl',
+    // 'compile:namespaces',
+    // 'compile:pl',
     'compile:pl:notify:post',
   ])
 );

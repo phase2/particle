@@ -55,9 +55,10 @@ const dev = {
     public: PARTICLE_PL_HOST, // local host name for devServer
     watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
     watchOptions: {
-      ignored: '/(node_modules|pl)/',
+      // ignore all folders inside dist/ except the root index.html
+      ignored: /(assets\/|pl\/)/,
     },
-    open: true, // Open browser immediately
+    open: false, // Open browser immediately
     openPage: `${APP_NAME}/pl`, // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
@@ -90,11 +91,11 @@ const dev = {
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md|json)$/,
       exec: [
-        `rm -rf dist/app-node-pl/pl/patterns/`,
-        `npx gulp compile --config ${path.resolve(
-          APP_PATH,
-          'particle.app.config.js'
-        )}`,
+        // `rm -rf dist/app-node-pl/pl/patterns/`,
+        // `npx gulp compile --config ${path.resolve(
+        //   APP_PATH,
+        //   'particle.app.config.js'
+        // )}`,
         `npm run build:node:pl`,
       ],
     }),
