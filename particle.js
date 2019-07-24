@@ -88,7 +88,7 @@ const entryPrepend = entry => ({
  *
  * @param {Object} appWebpack - The collection of shared, dev, prod webpack config
  * @param {Object} appWebpack.shared - Shared webpack config common to dev and prod
- * @param {Object} appWebpack.dev - Webpack config unique to prod
+ * @param {Object} appWebpack.dev - Webpack config unique to dev
  * @param {Object} appWebpack.prod - Webpack config unique to prod
  * @param {Object} appConfig - Full app config
  * @param {Object} options - Compile options
