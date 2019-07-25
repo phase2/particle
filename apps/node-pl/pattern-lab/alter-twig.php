@@ -12,30 +12,30 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $clean_class = new Twig_SimpleFilter('clean_class', function ($string) {
+  $clean_class_filter = new Twig_SimpleFilter('clean_class', function ($string) {
     return $string;
   });
-  $env->addFilter($clean_class);
+  $env->addFilter($clean_class_filter);
 
   /**
    * Clean ID
    *
    * @return string
    */
-  $clean_id = new Twig_SimpleFilter('clean_id', function ($string) {
+  $clean_id_filter = new Twig_SimpleFilter('clean_id', function ($string) {
     return $string;
   });
-  $env->addFilter($clean_id);
+  $env->addFilter($clean_id_filter);
 
   /**
    * Format Date
    *
    * @return string
    */
-  $format_date = new Twig_SimpleFilter('format_date', function ($string) {
+  $format_date_filter = new Twig_SimpleFilter('format_date', function ($string) {
     return $string;
   });
-  $env->addFilter($format_date);
+  $env->addFilter($format_date_filter);
 
   /**
    * Luma
@@ -53,21 +53,21 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return float
    */
-  $luma = new Twig_SimpleFilter('luma', function ($rgba) {
+  $luma_filter = new Twig_SimpleFilter('luma', function ($rgba) {
     // Doesn't handle alpha, yet.
     return 0.2126 * $rgba['r'] + 0.7152 * $rgba['g'] + 0.0722 * $rgba['b'];
   });
-  $env->addFilter($luma);
+  $env->addFilter($luma_filter);
 
   /**
    * Placeholder
    *
    * @return string
    */
-  $placeholder = new Twig_SimpleFilter('placeholder', function ($string) {
+  $placeholder_filter = new Twig_SimpleFilter('placeholder', function ($string) {
     return $string;
   });
-  $env->addFilter($placeholder);
+  $env->addFilter($placeholder_filter);
 
   /**
    * Drupal render filter.
@@ -75,17 +75,17 @@ function addFilters(\Twig_Environment &$env, $config) {
    * @return string
    */
 
-  $render = new Twig_SimpleFilter('render', function ($string) {
+  $render_filter = new Twig_SimpleFilter('render', function ($string) {
     return $string;
   });
-  $env->addFilter($render);
+  $env->addFilter($render_filter);
 
   /**
    * RGBA String
    *
    * @return string
    */
-  $rgba_string = new Twig_SimpleFilter('rgba_string', function ($string) {
+  $rgba_string_filter = new Twig_SimpleFilter('rgba_string', function ($string) {
     $rgba = trim(str_replace(' ', '', $string));
     if (stripos($rgba, 'rgba') !== FALSE) {
       $res = sscanf($rgba, "rgba(%d, %d, %d, %f)");
@@ -97,37 +97,63 @@ function addFilters(\Twig_Environment &$env, $config) {
 
     return array_combine(array('r', 'g', 'b', 'a'), $res);
   });
-  $env->addFilter($rgba_string);
+  $env->addFilter($rgba_string_filter);
 
   /**
    * Safe Join
    *
    * @return string
    */
-  $safe_join = new Twig_SimpleFilter('safe_join', function ($string) {
+  $safe_join_filter = new Twig_SimpleFilter('safe_join', function ($string) {
     return $string;
   });
-  $env->addFilter($safe_join);
+  $env->addFilter($safe_join_filter);
 
   /**
    * Drupal translate filter.
    *
    * @return string
    */
-  $t = new Twig_SimpleFilter('t', function ($string) {
+  $t_filter = new Twig_SimpleFilter('t', function ($string) {
     return $string;
   });
-  $env->addFilter($t);
+  $env->addFilter($t_filter);
 
   /**
    * Without
    *
    * @return string
    */
-  $without = new Twig_SimpleFilter('without', function ($string) {
+  $without_filter = new Twig_SimpleFilter('without', function ($string) {
     return $string;
   });
-  $env->addFilter($without);
+  $env->addFilter($without_filter);
+
+  /**
+   * Attributes
+   *
+   * @return string
+   */
+  $attributes_filter = new Twig_SimpleFilter('attributes', function ($attributes) {
+    // if we already have attributes as a renderable string, return.
+    if (is_string($attributes)) {
+      return $attributes;
+    }
+    else {
+      // Attributes is an array or object.
+      $renderable_attributes = [];
+      foreach ($attributes as $key => $value) {
+        // If our values are an array, join the array into a string.
+        if (is_array($value)) {
+          asort($value);
+          $value = implode($value, ' ');
+        }
+        $renderable_attributes[] = "{$key}=\"{$value}\"";
+      }
+      return implode($renderable_attributes, ' ');
+    }
+  });
+  $env->addFilter($attributes_filter);
 
 }
 
@@ -137,7 +163,7 @@ function addFunctions(\Twig_Environment &$env, $config) {
    * Link
    *
    */
-  $link = new Twig_SimpleFunction(
+  $link_function = new Twig_SimpleFunction(
     'link',
     function ($title, $url, $attributes) {
       if (isset($attributes) && isset($attributes['class'])) {
@@ -150,13 +176,13 @@ function addFunctions(\Twig_Environment &$env, $config) {
     },
     array('is_safe' => array('html'))
   );
-  $env->addFunction($link);
+  $env->addFunction($link_function);
 
   /**
    * Path
    *
    */
-  $path = new Twig_SimpleFunction('path', function ($string) {
+  $path_function = new Twig_SimpleFunction('path', function ($string) {
     if ($string === '<front>') {
       return '/';
     }
@@ -164,16 +190,16 @@ function addFunctions(\Twig_Environment &$env, $config) {
       return $string;
     }
   });
-  $env->addFunction($path);
+  $env->addFunction($path_function);
 
   /**
    * URL
    *
    * Https://www.drupal.org/node/2486991.
    */
-  $url = new Twig_SimpleFunction('url', function ($string) {
+  $url_function = new Twig_SimpleFunction('url', function ($string) {
     return '#';
   });
-  $env->addFunction($url);
+  $env->addFunction($url_function);
 
 }
