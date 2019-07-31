@@ -42,12 +42,11 @@
     "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal && npm run build:grav",
     "new": "yo ./tools/new-component/index.js",
 
-    "build:node:pl": "node ./apps/node-pl/pl-app.js",
+    "pl-node": "node ./apps/node-pl/pl-app.js",
     "build:node:assets": "cross-env-shell NODE_ENV=production \"webpack --config ./apps/node-pl/webpack.config.js\"",
-    "install:node:pl": "patternlab install --config ./apps/node-pl/patternlab-config.json",
-
-    "dev:pl-node": "cross-env-shell NODE_ENV=development \"npm run build:node:pl & webpack-dev-server --config ./apps/node-pl/webpack.config.js --hot\"",
-    "build:pl-node": "cross-env-shell NODE_ENV=production \"npm run build:node:pl & webpack --config ./apps/node-pl/webpack.config.js\"",
+    "install:pl-node": "patternlab install --config ./apps/node-pl/patternlab-config.json && patternlab build --config ./apps/node-pl/patternlab-config.json",
+    "dev:pl-node": "cross-env-shell NODE_ENV=development \"npm run pl-node & webpack-dev-server --config ./apps/node-pl/webpack.config.js --hot\"",
+    "build:pl-node": "cross-env-shell NODE_ENV=production \"npm run pl-node & webpack --config ./apps/node-pl/webpack.config.js\"",
     "export:pl": "patternlab export --config ./apps/node-pl/patternlab-config.json"
   },
   "dependencies": {

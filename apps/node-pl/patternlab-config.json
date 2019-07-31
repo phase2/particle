@@ -73,7 +73,7 @@
       "patterns": "dist/app-node-pl/pl/patterns/",
       "data": "dist/app-node-pl/pl/styleguide/data/",
       "annotations": "dist/app-node-pl/pl/annotations/",
-      "styleguide": "dist/app-node-pl/pl/"
+      "styleguide": "dist/app-node-pl/pl/styleguide/"
     }
   },
   "patternExtension": "twig",
@@ -101,20 +101,6 @@
     "layout": "horizontal"
   },
   "uikits": [
-    {
-      "name": "uikit-workshop",
-      "outputDir": "",
-      "enabled": true,
-      "excludedPatternStates": [],
-      "excludedTags": []
-    },
-    {
-      "name": "uikit-workshop",
-      "outputDir": "",
-      "enabled": true,
-      "excludedPatternStates": [],
-      "excludedTags": []
-    },
     {
       "name": "uikit-workshop",
       "outputDir": "",
