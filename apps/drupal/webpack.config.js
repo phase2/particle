@@ -63,6 +63,9 @@ const dev = {
       ],
     }),
   ],
+  externals: {
+    jquery: 'jQuery',
+  },
 };
 
 const prod = {
