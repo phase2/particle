@@ -233,14 +233,14 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
+        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/svg/_svg--icon.twig' with {
   svgname: 'chevron-up',
   svgstroke: 'primary',
 } %}{% endverbatim %}</code></pre>
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
-        {% include '@atoms/_svg--icon.twig' with {
+        {% include '@atoms/svg/_svg--icon.twig' with {
           svgicon: {
             svgname: 'chevron-up',
             svgstroke: 'primary',

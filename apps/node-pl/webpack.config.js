@@ -58,7 +58,7 @@ const dev = {
       // ignore all folders inside dist/ except the root index.html
       ignored: /(assets\/|pl\/)/,
     },
-    open: false, // Open browser immediately
+    open: true, // Open browser immediately
     openPage: `${APP_NAME}/pl`, // Open browser to the PL landing page so it's very clear where to go
     hot: true, // Inject css/js into page without full refresh
     historyApiFallback: true, // Finds default index.html files at folder root
