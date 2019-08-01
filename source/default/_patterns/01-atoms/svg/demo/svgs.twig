@@ -192,8 +192,10 @@
     <h4 id="svg-spritesheet" class="mt-5">Inline SVG: Spritesheet</h4>
     <p>Using the Twig template renders an SVG element directly to the DOM. The
       template accepts several arguments: <code>svgname</code> accepts the
-      filename of the SVG to render, <code>svgfill</code> accepts a value to set
-      the change the default fill color of the SVG element from black.</p>
+      filename of the SVG to render, <code>svgfill</code> accepts a value to
+      change the default fill color of the SVG element from black,
+      <code>svgstroke</code> accepts a value to change the svg stroke color
+      (default is none).</p>
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
@@ -224,6 +226,24 @@
           svgicon: {
             svgname: 'chevron-up',
             svgfill: 'danger',
+          }
+        } %}
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <h5>Example</h5>
+        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
+  svgname: 'chevron-up',
+  svgstroke: 'primary',
+} %}{% endverbatim %}</code></pre>
+      </div>
+      <div class="col-sm-6">
+        <h5>Output</h5>
+        {% include '@atoms/_svg--icon.twig' with {
+          svgicon: {
+            svgname: 'chevron-up',
+            svgstroke: 'primary',
           }
         } %}
       </div>

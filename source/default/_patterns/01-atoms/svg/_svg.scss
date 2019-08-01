@@ -48,4 +48,12 @@ $svgicons: map-keys($sprites);
   .color-fill--#{$color} {
     color: theme-color(#{$color});
   }
+
+  .color-stroke--#{$color} {
+    color: theme-color(#{$color});
+    svg {
+      stroke: currentColor;
+      fill: none;
+    }
+  }
 }
