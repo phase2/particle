@@ -1,0 +1,41 @@
+# Optional Config for Responsive Image
+# See ~/themes/particle/apps/pl/scss/_scss2json.scss for breakpoints.
+particle.xs:
+  label: extra small
+  mediaQuery: '(min-width: 0px)'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+
+particle.sm:
+  label: small
+  mediaQuery: '(min-width: 576px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+
+particle.md:
+  label: medium
+  mediaQuery: '(min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+
+particle.lg:
+  label: large
+  mediaQuery: '(min-width: 992px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x
+
+particle.xl:
+  label: extra large
+  mediaQuery: '(min-width: 1200px)'
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x
