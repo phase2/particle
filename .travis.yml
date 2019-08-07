@@ -7,13 +7,11 @@ env:
     - TRAVIS_NODE_VERSION="8"
     - TRAVIS_NODE_VERSION="10"
 before_install:
-  - composer self-update
   - '. $HOME/.nvm/nvm.sh'
   - nvm install $TRAVIS_NODE_VERSION
   - nvm use $TRAVIS_NODE_VERSION
   - npm install -g npm@latest
 install:
-  - composer clear-cache
   - npm ci
   - npm run setup
 cache:
@@ -21,12 +19,10 @@ cache:
     - '$HOME/.npm'
 before_script:
   - php --version
-  - composer --version
   - node --version
   - npm --version
 script:
   - npm run ci
-  - composer test 
 notifications:
   email:
     on_success: always
