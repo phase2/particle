@@ -1,8 +1,8 @@
 import { render, cleanup, fireEvent } from 'vue-testing-library';
 
-import card from 'molecules/vue-widget/src/vue-cards/components/card.vue';
-import cards from 'molecules/vue-widget/src/vue-cards/components/cards.vue';
-import banner from 'molecules/vue-widget/src/vue-cards/components/banner.vue';
+import card from '../src/vue-cards/components/card.vue';
+import cards from '../src/vue-cards/components/cards.vue';
+import banner from '../src/vue-cards/components/banner.vue';
 
 afterEach(cleanup);
 

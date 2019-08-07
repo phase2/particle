@@ -24,6 +24,10 @@
   see https://getbootstrap.com/docs/4.0/components/card/ for more details
 #}
 
+{# @param {int} card_width #}
+{# @param {string} view_change_uri  #}
+{# @param {int} user_location_id #}
+
 {% set card_classes = [
   'card',
   card_width ? 'w-' ~ card_width,
@@ -62,7 +66,7 @@
   {% endif %}
 
   {% if card_flush %}
-    {# Note that 'p2card__flush__body' is not a bootstrap class. It only being used to designate the flush body#}
+    {# Note that 'p2card__flush__body' is not a bootstrap class. Is being used to designate the flush body#}
     {% set body_class = 'p2card__flush--body' %}
   {% else %}
     {% set body_class = 'card-body' %}
