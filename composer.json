@@ -1,0 +1,18 @@
+{
+    "name": "phase2/particle",
+    "description": "A system of tools to build design systems in Pattern Lab for Drupal and Grav.",
+    "type": "drupal-custom-theme",
+    "license": "GPL-2.0",
+    "homepage": "https://github.com/phase2/particle",
+    "authors": [
+        {
+            "name": "Christopher Bloom (illepic)",
+            "email": "bloomcb@gmail.com"
+        }
+    ],
+    "support": {
+        "docs": "https://phase2.github.io/frontend-docs/",
+        "issues": "https://github.com/phase2/particle/issues",
+        "source": "https://github.com/phase2/particle/tree/master"
+    }
+}
