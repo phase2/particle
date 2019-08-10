@@ -29,7 +29,7 @@ module.exports = {
               includePaths: [PATH_PATTERNS],
               // ALL Sass partials should be provided with non-printing
               // variables, mixins, and functions
-              data: '@import "00-protons/variables";',
+              data: '@import "../tokens/sass/non-printing/non-printing.scss";',
             },
           },
         ],

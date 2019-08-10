@@ -1,0 +1,20 @@
+/**
+ * Letter Spacing
+ *   Provides letter spacing that adjusts letter-spacing and margin-right.
+ *
+ * @param {Number|String} $spacing - The spacing to adjust by.
+ *
+ * @example scss - Set letter values in `.component__title`
+ *   .component__title {
+ *       @include letter-spacing(1px);
+ *   }
+ *
+*/
+@mixin letter-spacing($spacing: normal) {
+  @if $spacing != normal {
+    letter-spacing: rem-calc($spacing);
+    margin-right: rem-calc(-$spacing);
+  } @else {
+    letter-spacing: $spacing;
+  }
+}

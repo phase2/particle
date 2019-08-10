@@ -1,0 +1,27 @@
+/*
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Custom Mixins
+--------------------------------------------------------------------------------
+  Add individual mixin files and import directly to this file.
+--------------------------------------------------------------------------------
+*/
+
+/*
+----------------------------------------
+Core Design Mixins
+----------------------------------------
+  These mixins require only base values
+  to operate.
+----------------------------------------
+*/
+
+@import 'center';
+@import 'ellipsis';
+@import 'export-data';
+@import 'fluid-type';
+@import 'full-width';
+@import 'letter-spacing';
+@import 'strip-unit';
+@import 'svg-elements';
+@import 'word-wrap';

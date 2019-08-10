@@ -1,9 +1,15 @@
-// Sass Variables to Map to JSON
+/*
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Sass Variables to JSON Map
+--------------------------------------------------------------------------------
+*/
 
 // Customized Sass Mapping
 // Pulled from Bootstrap's _variables.scss
 $font-families-demo: (
-  '$font-family-base': $font-family-base,
+  '$font-family-sans-serif': $font-family-sans-serif,
+  '$font-family-serif': $font-family-serif,
   '$font-family-monospace': $font-family-monospace,
   '$headings-font-family': $headings-font-family,
 );
@@ -25,16 +31,15 @@ $spacing-demo: $spacers;
 // Import your Customized Variables here, example:
 //@import '../_patterns/01-atoms/button/_button.scss';
 
-// Return an array of the SVG filenames located within svg/svg/
-$svgicons: map-keys($sprites);
-
 // Exports Data to source/_data/scssVariables.json
 // This json file populates demo twig patterns related to config items.
 // Include your Customized Sass Maps here to JSONIFY
 @include export-data(
   'scssVariables.json',
   (
-    scssColors: $theme-colors,
+    themeColors: $theme-colors,
+    primaryColors: $primary-colors,
+    neutralHues: $neutral-hues,
     scssBreakpoints: $grid-breakpoints,
     scssSpacing: $spacing-demo,
     fontFamilies: $font-families-demo,

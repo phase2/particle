@@ -1,0 +1,45 @@
+/**
+ * Center
+ *   Center an element vertically or horizontally in its container,
+ *   and optionally horizontally. Option to undo.
+ *
+ * @param $horizontally-center: center horizontally
+ * @param $vertically-center: center vertically
+ * @param $absolute-positioning: position absolutely, rather than relatively
+ * @param $undo: undo vertical centering if it was previously applied
+ *
+*/
+@mixin center(
+  $horizontally: true,
+  $vertically: true,
+  $absolute: false,
+  $undo: false
+) {
+  display: inline-block;
+  @if ($absolute) {
+    position: absolute;
+  } @else {
+    position: relative;
+  }
+  @if ($horizontally == true and $vertically == true) {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  @if ($vertically == true and $horizontally == false) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @if ($horizontally == true and $vertically == false) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @if ($undo) {
+    position: static;
+    left: auto;
+    transform: none;
+  }
+}

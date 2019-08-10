@@ -1,0 +1,140 @@
+/*
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Bootstrap Variable Customization
+--------------------------------------------------------------------------------
+  Bootstrap base variables:
+    @see ~bootstrap/scss/_variables.scss
+--------------------------------------------------------------------------------
+*/
+
+/*
+--------------------------------------------------------------------------------
+Color System Overrides
+--------------------------------------------------------------------------------
+  Bootstrap Colors Documentation:
+    @see https://getbootstrap.com/docs/4.0/utilities/colors/
+--------------------------------------------------------------------------------
+*/
+
+/*
+----------------------------------------
+Grayscale
+----------------------------------------
+  Override Grays
+----------------------------------------
+  @see bootstrap vars $grays map
+  @see _colors.scss
+----------------------------------------
+*/
+$white: $c-white-base;
+$gray-100: map-get($neutral-hues, 'lightest-gray');
+$gray-200: map-get($neutral-hues, 'light-gray');
+$gray-300: map-get($neutral-hues, 'gray');
+$gray-500: map-get($neutral-hues, 'dark-gray');
+$gray-800: map-get($neutral-hues, 'darkest-gray');
+$black: $c-black-base;
+
+/*
+----------------------------------------
+Colors
+----------------------------------------
+  Override Colors
+----------------------------------------
+  @see bootstrap vars $theme-colors
+  @see _colors.scss
+----------------------------------------
+*/
+$theme-colors: $color-aliases;
+
+/*
+--------------------------------------------------------------------------------
+Spacing System Overrides
+--------------------------------------------------------------------------------
+  Update Spacing Values
+    Bootstrap Spacers use $spacer var of 1rem and assumes browser 16px default.
+    The values in $spacers map adds the value to Bootstrap's utility spacers.
+--------------------------------------------------------------------------------
+  @see bootstrap vars $spacer
+  @see bootstrap vars $spacers
+--------------------------------------------------------------------------------
+*/
+
+$spacer: 1rem;
+$spacers: (
+  6: $spacer * 4,
+);
+
+/*
+--------------------------------------------------------------------------------
+Typography System Overrides
+--------------------------------------------------------------------------------
+  Update Typography Values
+    Bootstrap Typography is a collection of type size vars
+    Font, line-height, and color for body text, headings, and more.
+--------------------------------------------------------------------------------
+*/
+
+/*
+----------------------------------------
+Font Families
+----------------------------------------
+  Override base Font Family values
+----------------------------------------
+  @see non-printing/_type.scss
+----------------------------------------
+*/
+
+$font-family-serif: map-get($font-families, 'serif');
+$font-family-sans-serif: map-get($font-families, 'sans');
+$font-family-monospace: map-get($font-families, 'monospace');
+$font-family-base: $font-family-sans-serif;
+
+$headings-font-family: $font-family-sans-serif;
+
+/*
+----------------------------------------
+Font Sizes
+----------------------------------------
+  Override base Font Size values
+----------------------------------------
+  @see non-printing/_type.scss
+----------------------------------------
+*/
+
+//$font-size-sm:
+//$font-size-base:
+//$font-size-lg:
+
+/*
+----------------------------------------
+Font Weights
+----------------------------------------
+  Override base Font Size values
+----------------------------------------
+  @see non-printing/_type.scss
+----------------------------------------
+*/
+
+//$font-weight-lighter:
+//$font-weight-light:
+//$font-weight-normal:
+//$font-weight-bold:
+//$font-weight-bolder:
+//$font-weight-base: $font-weight-normal;
+
+/*
+----------------------------------------
+Imports
+----------------------------------------
+  Bootstrap non-printing tools.
+  Imported after processors.
+----------------------------------------
+*/
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+// Remove Unused Bootstrap Theme Colors
+// Use secondary for success
+//$theme-colors: map-remove($theme-colors, 'success');

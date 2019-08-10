@@ -61,8 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// 00-protons/variables is provided by Webpack, but it is possible to:
-//   @import '00-protons/variables';
+// sass variables are provided by Webpack, but it is also possible to import.
 .card-hover:hover {
   background-color: $light;
 }

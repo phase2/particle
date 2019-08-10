@@ -5,7 +5,7 @@
  */
 import Vue from 'vue';
 
-import store from 'protons/store';
+import store from '../../store';
 import FacetTableComponent from './facet-table.vue';
 
 /**

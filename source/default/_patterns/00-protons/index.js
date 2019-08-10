@@ -2,7 +2,7 @@
  * Base css generation and global js logic.
  */
 
-import './_base.scss';
+import '../../tokens/sass/tokens.scss';
 
 // Export global variables.
 export default {

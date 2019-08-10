@@ -1,12 +1,24 @@
-// Bootstrap's CSS-generating output
-//
-// This is the exact order within:
-//   ~bootstrap/scss/bootstrap
-// Override all Bootstrap variables at:
-//   00-protons/non-printing/_bootstrap-overrides.scss
-//
-// Feel free to move each import below to its respective atom/molecule/organism
-// _component.scss file. All are included here for simplicity.
+/*
+--------------------------------------------------------------------------------
+ __          __  _         _              ____              _
+ \ \        / / | |       | |            |  _ \            | |
+  \ \  /\  / /__| |__  ___| |_ ___ _ __  | |_) | __ _ _ __ | | __
+   \ \/  \/ / _ \ '_ \/ __| __/ _ \ '__| |  _ < / _` | '_ \| |/ /
+    \  /\  /  __/ |_) \__ \ ||  __/ |    | |_) | (_| | | | |   <
+     \/  \/ \___|_.__/|___/\__\___|_|    |____/ \__,_|_| |_|_|\_\
+--------------------------------------------------------------------------------
+Bootstrap's CSS-generating output
+--------------------------------------------------------------------------------
+This is the exact order within:
+  ~bootstrap/scss/bootstrap
+
+Override all Bootstrap variables at:
+  00-protons/src/sass/non-printing/_bootstrap-overrides.scss
+
+Feel free to move each import below to its respective atom/molecule/organism
+_component.scss file. All are included here for simplicity.
+--------------------------------------------------------------------------------
+*/
 
 //@import "~bootstrap/scss/functions"; //_bootstrap-overrides.scss
 //@import "~bootstrap/scss/variables"; //_bootstrap-overrides.scss
