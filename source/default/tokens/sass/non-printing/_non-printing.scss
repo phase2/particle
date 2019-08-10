@@ -10,7 +10,7 @@ This kind of config is often required prior to importing any libraries
 
 This file is provided AUTOMATICALLY to every .scss file on the dependency
 chain via the configuration of the sass-loader within particle.js.
-In other words, every .scss within Particle has `@import 00-protons/variables`
+In other words, every .scss within Particle has `@import tokens/variables`
 silently injected into the first line.
 
 As long as everything within this files DOES NOT PRINT CSS, there will be
