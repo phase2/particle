@@ -37,7 +37,7 @@ $spacing-demo: $spacers;
 @include export-data(
   'scssVariables.json',
   (
-    themeColors: $theme-colors,
+    scssColors: $theme-colors,
     primaryColors: $primary-colors,
     neutralHues: $neutral-hues,
     scssBreakpoints: $grid-breakpoints,

@@ -1,5 +1,5 @@
 {
-  "themeColors": {
+  "scssColors": {
     "primary": "rgb(0, 123, 255)",
     "secondary": "rgb(108, 117, 125)",
     "success": "rgb(40, 167, 69)",
