@@ -60,11 +60,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// sass variables are provided by Webpack, but it is also possible to import.
+// All Sass tokens (variables, functions, and mixins) are provided by Webpack
+// to all Sass files. It is also possible to import manually, if need be.
 
 // Make .active green for just these demo cards
 .active {
-  background-color: $success;
+  background-color: $success; // Provided by our tokens Sass vars
 }
 // Hide list-group-item backgrounds for just these demo cards
 .list-group-item {
