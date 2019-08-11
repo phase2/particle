@@ -60,12 +60,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// 00-protons/variables is provided by Webpack, but it is possible to:
-//   @import '00-protons/variables';
+// All Sass tokens (variables, functions, and mixins) are provided by Webpack
+// to all Sass files. It is also possible to import manually, if need be.
 
 // Make .active green for just these demo cards
 .active {
-  background-color: $success;
+  background-color: $success; // Provided by our tokens Sass vars
 }
 // Hide list-group-item backgrounds for just these demo cards
 .list-group-item {

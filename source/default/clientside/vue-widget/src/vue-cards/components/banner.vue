@@ -24,7 +24,7 @@
  * - Utility functions used within methods()
  */
 
-import { randRGB } from 'protons/utilities';
+import { randRGB } from 'tokens/js/utils';
 
 export default {
   name: 'Banner',
@@ -61,8 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
-// 00-protons/variables is provided by Webpack, but it is possible to:
-//   @import '00-protons/variables';
+// sass variables are provided by Webpack, but it is also possible to import.
 
 // This is mainly here to show that all variables and mixins are available to
 // Sass here.

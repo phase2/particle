@@ -1,0 +1,18 @@
+/**
+ * SVG Elements
+ *   List of svg elements so we don't have to type them all out multiple times.
+*/
+@mixin svg-elements() {
+  svg,
+  g,
+  circle,
+  ellipse,
+  line,
+  path,
+  polygon,
+  polyline,
+  rect,
+  text {
+    @content;
+  }
+}

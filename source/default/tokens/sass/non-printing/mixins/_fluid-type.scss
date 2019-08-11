@@ -1,0 +1,34 @@
+/**
+ * Fluid Type
+ *   PRECISE CONTROL OVER RESPONSIVE TYPOGRAPHY FOR SASS
+ *
+ * @author Indrek Paas @indrekpaas
+ *
+ * Inspired by Mike Riethmuller's Precise control over responsive typography
+ *
+ * @link http://madebymike.com.au/writing/precise-control-responsive-typography/
+ *
+ * @param $properties
+ * @param $min-vw
+ * @param $max-vw
+ * @param $min-value
+ * @param $max-value
+*/
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      // prettier-ignore
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}

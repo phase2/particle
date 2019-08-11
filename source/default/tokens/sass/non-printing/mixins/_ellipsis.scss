@@ -1,0 +1,12 @@
+/**
+ * Ellipsis
+ *   Ellipsis fix for long spaceless strings
+ *
+ * @link https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+ *
+*/
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
