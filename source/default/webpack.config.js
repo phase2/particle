@@ -6,9 +6,7 @@ const path = require('path');
 const sassExportData = require('@theme-tools/sass-export-data');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
-const { sets } = require('./namespaces');
-
-const PATH_PATTERNS = path.resolve(__dirname, '_patterns');
+const namespaces = require('./namespaces');
 
 module.exports = {
   module: {
@@ -20,16 +18,15 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               // Used to generate JSON about variables like colors, fonts
+              // @TODO: move to app/pl
               functions: sassExportData({
                 name: 'export_data',
                 path: path.resolve(__dirname, '_data/'),
               }),
-              // Enable Sass to import other components via, eg:
-              // `@import 01-atoms/thing/thing`
-              includePaths: [PATH_PATTERNS],
-              // ALL Sass partials should be provided with non-printing
+              //
+              // ALL Sass partials will be provided with non-printing
               // variables, mixins, and functions
-              data: '@import "../tokens/sass/non-printing/non-printing.scss";',
+              data: '@import "~tokens/sass/non-printing/non-printing";',
             },
           },
         ],
@@ -38,28 +35,29 @@ module.exports = {
   },
   plugins: [
     // Sprite system options
-    new SVGSpritemapPlugin(
-      path.resolve(PATH_PATTERNS, '01-atoms/svg/svg/**/*.svg'),
-      {
-        styles: {
-          filename: path.resolve(
-            PATH_PATTERNS,
-            '01-atoms/svg/scss/_icons-generated.scss'
-          ),
-          variables: {
-            sizes: 'svgicon-sizes', // Prevent collision with Bootstrap $sizes
-            variables: 'svgicon-variables',
-          },
+    new SVGSpritemapPlugin(path.resolve(namespaces.atoms, 'svg/svg/**/*.svg'), {
+      styles: {
+        filename: path.resolve(
+          namespaces.atoms,
+          'svg/scss/_icons-generated.scss'
+        ),
+        variables: {
+          sizes: 'svgicon-sizes', // Prevent collision with Bootstrap $sizes
+          variables: 'svgicon-variables',
         },
-        output: {
-          svg4everybody: true,
-          svgo: true,
-        },
-      }
-    ),
+      },
+      output: {
+        svg4everybody: true,
+        svgo: true,
+      },
+    }),
   ],
   resolve: {
-    // Shorthand to import modules, i.e. `import thing from 'atoms/thing';`
-    alias: sets,
+    // JavaScript can import other components via shorthand, eg:
+    //   `import thing from 'atoms/thing';`
+    // Sass can import other components via shorthand:
+    //   `@import ~atoms/thing/thing`
+    // Note: Use the tilde (~), do not include trailing ".scss"
+    alias: namespaces,
   },
 };

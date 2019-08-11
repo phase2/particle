@@ -14,9 +14,17 @@ Font Families Map
 */
 
 $font-families: (
-  sans: #{'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif},
-  monospace: #{'Source Code Pro', 'Courier New', monospace},
-  serif: #{'Oswald', 'Times New Roman', serif},
+  sans: #{'Open Sans',
+  'Helvetica Neue',
+  Helvetica,
+  Arial,
+  sans-serif},
+  monospace: #{'Source Code Pro',
+  'Courier New',
+  monospace},
+  serif: #{'Oswald',
+  'Times New Roman',
+  serif},
 );
 
 /*
@@ -43,9 +51,8 @@ Letter Spacings Map
 $letter-spacings: (
   'reduce': -1px,
   'base': normal,
-  'increase': 1px
+  'increase': 1px,
 );
-
 
 /*
 ----------------------------------------

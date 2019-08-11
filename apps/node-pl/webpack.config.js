@@ -44,6 +44,9 @@ const shared = {
       BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
   ],
+  stats: {
+    children: false,
+  },
 };
 
 const dev = {
@@ -78,7 +81,6 @@ const dev = {
       chunks: false,
       modules: false,
       reasons: true,
-      children: false,
       source: true,
       errors: true,
       errorDetails: true,

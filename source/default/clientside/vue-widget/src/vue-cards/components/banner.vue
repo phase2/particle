@@ -24,7 +24,7 @@
  * - Utility functions used within methods()
  */
 
-import { randRGB } from '../../../../../tokens/js/utils';
+import { randRGB } from 'tokens/js/utils';
 
 export default {
   name: 'Banner',

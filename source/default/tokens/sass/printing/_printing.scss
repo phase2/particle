@@ -8,14 +8,14 @@ output. Instead, import as a dependency in a component's .js file.
 
 For instance, from @molecules/card/index.js:
 
-  import base from '00-protons';
-  import button from '01-atoms/button';
+  import 'protons';
+  import 'atoms/button';
 
 This guarantees both de-duplication and existence of required, generated CSS.
 
 The non-printing variables, functions, and mixins of 00-protons/variables
 are provided to this file via:
-  webpack.particle.js: sass-loader.data|includePaths
+  webpack.particle.js: sass-loader.data
 --------------------------------------------------------------------------------
 */
 
