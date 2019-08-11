@@ -85,7 +85,7 @@
     "jest-fetch-mock": "^2.1.2",
     "jest-vue-preprocessor": "^1.5.0",
     "js-yaml": "^3.13.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
