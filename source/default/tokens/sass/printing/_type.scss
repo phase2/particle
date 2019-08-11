@@ -5,8 +5,9 @@ Custom Typography
 --------------------------------------------------------------------------------
 To test out local vs remote fonts, uncomment one or the other below.
 
-The non-printing variables, functions, and mixins of 00-protons/variables
-are provided to this file via: webpack.particle.js: sass-loader.data|includePaths
+The non-printing variables, functions, and mixins of:
+  @import ~tokens/sass/non-printing/non-printing;
+are provided to this file via: webpack.particle.js: sass-loader.data
 --------------------------------------------------------------------------------
 */
 

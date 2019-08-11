@@ -7,10 +7,9 @@ This is the exact order within:
   ~bootstrap/scss/bootstrap
 
 Override all Bootstrap variables at:
-  00-protons/src/sass/non-printing/_bootstrap-overrides.scss
+  ~tokens/sass/non-printing/_bootstrap-overrides
 
-Feel free to move each import below to its respective atom/molecule/organism
-_component.scss file. All are included here for simplicity.
+Comment out unused Bootstrap components.
 --------------------------------------------------------------------------------
 */
 

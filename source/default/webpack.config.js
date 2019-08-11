@@ -23,7 +23,6 @@ module.exports = {
                 name: 'export_data',
                 path: path.resolve(__dirname, '_data/'),
               }),
-              //
               // ALL Sass partials will be provided with non-printing
               // variables, mixins, and functions
               data: '@import "~tokens/sass/non-printing/non-printing";',

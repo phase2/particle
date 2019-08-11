@@ -23,6 +23,7 @@ THIS FILE CONTAINS ONLY NON-PRINTING SASS, LIKE VARIABLES, MIXINS, & FUNCTIONS
 @import 'functions/operators';
 
 // Generated SVG icons and sprite mixins
+// @TODO: Move generated icons out of atoms to tokens
 @import '~atoms/svg/scss/_icons-generated';
 
 // Custom non-printing tools

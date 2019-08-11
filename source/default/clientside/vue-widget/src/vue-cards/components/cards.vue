@@ -61,7 +61,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// sass variables are provided by Webpack, but it is also possible to import.
+// All Sass tokens (variables, functions, and mixins) are provided by Webpack
+// to all Sass files. It is also possible to import manually, if need be.
 .card-hover:hover {
   background-color: $light;
 }

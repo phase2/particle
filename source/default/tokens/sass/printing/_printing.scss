@@ -13,7 +13,8 @@ For instance, from @molecules/card/index.js:
 
 This guarantees both de-duplication and existence of required, generated CSS.
 
-The non-printing variables, functions, and mixins of 00-protons/variables
+The non-printing variables, functions, and mixins of:
+  @import ~tokens/sass/non-printing/non-printing;
 are provided to this file via:
   webpack.particle.js: sass-loader.data
 --------------------------------------------------------------------------------
