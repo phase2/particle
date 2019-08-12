@@ -35,10 +35,7 @@ const cssModes = {
       rules: [
         {
           test: /\.(sa|sc|c)ss$/,
-          use: [
-            { loader: 'style-loader', options: { sourceMap: true } },
-            { loader: 'vue-style-loader' },
-          ],
+          use: [{ loader: 'style-loader' }, { loader: 'vue-style-loader' }],
         },
       ],
     },
