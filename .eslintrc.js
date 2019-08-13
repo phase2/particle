@@ -23,6 +23,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    node: true,
   },
   rules: {
     'no-console': [0], // turned off for now while we are console.logging everywhere.
