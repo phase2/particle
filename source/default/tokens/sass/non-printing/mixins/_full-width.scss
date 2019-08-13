@@ -1,0 +1,28 @@
+/**
+ * Full Width
+ *   Allow for full width, even outside of container.
+ *
+ * @param {bool} $undo [false]
+ *
+ * @link https://css-tricks.com/full-width-containers-limited-width-parents/
+ *
+*/
+@mixin full-width($undo: false) {
+  @if $undo {
+    margin-left: 0;
+    margin-right: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    width: auto;
+    max-width: 100%;
+  } @else {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}

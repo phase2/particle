@@ -1,0 +1,16 @@
+// Loop over every SVG and create a CSS class for it
+@each $icon in $svgicons {
+  .icon--#{$icon} {
+    @include sprite(#{$icon});
+    display: inline-block;
+    height: rem-calc(40px);
+    width: rem-calc(40px);
+  }
+}
+
+// Loop over every theme-color and create a CSS class to colorize it
+@each $color in map_keys($theme-colors) {
+  .color-fill--#{$color} {
+    color: theme-color(#{$color});
+  }
+}

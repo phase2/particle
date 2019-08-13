@@ -1,0 +1,16 @@
+/**
+ * Export Data
+ *   Export Sass Data to JSON in `path/to/export/folder/` folder
+ *
+ * @param {String} $filename - ie `mystuff.json`
+ * @param $var - What to turn into JSON
+ * @example scss
+ *   @include export-data-to-lib('filename.json', $sass-map);
+ *
+*/
+@mixin export-data($filename, $var, $options: ()) {
+  //@debug 'export-data called';
+  // The `export_data` function is a custom function added to Sass.
+  // The `$data` var is weird, but needed.
+  $data: export_data($filename, $var, $options);
+}

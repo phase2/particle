@@ -1,0 +1,38 @@
+/*
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Non-Printing Sass
+--------------------------------------------------------------------------------
+Place global config here like Bootstrap's _variables.scss.
+
+This kind of config is often required prior to importing any libraries
+(ie Bootstrap Sass), and does not produce any CSS, just variables and maps.
+
+This file is provided AUTOMATICALLY to every .scss file on the dependency
+chain via the configuration of the sass-loader within particle.js.
+In other words, every .scss within Particle has `@import tokens/variables`
+silently injected into the first line.
+
+As long as everything within this files DOES NOT PRINT CSS, there will be
+no duplicated output. Again, for the people in the back:
+
+THIS FILE CONTAINS ONLY NON-PRINTING SASS, LIKE VARIABLES, MIXINS, & FUNCTIONS
+--------------------------------------------------------------------------------
+*/
+
+@import 'functions/operators';
+
+// Generated SVG icons and sprite mixins
+// @TODO: Move generated icons out of atoms to tokens
+@import '~atoms/svg/scss/_icons-generated';
+
+// Custom non-printing tools
+@import 'variables/variables';
+
+// Bootstrap non-printing overrides.
+@import 'bootstrap-overrides';
+
+// Other functions and mixins must go after bootstrap-overrides to use the
+// variables defined therein.
+@import 'mixins/mixins';
+@import 'functions/map-getters';

@@ -4,20 +4,18 @@
 
 const path = require('path');
 
-const namespaceMaker = require('../../tools/namespace-maker');
-
-const sets = {
-  protons: path.resolve(__dirname, '_patterns', '00-protons'),
-  atoms: path.resolve(__dirname, '_patterns', '01-atoms'),
-  molecules: path.resolve(__dirname, '_patterns', '02-molecules'),
-  organisms: path.resolve(__dirname, '_patterns', '03-organisms'),
-  templates: path.resolve(__dirname, '_patterns', '04-templates'),
-  pages: path.resolve(__dirname, '_patterns', '05-pages'),
-};
-
-const namespaces = namespaceMaker(path.resolve(__dirname, '_patterns'), sets);
+const patterns = path.resolve(__dirname, '_patterns');
 
 module.exports = {
-  sets,
-  namespaces,
+  // Outside of atomic concepts
+  patterns,
+  tokens: path.resolve(__dirname, 'tokens'),
+  clientside: path.resolve(__dirname, 'clientside'),
+  // Atomic concepts
+  protons: path.resolve(patterns, '00-protons'),
+  atoms: path.resolve(patterns, '01-atoms'),
+  molecules: path.resolve(patterns, '02-molecules'),
+  organisms: path.resolve(patterns, '03-organisms'),
+  templates: path.resolve(patterns, '04-templates'),
+  pages: path.resolve(patterns, '05-pages'),
 };

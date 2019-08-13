@@ -5,12 +5,22 @@
  *
  * Available variables for svg:
  *  - svg.svgpath [string]: Generic element to define shape of svg.
- *  - svg.colorOriginal [bool]: Whether to display the color.
+ *    Example: '@atoms/svg/svg/person.svg'
+ *  - svg.colorOriginal [bool]: Use the SVG's original color. "true" prevents
+ *    CSS from overriding color
+ *  - svg_classes [array<string>]: Array of string classes to add
+ *    Example: 'svg-custom-class icon-big'
  */
 #}
 
-{% set svg_classes = svg_classes|default([])|merge([
-  'svg',
+{# Starter defaults #}
+{%  set svg = svg|default({
+  svgpath: '@atoms/svg/svg/person.svg',
+  colorOriginal: false,
+}) %}
+
+{# Helper classes #}
+{% set svg_classes = svg_classes|default(['svg'])|merge([
   not svg.colorOriginal ? 'svg--colorable' : '',
 ]) | sort | join(' ') | trim %}
 

@@ -1,0 +1,65 @@
+/*
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Typography Variables
+--------------------------------------------------------------------------------
+*/
+
+/*
+----------------------------------------
+Font Families Map
+----------------------------------------
+  Primary font families.
+----------------------------------------
+*/
+
+$font-families: (
+  sans: #{'Open Sans',
+  'Helvetica Neue',
+  Helvetica,
+  Arial,
+  sans-serif},
+  monospace: #{'Source Code Pro',
+  'Courier New',
+  monospace},
+  serif: #{'Oswald',
+  'Times New Roman',
+  serif},
+);
+
+/*
+----------------------------------------
+Line Heights Map
+----------------------------------------
+  Primary line-heights.
+    All values assigned to sizes from
+    comp. No common values.
+----------------------------------------
+*/
+$line-heights: ();
+
+/*
+----------------------------------------
+Letter Spacings Map
+----------------------------------------
+  Primary letter-spacings.
+    Map values should always pass through
+    letter-spacing function to apply
+    margin adjustments.
+----------------------------------------
+*/
+$letter-spacings: (
+  'reduce': -1px,
+  'base': normal,
+  'increase': 1px,
+);
+
+/*
+----------------------------------------
+Font Weights Map
+----------------------------------------
+  Primary font-weights.
+----------------------------------------
+*/
+
+$font-weights: ();

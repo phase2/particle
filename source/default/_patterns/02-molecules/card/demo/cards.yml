@@ -52,20 +52,17 @@ top_image:
   card_title: Card Title
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
   card_image_location: top
-#  #  card_image is commented out to allow holderjs placeholder
 
 bottom_image:
   card_title: Card Title
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
   card_image_location: bottom
-#  #  card_image is commented out to allow holderjs placeholder
 
 overlay_image:
   card_title: Card Title
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
   card_image_overlay: Hi! I'm an overlay!
   card_image_location: top
-#  #  card_image is commented out to allow holderjs placeholder
 
 header_card:
   card_title: Card Title
@@ -136,3 +133,10 @@ card_border_4:
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
   card_border: dark
   text_color: dark
+
+card_image:
+  variant: 'primary'
+  src: ''
+  alt: ''
+  style: 'card'
+  placeholder: true

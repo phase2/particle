@@ -24,6 +24,10 @@
   see https://getbootstrap.com/docs/4.0/components/card/ for more details
 #}
 
+{# @param {int} card_width #}
+{# @param {string} view_change_uri  #}
+{# @param {int} user_location_id #}
+
 {% set card_classes = [
   'card',
   card_width ? 'w-' ~ card_width,
@@ -46,12 +50,12 @@
 
   {% if card_image_location == 'top' %}
     {% block card_image_top %}
-      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+
       {% include '@atoms/image/_image.twig' with {
-        imageStyleName: 'card',
-        class: 'card-img-top',
-        img: card_image,
+        image: card_image,
+        image_classes: ['card-img-top'],
       } %}
+
     {% endblock %}
   {% endif %}
 
@@ -62,7 +66,7 @@
   {% endif %}
 
   {% if card_flush %}
-    {# Note that 'p2card__flush__body' is not a bootstrap class. It only being used to designate the flush body#}
+    {# Note that 'p2card__flush__body' is not a bootstrap class. Is being used to designate the flush body#}
     {% set body_class = 'p2card__flush--body' %}
   {% else %}
     {% set body_class = 'card-body' %}
@@ -100,12 +104,12 @@
 
   {% if card_image_location == 'bottom' %}
     {% block card_image_bottom %}
-      {# if `card_image` is null, this falls back to a holderjs placeholder #}
+
       {% include '@atoms/image/_image.twig' with {
-        imageStyleName: 'card',
-        class: 'card-img-bottom',
-        img: card_image,
+        image: card_image,
+        image_classes: ['card-img-bottom'],
       } %}
+
     {% endblock card_image_bottom %}
   {% endif %}
 

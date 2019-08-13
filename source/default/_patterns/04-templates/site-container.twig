@@ -4,7 +4,11 @@
  # familiar site structure for Pattern Lab.
  #}
 
-{% include "@organisms/_navbar.twig" %}
+{% block navbar %}
+  {% include '@organisms/navbar/_navbar.twig' with {
+    navbar: navbar_demo
+  } %}
+{% endblock navbar %}
 
 <main class="main-content">
   {% block content %}
@@ -25,4 +29,6 @@
   {% endblock %}
 </main>
 
-{% include "@organisms/_footer.twig" %}
+{% block footer %}
+  {% include "@organisms/footer/_footer.twig" %}
+{% endblock footer %}

@@ -4,8 +4,8 @@
  * Documenting Table Examples from Bootstrap.
  *
  * Available variables:
- * - table_header: [array] A list of table headers from _data/tables.yaml
- * - table_content: [array] A list of table content from _data/tables.yaml
+ * - table.header: [array] A list of table headers from _data/tables.yaml
+ * - table.content: [array] A list of table content from _data/tables.yaml
  *
  * @see https://getbootstrap.com/docs/4.0/content/tables/
  */
@@ -30,13 +30,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -55,13 +55,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -83,13 +83,13 @@
           <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -106,13 +106,13 @@
           <thead class="thead-light">
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -134,13 +134,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -155,13 +155,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -183,13 +183,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -204,13 +204,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -232,13 +232,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -253,13 +253,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -281,13 +281,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>
@@ -302,13 +302,13 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            {% for header in table_header %}
+            {% for header in table.header %}
               <th scope="col">{{ header }}</th>
             {% endfor %}
           </tr>
           </thead>
           <tbody>
-          {% for content in table_content %}
+          {% for content in table.content %}
             <tr>
               <th scope="row">{{ loop.index }}</th>
               <td>{{ content.first_name }}</td>

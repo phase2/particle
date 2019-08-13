@@ -29,9 +29,9 @@
               SVG:<br>Raw</a>
           </th>
           <td>
-<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/svg/_svg.twig' with {
   svg: {
-    svgpath: '@atoms/svg/person.svg',
+    svgpath: '@atoms/svg/svg/person.svg',
     colorOriginal: true,
   }
 } %}{% endverbatim %}</code></pre>
@@ -39,9 +39,9 @@
           <td>
             <div class="text-center">
                 <span style="width: 50%;">
-                  {% include '@atoms/_svg.twig' with {
+                  {% include '@atoms/svg/_svg.twig' with {
                     svg: {
-                      svgpath: '@atoms/svg/person.svg',
+                      svgpath: '@atoms/svg/svg/person.svg',
                       colorOriginal: true,
                     }
                   } %}
@@ -60,19 +60,20 @@
               SVG:<br>Raw Change Color</a>
           </th>
           <td>
-<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg.twig' with {
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/svg/_svg.twig' with {
   svg: {
-    svgpath: '@atoms/svg/person.svg',
+    svgpath: '@atoms/svg/svg/person.svg',
   }
 } %}{% endverbatim %}</code></pre>
           </td>
           <td>
             <div class="text-center">
                 <span style="width: 50%;">
-                  {% include '@atoms/_svg.twig' with {
+                  {% include '@atoms/svg/_svg.twig' with {
                     svg: {
-                      svgpath: '@atoms/svg/person.svg',
-                    }
+                      svgpath: '@atoms/svg/svg/person.svg',
+                    },
+                    svg_classes: ['color-fill--primary'],
                   } %}
                 </span>
             </div>
@@ -87,7 +88,7 @@
             <a href="#svg-spritesheet">Inline SVG:<br>Spritesheet</a>
           </th>
           <td>
-<pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
+<pre><code class="language-twig">{% verbatim %}{% include '@atoms/svg/_svg--icon.twig' with {
   svgicon: {
     svgname: 'person',
   }
@@ -95,7 +96,7 @@
           </td>
           <td>
             <div>
-              {% include '@atoms/_svg--icon.twig' with {
+              {% include '@atoms/svg/_svg--icon.twig' with {
                 svgicon: {
                   svgname: 'person',
                 }
@@ -186,10 +187,7 @@
 
     <h2>SVG File Techniques</h2>
     <h4 id="svg-raw" class="mt-5">Inline SVG: Raw</h4>
-    <p>We can print any SVG directly via <code>@atoms/image/_svg.twig</code>.
-      <a href="/app-pl/pl/patterns/01-atoms-image-demo-image-inline/01-atoms-image-demo-image-inline.html">See
-        that component for details.</a></p>
-
+    <p>We can print any SVG directly via <code>@atoms/svg/_svg.twig</code>.</p>
 
     <h4 id="svg-spritesheet" class="mt-5">Inline SVG: Spritesheet</h4>
     <p>Using the Twig template renders an SVG element directly to the DOM. The
@@ -201,13 +199,13 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
+        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/svg/_svg--icon.twig' with {
   svgname: 'chevron-up',
 } %}{% endverbatim %}</code></pre>
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
-        {% include '@atoms/_svg--icon.twig' with {
+        {% include '@atoms/svg/_svg--icon.twig' with {
           svgicon: {
             svgname: 'chevron-up',
           }
@@ -217,14 +215,14 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
+        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/svg/_svg--icon.twig' with {
   svgname: 'chevron-up',
   svgfill: 'danger',
 } %}{% endverbatim %}</code></pre>
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
-        {% include '@atoms/_svg--icon.twig' with {
+        {% include '@atoms/svg/_svg--icon.twig' with {
           svgicon: {
             svgname: 'chevron-up',
             svgfill: 'danger',
@@ -235,14 +233,14 @@
     <div class="row mt-3">
       <div class="col-sm-6">
         <h5>Example</h5>
-        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/_svg--icon.twig' with {
+        <pre><code class="language-twig">{% verbatim %}{% include '@atoms/svg/_svg--icon.twig' with {
   svgname: 'chevron-up',
   svgstroke: 'primary',
 } %}{% endverbatim %}</code></pre>
       </div>
       <div class="col-sm-6">
         <h5>Output</h5>
-        {% include '@atoms/_svg--icon.twig' with {
+        {% include '@atoms/svg/_svg--icon.twig' with {
           svgicon: {
             svgname: 'chevron-up',
             svgstroke: 'primary',

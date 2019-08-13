@@ -7,7 +7,6 @@ const path = require('path');
 const {
   PATH_DIST,
   ASSETS_BUNDLE_FOLDER,
-  ASSETS_ATOMIC_FOLDER,
 } = require('../../particle.root.config');
 
 // Used as folder name within PATH_DIST, does not have to be folder name of app
@@ -21,48 +20,10 @@ const APP_DIST = path.join(PATH_DIST, APP_NAME, ASSETS_BUNDLE_FOLDER);
 // Base path for all assets
 const APP_DIST_PUBLIC = path.join(APP_NAME, ASSETS_BUNDLE_FOLDER);
 
-// Drupal does not use protons or pages for its namespaces. Referencing
-// folder paths that are not output to dist/ causes Drupal to kersplode.
-// const actualPaths = require('../../stats');
-// console.log(
-//   actualPaths.assets
-//     .map(asset => asset.name)
-//     .filter(name => name.includes('atomic'))
-// );
-
-const rejectNamespaces = /(00-protons|04-templates|05-pages)/;
-// Namespace formatting, required by the namespaces module
-const namespaces = {
-  // The yml file that will be modified
-  config: path.resolve(__dirname, 'particle.info.yml'),
-  // The key within the file where the namespaces will be written
-  atKey: 'component-libraries',
-  // The namespaces module runs a transform function, providing to it the path
-  // to the pattern within source/
-  transform: folderPath => {
-    // Reject some namespaces because Drupal
-    if (rejectNamespaces.test(folderPath)) {
-      return false;
-    }
-    // We have to get from a path like:
-    //   /Users/username/dev/p2/p2/particle/source/default/_patterns/01-atoms/badge
-    // To:
-    //   ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/badge
-
-    // e.g. /Users/username/dev/p2/p2/particle/dist/app-drupal/assets/
-    const appDistPath = path.relative(APP_PATH, APP_DIST);
-    // e.g. ../../dist/app-drupal/assets
-    const patternPath = path.relative(APP_DESIGN_SYSTEM, folderPath);
-    // e.g. ../../dist/app-drupal/assets/atomic/_patterns/01-atoms/badge
-    return path.join(appDistPath, ASSETS_ATOMIC_FOLDER, patternPath);
-  },
-};
-
 module.exports = {
   APP_NAME,
   APP_PATH,
   APP_DESIGN_SYSTEM,
   APP_DIST,
   APP_DIST_PUBLIC,
-  namespaces,
 };

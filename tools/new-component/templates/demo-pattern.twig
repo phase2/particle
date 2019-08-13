@@ -3,5 +3,5 @@
 {% set demo = <%= underscoreName %>_demo_block %}
 
 {% block content %}
-  {% include '@<%= cleanPatternType %>/_<%= name %>.twig' %}
+  {% include '@<%= cleanPatternType %>/<%= name %>/_<%= name %>.twig' %}
 {% endblock %}

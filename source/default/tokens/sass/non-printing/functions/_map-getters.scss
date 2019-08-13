@@ -1,0 +1,122 @@
+/*
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Map Getter Functions
+--------------------------------------------------------------------------------
+  Custom map functions that are used to retrieve values from sass variable maps.
+
+  These functions should be imported into the system as the last step. They are
+  designed to access maps built up through variables. Var files should directly
+  call the `map-get` and collection.
+--------------------------------------------------------------------------------
+*/
+
+/**
+ * Spacers
+ *   A function to reliably retrieve the value of a Bootstrap $spacers map.
+ *
+ * @group Map-Getters
+ *
+ * @param $key
+ *   The key in the Bootstrap spacers map you wish to access.
+ *
+ * @example spacers(1);
+ *
+*/
+@function spacers($key) {
+  @if map-has-key($spacers, $key) {
+    @return map-get($spacers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $spacers.";
+
+  @return null;
+}
+
+/**
+ * Letter Spacing
+ *   A function to reliably retrieve the value of a $letter-spacings map.
+ *
+ * @group Map-Getters
+ *
+ * @param $key
+ *   The key in the letter-spacings map you wish to access.
+ *
+ * @example letter-spacings(1);
+ *
+*/
+@function letter-spacings($key) {
+  @if map-has-key($letter-spacings, $key) {
+    @return map-get($letter-spacings, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $letter-spacings.";
+
+  @return null;
+}
+
+/**
+ * Primary Colors
+ *   A function to reliably retrieve the value of $primary-colors map.
+ *
+ * @group Map-Getters
+ *
+ * @param $key
+ *   The key in the primary-colors map you wish to access.
+ *
+ * @example primary-colors('dark-blue');
+ *
+*/
+@function primary-colors($key) {
+  @if map-has-key($primary-colors, $key) {
+    @return map-get($primary-colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $primary-colors.";
+
+  @return null;
+}
+
+/**
+ * Neutral Hues
+ *   A function to reliably retrieve the value of $neutral-hues map.
+ *
+ * @group Map-Getters
+ *
+ * @param $key
+ *   The key in the neutral-hues map you wish to access.
+ *
+ * @example neutral-hues('light-gray');
+ *
+*/
+@function neutral-hues($key) {
+  @if map-has-key($neutral-hues, $key) {
+    @return map-get($neutral-hues, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $neutral-hues.";
+
+  @return null;
+}
+
+/**
+ * Theme Colors
+ *   A function to reliably retrieve the value of $theme-colors map.
+ *
+ * @group Map-Getters
+ *
+ * @param $key
+ *   The key in the theme-colors map you wish to access.
+ *
+ * @example theme-colors('primary');
+ *
+*/
+@function theme-colors($key) {
+  @if map-has-key($theme-colors, $key) {
+    @return map-get($theme-colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $theme-colors.";
+
+  @return null;
+}

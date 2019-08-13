@@ -5,8 +5,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width" />
 
-		<link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-32x32.png" sizes="32x32">
+    {# Bring back favicons when loader returns#}
+    {# <link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-16x16.png" sizes="16x16">#}
+    {# <link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-32x32.png" sizes="32x32">#}
 
 		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
 		{{ patternLabHead | raw }}
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="{{ paths.assets }}/app.styles.css?cacheBuster={{ random() }}">
     {% endif %}
 
-		<style>
+		<style type="text/css">
 			.spinner {
 				width: 40px;
 				height: 40px;
