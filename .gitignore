@@ -1,6 +1,5 @@
 # Compiled files
 dist/
-env.json
 _icons-generated.scss
 dependencyGraph.json
 patterns.zip
