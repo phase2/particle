@@ -66,7 +66,7 @@ const dev = {
       ignored: /app-node-pl/,
     },
     // Open browser immediately
-    open: false,
+    open: true,
     // Open browser to the PL landing page so it's very clear where to go
     openPage: `${APP_NAME}/pl`,
     // Inject css/js into page without full refresh
