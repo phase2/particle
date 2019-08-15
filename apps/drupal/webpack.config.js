@@ -84,6 +84,5 @@ module.exports = particle(
   // Use extract css
   {
     cssMode: 'extract',
-    entry: 'app', // Called out specifically because 2 entry points
   }
 );

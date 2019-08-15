@@ -2,6 +2,10 @@
  * Apply the Design System to Pattern Lab DOM
  */
 
+// ECMAScript polyfills, but NOT fetch(). Fetch() is web standard, not ECMAScript.
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 import $ from 'jquery';
 
 // Prism highlighting in PL.
