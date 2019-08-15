@@ -94,7 +94,6 @@ const particle = (appWebpack, appConfig, options) => {
     // Particle standard config
     particleBase,
     // What kind of CSS handling, defaults to extract
-    // What kind of CSS handling, defaults to extract
     options.cssMode ? cssModes[options.cssMode] : 'extract',
     // Design system-specific config
     dsWebpack,
