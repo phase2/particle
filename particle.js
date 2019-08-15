@@ -67,19 +67,6 @@ const cssModes = {
 };
 
 /**
- * Polyfill ALL modern JS to support for browsers within .browserslistrc
- *
- * @param {string} entry
- * @returns {{entry: {}}}
- */
-const entryPrepend = entry => ({
-  // See webpack.[app].js for more entry points
-  entry: {
-    [entry]: ['@babel/polyfill'],
-  },
-});
-
-/**
  * Every app using Particle must run its config through this "particle"
  * function to ensure it adheres to Particle standards of dev/prod config.
  *
@@ -90,7 +77,6 @@ const entryPrepend = entry => ({
  * @param {Object} appConfig - Full app config
  * @param {Object} options - Compile options
  * @param {('hot'|'extract')} options.cssMode - The method of handling CSS output
- * @param {string} [options.entry] - The main entry point to prepend polyfills
  * @returns {*} - Fully merged and customized webpack config
  */
 const particle = (appWebpack, appConfig, options) => {
@@ -109,12 +95,6 @@ const particle = (appWebpack, appConfig, options) => {
     particleBase,
     // What kind of CSS handling, defaults to extract
     options.cssMode ? cssModes[options.cssMode] : 'extract',
-
-    // Prepend loaders to provided entry point, defaults to first entry point
-    options.entry
-      ? entryPrepend(options.entry)
-      : entryPrepend(Object.keys(shared.entry)[0]),
-
     // Design system-specific config
     dsWebpack,
     // App config shared between dev and prod modes
