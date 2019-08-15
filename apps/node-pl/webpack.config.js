@@ -54,18 +54,27 @@ const dev = {
     host: '0.0.0.0',
     port: '8080',
     allowedHosts: ['.docksal', '.vm', '0.0.0.0', 'localhost'],
-    contentBase: PATH_DIST, // dev server starts from this folder.
-    public: PARTICLE_PL_HOST, // local host name for devServer
-    watchContentBase: true, // Refresh devServer when dist/ changes (Pattern Lab)
+    // dev server starts from this folder.
+    contentBase: PATH_DIST,
+    // local host name for devServer
+    public: PARTICLE_PL_HOST,
+    // Refresh devServer when dist/ changes (Pattern Lab)
+    watchContentBase: true,
     watchOptions: {
-      // ignore all folders inside dist/ except the root index.html
-      ignored: /(assets\/|pl\/)/,
+      // Ignore all folders inside dist/app-node-pl so pl rebuilds refresh.
+      // Note: prevents Webpack from watching many pl files,
+      ignored: /app-node-pl/,
     },
-    open: true, // Open browser immediately
-    openPage: `${APP_NAME}/pl`, // Open browser to the PL landing page so it's very clear where to go
-    hot: true, // Inject css/js into page without full refresh
-    historyApiFallback: true, // Finds default index.html files at folder root
-    inline: true, // Injects all the webpack dev server code right in the page
+    // Open browser immediately
+    open: false,
+    // Open browser to the PL landing page so it's very clear where to go
+    openPage: `${APP_NAME}/pl`,
+    // Inject css/js into page without full refresh
+    hot: true,
+    // Finds default index.html files at folder root
+    historyApiFallback: true,
+    // Injects all the webpack dev server code right in the page
+    inline: true,
     // All stats available here: https://webpack.js.org/configuration/stats/
     stats: {
       depth: true,
