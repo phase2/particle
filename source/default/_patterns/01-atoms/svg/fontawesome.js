@@ -7,10 +7,10 @@
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 
 // Import specific icons required. This format applies tree-shaking
-import faUserAstronaut from '@fortawesome/free-solid-svg-icons/faUserAstronaut';
-import faRocket from '@fortawesome/free-solid-svg-icons/faRocket';
-import faSpaceShuttle from '@fortawesome/free-solid-svg-icons/faSpaceShuttle';
-import faUser from '@fortawesome/free-solid-svg-icons/faUser';
+import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons/faUserAstronaut';
+import { faRocket } from '@fortawesome/free-solid-svg-icons/faRocket';
+import { faSpaceShuttle } from '@fortawesome/free-solid-svg-icons/faSpaceShuttle';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 
 // Add specific icons required
 library.add(faUserAstronaut, faRocket, faSpaceShuttle, faUser);
