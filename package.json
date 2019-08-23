@@ -43,7 +43,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
-    "@pattern-lab/cli": "^0.0.3",
+    "@pattern-lab/cli": "^0.1.0",
     "@pattern-lab/core": "^3.0.1",
     "@pattern-lab/engine-twig-php": "^3.0.1",
     "@pattern-lab/uikit-workshop": "^1.0.1",
