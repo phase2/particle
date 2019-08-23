@@ -133,6 +133,7 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserPlugin({
+        sourceMap: NODE_ENV === 'production',
         cache: true,
         parallel: true,
       }),

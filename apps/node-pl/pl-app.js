@@ -10,20 +10,27 @@ const pl = core(config);
 const { cleanPublic } = config;
 const { NODE_ENV } = process.env;
 
+// Start/stop message template
 const message = `Pattern Lab Node v${pl.version()} ${NODE_ENV} compile`;
+// Shared options between dev/prod
+const options = {
+  cleanPublic,
+  data: {
+    env: NODE_ENV || 'production',
+  },
+};
 
 /**
  * Register pre-compile event
  */
 pl.events.on('patternlab-build-start', () => console.log(`${message} START!`));
+pl.events.on('patternlab-build-end', () => console.log(`${message} END!`));
 
 /**
- * Build PL patterns only
+ * patternsOnly in dev, full build in prod
  */
-pl.patternsonly({
-  cleanPublic,
-  // Custom vars injected into PL global data
-  data: {
-    env: NODE_ENV || 'production',
-  },
-}).then(() => console.log(`${message} END!`));
+if (NODE_ENV === 'development') {
+  pl.patternsonly(options);
+} else {
+  pl.build(options);
+}
