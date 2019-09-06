@@ -203,3 +203,16 @@ function addFunctions(\Twig_Environment &$env, $config) {
   $env->addFunction($url_function);
 
 }
+
+/**
+ * Adds the debug extension.
+ *
+ * To enable Twig Debugging, add this function's name to patternlab-config.json
+ * under engines.twig.alterTwigEnv.functions
+ *
+ * @param Twig_Environment $env - The Twig Environment - https://twig.symfony.com/api/1.x/Twig_Environment.html
+ * @param $config - Config of `@basalt/twig-renderer`
+ */
+function addDebug(\Twig_Environment &$env, $config) {
+  $env->addExtension(new \Twig\Extension\DebugExtension());
+}
