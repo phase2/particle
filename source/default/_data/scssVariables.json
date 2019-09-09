@@ -39,10 +39,10 @@
     "6": "4rem"
   },
   "fontFamilies": {
-    "$font-family-sans-serif": "Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif",
-    "$font-family-serif": "Oswald, Times New Roman, serif",
-    "$font-family-monospace": "Source Code Pro, Courier New, monospace",
-    "$headings-font-family": "Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif"
+    "$font-family-sans-serif": "Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif",
+    "$font-family-serif": "Oswald,Times New Roman,serif",
+    "$font-family-monospace": "Source Code Pro,Courier New,monospace",
+    "$headings-font-family": "Oswald,Times New Roman,serif"
   },
   "fontSizes": {
     "base": "1rem",
