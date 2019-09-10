@@ -79,6 +79,7 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
+              outputStyle: 'compressed',
             },
           },
         ],
@@ -106,16 +107,12 @@ module.exports = {
         },
       },
       {
-        // base64 encode all referenced font files for simple loading.
         test: /\.(woff|woff2|eot|ttf|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              // If a font file is over 1k, output below fonts directory.
-              limit: 1000,
-              name: '[name].[ext]',
-              outputPath: 'fonts/',
+              name: 'fonts/[name].[ext]',
             },
           },
         ],
