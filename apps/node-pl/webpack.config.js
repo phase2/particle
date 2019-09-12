@@ -4,7 +4,9 @@
 
 // Library Imports
 const path = require('path');
+
 const { DefinePlugin } = require('webpack');
+const sassExportData = require('@theme-tools/sass-export-data');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
@@ -29,6 +31,23 @@ const shared = {
   },
   module: {
     rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: 'sass-loader',
+            options: {
+              // Used to generate JSON about variables like colors, fonts
+              functions: {
+                ...sassExportData({
+                  name: 'export_data',
+                  path: path.resolve(appConfig.APP_DESIGN_SYSTEM, '_data/'),
+                }),
+              },
+            },
+          },
+        ],
+      },
       // Non-standard assets on the dependency chain
       {
         test: /\.(yml|md)$/,
