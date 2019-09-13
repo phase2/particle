@@ -73,6 +73,7 @@ module.exports = {
             loader: 'resolve-url-loader',
             options: {
               sourceMap: true,
+              root: '',
             },
           },
           {
