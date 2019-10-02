@@ -104,7 +104,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]',
+          name: 'images/[name].[ext]?[hash]',
         },
       },
       {
@@ -113,7 +113,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'fonts/[name].[ext]',
+              name: 'fonts/[name].[ext]?[hash]',
             },
           },
         ],
