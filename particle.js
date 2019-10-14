@@ -59,11 +59,19 @@ const cssModes = {
       ],
     },
     plugins: [
+      new OptimizeCSSAssetsPlugin({
+        // Ensure css map file output
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true,
+          },
+        },
+      }),
       new MiniCssExtractPlugin({
         filename: '[name].styles.css',
         chunkFilename: '[id].css',
       }),
-      new OptimizeCSSAssetsPlugin(),
     ],
   },
 };
