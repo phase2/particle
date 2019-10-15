@@ -69,7 +69,6 @@
     "babel-loader": "^8.0.6",
     "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
-    "cssnano": "^4.1.10",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.0.0",
