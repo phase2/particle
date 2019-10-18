@@ -3,7 +3,6 @@
  */
 const path = require('path');
 
-const sassExportData = require('@theme-tools/sass-export-data');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
 const namespaces = require('./namespaces');
@@ -17,12 +16,6 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              // Used to generate JSON about variables like colors, fonts
-              // @TODO: move to app/pl
-              functions: sassExportData({
-                name: 'export_data',
-                path: path.resolve(__dirname, '_data/'),
-              }),
               // ALL Sass partials will be provided with non-printing
               // variables, mixins, and functions
               data: '@import "~tokens/sass/non-printing/non-printing";',
@@ -46,6 +39,7 @@ module.exports = {
         },
       },
       output: {
+        filename: 'images/spritemap.svg',
         svg4everybody: true,
         svgo: true,
       },

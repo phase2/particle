@@ -8,6 +8,7 @@ const merge = require('webpack-merge');
 
 // Plugins:production
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 // Constants
 // NODE_ENV is set within all NPM scripts before running wepback, eg:
@@ -58,6 +59,15 @@ const cssModes = {
       ],
     },
     plugins: [
+      new OptimizeCSSAssetsPlugin({
+        // Ensure css map file output
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true,
+          },
+        },
+      }),
       new MiniCssExtractPlugin({
         filename: '[name].styles.css',
         chunkFilename: '[id].css',

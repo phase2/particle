@@ -11,6 +11,8 @@ pl: true
 BUILD_TARGET: pl
 paths:
   assets: '../../../assets'
+  images: '../../../assets/images'
+  fonts: '../../../assets/fonts'
 bodyClass: 'pl pl-loading'
 
 # Generic Starter Template Data

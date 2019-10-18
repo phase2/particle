@@ -21,10 +21,22 @@
     </div>
 
     <div class="picture-image-demo m-3">
-      <h2>Picture with Multiple Source</h2>
+      <h2>Picture with Multiple Sources</h2>
       <div>
         {% include '@atoms/image/_image.twig' with {
           image: image_picture_demo,
+        } %}
+      </div>
+    </div>
+
+    <div class="direct-image-demo m-3">
+      <h2>Image using paths.images path</h2>
+      <div>
+        {% include '@atoms/image/_image.twig' with {
+          image: {
+            variant: 'primary',
+            src: paths.images ~'/astrogoat.png'
+          },
         } %}
       </div>
     </div>
@@ -36,7 +48,7 @@
           <h3>SVG</h3>
           {% set image_bg_logo_demo = {
             variant: 'bg',
-            src: paths.assets ~ '/logo.svg',
+            src: paths.images ~ '/logo.svg',
             alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
           } %}
 
@@ -48,7 +60,7 @@
           <h3>PNG</h3>
           {% set image_bg_astrogoat_demo = {
             variant: 'bg',
-            src: paths.assets ~ '/astrogoat.png',
+            src: paths.images ~ '/astrogoat.png',
             alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
           } %}
 

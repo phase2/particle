@@ -12,6 +12,10 @@ import './_image.scss';
 
 // Module template
 import './_image.twig';
+import './_image--bg.twig';
+import './_image--picture.twig';
+import './_image--placeholder.twig';
+import './_image--primary.twig';
 
 export const name = 'image';
 

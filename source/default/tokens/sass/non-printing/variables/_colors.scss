@@ -79,6 +79,6 @@ Color Aliases
 $color-aliases: (
   'pink': map-get($primary-colors, 'pink'),
   'goldenrod': map-get($primary-colors, 'goldenrod'),
-  'light': map_get($neutral-hues, 'lightest-gray'),
-  'dark': map_get($neutral-hues, 'darkest-gray'),
+  'light': map-get($neutral-hues, 'lightest-gray'),
+  'dark': map-get($neutral-hues, 'darkest-gray'),
 );
