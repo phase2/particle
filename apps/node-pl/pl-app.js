@@ -27,10 +27,6 @@ pl.events.on('patternlab-build-start', () => console.log(`${message} START!`));
 pl.events.on('patternlab-build-end', () => console.log(`${message} END!`));
 
 /**
- * patternsOnly in dev, full build in prod
+ * Full build (including ui)
  */
-if (NODE_ENV === 'development') {
-  pl.patternsonly(options);
-} else {
-  pl.build(options);
-}
+pl.build(options);

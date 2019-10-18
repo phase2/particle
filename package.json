@@ -38,12 +38,12 @@
     "test:unit": "npm run test:unit:default",
     "test": "npm run test:unit",
     "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal",
-    "new": "yo ./tools/new-component/index.js && patternlab build --config ./apps/node-pl/patternlab-config.json"
+    "new": "yo ./tools/new-component/index.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@pattern-lab/cli": "^0.0.3",
+    "@pattern-lab/cli": "^1.0.3",
     "@pattern-lab/core": "^3.0.4",
     "@pattern-lab/engine-twig-php": "^3.0.5",
     "@pattern-lab/uikit-workshop": "^1.0.7",

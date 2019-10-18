@@ -26,8 +26,7 @@
     {% for image in carousel_images %}
       <div class="carousel-item {{ (image.active) ? 'active' }}">
         {% include '@atoms/image/_image.twig' with {
-          imageStyleName: 'carousel',
-          class: 'img img-fluid',
+          image: image,
         } %}
         {% if carousel_caption %}
           <div class="carousel-caption d-none d-md-block">
@@ -51,3 +50,5 @@
     {% endblock controls %}
   </div>
 </div>
+
+
