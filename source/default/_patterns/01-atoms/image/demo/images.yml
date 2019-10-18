@@ -1,3 +1,9 @@
+image_demo_block:
+  title: 'Image'
+  text:
+    lead: 'Image HTML patterns.'
+    summary: 'The image pattern includes variants to cover most image use cases, including background images and <code>picture</code>.'
+
 image_primary_demo:
   variant: 'primary'
   src: ''
@@ -12,9 +18,3 @@ image_picture_demo:
   style: ''
   srcset: ['https://via.placeholder.com/100', 'https://via.placeholder.com/200', 'https://via.placeholder.com/400']
   placeholder: false
-
-image_demo_block:
-  title: 'Image'
-  text:
-    lead: 'Image HTML patterns.'
-    summary: 'The image pattern includes variants to cover most image use cases, including background images and <code>picture</code>.'

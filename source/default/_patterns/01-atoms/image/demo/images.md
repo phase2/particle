@@ -5,7 +5,7 @@ Please note that image implementations may contain this or similar code:
 ```twig
 {% include "@atoms/_image.twig" with {
   image: {
-    src: paths.assets ~ '/logo.svg',
+    src: paths.images ~ '/logo.svg',
   }
 } %}
 ```

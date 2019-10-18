@@ -39,6 +39,7 @@ module.exports = {
         },
       },
       output: {
+        filename: 'images/spritemap.svg',
         svg4everybody: true,
         svgo: true,
       },
