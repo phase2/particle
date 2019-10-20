@@ -1,0 +1,67 @@
+{
+  "scssColors": {
+    "primary": "rgb(0, 123, 255)",
+    "secondary": "rgb(108, 117, 125)",
+    "success": "rgb(40, 167, 69)",
+    "info": "rgb(23, 162, 184)",
+    "warning": "rgb(255, 193, 7)",
+    "danger": "rgb(220, 53, 69)",
+    "light": "rgb(244, 244, 244)",
+    "dark": "rgb(43, 43, 43)",
+    "pink": "rgb(255, 192, 203)",
+    "goldenrod": "rgb(218, 165, 32)"
+  },
+  "primaryColors": {
+    "pink": "rgb(255, 192, 203)",
+    "goldenrod": "rgb(218, 165, 32)"
+  },
+  "neutralHues": {
+    "lightest-gray": "rgb(244, 244, 244)",
+    "light-gray": "rgb(228, 228, 228)",
+    "gray": "rgb(213, 213, 213)",
+    "dark-gray": "rgb(182, 182, 182)",
+    "darkest-gray": "rgb(43, 43, 43)"
+  },
+  "scssBreakpoints": {
+    "xs": 0,
+    "sm": "576px",
+    "md": "768px",
+    "lg": "992px",
+    "xl": "1200px"
+  },
+  "scssSpacing": {
+    "0": 0,
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "1rem",
+    "4": "1.5rem",
+    "5": "3rem",
+    "6": "4rem"
+  },
+  "fontFamilies": {
+    "$font-family-sans-serif": "Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif",
+    "$font-family-serif": "Oswald,Times New Roman,serif",
+    "$font-family-monospace": "Source Code Pro,Courier New,monospace",
+    "$headings-font-family": "Oswald,Times New Roman,serif"
+  },
+  "fontSizes": {
+    "base": "1rem",
+    "lg": "1.25rem",
+    "sm": "0.875rem"
+  },
+  "fontWeights": {
+    "light": 300,
+    "normal": 400,
+    "bold": 700
+  },
+  "scssIcons": [
+    "chevron-down",
+    "chevron-left",
+    "chevron-right",
+    "chevron-up",
+    "close",
+    "menu",
+    "person",
+    "search"
+  ]
+}

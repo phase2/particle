@@ -1,0 +1,17 @@
+imageStyles:
+  thumbnail:
+    width: 100
+    height: 100
+  card:
+    width: 318
+    height: 180
+  small:
+    width: 400
+    height: 400
+  medium:
+    width: 800
+  carousel:
+    width: 1110
+    height: 400
+  large:
+    width: 1110

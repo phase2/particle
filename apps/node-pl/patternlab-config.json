@@ -1,7 +1,7 @@
 {
   "cacheBust": true,
   "cleanPublic": true,
-  "defaultPattern": "protons-welcome",
+  "defaultPattern": "pl-protons-welcome",
   "defaultShowPatternInfo": false,
   "ishControlsHide": {
     "s": false,
@@ -54,11 +54,11 @@
   },
   "paths": {
     "source": {
-      "root": "./source/default",
-      "patterns": "./source/default/_patterns/",
-      "data": "./source/default/_data/",
-      "meta": "./source/default/_meta/",
-      "annotations": "./source/default/_annotations/",
+      "root": "./apps/node-pl/pattern-lab/",
+      "patterns": "./apps/node-pl/pattern-lab/_patterns/",
+      "data": "./apps/node-pl/pattern-lab/_data/",
+      "meta": "./apps/node-pl/pattern-lab/_meta/",
+      "annotations": "./apps/node-pl/pattern-lab/_annotations/",
       "styleguide": "dist/",
       "patternlabFiles": {
         "general-header": "views/partials/general-header.mustache",
@@ -121,51 +121,51 @@
         },
         {
           "id": "protons",
-          "recursive": false,
+          "recursive": true,
           "paths": [
-            "source/default/_patterns/00-protons"
+            "./source/default/_patterns/00-protons"
           ]
         },
         {
           "id": "atoms",
-          "recursive": false,
+          "recursive": true,
           "paths": [
             "source/default/_patterns/01-atoms"
           ]
         },
         {
           "id": "molecules",
-          "recursive": false,
+          "recursive": true,
           "paths": [
-            "source/default/_patterns/02-molecules"
+            "./source/default/_patterns/02-molecules"
           ]
         },
         {
           "id": "organisms",
-          "recursive": false,
+          "recursive": true,
           "paths": [
-            "source/default/_patterns/03-organisms"
+            "./source/default/_patterns/03-organisms"
           ]
         },
         {
           "id": "templates",
-          "recursive": false,
+          "recursive": true,
           "paths": [
-            "source/default/_patterns/04-templates"
+            "./source/default/_patterns/04-templates"
           ]
         },
         {
           "id": "pages",
-          "recursive": false,
+          "recursive": true,
           "paths": [
-            "source/default/_patterns/05-pages"
+            "./source/default/_patterns/05-pages"
           ]
         },
         {
           "id": "macros",
-          "recursive": false,
+          "recursive": true,
           "paths": [
-            "source/default/_macros"
+            "./source/default/_macros"
           ]
         }
       ],
