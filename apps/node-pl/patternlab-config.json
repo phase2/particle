@@ -1,7 +1,7 @@
 {
   "cacheBust": true,
   "cleanPublic": true,
-  "defaultPattern": "pl-protons-welcome",
+  "defaultPattern": "protons-demo-welcome",
   "defaultShowPatternInfo": false,
   "ishControlsHide": {
     "s": false,
