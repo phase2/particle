@@ -1,44 +1,67 @@
 const { join, relative } = require('path');
-const { readdirSync, statSync } = require('fs');
+const { readdirSync, statSync, existsSync } = require('fs');
 
 const Generator = require('yeoman-generator');
 const { camelCase } = require('lodash');
 
-let { PATH_SOURCE: componentPath } = require('../../particle.root.config');
+const { PATH_APPS } = require('../../particle.root.config');
 
-const patternFeatures = ['twig', 'scss', 'js', 'demo'];
+// An array of PL-app config objects
+const plDsConnect = readdirSync(PATH_APPS, 'utf8').reduce((acc, folder) => {
+  // We know it's a PL app if it has a patternlab-config.json file
+  const plConfig = join(PATH_APPS, folder, 'patternlab-config.json');
+  if (existsSync(plConfig)) {
+    // eslint-disable-next-line import/no-dynamic-require, global-require
+    const config = require(join(PATH_APPS, folder, 'particle.app.config.js'));
+    acc.push(config);
+    return acc;
+  }
+  return acc;
+}, []);
+
+// This is built up
+const componentPath = [];
+
+const patternFeatures = ['twig', 'scss', 'js'];
+
 const prompts = [
   {
     type: 'list',
-    name: 'designSystem',
-    message: 'To which design system would you like to add this new component?',
-    choices: readdirSync(componentPath, 'utf8').filter(folder =>
-      statSync(join(componentPath, folder)).isDirectory()
-    ),
+    name: 'chooseApp',
+    message:
+      'To which PL (and connected design system) would you like to add this component?',
+    choices: plDsConnect.map(({ APP_NAME }) => APP_NAME),
   },
   {
     type: 'list',
     name: 'patternType',
     message: 'Where would you like this new component?',
-    choices(answers) {
-      componentPath = join(componentPath, answers.designSystem, '_patterns');
-      return readdirSync(componentPath, 'utf8').filter(folder =>
-        statSync(join(componentPath, folder)).isDirectory()
+    choices({ chooseApp }) {
+      // Design system folder
+      const { APP_DESIGN_SYSTEM } = plDsConnect.find(
+        ({ APP_NAME }) => APP_NAME === chooseApp
+      );
+      // Build up the path array
+      componentPath.push(...[APP_DESIGN_SYSTEM, '_patterns']);
+      // Return array of atomic folders
+      return readdirSync(join(...componentPath), 'utf8').filter(folder =>
+        statSync(join(...componentPath, folder)).isDirectory()
       );
     },
   },
-  {
-    type: 'list',
-    name: 'patternSubType',
-    message: 'Where in here?',
-    choices(answers) {
-      componentPath = join(componentPath, answers.patternType);
-      const subfolders = readdirSync(componentPath, 'utf8').filter(folder =>
-        statSync(join(componentPath, folder)).isDirectory()
-      );
-      return ['./'].concat(subfolders);
-    },
-  },
+  // {
+  //   type: 'list',
+  //   name: 'patternSubType',
+  //   message: 'Where in here?',
+  //   choices({ patternType }) {
+  //     componentPath.push(patternType);
+  //
+  //     const subfolders = readdirSync(join(...componentPath), 'utf8').filter(
+  //       folder => statSync(join(...componentPath, folder)).isDirectory()
+  //     );
+  //     return ['./'].concat(subfolders);
+  //   },
+  // },
   {
     type: 'checkbox',
     name: 'files',
