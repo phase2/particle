@@ -46,7 +46,7 @@
       2600
     ]
   },
-  "logLevel": "warning",
+  "logLevel": "error",
   "outputFileSuffixes": {
     "rendered": ".rendered",
     "rawTemplate": "",
@@ -159,6 +159,13 @@
           "recursive": true,
           "paths": [
             "./source/default/_patterns/05-pages"
+          ]
+        },
+        {
+          "id": "demo",
+          "recursive": true,
+          "paths": [
+            "./apps/node-pl/pattern-lab/_patterns/00-protons-demo"
           ]
         },
         {
