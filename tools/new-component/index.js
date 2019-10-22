@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 /**
  * @file
  *
@@ -5,11 +7,12 @@
  * where they live.
  */
 
-const { join, relative } = require('path');
+const { join, relative, extname } = require('path');
 const { readdirSync } = require('fs');
 
 const Generator = require('yeoman-generator');
 const { camelCase, kebabCase, snakeCase } = require('lodash');
+const rename = require('gulp-rename');
 
 const { PATH_APPS } = require('../../particle.root.config');
 
@@ -17,6 +20,8 @@ const { PATH_APPS } = require('../../particle.root.config');
 const PL_APP_CONFIG_FILE = 'patternlab-config.json';
 // _patterns is sacred
 const PATTERNS_FOLDER = '_patterns';
+// PL-specific folder within app
+const PL_FOLDER = 'pattern-lab';
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -31,8 +36,27 @@ module.exports = class extends Generator {
   // Helper methods in yeoman start with _
   _componentPathString(temp) {
     return temp
-      ? join(...this.componentPath, temp)
+      ? join(...this.componentPath, ...temp)
       : join(...this.componentPath);
+  }
+
+  get _appComponentPath() {
+    const { name, patternType } = this.props;
+    const { APP_PATH } = this.particleApp;
+
+    return join(
+      APP_PATH,
+      PL_FOLDER,
+      PATTERNS_FOLDER,
+      `${patternType}-demo`,
+      name
+    );
+  }
+
+  get _dsComponentPath() {
+    const { name, patternType } = this.props;
+
+    return this._componentPathString([patternType, name]);
   }
 
   // Any non-underscore function between here are initializing() will run in order
@@ -84,10 +108,13 @@ module.exports = class extends Generator {
         message: 'Where would you like this new component?',
         choices({ chooseApp }) {
           console.log(self.plConfigs);
-          // Design system folder
-          const { APP_DESIGN_SYSTEM } = self.plConfigs.find(
+          // Set the config for the app in a shared place
+          self.particleApp = self.plConfigs.find(
             ({ APP_NAME }) => APP_NAME === chooseApp
           );
+          // Design system folder
+          const { APP_DESIGN_SYSTEM } = self.particleApp;
+
           // Build up the path array
           self.componentPath.push(...[APP_DESIGN_SYSTEM, PATTERNS_FOLDER]);
           // Return array of atomic folders
@@ -109,7 +136,7 @@ module.exports = class extends Generator {
       // To access props later use this.props.someAnswer;
       this.props = {
         ...props,
-        dashlessName: props.name.replace(/-/g, ''),
+        // 'name' already exists as kebab-case-name (dashes)
         underscoreName: snakeCase(props.name),
         camelCaseName: camelCase(props.name),
         cleanPatternType: props.patternType.replace(/([0-9])\w+-/g, ''),
@@ -119,74 +146,36 @@ module.exports = class extends Generator {
 
   // Reserved: write out the results
   writing() {
-    const { files, patternSubType, name } = this.props;
+    const { name } = this.props;
 
-    // componentPath = join(componentPath, patternSubType, name);
+    // Convert 'patterns.twig.ejs' to 'cards.twig'
+    this.registerTransformStream(
+      rename(path => {
+        // basename is 'patterns.twig' here
+        const ext = extname(path.basename);
+        // Original extname was '.ejs', change it to ext, which is now '.twig'
+        path.extname = ext;
+        // Remove extension ('.twig') from basename, replace 'pattern" with name
+        path.basename = path.basename.replace(ext, '').replace('pattern', name);
+        return path;
+      })
+    );
 
-    this.log(this.props);
-
-    /*
-     * generatorAssets has a key for each file type that Particle creates.
-     * Each of those is an array of objects, each of which must contain
-     * the properties templatePath and destinationPath. These arrays are
-     * looped over in the function below. The array pattern is necessary
-     * to accommodate the varying number of files generated for each type.
-     */
-
-    // const generatorAssets = {
-    //   scss: [
-    //     {
-    //       templatePath: '_pattern.scss',
-    //       destinationPath: join(componentPath, `_${name}.scss`),
-    //     },
-    //   ],
-    //   twig: [
-    //     {
-    //       templatePath: '_pattern.twig',
-    //       destinationPath: join(componentPath, `_${name}.twig`),
-    //     },
-    //   ],
-    //   js: [
-    //     {
-    //       templatePath: 'pattern.js',
-    //       destinationPath: join(componentPath, 'index.js'),
-    //     },
-    //     {
-    //       templatePath: 'pattern-test.js',
-    //       destinationPath: join(componentPath, '__tests__', `${name}.test.js`),
-    //     },
-    //   ],
-    //   demo: [
-    //     {
-    //       templatePath: 'demo-pattern.twig',
-    //       destinationPath: join(componentPath, 'demo', `${name}s.twig`),
-    //     },
-    //     {
-    //       templatePath: 'demo-pattern.js',
-    //       destinationPath: join(componentPath, 'demo', 'index.js'),
-    //     },
-    //     {
-    //       templatePath: 'pattern.yml',
-    //       destinationPath: join(componentPath, 'demo', `${name}s.yml`),
-    //     },
-    //   ],
-    // };
-
-    /* Loop over all the selected files and populate the template according to
-     * the pattern structure in generatorAssets.
-     */
-    // files.forEach(fileType => {
-    //   generatorAssets[fileType].forEach(file => {
-    //     this.fs.copyTpl(
-    //       this.templatePath(file.templatePath),
-    //       this.destinationPath(file.destinationPath),
-    //       this.props
-    //     );
-    //   });
-    // });
+    // Copy and process all design system files
+    this.fs.copyTpl(
+      this.templatePath('ds/**/*.ejs'),
+      this._dsComponentPath,
+      this.props
+    );
+    // Copy and process all app files
+    this.fs.copyTpl(
+      this.templatePath('app/**/*.ejs'),
+      this._appComponentPath,
+      this.props
+    );
 
     this.log(
-      `Your new component ${name} is being created. It should be available in your bundle!`
+      `Your new component ${name} is being created, both as a raw component within your design system and demo folder within your Pattern Lab`
     );
   }
 };

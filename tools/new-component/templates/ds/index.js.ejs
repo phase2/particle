@@ -13,10 +13,10 @@ import './_<%= name %>.scss';
 // Module template
 import './_<%= name %>.twig';
 
-export const name = '<%= camelCaseName %>';
+export const name = '<%= name %>';
 
 export const defaults = {
-  dummyClass: 'js-<%= camelCaseName %>-exists',
+  dummyClass: 'js-<%= name %>-exists',
 };
 
 /**
@@ -39,7 +39,7 @@ export function disable($context, settings) {}
  */
 export function enable($context, { <%= camelCaseName %> = {} }) {
   // Find our component within the DOM
-  const $<%= camelCaseName %> = $('.<%= camelCaseName %>', $context);
+  const $<%= camelCaseName %> = $('.<%= name %>', $context);
   // Bail if component does not exist
   if (!$<%= camelCaseName %>.length) {
     return;
