@@ -14,7 +14,7 @@ const Generator = require('yeoman-generator');
 const { camelCase, kebabCase, snakeCase } = require('lodash');
 const rename = require('gulp-rename');
 
-const { PATH_APPS } = require('../../particle.root.config');
+const { PATH_APPS } = require('../../../../../particle.root.config');
 
 // The name of a file that indicates a Pattern Lab application
 const PL_APP_CONFIG_FILE = 'patternlab-config.json';

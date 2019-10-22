@@ -36,9 +36,11 @@
     "test:pa11y": "pa11y-ci --config tools/tests/accessibility/pa11y.js",
     "test:unit:default": "NODE_ENV=test jest --projects source/default/",
     "test:unit": "npm run test:unit:default",
+    "test:tools:generators": "NODE_ENV=test jest --projects tools/generators/",
     "test": "npm run test:unit",
     "ci": "npm run lint && npm run test && npm run build:pl && npm run build:drupal",
-    "new": "yo ./tools/new-component/index.js"
+    "new": "yo new-component",
+    "postinstall": "cd tools/generators/new-component && npm link"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -79,7 +81,6 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.2.3",
     "file-loader": "^4.2.0",
-    "gulp-rename": "<=1.2.2",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^2.1.2",
     "jest-vue-preprocessor": "^1.7.0",
@@ -108,7 +109,6 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2",
-    "yeoman-generator": "^4.1.0",
     "yo": "^3.1.0"
   }
 }
