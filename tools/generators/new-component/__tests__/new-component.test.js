@@ -4,10 +4,9 @@
 // test('sanity check', () => {
 //   expect(1).toEqual(1);
 // });
-
-// Does not currently work
+//
+// Currently not compatible with yeoman-generator@^4.1.0
 // it('generates a project', () => {
-//   console.log(__dirname);
 //   return helpers
 //     .run(join(__dirname, '../generators/app'))
 //     .withPrompts({
