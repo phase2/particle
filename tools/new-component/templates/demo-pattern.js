@@ -11,10 +11,8 @@ import '<%= cleanPatternType %>/<%= name %>';
 // Import demo assets
 import twig from './<%= name %>s.twig';
 import yaml from './<%= name %>s.yml';
-import markdown from './<%= name %>s.md';
 
 export default {
   twig,
   yaml,
-  markdown,
 };

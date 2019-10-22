@@ -120,10 +120,6 @@ module.exports = class extends Generator {
           destinationPath: join(componentPath, 'demo', 'index.js'),
         },
         {
-          templatePath: 'pattern.md',
-          destinationPath: join(componentPath, 'demo', `${name}s.md`),
-        },
-        {
           templatePath: 'pattern.yml',
           destinationPath: join(componentPath, 'demo', `${name}s.yml`),
         },
