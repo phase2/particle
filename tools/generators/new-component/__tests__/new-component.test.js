@@ -1,9 +1,9 @@
-const helpers = require('yeoman-test');
-const { join } = require('path');
-
-test('sanity check', () => {
-  expect(1).toEqual(1);
-});
+// const helpers = require('yeoman-test');
+// const { join } = require('path');
+//
+// test('sanity check', () => {
+//   expect(1).toEqual(1);
+// });
 
 // Does not currently work
 // it('generates a project', () => {
