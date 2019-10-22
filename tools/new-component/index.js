@@ -3,7 +3,7 @@
 /**
  * @file
  *
- * Enfornce some of the business logic within Particle around components and
+ * Enforce some of the business logic within Particle around components and
  * where they live.
  */
 
@@ -18,6 +18,8 @@ const { PATH_APPS } = require('../../particle.root.config');
 
 // The name of a file that indicates a Pattern Lab application
 const PL_APP_CONFIG_FILE = 'patternlab-config.json';
+// All Particle apps have a config file
+const PARTICLE_APP_CONFIG_FILE = 'particle.app.config.js';
 // _patterns is sacred
 const PATTERNS_FOLDER = '_patterns';
 // PL-specific folder within app
@@ -27,19 +29,13 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    // Array of path segments where the component will eventually be created
-    this.componentPath = [];
     // The chosen app
     this.particleApp = {};
   }
 
   // Helper methods in yeoman start with _
-  _componentPathString(temp) {
-    return temp
-      ? join(...this.componentPath, ...temp)
-      : join(...this.componentPath);
-  }
 
+  // Return path to the app's component folder
   get _appComponentPath() {
     const { name, patternType } = this.props;
     const { APP_PATH } = this.particleApp;
@@ -53,10 +49,12 @@ module.exports = class extends Generator {
     );
   }
 
+  // Return path to the design system's component folder
   get _dsComponentPath() {
     const { name, patternType } = this.props;
+    const { APP_DESIGN_SYSTEM } = this.particleApp;
 
-    return this._componentPathString([patternType, name]);
+    return join(APP_DESIGN_SYSTEM, PATTERNS_FOLDER, patternType, name);
   }
 
   // Any non-underscore function between here are initializing() will run in order
@@ -73,7 +71,7 @@ module.exports = class extends Generator {
         const config = require(join(
           PATH_APPS,
           folder,
-          'particle.app.config.js'
+          PARTICLE_APP_CONFIG_FILE
         ));
 
         return [...acc, config];
@@ -107,7 +105,6 @@ module.exports = class extends Generator {
         name: 'patternType',
         message: 'Where would you like this new component?',
         choices({ chooseApp }) {
-          console.log(self.plConfigs);
           // Set the config for the app in a shared place
           self.particleApp = self.plConfigs.find(
             ({ APP_NAME }) => APP_NAME === chooseApp
@@ -115,10 +112,8 @@ module.exports = class extends Generator {
           // Design system folder
           const { APP_DESIGN_SYSTEM } = self.particleApp;
 
-          // Build up the path array
-          self.componentPath.push(...[APP_DESIGN_SYSTEM, PATTERNS_FOLDER]);
-          // Return array of atomic folders
-          return readdirSync(self._componentPathString(), {
+          // Return array of atomic folders within the app's design system
+          return readdirSync(join(APP_DESIGN_SYSTEM, PATTERNS_FOLDER), {
             withFileTypes: true,
           }).filter(folder => folder.isDirectory());
         },
@@ -148,7 +143,8 @@ module.exports = class extends Generator {
   writing() {
     const { name } = this.props;
 
-    // Convert 'patterns.twig.ejs' to 'cards.twig'
+    // Convert 'patterns.twig.ejs' to 'cards.twig'. registerTransformStream is
+    // a reserved method to which Yeoman provides all file streams from copyTpl()
     this.registerTransformStream(
       rename(path => {
         // basename is 'patterns.twig' here
@@ -175,7 +171,7 @@ module.exports = class extends Generator {
     );
 
     this.log(
-      `Your new component ${name} is being created, both as a raw component within your design system and demo folder within your Pattern Lab`
+      `Your new component ${name} is being created, both as a raw component within your design system and demo folder within your Pattern Lab.`
     );
   }
 };
