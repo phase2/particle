@@ -90,7 +90,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
+    "pretty-quick": "^2.0.0",
     "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
