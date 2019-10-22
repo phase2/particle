@@ -1,0 +1,28 @@
+// The non-printing variables, functions, and mixins of
+//   @import ~tokens/sass/non-printing/non-printing;
+// are provided to this file via:
+//   webpack.particle.js: sass-loader.data|includePaths
+
+.basic-page {
+  @include full-width();
+
+  @include media-breakpoint-up(md) {
+    @include full-width($undo: true);
+    position: relative;
+  }
+  @include media-breakpoint-up(xl) {
+    width: rem-calc(1200px);
+  }
+
+  &__inner {
+    padding: rem-calc(50px 20px);
+
+    @include media-breakpoint-up(md) {
+      padding: rem-calc(50px);
+    }
+
+    p {
+      line-height: 2;
+    }
+  }
+}

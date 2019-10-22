@@ -1,0 +1,14 @@
+{% extends '@templates/site-container.twig' %}
+  {% block content %}
+
+    {% embed '@templates/basic-page/_basic-page.twig' %}
+
+      {% block content %}
+        {% include '@organisms/article/_article.twig' with {
+          article: article_demo
+        } %}
+      {% endblock content %}
+
+    {% endembed %}
+
+  {% endblock %}

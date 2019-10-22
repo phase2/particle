@@ -19,7 +19,7 @@ const { PATH_DIST } = require('../../particle.root.config');
 // Constants: app
 const appConfig = require('./particle.app.config');
 
-const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
+const { APP_NAME, APP_PATH, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 
 const shared = {
   entry: {
@@ -41,7 +41,7 @@ const shared = {
               functions: {
                 ...sassExportData({
                   name: 'export_data',
-                  path: path.resolve(appConfig.APP_DESIGN_SYSTEM, '_data/'),
+                  path: path.resolve(APP_PATH, 'pattern-lab/_data/'),
                 }),
               },
             },

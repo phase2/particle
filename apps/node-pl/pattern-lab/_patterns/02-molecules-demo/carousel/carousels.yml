@@ -1,0 +1,70 @@
+carousel_1:
+  carousel_images:
+    - active: TRUE
+      src: https://images.unsplash.com/photo-1533282960533-51328aa49826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+    - active: FALSE
+      src: https://images.unsplash.com/photo-1442033025416-c6a7da752d71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+    - active: FALSE
+      src: https://images.unsplash.com/photo-1550331976-0b9cc48c4d78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+
+carousel_2:
+  carousel_controls: TRUE
+  carousel_images:
+    - active: TRUE
+      src: https://images.unsplash.com/photo-1533282960533-51328aa49826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+    - active: FALSE
+      src: https://images.unsplash.com/photo-1442033025416-c6a7da752d71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+    - active: FALSE
+      src: https://images.unsplash.com/photo-1550331976-0b9cc48c4d78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+
+carousel_3:
+  carousel_controls: TRUE
+  carousel_indicators:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+  carousel_images:
+    - active: TRUE
+      src: https://images.unsplash.com/photo-1533282960533-51328aa49826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+    - active: FALSE
+      src: https://images.unsplash.com/photo-1442033025416-c6a7da752d71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+    - active: FALSE
+      src: https://images.unsplash.com/photo-1550331976-0b9cc48c4d78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+
+carousel_4:
+  carousel_controls: TRUE
+  carousel_caption: TRUE
+  carousel_indicators:
+    - active: TRUE
+    - active: FALSE
+    - active: FALSE
+  carousel_images:
+    - active: TRUE
+      src: https://images.unsplash.com/photo-1533282960533-51328aa49826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+      caption_title: 'First slide label'
+      caption_body: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    - active: FALSE
+      src: https://images.unsplash.com/photo-1442033025416-c6a7da752d71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+      caption_title: 'Second slide label'
+      caption_body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    - active: FALSE
+      src: https://images.unsplash.com/photo-1550331976-0b9cc48c4d78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1140&h=385&q=80
+      variant: 'primary'
+      caption_title: 'Third slide label'
+      caption_body: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+
+alert:
+  type: 'info'
+  alert_title: 'Carousel in Pattern Lab'
+  alert_primary: 'Please note that clicking carousel control arrows skips page down to that element due to the Pattern Lab iFrame. To see the Carousel outside of the iFrame, either click the gear icon at the top right of the page and select "Open in New Window" or right-click the control and select "open in new tab."'
