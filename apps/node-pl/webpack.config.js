@@ -41,7 +41,7 @@ const shared = {
               functions: {
                 ...sassExportData({
                   name: 'export_data',
-                  path: path.resolve(APP_PATH, '_data/'),
+                  path: path.resolve(APP_PATH, 'pattern-lab/_data/'),
                 }),
               },
             },
