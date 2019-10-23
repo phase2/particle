@@ -37,12 +37,14 @@ const shared = {
           {
             loader: 'sass-loader',
             options: {
-              // Used to generate JSON about variables like colors, fonts
-              functions: {
-                ...sassExportData({
-                  name: 'export_data',
-                  path: path.resolve(APP_PATH, 'pattern-lab/_data/'),
-                }),
+              sassOptions: {
+                // Used to generate JSON about variables like colors, fonts
+                functions: {
+                  ...sassExportData({
+                    name: 'export_data',
+                    path: path.resolve(APP_PATH, 'pattern-lab/_data/'),
+                  }),
+                },
               },
             },
           },

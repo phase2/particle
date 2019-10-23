@@ -73,7 +73,9 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              outputStyle: 'compressed',
+              sassOptions: {
+                outputStyle: 'compressed',
+              },
             },
           },
         ],
@@ -127,8 +129,6 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         sourceMap: NODE_ENV === 'production',
-        cache: true,
-        parallel: true,
       }),
     ],
   },
