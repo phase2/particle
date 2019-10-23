@@ -73,7 +73,9 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              outputStyle: 'compressed',
+              sassOptions: {
+                outputStyle: 'compressed',
+              },
             },
           },
         ],
