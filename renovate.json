@@ -1,0 +1,15 @@
+{
+  "extends": ["config:base"],
+  "baseBranches": ["master"],
+  "bumpVersion": null,
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "updateTypes": ["minor"],
+      "automerge": true
+    }
+  ],
+  "prHourlyLimit": 5,
+  "prConcurrentLimit": 10,
+  "rangeStrategy": "bump"
+}
