@@ -46,7 +46,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@pattern-lab/cli": "^1.0.4",
-    "@pattern-lab/core": "^3.0.5",
+    "@pattern-lab/core": "^5.0.0",
     "@pattern-lab/engine-twig-php": "^3.0.6",
     "@pattern-lab/uikit-workshop": "^1.0.8",
     "bootstrap": "^4.3.1",
