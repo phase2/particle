@@ -1,26 +1,27 @@
 {
   "scssColors": {
-    "primary": "rgb(0, 123, 255)",
-    "secondary": "rgb(108, 117, 125)",
-    "success": "rgb(40, 167, 69)",
-    "info": "rgb(23, 162, 184)",
-    "warning": "rgb(255, 193, 7)",
-    "danger": "rgb(220, 53, 69)",
-    "light": "rgb(244, 244, 244)",
-    "dark": "rgb(43, 43, 43)",
-    "pink": "rgb(255, 192, 203)",
-    "goldenrod": "rgb(218, 165, 32)"
+    "primary": "rgba(0, 123, 255, 1)",
+    "secondary": "rgba(108, 117, 125, 1)",
+    "success": "rgba(40, 167, 69, 1)",
+    "info": "rgba(23, 162, 184, 1)",
+    "warning": "rgba(255, 193, 7, 1)",
+    "danger": "rgba(220, 53, 69, 1)",
+    "light": "rgba(244, 244, 244, 1)",
+    "dark": "rgba(43, 43, 43, 1)",
+    "pink": "rgba(255, 192, 203, 1)",
+    "goldenrod": "rgba(218, 165, 32, 1)"
   },
   "primaryColors": {
-    "pink": "rgb(255, 192, 203)",
-    "goldenrod": "rgb(218, 165, 32)"
+    "pink": "rgba(255, 192, 203, 1)",
+    "goldenrod": "rgba(218, 165, 32, 1)",
+    "derpcolor": "rgba(255, 255, 222, 0.7)"
   },
   "neutralHues": {
-    "lightest-gray": "rgb(244, 244, 244)",
-    "light-gray": "rgb(228, 228, 228)",
-    "gray": "rgb(213, 213, 213)",
-    "dark-gray": "rgb(182, 182, 182)",
-    "darkest-gray": "rgb(43, 43, 43)"
+    "lightest-gray": "rgba(244, 244, 244, 1)",
+    "light-gray": "rgba(228, 228, 228, 1)",
+    "gray": "rgba(213, 213, 213, 1)",
+    "dark-gray": "rgba(182, 182, 182, 1)",
+    "darkest-gray": "rgba(43, 43, 43, 1)"
   },
   "scssBreakpoints": {
     "xs": 0,
@@ -39,10 +40,10 @@
     "6": "4rem"
   },
   "fontFamilies": {
-    "$font-family-sans-serif": "Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif",
-    "$font-family-serif": "Oswald,Times New Roman,serif",
-    "$font-family-monospace": "Source Code Pro,Courier New,monospace",
-    "$headings-font-family": "Oswald,Times New Roman,serif"
+    "$font-family-sans-serif": "Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif",
+    "$font-family-serif": "Oswald, Times New Roman, serif",
+    "$font-family-monospace": "Source Code Pro, Courier New, monospace",
+    "$headings-font-family": "Oswald, Times New Roman, serif"
   },
   "fontSizes": {
     "base": "1rem",

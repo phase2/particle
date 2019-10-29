@@ -10,6 +10,7 @@ const sassExportData = require('@theme-tools/sass-export-data');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
+const sassExportData = require('../../tools/sass/sass-export-data');
 const particle = require('../../particle');
 
 // Constants: environment
@@ -40,10 +41,11 @@ const shared = {
               sassOptions: {
                 // Used to generate JSON about variables like colors, fonts
                 functions: {
-                  ...sassExportData({
-                    name: 'export_data',
-                    path: path.resolve(APP_PATH, 'pattern-lab/_data/'),
-                  }),
+                  'export_data($file, $value)': sassExportData(path.resolve(APP_PATH, 'pattern-lab/_data/')),
+                  // ...sassExportData({
+                  //   name: 'export_data',
+                  //   path: path.resolve(APP_PATH, 'pattern-lab/_data/'),
+                  // }),
                 },
               },
             },
