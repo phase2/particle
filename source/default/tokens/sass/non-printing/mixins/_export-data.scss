@@ -9,8 +9,7 @@
  *
 */
 @mixin export-data($filename, $var) {
-  @debug 'export-data called herp';
-  @debug $svgicons;
+  // @debug 'export-data called';
 
   // The `export_data` function is a custom function added to Sass.
   // The `$data` var is weird, but needed.
