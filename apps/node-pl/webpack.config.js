@@ -41,7 +41,7 @@ const shared = {
               sassOptions: {
                 // Used to generate JSON about variables like colors, fonts
                 functions: {
-                  'export_data($file, $value)': sassExportData(
+                  'export-data($file, $value)': sassExportData(
                     path.resolve(APP_PATH, 'pattern-lab/_data/')
                   ),
                 },

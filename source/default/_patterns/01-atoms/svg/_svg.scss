@@ -5,9 +5,11 @@
 // are provided to this file via:
 //   webpack.particle.js: sass-loader.data|includePaths
 
+@use '~tokens/sass/non-printing/mixins/svg-elements';
+
 .svg--colorable {
   // Set svg elements to current color.
-  @include svg-elements() {
+  @include svg-elements.svg-elements() {
     color: currentColor;
     fill: currentColor;
   }
@@ -26,7 +28,7 @@
   }
 
   // Set svgicon elements to current color.
-  @include svg-elements() {
+  @include svg-elements.svg-elements() {
     color: currentColor;
     fill: currentColor;
   }

@@ -13,7 +13,7 @@ import 'molecules/card';
 import './_accordion.twig';
 
 // Module styles
-import './_accordion.scss';
+// import './_accordion.scss';
 
 export const name = 'accordion';
 

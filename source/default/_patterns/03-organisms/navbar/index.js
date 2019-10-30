@@ -11,7 +11,7 @@ import 'protons';
 import './_navbar.twig';
 
 // Import custom sass, includes Bootstrap sass
-import './_navbar.scss';
+// import './_navbar.scss';
 
 export const name = 'navbar';
 

@@ -13,7 +13,7 @@ import 'atoms/image';
 import './_carousel.twig';
 
 // Module styles
-import './_carousel.scss';
+// import './_carousel.scss';
 
 export const name = 'carousel';
 

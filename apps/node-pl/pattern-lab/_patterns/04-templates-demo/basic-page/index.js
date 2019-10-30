@@ -6,7 +6,7 @@
 import 'protons';
 
 // Module styles
-import './_basic-page.scss';
+// import './_basic-page.scss';
 
 // Module template
 import './_basic-page.twig';

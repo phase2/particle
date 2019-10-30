@@ -9,7 +9,7 @@ import 'protons';
 import './_footer.twig';
 
 // Module styles
-import './_footer.scss';
+// import './_footer.scss';
 
 export const name = 'footer';
 

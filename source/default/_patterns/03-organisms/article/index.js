@@ -9,7 +9,7 @@ import 'protons';
 import './_article.twig';
 
 // Module styles
-import './_article.scss';
+// import './_article.scss';
 
 export const name = 'article';
 

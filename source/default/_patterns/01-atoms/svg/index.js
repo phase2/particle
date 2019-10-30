@@ -10,7 +10,7 @@ import 'protons';
 import fontawesome from './fontawesome';
 
 // Module styles
-import './_svg.scss';
+// import './_svg.scss';
 
 // Module template
 import './_svg.twig';

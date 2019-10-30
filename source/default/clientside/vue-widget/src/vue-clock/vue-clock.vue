@@ -94,77 +94,77 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$clock-radius: 100px;
-$hand-thickness: 6px;
+// $clock-radius: 100px;
+// $hand-thickness: 6px;
 
-.clock {
-  position: relative;
-  background-color: white;
-  width: $clock-radius * 2;
-  height: $clock-radius * 2;
-  border-radius: 50%;
-  border: solid 2px;
-}
-.clock-face {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  // rotate(90deg) because divs sit horizontally by default
-  // translateY(-3px) because hand height affects positioning
-  transform: rotate(90deg) translateY(-$hand-thickness/2);
-}
-.hand {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: $hand-thickness;
-  width: 50%;
-  transform-origin: 100%;
-  // Pseudo elements are the visible hands
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: black;
-  }
-}
-.seconds-hand::after {
-  background: red;
-}
-.minutes-hand::after {
-  left: 10px;
-}
-.hours-hand::after {
-  left: 40px;
-}
-.salmon {
-  background-color: salmon;
-}
-.success {
-  background-color: $success;
-}
-.primary {
-  background-color: $primary;
-}
-.dark {
-  background-color: $dark;
-}
-.yellow {
-  background-color: $yellow;
-}
-.purple {
-  background-color: $purple;
-}
-.orange {
-  background-color: $orange;
-}
-.cyan {
-  background-color: $cyan;
-}
+// .clock {
+//   position: relative;
+//   background-color: white;
+//   width: $clock-radius * 2;
+//   height: $clock-radius * 2;
+//   border-radius: 50%;
+//   border: solid 2px;
+// }
+// .clock-face {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   // rotate(90deg) because divs sit horizontally by default
+//   // translateY(-3px) because hand height affects positioning
+//   transform: rotate(90deg) translateY(-$hand-thickness/2);
+// }
+// .hand {
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+//   height: $hand-thickness;
+//   width: 50%;
+//   transform-origin: 100%;
+//   // Pseudo elements are the visible hands
+//   &::after {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     background: black;
+//   }
+// }
+// .seconds-hand::after {
+//   background: red;
+// }
+// .minutes-hand::after {
+//   left: 10px;
+// }
+// .hours-hand::after {
+//   left: 40px;
+// }
+// .salmon {
+//   background-color: salmon;
+// }
+// .success {
+//   background-color: $success;
+// }
+// .primary {
+//   background-color: $primary;
+// }
+// .dark {
+//   background-color: $dark;
+// }
+// .yellow {
+//   background-color: $yellow;
+// }
+// .purple {
+//   background-color: $purple;
+// }
+// .orange {
+//   background-color: $orange;
+// }
+// .cyan {
+//   background-color: $cyan;
+// }
 </style>

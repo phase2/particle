@@ -9,7 +9,7 @@ import 'protons';
 import './_badge.twig';
 
 // Module styles
-import './_badge.scss';
+// import './_badge.scss';
 
 export const name = 'badge';
 

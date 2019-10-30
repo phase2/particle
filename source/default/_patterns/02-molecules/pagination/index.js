@@ -10,7 +10,7 @@ import 'atoms/svg';
 import './_pagination.twig';
 
 // Module styles
-import './_pagination.scss';
+// import './_pagination.scss';
 
 export const name = 'pagination';
 

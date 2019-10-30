@@ -11,7 +11,7 @@ import 'atoms/button';
 import './_card.twig';
 
 // Module styles
-import './_card.scss';
+// import './_card.scss';
 
 export const name = 'card';
 

@@ -12,7 +12,7 @@ import 'atoms/badge';
 import './_list-group.twig';
 
 // Import custom sass, includes Bootstrap sass
-import './_list-group.scss';
+// import './_list-group.scss';
 
 export const name = 'list-group';
 

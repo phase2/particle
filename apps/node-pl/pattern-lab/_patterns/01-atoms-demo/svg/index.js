@@ -9,7 +9,7 @@
 import 'atoms/svg';
 
 // Demo-only styles
-import './_svg--icon-demo.scss';
+// import './_svg--icon-demo.scss';
 
 // Import demo assets
 import twig from './svgs.twig';

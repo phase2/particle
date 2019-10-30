@@ -11,7 +11,7 @@ import 'atoms/button';
 import './_jumbotron.twig';
 
 // Module styles
-import './_jumbotron.scss';
+// import './_jumbotron.scss';
 
 export const name = 'jumbotron';
 
