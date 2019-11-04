@@ -6,6 +6,9 @@ Sass Variables to JSON Map
 */
 
 @use 'sass:meta';
+@use 'sass:map';
+
+@use '~atoms/svg/svg';
 
 // Customized Sass Mapping
 // Pulled from Bootstrap's _variables.scss
@@ -41,7 +44,7 @@ $vars: (
     // fontFamilies: $font-families-demo,
     // fontSizes: $font-sizes-demo,
     // fontWeights: $font-weights-demo,
-    // scssIcons: $svgicons,,,
+    scssIcons: svg.$svgicons,
 );
 
 // Exports JSON to pattern-lab/_data/sass-variables.json

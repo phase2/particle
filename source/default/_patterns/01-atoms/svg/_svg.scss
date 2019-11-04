@@ -1,11 +1,12 @@
 // Custom styles for svg
 
-// The non-printing variables, functions, and mixins of
-//   @import ~tokens/sass/non-printing/non-printing;
-// are provided to this file via:
-//   webpack.particle.js: sass-loader.data|includePaths
+@use 'sass:map';
 
+@use './scss/icons-generated' as svgicons;
 @use '~tokens/sass/non-printing/mixins/svg-elements';
+
+// Get the sprite names from generated scss in generated file
+$svgicons: map.keys(svgicons.$sprites);
 
 .svg--colorable {
   // Set svg elements to current color.
@@ -34,12 +35,10 @@
   }
 }
 
-// Get the sprite name from generated scss in generated file
-$svgicons: map-keys($sprites);
 // Loop over every SVG and create a CSS class for it
 @each $icon in $svgicons {
   .icon--#{$icon} {
-    @include sprite(#{$icon});
+    @include svgicons.sprite(#{$icon});
     display: inline-block;
     height: rem-calc(40px);
     width: rem-calc(40px);
@@ -49,7 +48,7 @@ $svgicons: map-keys($sprites);
 // Loop over every theme-color and create a CSS class to colorize it
 @each $color in map_keys($theme-colors) {
   .color-fill--#{$color} {
-    color: theme-color(#{$color});
+    color: bootstrap.theme-color(#{$color});
   }
 
   .color-stroke--#{$color} {
