@@ -27,13 +27,13 @@ Grayscale
   @see _colors.scss
 ----------------------------------------
 */
-$white: $c-white-base;
-$gray-100: map-get($neutral-hues, 'lightest-gray');
-$gray-200: map-get($neutral-hues, 'light-gray');
-$gray-300: map-get($neutral-hues, 'gray');
-$gray-500: map-get($neutral-hues, 'dark-gray');
-$gray-800: map-get($neutral-hues, 'darkest-gray');
-$black: $c-black-base;
+// $white: $c-white-base;
+// $gray-100: map-get($neutral-hues, 'lightest-gray');
+// $gray-200: map-get($neutral-hues, 'light-gray');
+// $gray-300: map-get($neutral-hues, 'gray');
+// $gray-500: map-get($neutral-hues, 'dark-gray');
+// $gray-800: map-get($neutral-hues, 'darkest-gray');
+// $black: $c-black-base;
 
 /*
 ----------------------------------------
@@ -45,7 +45,7 @@ Colors
   @see _colors.scss
 ----------------------------------------
 */
-$theme-colors: $color-aliases;
+// $theme-colors: $color-aliases;
 
 /*
 --------------------------------------------------------------------------------
@@ -60,10 +60,10 @@ Spacing System Overrides
 --------------------------------------------------------------------------------
 */
 
-$spacer: 1rem;
-$spacers: (
-  6: $spacer * 4,
-);
+// $spacer: 1rem;
+// $spacers: (
+//   6: $spacer * 4,
+// );
 
 /*
 --------------------------------------------------------------------------------
@@ -85,12 +85,12 @@ Font Families
 ----------------------------------------
 */
 
-$font-family-serif: map-get($font-families, 'serif');
-$font-family-sans-serif: map-get($font-families, 'sans');
-$font-family-monospace: map-get($font-families, 'monospace');
-$font-family-base: $font-family-sans-serif;
+// $font-family-serif: map-get($font-families, 'serif');
+// $font-family-sans-serif: map-get($font-families, 'sans');
+// $font-family-monospace: map-get($font-families, 'monospace');
+// $font-family-base: $font-family-sans-serif;
 
-$headings-font-family: $font-family-serif;
+// $headings-font-family: $font-family-serif;
 
 /*
 ----------------------------------------
@@ -131,9 +131,9 @@ Imports
   Imported after processors.
 ----------------------------------------
 */
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
+// @import '~bootstrap/scss/functions';
+// @import '~bootstrap/scss/variables';
+// @import '~bootstrap/scss/mixins';
 
 // Remove Unused Bootstrap Theme Colors
 // Use secondary for success
@@ -146,35 +146,40 @@ Imports
 //@import "~bootstrap/scss/functions"; //_bootstrap-overrides.scss
 //@import "~bootstrap/scss/variables"; //_bootstrap-overrides.scss
 //@import "~bootstrap/scss/mixins"; //_bootstrap-overrides.scss
-@import '~bootstrap/scss/root';
-@import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/type';
-@import '~bootstrap/scss/images';
-@import '~bootstrap/scss/code';
-@import '~bootstrap/scss/grid';
-@import '~bootstrap/scss/tables';
-@import '~bootstrap/scss/forms';
-@import '~bootstrap/scss/buttons';
-@import '~bootstrap/scss/transitions';
-@import '~bootstrap/scss/dropdown';
-@import '~bootstrap/scss/button-group';
-@import '~bootstrap/scss/input-group';
-@import '~bootstrap/scss/custom-forms';
-@import '~bootstrap/scss/nav';
-@import '~bootstrap/scss/navbar';
-@import '~bootstrap/scss/card';
-@import '~bootstrap/scss/breadcrumb';
-@import '~bootstrap/scss/pagination';
-@import '~bootstrap/scss/badge';
-@import '~bootstrap/scss/jumbotron';
-@import '~bootstrap/scss/alert';
-@import '~bootstrap/scss/progress';
-@import '~bootstrap/scss/media';
-@import '~bootstrap/scss/list-group';
-@import '~bootstrap/scss/close';
-@import '~bootstrap/scss/modal';
-@import '~bootstrap/scss/tooltip';
-@import '~bootstrap/scss/popover';
-@import '~bootstrap/scss/carousel';
-@import '~bootstrap/scss/utilities';
-@import '~bootstrap/scss/print';
+// @import '~bootstrap/scss/root';
+// @import '~bootstrap/scss/reboot';
+// @import '~bootstrap/scss/type';
+// @import '~bootstrap/scss/images';
+// @import '~bootstrap/scss/code';
+// @import '~bootstrap/scss/grid';
+// @import '~bootstrap/scss/tables';
+// @import '~bootstrap/scss/forms';
+// @import '~bootstrap/scss/buttons';
+// @import '~bootstrap/scss/transitions';
+// @import '~bootstrap/scss/dropdown';
+// @import '~bootstrap/scss/button-group';
+// @import '~bootstrap/scss/input-group';
+// @import '~bootstrap/scss/custom-forms';
+// @import '~bootstrap/scss/nav';
+// @import '~bootstrap/scss/navbar';
+// @import '~bootstrap/scss/card';
+// @import '~bootstrap/scss/breadcrumb';
+// @import '~bootstrap/scss/pagination';
+// @import '~bootstrap/scss/badge';
+// @import '~bootstrap/scss/jumbotron';
+// @import '~bootstrap/scss/alert';
+// @import '~bootstrap/scss/progress';
+// @import '~bootstrap/scss/media';
+// @import '~bootstrap/scss/list-group';
+// @import '~bootstrap/scss/close';
+// @import '~bootstrap/scss/modal';
+// @import '~bootstrap/scss/tooltip';
+// @import '~bootstrap/scss/popover';
+// @import '~bootstrap/scss/carousel';
+// @import '~bootstrap/scss/utilities';
+// @import '~bootstrap/scss/print';
+
+// Import, override, export Bootstrap
+@use '~bootstrap/scss/bootstrap';
+
+@forward '~bootstrap/scss/bootstrap';

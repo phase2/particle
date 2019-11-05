@@ -2,13 +2,18 @@
 /// All printing tokens
 ////
 
+@use 'sass:map';
+
+// Our customized Bootstrap
+@use '~tokens/sass/bootstrap';
+
 ////
 /// Root vars
 ////
 
 // Assign breakpoints to --variable at root for reference by Enquire breakpoints.
 :root {
-  --breakpoints: #{map-keys($grid-breakpoints)};
+  --breakpoints: #{map.keys(bootstrap.$grid-breakpoints)};
 }
 
 ////

@@ -7,6 +7,10 @@
 
 // This file is generated automatically from the webpack plugin
 @use './scss/icons-generated';
+// Our customized Bootstrap
+@use '~tokens/sass/bootstrap';
+// Helpers
+@use '~tokens/sass/utils/functions';
 
 /// Get the sprite names from generated scss in generated file
 $svgicons: map.keys(icons-generated.$sprites);
@@ -47,13 +51,13 @@ $svgicons: map.keys(icons-generated.$sprites);
 // Defaults for .svg--icon generated CSS
 .svg--icon {
   display: inline-block;
-  width: rem-calc(40px);
+  width: functions.rem-calc(40px);
 
   svg {
     display: block;
     width: rem-calc(300px);
     max-width: 100%;
-    max-height: rem-calc(300px);
+    max-height: functions.rem-calc(300px);
     height: auto;
   }
 
@@ -69,19 +73,19 @@ $svgicons: map.keys(icons-generated.$sprites);
   .icon--#{$icon} {
     @include icons-generated.sprite(#{$icon});
     display: inline-block;
-    height: rem-calc(40px);
-    width: rem-calc(40px);
+    height: functions.rem-calc(40px);
+    width: functions.rem-calc(40px);
   }
 }
 
 // Loop over every theme-color and create a CSS class to colorize it
-@each $color in map_keys($theme-colors) {
+@each $color in map.keys(bootstrap.$theme-colors) {
   .color-fill--#{$color} {
     color: bootstrap.theme-color(#{$color});
   }
 
   .color-stroke--#{$color} {
-    color: theme-color(#{$color});
+    color: bootstrap.theme-color(#{$color});
     svg {
       stroke: currentColor;
       fill: none;
