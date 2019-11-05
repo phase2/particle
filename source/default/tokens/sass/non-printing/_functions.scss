@@ -12,6 +12,14 @@ Operator Functions
 */
 
 /**
+ * Strip Unit
+ *   Remove unit from value.
+*/
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/**
  * Convert to Rem
  *   Does the main work of converting to a standardized unit by stripping a number
  *   and multiplying by the rem value.

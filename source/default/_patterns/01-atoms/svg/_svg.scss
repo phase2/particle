@@ -1,21 +1,50 @@
-// Custom styles for svg
+////
+/// SVG meta and CSS
+/// @group svg
+////
 
 @use 'sass:map';
 
-@use './scss/icons-generated' as svgicons;
-@use '~tokens/sass/non-printing/mixins/svg-elements';
+// This file is generated automatically from the webpack plugin
+@use './scss/icons-generated';
 
-// Get the sprite names from generated scss in generated file
-$svgicons: map.keys(svgicons.$sprites);
+/// Get the sprite names from generated scss in generated file
+$svgicons: map.keys(icons-generated.$sprites);
 
+/// List of svg elements so we don't have to type them all out multiple times.
+///
+/// @content Pass in your custom states to be wrapped by SVG elements
+///
+/// @example scss - Add currentColor to all SVG elements
+///   .thing {
+///     @include elements() {
+///       color: currentColor;
+///     }
+///   }
+@mixin elements() {
+  svg,
+  g,
+  circle,
+  ellipse,
+  line,
+  path,
+  polygon,
+  polyline,
+  rect,
+  text {
+    @content;
+  }
+}
+
+// Set svg elements to current color.
 .svg--colorable {
-  // Set svg elements to current color.
-  @include svg-elements.svg-elements() {
+  @include elements() {
     color: currentColor;
     fill: currentColor;
   }
 }
 
+// Defaults for .svg--icon generated CSS
 .svg--icon {
   display: inline-block;
   width: rem-calc(40px);
@@ -29,16 +58,16 @@ $svgicons: map.keys(svgicons.$sprites);
   }
 
   // Set svgicon elements to current color.
-  @include svg-elements.svg-elements() {
+  @include elements() {
     color: currentColor;
     fill: currentColor;
   }
 }
 
-// Loop over every SVG and create a CSS class for it
+// Loop over every custom-generated SVG and create a CSS class for it
 @each $icon in $svgicons {
   .icon--#{$icon} {
-    @include svgicons.sprite(#{$icon});
+    @include icons-generated.sprite(#{$icon});
     display: inline-block;
     height: rem-calc(40px);
     width: rem-calc(40px);
