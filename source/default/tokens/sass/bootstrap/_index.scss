@@ -9,6 +9,10 @@
 // Custom Particle vars
 @use '~tokens/sass/variables';
 
+// Remove Unused Bootstrap Theme Colors
+// Use secondary for success
+//$theme-colors: map-remove($theme-colors, 'success');
+
 // This is a dupe so we can reference below
 $bs-spacer: 1rem;
 
@@ -17,18 +21,16 @@ $bs-spacer: 1rem;
     
   // Bootstrap grays override
   // @see ~bootstrap/scss/variables:$grays
-  $white: map.get(variables.$grayscale, 'white'),
-  $gray-100: map.get(variables.$grayscale, 'lightest-gray'),
-  $gray-200: map.get(variables.$grayscale, 'light-gray'),
-  $gray-300: map.get(variables.$grayscale, 'gray'),
-  $gray-500: map.get(variables.$grayscale, 'dark-gray'),
-  $gray-800: map.get(variables.$grayscale, 'darkest-gray'),
-  $black: map.get(variables.$grayscale, 'black'),
-
+  $gray-100: map.get(variables.$colors, 'gray-light'),
+  $gray-500: map.get(variables.$colors, 'gray-medium'),
+  $gray-800: map.get(variables.$colors, 'gray-dark'),
 
   // Bootstrap theme colors override
   // @see ~bootstrap/scss/variables:$theme-color
-  $theme-colors: variables.$color-aliases,
+  $theme-colors: (
+    'pink': map.get(variables.$colors, 'pink'),
+    'goldenrod': map.get(variables.$colors, 'goldenrod'),
+  ),
   
   // Bootstrap spacers override
   // Bootstrap Spacers use $spacer var of 1rem and assumes browser 16px default.
