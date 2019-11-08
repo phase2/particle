@@ -7,95 +7,12 @@
 
 @use '~tokens/sass/variables';
 
-/*
---------------------------------------------------------------------------------
-Typography System Overrides
---------------------------------------------------------------------------------
-  Update Typography Values
-    Bootstrap Typography is a collection of type size vars
-    Font, line-height, and color for body text, headings, and more.
---------------------------------------------------------------------------------
-*/
-
-/*
-----------------------------------------
-Font Families
-----------------------------------------
-  Override base Font Family values
-----------------------------------------
-  @see non-printing/_type.scss
-----------------------------------------
-*/
-
-// $font-family-serif: map-get($font-families, 'serif');
-// $font-family-sans-serif: map-get($font-families, 'sans');
-// $font-family-monospace: map-get($font-families, 'monospace');
-// $font-family-base: $font-family-sans-serif;
-
-// $headings-font-family: $font-family-serif;
-
-/*
-----------------------------------------
-Font Sizes
-----------------------------------------
-  Override base Font Size values
-----------------------------------------
-  @see non-printing/_type.scss
-----------------------------------------
-*/
-
-//$font-size-sm:
-//$font-size-base:
-//$font-size-lg:
-
-/*
-----------------------------------------
-Font Weights
-----------------------------------------
-  Override base Font Size values
-----------------------------------------
-  @see non-printing/_type.scss
-----------------------------------------
-*/
-
-//$font-weight-lighter:
-//$font-weight-light:
-//$font-weight-normal:
-//$font-weight-bold:
-//$font-weight-bolder:
-//$font-weight-base: $font-weight-normal;
-
-// Remove Unused Bootstrap Theme Colors
-// Use secondary for success
-//$theme-colors: map-remove($theme-colors, 'success');
-
-
-
-/*
---------------------------------------------------------------------------------
-Spacing System Overrides
---------------------------------------------------------------------------------
-  Update Spacing Values
-    Bootstrap Spacers use $spacer var of 1rem and assumes browser 16px default.
-    The values in $spacers map adds the value to Bootstrap's utility spacers.
---------------------------------------------------------------------------------
-  @see bootstrap vars $spacer
-  @see bootstrap vars $spacers
---------------------------------------------------------------------------------
-*/
-
-// $spacer: 1rem;
-// $spacers: (
-//   6: $spacer * 4,
-// );
-
-// @use '~bootstrap/scss/variables' as bs-variables;
-
 ////
-/// Bootstrap Variable Customization
-/// Bootstrap base, overridable variables at:
+/// Bootstrap variable overrides
 /// @see ~bootstrap/scss/variables
 ////
+
+$bs-spacer: 1rem; // This is a dupe so we can reference below
 
 // Import, override Bootstrap
 @use './imports' with (
@@ -114,9 +31,20 @@ Spacing System Overrides
   // Bootstrap theme colors override
   // @see ~bootstrap/scss/variables:$theme-color
   $theme-colors: variables.$color-aliases,
-  // $spacers: (
-  //   6: $spacer * 4
-  // )
+  
+  // Bootstrap spacers override
+  // Bootstrap Spacers use $spacer var of 1rem and assumes browser 16px default.
+  // The values in $spacers map adds the value to Bootstrap's utility spacers.
+  // @see ~bootstrap/scss/variables:($spacer|$spacers)
+  $spacers: (
+    6: $bs-spacer * 4
+  ),
+
+  // Bootstrap font family overrides
+  // @see ~bootstrap/scss/variables:#Typography
+  $font-family-sans-serif: map.get(variables.$font-families, 'sans'),
+  $font-family-monospace: map.get(variables.$font-families, 'monospace'),
+  $headings-font-family: map.get(variables.$font-families, 'serif'),
 );
 
 // Export our customized Bootstrap for use elsewhere
