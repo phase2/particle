@@ -5,60 +5,37 @@
 /// @group variables
 ////
 
-/*
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-Color Variables
---------------------------------------------------------------------------------
-*/
+///
+/// Colors
+/// @group variables:colors
+///
 
-/*
-----------------------------------------
-Grayscale Colors
-----------------------------------------
-  Base color values are for reference.
-  Use directly from maps in code.
-----------------------------------------
-  @see $neutral-hues
-----------------------------------------
-*/
-$c-white-base: #fff;
-$c-gray-lightest: #f4f4f4;
-$c-gray-light: #e4e4e4;
-$c-gray-base: #d5d5d5;
-$c-gray-dark: #b6b6b6;
-$c-gray-darkest: #2b2b2b;
-$c-black-base: #000;
+///
+/// Colors: Grayscale
+/// Base color values are for reference. Use directly from maps in code.
+/// @group variables:colors
+///
+$grayscale: (
+  'white': #ffffff,
+  'lightest-gray': #f4f4f4,
+  'light-gray': #e4e4e4,
+  'gray': #d5d5d5,
+  'dark-gray': #b6b6b6,
+  'darkest-gray': #2b2b2b,
+  'black': #000000,
+);
 
-/*
-----------------------------------------
-Palette Colors
-----------------------------------------
-  Base color values are for reference.
-  Use directly from maps in code.
-----------------------------------------
-  @see $primary-colors
-  @see $secondary-colors
-----------------------------------------
-*/
+///
+/// Colors: Palette
+/// Base color values are for reference. Use directly from maps in code.
+/// @group variables:colors
+/// @see $primary-colors
+/// @see $secondary-colors
+///
 $c-pink-base: pink;
 $c-goldenrod-base: goldenrod;
 
-/*
-----------------------------------------
-Neutral Hues
-----------------------------------------
-  The neutral hue palette offers a
-  variety of gray-scale colors.
-----------------------------------------
-*/
-$neutral-hues: (
-  'lightest-gray': $c-gray-lightest,
-  'light-gray': $c-gray-light,
-  'gray': $c-gray-base,
-  'dark-gray': $c-gray-dark,
-  'darkest-gray': $c-gray-darkest,
-);
+
 
 /*
 ----------------------------------------

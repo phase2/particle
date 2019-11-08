@@ -1,31 +1,29 @@
 ////
 /// Bootstrap customizations and imports
+///
 /// @group libraries
-////
-
-@use 'sass:map';
-
-@use '~tokens/sass/variables';
-
-////
-/// Bootstrap variable overrides
 /// @see ~bootstrap/scss/variables
 ////
 
-$bs-spacer: 1rem; // This is a dupe so we can reference below
+@use 'sass:map';
+// Custom Particle vars
+@use '~tokens/sass/variables';
+
+// This is a dupe so we can reference below
+$bs-spacer: 1rem;
 
 // Import, override Bootstrap
 @use './imports' with (
     
   // Bootstrap grays override
   // @see ~bootstrap/scss/variables:$grays
-  $white: variables.$c-white-base,
-  $gray-100: map.get(variables.$neutral-hues, 'lightest-gray'),
-  $gray-200: map.get(variables.$neutral-hues, 'light-gray'),
-  $gray-300: map.get(variables.$neutral-hues, 'gray'),
-  $gray-500: map.get(variables.$neutral-hues, 'dark-gray'),
-  $gray-800: map.get(variables.$neutral-hues, 'darkest-gray'),
-  $black: variables.$c-black-base,
+  $white: map.get(variables.$grayscale, 'white'),
+  $gray-100: map.get(variables.$grayscale, 'lightest-gray'),
+  $gray-200: map.get(variables.$grayscale, 'light-gray'),
+  $gray-300: map.get(variables.$grayscale, 'gray'),
+  $gray-500: map.get(variables.$grayscale, 'dark-gray'),
+  $gray-800: map.get(variables.$grayscale, 'darkest-gray'),
+  $black: map.get(variables.$grayscale, 'black'),
 
 
   // Bootstrap theme colors override
