@@ -7,15 +7,14 @@
 @use 'sass:map';
 
 @use '~atoms/svg/svg';
+@use '~tokens/sass/variables';
 @use '~tokens/sass/bootstrap';
 
-// Customized Sass Mapping
-// Pulled from Bootstrap's _variables.scss
 $font-families-demo: (
-  // '$font-family-sans-serif': $font-family-sans-serif,
-    // '$font-family-serif': $font-family-serif,
-    // '$font-family-monospace': $font-family-monospace,
-    // '$headings-font-family': $headings-font-family,
+  '$font-family-sans-serif': bootstrap.$font-family-sans-serif,
+  '$font-family-monospace': bootstrap.$font-family-monospace,
+  '$headings-font-family': bootstrap.$headings-font-family,
+
 );
 
 $font-sizes-demo: (
@@ -32,17 +31,13 @@ $font-weights-demo: (
   bolder: bootstrap.$font-weight-bolder,
 );
 
-// $spacing-demo: $spacers;
-
 $vars: (
   flerp: 'blue',
   derp: 'green',
   scssColors: bootstrap.$theme-colors,
-  // primaryColors: $primary-colors,
-  // neutralHues: $neutral-hues,
   scssBreakpoints: bootstrap.$grid-breakpoints,
   scssSpacing: bootstrap.$spacers,
-  // fontFamilies: $font-families-demo,
+  fontFamilies: $font-families-demo,
   fontSizes: $font-sizes-demo,
   fontWeights: $font-weights-demo,
   scssIcons: svg.$svgicons,
