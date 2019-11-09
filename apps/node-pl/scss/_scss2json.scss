@@ -8,13 +8,12 @@
 
 @use '~atoms/svg/svg';
 @use '~tokens/sass/variables';
-@use '~tokens/sass/bootstrap';
+@use '~tokens/sass/libraries/bootstrap'; // @TODO: all these should be behind tokens
 
 $font-families-demo: (
   '$font-family-sans-serif': bootstrap.$font-family-sans-serif,
   '$font-family-monospace': bootstrap.$font-family-monospace,
   '$headings-font-family': bootstrap.$headings-font-family,
-
 );
 
 $font-sizes-demo: (

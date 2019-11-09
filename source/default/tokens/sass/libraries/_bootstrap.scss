@@ -46,7 +46,7 @@ $headings-font-family: map.get(variables.$font-families, 'serif');
 // Bootstrap modifications, e.g. remove Unused Bootstrap Theme Colors
 // $theme-colors: map.remove($theme-colors, 'success');
 
-// Bootstrap imports that require all config from above
+// Bootstrap imports that require all config from above, comment any unused
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/reboot';

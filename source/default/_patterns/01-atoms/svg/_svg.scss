@@ -8,8 +8,10 @@
 // This file is generated automatically from the webpack plugin
 @use './scss/icons-generated';
 // Our customized Bootstrap
-@use '~tokens/sass/bootstrap';
+// @TODO: consolidate all this behind tokens
+@use '~tokens/sass/libraries/bootstrap';
 // Helpers
+// @TODO: consolidate all behind tokens
 @use '~tokens/sass/utils/functions';
 
 /// Get the sprite names from generated scss in generated file
