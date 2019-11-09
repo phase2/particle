@@ -1,9 +1,3 @@
-// The non-printing variables, functions, and mixins of
-//   @import ~tokens/sass/non-printing/non-printing;
-// are provided to this file via:
-//   webpack.particle.js: sass-loader.data|includePaths
-
-// Add custom code here
 .nav {
   &--border {
     border-color: $light;
