@@ -13,9 +13,6 @@
 // @TODO: integrate this
 //$theme-colors: map-remove($theme-colors, 'success');
 
-// This is a dupe so we can reference below
-$bs-spacer: 1rem;
-
 // Import, override Bootstrap
 @use './imports' with (
     
@@ -37,7 +34,7 @@ $bs-spacer: 1rem;
   // The values in $spacers map adds the value to Bootstrap's utility spacers.
   // @see ~bootstrap/scss/variables:($spacer|$spacers)
   $spacers: (
-    6: $bs-spacer * 4
+    6: 1rem * 4,
   ),
 
   // Bootstrap font family overrides
