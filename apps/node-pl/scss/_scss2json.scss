@@ -9,6 +9,7 @@ Sass Variables to JSON Map
 @use 'sass:map';
 
 @use '~atoms/svg/svg';
+@use '~tokens/sass/bootstrap';
 
 // Customized Sass Mapping
 // Pulled from Bootstrap's _variables.scss
@@ -20,15 +21,17 @@ $font-families-demo: (
 );
 
 $font-sizes-demo: (
-  // base: $font-size-base,
-    // lg: $font-size-lg,
-    // sm: $font-size-sm,
+  base: bootstrap.$font-size-base,
+  lg: bootstrap.$font-size-lg,
+  sm: bootstrap.$font-size-sm,
 );
 
 $font-weights-demo: (
-  // light: $font-weight-light,
-    // normal: $font-weight-normal,
-    // bold: $font-weight-bold,
+  lighter: bootstrap.$font-weight-lighter,
+  light: bootstrap.$font-weight-light,
+  normal: bootstrap.$font-weight-normal,
+  bold: bootstrap.$font-weight-bold,
+  bolder: bootstrap.$font-weight-bolder,
 );
 
 // $spacing-demo: $spacers;
@@ -36,15 +39,15 @@ $font-weights-demo: (
 $vars: (
   flerp: 'blue',
   derp: 'green',
-  // scssColors: $theme-colors,
-    // primaryColors: $primary-colors,
-    // neutralHues: $neutral-hues,
-    // scssBreakpoints: $grid-breakpoints,
-    // scssSpacing: $spacing-demo,
-    // fontFamilies: $font-families-demo,
-    // fontSizes: $font-sizes-demo,
-    // fontWeights: $font-weights-demo,
-    scssIcons: svg.$svgicons,
+  scssColors: bootstrap.$theme-colors,
+  // primaryColors: $primary-colors,
+  // neutralHues: $neutral-hues,
+  scssBreakpoints: bootstrap.$grid-breakpoints,
+  scssSpacing: bootstrap.$spacers,
+  // fontFamilies: $font-families-demo,
+  fontSizes: $font-sizes-demo,
+  fontWeights: $font-weights-demo,
+  scssIcons: svg.$svgicons,
 );
 
 // Exports JSON to pattern-lab/_data/sass-variables.json
