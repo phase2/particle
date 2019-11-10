@@ -6,9 +6,10 @@ import enquire from 'enquire.js';
 
 import 'protons'; // Guarantees :root CSS variables referenced below
 
-import { sass2Array, cssVars2Obj } from '..';
+import { sass2Array, cssVars2Obj } from '.';
 
-import '../../../sass/printing/utilities/_breakpoints.scss'; // Custom, e.g. --breakpoints: xs, sm, md, lg, xl;
+// Sass tokens contain our :root { --breakpoints: xs, sm, md, lg }
+import '../../sass/index.scss';
 
 // Constants of design system
 const BP_VAR_NAME = '--breakpoints';

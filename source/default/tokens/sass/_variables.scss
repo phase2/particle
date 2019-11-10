@@ -31,9 +31,10 @@ $colors: (
 /// @group variables:typography
 ///
 // prettier-ignore
-$font-families: (sans: #{'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif},
-  monospace: #{'Source Code Pro', 'Courier New', monospace},
-  serif: #{'Oswald', 'Times New Roman', serif},
+$font-families: (
+  sans: 'Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif',
+  monospace: 'Source Code Pro, Courier New, monospace',
+  serif: 'Oswald, Times New Roman, serif',
 );
 
 ///
