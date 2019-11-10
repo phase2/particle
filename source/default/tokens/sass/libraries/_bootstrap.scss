@@ -8,7 +8,7 @@
 // Build in modules
 @use 'sass:map';
 // Custom Particle vars
-@use '~tokens/sass/variables';
+@use '../variables';
 
 // Bootstrap: functions must exist before variables
 @import '~bootstrap/scss/functions';

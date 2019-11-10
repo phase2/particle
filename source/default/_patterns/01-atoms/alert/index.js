@@ -11,7 +11,7 @@ import 'protons';
 import './_alert.twig';
 
 // Module styles
-// import './_alert.scss';
+import './_alert.scss';
 
 export const name = 'alert';
 

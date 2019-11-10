@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="vue-banner"
-    data-testid="banner"
-    :style="styles"
-    @click="bg = randomColor()"
-  >
+  <div class="vue-banner" data-testid="banner" :style="styles" @click="bg = randomColor()">
     <h3>
       <marquee>
         <span v-if="!username">{{ message }}</span>
@@ -61,18 +56,19 @@ export default {
 </script>
 
 <style lang="scss">
-// sass variables are provided by Webpack, but it is also possible to import.
+// Just a demo
+@use 'sass:map';
+@use '~tokens/sass';
 
-// This is mainly here to show that all variables and mixins are available to
-// Sass here.
-// .vue-banner {
-//   margin: map-get($spacers, 5);
-//   padding: map-get($spacers, 4);
-//   font-size: $font-size-lg;
-//   background-color: map-get($theme-colors, 'new');
+.vue-banner {
+  margin: map.get(sass.$bs-spacers, 5);
+  padding: map.get(sass.$bs-spacers, 4);
+  font-size: sass.$bs-font-size-lg;
+  // background-color: mapget($theme-colors, 'new');
+  background-color: sass.bs-theme-color('primary');
 
-//   h3 {
-//     color: map-get($theme-colors, 'light');
-//   }
-// }
+  h3 {
+    color: sass.bs-theme-color('light');
+  }
+}
 </style>

@@ -12,7 +12,7 @@ import './logo.svg';
 import './_branding.twig';
 
 // Module styles
-// import './_branding.scss';
+import './_branding.scss';
 
 export const name = 'branding';
 

@@ -9,7 +9,7 @@ import 'protons';
 import './_breadcrumb.twig';
 
 // Module styles
-// import './_breadcrumb.scss';
+import './_breadcrumb.scss';
 
 export const name = 'breadcrumb';
 

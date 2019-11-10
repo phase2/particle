@@ -1,6 +1,9 @@
+// Just a demo
+@use '~tokens/sass';
+
 .nav {
   &--border {
-    border-color: $light;
+    border-color: sass.bs-theme-color('light');
     border-style: solid;
   }
 }

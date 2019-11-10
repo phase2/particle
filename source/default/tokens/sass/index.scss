@@ -4,8 +4,17 @@
 
 @use 'sass:map';
 
+// Particle utils
+@use 'variables';
+@forward 'variables' as vars-*;
+@use 'utils/functions';
+@forward 'utils/functions' as functions-*;
+@use 'utils/mixins';
+@forward 'utils/mixins' as mixins-*;
+
 // Our customized Bootstrap
-@use '~tokens/sass/libraries/bootstrap';
+@use 'libraries/bootstrap';
+@forward 'libraries/bootstrap' as bs-*;
 
 ////
 /// Root vars

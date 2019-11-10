@@ -8,7 +8,7 @@ import $ from 'jquery';
 import 'protons';
 
 // Module styles
-// import './_image.scss';
+import './_image.scss';
 
 // Module template
 import './_image.twig';
