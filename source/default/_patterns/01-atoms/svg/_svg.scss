@@ -5,11 +5,11 @@
 
 // Built-in modules
 @use 'sass:map';
+// Particle tokens
+@use '~tokens/sass';
 // This file is generated automatically from the webpack plugin
 @use './scss/icons-generated';
 @forward './scss/icons-generated';
-// Particle tokens
-@use '~tokens/sass';
 
 /// Get the sprite names from generated scss in generated file
 $svgicons: map.keys(icons-generated.$sprites);

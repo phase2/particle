@@ -15,11 +15,7 @@ module.exports = {
         use: [
           {
             loader: 'sass-loader',
-            options: {
-              // ALL Sass partials will be provided with non-printing
-              // variables, mixins, and functions
-              // prependData: '@import "~tokens/sass/non-printing/non-printing";',
-            },
+            options: {},
           },
         ],
       },
