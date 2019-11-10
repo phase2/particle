@@ -1,19 +1,21 @@
-.basic-page {
-  @include full-width();
+@use '~tokens/sass';
 
-  @include media-breakpoint-up(md) {
-    @include full-width($undo: true);
+.basic-page {
+  @include sass.mixins-full-width();
+
+  @include sass.bs-media-breakpoint-up(md) {
+    @include sass.mixins-full-width($undo: true);
     position: relative;
   }
-  @include media-breakpoint-up(xl) {
-    width: rem-calc(1200px);
+  @include sass.bs-media-breakpoint-up(xl) {
+    width: sass.functions-rem-calc(1200px);
   }
 
   &__inner {
-    padding: rem-calc(50px 20px);
+    padding: sass.functions-rem-calc(50px 20px);
 
-    @include media-breakpoint-up(md) {
-      padding: rem-calc(50px);
+    @include sass.bs-media-breakpoint-up(md) {
+      padding: sass.functions-rem-calc(50px);
     }
 
     p {

@@ -3,37 +3,37 @@
 /// @group apps
 ////
 
+// Globals
 @use 'sass:meta';
 @use 'sass:map';
-
+// Custom
+@use '~tokens/sass';
 @use '~atoms/svg/svg';
-@use '~tokens/sass/variables';
-@use '~tokens/sass/libraries/bootstrap'; // @TODO: all these should be behind tokens
 
 $font-families-demo: (
-  '$font-family-sans-serif': bootstrap.$font-family-sans-serif,
-  '$font-family-monospace': bootstrap.$font-family-monospace,
-  '$headings-font-family': bootstrap.$headings-font-family,
+  '$font-family-sans-serif': sass.$bs-font-family-sans-serif,
+  '$font-family-monospace': sass.$bs-font-family-monospace,
+  '$headings-font-family': sass.$bs-headings-font-family,
 );
 
 $font-sizes-demo: (
-  base: bootstrap.$font-size-base,
-  lg: bootstrap.$font-size-lg,
-  sm: bootstrap.$font-size-sm,
+  base: sass.$bs-font-size-base,
+  lg: sass.$bs-font-size-lg,
+  sm: sass.$bs-font-size-sm,
 );
 
 $font-weights-demo: (
-  lighter: bootstrap.$font-weight-lighter,
-  light: bootstrap.$font-weight-light,
-  normal: bootstrap.$font-weight-normal,
-  bold: bootstrap.$font-weight-bold,
-  bolder: bootstrap.$font-weight-bolder,
+  lighter: sass.$bs-font-weight-lighter,
+  light: sass.$bs-font-weight-light,
+  normal: sass.$bs-font-weight-normal,
+  bold: sass.$bs-font-weight-bold,
+  bolder: sass.$bs-font-weight-bolder,
 );
 
 $vars: (
-  scssColors: bootstrap.$theme-colors,
-  scssBreakpoints: bootstrap.$grid-breakpoints,
-  scssSpacing: bootstrap.$spacers,
+  scssColors: sass.$bs-theme-colors,
+  scssBreakpoints: sass.$bs-grid-breakpoints,
+  scssSpacing: sass.$bs-spacers,
   fontFamilies: $font-families-demo,
   fontSizes: $font-sizes-demo,
   fontWeights: $font-weights-demo,

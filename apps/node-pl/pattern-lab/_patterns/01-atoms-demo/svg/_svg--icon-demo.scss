@@ -1,14 +1,17 @@
+@use '~tokens/sass';
+@use '~atoms/svg/svg';
+
 .svgicon-demo--particle-mixin-chevron-right {
-  @include sprite('chevron-right');
+  @include svg.sprite('chevron-right');
   height: rem-calc(40px);
   width: rem-calc(40px);
 }
 
 .svgicon-demo--particle-mixin-person {
-  @include sprite(
+  @include svg.sprite(
     'person',
     (
-      color: theme-color('primary'),
+      color: sass.bs-theme-color('primary'),
     )
   );
   width: rem-calc(40px);
