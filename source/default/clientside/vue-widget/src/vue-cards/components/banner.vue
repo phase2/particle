@@ -1,5 +1,10 @@
 <template>
-  <div class="vue-banner" data-testid="banner" :style="styles" @click="bg = randomColor()">
+  <div
+    class="vue-banner"
+    data-testid="banner"
+    :style="styles"
+    @click="bg = randomColor()"
+  >
     <h3>
       <marquee>
         <span v-if="!username">{{ message }}</span>
