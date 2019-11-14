@@ -63,17 +63,17 @@ export default {
 <style lang="scss">
 // Just a demo
 @use 'sass:map';
-@use '~tokens/sass';
+@use '~tokens/sass/utils';
 
 .vue-banner {
-  margin: map.get(sass.$bs-spacers, 5);
-  padding: map.get(sass.$bs-spacers, 4);
-  font-size: sass.$bs-font-size-lg;
+  margin: map.get(utils.$bs-spacers, 5);
+  padding: map.get(utils.$bs-spacers, 4);
+  font-size: utils.$bs-font-size-lg;
   // background-color: mapget($theme-colors, 'new');
-  background-color: sass.bs-theme-color('primary');
+  background-color: utils.bs-theme-color('primary');
 
   h3 {
-    color: sass.bs-theme-color('light');
+    color: utils.bs-theme-color('light');
   }
 }
 </style>

@@ -5,16 +5,13 @@
 @use 'sass:map';
 
 // Particle utils
-@use 'variables';
-@forward 'variables' as vars-*;
-@use 'utils/functions';
-@forward 'utils/functions' as functions-*;
-@use 'utils/mixins';
-@forward 'utils/mixins' as mixins-*;
+@use 'utils';
 
-// Our customized Bootstrap
+////
+/// Library printing
+////
+
 @use 'libraries/bootstrap';
-@forward 'libraries/bootstrap' as bs-*;
 
 ////
 /// Root vars
@@ -22,7 +19,7 @@
 
 // Assign breakpoints to --variable at root for reference by Enquire breakpoints.
 :root {
-  --breakpoints: #{map.keys(bootstrap.$grid-breakpoints)};
+  --breakpoints: #{map.keys(utils.$bs-grid-breakpoints)};
 }
 
 ////
@@ -33,7 +30,7 @@
 // Serif - Google Fonts - Oswald
 // Sans-Serif - Google Fonts - Open Sans
 // Monospace - Google Fonts - Source Code Pro
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Source+Code+Pro&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Source+Code+Pro&display=swap);
 
 // Example: Adobe Typekit. y0urh45h will need to be updated with your own key.
 // For more information on how to create your own kit and generate your

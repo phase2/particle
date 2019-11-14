@@ -61,12 +61,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '~tokens/sass';
+@use '~tokens/sass/utils';
 
 .card-hover:hover {
-  background-color: sass.bs-theme-color('light');
+  background-color: utils.bs-theme-color('light');
 }
 .scoped-background {
-  background-color: sass.bs-color('white');
+  background-color: utils.bs-color('white');
 }
 </style>

@@ -6,7 +6,7 @@
 // Built-in modules
 @use 'sass:map';
 // Particle tokens
-@use '~tokens/sass';
+@use '~tokens/sass/utils';
 // This file is generated automatically from the webpack plugin
 @use './scss/icons-generated';
 @forward './scss/icons-generated';
@@ -50,13 +50,13 @@ $svgicons: map.keys(icons-generated.$sprites);
 // Defaults for .svg--icon generated CSS
 .svg--icon {
   display: inline-block;
-  width: sass.functions-rem-calc(40px);
+  width: utils.functions-rem-calc(40px);
 
   svg {
     display: block;
     width: rem-calc(300px);
     max-width: 100%;
-    max-height: sass.functions-rem-calc(300px);
+    max-height: utils.functions-rem-calc(300px);
     height: auto;
   }
 
@@ -72,19 +72,19 @@ $svgicons: map.keys(icons-generated.$sprites);
   .icon--#{$icon} {
     @include icons-generated.sprite(#{$icon});
     display: inline-block;
-    height: sass.functions-rem-calc(40px);
-    width: sass.functions-rem-calc(40px);
+    height: utils.functions-rem-calc(40px);
+    width: utils.functions-rem-calc(40px);
   }
 }
 
 // Loop over every theme-color and create a CSS class to colorize it
-@each $color in map.keys(sass.$bs-theme-colors) {
+@each $color in map.keys(utils.$bs-theme-colors) {
   .color-fill--#{$color} {
-    color: sass.bs-theme-color(#{$color});
+    color: utils.bs-theme-color(#{$color});
   }
 
   .color-stroke--#{$color} {
-    color: sass.bs-theme-color(#{$color});
+    color: utils.bs-theme-color(#{$color});
     svg {
       stroke: currentColor;
       fill: none;

@@ -54,10 +54,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '~tokens/sass';
+@use '~tokens/sass/utils';
 // Make .active green for just these demo cards
 .active {
-  background-color: sass.bs-theme-color(
+  background-color: utils.bs-theme-color(
     'success'
   ); // Provided by our tokens Sass vars
 }

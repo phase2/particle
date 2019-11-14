@@ -10,7 +10,6 @@ import $ from 'jquery';
 // Ensure all assets required by demos are present.
 import 'protons';
 import 'templates/site-container.twig';
-import 'templates/basic-page';
 
 // Demo templates.
 import './article.twig';
@@ -18,7 +17,7 @@ import './homepage.twig';
 
 export const name = 'demoPages';
 
-export function disable() {}
+export function disable() { }
 
 export function enable(context = $(document), settings) {
   $('.homepage__header', context).css('color', settings.color);

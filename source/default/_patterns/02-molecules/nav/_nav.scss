@@ -1,9 +1,9 @@
 // Just a demo
-@use '~tokens/sass';
+@use '~tokens/sass/utils';
 
 .nav {
   &--border {
-    border-color: sass.bs-theme-color('light');
+    border-color: utils.bs-theme-color('light');
     border-style: solid;
   }
 }

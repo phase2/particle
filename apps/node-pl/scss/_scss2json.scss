@@ -7,33 +7,33 @@
 @use 'sass:meta';
 @use 'sass:map';
 // Custom
-@use '~tokens/sass';
+@use '~tokens/sass/utils';
 @use '~atoms/svg/svg';
 
 $font-families-demo: (
-  '$font-family-sans-serif': sass.$bs-font-family-sans-serif,
-  '$font-family-monospace': sass.$bs-font-family-monospace,
-  '$headings-font-family': sass.$bs-headings-font-family,
+  '$font-family-sans-serif': utils.$bs-font-family-sans-serif,
+  '$font-family-monospace': utils.$bs-font-family-monospace,
+  '$headings-font-family': utils.$bs-headings-font-family,
 );
 
 $font-sizes-demo: (
-  base: sass.$bs-font-size-base,
-  lg: sass.$bs-font-size-lg,
-  sm: sass.$bs-font-size-sm,
+  base: utils.$bs-font-size-base,
+  lg: utils.$bs-font-size-lg,
+  sm: utils.$bs-font-size-sm,
 );
 
 $font-weights-demo: (
-  lighter: sass.$bs-font-weight-lighter,
-  light: sass.$bs-font-weight-light,
-  normal: sass.$bs-font-weight-normal,
-  bold: sass.$bs-font-weight-bold,
-  bolder: sass.$bs-font-weight-bolder,
+  lighter: utils.$bs-font-weight-lighter,
+  light: utils.$bs-font-weight-light,
+  normal: utils.$bs-font-weight-normal,
+  bold: utils.$bs-font-weight-bold,
+  bolder: utils.$bs-font-weight-bolder,
 );
 
 $vars: (
-  scssColors: sass.$bs-theme-colors,
-  scssBreakpoints: sass.$bs-grid-breakpoints,
-  scssSpacing: sass.$bs-spacers,
+  scssColors: utils.$bs-theme-colors,
+  scssBreakpoints: utils.$bs-grid-breakpoints,
+  scssSpacing: utils.$bs-spacers,
   fontFamilies: $font-families-demo,
   fontSizes: $font-sizes-demo,
   fontWeights: $font-weights-demo,
