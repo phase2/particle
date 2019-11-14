@@ -12,7 +12,7 @@
 /// @param {Bool} $vertically-center - center vertically
 /// @param {Bool} $absolute-positioning - position absolutely, rather than relatively
 /// @param {Bool} $undo - undo vertical centering if it was previously applied
-///
+/// @output Centering positioning and transforms
 @mixin center(
   $horizontally: true,
   $vertically: true,
@@ -52,11 +52,10 @@
 /// Allow for full width, even outside of container.
 ///
 /// @group positioning
-///
-/// @param {Bool} $undo [false]
-///
 /// @link https://css-tricks.com/full-width-containers-limited-width-parents/
 ///
+/// @param {Bool} $undo [false]
+/// @output Positioning via relative/static and width/max-width
 @mixin full-width($undo: false) {
   @if $undo {
     margin-left: 0;
@@ -80,9 +79,7 @@
 /// Ellipsis fix for long spaceless strings
 ///
 /// @group typography
-///
 /// @link https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
-///
 @mixin ellipsis() {
   overflow: hidden;
   white-space: nowrap;
@@ -94,7 +91,6 @@
 ///
 /// @group typography
 /// @author Indrek Paas @indrekpaas
-///
 /// @link http://madebymike.com.au/writing/precise-control-responsive-typography/
 ///
 /// @param $properties
@@ -102,8 +98,7 @@
 /// @param $max-vw
 /// @param $min-value
 /// @param $max-value
-/// @todo Better Sassdoc
-///
+/// @output
 @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
   @each $property in $properties {
     #{$property}: $min-value;
@@ -134,7 +129,6 @@
 ///   .component__title {
 ///       @include letter-spacing(1px);
 ///   }
-///
 @mixin letter-spacing($spacing: normal) {
   @if $spacing != normal {
     letter-spacing: rem-calc($spacing);
@@ -147,9 +141,7 @@
 /// Word Wrap fix for long spaceless strings
 ///
 /// @group typography
-///
 /// @link https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
-///
 @mixin word-wrap() {
   overflow-wrap: break-word;
   word-wrap: break-word;

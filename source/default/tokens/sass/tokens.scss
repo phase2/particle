@@ -1,5 +1,8 @@
 ////
 /// All printing tokens
+/// Note: This file should never be @import'd within another Sass file. Inclusion
+/// within a Webpack JS file (`import '~tokens/sass/tokens.scss';`) is fine, as
+/// Webpack will prevent multiple output.
 ////
 
 @use 'sass:map';

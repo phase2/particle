@@ -9,7 +9,7 @@ import 'protons'; // Guarantees :root CSS variables referenced below
 import { sass2Array, cssVars2Obj } from '.';
 
 // Sass tokens contain our :root { --breakpoints: xs, sm, md, lg }
-import '../../sass/index.scss';
+import '../../sass/tokens.scss';
 
 // Constants of design system
 const BP_VAR_NAME = '--breakpoints';
