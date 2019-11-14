@@ -3,6 +3,8 @@
 /// @group mixins
 ////
 
+@use 'functions';
+
 /// Center an element vertically or horizontally in its container,
 /// and optionally horizontally. Option to undo.
 ///
@@ -107,7 +109,7 @@
   @media screen and (min-width: $min-vw) {
     @each $property in $properties {
       // prettier-ignore
-      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+      #{$property}: calc(#{$min-value} + #{functions.strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{functions.strip-unit($max-vw - $min-vw)});
     }
   }
 
@@ -131,8 +133,8 @@
 ///   }
 @mixin letter-spacing($spacing: normal) {
   @if $spacing != normal {
-    letter-spacing: rem-calc($spacing);
-    margin-right: rem-calc(-$spacing);
+    letter-spacing: functions.rem-calc($spacing);
+    margin-right: functions.rem-calc(-$spacing);
   } @else {
     letter-spacing: $spacing;
   }

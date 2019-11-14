@@ -50,13 +50,13 @@ $svgicons: map.keys(icons-generated.$sprites);
 // Defaults for .svg--icon generated CSS
 .svg--icon {
   display: inline-block;
-  width: utils.functions-rem-calc(40px);
+  width: utils.f-rem-calc(40px);
 
   svg {
     display: block;
-    width: rem-calc(300px);
+    width: utils.f-rem-calc(300px);
     max-width: 100%;
-    max-height: utils.functions-rem-calc(300px);
+    max-height: utils.f-rem-calc(300px);
     height: auto;
   }
 
@@ -72,8 +72,8 @@ $svgicons: map.keys(icons-generated.$sprites);
   .icon--#{$icon} {
     @include icons-generated.sprite(#{$icon});
     display: inline-block;
-    height: utils.functions-rem-calc(40px);
-    width: utils.functions-rem-calc(40px);
+    height: utils.f-rem-calc(40px);
+    width: utils.f-rem-calc(40px);
   }
 }
 

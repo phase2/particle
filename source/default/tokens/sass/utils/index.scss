@@ -4,25 +4,24 @@
 ////
 
 /// Particle variables
-/// @example
-///   // To access a $colors var within _variables.scss, do:
+/// @example - Access a $colors var within _variables.scss
 ///   @use '~tokens/sass/utils';
 ///   $all-custom-color: utils.$vars-colors;
-@forward 'variables' as vars-*;
+@forward 'variables' as v-*;
 
 /// Particle functions
 /// @example - Access the strip-units() function within _functions.scss
 ///   @use '~tokens/sass/utils';
-///   $unitless-height: utils.functions-strip-units(2rem);
-@forward 'functions' as functions-*;
+///   $unitless-height: utils.f-strip-units(2rem);
+@forward 'functions' as f-*;
 
 /// Particle mixins
 /// @example - Access the center() mixin within _mixins.scss
 ///   @use '~tokens/sass/utils';
 ///   .center-me {
-///     @include utils.mixins-center();
+///     @include utils.m-center();
 ///   }
-@forward 'mixins' as mixins-*;
+@forward 'mixins' as m-*;
 
 /// Bootstrap variables, functions, mixins
 /// @example - Access ANYTHING exposed by Bootstrap Sass
