@@ -1,11 +1,42 @@
 ////
-/// All non-printing, meta Sass shared within the project
+/// Particle Sass utilities
+///
+/// Note the namespaces for each module.
 ////
 
-// Particle utils
+////
+/// Particle variables
+/// @example
+/// // To access a $colors var within _variables.scss, do:
+/// @use '~tokens/sass/utils';
+/// $all-custom-color: utils.$vars-colors;
+////
 @forward 'variables' as vars-*;
+////
+/// Particle functions
+/// @example
+/// // To access the strip-units() function within _functions.scss, do:
+/// @use '~tokens/sass/utils';
+/// $unitless-height: utils.functions-strip-units(2rem);
+////
 @forward 'functions' as functions-*;
+////
+/// Particle mixins
+/// @example
+/// // To access the center() mixin within _mixins.scss, do:
+/// @use '~tokens/sass/utils';
+/// .center-me {
+///   @include utils.mixins-center();
+/// }
+////
 @forward 'mixins' as mixins-*;
 
-// Our customized Bootstrap, vars, functions, mixins
+////
+/// Bootstrap variables, functions, mixins
+/// @example
+/// // To access ANYTHING exposed by Bootstrap Sass, do:
+/// @use '~tokens/sass/utils';
+/// .important-thing {
+///   background-color: utils.bs-theme-color('primary');
+////
 @forward '../libraries/bootstrap/utils' as bs-*;
