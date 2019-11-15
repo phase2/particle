@@ -1,0 +1,152 @@
+////
+/// Particle helper mixins
+/// @group mixins
+////
+
+@use 'functions';
+
+/// Center an element vertically or horizontally in its container,
+/// and optionally horizontally. Option to undo.
+///
+/// @group positioning
+///
+/// @param {Bool} $horizontally-center - center horizontally
+/// @param {Bool} $vertically-center - center vertically
+/// @param {Bool} $absolute-positioning - position absolutely, rather than relatively
+/// @param {Bool} $undo - undo vertical centering if it was previously applied
+/// @output Centering positioning and transforms
+@mixin center(
+  $horizontally: true,
+  $vertically: true,
+  $absolute: false,
+  $undo: false
+) {
+  display: inline-block;
+  @if ($absolute) {
+    position: absolute;
+  } @else {
+    position: relative;
+  }
+  @if ($horizontally == true and $vertically == true) {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  @if ($vertically == true and $horizontally == false) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @if ($horizontally == true and $vertically == false) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @if ($undo) {
+    position: static;
+    left: auto;
+    transform: none;
+  }
+}
+
+/// Full Width
+/// Allow for full width, even outside of container.
+///
+/// @group positioning
+/// @link https://css-tricks.com/full-width-containers-limited-width-parents/
+///
+/// @param {Bool} $undo [false]
+/// @output Positioning via relative/static and width/max-width
+@mixin full-width($undo: false) {
+  @if $undo {
+    margin-left: 0;
+    margin-right: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    width: auto;
+    max-width: 100%;
+  } @else {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}
+
+/// Ellipsis fix for long spaceless strings
+///
+/// @group typography
+/// @link https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/// Fluid Type
+/// Inspired by Mike Riethmuller's Precise control over responsive typography:
+///
+/// @group typography
+/// @author Indrek Paas @indrekpaas
+/// @link http://madebymike.com.au/writing/precise-control-responsive-typography/
+///
+/// @param $properties
+/// @param $min-vw
+/// @param $max-vw
+/// @param $min-value
+/// @param $max-value
+/// @output
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      // prettier-ignore
+      #{$property}: calc(#{$min-value} + #{functions.strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{functions.strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+/// Letter Spacing
+/// Provides letter spacing that adjusts letter-spacing and margin-right.
+///
+/// @group typography
+///
+/// @param {Number|String} $spacing [normal] - The spacing to adjust by.
+///
+/// @example scss - Set letter values in `.component__title`
+///   .component__title {
+///       @include letter-spacing(1px);
+///   }
+@mixin letter-spacing($spacing: normal) {
+  @if $spacing != normal {
+    letter-spacing: functions.rem-calc($spacing);
+    margin-right: functions.rem-calc(-$spacing);
+  } @else {
+    letter-spacing: $spacing;
+  }
+}
+
+/// Word Wrap fix for long spaceless strings
+///
+/// @group typography
+/// @link https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}

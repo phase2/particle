@@ -94,6 +94,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '~tokens/sass/utils';
+
 $clock-radius: 100px;
 $hand-thickness: 6px;
 
@@ -147,24 +149,24 @@ $hand-thickness: 6px;
   background-color: salmon;
 }
 .success {
-  background-color: $success;
+  background-color: utils.bs-theme-color('success');
 }
 .primary {
-  background-color: $primary;
+  background-color: utils.bs-theme-color('primary');
 }
 .dark {
-  background-color: $dark;
+  background-color: utils.bs-theme-color('dark');
 }
 .yellow {
-  background-color: $yellow;
+  background-color: utils.bs-color('yellow');
 }
 .purple {
-  background-color: $purple;
+  background-color: utils.bs-color('purple');
 }
 .orange {
-  background-color: $orange;
+  background-color: utils.bs-color('orange');
 }
 .cyan {
-  background-color: $cyan;
+  background-color: utils.bs-color('cyan');
 }
 </style>

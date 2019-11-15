@@ -8,15 +8,9 @@
         </h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          {{ phone }}
-        </li>
-        <li class="list-group-item">
-          {{ website }}
-        </li>
-        <li class="list-group-item">
-          {{ email }}
-        </li>
+        <li class="list-group-item">{{ phone }}</li>
+        <li class="list-group-item">{{ website }}</li>
+        <li class="list-group-item">{{ email }}</li>
         <li class="list-group-item">clicked: {{ !!isClicked }}</li>
       </ul>
     </div>
@@ -60,12 +54,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// All Sass tokens (variables, functions, and mixins) are provided by Webpack
-// to all Sass files. It is also possible to import manually, if need be.
-
+@use '~tokens/sass/utils';
 // Make .active green for just these demo cards
 .active {
-  background-color: $success; // Provided by our tokens Sass vars
+  background-color: utils.bs-theme-color(
+    'success'
+  ); // Provided by our tokens Sass vars
 }
 // Hide list-group-item backgrounds for just these demo cards
 .list-group-item {

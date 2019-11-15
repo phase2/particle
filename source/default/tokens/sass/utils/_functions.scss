@@ -1,0 +1,90 @@
+////
+/// Utility function
+/// @group utilities
+////
+
+@use 'sass:map';
+@use 'sass:list';
+
+/// Strip Unit
+/// Remove unit from value.
+///
+/// @param {Number} $value - Any unit'd number, ie 18px
+/// @return {Number} - Unitless number
+///
+/// @example
+///   strip-unit(18px); // returns "18"
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/// Convert to Rem
+/// Does the main work of converting to a standardized unit by stripping a number
+/// and multiplying by the rem value.
+///
+/// @param {Number} $value - The value to be converted, ie 24px
+/// @param {Number} $base-value [16px] - The rem base, defaults to 16px
+/// @return {Number} - rem number
+///
+/// @example
+///   $converted-rem: convert-to-rem(20px); // returns "1.25 rem"
+@function convert-to-rem($value, $base-value: 16px) {
+  @if ($value != auto) {
+    $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  }
+  // Turn 0rem into 0
+  @if ($value == 0rem) {
+    $value: 0;
+  }
+  @return $value;
+}
+
+/// Rem Calc
+/// Converts any standard CSS measurement to rem.
+/// Call with 1, 2, 3 or 4 parameters. 'px' is not required but supported
+/// Numbers are space delimited. If you want to delimit using commas,
+/// wrap it in another pair of parens.
+///
+/// @param {List[Number]} $values - List of numbered units
+/// @param {Number} $base-value [16px] - 1rem value in pixels
+/// @return {Number|List[Number]} - rem number
+///
+/// @example
+///   rem-calc(10 20 30px 40);
+/// @example
+///   rem-calc((10, 20, 30, 40px));
+@function rem-calc($values, $base-value: 16px) {
+  $remValues: ();
+  @each $value in $values {
+    $remValues: list.append($remValues, convert-to-rem($value, $base-value));
+  }
+
+  @return $remValues;
+}
+
+/// Map Collect
+/// Collect multiple maps into a single large map
+/// @link https://gist.github.com/bigglesrocks/d75091700f8f2be5abfe
+/// @param $maps
+@function map-collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map.merge($collection, $map);
+  }
+
+  @return $collection;
+}
+
+/// Map Deep Get
+/// Retrieve map values from sub-map values.
+/// @author Hugo Giraudel
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map.get($map, $key);
+  }
+  @return $map;
+}

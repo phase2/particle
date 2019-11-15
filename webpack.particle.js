@@ -7,6 +7,7 @@
 
 // Library Imports
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
+const sass = require('sass');
 
 // Plugins
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -73,6 +74,9 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
+              // dart-sass! Note: the `fibers` dev-dependency in package.json
+              // is required to make this run faster
+              implementation: sass,
               sassOptions: {
                 outputStyle: 'compressed',
               },

@@ -61,18 +61,18 @@ export default {
 </script>
 
 <style lang="scss">
-// sass variables are provided by Webpack, but it is also possible to import.
+// Just a demo
+@use 'sass:map';
+@use '~tokens/sass/utils';
 
-// This is mainly here to show that all variables and mixins are available to
-// Sass here.
 .vue-banner {
-  margin: map-get($spacers, 5);
-  padding: map-get($spacers, 4);
-  font-size: $font-size-lg;
-  background-color: map-get($theme-colors, 'new');
+  margin: map.get(utils.$bs-spacers, 5);
+  padding: map.get(utils.$bs-spacers, 4);
+  font-size: utils.$bs-font-size-lg;
+  background-color: utils.bs-theme-color('primary');
 
   h3 {
-    color: map-get($theme-colors, 'light');
+    color: utils.bs-theme-color('light');
   }
 }
 </style>

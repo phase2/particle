@@ -15,11 +15,7 @@ module.exports = {
         use: [
           {
             loader: 'sass-loader',
-            options: {
-              // ALL Sass partials will be provided with non-printing
-              // variables, mixins, and functions
-              prependData: '@import "~tokens/sass/non-printing/non-printing";',
-            },
+            options: {},
           },
         ],
       },
@@ -49,7 +45,7 @@ module.exports = {
     // JavaScript can import other components via shorthand, eg:
     //   `import thing from 'atoms/thing';`
     // Sass can import other components via shorthand:
-    //   `@import ~atoms/thing/thing`
+    //   `@use ~atoms/thing/thing`
     // Note: Use the tilde (~), do not include trailing ".scss"
     alias: namespaces,
   },

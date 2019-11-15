@@ -1,57 +1,90 @@
-// Custom styles for svg
+////
+/// SVG meta and CSS
+/// @group svg
+////
 
-// The non-printing variables, functions, and mixins of
-//   @import ~tokens/sass/non-printing/non-printing;
-// are provided to this file via:
-//   webpack.particle.js: sass-loader.data|includePaths
+// Built-in modules
+@use 'sass:map';
+// Particle tokens
+@use '~tokens/sass/utils';
+// This file is generated automatically from the webpack plugin
+@use './scss/icons-generated';
+@forward './scss/icons-generated';
 
+/// Get the sprite names from generated scss in generated file
+$svgicons: map.keys(icons-generated.$sprites);
+
+/// List of svg elements so we don't have to type them all out multiple times.
+///
+/// @content Pass in your custom states to be wrapped by SVG elements
+///
+/// @example scss - Add currentColor to all SVG elements
+///   .thing {
+///     @include elements() {
+///       color: currentColor;
+///     }
+///   }
+@mixin elements() {
+  svg,
+  g,
+  circle,
+  ellipse,
+  line,
+  path,
+  polygon,
+  polyline,
+  rect,
+  text {
+    @content;
+  }
+}
+
+// Set svg elements to current color.
 .svg--colorable {
-  // Set svg elements to current color.
-  @include svg-elements() {
+  @include elements() {
     color: currentColor;
     fill: currentColor;
   }
 }
 
+// Defaults for .svg--icon generated CSS
 .svg--icon {
   display: inline-block;
-  width: rem-calc(40px);
+  width: utils.f-rem-calc(40px);
 
   svg {
     display: block;
-    width: rem-calc(300px);
+    width: utils.f-rem-calc(300px);
     max-width: 100%;
-    max-height: rem-calc(300px);
+    max-height: utils.f-rem-calc(300px);
     height: auto;
   }
 
   // Set svgicon elements to current color.
-  @include svg-elements() {
+  @include elements() {
     color: currentColor;
     fill: currentColor;
   }
 }
 
-// Get the sprite name from generated scss in generated file
-$svgicons: map-keys($sprites);
-// Loop over every SVG and create a CSS class for it
+// Loop over every custom-generated SVG and create a CSS class for it
 @each $icon in $svgicons {
   .icon--#{$icon} {
-    @include sprite(#{$icon});
+    @include icons-generated.sprite(#{$icon});
     display: inline-block;
-    height: rem-calc(40px);
-    width: rem-calc(40px);
+    height: utils.f-rem-calc(40px);
+    width: utils.f-rem-calc(40px);
   }
 }
 
 // Loop over every theme-color and create a CSS class to colorize it
-@each $color in map_keys($theme-colors) {
+@each $color in map.keys(utils.$bs-theme-colors) {
   .color-fill--#{$color} {
-    color: theme-color(#{$color});
+    color: utils.bs-theme-color(#{$color});
   }
 
   .color-stroke--#{$color} {
-    color: theme-color(#{$color});
+    color: utils.bs-theme-color(#{$color});
     svg {
       stroke: currentColor;
       fill: none;

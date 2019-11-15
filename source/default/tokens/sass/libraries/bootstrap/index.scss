@@ -1,21 +1,13 @@
-/*
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-Bootstrap's CSS-generating output
---------------------------------------------------------------------------------
-This is the exact order within:
-  ~bootstrap/scss/bootstrap
+////
+/// Bootstrap customizations and imports
+///
+/// @group libraries
+/// @see ~bootstrap/scss/variables
+////
 
-Override all Bootstrap variables at:
-  ~tokens/sass/non-printing/_bootstrap-overrides
+// BOOTSTRAP, local utils
+@import 'utils';
 
-Comment out unused Bootstrap components.
---------------------------------------------------------------------------------
-*/
-
-//@import "~bootstrap/scss/functions"; //_bootstrap-overrides.scss
-//@import "~bootstrap/scss/variables"; //_bootstrap-overrides.scss
-//@import "~bootstrap/scss/mixins"; //_bootstrap-overrides.scss
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/reboot';
 @import '~bootstrap/scss/type';
@@ -42,9 +34,11 @@ Comment out unused Bootstrap components.
 @import '~bootstrap/scss/media';
 @import '~bootstrap/scss/list-group';
 @import '~bootstrap/scss/close';
+@import '~bootstrap/scss/toasts';
 @import '~bootstrap/scss/modal';
 @import '~bootstrap/scss/tooltip';
 @import '~bootstrap/scss/popover';
 @import '~bootstrap/scss/carousel';
+@import '~bootstrap/scss/spinners';
 @import '~bootstrap/scss/utilities';
 @import '~bootstrap/scss/print';

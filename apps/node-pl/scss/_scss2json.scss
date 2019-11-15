@@ -1,50 +1,47 @@
-/*
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-Sass Variables to JSON Map
---------------------------------------------------------------------------------
-*/
+////
+/// Sass Variables to JSON map
+/// @group apps
+////
 
-// Customized Sass Mapping
-// Pulled from Bootstrap's _variables.scss
+// Globals
+@use 'sass:meta';
+@use 'sass:map';
+// Custom
+@use '~tokens/sass/utils';
+@use '~atoms/svg/svg';
+
 $font-families-demo: (
-  '$font-family-sans-serif': $font-family-sans-serif,
-  '$font-family-serif': $font-family-serif,
-  '$font-family-monospace': $font-family-monospace,
-  '$headings-font-family': $headings-font-family,
+  '$font-family-sans-serif': utils.$bs-font-family-sans-serif,
+  '$font-family-monospace': utils.$bs-font-family-monospace,
+  '$headings-font-family': utils.$bs-headings-font-family,
 );
 
 $font-sizes-demo: (
-  base: $font-size-base,
-  lg: $font-size-lg,
-  sm: $font-size-sm,
+  base: utils.$bs-font-size-base,
+  lg: utils.$bs-font-size-lg,
+  sm: utils.$bs-font-size-sm,
 );
 
 $font-weights-demo: (
-  light: $font-weight-light,
-  normal: $font-weight-normal,
-  bold: $font-weight-bold,
+  lighter: utils.$bs-font-weight-lighter,
+  light: utils.$bs-font-weight-light,
+  normal: utils.$bs-font-weight-normal,
+  bold: utils.$bs-font-weight-bold,
+  bolder: utils.$bs-font-weight-bolder,
 );
 
-$spacing-demo: $spacers;
-
-// Import your Customized Variables here, example:
-//@import '../_patterns/01-atoms/button/_button.scss';
-
-// Exports Data to source/_data/scssVariables.json
-// This json file populates demo twig patterns related to config items.
-// Include your Customized Sass Maps here to JSONIFY
-@include export-data(
-  'scssVariables.json',
-  (
-    scssColors: $theme-colors,
-    primaryColors: $primary-colors,
-    neutralHues: $neutral-hues,
-    scssBreakpoints: $grid-breakpoints,
-    scssSpacing: $spacing-demo,
-    fontFamilies: $font-families-demo,
-    fontSizes: $font-sizes-demo,
-    fontWeights: $font-weights-demo,
-    scssIcons: $svgicons,
-  )
+$vars: (
+  scssColors: utils.$bs-theme-colors,
+  scssBreakpoints: utils.$bs-grid-breakpoints,
+  scssSpacing: utils.$bs-spacers,
+  fontFamilies: $font-families-demo,
+  fontSizes: $font-sizes-demo,
+  fontWeights: $font-weights-demo,
+  scssIcons: svg.$svgicons,
 );
+
+// Exports JSON to pattern-lab/_data/sass-variables.json
+// This JSON file populates demo twig patterns with Sass variables.
+// By calling the function 'export-data', json is written to pl/_data/. $d is
+// just a locally scoped var to catch the output of the function.
+$d: meta.call(meta.get-function('export-data'), 'sass-variables.json', $vars);

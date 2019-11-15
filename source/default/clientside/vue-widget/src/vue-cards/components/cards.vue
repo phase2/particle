@@ -61,12 +61,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// All Sass tokens (variables, functions, and mixins) are provided by Webpack
-// to all Sass files. It is also possible to import manually, if need be.
+@use '~tokens/sass/utils';
+
 .card-hover:hover {
-  background-color: $light;
+  background-color: utils.bs-theme-color('light');
 }
 .scoped-background {
-  background-color: $white;
+  background-color: utils.bs-color('white');
 }
 </style>
