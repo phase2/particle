@@ -17,7 +17,7 @@ import './homepage.twig';
 
 export const name = 'demoPages';
 
-export function disable() {}
+export function disable() { }
 
 export function enable(context = $(document), settings) {
   $('.homepage__header', context).css('color', settings.color);

@@ -6,7 +6,6 @@
 const path = require('path');
 
 const { DefinePlugin } = require('webpack');
-// const sassExportData = require('@theme-tools/sass-export-data');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');

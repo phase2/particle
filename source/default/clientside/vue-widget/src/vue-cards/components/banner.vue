@@ -69,7 +69,6 @@ export default {
   margin: map.get(utils.$bs-spacers, 5);
   padding: map.get(utils.$bs-spacers, 4);
   font-size: utils.$bs-font-size-lg;
-  // background-color: mapget($theme-colors, 'new');
   background-color: utils.bs-theme-color('primary');
 
   h3 {
