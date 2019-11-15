@@ -19,10 +19,10 @@ describe('card.vue', () => {
     const { getByText } = render(card, { props });
 
     // getByText() fails test if text not found
-    getByText('waffles');
-    getByText('555-555-5555');
-    getByText('waffles.com');
-    getByText('admin@waffles.com');
+    expect(getByText('waffles')).toBeTruthy();
+    expect(getByText('555-555-5555')).toBeTruthy();
+    expect(getByText('waffles.com')).toBeTruthy();
+    expect(getByText('admin@waffles.com')).toBeTruthy();
   });
 
   it('initializes isClicked status as false', () => {
@@ -78,10 +78,10 @@ describe('cards.vue', () => {
     const { getByText } = render(cards, { props });
 
     // getByText() fails test if text not found
-    getByText('waffles');
-    getByText('555-555-5555');
-    getByText('waffles.com');
-    getByText('admin@waffles.com');
+    expect(getByText('waffles')).toBeTruthy();
+    expect(getByText('555-555-5555')).toBeTruthy();
+    expect(getByText('waffles.com')).toBeTruthy();
+    expect(getByText('admin@waffles.com')).toBeTruthy();
   });
 
   it('displays the correct number of cards', () => {

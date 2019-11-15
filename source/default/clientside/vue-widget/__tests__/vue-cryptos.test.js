@@ -10,7 +10,7 @@ describe('vue-cryptos.vue', () => {
 
   it('renders the component title', () => {
     const { getByText } = render(FacetTable);
-    getByText('Cryptos');
+    expect(getByText('Cryptos')).toBeTruthy();
   });
 
   it('renders the default component filter', () => {

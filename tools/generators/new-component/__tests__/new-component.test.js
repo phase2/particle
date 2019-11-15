@@ -1,3 +1,5 @@
+/* eslint-disable jest/no-commented-out-tests */
+
 // const helpers = require('yeoman-test');
 // const { join } = require('path');
 //
