@@ -48,9 +48,9 @@ export default {
   methods: {
     // Fetch data, ensure the incoming data has all attributes we need
     async getCards() {
-      this.cardsArray = await (await fetch(
-        'https://jsonplaceholder.typicode.com/users'
-      )).json();
+      this.cardsArray = await (
+        await fetch('https://jsonplaceholder.typicode.com/users')
+      ).json();
     },
   },
 };
