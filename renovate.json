@@ -1,0 +1,13 @@
+{
+  "extends": ["config:base"],
+  "baseBranches": ["master"],
+  "bumpVersion": null,
+  "labels": ["dependency update"],
+  "patch": {
+    "automerge": true
+  },
+  "prHourlyLimit": 5,
+  "prConcurrentLimit": 10,
+  "rangeStrategy": "bump",
+  "separateMinorPatch": true
+}
