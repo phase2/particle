@@ -84,9 +84,9 @@ export default {
   methods: {
     async fetchCryptos() {
       this.requesting = true;
-      const data = await (await fetch(
-        'https://api.coinmarketcap.com/v2/ticker/?limit=10'
-      )).json();
+      const data = await (
+        await fetch('https://api.coinmarketcap.com/v2/ticker/?limit=10')
+      ).json();
       this.cryptos = Object.keys(data.data).map(key => ({
         ...data.data[key],
         percent_change_7d: data.data[key].quotes.USD.percent_change_7d,
