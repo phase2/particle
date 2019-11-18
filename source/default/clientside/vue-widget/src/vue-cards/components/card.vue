@@ -57,9 +57,8 @@ export default {
 @use '~tokens/sass/utils';
 // Make .active green for just these demo cards
 .active {
-  background-color: utils.bs-theme-color(
-    'success'
-  ); // Provided by our tokens Sass vars
+  // Provided by our tokens Sass vars
+  background-color: utils.bs-theme-color('success');
 }
 // Hide list-group-item backgrounds for just these demo cards
 .list-group-item {
