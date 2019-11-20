@@ -1,11 +1,6 @@
 {% extends '@templates/site-container.twig' %}
-  {% block content %}
-
-      {% block content %}
-        {% include '@organisms/article/_article.twig' with {
-          article: article_demo
-        } %}
-      {% endblock content %}
-
-
-  {% endblock %}
+{% block content %}
+  {% include '@organisms/article/_article.twig' with {
+    article: article_demo
+  } %}
+{% endblock content %}
