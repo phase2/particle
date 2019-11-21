@@ -98,7 +98,7 @@
     "style-loader": "^1.0.0",
     "stylelint": "^12.0.0",
     "stylelint-config-prettier": "^6.0.0",
-    "stylelint-scss": "^3.12.1",
+    "stylelint-scss": "^3.13.0",
     "stylelint-webpack-plugin": "^1.1.0",
     "svg-spritemap-webpack-plugin": "^3.5.1",
     "terser-webpack-plugin": "^2.2.1",
