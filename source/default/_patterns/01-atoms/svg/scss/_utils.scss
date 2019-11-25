@@ -1,0 +1,41 @@
+////
+/// SVG vars and utils
+///
+/// @group svg
+////
+
+@use 'sass:map';
+
+@use '~tokens/sass/utils';
+
+// This file is generated automatically from the webpack plugin.
+@use 'icons-generated';
+@forward 'icons-generated';
+
+/// Get the sprite names from generated scss in generated file
+$svgicons: map.keys(icons-generated.$sprites);
+
+/// List of svg elements so we don't have to type them all out multiple times.
+///
+/// @content Pass in your custom states to be wrapped by SVG elements
+///
+/// @example scss - Add currentColor to all SVG elements
+///   .thing {
+///     @include elements() {
+///       color: currentColor;
+///     }
+///   }
+@mixin elements() {
+  svg,
+  g,
+  circle,
+  ellipse,
+  line,
+  path,
+  polygon,
+  polyline,
+  rect,
+  text {
+    @content;
+  }
+}
