@@ -45,7 +45,10 @@ export function enable($context, { <%= camelCaseName %> = {} }) {
     return;
   }
   // Merge defaults with incoming settings
-  const settings = Object.assign(defaults, <%= camelCaseName %>);
+  const settings = {
+    ...defaults,
+    ...<%= camelCaseName %>,
+  };
   // An example of what could be done with this component
   $<%= camelCaseName %>.addClass(settings.dummyClass);
 }
