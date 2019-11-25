@@ -1,7 +1,2 @@
-import twig from './paginations.twig';
-import yaml from './paginations.yml';
-
-export default {
-  twig,
-  yaml,
-};
+import './paginations.twig';
+import './paginations.yml';

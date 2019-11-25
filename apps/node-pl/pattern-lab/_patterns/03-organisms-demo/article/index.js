@@ -1,5 +1,1 @@
-import twig from './articles.twig';
-
-export default {
-  twig,
-};
+import './articles.twig';

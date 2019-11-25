@@ -18,12 +18,6 @@ import 'holderjs';
 import './astrogoat.png';
 
 // Import demo assets
-import twig from './images.twig';
-import yaml from './images.yml';
-import markdown from './images.md';
-
-export default {
-  twig,
-  yaml,
-  markdown,
-};
+import './images.twig';
+import './images.yml';
+import './images.md';

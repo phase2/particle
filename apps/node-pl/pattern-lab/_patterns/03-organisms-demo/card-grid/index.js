@@ -1,7 +1,2 @@
-import twig from './card-grids.twig';
-import yaml from './card-grids.yml';
-
-export default {
-  twig,
-  yaml,
-};
+import './card-grids.twig';
+import './card-grids.yml';

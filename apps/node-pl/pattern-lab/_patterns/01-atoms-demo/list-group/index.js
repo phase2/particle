@@ -1,9 +1,3 @@
-import twig from './list-groups.twig';
-import markdown from './list-groups.md';
-import yaml from './list-groups.yml';
-
-export default {
-  twig,
-  markdown,
-  yaml,
-};
+import './list-groups.twig';
+import './list-groups.md';
+import './list-groups.yml';

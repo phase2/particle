@@ -1,7 +1,2 @@
-import twig from './jumbotrons.twig';
-import yaml from './jumbotrons.yml';
-
-export default {
-  twig,
-  yaml,
-};
+import './jumbotrons.twig';
+import './jumbotrons.yml';

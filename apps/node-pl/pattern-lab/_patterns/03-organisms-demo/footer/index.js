@@ -9,12 +9,6 @@
 import 'organisms/footer';
 
 // Import demo assets
-import twig from './footers.twig';
-import yaml from './footers.yml';
-import markdown from './footers.md';
-
-export default {
-  twig,
-  yaml,
-  markdown,
-};
+import './footers.twig';
+import './footers.yml';
+import './footers.md';

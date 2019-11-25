@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 // Demo twig
-import twig from './vue-widgets.twig';
+import './vue-widgets.twig';
 
 import VueInputExample from './vue-html-example.vue';
 
@@ -30,7 +30,3 @@ if (document.getElementById('vue-input-text-component')) {
       render: h => h(VueInputExample),
     }))();
 }
-
-export default {
-  twig,
-};

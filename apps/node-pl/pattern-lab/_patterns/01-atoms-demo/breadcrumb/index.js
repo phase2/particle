@@ -1,7 +1,2 @@
-import twig from './breadcrumbs.twig';
-import yaml from './breadcrumbs.yml';
-
-export default {
-  twig,
-  yaml,
-};
+import './breadcrumbs.twig';
+import './breadcrumbs.yml';
