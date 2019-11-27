@@ -8,7 +8,7 @@
 @use 'sass:map';
 // Custom
 @use '~tokens/sass/utils';
-@use '~atoms/svg/svg';
+@use '~atoms/svg/scss/utils' as svg;
 
 $font-families-demo: (
   '$font-family-sans-serif': utils.$bs-font-family-sans-serif,

@@ -1,7 +1,2 @@
-import twig from './alerts.twig';
-import yaml from './alerts.yml';
-
-export default {
-  twig,
-  yaml,
-};
+import './alerts.twig';
+import './alerts.yml';

@@ -12,12 +12,6 @@ import 'atoms/svg';
 import './_svg--icon-demo.scss';
 
 // Import demo assets
-import twig from './svgs.twig';
-import yaml from './svgs.yml';
-import markdown from './svgs.md';
-
-export default {
-  twig,
-  yaml,
-  markdown,
-};
+import './svgs.twig';
+import './svgs.yml';
+import './svgs.md';

@@ -1,7 +1,2 @@
-import twig from './carousels.twig';
-import yaml from './carousels.yml';
-
-export default {
-  twig,
-  yaml,
-};
+import './carousels.twig';
+import './carousels.yml';

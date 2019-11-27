@@ -1,5 +1,6 @@
 ////
-/// SVG meta and CSS
+/// SVG printing CSS
+///
 /// @group svg
 ////
 
@@ -7,41 +8,12 @@
 @use 'sass:map';
 // Particle tokens
 @use '~tokens/sass/utils';
-// This file is generated automatically from the webpack plugin
-@use './scss/icons-generated';
-@forward './scss/icons-generated';
-
-/// Get the sprite names from generated scss in generated file
-$svgicons: map.keys(icons-generated.$sprites);
-
-/// List of svg elements so we don't have to type them all out multiple times.
-///
-/// @content Pass in your custom states to be wrapped by SVG elements
-///
-/// @example scss - Add currentColor to all SVG elements
-///   .thing {
-///     @include elements() {
-///       color: currentColor;
-///     }
-///   }
-@mixin elements() {
-  svg,
-  g,
-  circle,
-  ellipse,
-  line,
-  path,
-  polygon,
-  polyline,
-  rect,
-  text {
-    @content;
-  }
-}
+// Generated SVGs and vars
+@use 'scss/utils' as svg;
 
 // Set svg elements to current color.
 .svg--colorable {
-  @include elements() {
+  @include svg.elements() {
     color: currentColor;
     fill: currentColor;
   }
@@ -61,16 +33,16 @@ $svgicons: map.keys(icons-generated.$sprites);
   }
 
   // Set svgicon elements to current color.
-  @include elements() {
+  @include svg.elements() {
     color: currentColor;
     fill: currentColor;
   }
 }
 
 // Loop over every custom-generated SVG and create a CSS class for it
-@each $icon in $svgicons {
+@each $icon in svg.$svgicons {
   .icon--#{$icon} {
-    @include icons-generated.sprite(#{$icon});
+    @include svg.sprite(#{$icon});
     display: inline-block;
     height: utils.f-rem-calc(40px);
     width: utils.f-rem-calc(40px);
