@@ -6,7 +6,7 @@ const {
   patternPaths,
   navItems,
   // eslint-disable-next-line import/no-unresolved
-} = require('../dist/app-node-pl/pl/styleguide/data/patternlab-data.json');
+} = require('../dist/app-node-pl/pl/styleguide/data/patternlab-data.cjs.js');
 
 // Shape of patternPaths data:
 //
@@ -27,8 +27,9 @@ const paths = [].concat(
 );
 
 // only check our actual components from atoms up
-delete patternPaths.protons;
-delete patternPaths.atoms.svgicons;
+delete patternPaths['protons-demo'];
+// eslint-disable-next-line
+delete patternPaths['atoms-demo']['svgicons'];
 const componentPaths = [].concat(
   ...Object.values(patternPaths).map(atomic => Object.values(atomic))
 );
@@ -74,6 +75,8 @@ const partials = navItems.patternTypes.reduce(
 module.exports = {
   paths,
   partials,
-  htmlPaths: paths.map(path => `patterns/${path}/${path}.html`),
-  componentPaths: componentPaths.map(path => `patterns/${path}/${path}.html`),
+  htmlPaths: paths.map(path => `patterns/${path}/${path}.rendered.html`),
+  componentPaths: componentPaths.map(
+    path => `patterns/${path}/${path}.rendered.html`
+  ),
 };
