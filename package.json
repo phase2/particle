@@ -49,7 +49,7 @@
     "@pattern-lab/core": "^5.4.0",
     "@pattern-lab/engine-twig-php": "^5.4.0",
     "@pattern-lab/uikit-workshop": "^5.4.2",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.3.1",
     "core-js": "^3.4.5",
     "enquire.js": "^2.1.6",
     "holderjs": "^2.9.6",
