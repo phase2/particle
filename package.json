@@ -48,9 +48,9 @@
     "@pattern-lab/cli": "^5.4.0",
     "@pattern-lab/core": "^5.4.0",
     "@pattern-lab/engine-twig-php": "^5.4.0",
-    "@pattern-lab/uikit-workshop": "^5.4.1",
-    "bootstrap": "^4.3.1",
-    "core-js": "^3.4.3",
+    "@pattern-lab/uikit-workshop": "^5.4.2",
+    "bootstrap": "^4.4.1",
+    "core-js": "^3.4.5",
     "enquire.js": "^2.1.6",
     "holderjs": "^2.9.6",
     "jquery": "^3.4.1",
@@ -95,7 +95,7 @@
     "resolve-url-loader": "^3.1.1",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0",
+    "style-loader": "^1.0.1",
     "stylelint": "^12.0.0",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-scss": "^3.13.0",
@@ -111,6 +111,6 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2",
-    "yo": "^3.1.0"
+    "yo": "^3.1.1"
   }
 }
