@@ -45,21 +45,26 @@
 /// Numbers are space delimited. If you want to delimit using commas,
 /// wrap it in another pair of parens.
 ///
-/// @param {List[Number]} $values - List of numbered units
+/// @param {Number|List<Number>} $values - List of numbered units
 /// @param {Number} $base-value [16px] - 1rem value in pixels
-/// @return {Number|List[Number]} - rem number
+/// @return {Number|List<Number>} - rem number
 ///
 /// @example
 ///   rem-calc(10 20 30px 40);
 /// @example
 ///   rem-calc((10, 20, 30, 40px));
 @function rem-calc($values, $base-value: 16px) {
-  $remValues: ();
-  @each $value in $values {
-    $remValues: list.append($remValues, convert-to-rem($value, $base-value));
+  // Ensure we return a single number (ie `1.875rem`) value if only one arg
+  @if list.length($values) == 1 {
+    @return convert-to-rem($values, $base-value);
   }
-
-  @return $remValues;
+  
+  // Otherwise return list of numbers (ie `1.5rem 1.25rem 1.875rem`)
+  $rem-values: ();
+  @each $value in $values {
+    $remValues: list.append($rem-values, convert-to-rem($value, $base-value));
+  }
+  @return $rem-values;
 }
 
 /// Map Collect
