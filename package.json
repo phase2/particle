@@ -43,7 +43,7 @@
     "postinstall": "cd tools/generators/new-component && npm link"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@pattern-lab/cli": "^5.4.0",
     "@pattern-lab/core": "^5.4.0",
