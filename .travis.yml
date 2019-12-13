@@ -6,6 +6,7 @@ env:
   matrix:
     - TRAVIS_NODE_VERSION="8"
     - TRAVIS_NODE_VERSION="10"
+    - TRAVIS_NODE_VERSION="12"
 before_install:
   - '. $HOME/.nvm/nvm.sh'
   - nvm install $TRAVIS_NODE_VERSION
