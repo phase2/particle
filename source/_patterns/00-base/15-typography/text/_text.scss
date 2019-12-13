@@ -1,8 +1,8 @@
 /// Mixin - Set Link Colors & Decoration
-/// @param $link
-/// @param $hover
-/// @param $deco
-/// @param $deco--hover
+/// @param {string} $link
+/// @param {string} $hover
+/// @param {string} $deco
+/// @param {string} $deco--hover
 @mixin a-link($link: $c-red, $hover: $c-red, $deco: none, $deco--hover: underline) {
   &:link,
   &:visited {

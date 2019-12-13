@@ -13,7 +13,7 @@ $grid-sizes: 1, 2, 3, 4, 6;
 
 /// Get width of grid item
 /// `calc()` is returned b/c you can use `px` gutters and `%` width.
-/// @param $columns - How many columns from `$grid-columns` (i.e. 12) to get width for. Passing in 4 when 12 column would get you roughly 25% after accounting for gutters.
+/// @param {number} $columns - How many columns from `$grid-columns` (i.e. 12) to get width for. Passing in 4 when 12 column would get you roughly 25% after accounting for gutters.
 /// @returns {number} - a `calc()` value to use in `width`
 /// @example scss
 ///   .class {
@@ -28,8 +28,8 @@ $grid-sizes: 1, 2, 3, 4, 6;
 
 /// Smart Grid
 /// Include in a parent element to layout all children
-/// @param $row-items [4] - How many items per row
-/// @param $gutter [1rem] - Space between Items
+/// @param {number} $row-items [4] - How many items per row
+/// @param {number} $gutter [1rem] - Space between Items
 @mixin smart-grid($row-items: 4, $gutter: $grid-gutter) {
   display: flex;
   flex-wrap: wrap;

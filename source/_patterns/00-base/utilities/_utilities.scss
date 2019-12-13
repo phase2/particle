@@ -3,11 +3,11 @@
 /// Indrek Paas @indrekpaas
 /// Inspired by Mike Riethmuller's Precise control over responsive typography
 /// @link http://madebymike.com.au/writing/precise-control-responsive-typography/
-/// @param $properties
-/// @param $min-vw
-/// @param $max-vw
-/// @param $min-value
-/// @param $max-value
+/// @param {string} $properties
+/// @param {number} $min-vw
+/// @param {number} $max-vw
+/// @param {number} $min-value
+/// @param {number} $max-value
 @mixin fluid-type ($properties, $min-vw, $max-vw, $min-value, $max-value) {
   @each $property in $properties {
     #{$property}: $min-value;
@@ -34,10 +34,10 @@
 /// Center.
 /// Center an element vertically or horizontally in its container,
 /// and optionally horizontally. Option to undo.
-/// @param $horizonally-center - center horizontally
-/// @param $vertically-center - center vertically
-/// @param $absolute-positioning - position absolutely, rather than relatively
-/// @param $undo - undo vertical centering on an element it was previously applied to
+/// @param {bool} $horizonally-center - center horizontally
+/// @param {bool} $vertically-center - center vertically
+/// @param {bool} $absolute-positioning - position absolutely, rather than relatively
+/// @param {bool} $undo - undo vertical centering on an element it was previously applied to
 @mixin center($horizontally: true, $vertically: true, $absolute: false, $undo: false) {
   display: inline-block;
   @if ($absolute) {
