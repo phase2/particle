@@ -30,7 +30,7 @@
     "babel-preset-es2015": "^6.24.0",
     "bower": "^1.8.0",
     "gulp": "^4.0.2",
-    "p2-theme-core": "^10.0.2",
+    "p2-theme-core": "^11.0.0",
     "rc": "^1.2.0",
     "stylelint-scss": "^3.13.0"
   },
