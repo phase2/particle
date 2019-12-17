@@ -86,7 +86,7 @@
     "jest-fetch-mock": "^2.1.2",
     "jest-vue-preprocessor": "^1.7.0",
     "jsondiffpatch": "^0.3.11",
-    "mini-css-extract-plugin": "^0.8.0",
+    "mini-css-extract-plugin": "^0.8.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
