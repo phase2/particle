@@ -151,7 +151,9 @@ module.exports = {
     // Handle .vue files
     new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.
-    ...(NODE_ENV === 'production' ? [] : [new ProgressPlugin({ profile: false })]),
+    ...(NODE_ENV === 'production'
+      ? []
+      : [new ProgressPlugin({ profile: false })]),
   ],
   resolve: {
     alias: {
