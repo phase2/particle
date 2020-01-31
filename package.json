@@ -24,7 +24,7 @@
     "dev:pl-node": "cross-env-shell NODE_ENV=development \"npm run pl-node & webpack-dev-server --config ./apps/node-pl/webpack.config.js --hot\"",
     "build:pl": "cross-env-shell NODE_ENV=production \"npm run pl-node && webpack --config ./apps/node-pl/webpack.config.js\"",
     "dev:drupal": "cross-env-shell NODE_ENV=development \"webpack --watch --config ./apps/drupal/webpack.config.js\"",
-    "build:drupal": "cross-env-shell NODE_ENV=production \"webpack --config ./apps/drupal/webpack.config.js\"",
+    "build:drupal": "cross-env-shell NODE_ENV=production \"webpack --hide-modules --config ./apps/drupal/webpack.config.js\"",
     "lint:js": "eslint --ext .js,.vue ./",
     "lint:scss": "stylelint '**/*.{css,scss}'",
     "lint": "npm run lint:js; npm run lint:scss;",
