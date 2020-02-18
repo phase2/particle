@@ -2,9 +2,9 @@
 
 module.exports = {
   theme: {
-    container: {
-      center: true,
-      padding: '2rem',
+    fontFamily: {
+      // body: ['Oswald, Times New Roman, serif'],
+      headingsFontFamily: ['Oswald, Times New Roman, serif'],
     },
     extend: {},
   },
