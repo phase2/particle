@@ -45,7 +45,7 @@ const atomicContext = require.context(
   // Deep dive all directories below
   true,
   // Get the first folders after atoms|molecules|organisms
-  /^\.\/(01-atoms|02-molecules|03-organisms)\/[\w-]+$/
+  /^\.\/(01-atoms|02-molecules|03-organisms|04-templates|05-pages)\/[\w-]+$/
 );
 
 /**

@@ -19,6 +19,35 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: path.join('postcss.config.js'),
+                ctx: {
+                  // PostCSS Tailwind config
+                  tailwindConfig: path.resolve(__dirname, 'tailwind.config.js'),
+                  // PostCSS PurgeCSS config for Tailwind
+                  purgeCssConfig: {
+                    content: [
+                      path.resolve(__dirname, '_meta/**/*.*'),
+                      path.resolve(__dirname, '_patterns/**/*.*'),
+                    ],
+                    defaultExtractor: content =>
+                      content.match(/[A-Za-z0-9-_:/]+/g) || [],
+                    extensions: ['yml', 'twig', 'tsx', 'jsx'],
+                  },
+                  // Use combined ltr/rtl in css for pl
+                  // rtl: process.argv.includes('--pl-rtl'),
+                },
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -48,5 +77,6 @@ module.exports = {
     //   `@use ~atoms/thing/thing`
     // Note: Use the tilde (~), do not include trailing ".scss"
     alias: namespaces,
+    extensions: ['.js', '.json', '.ts', '.tsx'],
   },
 };
