@@ -2,7 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* @apply font-body; */
-  /* background: red; */
+.dingo {
+  background: red;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
 }
+
+body {
+  align-content: center; /* .content-center */
+  /* background: red; */
+  /* @apply tex-center mt-sm-5; */
+  /* @apply text-blue-500; */
+}
+
+/* // Example: Google Remote Fonts */
+/* // Serif - Google Fonts - Oswald */
+/* // Sans-Serif - Google Fonts - Open Sans */
+/* // Monospace - Google Fonts - Source Code Pro */
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Source+Code+Pro&display=swap); */
+
+/* // Particle utils */
+/* @use 'utils'; */

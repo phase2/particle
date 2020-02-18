@@ -7,4 +7,4 @@ import './tables.twig';
 import './type.twig';
 import './welcome.twig';
 
-
+import '../../../../../source/default/tokens/css/index.css'

@@ -49,6 +49,7 @@
     "@pattern-lab/core": "^5.4.0",
     "@pattern-lab/engine-twig-php": "^5.6.0",
     "@pattern-lab/uikit-workshop": "^5.6.0",
+    "autoprefixer": "^9.7.4",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "enquire.js": "^2.1.6",
@@ -56,6 +57,7 @@
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "popper.js": "^1.16.1",
+    "postcss-cli": "^7.1.0",
     "prismjs": "^1.19.0",
     "regenerator-runtime": "^0.13.3",
     "svg4everybody": "^2.1.9",
@@ -65,6 +67,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "@fullhuman/postcss-purgecss": "^2.0.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
