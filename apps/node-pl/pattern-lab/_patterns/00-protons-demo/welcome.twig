@@ -1,74 +1,28 @@
-<main class="container">
-  hello
-</main>
-
-<body class="bg-gray-100">
-  <div class="px-8 py-12 max-w-md mx-auto">
-    hi
-  </div>
-</body>
-
-
-<div class="flex">
-  <div class="dingo">
-    dingooooo
-  </div>
-  <div class="dingo">
-    dingooooo
-  </div>
-</div>
-
-<div class="flex content-start flex-wrap bg-gray-200 h-48">
-  <div class="w-1/3 p-2">
-    <div class="text-blue-500 text-center bg-gray-400 p-2">1</div>
-  </div>
-  <div class="w-1/3 p-2">
-    <div class="text-blue-500 text-center bg-gray-400 p-2">2</div>
-  </div>
-  <div class="w-1/3 p-2">
-    <div class="text-blue-500 text-center bg-gray-400 p-2">3</div>
-  </div>
-  <div class="w-1/3 p-2">
-    <div class="text-blue-500 text-center bg-gray-400 p-2">4</div>
-  </div>
-  <div class="w-1/3 p-2">
-    <div class="text-blue-500 text-center bg-gray-400 p-2">5</div>
-  </div>
-</div>
-
-
-<div class="flex content-center container">
-  <div class="row">
-    <div class="col">
-
-      <div class="text-center mt-sm-5"> {# here change what??? #}
-      {# <div class="flex content-center"> #}
-
-        {# Spinner styles are hardcoded in 00-head.twig #}
-        <div class="spinner">
-          <div class="double-bounce1"></div>
-          <div class="double-bounce2"></div>
-        </div>
-
-        <h1 class="mb-4">Welcome to Particle</h1>
-
-        {% set welcome_image = {
-          variant: 'primary',
-          src: paths.images ~ '/astrogoat.png',
-          alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
-        } %}
-
-        {% include "@atoms/image/_image.twig" with {
-          image: welcome_image
-        } %}
-
-        <p class="mt-4">Particle is a starterkit to help you make design systems
-          with Webpack and Twig.</p>
-        <p>Start exploring by click the Atomic Design links in the black sticky
-          bar. For vastly more information about how to use Particle, <a
-            href="https://phase2.gitbook.io/frontend/particle/intro" target="_blank" rel=“noopener noreferrer”>check out the docs</a>.</p>
-      </div>
-
-    </div>
-  </div>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="content-center">
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+				<h1 class="mb-4 font-bold text-2xl text-center content-center align-middle">Welcome to Particle</h1>
+				<div class="flex justify-center">
+					{% set welcome_image = {
+            variant: 'primary',
+            src: paths.images ~ '/astrogoat.png',
+            alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
+          } %}
+					{% include "@atoms/image/_image.twig" with {
+            image: welcome_image
+          } %}
+				</div>
+				<p class="mt-4 text-center">Particle is a starterkit to help you make design systems
+					with Webpack and Twig.</p>
+				<p class="mt-4 text-center">Start exploring by click the Atomic Design links in the black sticky
+					bar. For vastly more information about how to use Particle,
+					<a href="https://phase2.gitbook.io/frontend/particle/intro" target="_blank" rel="“noopener" noreferrer”>check out the docs</a>.</p>
+			</div>
+		</div>
+	</div>
 </div>
