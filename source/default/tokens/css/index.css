@@ -2,10 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  @apply font-body;
-} */
+/*
+Example: Google Remote Fonts
+Serif - Google Fonts - Oswald
+Sans-Serif - Google Fonts - Open Sans
+Monospace - Google Fonts - Source Code Pro
+*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Source+Code+Pro&display=swap);
 
+body {
+  @apply font-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif;
+}
 /* .dingo {
   background: red;
   padding: 10px;
