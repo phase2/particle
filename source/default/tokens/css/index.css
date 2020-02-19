@@ -1,6 +1,4 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /*
 Example: Google Remote Fonts
@@ -22,12 +20,19 @@ h5,
 h6 {
   @apply font-serif;
 }
-/* .dingo {
-  background: red;
-  padding: 10px;
-  margin: 10px;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-} */
+
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+h4 {
+  @apply text-lg;
+}
+
+@tailwind components;
+@tailwind utilities;
