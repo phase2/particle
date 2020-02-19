@@ -80,7 +80,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^6.1.2",
     "fibers": "^4.0.2",
-    "file-loader": "^5.0.2",
+    "file-loader": "^5.1.0",
     "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^3.0.1",
