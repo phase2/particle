@@ -6,31 +6,30 @@
  * Available variables:
  * - scssSpacing: [array] Available in sass-variables.json.
  *
- * @see https://getbootstrap.com/docs/4.0/utilities/spacing/
+ * @see https://tailwindcss.com/docs/margin/
  */
 #}
 
+{% set scssSpacing = {
+  1: '0.25rem',
+  2: '0.5rem',
+  3: '0.75rem',
+  4: '1rem',
+  5: '1.25rem',
+}%}
+
 <div class="container">
-  <div class="row">
+  <div class="row-auto">
     <div class="col">
       <h1 class="mb-3">Spacing</h1>
-      <div class="mb-3 p-3 bg-light border border-secondary rounded">
-        <p class="lead">To add to these items, adjust
-          <code>spacers()</code>
-          in
-          <code>non-printing/_bootstrap-overrides.scss</code>.</p>
+      <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
+        <p class="text-base">To add to these items, adjust
+          <code>theme.spacing</code>
+          section of your
+          <code>tailwind.config.js</code> file.</p>
         <p>
-          <code>spacers(0)</code>
-          produces a value of
-          <code>0</code>
-          and is allowed but not shown in this demo.</p>
-        <p>The math for rem calculations here is based on a browser value of 16px as a
-          <code>$spacer</code>
-          value. To find out your spacer in pixels, simply multiply the rem value in the spacers list by this spacer value. For example, a 1.5rem value in
-          <code>$spacers</code>
-          is equivalent to 24px.</p>
         <div>
-          <a href="https://getbootstrap.com/docs/4.0/utilities/spacing/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a>
+          <a href="https://tailwindcss.com/docs/margin" target="_blank" rel="noopener noreferrer" class="block text-sm mt-2">Tailwind Documentation</a>
         </div>
       </div>
       <hr>
@@ -41,7 +40,7 @@
             <div style="height: {{ value }}; width: {{ value }}; outline: solid 1px black; display: inline-block; margin-right: 5px;"></div>
             <span>{{ value }}
               :
-              <code>spacers({{ spacer }})</code>
+              <code>.m-{{ spacer }}</code> || <code>.p-{{ spacer }}</code>
             </span>
           </div>
         {% endif %}
