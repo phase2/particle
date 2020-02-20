@@ -3,8 +3,9 @@
 module.exports = {
   theme: {
     fontFamily: {
-      // body: ['Oswald, Times New Roman, serif'],
-      headingsFontFamily: ['Oswald, Times New Roman, serif'],
+      body: ['Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+      mono: ['Source Code Pro', 'Courier New', 'monospace'],
+      serif: ['Oswald', 'Times New Roman', 'serif'],
     },
     extend: {},
   },
