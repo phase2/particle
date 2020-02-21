@@ -9,9 +9,6 @@ import 'protons';
 import './_nav.twig';
 import './_nav-item.twig';
 
-// Import custom sass, includes Bootstrap sass
-import './_nav.scss';
-
 export const name = 'nav';
 
 export function disable() {}

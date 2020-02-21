@@ -9,7 +9,3 @@ tools/new-component/templates/
 
 package.json
 package-lock.json
-
-_icons-generated.scss
-
-sass-variables.json

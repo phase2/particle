@@ -9,9 +9,6 @@ import svg4everybody from 'svg4everybody';
 import 'protons';
 import fontawesome from './fontawesome';
 
-// Module styles
-import './_svg.scss';
-
 // Module template
 import './_svg.twig';
 import './_svg--icon.twig';

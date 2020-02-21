@@ -8,8 +8,6 @@ import 'regenerator-runtime/runtime';
 
 import { enableAllComponents } from '../../source/default';
 
-require('./scss/_drupal-styles.scss');
-
 console.log('Particle Drupal behaviors ran.');
 
 Drupal.behaviors.designSystem = {

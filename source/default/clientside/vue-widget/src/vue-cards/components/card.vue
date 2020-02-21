@@ -52,16 +52,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@use '~tokens/sass/utils';
-// Make .active green for just these demo cards
-.active {
-  // Provided by our tokens Sass vars
-  background-color: utils.bs-theme-color('success');
-}
-// Hide list-group-item backgrounds for just these demo cards
-.list-group-item {
-  background: none;
-}
-</style>

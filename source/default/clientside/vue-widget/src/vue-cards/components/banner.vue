@@ -59,20 +59,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-// Just a demo
-@use 'sass:map';
-@use '~tokens/sass/utils';
-
-.vue-banner {
-  margin: map.get(utils.$bs-spacers, 5);
-  padding: map.get(utils.$bs-spacers, 4);
-  font-size: utils.$bs-font-size-lg;
-  background-color: utils.bs-theme-color('primary');
-
-  h3 {
-    color: utils.bs-theme-color('light');
-  }
-}
-</style>

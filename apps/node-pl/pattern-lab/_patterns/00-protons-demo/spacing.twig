@@ -3,49 +3,42 @@
  * @file Spacing!
  * Documenting Spacing Examples from Bootstrap.
  *
- * Available variables:
- * - scssSpacing: [array] Available in sass-variables.json.
- *
  * @see https://tailwindcss.com/docs/margin/
  */
 #}
 
-{% set scssSpacing = {
-  1: '0.25rem',
-  2: '0.5rem',
-  3: '0.75rem',
-  4: '1rem',
-  5: '1.25rem',
-}%}
-
 <div class="container">
-  <div class="row-auto">
-    <div class="col">
-      <h1 class="mb-3">Spacing</h1>
-      <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
-        <p class="text-base">To add to these items, adjust
-          <code>theme.spacing</code>
-          section of your
-          <code>tailwind.config.js</code> file.</p>
-        <p>
-        <div>
-          <a href="https://tailwindcss.com/docs/margin" target="_blank" rel="noopener noreferrer" class="block text-sm mt-2">Tailwind Documentation</a>
-        </div>
-      </div>
-      <hr>
+	<div class="row-auto">
+		<div class="col">
+			<h1 class="mb-3">Spacing</h1>
+			<div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
+				<p class="text-base">To add to these items, adjust
+					<code>theme.spacing</code>
+					section of your
+					<code>tailwind.config.js</code>
+					file.</p>
+				<p>
+					<div>
+						<a href="https://tailwindcss.com/docs/margin" target="_blank" rel="noopener noreferrer" class="block text-sm mt-2">Tailwind Documentation</a>
+					</div>
+				</p>
+			</div>
+			<hr>
 
-      {% for spacer, value in scssSpacing %}
-        {% if spacer != 0 %}
-          <div style="margin: 10px;">
-            <div style="height: {{ value }}; width: {{ value }}; outline: solid 1px black; display: inline-block; margin-right: 5px;"></div>
-            <span>{{ value }}
-              :
-              <code>.m-{{ spacer }}</code> || <code>.p-{{ spacer }}</code>
-            </span>
-          </div>
-        {% endif %}
-      {% endfor %}
+			{% for spacer, value in scssSpacing %}
+				{% if spacer != 0 %}
+					<div style="margin: 10px;">
+						<div style="height: {{ value }}; width: {{ value }}; outline: solid 1px black; display: inline-block; margin-right: 5px;"></div>
+						<span>{{ value }}
+							:
+							<code>.m-{{ spacer }}</code>
+							||
+							<code>.p-{{ spacer }}</code>
+						</span>
+					</div>
+				{% endif %}
+			{% endfor %}
 
-    </div>
-  </div>
+		</div>
+	</div>
 </div>

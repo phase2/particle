@@ -14,9 +14,6 @@ import './_button-outline.twig';
 import './_button-dropdown.twig';
 import './_button-dropdown-split.twig';
 
-// Import custom sass, includes Bootstrap sass
-import './_button.scss';
-
 export const name = 'button';
 
 export function disable() {}

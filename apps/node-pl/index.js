@@ -15,7 +15,6 @@ import 'prismjs/components/prism-clike.min';
 import 'prismjs/components/prism-javascript.min';
 import 'prismjs/components/prism-twig.min';
 import 'prismjs/components/prism-css.min';
-import 'prismjs/components/prism-scss.min';
 import 'prismjs/components/prism-markup.min';
 
 // Local config
@@ -24,8 +23,6 @@ import { APP_NAME } from './particle.app.config';
 import { enableAllComponents } from '../../source/default';
 
 // Adds PL-only styles, ie color swatches.
-// import './scss/_styleguide.scss';
-// import './scss/_scss2json.scss';
 import '../../source/default/tokens/css/index.css';
 
 // Watch the big pieces of PL like demos, _meta, data

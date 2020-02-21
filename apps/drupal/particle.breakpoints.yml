@@ -1,5 +1,4 @@
 # Optional Config for Responsive Image
-# See ~/themes/particle/apps/pl/scss/_scss2json.scss for breakpoints.
 particle.xs:
   label: extra small
   mediaQuery: '(min-width: 0px)'

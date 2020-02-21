@@ -9,7 +9,6 @@ const { DefinePlugin } = require('webpack');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
-const sassExportData = require('../../tools/sass/sass-export-data');
 const particle = require('../../particle');
 
 // Constants: environment
@@ -19,7 +18,7 @@ const { PATH_DIST } = require('../../particle.root.config');
 // Constants: app
 const appConfig = require('./particle.app.config');
 
-const { APP_NAME, APP_PATH, APP_DIST, APP_DIST_PUBLIC } = appConfig;
+const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 
 const shared = {
   entry: {
@@ -31,24 +30,6 @@ const shared = {
   },
   module: {
     rules: [
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          {
-            loader: 'sass-loader',
-            options: {
-              sassOptions: {
-                // Used to generate JSON about variables like colors, fonts
-                functions: {
-                  'export-data($file, $value)': sassExportData(
-                    path.resolve(APP_PATH, 'pattern-lab/_data/')
-                  ),
-                },
-              },
-            },
-          },
-        ],
-      },
       // Non-standard assets on the dependency chain
       {
         test: /\.(yml|md)$/,

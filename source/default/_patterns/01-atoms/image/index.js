@@ -7,9 +7,6 @@ import $ from 'jquery';
 // Module dependencies
 import 'protons';
 
-// Module styles
-import './_image.scss';
-
 // Module template
 import './_image.twig';
 import './_image--bg.twig';

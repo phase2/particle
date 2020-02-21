@@ -46,60 +46,62 @@
 #}
 
 {% if not has_components_module %}
-  {% include '@particle/misc/components--error-message.html.twig' %}
+	{% include '@particle/misc/components--error-message.html.twig' %}
 {% else %}
-<div class="layout-container">
+	<div class="layout-container">
 
-  {{ page.primary_menu }}
+		{{ page.primary_menu }}
 
-  {{ page.highlighted }}
+		{{ page.highlighted }}
 
-  <header role="banner">
-    {% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
-      {% block jumbotron_branding %}
-        {{ page.header_branding }}
-        {{ page.secondary_menu }}
-      {% endblock jumbotron_branding %}
-    {% endembed %}
-  </header>
+		<header role="banner">
+			{% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
+				{% block jumbotron_branding %}
+					{{ page.header_branding }}
+					{{ page.secondary_menu }}
+				{% endblock jumbotron_branding %}
+			{% endembed %}
+		</header>
 
-  {# Help Region not Included by Default. #}
-  {{ page.help }}
+		{# Help Region not Included by Default. #}
+		{{ page.help }}
 
-  <main class="container" role="main">
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-    {{ page.breadcrumb }}
-    <section class="row">
+		<main class="container" role="main">
+			<a id="main-content" tabindex="-1"></a>
+			{# link is in html.html.twig #}
+			{{ page.breadcrumb }}
+			<section class="row">
 
-      {% if page.sidebar_first %}
-        <aside class="layout-sidebar-first col-sm-3" role="complementary">
-          {{ page.sidebar_first }}
-        </aside>
-      {% endif %}
+				{% if page.sidebar_first %}
+					<aside class="layout-sidebar-first col-sm-3" role="complementary">
+						{{ page.sidebar_first }}
+					</aside>
+				{% endif %}
 
-      {% if page.sidebar_first and page.sidebar_second %}
-        <div class="layout-content col-sm-6">
-      {% elseif page.sidebar_first or page.sidebar_second %}
-        <div class="layout-content col-sm-9">
-      {% else %}
-        <div class="layout-content col-sm-12">
-      {% endif %}
-      {{ page.content }}
-        </div>
+				{% if page.sidebar_first and page.sidebar_second %}
+					<div class="layout-content col-sm-6">
+					{% elseif page.sidebar_first or page.sidebar_second %}
+						<div class="layout-content col-sm-9">
+						{% else %}
+							<div class="layout-content col-sm-12">
+							{% endif %}
+							{{ page.content }}
+						</div>
 
-      {% if page.sidebar_second %}
-        <aside class="layout-sidebar-second col-sm-3" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      {% endif %}
+						{% if page.sidebar_second %}
+							<aside class="layout-sidebar-second col-sm-3" role="complementary">
+								{{ page.sidebar_second }}
+							</aside>
+						{% endif %}
 
-    </section>
-  </main>
+					</section>
+				</main>
 
-</div>{# /.layout-container #}
+			</div>
+			{# /.layout-container #}
 
-<footer class="container p-3 footer" role="contentinfo">
-  <hr>
-  {{ page.footer }}
-</footer>
-{% endif %}
+			<footer class="container p-3 footer" role="contentinfo">
+				<hr>
+				{{ page.footer }}
+			</footer>
+		{% endif %}

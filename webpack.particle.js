@@ -7,10 +7,9 @@
 
 // Library Imports
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
-const sass = require('sass');
 
 // Plugins
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+// const StyleLintPlugin = require('stylelint-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -47,7 +46,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.css$/i,
         use: [
           {
             loader: 'css-loader',
@@ -70,18 +69,6 @@ module.exports = {
               root: '',
             },
           },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              // dart-sass! Note: the `fibers` dev-dependency in package.json
-              // is required to make this run faster
-              implementation: sass,
-              sassOptions: {
-                outputStyle: 'compressed',
-              },
-            },
-          },
         ],
       },
       {
@@ -90,7 +77,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
-          emitWarning: true,
+          emitWarning: true, // development only
+          // emitWarning: false, // production only
         },
       },
       {
@@ -146,8 +134,8 @@ module.exports = {
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
     }),
-    // Yell at us while writing Sass
-    new StyleLintPlugin(),
+    // // Yell at us while writing Sass
+    // new StyleLintPlugin(),
     // Handle .vue files
     new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.

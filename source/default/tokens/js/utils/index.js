@@ -9,15 +9,6 @@
 export const randRGB = () => Math.round(Math.random() * 255);
 
 /**
- * Sass prints list output to CSS as comma separated strings w/ extra whitespace,
- *
- * @param {string} sassString - Sass list as string, i.e. ` foo, baz, bar, flerp`
- * @returns {Array}
- */
-export const sass2Array = sassString =>
-  sassString ? sassString.trim().split(', ') : [];
-
-/**
  * Read CSS --variables off of :root and return as an object of var:value
  *
  * @returns {function(): void} - returns a function

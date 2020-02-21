@@ -59,14 +59,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@use '~tokens/sass/utils';
-
-.card-hover:hover {
-  background-color: utils.bs-theme-color('light');
-}
-.scoped-background {
-  background-color: utils.bs-color('white');
-}
-</style>
