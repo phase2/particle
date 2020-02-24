@@ -2,8 +2,6 @@
  * Navbar
  */
 
-import 'bootstrap/js/dist/collapse';
-
 // Custom
 import 'protons';
 

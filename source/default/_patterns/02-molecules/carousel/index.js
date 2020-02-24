@@ -3,7 +3,6 @@
  */
 
 import $ from 'jquery';
-import 'bootstrap/js/dist/carousel';
 
 // Module dependencies
 import 'protons';

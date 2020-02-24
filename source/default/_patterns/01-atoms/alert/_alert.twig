@@ -10,7 +10,6 @@
  * - alert_primary: [string] The paragraph value of the Alert.
  * - alert_secondary: [string] (optional) The value of the footer.
  *
- * @see https://getbootstrap.com/docs/4.0/components/alerts/
  */
 #}
 
@@ -35,19 +34,21 @@
 {% set alert_degree = ( type == 'error' ? 'role=alert' : 'aria-live=polite' ) %}
 
 <div class="{{ alert_classes }}" {{ alert_degree }}>
-  {% block alert_header %}
-    <a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">&times;</span></a>
-    {% if alert_title %}
-      <h4 class="alert-heading">{{ alert_title }}</h4>
-    {% endif %}
-  {% endblock alert_header %}
-  {% block alert_content %}
-    <p>{{ alert_primary }}</p>
-  {% endblock alert_content %}
-  {% block alert_footer %}
-    {% if alert_secondary %}
-      <hr>
-      <p class="mb-0">{{ alert_secondary }}</p>
-    {% endif %}
-  {% endblock alert_footer %}
+	{% block alert_header %}
+		<a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}">
+			<span aria-hidden="true">&times;</span>
+		</a>
+		{% if alert_title %}
+			<h4 class="alert-heading">{{ alert_title }}</h4>
+		{% endif %}
+	{% endblock alert_header %}
+	{% block alert_content %}
+		<p>{{ alert_primary }}</p>
+	{% endblock alert_content %}
+	{% block alert_footer %}
+		{% if alert_secondary %}
+			<hr>
+			<p class="mb-0">{{ alert_secondary }}</p>
+		{% endif %}
+	{% endblock alert_footer %}
 </div>

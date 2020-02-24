@@ -10,7 +10,6 @@
  * - badge_link: [string] The URL the badge will lead to. Make sure to set badge_element to 'a'.
  * - badge_text: [string] Display text on the badge.
  *
- * @see https://getbootstrap.com/docs/4.0/components/badge/
  */
 #}
 
@@ -25,9 +24,9 @@
 ] | sort | join(' ') | trim %}
 
 {% if badge_link %}
-  {% set badge_link = 'href="' ~ badge_link ~ '"' %}
+	{% set badge_link = 'href="' ~ badge_link ~ '"' %}
 {% endif %}
 
-<{{ badge_element }} {{ badge_link }} class="{{ badge_classes }}">
-  {{ badge_text }}
-</{{ badge_element }}>
+<{{badge_element}} {{ badge_link }} class="{{ badge_classes }}">
+	{{ badge_text }}
+</{{badge_element}}>

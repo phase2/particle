@@ -2,8 +2,6 @@
  * List-group
  */
 
-import 'bootstrap/js/dist/tab';
-
 // Module dependencies
 import 'protons';
 import 'atoms/badge';

@@ -6,7 +6,7 @@
 | dropdown_button             | boolean | true, false                 | Choose whether the dropdown will be a button element or not. |
 | dropdown_other_classes      | string  | any                         | Allows use of other bootstrap utility classes.               |
 | dropup                      | boolean | true,false                  | Set the dropdown to dropup instead.                          |
-| dropdown_color              | string  | scssColors.(selected_color) | set The color of the dropdown.                               |
+| dropdown_color              | string  | cssColors.(selected_color)  | set The color of the dropdown.                               |
 | dropdown_split              | boolean | true, false                 | Set the dropdown button to split between text and the arrow. |
 | dropdown_text               | string  | any                         | Set the dropdown's text.                                     |
 | dropdown_menu_right         | boolean | true, false                 | Set the menu to drop on the right side.                      |

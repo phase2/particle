@@ -5,7 +5,7 @@
 | button_element          | string  | button, a, input            | the html element of the button                         |
 | button_type             | string  | any                         | the html 'type' attribute                              |
 | button_outline          | boolean | TRUE, FALSE                 | remove all background colors and images from a button  |
-| button_color            | string  | scssColors.(selected_color) | set the color of the button                            |
+| button_color            | string  | cssColors.(selected_color) | set the color of the button                            |
 | button_size             | string  | lg, sm                      | set whether the button is large or small               |
 | button_block            | boolean | TRUE, FALSE                 | set button to occupy the full width the parent element |
 | button_active           | boolean | TRUE, FALSE                 | set button to appear pressed                           |

@@ -18,9 +18,9 @@ import 'prismjs/components/prism-css.min';
 import 'prismjs/components/prism-markup.min';
 
 // Local config
-import { APP_NAME } from './particle.app.config';
+// import { APP_NAME } from './particle.app.config';
 // Full design system. May dupe the above, but Webpack don't care.
-import { enableAllComponents } from '../../source/default';
+// import { enableAllComponents } from '../../source/default';
 
 // Adds PL-only styles, ie color swatches.
 import '../../source/default/tokens/css/index.css';
@@ -29,25 +29,26 @@ import '../../source/default/tokens/css/index.css';
 import demoSystem from './glob';
 
 // Send each component the $(document) as its context
-const $context = $(document);
+// const $context = $(document);
 
-// Configure PL-specific settings here
-const settings = {
-  // card wants to know if it should enable holder.js.
-  // BUILD_TARGET is either 'pl' or 'drupal', and comes from webpack
-  enableHolder: BUILD_TARGET === APP_NAME,
-  // a random drupalSetting
-  color: '#ce8500',
-};
+// // Configure PL-specific settings here
+// const settings = {
+//   // card wants to know if it should enable holder.js.
+//   // BUILD_TARGET is either 'pl' or 'drupal', and comes from webpack
+//   enableHolder: BUILD_TARGET === APP_NAME,
+//   // a random drupalSetting
+//   color: '#ce8500',
+// };
 
 // Just execute everything in the design system and pass in $(document), settings
-enableAllComponents($context, settings);
+// enableAllComponents($context, settings);
+// enableAllComponents($context);
 
 // Not every demo will need be enabled, but some might.
 Object.values(demoSystem).forEach(component => {
   if (Object.prototype.hasOwnProperty.call(component, 'enable')) {
-    // console.log(component.name);
-    component.enable($context, settings);
+    console.log(component.name);
+    // component.enable($context, settings);
   }
 });
 

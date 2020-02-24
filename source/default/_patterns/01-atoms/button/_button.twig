@@ -21,14 +21,13 @@
  * - button_other_attributes: [string]: Other attributes not specified in the template.
  * - button_text: [string]: Display text on the button.
  *
- * @see https://getbootstrap.com/docs/4.0/components/buttons/
  */
 #}
 
 {% set button_element = button_element | default ('button') %}
 
 {% if button_element != 'a' %}
-  {% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
+	{% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
 {% endif %}
 
 {% set button_classes = [
@@ -51,7 +50,7 @@
   button_other_attributes,
 ] | sort | join(' ') | trim %}
 
-<{{ button_element }} {{ button_type }} class="{{ button_classes }}" {{ button_attributes }}>
-  {{ button_text }}
-  {% block right %}{% endblock right %}
-</{{ button_element }}>
+<{{button_element}} {{ button_type }} class="{{ button_classes }}" {{ button_attributes }}>
+	{{ button_text }}
+	{% block right %}{% endblock right %}
+</{{button_element}}>
