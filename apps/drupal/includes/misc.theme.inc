@@ -1,12 +1,9 @@
 <?php
-
 /**
  * @file
  * Functions to support theming miscellaneous things the Particle theme.
  */
-
 use Drupal\particle\Tools\ParticleTools;
-
 /**
  * Implements hook_preprocess().
  */
@@ -15,7 +12,6 @@ function particle_preprocess(&$variables) {
   // find webpack-compiled assets.
   $variables['paths']['assets'] = ParticleTools::getAssetsPath();
 }
-
 /**
  * Implements hook_preprocess_user().
  */

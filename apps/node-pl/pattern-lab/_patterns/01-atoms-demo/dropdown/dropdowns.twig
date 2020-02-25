@@ -1,13 +1,11 @@
 {% embed '@atoms/grid/_grid-1-up.twig' %}
 	{% set container = true %}
-
 	{% block column_1 %}
 		<h1 class="mb-3">Dropdowns</h1>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
-			<p class="lead">{{dropdowns_helper }}</p>
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
+			<p class="text-lg font-light">{{dropdowns_helper }}</p>
 		</div>
 		<hr>
-
 		<div class="mb-3">
 			<h2>Basic Dropdown</h2>
 			{% include '@atoms/dropdown/_dropdown.twig' with {
@@ -27,7 +25,6 @@
           button_link: '#',
         } %}
 		</div>
-
 		<div class="mb-3">
 			<h2>Colors</h2>
 			{% for name, rgb in cssColors %}
@@ -38,7 +35,6 @@
           } %}
 			{% endfor %}
 		</div>
-
 		<div class="mb-3">
 			<h2>Split Button Drop Down</h2>
 			{% for name, rgb in cssColors %}
@@ -50,7 +46,6 @@
           } %}
 			{% endfor %}
 		</div>
-
 		<div class="mb-3">
 			<h2>Sizing</h2>
 			{% include '@atoms/dropdown/_dropdown.twig' with {
@@ -59,14 +54,12 @@
           button_size: 'lg',
           dropdown_text: 'Large Button',
         } %}
-
 			{% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_button: 'true',
           button_size: 'sm',
           dropdown_text: 'Small Button',
         } %}
-
 			{% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_button: 'true',
@@ -74,7 +67,6 @@
           button_size: 'lg',
           dropdown_text: 'Large Split Button',
         } %}
-
 			{% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_button: 'true',
@@ -83,7 +75,6 @@
           dropdown_text: 'Small Split Button',
         } %}
 		</div>
-
 		<div class="mb-3">
 			<h2>Dropup</h2>
 			<p>Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown</p>
@@ -93,7 +84,6 @@
           dropup: 'true',
           dropdown_text: 'Dropup',
         } %}
-
 			{% include '@atoms/dropdown/_dropdown.twig' with {
           dropdown_color: 'secondary',
           dropdown_button: 'true',
@@ -102,7 +92,6 @@
           dropdown_text: 'Dropup Split',
         } %}
 		</div>
-
 		<div class="mb-3">
 			<h2>Menu Items</h2>
 			<p>Note: Historically dropdown menu contents had to be links, but that’s no longer the case with Bootstrap v4. Now you can optionally use &ltbutton&gt elements in your dropdowns instead of just &lta&gts.</p>
@@ -113,7 +102,6 @@
           button_id: 'dropdownMenu2',
         } %}
 		</div>
-
 		<div class="mb-3">
 			<h2>Menu alignment</h2>
 			{% include '@atoms/dropdown/_dropdown.twig' with {
@@ -122,7 +110,6 @@
           dropdown_menu_right: 'true',
         } %}
 		</div>
-
 		<div class="mb-3">
 			<h2>In-menu options</h2>
 			{% embed '@atoms/grid/_grid-3-up.twig' with { container: false } %}
@@ -132,9 +119,9 @@
               dropdown_text: "Header",
             } %}
 						{% block dropdown_menu_content %}
-							<h6 class="dropdown-header">Dropdown header</h6>
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
+							<h6 class="block py-2 px-6 mb-0 text-sm text-greay-dark whitespace-no-wrap">Dropdown header</h6>
+							<a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0" href="#">Action</a>
+							<a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0" href="#">Another action</a>
 						{% endblock dropdown_menu_content %}
 					{% endembed %}
 				{% endblock column_1 %}
@@ -144,11 +131,11 @@
               dropdown_text: "Divider",
             } %}
 						{% block dropdown_menu_content %}
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Separated link</a>
+							<a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0" href="#">Action</a>
+							<a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0" href="#">Another action</a>
+							<a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0" href="#">Something else here</a>
+							<div class="h-0 my-2 overflow-hidden border-t-1 border-grey-light"></div>
+							<a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0" href="#">Separated link</a>
 						{% endblock dropdown_menu_content %}
 					{% endembed %}
 				{% endblock column_2 %}
@@ -161,7 +148,6 @@
 				{% endblock column_3 %}
 			{% endembed %}
 		</div>
-
 		<div class="mb-3">
 			<h2>Menu forms</h2>
 			{% embed '@atoms/dropdown/_dropdown.twig' with {
@@ -170,28 +156,27 @@
         } %}
 				{% block dropdown_menu_content %}
 					<form class="px-4 py-3">
-						<div class="form-group">
+						<div class="mb-4">
 							<label for="exampleDropdownFormEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+							<input type="email" class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-grey-darker border border-grey rounded" id="examplerelativeFormEmail1" placeholder="email@example.com">
 						</div>
-						<div class="form-group">
+						<div class="mb-4">
 							<label for="exampleDropdownFormPassword1">Password</label>
-							<input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+							<input type="password" class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-grey-darker border border-grey rounded" id="examplerelativeFormPassword1" placeholder="Password">
 						</div>
-						<div class="form-check">
-							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input">
+						<div class="relative block mb-2">
+							<label class="text-grey-dark pl-6 mb-0">
+								<input type="checkbox" class="absolute mt-1 -ml-6">
 								Remember me
 							</label>
 						</div>
-						<button type="submit" class="btn btn-primary">Sign in</button>
+						<button type="submit" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-blue-lightest bg-blue hover:bg-blue-light">Sign in</button>
 					</form>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">New around here? Sign up</a>
-					<a class="dropdown-item" href="#">Forgot password?</a>
+					<div class="h-0 my-2 overflow-hidden border-t-1 border-grey-light"></div>
+					<a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0" href="#">New around here? Sign up</a>
+					<a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0" href="#">Forgot password?</a>
 				{% endblock dropdown_menu_content %}
 			{% endembed %}
 		</div>
-
 	{% endblock column_1 %}
 {% endembed %}

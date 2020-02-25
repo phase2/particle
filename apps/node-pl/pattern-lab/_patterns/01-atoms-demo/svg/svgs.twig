@@ -1,17 +1,15 @@
 {% embed '@demo/_demo-block.twig' with {
   demo: svg_demo_block
 } %}
-
 	{% block content %}
 	<p class="subtext">Note: If you’ve exported from Illustrator or Sketch you should be good to use the svgs directly.
 											      However if you’ve used Inkscape, there are some issues with the added markup from the application. Use the
 											      following fiddle to clean extra markup:
 		<a href="https://jsfiddle.net/alexanderby/31nmr8f7/">https://jsfiddle.net/alexanderby/31nmr8f7/</a>
 	</p>
-
 	<h5>SVG File Techniques Overview</h5>
-	<div class="table-responsive">
-		<table class="table mt-2">
+	<div class="block w-full overflow-auto scrolling-touch">
+		<table class="w-full max-w-full mb-4 bg-transparent mt-2">
 			<thead>
 				<tr>
 					<th scope="col">Method</th>
@@ -23,9 +21,8 @@
 				</tr>
 			</thead>
 			<tbody>
-
 				<tr>
-					<th scope="row" class="text-nowrap">
+					<th scope="row" class="whitespace-no-wrap">
 						<a href="#svg-raw">Inline
 																															              SVG:<br>Raw</a>
 						</th>
@@ -66,9 +63,8 @@
 																												            Will not be able to change color.</td>
 			<td>Renders inline SVG</td>
 		</tr>
-
 		<tr>
-			<th scope="row" class="text-nowrap">
+			<th scope="row" class="whitespace-no-wrap">
 				<a href="#svg-raw">Inline
 																																              SVG:<br>Raw Change Color</a>
 			</th>
@@ -100,9 +96,8 @@
 	<td>Add class properties to container div.</td>
 	<td>Renders inline SVG</td>
 </tr>
-
 <tr>
-	<th scope="row" class="text-nowrap">
+	<th scope="row" class="whitespace-no-wrap">
 		<a href="#svg-spritesheet">Inline SVG:<br>Spritesheet</a>
 	</th>
 	<td>
@@ -124,35 +119,35 @@
               } %}
 </div></td><td>Yes. Container div</td><td>
 <code>svgfill</code>
-property.</td><td>Renders inline SVG</td></tr><tr><th scope="row" class="text-nowrap">
+property.</td><td>Renders inline SVG</td></tr><tr><th scope="row" class="whitespace-no-wrap">
 <a href="#icon-html-classes-custom">HTML Classes</a></th><td>
 {% set htmlclassicon = '<i class="icon--person"></i>' %}
-<pre><code class="language-markup">{{ htmlclassicon }}</code></pre>{% endautoescape %}{% autoescape %}</td></tr></tbody></td><td><i class="icon--person"></i></td><td>Yes. Add class with width and height overrides.</td><td>No. Cannot change color of SVG set with background property.</td><td>None. Attach CSS class to element.</td></tr></tbody></table></div><h5>Font Awesome Techniques Overview</h5><div class="table-responsive"><table class="table mt-2"><thead><tr><th scope="col">Method</th><th scope="col">Example</th><th scope="col">Output</th><th scope="col">Sizing</th><th scope="col">Change Color</th><th scope="col">Rendered HTML</th></tr></thead><tbody><tr><th scope="row" class="text-nowrap"><a href="#fa-html">HTML Classes</a></th><td>{% set htmlclassuser = '<i class="fas fa-user"></i>' %}<pre><code class="language-markup">{{ htmlclassuser }}</code></pre>{% endautoescape %}{% autoescape %}</td></tr></tbody></td><td><i class="fas fa-user"></i></td><td>Yes. fa-lg, fa-2x, etc.</td><td>Yes</td><td>None. Attach CSS class to element.</td></tr></tbody> </table></div><h2>SVG File Techniques</h2><h4 id="svg-raw" class="mt-5">Inline SVG: Raw</h4><p>We can print any SVG directly via<code>@atoms/svg/_svg.twig</code>.</p><h4 id="svg-spritesheet" class="mt-5">Inline SVG: Spritesheet</h4><p>Using the Twig template renders an SVG element directly to the DOM. The
+<pre><code class="language-markup">{{ htmlclassicon }}</code></pre>{% endautoescape %}{% autoescape %}</td></tr></tbody></td><td><i class="icon--person"></i></td><td>Yes. Add class with width and height overrides.</td><td>No. Cannot change flex-growor of SVG set with background property.</td><td>None. Attach CSS class to element.</td></tr></tbody></w-full max-w-full mb-4 bg-transparent></div><h5>Font Awesome Techniques Overview</h5><div class="block w-full overflow-auto scrolling-touch"><table class="table mt-2"><thead><tr><th scope="col">Method</th><th scope="col">Example</th><th scope="col">Output</th><th scope="col">Sizing</th><th scope="col">Change Color</th><th scope="col">Rendered HTML</th></tr></thead><tbody><tr><th scope="flex flex-wrap" class="whitespace-no-wrap"><a href="#fa-html">HTML Classes</a></th><td>{% set htmlclassuser = '<i class="fas fa-user"></i>' %}<pre><code class="language-markup">{{ htmlclassuser }}</code></pre>{% endautoescape %}{% autoescape %}</td></tr></tbody></td><td><i class="fas fa-user"></i></td><td>Yes. fa-lg, fa-2x, etc.</td><td>Yes</td><td>None. Attach CSS class to element.</td></tr></tbody> </table></div><h2>SVG File Techniques</h2><h4 id="svg-raw" class="mt-5">Inline SVG: Raw</h4><p>We can print any SVG directly via<code>@atoms/svg/_svg.twig</code>.</p><h4 id="svg-spritesheet" class="mt-5">Inline SVG: Spritesheet</h4><p>Using the Twig template renders an SVG element directly to the DOM. The
 										      template accepts several arguments:<code>svgname</code>accepts the
 										      filename of the SVG to render,<code>svgfill</code>accepts a value to
 										      change the default fill color of the SVG element from black,<code>svgstroke</code>accepts a value to change the svg stroke color
-										      (default is none).</p><div class="row mt-3"> <div class="col-sm-6"><h5>Example</h5><pre><code class="language-twig"></code></pre> {% endverbatim %} {% include '@atoms/svg/_svg--icon.twig' with {
+										      (default is none).</p><div class="flex flex-wrap mt-3"> <div class="sm:w-1/2 pr-4 pl-4"><h5>Example</h5><pre><code class="language-twig"></code></pre> {% endverbatim %} {% include '@atoms/svg/_svg--icon.twig' with {
   svgname: 'chevron-up',
-} %} {% verbatim %} </div> <div class="col-sm-6"><h5>Output</h5>{% include '@atoms/svg/_svg--icon.twig' with {
+} %} {% verbatim %} </div> <div class="sm:w-1/2 pr-4 pl-4"><h5>Output</h5>{% include '@atoms/svg/_svg--icon.twig' with {
           svgicon: {
             svgname: 'chevron-up',
           }
-        } %}</div></div><div class="row mt-3"> <div class="col-sm-6"><h5>Example</h5><pre><code class="language-twig"></code></pre> {% endverbatim %} {% include '@atoms/svg/_svg--icon.twig' with {
+        } %}</div></div><div class="flex flex-wrap mt-3"> <div class="sm:w-1/2 pr-4 pl-4"><h5>Example</h5><pre><code class="language-twig"></code></pre> {% endverbatim %} {% include '@atoms/svg/_svg--icon.twig' with {
   svgname: 'chevron-up',
   svgfill: 'danger',
-} %} {% verbatim %} </div> <div class="col-sm-6"><h5>Output</h5>{% include '@atoms/svg/_svg--icon.twig' with {
+} %} {% verbatim %} </div> <div class="sm:w-1/2 pr-4 pl-4"><h5>Output</h5>{% include '@atoms/svg/_svg--icon.twig' with {
           svgicon: {
             svgname: 'chevron-up',
             svgfill: 'danger',
           }
-        } %} </div></div><div class="row mt-3"> <div class="col-sm-6"><h5>Example</h5><pre><code class="language-twig"></code></pre> {% endverbatim %} {% include '@atoms/svg/_svg--icon.twig' with {
+        } %} </div></div><div class="flex flex-wrap mt-3"> <div class="sm:w-1/2 pr-4 pl-4"><h5>Example</h5><pre><code class="language-twig"></code></pre> {% endverbatim %} {% include '@atoms/svg/_svg--icon.twig' with {
   svgname: 'chevron-up',
   svgstroke: 'primary',
-} %} {% verbatim %} </div> <div class="col-sm-6"><h5>Output</h5>{% include '@atoms/svg/_svg--icon.twig' with {
+} %} {% verbatim %} </div> <div class="sm:w-1/2 pr-4 pl-4"><h5>Output</h5>{% include '@atoms/svg/_svg--icon.twig' with {
           svgicon: {
             svgname: 'chevron-up',
             svgstroke: 'primary',
           }
-        } %} </div></div><h4 id="icon-html-classes-custom" class="mt-5">SVG from HTML classes</h4><p>All icons placed into the @atoms/svgicon/svg/ folder have a class autogenerated in the format <code>icon--{icon-filename}</code></p>{% set htmlclassicon = '<i class="icon--chevron-up"></i>' %}<pre><code class="language-html">{{ htmlclassicon }}</code></pre>{% endautoescape %}{% autoescape %}<h4 class="mt-3">SVG Library Reference</h4><div class="d-flex justify-content-between mt-2"> {% for icon in cssIcons %}<div class="text-center"><p><i class="icon--{{ icon }}"></i></p><small><code>.icon--{{ icon }}</code></small></div> {% endfor %}</div><h2 class="mt-5">Font Awesome Techniques</h2><p> <a href="https://fontawesome.com/icons?d=gallery" target="_blank" rel="noopener noreferrer">Font
+        } %} </div></div><h4 id="icon-html-classes-custom" class="mt-5">SVG from HTML classes</h4><p>All icons placed into the @atoms/svgicon/svg/ folder have a class autogenerated in the format <code>icon--{icon-filename}</code></p>{% set htmlclassicon = '<i class="icon--chevron-up"></i>' %}<pre><code class="language-html">{{ htmlclassicon }}</code></pre>{% endautoescape %}{% autoescape %}<h4 class="mt-3">SVG Library Reference</h4><div class="flex justify-content-between mt-2"> {% for icon in cssIcons %}<div class="text-center"><p><i class="icon--{{ icon }}"></i></p><text-sm><code>.icon--{{ icon }}</code></small></div> {% endfor %}</div><h2 class="mt-5">Font Awesome Techniques</h2><p> <a href="https://fontawesome.com/icons?d=gallery" target="_blank" rel="noopener noreferrer">Font
 																	        Awesome</a> icons are also available for use inside patterns.</p><h4 id="fa-html" class="">Font Awesome Elements</h4><p>Font Awesome icons are added via <code>&lt;i/&gt;</code> elements which have the classes: <code>fas</code> and <code>fa-icon-name</code>. For example:</p><pre><code class="language-html">{{ htmlclassuser }}</code></pre>{% endautoescape %}{% autoescape %}<p>All Font Awesome <code>&lt;i/&gt;</code> elements are converted into inline SVG via the Font Awesome 5 Javascript API. See <code>@atoms/svgicons/fontawesome.js</code> to provide more icons.</p><p>There are currently <a href="https://fontawesome.com/icons?d=gallery&s=solid&m=free" target="_blank" rel="noopener noreferrer">810 free, solid icons available from Font Awesome</a>.
-																		      Sky's the limit.</p><div class="d-flex align-items-center flex-wrap" style="min-height: 10rem;"> {% for fa_icon in ['user', 'space-shuttle', 'rocket', 'user-astronaut'] %}<div class="col p-3 text-center"><i class="fas fa-{{ fa_icon }}"></i><i class="fas fa-{{ fa_icon }} text-primary" style="font-size: 1.5rem;"></i><i class="fas fa-{{ fa_icon }} bg-dark text-white" style="font-size: 2rem;"></i><p class="w-100 pt-3" style="white-space: nowrap;"><code>fas fa-{{ fa_icon }}</code></p></div> {% endfor %}</div>{% endblock %}{% endembed %}
+																		      Sky's the limit.</p><div class="flex align-items-center flex-wrap" style="min-height: 10rem;"> {% for fa_icon in ['user', 'space-shuttle', 'rocket', 'user-astronaut'] %}<div class="flex-grow p-3 text-center"><i class="fas fa-{{ fa_icon }}"></i><i class="fas fa-{{ fa_icon }} text-blue" style="font-size: 1.5rem;"></i><i class="fas fa-{{ fa_icon }} bg-black text-white" style="font-size: 2rem;"></i><p class="w-full pt-3" style="white-space: nowrap;"><code>fas fa-{{ fa_icon }}</code></p></div> {% endfor %}</div>{% endblock %}{% endembed %}

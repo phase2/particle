@@ -1,13 +1,10 @@
 /**
  * Apply the Design System to Pattern Lab DOM
  */
-
 // ECMAScript polyfills, but NOT fetch(). Fetch() is web standard, not ECMAScript.
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-
 import $ from 'jquery';
-
 // Prism highlighting in PL.
 // Prism is kind of dumb and just operates globally.
 import 'prismjs/components/prism-core.min';
@@ -16,21 +13,16 @@ import 'prismjs/components/prism-javascript.min';
 import 'prismjs/components/prism-twig.min';
 import 'prismjs/components/prism-css.min';
 import 'prismjs/components/prism-markup.min';
-
 // Local config
 // import { APP_NAME } from './particle.app.config';
 // Full design system. May dupe the above, but Webpack don't care.
 // import { enableAllComponents } from '../../source/default';
-
 // Adds PL-only styles, ie color swatches.
 import '../../source/default/tokens/css/index.css';
-
 // Watch the big pieces of PL like demos, _meta, data
 import demoSystem from './glob';
-
 // Send each component the $(document) as its context
 // const $context = $(document);
-
 // // Configure PL-specific settings here
 // const settings = {
 //   // card wants to know if it should enable holder.js.
@@ -39,11 +31,9 @@ import demoSystem from './glob';
 //   // a random drupalSetting
 //   color: '#ce8500',
 // };
-
 // Just execute everything in the design system and pass in $(document), settings
 // enableAllComponents($context, settings);
 // enableAllComponents($context);
-
 // Not every demo will need be enabled, but some might.
 Object.values(demoSystem).forEach(component => {
   if (Object.prototype.hasOwnProperty.call(component, 'enable')) {
@@ -51,6 +41,5 @@ Object.values(demoSystem).forEach(component => {
     // component.enable($context, settings);
   }
 });
-
 // Remove a pl-only helper class to hide the pre-load spinner on the welcome page
 $('body').removeClass('pl-loading');

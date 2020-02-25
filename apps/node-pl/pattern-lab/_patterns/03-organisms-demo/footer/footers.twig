@@ -1,14 +1,11 @@
 {% embed '@atoms/grid/_grid-1-up.twig' %}
   {% set container = true %}
-
   {% block column_1 %}
-
     <h1 class="mb-3">Footer</h1>
-    <div class="mb-3 p-3 bg-light border border-secondary rounded">
-      <p class="lead">This is a simple footer to display inside a container.</p>
+    <div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
+      <p class="text-lg font-light">This is a simple footer to display inside a container.</p>
     </div>
     <hr>
   {% endblock %}
 {% endembed %}
-
 {% include '@organisms/footer/_footer.twig' %}

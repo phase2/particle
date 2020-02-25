@@ -1,14 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
+<div class="container mx-auto">
+  <div class="flex flex-wrap">
+    <div class="flex-grow">
       {% block usage %}
         {% if demo.title %}
           <h1 class="mb-3">{{ demo.title|capitalize }}</h1>
         {% endif %}
         {% if demo.text %}
-          <div class="mb-3 p-3 bg-light border rounded">
+          <div class="mb-3 p-3 bg-grey-lightest border rounded">
             {% if demo.text.lead %}
-              <p class="lead">{{ demo.text.lead }}</p>
+              <p class="text-lg font-light">{{ demo.text.lead }}</p>
             {% endif %}
             {% if demo.text.summary %}
               <p class="summary">{{ demo.text.summary }}</p>
@@ -16,7 +16,6 @@
           </div>
         {% endif %}
       {% endblock usage %}
-
       {% block content %}
         <div>A simple demo block for new components.</div>
       {% endblock content %}

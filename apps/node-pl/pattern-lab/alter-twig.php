@@ -1,12 +1,10 @@
 <?php
-
 /**
  * @param Twig_Environment $env - The Twig Environment - https://twig.symfony.com/api/1.x/Twig_Environment.html
  * @param $config - Config of `@basalt/twig-renderer`
  *
  */
 function addFilters(\Twig_Environment &$env, $config) {
-
   /**
    * Clean Class
    *
@@ -16,7 +14,6 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($clean_class_filter);
-
   /**
    * Clean ID
    *
@@ -26,7 +23,6 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($clean_id_filter);
-
   /**
    * Format Date
    *
@@ -36,7 +32,6 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($format_date_filter);
-
   /**
    * Luma
    *
@@ -58,7 +53,6 @@ function addFilters(\Twig_Environment &$env, $config) {
     return 0.2126 * $rgba['r'] + 0.7152 * $rgba['g'] + 0.0722 * $rgba['b'];
   });
   $env->addFilter($luma_filter);
-
   /**
    * Placeholder
    *
@@ -68,18 +62,15 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($placeholder_filter);
-
   /**
    * Drupal render filter.
    *
    * @return string
    */
-
   $render_filter = new Twig_SimpleFilter('render', function ($string) {
     return $string;
   });
   $env->addFilter($render_filter);
-
   /**
    * RGBA String
    *
@@ -94,11 +85,9 @@ function addFilters(\Twig_Environment &$env, $config) {
       $res = sscanf($rgba, "rgb(%d, %d, %d)");
       $res[] = 1;
     }
-
     return array_combine(array('r', 'g', 'b', 'a'), $res);
   });
   $env->addFilter($rgba_string_filter);
-
   /**
    * Safe Join
    *
@@ -108,7 +97,6 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($safe_join_filter);
-
   /**
    * Drupal translate filter.
    *
@@ -118,7 +106,6 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($t_filter);
-
   /**
    * Without
    *
@@ -128,7 +115,6 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($without_filter);
-
   /**
    * Attributes
    *
@@ -154,11 +140,8 @@ function addFilters(\Twig_Environment &$env, $config) {
     }
   });
   $env->addFilter($attributes_filter);
-
 }
-
 function addFunctions(\Twig_Environment &$env, $config) {
-
   /**
    * Link
    *
@@ -177,7 +160,6 @@ function addFunctions(\Twig_Environment &$env, $config) {
     array('is_safe' => array('html'))
   );
   $env->addFunction($link_function);
-
   /**
    * Path
    *
@@ -191,7 +173,6 @@ function addFunctions(\Twig_Environment &$env, $config) {
     }
   });
   $env->addFunction($path_function);
-
   /**
    * URL
    *
@@ -201,9 +182,7 @@ function addFunctions(\Twig_Environment &$env, $config) {
     return '#';
   });
   $env->addFunction($url_function);
-
 }
-
 /**
  * Adds the debug extension.
  *

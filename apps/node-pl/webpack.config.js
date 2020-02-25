@@ -1,25 +1,19 @@
 /**
  * Pattern Lab-specific webpack config.
  */
-
 // Library Imports
 const path = require('path');
-
 const { DefinePlugin } = require('webpack');
-
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
 const particle = require('../../particle');
-
 // Constants: environment
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 // Constants: root
 const { PATH_DIST } = require('../../particle.root.config');
 // Constants: app
 const appConfig = require('./particle.app.config');
-
 const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
-
 const shared = {
   entry: {
     app: [path.resolve(__dirname, 'index.js')],
@@ -49,7 +43,6 @@ const shared = {
     children: false,
   },
 };
-
 const dev = {
   devServer: {
     host: '0.0.0.0',
@@ -106,9 +99,7 @@ const dev = {
     }),
   ],
 };
-
 const prod = {};
-
 module.exports = particle(
   // app: webpack
   { shared, dev, prod },

@@ -10,7 +10,6 @@
  * @see https://tailwindcss.com/docs/border-style
  */
 #}
-
 {% set border_classes = [
   '',
   '-0',
@@ -19,7 +18,6 @@
   '-b-0',
   '-l-0',
 ] %}
-
 {% set radius_classes = [
   '',
   '-t',
@@ -29,7 +27,6 @@
   '-full',
   '-none',
 ] %}
-
 {% set color_classes = [
   '-transparent',
   '-black',
@@ -39,8 +36,7 @@
   '-yellow-500',
   '-gray-500',
 ] %}
-
-<div class="container my-5">
+<div class="container mx-auto my-5">
   <div class="row-auto">
     <h1 class="mb-3">Borders</h1>
     <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
@@ -53,7 +49,6 @@
       </div>
     </div>
     <hr>
-
     <h2 class="py-3">Border</h2>
     <p>Add classes to an element to remove all borders or some borders.</p>
     <div class="border">
@@ -69,7 +64,6 @@
         </code>
       </pre>
     </div>
-
     <h2 class="py-3">Border Color</h2>
     <p>Change the border color using utilities built on our theme colors.</p>
     <div class="border">
@@ -77,7 +71,6 @@
         <span class="bg-gray-100 m-2 border border{{ class }}"
               style="display: inline-block; height: 5rem; width: 5rem; margin: .25rem;"></span>
       {% endfor %}
-
       <pre class="bg-gray-100 mb-0">
         <code>
 {% for class in color_classes %}
@@ -86,7 +79,6 @@
         </code>
       </pre>
     </div>
-
     <h2 class="py-3">Border-radius</h2>
     <p>Add classes to an element to easily round its corners.</p>
     <div class="border">

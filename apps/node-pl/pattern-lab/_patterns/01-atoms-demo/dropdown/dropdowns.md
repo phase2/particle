@@ -1,5 +1,4 @@
 ## Variables
-
 | Name                        | Type    | Options                     | Description                                                  |
 | --------------------------- | ------- | --------------------------- | ------------------------------------------------------------ |
 | dropdown_element            | string  | div, li, ul                 | Choose the html element of the dropdown.                     |

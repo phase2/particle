@@ -6,7 +6,6 @@ basic_jumbotron:
   button_color: primary
   button_size: lg
   button_link: 'https://github.com/phase2/particle'
-
 fluid_jumbotron:
   jumbotron_title: Fluid Jumbotron
   jumbotron_subtitle: This is a modified jumbotron that occupies the entire horizontal space of its parent.

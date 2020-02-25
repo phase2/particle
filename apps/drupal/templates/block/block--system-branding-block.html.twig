@@ -17,15 +17,11 @@
  *
  */
 #}
-
 {% block content %}
-
   {# Use logo to explicitly override values from preprocess. #}
   {% set logo = {
     logo_svg_inline: logo_svg_inline,
     logo_img_src: logo_img_src
   } %}
-
   {% include "@atoms/branding/_branding.twig" with logo %}
-
 {% endblock %}

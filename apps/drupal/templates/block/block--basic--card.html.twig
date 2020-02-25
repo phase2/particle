@@ -32,7 +32,6 @@
  *
  */
 #}
-
 {% set block_card = {
     card_width: card_width ?: 100,
     text_alignment: text_alignment ?: 'justify',
@@ -44,5 +43,4 @@
     card_subtitle: content.subtitle ?: ''
   }
 %}
-
 {% include '@molecules/card/_card.twig' with block_card %}

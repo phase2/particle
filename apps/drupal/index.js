@@ -1,15 +1,11 @@
 /**
  * Apply the Design System to a single Drupal behavior
  */
-
 // ECMAScript polyfills, but NOT fetch(). Fetch() is web standard, not ECMAScript.
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-
 import { enableAllComponents } from '../../source/default';
-
 console.log('Particle Drupal behaviors ran.');
-
 Drupal.behaviors.designSystem = {
   attach($context, settings) {
     // Let's pretend we have a Drupal module called customCarouselModule that
@@ -18,7 +14,6 @@ Drupal.behaviors.designSystem = {
     // provide a default fallback object: { interval: 5000 }. Change this in
     // actual implementation.
     const { customCarouselModule = { interval: 5000 } } = settings;
-
     // Provide overrides to components from Drupal settings
     const componentSettings = {
       carousel: {
@@ -26,7 +21,6 @@ Drupal.behaviors.designSystem = {
       },
       // .. other component overrides go here
     };
-
     // Now enable all components with a custom componentSettings object
     enableAllComponents($context, componentSettings);
   },

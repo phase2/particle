@@ -6,7 +6,6 @@ particle.xs:
   multipliers:
     - 1x
     - 2x
-
 particle.sm:
   label: small
   mediaQuery: '(min-width: 576px)'
@@ -14,7 +13,6 @@ particle.sm:
   multipliers:
     - 1x
     - 2x
-
 particle.md:
   label: medium
   mediaQuery: '(min-width: 768px)'
@@ -22,7 +20,6 @@ particle.md:
   multipliers:
     - 1x
     - 2x
-
 particle.lg:
   label: large
   mediaQuery: '(min-width: 992px)'
@@ -30,7 +27,6 @@ particle.lg:
   multipliers:
     - 1x
     - 2x
-
 particle.xl:
   label: extra large
   mediaQuery: '(min-width: 1200px)'

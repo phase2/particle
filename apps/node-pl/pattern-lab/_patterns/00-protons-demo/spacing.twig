@@ -6,10 +6,9 @@
  * @see https://tailwindcss.com/docs/margin/
  */
 #}
-
-<div class="container">
+<div class="container mx-auto">
 	<div class="row-auto">
-		<div class="col">
+		<div class="flex-grow">
 			<h1 class="mb-3">Spacing</h1>
 			<div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
 				<p class="text-base">To add to these items, adjust
@@ -24,7 +23,6 @@
 				</p>
 			</div>
 			<hr>
-
 			{% for spacer, value in cssSpacing %}
 				{% if spacer != 0 %}
 					<div style="margin: 10px;">
@@ -38,7 +36,6 @@
 					</div>
 				{% endif %}
 			{% endfor %}
-
 		</div>
 	</div>
 </div>

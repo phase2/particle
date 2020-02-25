@@ -1,5 +1,4 @@
 ## Nav Variables
-
 | Name                   | Type    | Options     | Description                                               |
 | ---------------------- | ------- | ----------- | --------------------------------------------------------- |
 | nav_element            | String  | any         | Choose the html element of the nav.                       |
@@ -15,9 +14,7 @@
 | nav_element            | String  | any         | Choose the html element of the nav.                       |
 | nav_items              | Array   | any         | A list of items to be in the nav.                         |
 | item.nav_item_dropdown | Boolean | true, false | Set the selected nav.item as a dropdown menu.             |
-
 ## Nav_item Variables
-
 | Name                  | Type    | Options     | Description                                                |
 | --------------------- | ------- | ----------- | ---------------------------------------------------------- |
 | nav_item_link         | String  | any         | The URL the nav item will lead to.                         |

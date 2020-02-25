@@ -7,9 +7,7 @@
 # Use this file to register global data for components that need to share data.
 #
 ####
-
 # Protons Data
-
 ## Table
 table:
   header:
@@ -26,15 +24,12 @@ table:
     - first_name: 'Oswald'
       last_name: 'McGlynn'
       username: 'iure'
-
 ## Border Radius
 border_radius_image:
   variant: 'primary'
   style: 'thumbnail'
   placeholder: true
-
 # Organisms Data - Used in Organisms and Higher
-
 ## Article
 article_demo:
   title: 'Lucidus'
@@ -66,22 +61,18 @@ article_demo:
     alt: ''
     style: 'small'
     placeholder: true
-
 ## Footer
 footer:
   slogan: 'Powered by <a href="http://patternlab.io/" target="_blank">Pattern Lab</a>'
-
 ## Navbar
 navbar_other_classes:
   - navbar-expand-lg
   - navbar-light
   - bg-light
-
 navbar_demo:
   brand_link: #
   brand_text: Navbar
   id: navbarSupportedContent
-
   items:
     - nav_item_text: Home
       nav_item_link_classes: active

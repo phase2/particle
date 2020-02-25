@@ -2,8 +2,8 @@
 	{% set container = true %}
 	{% block column_1 %}
 		<h1 class="mb-3">Jumbotron</h1>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
-			<p class="lead">Lightweight, flexible component for showcasing hero unit style content.</p>
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
+			<p class="text-lg font-light">Lightweight, flexible component for showcasing hero unit style content.</p>
 			<p>
 				The Jumbotron is fairly basic. Use the
 				<code>jumbotron_fluid</code>
@@ -17,15 +17,11 @@
 			</p>
 		</div>
 		<hr>
-
 		{% block jumbo_basic %}
 			{% include '@molecules/jumbotron/_jumbotron.twig' with basic_jumbotron %}
 		{% endblock %}
-
 		{% block jumbo_fluid %}
 			{% include '@molecules/jumbotron/_jumbotron.twig' with fluid_jumbotron %}
 		{% endblock %}
-
-
 	{% endblock %}
 {% endembed %}

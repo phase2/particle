@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @file
  * Functions to support theming media entities in the Particle theme.
  */
-
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */

@@ -1,27 +1,24 @@
 {% embed '@atoms/grid/_grid-1-up.twig' %}
 	{% set container = true %}
-
 	{% block column_1 %}
 		<h1 class="mb-3">Cards</h1>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
-			<p class="lead">{{ helper_card_main }}</p>
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
+			<p class="text-lg font-light">{{ helper_card_main }}</p>
 		</div>
-
-		<div class="row">
-			<div class="col-sm mb-3">
+		<div class="flex flex-wrap">
+			<div class="sm:flex-grow mb-3">
 				{% include '@molecules/card/_card.twig' with text_card_1 %}
 			</div>
-			<div class="col-sm mb-3">
+			<div class="sm:flex-grow mb-3">
 				{% include '@molecules/card/_card.twig' with text_card_2 %}
 			</div>
-			<div class="col-sm mb-3">
+			<div class="sm:flex-grow mb-3">
 				{% include '@molecules/card/_card.twig' with text_card_3 %}
 			</div>
 		</div>
 		<hr>
-
 		<h2>Grid 3</h2>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
 			<p>{{ helper_card_text_2 }}</p>
 		</div>
 		<div class="mb-3">
@@ -38,44 +35,40 @@
 			{% endembed %}
 		</div>
 		<hr>
-
 		<h2>Widths</h2>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
 			<p>{{ helper_card_width }}</p>
 		</div>
-		<div class="row">
-			<div class="col-sm-12 mb-3">
+		<div class="flex flex-wrap">
+			<div class="sm:w-1/6 pr-4 pl-42 mb-3">
 				{% include '@molecules/card/_card.twig' with card_width_1 %}
 				{% include '@molecules/card/_card.twig' with card_width_2 %}
 				{% include '@molecules/card/_card.twig' with card_width_3 %}
 			</div>
 		</div>
 		<hr>
-
 		<h2>Image</h2>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
 			<p>{{ helper_card_image }}</p>
 		</div>
-		<div class="card-deck mb-3">
+		<div class="flex flex-col sm:flex-wrap sm:-ml-1 sm:-mr-1 mb-3">
 			{% include '@molecules/card/_card.twig' with top_image %}
 			{% include '@molecules/card/_card.twig' with bottom_image %}
 			{% include '@molecules/card/_card.twig' with overlay_image %}
 		</div>
 		<hr>
-
 		<h2>Structure</h2>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
 			<p>{{ helper_card_structure }}</p>
 		</div>
-		<div class="card-group mb-3">
+		<div class="flex flex-col mb-3">
 			{% include '@molecules/card/_card.twig' with header_card %}
 			{% include '@molecules/card/_card.twig' with footer_card %}
 			{% include '@molecules/card/_card.twig' with list_card %}
 		</div>
 		<hr>
-
 		<h2>Background and Border</h2>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
 			<p>{{ helper_card_colors }}</p>
 		</div>
 		<div class="card-columns mb-3">
@@ -89,9 +82,8 @@
 			{% include '@molecules/card/_card.twig' with card_border_4 %}
 		</div>
 		<hr>
-
 		<h2>Variation</h2>
-		<div class="mb-3 p-3 bg-light border border-secondary rounded">
+		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
 			<p>{{ helper_card_blocks }}</p>
 		</div>
 		<div class="mb3">
@@ -105,6 +97,5 @@
 			{% endembed %}
 		</div>
 		<hr>
-
 	{% endblock column_1 %}
 {% endembed %}

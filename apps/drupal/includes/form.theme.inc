@@ -1,12 +1,9 @@
 <?php
-
 /**
  * @file
  * Functions to support theming form layout in the Particle theme.
  */
-
 use Drupal\Core\Form\FormStateInterface;
-
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
@@ -20,7 +17,6 @@ function particle_theme_suggestions_form_alter(array &$suggestions, array $varia
     $suggestions[] = 'form__particle_search';
   }
 }
-
 /**
  * Implements hook_form_FORM_ID_alter().
  */
@@ -54,7 +50,6 @@ function particle_form_alter(&$form, FormStateInterface $form_state, $form_id) {
         'btn-outline-success',
       ];
       break;
-
     case 'search-block-form':
       // For Drupal's built-in Search, add classes.
       // $form['keys'] is the renderable array for Drupal's built-in Search

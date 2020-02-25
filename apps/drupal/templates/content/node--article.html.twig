@@ -70,13 +70,10 @@
  *   in different view modes.
  */
 #}
-
 {% set classes = [
   'ml-5',
 ] | sort | join(' ') | trim %}
-
 {% embed '@organisms/article/_article.twig' %}
-
   {% block article_header %}
     {{ title_prefix }}
     {% if not page %}
@@ -86,13 +83,11 @@
     {% endif %}
     {{ title_suffix }}
   {% endblock article_header %}
-
   {% block article_content %}
     <div{{ content_attributes.addClass('text-justify') }}>
       {{ content|without('comment') }}
     </div>
   {% endblock article_content %}
-
   {% block article_footer %}
     {% if display_submitted %}
       <blockquote class="text-right">
@@ -107,5 +102,4 @@
       {% endif %}
     {% endif %}
   {% endblock article_footer %}
-
 {% endembed %}

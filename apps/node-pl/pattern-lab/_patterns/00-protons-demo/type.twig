@@ -8,25 +8,22 @@
  *
  */
 #}
-
-<div class="container">
-	<div class="row">
-		<div class="col">
+<div class="container mx-auto">
+	<div class="flex flex-wrap">
+		<div class="flex-grow">
 			<h1 class="mb-3">Typography</h1>
-			<div class="mb-3 p-3 bg-light border border-secondary rounded">
-				<p class="lead">Typography examples. Particle includes many overrideable typography by default. Much of these can be overwritten in
+			<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
+				<p class="text-lg font-light">Typography examples. Particle includes many overrideable typography by default. Much of these can be overwritten in
 					<code>~/_patterns/00-protons/non-printing/_bootstrap-overrides.css</code>
 				</p>
 			</div>
 			<hr>
-
 			<h2>Font Families</h2>
-			<p class="lead">
+			<p class="text-lg font-light">
 				Font families can be added via
 				<code>_type.css</code>
 				and imported to this list<code>.
 				</p>
-
 				{% for key, family in fontFamilies %}
 					{% set family_value = family|join(', ') %}
 					<div class="my-3 border">
@@ -37,7 +34,7 @@
 								<b>Fonts</b>:
 								{{ family_value }}</p>
 						</div>
-						<pre class="bg-light"><code>
+						<pre class="bg-grey-lightest"><code>
   .class {
     font-family: {{ key }};
   }
@@ -45,19 +42,16 @@
 						<div class="p-2">
 							<p class="h3">Regular</p>
 							<div style="font-family: {{ family_value }}; font-size: 1.4em;">{{ excerpt.short }}</div>
-
 							<p class="h3">Bold</p>
 							<div style="font-family: {{ family_value }}; font-size: 1.4em; font-weight: bold;">{{ excerpt.short }}</div>
-
 							<p class="h3">Italic</p>
 							<div style="font-family: {{ family_value }}; font-size: 1.4em; font-style: italic;">{{ excerpt.short }}</div>
 						</div>
 					</div>
 				{% endfor %}
-
 				<h2>Font Sizes</h2>
 			</p>
-			<p class="lead">
+			<p class="text-lg font-light">
 				Font sizes can be added via
 				<code>_type.css</code>
 				and imported to this list via
@@ -73,9 +67,8 @@
 					{% endfor %}
 				</ul>
 			</div>
-
 			<h2>Headings</h2>
-			<p class="lead">
+			<p class="text-lg font-light">
 				These are heading styles, including both element and classed version.
 																																Use the element version in markup following Accessibility guidelines.
 																																Use the class version to match font styling of heading.
@@ -83,7 +76,7 @@
 				<a href="https://webaim.org/techniques/semanticstructure/ " target="_blank">WebAim</a>
 				for details.
 			</p>
-			<table class="table table-responsive-sm">
+			<table class="w-full max-w-full mb-4 bg-transparent table-responsive-sm">
 				<thead>
 					<tr>
 						<th scope="col">Header</th>
@@ -108,7 +101,7 @@
 				</tbody>
 			</table>
 			<p class="my-4">You can use these as either the element or as a class. For example:</p>
-			<table class="table table-responsive-sm">
+			<table class="w-full max-w-full mb-4 bg-transparent table-responsive-sm">
 				<thead>
 					<tr>
 						<th scope="col">Paragraph</th>
@@ -132,7 +125,7 @@
 			</td>
 		</tr>
 	{% endfor %}
-</tbody></table><hr><h2>Display headings</h2><p class="my-4">Bootstrap style for larger headlines. For example:</p><table class="table table-responsive-sm">
+</tbody></table><hr><h2>Display headings</h2><p class="my-4">Bootstrap style for larger headlines. For example:</p><w-full max-w-full mb-4 bg-transparent class="table table-responsive-sm">
 <thead>
 	<tr>
 		<th scope="col">Display Heading</th>
@@ -150,15 +143,15 @@
 			</td>
 		</tr>
 	{% endfor %}
-</tbody></table><hr><h1>Text Styles</h1>{# Paragraph Lead from Bootstrap#}<p class="py-2 h2">Lead</p><div class="p-2 border">
-<p class="lead">A paragraph
+</tbody></table><hr><h1>Text Styles</h1>{# Paragraph Lead from Bootstrap#}<p class="py-2 h2">text-lg font-light</p><div class="p-2 border">
+<p class="text-lg font-light">A paragraph
 	<code>p</code>
 	class to help text
 	standout.
 	{{ excerpt.medium }}</p>
-<pre class="bg-light" style="margin: 0; padding: 0;">
+<pre class="bg-grey-lightest" style="margin: 0; padding: 0;">
           <code>
-  &lt;p class="lead"&gt;
+  &lt;p class="text-lg font-light"&gt;
             {{ excerpt.short }}
             &lt;/p&gt;</code>
         </pre></div><p class="py-2 h2">Paragraphs</p><p>
@@ -190,7 +183,7 @@ in
 in
 <code>strong</code></p><p>This text is
 <sup>superscript</sup></p><p>This text is
-<sub>subscript</sub></p><blockquote class="blockquote">
+<sub>subscript</sub></p><blockquote class="mb-6 text-lg">
 <p>A block quotation (also known as a long quotation or extract) is a
 	quotation in a written document, that is set off from the main text as
 	a

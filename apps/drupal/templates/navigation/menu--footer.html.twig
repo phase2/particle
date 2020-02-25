@@ -19,13 +19,11 @@
  */
 #}
 {% import _self as menus %}
-
 {#
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 {{ menus.menu_links(items, attributes, 0) }}
-
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
@@ -34,7 +32,7 @@
       <ul{{ attributes.addClass('nav', 'pr-2', 'justify-content-end') }}>
     {% else %}
       {# These Classes are added from Particle theme #}
-      <ul class="nav pr-2 justify-content-end">
+      <ul class="flex flex-wrap list-reset pl-0 mb-0 pr-2 justify-content-end">
     {% endif %}
     {% for item in items %}
       <li{{ item.attributes.addClass('nav-item') }}>

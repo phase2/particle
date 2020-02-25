@@ -1,5 +1,4 @@
 ## Variables
-
 | Name                    | Type    | Options                     | Description                                            |
 | ----------------------- | ------- | --------------------------- | ------------------------------------------------------ |
 | button_element          | string  | button, a, input            | the html element of the button                         |

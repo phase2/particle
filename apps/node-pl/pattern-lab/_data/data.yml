@@ -5,7 +5,6 @@
 # CHANGES MADE ONLY IN THIS FILE ARE NOT REGISTERED.
 #
 ####
-
 # PL Configuration Data
 pl: true
 BUILD_TARGET: pl
@@ -14,7 +13,6 @@ paths:
   images: '../../../assets/images'
   fonts: '../../../assets/fonts'
 bodyClass: 'pl pl-loading'
-
 # Generic Starter Template Data
 title: Pattern Lab
 headline:

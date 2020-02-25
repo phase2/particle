@@ -44,16 +44,12 @@
  * @see html.html.twig
  */
 #}
-
 {% if not has_components_module %}
 	{% include '@particle/misc/components--error-message.html.twig' %}
 {% else %}
 	<div class="layout-container">
-
 		{{ page.primary_menu }}
-
 		{{ page.highlighted }}
-
 		<header role="banner">
 			{% embed '@molecules/jumbotron/_jumbotron.twig' with { jumbotron_fluid: true } %}
 				{% block jumbotron_branding %}
@@ -62,45 +58,37 @@
 				{% endblock jumbotron_branding %}
 			{% endembed %}
 		</header>
-
 		{# Help Region not Included by Default. #}
 		{{ page.help }}
-
-		<main class="container" role="main">
+		<main class="container mx-auto" role="main">
 			<a id="main-content" tabindex="-1"></a>
 			{# link is in html.html.twig #}
 			{{ page.breadcrumb }}
-			<section class="row">
-
+			<section class="flex flex-wrap">
 				{% if page.sidebar_first %}
-					<aside class="layout-sidebar-first col-sm-3" role="complementary">
+					<aside class="layout-sidebar-first sm:w-1/4 pr-4 pl-4" role="complementary">
 						{{ page.sidebar_first }}
 					</aside>
 				{% endif %}
-
 				{% if page.sidebar_first and page.sidebar_second %}
-					<div class="layout-content col-sm-6">
+					<div class="layout-content sm:w-1/2 pr-4 pl-4">
 					{% elseif page.sidebar_first or page.sidebar_second %}
-						<div class="layout-content col-sm-9">
+						<div class="layout-content sm:w-3/4 pr-4 pl-4">
 						{% else %}
-							<div class="layout-content col-sm-12">
+							<div class="layout-content sm:w-1/6 pr-4 pl-42">
 							{% endif %}
 							{{ page.content }}
 						</div>
-
 						{% if page.sidebar_second %}
-							<aside class="layout-sidebar-second col-sm-3" role="complementary">
+							<aside class="layout-sidebar-second sm:w-1/4 pr-4 pl-4" role="complementary">
 								{{ page.sidebar_second }}
 							</aside>
 						{% endif %}
-
 					</section>
 				</main>
-
 			</div>
 			{# /.layout-container #}
-
-			<footer class="container p-3 footer" role="contentinfo">
+			<footer class="container mx-auto p-3 footer" role="contentinfo">
 				<hr>
 				{{ page.footer }}
 			</footer>
