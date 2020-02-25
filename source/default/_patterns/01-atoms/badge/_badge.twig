@@ -12,21 +12,17 @@
  *
  */
 #}
-
 {% set badge_element = badge_element | default('span') %}
 {% set badge_color = badge_color | default('primary') %}
-
 {% set badge_classes = [
   'badge',
   badge_pill ? 'badge-pill',
   badge_color ? 'badge-' ~ badge_color,
   badge_other_classes,
 ] | sort | join(' ') | trim %}
-
 {% if badge_link %}
 	{% set badge_link = 'href="' ~ badge_link ~ '"' %}
 {% endif %}
-
 <{{badge_element}} {{ badge_link }} class="{{ badge_classes }}">
 	{{ badge_text }}
 </{{badge_element}}>

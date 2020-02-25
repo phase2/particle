@@ -1,13 +1,10 @@
 /* eslint-disable no-param-reassign, no-shadow */
-
 /**
  * A simple table that fetches data and is then sortable on facets
  */
 import Vue from 'vue';
-
 import store from '../../store';
 import FacetTableComponent from './facet-table.vue';
-
 /**
  * STATE
  */
@@ -17,7 +14,6 @@ const state = {
   requesting: false,
   filter: 'all',
 };
-
 /**
  * MUTATIONS
  */
@@ -32,7 +28,6 @@ const mutations = {
     state.filter = filter;
   },
 };
-
 /**
  * ACTIONS
  */
@@ -54,7 +49,6 @@ const actions = {
     commit('SET_FILTER', filter);
   },
 };
-
 /**
  * GETTERS
  */
@@ -82,7 +76,6 @@ const getters = {
     }
   },
 };
-
 store.registerModule('vueFacetTable', {
   namespaced: true,
   state,
@@ -90,7 +83,6 @@ store.registerModule('vueFacetTable', {
   actions,
   getters,
 });
-
 export default el =>
   new Vue({
     el,

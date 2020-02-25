@@ -23,13 +23,10 @@
  *
  */
 #}
-
 {% set button_element = button_element | default ('button') %}
-
 {% if button_element != 'a' %}
 	{% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
 {% endif %}
-
 {% set button_classes = [
   buttonless_dropdown ? '' : 'btn',
   (button_color and not button_outline) ? 'btn-' ~ button_color,
@@ -39,7 +36,6 @@
   button_active ? 'active',
   button_other_classes,
 ] | sort | join(' ') | trim %}
-
 {% set button_attributes = [
   button_active ? 'aria-pressed="true"',
   button_toggle ? 'data-toggle="' ~ button_toggle ~ '"',
@@ -49,7 +45,6 @@
   button_disabled ? 'disabled',
   button_other_attributes,
 ] | sort | join(' ') | trim %}
-
 <{{button_element}} {{ button_type }} class="{{ button_classes }}" {{ button_attributes }}>
 	{{ button_text }}
 	{% block right %}{% endblock right %}

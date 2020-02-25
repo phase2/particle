@@ -14,30 +14,22 @@
  *
  */
 #}
-
 {% set parent_element = parent_element | default('ul') %}
-
 {% if list_flush %}
 	{% set list_flush = 'list-group-flush' %}
 {% endif %}
-
 {% if list_id %}
 	{% set list_id = 'id="' ~ list_id ~ '"' %}
 {% endif %}
-
-<{{parent_element}} class="list-group {{ list_flush }}" {{ list_id }}>
+<{{parent_element}} class="flex flex-col pl-0 mb-0 border rounded border-grey-light {{ list_flush }}" {{ list_id }}>
 	{% for item in items %}
-
 		{% set element = item.item_element | default('li') %}
-
 		{% set classes = [
     'list-group-item',
     'list-group-item-' ~ item.item_color,
   ] | merge(item.item_classes | default([])) | join(' ') %}
-
 		{% set attributes = [
   ] | merge(item.item_attributes | default([])) | join(' ')%}
-
 		<{{element}} class="{{ classes }}" {{ item_id }} {{ attributes }}>
 			{{ item.item_text }}
 			{% if item.item_badge %}

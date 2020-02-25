@@ -7,7 +7,6 @@
     <cards :cards="cardsArray" @set-name="cardName = $event" />
   </div>
 </template>
-
 <script>
 /**
  * This is a pretty standard app > collection > items pattern.
@@ -25,10 +24,8 @@
  * the isClicked property to each card at the time of fetching. We'd also probably
  * reach for VueX when we start communicating between components more.
  */
-
 import cards from './components/cards.vue';
 import banner from './components/banner.vue';
-
 export default {
   name: 'VueCardsApp',
   components: {

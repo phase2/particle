@@ -35,7 +35,6 @@ export default {
       default: () => 0,
     },
   },
-
   computed: {
     percentClass() {
       return Math.sign(this.change) === -1 ? 'text-danger' : 'text-success';

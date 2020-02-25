@@ -12,16 +12,13 @@
  *    Example: 'svg-custom-class icon-big'
  */
 #}
-
 {# Starter defaults #}
 {%  set svg = svg|default({
   svgpath: '@atoms/svg/svg/person.svg',
   colorOriginal: false,
 }) %}
-
 {# Helper classes #}
 {% set svg_classes = svg_classes|default(['svg'])|merge([
   not svg.colorOriginal ? 'svg--colorable' : '',
 ]) | sort | join(' ') | trim %}
-
 <span class="{{ svg_classes }}">{{ source(svg.svgpath) }}</span>

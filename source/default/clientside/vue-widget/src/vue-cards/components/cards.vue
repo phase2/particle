@@ -1,9 +1,9 @@
 <template>
-  <div class="row">
+  <div class="flex flex-wrap">
     <div
       v-for="card in cards"
       :key="card.phone"
-      class="card-wrapper col-sm-12 col-md-6 col-lg-4 mb-3 card-hover"
+      class="card-wrapper sm:w-1/6 pr-4 pl-42 md:w-1/2 pr-4 pl-4 lg:w-1/3 pr-4 pl-4 mb-3 card-hover"
       :data-testid="`card-wrapper-${card.id}`"
       @click="[toggle(card), $emit('set-name', card.name)]"
     >
@@ -11,7 +11,6 @@
     </div>
   </div>
 </template>
-
 <script>
 /**
  * Cards here wraps individual Card with click behavior. Note the unique:
@@ -24,16 +23,12 @@
  *   $emit('set-name', card.name)
  *
  * This provides data back up to the parent app.
-
  * Import existing PRINTING styles through JavaScript. This does NOT duplicate
  * since JavaScript imports are handled by Webpack.
  */
-
 import 'atoms/grid';
-
 // Import the card component
 import card from './card.vue';
-
 export default {
   name: 'Cards',
   components: {

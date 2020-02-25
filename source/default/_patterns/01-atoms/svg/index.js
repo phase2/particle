@@ -1,27 +1,20 @@
 /**
  * svg
  */
-
 import $ from 'jquery';
 import svg4everybody from 'svg4everybody';
-
 // Module dependencies
 import 'protons';
 import fontawesome from './fontawesome';
-
 // Module template
 import './_svg.twig';
 import './_svg--icon.twig';
-
 // Enable Fontawesome immediately
 fontawesome();
-
 export const name = 'svg';
-
 export const defaults = {
   dummyClass: 'js-svg-exists',
 };
-
 /**
  * Components may need to run clean-up tasks if they are removed from DOM.
  *
@@ -30,7 +23,6 @@ export const defaults = {
  */
 // eslint-disable-next-line no-unused-vars
 export function disable($context, settings) {}
-
 /**
  * Each component has a chance to run when its enable function is called. It is
  * given a piece of DOM ($context) and a settings object. We destructure our
@@ -47,14 +39,11 @@ export function enable($context, { svg = {} }) {
   if (!$svg.length) {
     return;
   }
-
   // Enable svg4everybody.
   svg4everybody();
-
   // Merge defaults with incoming settings
   const settings = Object.assign(defaults, svg);
   // An example of what could be done with this component
   $svg.addClass(settings.dummyClass);
 }
-
 export default enable;

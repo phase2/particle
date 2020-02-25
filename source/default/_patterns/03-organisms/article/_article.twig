@@ -11,19 +11,15 @@
  * - article.tags: [array]: An array of tags.
  */
 #}
-
 {% set image_classes = [
   'm-3',
   'rounded-circle',
   'float-right'
 ] | sort %}
-
 <article{{ (BUILD_TARGET == 'pl') ? ' class=' ~ classes : attributes.addClass(classes) }}>
-
   {% block article_header %}
     <h2 class="ml-0">{{ article.title }}</h2>
   {% endblock article_header %}
-
   {% block article_content %}
     <div class="ml-5 text-justify">
       {% include '@atoms/image/_image.twig' with {
@@ -33,10 +29,9 @@
       {{ article.body }}
     </div>
   {% endblock article_content %}
-
   {% block article_footer %}
     <div>
-      <span class="font-weight-bold">Tags:</span>
+      <span class="font-bold">Tags:</span>
       <ul class="list-inline">
         {% for tag in article.tags  %}
           <li class="list-inline-item"><a href="{{ tag.url }}" target="_blank">{{ tag.word }}</a></li>
@@ -44,10 +39,9 @@
       </ul>
     </div>
     <blockquote class="text-right">
-      <footer class="blockquote-footer">
+      <footer class="block text-grey">
         Submitted by {{ article.author_name }} on {{ article.date }}
       </footer>
     </blockquote>
   {% endblock article_footer %}
-
 </article>

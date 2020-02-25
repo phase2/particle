@@ -10,9 +10,7 @@
  *      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
  */
 #}
-
 {% set bp = cssBreakpoints|keys %}
-
 <picture>
 	{% for item in image.srcset %}
 		{% set key = bp[loop.index]|default('xl') %}

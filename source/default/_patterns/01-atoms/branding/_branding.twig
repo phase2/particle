@@ -11,7 +11,6 @@
  * - site_slogan: [string] the site slogan provided by the app.
  */
 #}
-
 <aside class="branding">
   <div class="branding__site-logo">
     <a href="{{ url }}" title="{{ site_name }}" rel="home">
@@ -33,14 +32,12 @@
       {% endif %}
     </a>
   </div>
-
   {% if site_name %}
-    <h1 class="display-3 branding__site-name">
+    <h1 class="text-3xl branding__site-name">
       <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
     </h1>
   {% endif %}
-
   {% if site_slogan %}
-    <p class="lead branding__site-slogan">{{ site_slogan }}</p>
+    <p class="text-lg font-light branding__site-slogan">{{ site_slogan }}</p>
   {% endif %}
 </aside>

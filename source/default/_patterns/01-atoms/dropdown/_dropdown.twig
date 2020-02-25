@@ -21,24 +21,19 @@
  *
  */
 #}
-
 {% set dropdown_element = dropdown_element | default('div') %}
-
 {% if dropdown_button %}
 	{% set dropdown_class = 'btn-group' %}
 {% else %}
 	{% set dropdown_class = 'dropdown' %}
 {% endif %}
-
 {% set dropdown_classes = [
   dropdown_class,
   dropup ? 'dropup',
   dropdown_other_classes,
 ] | sort | join(' ') | trim %}
-
 {% set dropdown_menu_element = dropdown_menu_element | default('a') %}
 {% set dropdown_menu_aria_label = button_id ? 'aria-labelledby="' ~ button_id ~ '"' %}
-
 <{{dropdown_element}} class="{{ dropdown_classes }}">
 	{% if dropdown_split %}
 		{% include '@atoms/button/_button-dropdown-split.twig' %}
@@ -48,11 +43,10 @@
       button_color: dropdown_color,
     } %}
 	{% endif %}
-
-	<div class="dropdown-menu {{ dropdown_menu_right }}" {{ dropdown_menu_aria_label }}>
+	<div class=" absolute pin-l z-50 float-left hidden list-reset	 py-2 mt-1 text-base bg-white border border-grey-light rounded {{ dropdown_menu_right }}" {{ dropdown_menu_aria_label }}>
 		{% block dropdown_menu_content%}
 		{% for dropdown_menu_item in dropdown_menu_items %}
-			<{{dropdown_menu_element}} class="dropdown-item {{ dropdown_menu_item.dropdown_menu_item_disabled }}" href="#">
+			<{{dropdown_menu_element}} class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0 {{ dropdown_menu_item.dropdown_menu_item_disabled }}" href="#">
 				{{ dropdown_menu_item.dropdown_menu_item_text }}
 			</{{dropdown_menu_element}}>
 		{% endfor %}

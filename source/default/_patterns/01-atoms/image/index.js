@@ -1,12 +1,9 @@
 /**
  * image
  */
-
 import $ from 'jquery';
-
 // Module dependencies
 import 'protons';
-
 // Module template
 import './_image.twig';
 import './_image--bg.twig';
@@ -15,11 +12,9 @@ import './_image--placeholder.twig';
 import './_image--primary.twig';
 
 export const name = 'image';
-
 export const defaults = {
   dummyClass: 'js-image-exists',
 };
-
 /**
  * Components may need to run clean-up tasks if they are removed from DOM.
  *
@@ -28,7 +23,6 @@ export const defaults = {
  */
 // eslint-disable-next-line no-unused-vars
 export function disable($context, settings) {}
-
 /**
  * Each component has a chance to run when its enable function is called. It is
  * given a piece of DOM ($context) and a settings object. We destructure our
@@ -50,5 +44,4 @@ export function enable($context, { image = {} }) {
   // An example of what could be done with this component
   $image.addClass(settings.dummyClass);
 }
-
 export default enable;

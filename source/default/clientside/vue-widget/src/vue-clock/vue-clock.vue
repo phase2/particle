@@ -19,7 +19,6 @@
     </div>
   </div>
 </template>
-
 <script>
 /**
  * An example leveraging a few Vue features like:

@@ -8,7 +8,6 @@
         {% if show_label %}</label>{% endif %}
     </div>
 {% endmacro %}
-
 {% macro textarea(label, placeholder, rows, classes) %}
     {% set show_label = label|default(true) %}
     <div class="field-container {{ classes }}">

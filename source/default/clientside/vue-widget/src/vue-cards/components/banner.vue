@@ -13,7 +13,6 @@
     </h3>
   </div>
 </template>
-
 <script>
 /**
  * A super contrived example to show off a few things like:
@@ -23,9 +22,7 @@
  * - Props
  * - Utility functions used within methods()
  */
-
 import { randRGB } from 'tokens/js/utils';
-
 export default {
   name: 'Banner',
   props: {

@@ -1,22 +1,16 @@
 /**
  * Carousel
  */
-
 import $ from 'jquery';
-
 // Module dependencies
 import 'protons';
 import 'atoms/image';
-
 // Module template
 import './_carousel.twig';
-
 export const name = 'carousel';
-
 export const defaults = {
   interval: 3000,
 };
-
 /**
  * Components may need to run clean-up tasks if they are removed from DOM.
  *
@@ -25,7 +19,6 @@ export const defaults = {
  */
 // eslint-disable-next-line no-unused-vars
 export function disable($context, settings) {}
-
 /**
  * Each component has a chance to run when its enable function is called. It is
  * given a piece of DOM ($context) and a settings object. We destructure our
@@ -49,5 +42,4 @@ export function enable($context, { carousel = {} }) {
     interval: settings.interval,
   });
 }
-
 export default enable;

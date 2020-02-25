@@ -1,6 +1,5 @@
 {#
   Card!
-
   card_element: String (optional): Element tag that defaults to div.
   card_width: Integer: 25|50|75 If left empty the card will fill the width of it's parent element.
   card_background: String: primary|secondary|succes|danger|warning|info|light|dark Background color.
@@ -20,13 +19,10 @@
   card_list: Number: The number of items in the list.
   list_item: Loop variable: Do not set.
   card_footer: String: The text on the footer.
-
 #}
-
 {# @param {int} card_width #}
 {# @param {string} view_change_uri  #}
 {# @param {int} user_location_id #}
-
 {% set card_classes = [
   'card',
   card_width ? 'w-' ~ card_width,
@@ -37,79 +33,66 @@
   card_border ? 'border-' ~ card_border,
   card_other_classes,
 ] | sort | join(' ') | trim %}
-
 <div class="{{ card_classes }}">
   {% block card_header %}
     {% if card_header %}
-      <div class="card-header">
+      <div class="py-3 px-6 mb-0 bg-grey-lighter border-b-1 border-grey-light text-grey-darkest">
         {{ card_header }}
       </div>
     {% endif %}
   {% endblock card_header %}
-
   {% if card_image_location == 'top' %}
     {% block card_image_top %}
-
       {% include '@atoms/image/_image.twig' with {
         image: card_image,
         image_classes: ['card-img-top'],
       } %}
-
     {% endblock %}
   {% endif %}
-
   {% if card_image_overlay %}
-    <div class="card-img-overlay">
+    <div class="absolute pin-y pin-x p-6">
       <p>{{ card_image_overlay }}</p>
     </div>
   {% endif %}
-
   {% if card_flush %}
     {# Note that 'p2card__flush__body' is not a bootstrap class. Is being used to designate the flush body#}
     {% set body_class = 'p2card__flush--body' %}
   {% else %}
     {% set body_class = 'card-body' %}
   {% endif %}
-
   {% block card_body %}
     <div class="{{ body_class }}">
       {% if card_title %}
-        <h4 class="card-title">{{ card_title }}</h4>
+        <h4 class="mb-3">{{ card_title }}</h4>
       {% endif %}
       {% if card_subtitle %}
-        <h6 class="card-subtitle mb-2 text-muted">{{ card_subtitle }}</h6>
+        <h6 class="-mt-2 mb-0 mb-2 text-grey">{{ card_subtitle }}</h6>
       {% endif %}
       {% if card_text %}
-        <p class="card-text {{ text_color }}">{{ card_text }}</p>
+        <p class="mb-0 {{ text_color }}">{{ card_text }}</p>
       {% endif %}
       {% if card_link %}
-        <a href="{{ card_link }}" class="card-link">{{ card_link_text }}</a>
+        <a href="{{ card_link }}" class="ml-6">{{ card_link_text }}</a>
       {% endif %}
       {% if button %}
         {% include "@atoms/button/_button.twig" with button %}
       {% endif %}
     </div>
   {% endblock %}
-
   {% if list %}
     {% include '@atoms/list-group/_list-group.twig' with list %}
   {% endif %}
-
   {% if card_footer %}
-    <div class="card-footer">
+    <div class="py-3 px-6 bg-grey-lighter border-t-1 border-grey-light">
       {{ card_footer }}
     </div>
   {% endif %}
-
   {% if card_image_location == 'bottom' %}
     {% block card_image_bottom %}
-
       {% include '@atoms/image/_image.twig' with {
         image: card_image,
         image_classes: ['card-img-bottom'],
       } %}
-
     {% endblock card_image_bottom %}
   {% endif %}
-
 </div>
