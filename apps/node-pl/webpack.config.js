@@ -13,6 +13,7 @@ const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 const { PATH_DIST } = require('../../particle.root.config');
 // Constants: app
 const appConfig = require('./particle.app.config');
+
 const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 const shared = {
   entry: {
@@ -92,7 +93,7 @@ const dev = {
     },
   },
   plugins: [
-    // Recompile PL on any globbed PL file (see glob.js)
+    // Recompile PL on any globed PL file (see glob.js)
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md|json)$/,
       exec: [`npm run pl-node`],

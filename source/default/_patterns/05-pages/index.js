@@ -11,6 +11,7 @@ import 'templates/site-container.twig';
 // Demo templates.
 import './article.twig';
 import './homepage.twig';
+
 export const name = 'demoPages';
 export function disable() {}
 export function enable(context = $(document), settings) {
