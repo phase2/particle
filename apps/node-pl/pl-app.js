@@ -3,6 +3,7 @@
  */
 const core = require('@pattern-lab/core');
 const config = require('./patternlab-config');
+
 const pl = core(config);
 const { cleanPublic } = config;
 const { NODE_ENV } = process.env;
