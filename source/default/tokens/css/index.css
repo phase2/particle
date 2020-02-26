@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 /*
 Example: Google Remote Fonts
 Serif - Google Fonts - Oswald
@@ -29,11 +31,3 @@ h3 {
 h4 {
   @apply text-lg;
 }
-a {
-  @apply text-blue-500;
-}
-code {
-  @apply text-pink-500;
-}
-@tailwind components;
-@tailwind utilities;
