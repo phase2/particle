@@ -23,7 +23,7 @@
 				</p>
 			</div>
 			<hr>
-			{% for spacer, value in cssSpacing %}
+			{% for spacer, value in tokens.spacing %}
 				{% if spacer != 0 %}
 					<div style="margin: 10px;">
 						<div style="height: {{ value }}; width: {{ value }}; outline: solid 1px black; display: inline-block; margin-right: 5px;"></div>

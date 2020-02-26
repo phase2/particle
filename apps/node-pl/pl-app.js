@@ -3,8 +3,14 @@
  */
 const core = require('@pattern-lab/core');
 const config = require('./patternlab-config');
+const resolveConfig = require('tailwindcss/resolveConfig');
+const tailwindConfig = require('../../source/default/tailwind.config.js');
 
 const pl = core(config);
+
+const fullConfig = resolveConfig(tailwindConfig)
+const { colors, spacing } = fullConfig.theme;
+
 const { cleanPublic } = config;
 const { NODE_ENV } = process.env;
 // Start/stop message template
@@ -14,6 +20,10 @@ const options = {
   cleanPublic,
   data: {
     env: NODE_ENV || 'production',
+    tokens: {
+      colors,
+      spacing
+    },
   },
 };
 /**

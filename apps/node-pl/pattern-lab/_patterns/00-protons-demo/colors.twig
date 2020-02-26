@@ -21,6 +21,25 @@
 		</div>
 	</div>
 	<div class="flex flex-wrap">
+    {% for colorName, colorValue in tokens.colors %}
+      {% if colorValue is iterable %}
+        {% for color_name, color_value in colorValue %}
+          {% set colorClass = 'bg-' ~ colorName ~ '-' ~ color_name %}
+          <div class="w-2/6 p-4">
+            <div class="{{ colorClass }} rounded-lg shadow-inner flex text-center flex-col py-2">
+              <div>{{ colorName ~ ' ' ~ color_name }}</div>
+              <div>{{ color_value }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="w-2/6 p-4">
+          <div class="bg-{{ colorName }} rounded-lg shadow-inner flex text-center flex-col py-2">
+            <div class="{{ colorName == 'black' ? 'text-white' }}">{{ colorName }}</div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
 		{% for colorName, colorValue in cssColors %}
 			{# The custom Twig filters `rgba_string` and `luma` are found in _twig-components/filters/.
 												       Feel free to add filters, but ensure that your implementing system is provided them. #}
