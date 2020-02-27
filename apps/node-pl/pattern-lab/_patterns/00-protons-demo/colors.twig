@@ -23,7 +23,7 @@
 	<div class="flex flex-wrap">
 		{% for colorName, colorValue in cssColors %}
 			{# The custom Twig filters `rgba_string` and `luma` are found in _twig-components/filters/.
-												       Feel free to add filters, but ensure that your implementing system is provided them. #}
+      Feel free to add filters, but ensure that your implementing system is provided them. #}
 			{% set luma = colorValue|rgba_string|luma %}
 			<div class="md:w-1/4 pr-4 pl-4">
 				<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light mb-3 {% if luma < 200 %}text-white{% endif %} bg-{{ flex-groworName }}">
@@ -64,8 +64,8 @@
 	</div>
 	<h2>Background Colors</h2>
 	<p>Similar to the contextual text color classes, easily set the background of an element to any contextual class.
-								    Anchor components will darken on hover, just like the text classes.
-								    Background utilities do not set color, so in some cases you’ll want to use
+  Anchor components will darken on hover, just like the text classes.
+  Background utilities do not set color, so in some cases you’ll want to use
 		<code>.text-*</code>
 		utilities.</p>
 	<div class="flex flex-wrap border">
