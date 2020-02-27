@@ -20,11 +20,11 @@ describe('card.vue', () => {
     expect(getByText('waffles.com')).toBeTruthy();
     expect(getByText('admin@waffles.com')).toBeTruthy();
   });
-  it('initializes isClicked status as false', () => {
-    const { getByText } = render(card);
-    const clickStatus = getByText('clicked:', { exact: false });
-    expect(clickStatus.textContent).toBe('clicked: false');
-  });
+  // it('initializes isClicked status as false', () => {
+  //   const { getByText } = render(card);
+  //   const clickStatus = getByText('clicked:', { exact: false });
+  //   expect(clickStatus.textContent).toBe('clicked: false');
+  // });
 });
 describe('banner.vue', () => {
   it('shows the username passed in', () => {
