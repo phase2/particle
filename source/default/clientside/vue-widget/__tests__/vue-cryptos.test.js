@@ -22,10 +22,14 @@ describe('vue-cryptos.vue', () => {
     const losersButton = getByTestId('facet-button-losers');
     await fireEvent.click(winnersButton);
     expect(winnersButton.className).toBe(
-      'btn btn-secondary text-uppercase active'
+      'inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-grey-lightest bg-grey hover:bg-grey-light uppercase active'
     );
-    expect(allButton.className).toBe('btn btn-secondary text-uppercase');
-    expect(losersButton.className).toBe('btn btn-secondary text-uppercase');
+    expect(allButton.className).toBe(
+      'inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-grey-lightest bg-grey hover:bg-grey-light uppercase'
+    );
+    expect(losersButton.className).toBe(
+      'inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-grey-lightest bg-grey hover:bg-grey-light uppercase'
+    );
   });
 });
 describe('facet-table-row.vue', () => {
