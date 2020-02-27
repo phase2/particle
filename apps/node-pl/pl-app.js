@@ -2,16 +2,21 @@
  * Compile PL, send in custom global values
  */
 const core = require('@pattern-lab/core');
-const config = require('./patternlab-config');
 const resolveConfig = require('tailwindcss/resolveConfig');
+
+const plConfig = require('./patternlab-config');
 const tailwindConfig = require('../../source/default/tailwind.config.js');
 
-const pl = core(config);
+const pl = core(plConfig);
 
-const fullConfig = resolveConfig(tailwindConfig)
-const { colors, spacing } = fullConfig.theme;
+const { theme } = resolveConfig(tailwindConfig);
+const {
+  colors,
+  spacing,
+  screens,
+} = theme;
 
-const { cleanPublic } = config;
+const { cleanPublic } = plConfig;
 const { NODE_ENV } = process.env;
 // Start/stop message template
 const message = `Pattern Lab Node v${pl.version()} ${NODE_ENV} compile`;
@@ -22,7 +27,8 @@ const options = {
     env: NODE_ENV || 'production',
     tokens: {
       colors,
-      spacing
+      spacing,
+      screens,
     },
   },
 };

@@ -5,33 +5,29 @@
  *
  */
 #}
+
 <div class="container mx-auto">
 	<div class="flex flex-wrap">
 		<div class="flex-grow">
 			<h1 class="mb-3">Breakpoints</h1>
-			<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
-				<p class="text-lg font-light">Demonstration of breakpoints.
-					<code>$grid-breakpoints</code>
-				</p>
-			</div>
+      <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
+        <p class="text-base">You define your project's breakpoints in the theme.screens section of your tailwind.config.js file.</p>
+        <p class="text-base">The values are the <code>min-width</code> where that breakpoint should start.</p>
+        <div>
+          <a href="https://tailwindcss.com/docs/breakpoints/" target="_blank" rel="noopener noreferrer" class="block text-blue-500 text-sm mt-2">Tailwind Documentation</a>
+        </div>
+      </div>
 			<hr>
 		</div>
 	</div>
 </div>
-<div class="sg-breakpoints">
+<div class="relative">
 	<ul class="breakpoints">
-		{% for bp, value in cssBreakpoints %}
-			<li style="left: {{ value }}">
+		{% for bp, value in tokens.screens %}
+			<li style="left: {{ value }}" class="absolute border-solid border-l-4 h-screen">
 				<span class="label">{{ bp }}:<br/>{{ value }}</span>
 			</li>
 		{% endfor %}
 	</ul>
-	<ul class="device_widths">
-		{% for device in device_widths %}
-			<li style="width: {{ device.width }}px;">
-				<span class="label">{{ device.name }}:
-					{{ device.width }}px</span>
-			</li>
-		{% endfor %}
-	</ul>
+
 </div>
