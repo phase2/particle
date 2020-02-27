@@ -3,11 +3,10 @@
  * @file Colors!
  *
  * Available variables:
- * - cssColors: [array] Provided from data as a list of color values.
+ * - tokens.colors: [array] Provided from data as a list of color values.
  *
  */
 #}
-
 
 <div class="container mx-auto">
 	<div class="flex flex-wrap">
@@ -23,23 +22,26 @@
 		</div>
 	</div>
 	<div class="flex flex-wrap">
-    {#  todo: dont repat yo'self #}
     {% for colorName, colorValue in tokens.colors %}
       {% if colorValue is iterable %}
         {% for nestedColor, nestedValue in colorValue %}
+          {% set luma = nestedValue|hex_to_rgba|rgba_string|luma %}
           {% set colorClass = 'bg-' ~ colorName ~ '-' ~ nestedColor %}
           <div class="w-2/6 p-4">
-            <div class="{{ colorClass }} rounded-lg shadow-inner text-center py-2">
-              <div>{{ colorName ~ ' ' ~ nestedColor }}</div>
+            <div class="{{ colorClass }} {{ luma < 200 ? 'text-white' }} rounded-lg shadow-inner text-center py-2 text-sm">
+              <div class="text-base">{{ colorName|upper ~ ' ' ~ nestedColor }}</div>
               <div>{{ nestedValue }}</div>
+              <div class="mt-2">Luminance: <code class="bg-white rounded-sm">{{ luma }}</code></div>
             </div>
           </div>
         {% endfor %}
       {% else %}
+        {% set luma = colorValue|hex_to_rgba|rgba_string|luma %}
         <div class="w-2/6 p-4">
-          <div class="bg-{{ colorName }} rounded-lg shadow-inner text-center py-2">
-            <div class="{{ colorName == 'black' ? 'text-white' }}">{{ colorName }}</div>
+          <div class="bg-{{ colorName }} {{ luma < 200 ? 'text-white' }} rounded-lg shadow-inner text-center text-sm py-2">
+            <div>{{ colorName }}</div>
             <div>{{ colorValue }}</div>
+            <div class="mt-2">Luminance: <code class="bg-white ounded-sm">{{ luma }}</code></div>
           </div>
         </div>
       {% endif %}

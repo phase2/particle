@@ -1,6 +1,7 @@
 <?php
 /**
- * @param Twig_Environment $env - The Twig Environment - https://twig.symfony.com/api/1.x/Twig_Environment.html
+ * @param Twig_Environment $env - The Twig Environment -
+ *   https://twig.symfony.com/api/1.x/Twig_Environment.html
  * @param $config - Config of `@basalt/twig-renderer`
  *
  */
@@ -54,6 +55,50 @@ function addFilters(\Twig_Environment &$env, $config) {
   });
   $env->addFilter($luma_filter);
   /**
+   * To rgba
+   * Hex to rgba conversion
+   *
+   * @return string
+   *
+   * @param string $color a hex color value with or without leading hash(#)
+   */
+  $hex_to_rgba_filter = new Twig_SimpleFilter('hex_to_rgba', function ($color) {
+    $default = 'rgba(0,0,0)';
+
+    // If "#" is provided, drop it
+    if ($color[0] == '#') {
+      $color = substr($color, 1);
+    }
+
+    // Check if color has 6 or 3 characters and get values
+    if (strlen($color) == 6) {
+      $hex = [
+        $color[0] . $color[1],
+        $color[2] . $color[3],
+        $color[4] . $color[5],
+      ];
+    }
+    elseif (strlen($color) == 3) {
+      $hex = [
+        $color[0] . $color[0],
+        $color[1] . $color[1],
+        $color[2] . $color[2],
+      ];
+    }
+    else {
+      return $default;
+    }
+
+    // Convert hexadec to rgb
+    $rgb = array_map('hexdec', $hex);
+
+    // Check if opacity is set(rgba or rgb)
+    $output = 'rgba(' . implode(",", $rgb) . ')';
+    // Return rgb(a) color string
+    return $output;
+  });
+  $env->addFilter($hex_to_rgba_filter);
+  /**
    * Placeholder
    *
    * @return string
@@ -85,7 +130,7 @@ function addFilters(\Twig_Environment &$env, $config) {
       $res = sscanf($rgba, "rgb(%d, %d, %d)");
       $res[] = 1;
     }
-    return array_combine(array('r', 'g', 'b', 'a'), $res);
+    return array_combine(['r', 'g', 'b', 'a'], $res);
   });
   $env->addFilter($rgba_string_filter);
   /**
@@ -141,6 +186,7 @@ function addFilters(\Twig_Environment &$env, $config) {
   });
   $env->addFilter($attributes_filter);
 }
+
 function addFunctions(\Twig_Environment &$env, $config) {
   /**
    * Link
@@ -157,7 +203,7 @@ function addFunctions(\Twig_Environment &$env, $config) {
         return '<a href="' . $url . '">' . $title . '</a>';
       }
     },
-    array('is_safe' => array('html'))
+    ['is_safe' => ['html']]
   );
   $env->addFunction($link_function);
   /**
@@ -183,13 +229,15 @@ function addFunctions(\Twig_Environment &$env, $config) {
   });
   $env->addFunction($url_function);
 }
+
 /**
  * Adds the debug extension.
  *
  * To enable Twig Debugging, add this function's name to patternlab-config.json
  * under engines.twig.alterTwigEnv.functions
  *
- * @param Twig_Environment $env - The Twig Environment - https://twig.symfony.com/api/1.x/Twig_Environment.html
+ * @param Twig_Environment $env - The Twig Environment -
+ *   https://twig.symfony.com/api/1.x/Twig_Environment.html
  * @param $config - Config of `@basalt/twig-renderer`
  */
 function addDebug(\Twig_Environment &$env, $config) {
