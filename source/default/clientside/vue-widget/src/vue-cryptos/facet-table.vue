@@ -1,6 +1,10 @@
 <template>
-  <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light">
-    <div class="py-3 px-6 mb-0 bg-grey-lighter border-b-1 border-grey-light text-grey-darkest">
+  <div
+    class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-grey-light"
+  >
+    <div
+      class="py-3 px-6 mb-0 bg-grey-lighter border-b-1 border-grey-light text-grey-darkest"
+    >
       {{ title }}
     </div>
     <div class="flex-auto p-6">
@@ -38,6 +42,7 @@
 <script>
 import FacetTableFacets from './components/facet-table-facets.vue';
 import FacetTableRow from './components/facet-table-row.vue';
+
 export default {
   name: 'FacetTableVue',
   components: {

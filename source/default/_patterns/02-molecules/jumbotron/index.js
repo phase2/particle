@@ -7,6 +7,7 @@ import 'atoms/image';
 import 'atoms/button';
 // Module template
 import './_jumbotron.twig';
+
 export const name = 'jumbotron';
 export function disable() {}
 export function enable() {}

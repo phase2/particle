@@ -23,6 +23,7 @@
  * - Utility functions used within methods()
  */
 import { randRGB } from 'tokens/js/utils';
+
 export default {
   name: 'Banner',
   props: {

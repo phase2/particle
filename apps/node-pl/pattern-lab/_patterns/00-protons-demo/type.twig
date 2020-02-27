@@ -58,7 +58,8 @@
 				<code>styleguide/_css2json.css</code>.</p>
 			<div class="p-2 border">
 				<ul style="list-style: none;">
-					{% for key, size in fontSizes|sort %}
+					{# {% for key, size in fontSizes|sort %} #}
+          {% for key, size in fontSizes %}
 						<li style="font-size: {{ size }};">
 							{{ key|capitalize }}:
 							<code>{{ size }}</code>
@@ -70,9 +71,9 @@
 			<h2>Headings</h2>
 			<p class="text-lg font-light">
 				These are heading styles, including both element and classed version.
-																																Use the element version in markup following Accessibility guidelines.
-																																Use the class version to match font styling of heading.
-																																See
+        Use the element version in markup following Accessibility guidelines.
+        Use the class version to match font styling of heading.
+        See
 				<a href="https://webaim.org/techniques/semanticstructure/ " target="_blank">WebAim</a>
 				for details.
 			</p>
@@ -191,9 +192,9 @@ in
 		<b>Unordered List</b>
 	</li>
 	<li>An unordered list is a list in which the sequence of items is not
-																			  important. Sometimes, an unordered list is a bulleted list. And this
-																			  is a long list item in an unordered list that can wrap onto a new
-																			  line.
+      important. Sometimes, an unordered list is a bulleted list. And this
+      is a long list item in an unordered list that can wrap onto a new
+      line.
 	</li>
 	<li>
 		Lists can be nested inside of each other
@@ -209,8 +210,8 @@ in
 		<b>Ordered List</b>
 	</li>
 	<li>An ordered list is a list in which the sequence of items is
-																			  important. An ordered list does not necessarily contain sequence
-																			  characters.
+      important. An ordered list does not necessarily contain sequence
+      characters.
 	</li>
 	<li>
 		Lists can be nested inside of each other
@@ -226,7 +227,7 @@ in
 		<b>Definition List</b>
 	</dt>
 	<dd>A number of connected items or names written or printed
-																			  consecutively, typically one below the other.
+      consecutively, typically one below the other.
 	</dd>
 	<dt>This is a term.</dt>
 	<dd>This is the definition of that term, which both live in a

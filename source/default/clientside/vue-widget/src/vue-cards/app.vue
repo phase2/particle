@@ -26,6 +26,7 @@
  */
 import cards from './components/cards.vue';
 import banner from './components/banner.vue';
+
 export default {
   name: 'VueCardsApp',
   components: {

@@ -2,6 +2,7 @@
  * Share atomic concepts with Webpack, Gulp, Pattern Lab, Drupal, etc
  */
 const path = require('path');
+
 const patterns = path.resolve(__dirname, '_patterns');
 module.exports = {
   // Outside of atomic concepts

@@ -3,6 +3,7 @@
  */
 const path = require('path');
 const namespaces = require('./namespaces');
+
 module.exports = {
   module: {
     rules: [

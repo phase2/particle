@@ -29,6 +29,7 @@
 import 'atoms/grid';
 // Import the card component
 import card from './card.vue';
+
 export default {
   name: 'Cards',
   components: {

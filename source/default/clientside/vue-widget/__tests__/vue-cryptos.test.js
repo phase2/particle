@@ -2,6 +2,7 @@ import { render, cleanup, fireEvent } from 'vue-testing-library';
 import FacetTable from '../src/vue-cryptos/facet-table.vue';
 import FacetTableRow from '../src/vue-cryptos/components/facet-table-row.vue';
 import mockData from './mock-data.json';
+
 afterEach(cleanup);
 describe('vue-cryptos.vue', () => {
   fetch.mockResponse(JSON.stringify(mockData));

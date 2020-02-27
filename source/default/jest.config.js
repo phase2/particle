@@ -5,6 +5,7 @@ const path = require('path');
 const { merge } = require('lodash');
 const sharedConfig = require('../../jest.config');
 const namespaces = require('./namespaces');
+
 const rootDir = '../../';
 // i.e. source/default
 const dsPath = path.relative(path.join(__dirname, rootDir), __dirname);
