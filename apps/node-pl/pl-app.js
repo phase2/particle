@@ -35,6 +35,7 @@ const options = {
 /**
  * Register pre-compile event
  */
+
 pl.events.on('patternlab-build-start', () => console.log(`${message} START!`));
 pl.events.on('patternlab-build-end', () => console.log(`${message} END!`));
 /**
