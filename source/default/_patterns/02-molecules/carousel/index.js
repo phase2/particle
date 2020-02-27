@@ -7,6 +7,7 @@ import 'protons';
 import 'atoms/image';
 // Module template
 import './_carousel.twig';
+
 export const name = 'carousel';
 export const defaults = {
   interval: 3000,

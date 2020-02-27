@@ -1,5 +1,9 @@
 <template>
-  <div class="relative inline-flex align-middle" role="group" aria-label="List filters">
+  <div
+    class="relative inline-flex align-middle"
+    role="group"
+    aria-label="List filters"
+  >
     <button
       v-for="facet in facets"
       :key="facet"
@@ -14,6 +18,7 @@
 </template>
 <script>
 import { mapState, mapActions } from 'vuex';
+
 export default {
   name: 'FacetTableFacets',
   props: {

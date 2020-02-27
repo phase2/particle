@@ -1,5 +1,6 @@
 import { render, cleanup } from 'vue-testing-library';
 import vueClock from '../src/vue-clock/vue-clock.vue';
+
 jest.useFakeTimers();
 afterEach(cleanup);
 describe('vue-clock.vue', () => {

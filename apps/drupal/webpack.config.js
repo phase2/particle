@@ -12,6 +12,7 @@ const { NODE_ENV } = process.env;
 const { ASSETS_ATOMIC_FOLDER } = require('../../particle.root.config');
 // Constants: app
 const appConfig = require('./particle.app.config');
+
 const { APP_NAME, APP_DESIGN_SYSTEM, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 const shared = {
   entry: {

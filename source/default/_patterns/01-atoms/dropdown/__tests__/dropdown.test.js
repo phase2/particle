@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import dropdown, { name } from '..';
+
 const dropHTML = `
   <div class="relative">
     <button type="button" class=" inline-block w-0 h-0 ml-1 align border-b-0 border-t-1 border-r-1 border-l-1" data-toggle="relative" aria-haspopup="true" aria-expanded="false" id="dropdownMenuButton">Dropdown button</button>

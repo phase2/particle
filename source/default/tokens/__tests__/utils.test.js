@@ -1,4 +1,5 @@
 import { randRGB, cssVars2Obj } from '../js/utils';
+
 test('0 >= randRGB <= 255', () => {
   const rand = randRGB();
   expect(rand).toBeGreaterThanOrEqual(0);
