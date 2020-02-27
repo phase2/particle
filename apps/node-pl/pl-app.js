@@ -10,11 +10,7 @@ const tailwindConfig = require('../../source/default/tailwind.config.js');
 const pl = core(plConfig);
 
 const { theme } = resolveConfig(tailwindConfig);
-const {
-  colors,
-  spacing,
-  screens,
-} = theme;
+const { colors, spacing, screens } = theme;
 
 const { cleanPublic } = plConfig;
 const { NODE_ENV } = process.env;
