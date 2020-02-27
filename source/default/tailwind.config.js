@@ -6,7 +6,11 @@ module.exports = {
       mono: ['Source Code Pro', 'Courier New', 'monospace'],
       serif: ['Oswald', 'Times New Roman', 'serif'],
     },
-    extend: {},
+    extend: {
+      colors: {
+        'regal-blue': '#243c5a',
+      },
+    },
   },
   variants: {},
   plugins: [],
