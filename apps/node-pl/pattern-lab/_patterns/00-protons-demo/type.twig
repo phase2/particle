@@ -58,7 +58,8 @@
 				<code>styleguide/_css2json.css</code>.</p>
 			<div class="p-2 border">
 				<ul style="list-style: none;">
-					{% for key, size in fontSizes|sort %}
+					{# {% for key, size in fontSizes|sort %} #}
+          {% for key, size in fontSizes %}
 						<li style="font-size: {{ size }};">
 							{{ key|capitalize }}:
 							<code>{{ size }}</code>
