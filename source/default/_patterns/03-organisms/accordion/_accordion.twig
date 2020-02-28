@@ -15,28 +15,36 @@
 #}
 {% set accordion_id = random() %}
 <div id="{{ 'accordion-' ~ accordion_id }}">
-	{% for card in accordion_card_list %}
-		{% set expanded = {
+  {% for card in accordion_card_list %}
+    {% set expanded = {
       aria: card.card_expanded ? 'true' : 'false',
-      show: card.card_expanded ? 'show' : '',
+      show: card.card_expanded ? 'show' : ''
     } %}
-		{% embed '@molecules/card/_card.twig' %}
-			{% block card_header %}
-				<div class="py-3 px-6 mb-0 bg-grey-lighter border-b-1 border-grey-light text-grey-darkest" id="{{ 'heading-' ~ loop.index }}">
-					<h5 class="mb-0">
-						<button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline font-normal blue bg-transparent" data-toggle="flex-growlapse" data-target="{{ '#collapse-' ~ loop.index }}" aria-expanded="{{ expanded.aria }}" aria-controls="{{ 'collapse-' ~ loop.index }}">
-							{{ card.card_header }}
-						</button>
-					</h5>
-				</div>
-			{% endblock card_header %}
-			{% block card_body %}
-				<div id="{{ 'collapse-' ~ loop.index }}" class="flex-growlapse {{ expanded.show }}" aria-labelledby="{{ 'heading-' ~ loop.index }}" data-parent="{{ '#accordion-' ~ accordion_id }}">
-					<div class="flex-auto p-6">
-						{{ card.card_text }}
-					</div>
-				</div>
-			{% endblock card_body %}
-		{% endembed %}
-	{% endfor %}
+    {% embed '@molecules/card/_card.twig' %}
+      {% block card_header %}
+        <div class="py-3 px-6 mb-0 bg-grey-lighter border-b-1 border-grey-light text-grey-darkest"
+          id="{{ 'heading-' ~ loop.index }}">
+          <h5 class="mb-0">
+            <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline font-normal blue bg-transparent"
+              data-toggle="flex-growlapse"
+              data-target="{{ '#collapse-' ~ loop.index }}"
+              aria-expanded="{{ expanded.aria }}"
+              aria-controls="{{ 'collapse-' ~ loop.index }}">
+              {{ card.card_header }}
+            </button>
+          </h5>
+        </div>
+      {% endblock %}
+      {% block card_body %}
+        <div id="{{ 'collapse-' ~ loop.index }}"
+          class="flex-growlapse {{ expanded.show }}"
+          aria-labelledby="{{ 'heading-' ~ loop.index }}"
+          data-parent="{{ '#accordion-' ~ accordion_id }}">
+          <div class="flex-auto p-6">
+            {{ card.card_text }}
+          </div>
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endfor %}
 </div>
