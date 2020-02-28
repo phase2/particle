@@ -2,7 +2,7 @@
 	{% set container = true %}
 	{% block column_1 %}
 		<h1 class="mb-3">Badges</h1>
-		<div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
+		<div class="mb-3 p-3 bg-gray-100 border border-black rounded">
 			<p class="text-lg font-light">{{ badges_helper }}</p>
 		</div>
 		<hr>
@@ -10,39 +10,32 @@
 			<h1>Badge Sizes</h1>
 			<p>Note: Badges scale to match the size of the immediate parent element
 			</p>
-			{% for i in 1..5 %}
-				<h{{i}}>
-					{% include '@atoms/badge/_badge.twig' with {
-          badge_text: 'Badge',
-          badge_color: 'primary',
-        } %}
-				</h{{i}}>
-			{% endfor %}
+      <div class="flex-col">
+        {% for i in 1..5 %}
+          <h{{i}} class="mb-3 bg-blue-500 text-white rounded p-1 font-bold border-2 border-blue-500 inline-block
+          hover:bg-white hover:text-blue-500">
+            {% include '@atoms/badge/_badge.twig' with {
+            badge_text: 'Badge',
+            badge_color: 'bg-blue-500',
+          } %}
+          </h{{i}}>
+        {% endfor %}
+      </div>
 		</div>
-		<div class="mb-3">
+    <div class="mb-3">
 			<h1>Badge Button</h1>
-			{% embed '@atoms/button/_button.twig' with {
-        button_color: 'primary',
-        button_text: 'Notifications',
-      } %}
-				{% block right %}
-					{% include '@atoms/badge/_badge.twig' with {
-            badge_text: '4',
-            badge_color: 'light',
-          } %}
-				{% endblock right %}
-			{% endembed %}
-			{% embed '@atoms/button/_button-outline.twig' with {
-        button_color: 'primary',
-        button_text: 'Notifications',
-      } %}
-				{% block right %}
-					{% include '@atoms/badge/_badge.twig' with {
-            badge_text: '4',
-            badge_color: 'primary',
-          } %}
-				{% endblock right %}
-			{% endembed %}
+      <button class="mb-3 bg-blue-500 text-white rounded p-1 font-bold border-2 border-blue-500
+                     hover:bg-white hover:text-blue-500">
+        Notifications
+        <span class="mb-3 bg-white text-blue-500 rounded px-1 font-bold border-2 border-white
+                     hover:text-white hover:bg-blue-500 hover:border-blue-500">4</span>
+      </button>
+      <button class="mb-3 bg-white text-blue-500 rounded p-1 font-bold border-2 border-blue-500
+                     hover:text-white hover:bg-blue-500">
+        Notifications
+        <span class="mb-3 bg-blue-500 text-white rounded px-1 font-bold border-2 border-blue-500
+                     hover:bg-white hover:text-blue-500">4</span>
+      </button>
 		</div>
 		<div class="mb3">
 			<h1>Badge Colors</h1>
