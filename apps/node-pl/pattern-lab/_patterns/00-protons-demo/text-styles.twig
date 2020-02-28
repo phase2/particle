@@ -26,31 +26,53 @@
     </div>
   </div>
   <br>
+
   <h2>Font weights</h2>
   <p>You change, add, or remove these by editing the <code class="text-pink-500">theme.fontWeight</code> section of your Tailwind config.</p>
   <hr>
   <div class="rounded-lg border p-4 mt-4">
     <p class="pb-2">Control the font weight of an element using the <code class="text-pink-500">.font-{weight}</code> utilities:</p>
-    {% for key, value in tokens.fontWeight %}
+    {% for weight, value in tokens.fontWeight %}
       <div class="mb-6">
-        <p class="text-sm text-gray-600">.font-{{ key }}</p>
-        <p class="font-{{ key }} text-xl text-gray-800">{{ headline.short }}</p>
+        <p class="text-sm text-gray-600">.font-{{ weight }} ~ {{ value }}</p>
+        <p class="font-{{ weight }} text-xl text-gray-800">{{ headline.short }}</p>
       </div>
     {% endfor %}
   </div>
-{#  {% for fontType, fontValue in tokens.fontFamily %}#}
-{#    <div class="rounded-b-lg border border-gray-400 p-4 mb-4">#}
-{#      <h3 class="sans-{{ fontType }} text-2xl mb-2">{{ fontType|upper }}</h3>#}
-{#      <div class="mt-2 pl-2 font-medium">#}
-{#        {% for fontFamily in fontValue %}#}
-{#          <p>Font family: <span class="italic font-normal">{{ fontFamily }}</span></p>#}
-{#        {% endfor %}#}
-{#        <p>Usage: <code class="text-pink-500">.font-{{ fontType }}</code></p>#}
-{#        <p >Example: <code class="text-pink-500">&lt;p class="font-{{ fontType }}"&gt;{{ excerpt.short }}&lt;/p&gt;</code></p>#}
-{#        <p class="font-{{ fontType }} font-normal py-3">#}
-{#          {{ excerpt.short }}#}
-{#        </p>#}
-{#      </div>#}
-{#    </div>#}
-{#  {% endfor %}#}
+  <br>
+
+  <h2>Font sizes</h2>
+  <p>You change, add, or remove these by editing the <code class="text-pink-500">theme.fontSize</code> section of your Tailwind config.</p>
+  <hr>
+  <div class="rounded-lg border p-4 mt-4">
+    <p class="pb-2">Control the font size of an element using the <code class="text-pink-500">.text-{size}</code> utilities:</p>
+    {% for size, value in tokens.fontSize %}
+      <div class="mb-6">
+        <p class="text-{{ size }} text-gray-600">.text-{{ size }} ~ {{ value }}</p>
+        <p class="text-{{ size }} text-gray-800">{{ headline.short }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <br>
+
+  <h2>Font colors</h2>
+  <p>You change, add, or remove colors by editing the <code class="text-pink-500">theme.colors</code> section of your Tailwind config.</p>
+  <hr>
+  <div class="rounded-lg border p-4 mt-4">
+    <p class="pb-2">Control the font color of an element using the <code class="text-pink-500">.text-{color}</code> utilities:</p>
+
+    {% for colorName, colorValue in tokens.colors %}
+      {% if colorValue is iterable %}
+        {% for nestedColor, nestedValue in colorValue %}
+          {# The custom Twig filters `hex_to_rgba`, `rgba_string` and `luma` are found in alter-twig.php. #}
+          {% set luma = nestedValue|hex_to_rgba|rgba_string|luma %}
+          {% set colorClass = 'text-' ~ colorName ~ '-' ~ nestedColor %}
+          <div class="mb-6 {{ luma > 200 ? 'bg-gray-600 p-1' }}">
+            <p class="{{ colorClass }} text-sm">.{{ colorClass }} ~ {{ nestedValue }}</p>
+            <p class="{{ colorClass }} text-sm mb-">{{ headline.short }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
