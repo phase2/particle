@@ -5,5 +5,6 @@ import './_demo-block.twig';
 import './spacing.twig';
 import './tables.twig';
 import './font-family.twig';
+import './text-styles.twig';
 import './welcome.twig';
 import '../../../../../source/default/tokens/css/index.css'
