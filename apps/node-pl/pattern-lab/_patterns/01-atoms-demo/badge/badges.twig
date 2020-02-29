@@ -35,43 +35,46 @@
       </button>
 		</div>
 
-    <div class="flex flex-wrap">
-      {% for colorName, colorValue in tokens.colors %}
-        {% if colorValue is iterable %}
-          {% for nestedColor, nestedValue in colorValue %}
-            {% set luma = nestedValue|hex_to_rgba|rgba_string|luma %}
-            {% set colorClass = 'bg-' ~ colorName ~ '-' ~ nestedColor %}
+    <div class="mb-3">
+      <h1>Badge Colors</h1>
+      <div class="flex flex-wrap">
+        {% for colorName, colorValue in tokens.colors %}
+          {% if colorValue is iterable %}
+            {% for nestedColor, nestedValue in colorValue %}
+              {% set luma = nestedValue|hex_to_rgba|rgba_string|luma %}
+              {% set colorClass = 'bg-' ~ colorName ~ '-' ~ nestedColor %}
+              <div class="w-2/6 p-4">
+                <div class="{{ colorClass }} {{
+                  luma < 200
+                    ? 'text-white'
+                  }} rounded-lg shadow-inner text-center py-2 text-sm">
+                  <div class="text-base">
+                    {{ (colorName|upper) ~ ' ' ~ nestedColor }}
+                  </div>
+                  <div>
+                    {{ nestedValue }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            {% set luma = colorValue|hex_to_rgba|rgba_string|luma %}
             <div class="w-2/6 p-4">
-              <div class="{{ colorClass }} {{
-                luma < 200
+              <div class="bg-{{ colorName }} {{
+                luma < 200 and colorName != 'transparent'
                   ? 'text-white'
-                }} rounded-lg shadow-inner text-center py-2 text-sm">
-                <div class="text-base">
-                  {{ (colorName|upper) ~ ' ' ~ nestedColor }}
+                }} rounded-lg shadow-inner text-center text-sm py-2">
+                <div>
+                  {{ colorName|upper }}
                 </div>
                 <div>
-                  {{ nestedValue }}
+                  {{ colorValue }}
                 </div>
               </div>
             </div>
-          {% endfor %}
-        {% else %}
-          {% set luma = colorValue|hex_to_rgba|rgba_string|luma %}
-          <div class="w-2/6 p-4">
-            <div class="bg-{{ colorName }} {{
-              luma < 200 and colorName != 'transparent'
-                ? 'text-white'
-              }} rounded-lg shadow-inner text-center text-sm py-2">
-              <div>
-                {{ colorName|upper }}
-              </div>
-              <div>
-                {{ colorValue }}
-              </div>
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
 
 	{% endblock column_1 %}
