@@ -13,22 +13,16 @@
       Button colors
     </h2>
     <div class="mb-3">
-      {% for name, rgb in cssColors %}
-        {% include '@atoms/button/_button.twig' with {
-          button_color: name,
-          button_text: name|capitalize
-        } %}
+      {% for btn in btn_colors %}
+        {% include '@atoms/button/_button.twig' with btn %}
       {% endfor %}
     </div>
     <h2>
       Button outline
     </h2>
     <div class="mb-3">
-      {% for name, rgb in cssColors %}
-        {% include '@atoms/button/_button-outline.twig' with {
-          button_color: name,
-          button_text: name|capitalize
-        } %}
+      {% for btn in btn_outline %}
+        {% include '@atoms/button/_button.twig' with btn %}
       {% endfor %}
     </div>
     <h2>
@@ -38,7 +32,8 @@
       {% for alternate_button in alternate_buttons %}
         {% set buttonElement =
           alternate_button|merge({
-            button_color: 'success'
+            button_color: 'green-600',
+            text_color: 'white'
           })
         %}
         {% include '@atoms/button/_button.twig' with buttonElement %}

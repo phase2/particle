@@ -28,12 +28,15 @@
 {% endif %}
 {% set button_classes = [
   buttonless_dropdown ? '' : 'btn',
-  (button_color and not button_outline) ? 'btn-' ~ button_color,
-  button_outline ? 'btn-outline-' ~ button_color,
+  (button_color and not button_outline) ? 'bg-' ~ button_color,
+  (text_color and not button_outline) ? 'text-' ~ text_color,
+  (text_color) ? 'border border-' ~ text_color,
   button_size ? 'btn-' ~ button_size,
   button_block ? 'btn-block',
   button_active ? 'active',
   button_other_classes,
+  'p-2', 'rounded',
+  special_class ? 'p-3' : '',
 ] | sort | join(' ') | trim %}
 {% set button_attributes = [
   button_active ? 'aria-pressed="true"',

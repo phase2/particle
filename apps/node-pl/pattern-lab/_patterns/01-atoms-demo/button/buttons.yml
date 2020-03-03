@@ -1,8 +1,9 @@
 buttons_helper: Use Bootstrap's custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
 alternate_buttons:
   - button_element: a
-    button_link: http://getbootstrap.com/docs/4.0/components/buttons/
+    button_link: https://phase2.gitbook.io/frontend/
     button_text: Link
+    special_class: p-3
   - button_element: button
     button_type: submit
     button_text: Button
@@ -34,6 +35,88 @@ block_level_3:
   button_block: TRUE
   button_text: Block level button
   button_color: info
+btn_colors:
+  - button_active: TRUE
+    button_text: Primary
+    button_color: blue-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Secondary
+    button_color: gray-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Success
+    button_color: green-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Info
+    button_color: teal-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Warning
+    button_color: yellow-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Danger
+    button_color: red-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Light
+    button_color: gray-200
+    text_color: black
+  - button_active: FALSE
+    button_text: Dark
+    button_color: black
+    text_color: white
+  - button_active: FALSE
+    button_text: Pink
+    button_color: pink-400
+    text_color: black
+  - button_active: FALSE
+    button_text: Goldenrod
+    button_color: yellow-600
+    text_color: black
+btn_outline:
+  - button_active: TRUE
+    button_text: Primary
+    text_color: blue-600
+    button_color: white
+  - button_active: FALSE
+    button_text: Secondary
+    text_color: gray-600
+    button_color: white
+  - button_active: FALSE
+    button_text: Success
+    text_color: green-600
+    button_color: white
+  - button_active: FALSE
+    button_text: Info
+    text_color: teal-600
+    button_color: white
+  - button_active: FALSE
+    button_text: Warning
+    text_color: yellow-600
+    button_color: white
+  - button_active: FALSE
+    button_text: Danger
+    text_color: red-600
+    button_color: white
+  - button_active: FALSE
+    button_text: Light
+    text_color: gray-200
+    button_color: black
+  - button_active: FALSE
+    button_text: Dark
+    text_color: black
+    button_color: white
+  - button_active: FALSE
+    button_text: Pink
+    text_color: pink-400
+    button_color: black
+  - button_active: FALSE
+    button_text: Goldenrod
+    text_color: yellow-600
+    button_color: black
 states:
   - button_active: FALSE
     button_text: Inactive State
@@ -51,4 +134,4 @@ toggleable:
   button_toggle: button
   button_text: Toggleable button
   button_color: dark
-  button_link: herpderp.com
+  button_link: https://phase2.gitbook.io/frontend/
