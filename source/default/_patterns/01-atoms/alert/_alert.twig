@@ -12,38 +12,53 @@
  */
 #}
 {% set status_classes = {
-  'status': 'success',
-  'error': 'danger',
-  'warning': 'warning',
-  'info': 'info',
-  }
+  status: 'bg-green-200',
+  error: 'bg-yellow-200',
+  warning: 'bg-red-200',
+  info: 'bg-blue-200'
+} %}
+
+{% set alert_classes =
+  [
+    'mb-0',
+    'alert',
+    status_classes[type],
+    'alert-dismissible',
+    'fade',
+    'show',
+    alert_other_classes
+  ]
+    |sort
+    |join(' ')
+    |trim
 %}
-{% set alert_classes = [
-  'mb-0',
-  'alert',
-  'alert-' ~ status_classes[type],
-  'alert-dismissible',
-  'fade',
-  'show',
-  alert_other_classes,
-] | sort | join(' ') | trim %}
-{% set alert_degree = ( type == 'error' ? 'role=alert' : 'aria-live=polite' ) %}
+{% set alert_degree = type == 'error' ? 'role=alert' : 'aria-live=polite' %}
 <div class="{{ alert_classes }}" {{ alert_degree }}>
-	{% block alert_header %}
-		<a href="#" role="button" class="absolute pin-t pin-b pin-r px-4 py-3" data-dismiss="relative px-3 py-3 mb-4 border rounded" aria-label="{{ 'Close'|t }}">
-			<span aria-hidden="true">&times;</span>
-		</a>
-		{% if alert_title %}
-			<h4 class="">{{ alert_title }}</h4>
-		{% endif %}
-	{% endblock alert_header %}
-	{% block alert_content %}
-		<p>{{ alert_primary }}</p>
-	{% endblock alert_content %}
-	{% block alert_footer %}
-		{% if alert_secondary %}
-			<hr>
-			<p class="mb-0">{{ alert_secondary }}</p>
-		{% endif %}
-	{% endblock alert_footer %}
+  {% block alert_header %}
+    <a href="#"
+      role="button"
+      class="absolute pin-t pin-b pin-r px-4 py-3"
+      data-dismiss="relative px-3 py-3 mb-4 border rounded"
+      aria-label="{{ 'Close'|t }}">
+      <span aria-hidden="true">&times;</span>
+    </a>
+    {% if alert_title %}
+      <h4 class="">
+        {{ alert_title }}
+      </h4>
+    {% endif %}
+  {% endblock %}
+  {% block alert_content %}
+    <p>
+      {{ alert_primary }}
+    </p>
+  {% endblock %}
+  {% block alert_footer %}
+    {% if alert_secondary %}
+      <hr />
+      <p class="mb-0">
+        {{ alert_secondary }}
+      </p>
+    {% endif %}
+  {% endblock %}
 </div>
