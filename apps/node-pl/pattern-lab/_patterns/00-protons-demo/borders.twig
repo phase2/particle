@@ -54,7 +54,7 @@
 
         </span>
       {% endfor %}
-      <pre class="bg-gray-100 mb-0">
+      <pre class="bg-gray-100 mb-0 whitespace-pre-line">
         <code class="text-pink-500">
           {% for class in border_classes %}
             &lt;span class="border{{ class }}"&gt;&lt;/span&gt;
@@ -75,7 +75,7 @@
 
         </span>
       {% endfor %}
-      <pre class="bg-gray-100 mb-0">
+      <pre class="bg-gray-100 mb-0 whitespace-pre-line">
         <code class="text-pink-500">
           {% for class in color_classes %}
             &lt;span class="border border{{ class }}"&gt;&lt;/span&gt;
@@ -96,7 +96,7 @@
           image_classes: ['m-2 inline-block rounded' ~ class]
         } %}
       {% endfor %}
-      <pre class="bg-gray-100 mb-0">
+      <pre class="bg-gray-100 mb-0 whitespace-pre-line">
         <code class="text-pink-500">
           {% for class in radius_classes %}
             &lt;img src="..." alt="..." class="rounded{{ class }}"&gt;
