@@ -12,8 +12,7 @@
 			</p>
       <div class="flex-col">
         {% for i in 1..5 %}
-          <h{{i}} class="mb-3 bg-blue-500 text-white rounded p-1 font-bold border-2 border-blue-500 inline-block
-          hover:bg-white hover:text-blue-500">
+          <h{{i}} class="mb-3 bg-blue-500 text-white rounded p-1 font-bold border-2 border-blue-500 inline-block hover:bg-white hover:text-blue-500">
             <div class="block">Badge</div>
           </h{{i}}>
         {% endfor %}
@@ -21,20 +20,15 @@
 		</div>
     <div class="mb-3">
 			<h1>Badge Button</h1>
-      <button class="mb-3 bg-blue-500 text-white rounded p-1 font-bold border-2 border-blue-500
-                     hover:bg-white hover:text-blue-500">
+      <button class="mb-3 bg-blue-500 text-white rounded p-1 font-bold border-2 border-blue-500 hover:bg-white hover:text-blue-500">
         Notifications
-        <span class="mb-3 bg-white text-blue-500 rounded px-1 font-bold border-2 border-white
-                     hover:text-white hover:bg-blue-500 hover:border-blue-500">4</span>
+        <span class="mb-3 bg-white text-blue-500 rounded px-1 font-bold border-2 border-white hover:text-white hover:bg-blue-500 hover:border-blue-500">4</span>
       </button>
-      <button class="mb-3 bg-white text-blue-500 rounded p-1 font-bold border-2 border-blue-500
-                     hover:text-white hover:bg-blue-500">
+      <button class="mb-3 bg-white text-blue-500 rounded p-1 font-bold border-2 border-blue-500 hover:text-white hover:bg-blue-500">
         Notifications
-        <span class="mb-3 bg-blue-500 text-white rounded px-1 font-bold border-2 border-blue-500
-                     hover:bg-white hover:text-blue-500">4</span>
+        <span class="mb-3 bg-blue-500 text-white rounded px-1 font-bold border-2 border-blue-500 hover:bg-white hover:text-blue-500">4</span>
       </button>
 		</div>
-
     <div class="mb-3">
       <h1>Badge Colors</h1>
       <div class="flex flex-wrap">
@@ -44,10 +38,7 @@
               {% set luma = nestedValue|hex_to_rgba|rgba_string|luma %}
               {% set colorClass = 'bg-' ~ colorName ~ '-' ~ nestedColor %}
               <div class="w-2/6 p-4">
-                <div class="{{ colorClass }} {{
-                  luma < 200
-                    ? 'text-white'
-                  }} rounded-lg shadow-inner text-center py-2 text-sm">
+                <div class="rounded-lg shadow-inner text-center py-2 text-sm {{ colorClass }} {{ luma < 200 ? 'text-white' }}">
                   <div class="text-base">
                     {{ (colorName|upper) ~ ' ' ~ nestedColor }}
                   </div>
@@ -60,10 +51,7 @@
           {% else %}
             {% set luma = colorValue|hex_to_rgba|rgba_string|luma %}
             <div class="w-2/6 p-4">
-              <div class="bg-{{ colorName }} {{
-                luma < 200 and colorName != 'transparent'
-                  ? 'text-white'
-                }} rounded-lg shadow-inner text-center text-sm py-2">
+              <div class="rounded-lg shadow-inner text-center text-sm py-2 bg-{{ colorName }} {{ luma < 200 and colorName != 'transparent' ? 'text-white' }}">
                 <div>
                   {{ colorName|upper }}
                 </div>
@@ -76,6 +64,5 @@
         {% endfor %}
       </div>
     </div>
-
 	{% endblock column_1 %}
 {% endembed %}
