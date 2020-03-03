@@ -11,18 +11,25 @@
  *
  */
 #}
-{% set status_classes = {
+{% set status_bg = {
   status: 'bg-green-200',
-  error: 'bg-yellow-200',
-  warning: 'bg-red-200',
+  error: 'bg-red-200',
+  warning: 'bg-yellow-200',
   info: 'bg-blue-200'
+} %}
+{% set status_text = {
+  status: 'text-green-800',
+  error: 'text-red-800',
+  warning: 'text-yellow-800',
+  info: 'text-blue-800'
 } %}
 
 {% set alert_classes =
   [
     'mb-0',
     'alert',
-    status_classes[type],
+    status_bg[type],
+    status_text[type],
     'alert-dismissible',
     'fade',
     'show',
@@ -33,17 +40,17 @@
     |trim
 %}
 {% set alert_degree = type == 'error' ? 'role=alert' : 'aria-live=polite' %}
-<div class="{{ alert_classes }}" {{ alert_degree }}>
+<div class="{{ alert_classes }} p-4" {{ alert_degree }}>
   {% block alert_header %}
     <a href="#"
       role="button"
-      class="absolute pin-t pin-b pin-r px-4 py-3"
+      class="pin-t pin-b pin-r px-4 py-3 float-right {{ alert_classes }}"
       data-dismiss="relative px-3 py-3 mb-4 border rounded"
       aria-label="{{ 'Close'|t }}">
       <span aria-hidden="true">&times;</span>
     </a>
     {% if alert_title %}
-      <h4 class="">
+      <h4 class="text-2xl">
         {{ alert_title }}
       </h4>
     {% endif %}
