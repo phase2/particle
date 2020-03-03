@@ -37,6 +37,9 @@ a {
 code {
   @apply text-pink-500;
 }
+tr {
+  @apply text-left;
+}
 
 /*
   pseudo-class variants directives
