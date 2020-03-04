@@ -17,11 +17,11 @@ alternate_buttons:
     button_type: reset
     button_value: Reset
 sizes:
-  - button_size: px-3 py-1
+  - button_size: px-5 py-3 text-lg
     button_text: Large Button
     button_color: gray-600
     text_color: white
-  - button_size: px-3 py-0
+  - button_size: px-3 py-1 text-sm
     button_text: Small Button
     button_color: gray-600
     text_color: white
@@ -29,17 +29,17 @@ block_level_1:
   button_block: TRUE
   button_text: Block level button
   button_color: red-600
-  text_color: white w-1/3 sm:mx-0 w-full md:mr-2 lg:mr-2
+  text_color: white w-1/3 sm:mx-0 w-full md:mr-4 lg:mr-4
 block_level_2:
   button_block: TRUE
   button_text: Block level button
   button_color: green-600
-  text_color: white w-1/3 sm:mx-0 w-full md:mx-2 lg:mx-2
+  text_color: white w-1/3 sm:mx-0 w-full md:mx-4 lg:mx-4
 block_level_3:
   button_block: TRUE
   button_text: Block level button
   button_color: teal-600
-  text_color: white w-1/3 sm:mx-0 w-full md:ml-2 lg:ml-2
+  text_color: white w-1/3 sm:mx-0 w-full md:ml-4 lg:ml-4
 btn_colors:
   - button_active: TRUE
     button_text: Primary

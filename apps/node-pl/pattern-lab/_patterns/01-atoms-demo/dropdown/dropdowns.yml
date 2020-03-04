@@ -8,3 +8,53 @@ dropdown_menu_disabled:
     dropdown_menu_item_disabled: 'disabled'
   - dropdown_menu_item_text: Action
   - dropdown_menu_item_text: Another Action
+btn_colors:
+  - button_active: TRUE
+    button_text: Primary
+    button_color: blue-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Secondary
+    button_color: gray-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Success
+    button_color: green-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Info
+    button_color: teal-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Warning
+    button_color: yellow-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Danger
+    button_color: red-600
+    text_color: white
+  - button_active: FALSE
+    button_text: Light
+    button_color: gray-400
+    text_color: black
+  - button_active: FALSE
+    button_text: Dark
+    button_color: black
+    text_color: white
+  - button_active: FALSE
+    button_text: Pink
+    button_color: pink-400
+    text_color: black
+  - button_active: FALSE
+    button_text: Goldenrod
+    button_color: yellow-600
+    text_color: black
+sizes:
+  - button_size: px-5 py-3 text-lg
+    button_text: Large Button
+    button_color: gray-600
+    text_color: white
+  - button_size: px-3 py-1 text-sm
+    button_text: Small Button
+    button_color: gray-600
+    text_color: white
