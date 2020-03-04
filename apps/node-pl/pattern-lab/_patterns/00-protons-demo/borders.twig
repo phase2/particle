@@ -10,6 +10,9 @@
  * @see https://tailwindcss.com/docs/border-style
  */
 #}
+
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
 {% set border_classes = ['', '-0', '-t-0', '-r-0', '-b-0', '-l-0'] %}
 {% set radius_classes = ['', '-t', '-r', '-bottom', '-l', '-full', '-none'] %}
 {% set color_classes = [
@@ -55,7 +58,7 @@
         </span>
       {% endfor %}
       <pre class="bg-gray-100 mb-0 whitespace-pre-line">
-        <code class="text-pink-500">
+        <code class="prettyprint">
           {% for class in border_classes %}
             &lt;span class="border{{ class }}"&gt;&lt;/span&gt;
           {% endfor %}
@@ -76,7 +79,7 @@
         </span>
       {% endfor %}
       <pre class="bg-gray-100 mb-0 whitespace-pre-line">
-        <code class="text-pink-500">
+        <code class="prettyprint">
           {% for class in color_classes %}
             &lt;span class="border border{{ class }}"&gt;&lt;/span&gt;
           {% endfor %}
@@ -97,7 +100,7 @@
         } %}
       {% endfor %}
       <pre class="bg-gray-100 mb-0 whitespace-pre-line">
-        <code class="text-pink-500">
+        <code class="prettyprint">
           {% for class in radius_classes %}
             &lt;img src="..." alt="..." class="rounded{{ class }}"&gt;
           {% endfor %}
