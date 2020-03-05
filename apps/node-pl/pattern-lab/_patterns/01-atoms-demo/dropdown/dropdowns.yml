@@ -57,12 +57,10 @@ sizes:
     dropdown_color: gray-600 text-white
     dropdown_button: true
     dropdown_split: true
-    z_index: z-50
   - button_text: Small Button
     button_size: px-3 py-1 text-sm
     button_color: gray-600
     text_color: white
-    dropdown_color: gray-600 text-white z-50
+    dropdown_color: gray-600 text-white
     dropdown_button: true
     dropdown_split: true
-    z_index: z-50
