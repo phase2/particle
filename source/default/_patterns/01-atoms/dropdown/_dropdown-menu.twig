@@ -5,23 +5,13 @@
     headers: headers
   } %}
   <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 z-1">
-    <li class="z-50">
-      <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap rounded-t hover:bg-gray-100"
-        href="#">
-        {{ dropdown_menu_items[0].dropdown_menu_item_text }}
-      </a>
-    </li>
-    <li class="z-50">
-      <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap hover:bg-gray-100"
-        href="#">
-        {{ dropdown_menu_items[1].dropdown_menu_item_text }}
-      </a>
-    </li>
-    <li class="z-50">
-      <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap rounded-b hover:bg-gray-100"
-        href="#">
-        {{ dropdown_menu_items[2].dropdown_menu_item_text }}
-      </a>
-    </li>
+    {% for i in dropdown_menu_items %}
+      <li class="z-50">
+        <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap rounded-t hover:bg-gray-100"
+          href="#">
+          {{ i.dropdown_menu_item_text }}
+        </a>
+      </li>
+    {% endfor %}
   </ul>
 </div>

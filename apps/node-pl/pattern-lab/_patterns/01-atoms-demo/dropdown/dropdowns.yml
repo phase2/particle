@@ -15,7 +15,6 @@ headers:
   - header_text: Menu alignment
   - header_text: In-menu options
   - header_text: Menu forms
-  # - header_text: Dropdown header
 
 dropdown_menu_items:
   - dropdown_menu_item_text: Action
