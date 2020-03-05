@@ -1,0 +1,26 @@
+<div class="dropdown inline-block relative">
+  {% include '@atoms/button/_button-dropdown.twig' with {
+    button_text: dropdown_text,
+    button_color: dropdown_color
+  } %}
+  <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+    <li class="">
+      <a class="rounded-t text-black bg-white hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap"
+        href="#">
+        {{ dropdown_menu_items[0].dropdown_menu_item_text }}
+      </a>
+    </li>
+    <li class="">
+      <a class="text-black bg-white hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap"
+        href="#">
+        {{ dropdown_menu_items[1].dropdown_menu_item_text }}
+      </a>
+    </li>
+    <li class="">
+      <a class="rounded-b text-black bg-white hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap"
+        href="#">
+        {{ dropdown_menu_items[2].dropdown_menu_item_text }}
+      </a>
+    </li>
+  </ul>
+</div>

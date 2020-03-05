@@ -40,3 +40,6 @@ code {
 tr {
   @apply text-left;
 }
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

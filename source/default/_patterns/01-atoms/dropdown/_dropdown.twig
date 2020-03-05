@@ -31,8 +31,6 @@
   dropup ? 'dropup',
   dropdown_other_classes,
 ] | sort | join(' ') | trim %}
-{% set dropdown_menu_element = dropdown_menu_element | default('a') %}
-{% set dropdown_menu_aria_label = button_id ? 'aria-labelledby="' ~ button_id ~ '"' %}
 <{{dropdown_element}} class="{{ dropdown_classes }}">
 	{% if dropdown_split %}
 		{% include '@atoms/button/_button-dropdown-split.twig' %}

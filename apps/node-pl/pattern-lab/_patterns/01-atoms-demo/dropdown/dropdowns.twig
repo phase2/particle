@@ -13,7 +13,7 @@
       <h2>
         Basic Dropdown
       </h2>
-      {% include '@atoms/dropdown/_dropdown.twig' with {
+      {% include '@atoms/dropdown/_dropdown2.twig' with {
         dropdown_color: 'gray-600 text-white',
         dropdown_text: 'Dropdown button',
         button_id: 'dropdownMenuButton'
@@ -23,7 +23,7 @@
       <h2>
         &lt;a&gt; element dropdown
       </h2>
-      {% include '@atoms/dropdown/_dropdown.twig' with {
+      {% include '@atoms/dropdown/_dropdown2.twig' with {
         dropdown_color: 'gray-600 text-white',
         dropdown_text: 'Dropdown link',
         button_id: 'dropdownMenuLink',
@@ -39,62 +39,37 @@
       {% for btn in btn_colors %}
         {% include '@atoms/button/_button.twig' with btn %}
       {% endfor %}
-      {#
-      {% for name, rgb in cssColors %}
-        {% include '@atoms/dropdown/_dropdown.twig' with {
-          dropdown_button: 'true',
-          dropdown_color: name,
-          dropdown_text: name|capitalize
-        } %}
-      {% endfor %} #}
-    </div>
-    <div class="mb-3">
-      <h2>
-        Split Button Drop Down
-      </h2>
-      {% for btn in btn_colors %}
-        {% include '@atoms/button/_button.twig' with btn %}
-      {% endfor %}
-      {#
-      {% for name, rgb in cssColors %}
-        {% include '@atoms/dropdown/_dropdown.twig' with {
-          dropdown_button: 'true',
-          dropdown_split: 'true',
-          dropdown_color: name,
-          dropdown_text: name|capitalize
-        } %}
-      {% endfor %} #}
     </div>
     <div class="mb-3">
       <h2>
         Sizing
       </h2>
       <div class="flex flex-col md:flex-row lg:flex-row">
-        {% include '@atoms/dropdown/_dropdown.twig' with {
-          dropdown_color: 'gray-600 text-white',
-          dropdown_button: 'true',
+        {% include '@atoms/dropdown/_dropdown2.twig' with {
+          dropdown_color: sizes[0].dropdown_color,
+          dropdown_button: sizes[0].dropdown_button,
           button_size: sizes[0].button_size,
-          dropdown_text: 'Large Button'
+          dropdown_text: sizes[0].button_text
         } %}
-        {% include '@atoms/dropdown/_dropdown.twig' with {
-          dropdown_color: 'gray-600 text-white',
-          dropdown_button: 'true',
+        {% include '@atoms/dropdown/_dropdown2.twig' with {
+          dropdown_color: sizes[1].dropdown_color,
+          dropdown_button: sizes[1].dropdown_button,
           button_size: sizes[1].button_size,
-          dropdown_text: 'Small Button'
+          dropdown_text: sizes[1].button_text
         } %}
-        {% include '@atoms/dropdown/_dropdown.twig' with {
-          dropdown_color: 'gray-600 text-white',
-          dropdown_button: 'true',
-          dropdown_split: 'true',
+        {% include '@atoms/dropdown/_dropdown2.twig' with {
+          dropdown_color: sizes[0].dropdown_color,
+          dropdown_button: sizes[0].dropdown_button,
+          dropdown_split: sizes[0].dropdown_split,
           button_size: sizes[0].button_size,
-          dropdown_text: 'Large Split Button'
+          dropdown_text: sizes[0].button_text
         } %}
-        {% include '@atoms/dropdown/_dropdown.twig' with {
-          dropdown_color: 'gray-600 text-white',
-          dropdown_button: 'true',
-          dropdown_split: 'true',
+        {% include '@atoms/dropdown/_dropdown2.twig' with {
+          dropdown_color: sizes[1].dropdown_color,
+          dropdown_button: sizes[1].dropdown_button,
+          dropdown_split: sizes[1].dropdown_split,
           button_size: sizes[1].button_size,
-          dropdown_text: 'Small Split Button'
+          dropdown_text: sizes[1].button_text
         } %}
       </div>
     </div>
@@ -106,13 +81,13 @@
         Note: Menus will automatically dropup if there is not enough room at the
         bottom of the page for them to dropdown
       </p>
-      {% include '@atoms/dropdown/_dropdown.twig' with {
+      {% include '@atoms/dropdown/_dropdown2.twig' with {
         dropdown_color: 'gray-600 text-white',
         dropdown_button: 'true',
         dropup: 'true',
         dropdown_text: 'Dropup'
       } %}
-      {% include '@atoms/dropdown/_dropdown.twig' with {
+      {% include '@atoms/dropdown/_dropdown2.twig' with {
         dropdown_color: 'gray-600 text-white',
         dropdown_button: 'true',
         dropup: 'true',
@@ -129,7 +104,7 @@
         longer the case with Bootstrap v4. Now you can optionally use
         &ltbutton&gt elements in your dropdowns instead of just &lta&gts.
       </p>
-      {% include '@atoms/dropdown/_dropdown.twig' with {
+      {% include '@atoms/dropdown/_dropdown2.twig' with {
         dropdown_color: 'gray-600 text-white',
         dropdown_text: 'Dropdown',
         dropdown_menu_element: 'button',
@@ -140,7 +115,7 @@
       <h2>
         Menu alignment
       </h2>
-      {% include '@atoms/dropdown/_dropdown.twig' with {
+      {% include '@atoms/dropdown/_dropdown2.twig' with {
         dropdown_color: 'gray-600 text-white',
         dropdown_text: "This dropdown's menu is right-aligned",
         dropdown_menu_right: 'true'
@@ -156,7 +131,7 @@
         }
       %}
         {% block column_1 %}
-          {% embed '@atoms/dropdown/_dropdown.twig'
+          {% embed '@atoms/dropdown/_dropdown2.twig'
             with {
               dropdown_color: 'gray-600 text-white',
               dropdown_text: 'Header'
@@ -178,7 +153,7 @@
           {% endembed %}
         {% endblock %}
         {% block column_2 %}
-          {% embed '@atoms/dropdown/_dropdown.twig'
+          {% embed '@atoms/dropdown/_dropdown2.twig'
             with {
               dropdown_color: 'gray-600 text-white',
               dropdown_text: 'Divider'
@@ -206,7 +181,7 @@
           {% endembed %}
         {% endblock %}
         {% block column_3 %}
-          {% include '@atoms/dropdown/_dropdown.twig' with {
+          {% include '@atoms/dropdown/_dropdown2.twig' with {
             dropdown_color: 'gray-600 text-white',
             dropdown_text: 'Disabled Items',
             dropdown_menu_items: dropdown_menu_disabled
@@ -218,7 +193,7 @@
       <h2>
         Menu forms
       </h2>
-      {% embed '@atoms/dropdown/_dropdown.twig'
+      {% embed '@atoms/dropdown/_dropdown2.twig'
         with {
           dropdown_color: 'gray-600 text-white',
           dropdown_text: 'Menu form'
