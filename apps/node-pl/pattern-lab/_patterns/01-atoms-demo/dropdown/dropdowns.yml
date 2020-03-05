@@ -4,19 +4,18 @@ chevron: '&#x25BE;'
 
 headers:
   - header_text: Basic Dropdown
-    header_paragraph: 'Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown'
   - header_text: '&lt;a&gt; element dropdown'
-    header_paragraph: 'Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown'
   - header_text: Colors
-    header_paragraph: 'Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown'
+  - header_text: Split Button Dropdown
   - header_text: Sizing
-    header_paragraph:
   - header_text: Dropup
+    header_paragraph: 'Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown'
+  - header_text: Menu Items
     header_paragraph: 'Note: Historically dropdown menu contents had to be links, but that’s no longer the case with Bootstrap v4. Now you can optionally use &ltbutton&gt elements in your dropdowns instead of just &lta&gts.'
-    # Menu Items
-    # Menu alignment
-    # In-menu options
-    # Dropdown header
+  - header_text: Menu alignment
+  - header_text: In-menu options
+  - header_text: Menu forms
+  # - header_text: Dropdown header
 
 dropdown_menu_items:
   - dropdown_menu_item_text: Action
@@ -87,3 +86,40 @@ sizes:
     dropdown_color: gray-600 text-white
     dropdown_button: true
     dropdown_split: true
+
+dropdown_link:
+  - dropdown_color: 'gray-600 text-white'
+    dropdown_text: 'Dropdown link'
+    button_id: 'dropdownMenuLink'
+    button_element: 'a'
+    unique_attributes: 'role="button" id="dropdownMenuLink"'
+    button_link: '#'
+
+first_dropdown:
+  - dropdown_color: 'gray-600 text-white'
+    dropdown_text: 'Dropdown button'
+    button_id: 'dropdownMenuButton'
+
+dropup:
+  - dropdown_color: 'gray-600 text-white'
+    dropdown_button: 'true'
+    dropup: 'true'
+    dropdown_text: 'Dropup'
+
+dropup_split:
+  - dropdown_color: 'gray-600 text-white'
+    dropdown_button: 'true'
+    dropup: 'true'
+    dropdown_split: 'true'
+    dropdown_text: 'Dropup Split'
+
+menu_items:
+  - dropdown_color: 'gray-600 text-white'
+    dropdown_text: 'Dropdown'
+    dropdown_menu_element: 'button'
+    button_id: 'dropdownMenu2'
+
+menu_alignment:
+  - dropdown_color: 'gray-600 text-white'
+    dropdown_text: "This dropdown's menu is right-aligned"
+    dropdown_menu_right: 'true'

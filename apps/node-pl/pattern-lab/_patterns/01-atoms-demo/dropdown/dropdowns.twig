@@ -10,141 +10,96 @@
       </p>
     </div>
     <hr />
-    {# First Dropdown #}
+    {# Basic Dropdown #}
     <div class="mb-3">
       <h2>
         {{ headers[0].header_text }}
       </h2>
-      {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-        dropdown_color: 'gray-600 text-white',
-        dropdown_text: 'Dropdown button',
-        button_id: 'dropdownMenuButton'
-      } %}
+      {% for i in first_dropdown %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+      {% endfor %}
     </div>
     {# <a> element dropdown #}
     <div class="mb-3">
       <h2>
         {{ headers[1].header_text }}
       </h2>
-      {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-        dropdown_color: 'gray-600 text-white',
-        dropdown_text: 'Dropdown link',
-        button_id: 'dropdownMenuLink',
-        button_element: 'a',
-        unique_attributes: 'role="button" id="dropdownMenuLink"',
-        button_link: '#'
-      } %}
-    </div>
-    {# option 1 #}
-    <div class="mb-3">
-      <h2>
-        {{ headers[2].header_text }}
-      </h2>
-      {% for btn in btn_colors %}
-        {% include '@atoms/dropdown/_dropdown-menu.twig' with btn %}
+      {% for i in dropdown_link %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
       {% endfor %}
     </div>
-    {# option 2 #}
     <div class="mb-3">
       <h2>
         {{ headers[2].header_text }}
       </h2>
-      {% for btn in btn_colors %}
-        {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-          dropdown_color: btn.dropdown_color,
-          dropdown_button: btn.dropdown_button,
-          button_size: btn.button_size,
-          dropdown_text: btn.dropdown_text,
-          text_color: btn.text_color
-        } %}
+      {% for i in btn_colors %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+      {% endfor %}
+    </div>
+    {# TODO: split #}
+    <div class="mb-3">
+      <h2>
+        {{ headers[3].header_text }}
+      </h2>
+      {% for i in btn_colors %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
       {% endfor %}
     </div>
     {# sizing #}
     <div class="mb-3">
       <h2>
-        {{ headers[3].header_text }}
+        {{ headers[4].header_text }}
       </h2>
       <div class="flex flex-col md:flex-row lg:flex-row">
-        {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-          dropdown_color: sizes[0].dropdown_color,
-          dropdown_button: sizes[0].dropdown_button,
-          button_size: sizes[0].button_size,
-          dropdown_text: sizes[0].dropdown_text
-        } %}
-        {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-          dropdown_color: sizes[1].dropdown_color,
-          dropdown_button: sizes[1].dropdown_button,
-          button_size: sizes[1].button_size,
-          dropdown_text: sizes[1].dropdown_text
-        } %}
-        {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-          dropdown_color: sizes[0].dropdown_color,
-          dropdown_button: sizes[0].dropdown_button,
-          dropdown_split: sizes[0].dropdown_split,
-          button_size: sizes[0].button_size,
-          dropdown_text: sizes[0].dropdown_text
-        } %}
-        {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-          dropdown_color: sizes[1].dropdown_color,
-          dropdown_button: sizes[1].dropdown_button,
-          dropdown_split: sizes[1].dropdown_split,
-          button_size: sizes[1].button_size,
-          dropdown_text: sizes[1].dropdown_text
-        } %}
+        {% for i in sizes %}
+          {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+        {% endfor %}
+        {# TODO: split #}
+        {% for i in sizes %}
+          {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+        {% endfor %}
       </div>
     </div>
     {# dropup #}
     <div class="mb-3">
       <h2>
-        {{ headers[4].header_text }}
+        {{ headers[5].header_text }}
       </h2>
       <p>
-        {{ headers[3].header_paragraph }}
+        {{ headers[5].header_paragraph }}
       </p>
-      {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-        dropdown_color: 'gray-600 text-white',
-        dropdown_button: 'true',
-        dropup: 'true',
-        dropdown_text: 'Dropup'
-      } %}
-      {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-        dropdown_color: 'gray-600 text-white',
-        dropdown_button: 'true',
-        dropup: 'true',
-        dropdown_split: 'true',
-        dropdown_text: 'Dropup Split'
-      } %}
+      {% for i in dropup %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+      {% endfor %}
+      {% for i in dropup_split %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+      {% endfor %}
     </div>
     {# Menu Items #}
     <div class="mb-3">
       <h2>
-        Menu Items
+        {{ headers[6].header_text }}
       </h2>
       <p>
-        {{ headers[4].header_paragraph }}
+        {{ headers[6].header_paragraph }}
       </p>
-      {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-        dropdown_color: 'gray-600 text-white',
-        dropdown_text: 'Dropdown',
-        dropdown_menu_element: 'button',
-        button_id: 'dropdownMenu2'
-      } %}
+      {% for i in menu_items %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+      {% endfor %}
     </div>
     {# Menu alignment #}
     <div class="mb-3">
       <h2>
-        Menu alignment
+        {{ headers[7].header_text }}
       </h2>
-      {% include '@atoms/dropdown/_dropdown-menu.twig' with {
-        dropdown_color: 'gray-600 text-white',
-        dropdown_text: "This dropdown's menu is right-aligned",
-        dropdown_menu_right: 'true'
-      } %}
+      {% for i in menu_alignment %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+      {% endfor %}
     </div>
     {# In-menu options #}
     <div class="mb-3">
       <h2>
-        In-menu options
+        {{ headers[8].header_text }}
       </h2>
       {% embed '@atoms/grid/_grid-3-up.twig'
         with {
@@ -213,7 +168,7 @@
     {# Menu forms #}
     <div class="mb-3">
       <h2>
-        Menu forms
+        {{ headers[9].header_text }}
       </h2>
       {% embed '@atoms/dropdown/_dropdown-menu.twig'
         with {
