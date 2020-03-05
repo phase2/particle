@@ -1,51 +1,53 @@
 {#
 /**
- * @file Dropdown!
+ * @file Button!
  *
  * Available variables:
- * - dropdown_element: [string]: div|li|ul: Choose the html element of the dropdown.
- * - dropdown_button: [boolean]: True|False: Choose whether the dropdown will be a button element or not.
- * - dropdown_other_classes: [string]: Allows use of other bootstrap utility classes.
- * - dropup: [boolean]: True|False: Set the dropdown to dropup instead.
- * - dropdown_color: [string]: primary|secondary|success|danger|warning|info|light|dark: The color of the dropdown.
- * - dropdown_split: [boolean]: True|False: Set the dropdown button to split between text and the arrow.
- * - dropdown_text: [string]: Set the dropdown's text.
- * - dropdown_menu_right: [boolean]: True| False: Set the menu to drop on the right side.
- * - dropdown_menu_element: [string]: a|button: Set the element of the menu items
- * - dropdown_menu_aria_label: Do not set: Will set automatically if you assign an button_id
- * - dropdown_menu_content: Block: Set content that will be within the dropdown menu.
- * - dropdown_menu_items: [array]: An array of menu items.
- * - dropdown_menu_item_disabled: [boolean]: True|False: Set an individual menu option as disabled.
- * - dropdown_menu_item_text: [string]: Set the text of an individual menu item.
+ * - button_element: [string]: button|a|input choose the element type for your button.
+ * - button_type: [string]: the html 'type' attribute.
+ * - button_outline: [boolean]: True|False, remove all background colors and images from a button.
+ * - buttonless_dropdown: [boolean]: True|False, toggle `btn` base class for dropdowns.
+ * - button_color: [string]: primary|secondary|success|danger|warning|info|light|dark the color of the button.
+ * - button_size: [string]: lg|sm set whether the button is large or small.
+ * - button_block:  [boolean]: True|False set button to occupy the full width the parent element.
+ * - button_active: [boolean]: True|False set button to appear pressed.
+ * - button_other_classes: [array] Other classes not specified in the template.
+ * - button_toggle: [string]: button|collapse set button's data-toggle html value.
+ * - button_link: [string]: the URL the button will lead to.
+ * - button_value: [string]: the html 'value' attribute.
+ * - button_id: [string]: The button's html 'id' attribute.
+ * - button_disabled: [boolean]: True|False set button to appear disabled.
+ * - button_other_attributes: [string]: Other attributes not specified in the template.
+ * - button_text: [string]: Display text on the button.
  *
  */
 #}
-{% set dropdown_element = dropdown_element | default('div') %}
-{% if dropdown_button %}
-	{% set dropdown_class = 'btn-group' %}
-{% else %}
-	{% set dropdown_class = 'dropdown' %}
+{% set button_element = button_element | default ('button') %}
+{% if button_element != 'a' %}
+	{% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
 {% endif %}
-{% set dropdown_classes = [
-  dropdown_class,
-  dropup ? 'dropup',
-  dropdown_other_classes,
+{% set button_classes = [
+  buttonless_dropdown ? '' : 'btn',
+  (button_color and not button_outline) ? 'bg-' ~ button_color,
+  (text_color and not button_outline) ? 'text-' ~ text_color,
+  (text_color) ? 'border border-' ~ text_color,
+  button_size ? button_size,
+  button_active ? 'active',
+  button_other_classes,
+  'p-2', 'rounded',
+  special_class ? 'p-3' : '',
 ] | sort | join(' ') | trim %}
-<{{dropdown_element}} class="{{ dropdown_classes }}">
-	{% if dropdown_split %}
-		{% include '@atoms/button/_button-dropdown-split.twig' %}
-	{% else %}
-		{% include '@atoms/button/_button-dropdown.twig' with {
-      button_text: dropdown_text,
-      button_color: dropdown_color,
-    } %}
-	{% endif %}
-	<div class=" absolute pin-l z-50 float-left hidden list-reset	 py-2 mt-1 text-base bg-white border border-grey-light rounded {{ dropdown_menu_right }}" {{ dropdown_menu_aria_label }}>
-		{% block dropdown_menu_content%}
-		{% for dropdown_menu_item in dropdown_menu_items %}
-			<{{dropdown_menu_element}} class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0 {{ dropdown_menu_item.dropdown_menu_item_disabled }}" href="#">
-				{{ dropdown_menu_item.dropdown_menu_item_text }}
-			</{{dropdown_menu_element}}>
-		{% endfor %}
-	{% endblock dropdown_menu_content%}
-</div></{{dropdown_element}}>
+{% set button_attributes = [
+  button_active ? 'aria-pressed="true"',
+  button_link ? 'href=' ~ button_link,
+  button_value ? 'value="' ~ button_value ~ '"',
+  button_id ? 'id="' ~ button_id ~ '"',
+  button_disabled ? 'disabled',
+  button_other_attributes,
+] | sort | join(' ') | trim %}
+<{{button_element}} {{ button_type }} class="{{ button_classes }}" {{ button_attributes }}>
+	{{ button_text }} {{ chevron }}
+  {% block right %}{% endblock right %}
+</{{button_element}}>
+
+

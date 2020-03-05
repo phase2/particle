@@ -7,7 +7,6 @@ import 'protons';
 // Module template
 import './_button.twig';
 import './_button-outline.twig';
-import './_button-dropdown.twig';
 import './_button-dropdown-split.twig';
 
 export const name = 'button';

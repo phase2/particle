@@ -3,6 +3,7 @@ dropdown_menu_items:
   - dropdown_menu_item_text: Action
   - dropdown_menu_item_text: Another Action
   - dropdown_menu_item_text: Something else here
+  - dropdown_menu_item_text: Separated link
 dropdown_menu_disabled:
   - dropdown_menu_item_text: This item is disabled
     dropdown_menu_item_disabled: 'disabled'
@@ -64,3 +65,15 @@ sizes:
     dropdown_color: gray-600 text-white
     dropdown_button: true
     dropdown_split: true
+headers:
+  - header_text: Basic Dropdown
+  - header_text: &lt;a&gt; element dropdown
+  - header_text: Colors
+  - header_text: Sizing
+  - header_text: Dropup
+    # Menu Items
+    # Menu alignment
+    # In-menu options
+    # Dropdown header
+
+chevron: '&#x25BE;'
