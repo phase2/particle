@@ -1,79 +1,89 @@
+page_title: Dropdowns
 dropdowns_helper: 'Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin.'
+chevron: '&#x25BE;'
+
+headers:
+  - header_text: Basic Dropdown
+    header_paragraph: 'Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown'
+  - header_text: '&lt;a&gt; element dropdown'
+    header_paragraph: 'Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown'
+  - header_text: Colors
+    header_paragraph: 'Note: Menus will automatically dropup if there is not enough room at the bottom of the page for them to dropdown'
+  - header_text: Sizing
+    header_paragraph:
+  - header_text: Dropup
+    header_paragraph: 'Note: Historically dropdown menu contents had to be links, but that’s no longer the case with Bootstrap v4. Now you can optionally use &ltbutton&gt elements in your dropdowns instead of just &lta&gts.'
+    # Menu Items
+    # Menu alignment
+    # In-menu options
+    # Dropdown header
+
 dropdown_menu_items:
   - dropdown_menu_item_text: Action
   - dropdown_menu_item_text: Another Action
   - dropdown_menu_item_text: Something else here
   - dropdown_menu_item_text: Separated link
+
 dropdown_menu_disabled:
   - dropdown_menu_item_text: This item is disabled
     dropdown_menu_item_disabled: 'disabled'
   - dropdown_menu_item_text: Action
   - dropdown_menu_item_text: Another Action
+
 btn_colors:
   - button_active: TRUE
-    button_text: Primary
-    button_color: blue-600
+    dropdown_text: Primary
+    dropdown_color: blue-600
     text_color: white
   - button_active: FALSE
-    button_text: Secondary
-    button_color: gray-600
+    dropdown_text: Secondary
+    dropdown_color: gray-600
     text_color: white
   - button_active: FALSE
-    button_text: Success
-    button_color: green-600
+    dropdown_text: Success
+    dropdown_color: green-600
     text_color: white
   - button_active: FALSE
-    button_text: Info
-    button_color: teal-600
+    dropdown_text: Info
+    dropdown_color: teal-600
     text_color: white
   - button_active: FALSE
-    button_text: Warning
-    button_color: yellow-600
+    dropdown_text: Warning
+    dropdown_color: yellow-600
     text_color: white
   - button_active: FALSE
-    button_text: Danger
-    button_color: red-600
+    dropdown_text: Danger
+    dropdown_color: red-600
     text_color: white
   - button_active: FALSE
-    button_text: Light
-    button_color: gray-400
+    dropdown_text: Light
+    dropdown_color: gray-400
     text_color: black
   - button_active: FALSE
-    button_text: Dark
-    button_color: black
+    dropdown_text: Dark
+    dropdown_color: black
     text_color: white
   - button_active: FALSE
-    button_text: Pink
-    button_color: pink-400
+    dropdown_text: Pink
+    dropdown_color: pink-400
     text_color: black
   - button_active: FALSE
-    button_text: Goldenrod
-    button_color: yellow-600
+    dropdown_text: Goldenrod
+    dropdown_color: yellow-600
     text_color: black
+
 sizes:
-  - button_text: Large Button
+  - dropdown_text: Large Button
     button_size: px-5 py-3 text-lg
     button_color: gray-600
     text_color: white
     dropdown_color: gray-600 text-white
     dropdown_button: true
     dropdown_split: true
-  - button_text: Small Button
+  - dropdown_text: Small Button
     button_size: px-3 py-1 text-sm
     button_color: gray-600
     text_color: white
     dropdown_color: gray-600 text-white
     dropdown_button: true
     dropdown_split: true
-headers:
-  - header_text: Basic Dropdown
-  - header_text: &lt;a&gt; element dropdown
-  - header_text: Colors
-  - header_text: Sizing
-  - header_text: Dropup
-    # Menu Items
-    # Menu alignment
-    # In-menu options
-    # Dropdown header
-
-chevron: '&#x25BE;'

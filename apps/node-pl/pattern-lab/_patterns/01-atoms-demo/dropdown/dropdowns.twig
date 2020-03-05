@@ -1,7 +1,8 @@
 {% embed '@atoms/grid/_grid-1-up.twig' %}
   {% block column_1 %}
+    {# main #}
     <h1 class="mb-3">
-      Dropdowns
+      {{ page_title }}
     </h1>
     <div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
       <p class="text-lg font-light">
@@ -9,6 +10,7 @@
       </p>
     </div>
     <hr />
+    {# First Dropdown #}
     <div class="mb-3">
       <h2>
         {{ headers[0].header_text }}
@@ -19,6 +21,7 @@
         button_id: 'dropdownMenuButton'
       } %}
     </div>
+    {# <a> element dropdown #}
     <div class="mb-3">
       <h2>
         {{ headers[1].header_text }}
@@ -32,14 +35,31 @@
         button_link: '#'
       } %}
     </div>
+    {# option 1 #}
     <div class="mb-3">
       <h2>
         {{ headers[2].header_text }}
       </h2>
       {% for btn in btn_colors %}
-        {% include '@atoms/button/_button.twig' with btn %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with btn %}
       {% endfor %}
     </div>
+    {# option 2 #}
+    <div class="mb-3">
+      <h2>
+        {{ headers[2].header_text }}
+      </h2>
+      {% for btn in btn_colors %}
+        {% include '@atoms/dropdown/_dropdown-menu.twig' with {
+          dropdown_color: btn.dropdown_color,
+          dropdown_button: btn.dropdown_button,
+          button_size: btn.button_size,
+          dropdown_text: btn.dropdown_text,
+          text_color: btn.text_color
+        } %}
+      {% endfor %}
+    </div>
+    {# sizing #}
     <div class="mb-3">
       <h2>
         {{ headers[3].header_text }}
@@ -49,37 +69,37 @@
           dropdown_color: sizes[0].dropdown_color,
           dropdown_button: sizes[0].dropdown_button,
           button_size: sizes[0].button_size,
-          dropdown_text: sizes[0].button_text
+          dropdown_text: sizes[0].dropdown_text
         } %}
         {% include '@atoms/dropdown/_dropdown-menu.twig' with {
           dropdown_color: sizes[1].dropdown_color,
           dropdown_button: sizes[1].dropdown_button,
           button_size: sizes[1].button_size,
-          dropdown_text: sizes[1].button_text
+          dropdown_text: sizes[1].dropdown_text
         } %}
         {% include '@atoms/dropdown/_dropdown-menu.twig' with {
           dropdown_color: sizes[0].dropdown_color,
           dropdown_button: sizes[0].dropdown_button,
           dropdown_split: sizes[0].dropdown_split,
           button_size: sizes[0].button_size,
-          dropdown_text: sizes[0].button_text
+          dropdown_text: sizes[0].dropdown_text
         } %}
         {% include '@atoms/dropdown/_dropdown-menu.twig' with {
           dropdown_color: sizes[1].dropdown_color,
           dropdown_button: sizes[1].dropdown_button,
           dropdown_split: sizes[1].dropdown_split,
           button_size: sizes[1].button_size,
-          dropdown_text: sizes[1].button_text
+          dropdown_text: sizes[1].dropdown_text
         } %}
       </div>
     </div>
+    {# dropup #}
     <div class="mb-3">
       <h2>
-        {{ headers[3].header_text }}
+        {{ headers[4].header_text }}
       </h2>
       <p>
-        Note: Menus will automatically dropup if there is not enough room at the
-        bottom of the page for them to dropdown
+        {{ headers[3].header_paragraph }}
       </p>
       {% include '@atoms/dropdown/_dropdown-menu.twig' with {
         dropdown_color: 'gray-600 text-white',
@@ -95,14 +115,13 @@
         dropdown_text: 'Dropup Split'
       } %}
     </div>
+    {# Menu Items #}
     <div class="mb-3">
       <h2>
         Menu Items
       </h2>
       <p>
-        Note: Historically dropdown menu contents had to be links, but that’s no
-        longer the case with Bootstrap v4. Now you can optionally use
-        &ltbutton&gt elements in your dropdowns instead of just &lta&gts.
+        {{ headers[4].header_paragraph }}
       </p>
       {% include '@atoms/dropdown/_dropdown-menu.twig' with {
         dropdown_color: 'gray-600 text-white',
@@ -111,6 +130,7 @@
         button_id: 'dropdownMenu2'
       } %}
     </div>
+    {# Menu alignment #}
     <div class="mb-3">
       <h2>
         Menu alignment
@@ -121,6 +141,7 @@
         dropdown_menu_right: 'true'
       } %}
     </div>
+    {# In-menu options #}
     <div class="mb-3">
       <h2>
         In-menu options
@@ -189,6 +210,7 @@
         {% endblock %}
       {% endembed %}
     </div>
+    {# Menu forms #}
     <div class="mb-3">
       <h2>
         Menu forms
