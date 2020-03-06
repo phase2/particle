@@ -116,7 +116,6 @@ menu_items:
   - dropdown_color: 'gray-600 text-white'
     dropdown_text: 'Dropdown'
     dropdown_menu_element: 'button'
-    button_id: 'dropdownMenu2'
 
 menu_alignment:
   - dropdown_color: 'gray-600 text-white'
