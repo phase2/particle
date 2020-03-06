@@ -36,7 +36,7 @@
         {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
       {% endfor %}
     </div>
-    {# TODO: split #}
+    {# Split Button Dropdown #}
     <div class="mb-3">
       <h2>
         {{ headers[3].header_text }}
@@ -54,9 +54,9 @@
         {% for i in sizes %}
           {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
         {% endfor %}
-        {# TODO: split #}
+        {# split sizing #}
         {% for i in sizes %}
-          {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+          {% include '@atoms/dropdown/_dropdown-menu-split.twig' with i %}
         {% endfor %}
       </div>
     </div>
@@ -69,10 +69,10 @@
         {{ headers[5].header_paragraph }}
       </p>
       {% for i in dropup %}
-        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+        {% include '@atoms/dropdown/_dropdown-menu-up.twig' with i %}
       {% endfor %}
       {% for i in dropup_split %}
-        {% include '@atoms/dropdown/_dropdown-menu.twig' with i %}
+        {% include '@atoms/dropdown/_dropdown-menu-split-up.twig' with i %}
       {% endfor %}
     </div>
     {# Menu Items #}

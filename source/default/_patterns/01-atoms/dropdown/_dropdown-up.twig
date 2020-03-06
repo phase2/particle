@@ -46,6 +46,6 @@
   button_other_attributes,
 ] | sort | join(' ') | trim %}
 <{{button_element}} {{ button_type }} class="{{ button_classes }} hover:opacity-75" {{ button_attributes }}>
-	{{ button_text }} {{ chevron_down }}
+  {{ button_text }} {{ chevron_up }}
   {% block right %}{% endblock right %}
 </{{button_element}}>

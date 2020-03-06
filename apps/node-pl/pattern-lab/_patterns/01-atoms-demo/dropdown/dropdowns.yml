@@ -1,6 +1,7 @@
 page_title: Dropdowns
 dropdowns_helper: 'Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin.'
-chevron: '&#x25BE;'
+chevron_down: '&#x25BE;'
+chevron_up: '&#9652;'
 
 headers:
   - header_text: Basic Dropdown
