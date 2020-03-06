@@ -17,7 +17,6 @@
  * - button_value: [string]: the html 'value' attribute.
  * - button_id: [string]: The button's html 'id' attribute.
  * - button_disabled: [boolean]: True|False set button to appear disabled.
- * - button_other_attributes: [string]: Other attributes not specified in the template.
  * - button_text: [string]: Display text on the button.
  *
  */
@@ -27,25 +26,16 @@
 	{% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
 {% endif %}
 {% set button_classes = [
-  buttonless_dropdown ? '' : 'btn',
   (button_color and not button_outline) ? 'bg-' ~ button_color,
   (text_color and not button_outline) ? 'text-' ~ text_color,
   (text_color) ? 'border border-' ~ text_color,
   button_size ? button_size,
-  button_active ? 'active',
-  button_other_classes,
-  'p-2', 'rounded',
+  'p-2', 'rounded', 'origin-top',
   special_class ? 'p-3' : '',
-] | sort | join(' ') | trim %}
-{% set button_attributes = [
-  button_active ? 'aria-pressed="true"',
-  button_link ? 'href=' ~ button_link,
-  button_value ? 'value="' ~ button_value ~ '"',
-  button_id ? 'id="' ~ button_id ~ '"',
-  button_disabled ? 'disabled',
-  button_other_attributes,
 ] | sort | join(' ') | trim %}
 <{{button_element}} {{ button_type }} class="{{ button_classes }} hover:opacity-75" {{ button_attributes }}>
   {{ button_text }} {{ chevron_up }}
   {% block right %}{% endblock right %}
 </{{button_element}}>
+
+{# style="position: absolute; transform: translate3d(0px, -116px, 0px); top: 0px; left: 0px; will-change: transform;" #}

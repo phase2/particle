@@ -11,12 +11,9 @@
   special_class ? 'p-3' : '',
 ] | sort | join(' ') | trim %}
 {% set button_classes2 = [
-  buttonless_dropdown ? '' : 'btn',
   (button_color and not button_outline) ? 'bg-' ~ button_color,
   (text_color and not button_outline) ? 'text-' ~ text_color,
   button_size ? button_size,
-  button_active ? 'active',
-  button_other_classes,
   'p-2', 'rounded-r',
   special_class ? 'p-3' : '',
 ] | sort | join(' ') | trim %}
