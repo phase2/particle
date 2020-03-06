@@ -20,7 +20,6 @@ dropdown_menu_items:
   - dropdown_menu_item_text: Action
   - dropdown_menu_item_text: Another Action
   - dropdown_menu_item_text: Something else here
-  - dropdown_menu_item_text: Separated link
 
 dropdown_menu_disabled:
   - dropdown_menu_item_text: This item is disabled
