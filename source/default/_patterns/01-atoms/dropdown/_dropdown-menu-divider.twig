@@ -1,0 +1,17 @@
+<div class="dropdown inline-block relative">
+  {% include '@atoms/dropdown/_dropdown.twig' with {
+    button_text: dropdown_text,
+    button_color: dropdown_color,
+    headers: headers
+  } %}
+  <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 z-1">
+    {% for i in dropdown_menu_divider %}
+      <li class="z-50">
+        <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap rounded-t hover:bg-gray-100"
+          href="#">
+          {{ i.dropdown_menu_item_text }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

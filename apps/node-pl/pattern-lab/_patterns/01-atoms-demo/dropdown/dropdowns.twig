@@ -107,54 +107,18 @@
         }
       %}
         {% block column_1 %}
-          {% embed '@atoms/dropdown/_dropdown-menu.twig'
-            with {
-              dropdown_color: 'gray-600 text-white',
-              dropdown_text: 'Header'
-            }
-          %}
-            {% block dropdown_menu_content %}
-              <h6 class="block py-2 px-6 mb-0 text-sm text-greay-dark whitespace-no-wrap">
-                Dropdown header
-              </h6>
-              <a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0"
-                href="#">
-                {{ dropdown_menu_items[0].dropdown_menu_item_text }}
-              </a>
-              <a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0"
-                href="#">
-                {{ dropdown_menu_items[1].dropdown_menu_item_text }}
-              </a>
-            {% endblock %}
-          {% endembed %}
+          {% include '@atoms/dropdown/_dropdown-menu-header.twig' with {
+            dropdown_color: 'gray-600 text-white',
+            dropdown_text: 'Header',
+            dropdown_menu_items: dropdown_menu_header
+          } %}
         {% endblock %}
         {% block column_2 %}
-          {% embed '@atoms/dropdown/_dropdown-menu.twig'
-            with {
-              dropdown_color: 'gray-600 text-white',
-              dropdown_text: 'Divider'
-            }
-          %}
-            {% block dropdown_menu_content %}
-              <a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0"
-                href="#">
-                {{ dropdown_menu_disabled[0].dropdown_menu_item_text }}
-              </a>
-              <a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0"
-                href="#">
-                {{ dropdown_menu_disabled[1].dropdown_menu_item_text }}
-              </a>
-              <a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0"
-                href="#">
-                {{ dropdown_menu_disabled[2].dropdown_menu_item_text }}
-              </a>
-              <div class="h-0 my-2 overflow-hidden border-t-1 border-grey-light"></div>
-              <a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0"
-                href="#">
-                {{ dropdown_menu_disabled[3].dropdown_menu_item_text }}
-              </a>
-            {% endblock %}
-          {% endembed %}
+          {% include '@atoms/dropdown/_dropdown-menu-divider.twig' with {
+            dropdown_color: 'gray-600 text-white',
+            dropdown_text: 'Divider',
+            dropdown_menu_items: dropdown_menu_divider
+          } %}
         {% endblock %}
         {% block column_3 %}
           {% include '@atoms/dropdown/_dropdown-menu-disabled.twig' with {
