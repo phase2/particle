@@ -17,17 +17,6 @@ headers:
   - header_text: In-menu options
   - header_text: Menu forms
 
-dropdown_menu_items:
-  - dropdown_menu_item_text: Action
-  - dropdown_menu_item_text: Another Action
-  - dropdown_menu_item_text: Something else here
-
-dropdown_menu_disabled:
-  - dropdown_menu_item_text: This item is disabled
-    dropdown_menu_item_disabled: 'disabled'
-  - dropdown_menu_item_text: Action
-  - dropdown_menu_item_text: Another Action
-
 btn_colors:
   - button_active: TRUE
     dropdown_text: Primary
@@ -121,3 +110,14 @@ menu_alignment:
   - dropdown_color: 'gray-600 text-white'
     dropdown_text: "This dropdown's menu is right-aligned"
     dropdown_menu_right: 'true'
+
+dropdown_menu_items:
+  - dropdown_menu_item_text: Action
+  - dropdown_menu_item_text: Another Action
+  - dropdown_menu_item_text: Something else here
+
+dropdown_menu_disabled:
+  - dropdown_menu_item_text: This item is disabled
+    dropdown_menu_item_disabled: 'disabled'
+  - dropdown_menu_item_text: Action
+  - dropdown_menu_item_text: Another Action
