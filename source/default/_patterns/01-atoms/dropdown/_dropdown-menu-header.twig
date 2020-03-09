@@ -4,14 +4,23 @@
     button_color: dropdown_color,
     headers: headers
   } %}
-  <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 z-1">
-    {% for i in dropdown_menu_header %}
-      <li class="z-50">
-        <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap rounded-t hover:bg-gray-100"
-          href="#">
-          {{ i.dropdown_menu_item_text }}
-        </a>
-      </li>
-    {% endfor %}
+  <ul class="dropdown-menu absolute hidden pt-1 z-1">
+    <li class="z-50">
+      <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap rounded-t hover:bg-gray-100 header-dropdown block text-gray-600 text-base header-dropdown">
+        {{ dropdown_menu_header[0].header }}
+      </a>
+    </li>
+    <li class="z-50">
+      <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap rounded-t hover:bg-gray-100"
+        href="#">
+        {{ dropdown_menu_header[0].dropdown_menu_item_text }}
+      </a>
+    </li>
+    <li class="z-50">
+      <a class="relative z-50 text-black bg-white py-2 px-4 block whitespace-no-wrap rounded-t hover:bg-gray-100"
+        href="#">
+        {{ dropdown_menu_header[1].dropdown_menu_item_text }}
+      </a>
+    </li>
   </ul>
 </div>
