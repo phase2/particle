@@ -130,79 +130,10 @@
       {% endembed %}
     </div>
     {# Menu forms #}
-    {#                                   <div class="mb-3">
-      <h2>
-        {{ headers[9].header_text }}
-      </h2>
-      {% embed '@atoms/dropdown/_dropdown-menu.twig'
-        with {
-          dropdown_color: 'gray-600 text-white',
-          dropdown_text: 'Menu form'
-        }
-      %}
-        {% block dropdown_menu_content %}
-          <form class="px-4 py-3">
-            <div class="mb-4">
-              <label for="exampleDropdownFormEmail1">
-                Email address
-              </label>
-              <input type="email"
-                class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-grey-darker border border-grey rounded"
-                id="examplerelativeFormEmail1"
-                placeholder="email@example.com" />
-            </div>
-            <div class="mb-4">
-              <label for="exampleDropdownFormPassword1">
-                Password
-              </label>
-              <input type="password"
-                class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-grey-darker border border-grey rounded"
-                id="examplerelativeFormPassword1"
-                placeholder="Password" />
-            </div>
-            <div class="relative block mb-2">
-              <label class="text-grey-dark pl-6 mb-0">
-                <input type="checkbox" class="absolute mt-1 -ml-6" />Remember me
-              </label>
-            </div>
-            <button type="submit"
-              class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-blue-lightest bg-blue hover:bg-blue-light">
-              Sign in
-            </button>
-          </form>
-          <div class="h-0 my-2 overflow-hidden border-t-1 border-grey-light"></div>
-          <a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0"
-            href="#">
-            New around here? Sign up
-          </a>
-          <a class="block w-full py-1 px-6 font-normal text-grey-darkest whitespace-no-wrap border-0"
-            href="#">
-            Forgot password?
-          </a>
-        {% endblock %}
-      {% endembed %}
-    </div> #}
     <div class="mb-3">
       <h2>
         Menu forms
       </h2>
-
-      {# Renders functional dropdown, but not a form #}
-      {# {% embed '@atoms/dropdown/_dropdown-menu.twig'%} #}
-
-      {# Renders form in weird format without dropdown #}
-      {#
-      {% embed '@atoms/dropdown/_dropdown-form.twig'
-        with {
-          dropdown_color: 'secondary',
-          dropdown_text: 'Menu form'
-        }
-      %} #}
-
-      {# Renders broken #}
-      {# {% embed '@atoms/dropdown/_dropdown.twig' %} #}
-
-      {# Renders form in weird format without dropdown #}
       {% embed '@atoms/dropdown/_dropdown-form.twig' %}
         {% block dropdown_menu_content %}
           <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 px-4 py-3 max-w-xs">
@@ -216,7 +147,6 @@
                 id="exampleDropdownFormEmail1"
                 placeholder="email@example.com" />
             </div>
-            {# <div class="form-group"> #}
             <div class="mb-6">
               <label for="exampleDropdownFormPassword1"
                 class="block text-gray-700 text-sm font-bold mb-2">
@@ -227,8 +157,6 @@
                 id="exampleDropdownFormPassword1"
                 placeholder="Password" />
             </div>
-
-            {# <div class="form-check"> #}
             <div class="flex items-center justify-between">
               <label class="form-check-label"
                 class="block text-gray-700 text-sm font-bold mb-2">
@@ -239,9 +167,8 @@
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2">
               Sign in
             </button>
-            {# <div class="form-group mb-4"> #}
             <div class="mb-6">
-              {# <div class="dropdown-divider"></div> #}
+              <div class="dropdown-divider"></div>
               <p class="text-gray-500 text-xs">
                 <a class="text-gray-500 text-xs" href="#">
                   New around here? Sign up
