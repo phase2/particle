@@ -130,7 +130,7 @@
       {% endembed %}
     </div>
     {# Menu forms #}
-    <div class="mb-3">
+    {#                                   <div class="mb-3">
       <h2>
         {{ headers[9].header_text }}
       </h2>
@@ -179,6 +179,79 @@
             href="#">
             Forgot password?
           </a>
+        {% endblock %}
+      {% endembed %}
+    </div> #}
+    <div class="mb-3">
+      <h2>
+        Menu forms
+      </h2>
+
+      {# Renders functional dropdown, but not a form #}
+      {# {% embed '@atoms/dropdown/_dropdown-menu.twig'%} #}
+
+      {# Renders form in weird format without dropdown #}
+      {#
+      {% embed '@atoms/dropdown/_dropdown-form.twig'
+        with {
+          dropdown_color: 'secondary',
+          dropdown_text: 'Menu form'
+        }
+      %} #}
+
+      {# Renders broken #}
+      {# {% embed '@atoms/dropdown/_dropdown.twig' %} #}
+
+      {# Renders form in weird format without dropdown #}
+      {% embed '@atoms/dropdown/_dropdown-form.twig' %}
+        {% block dropdown_menu_content %}
+          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 px-4 py-3 max-w-xs">
+            <div class="form-group mb-4">
+              <label for="exampleDropdownFormEmail1"
+                class="block text-gray-700 text-sm font-bold mb-2">
+                Email address
+              </label>
+              <input type="email"
+                class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="exampleDropdownFormEmail1"
+                placeholder="email@example.com" />
+            </div>
+            {# <div class="form-group"> #}
+            <div class="mb-6">
+              <label for="exampleDropdownFormPassword1"
+                class="block text-gray-700 text-sm font-bold mb-2">
+                Password
+              </label>
+              <input type="password"
+                class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="exampleDropdownFormPassword1"
+                placeholder="Password" />
+            </div>
+
+            {# <div class="form-check"> #}
+            <div class="flex items-center justify-between">
+              <label class="form-check-label"
+                class="block text-gray-700 text-sm font-bold mb-2">
+                <input type="checkbox" class="mr-2 leading-tight" />Remember me
+              </label>
+            </div>
+            <button type="submit"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline my-2">
+              Sign in
+            </button>
+            {# <div class="form-group mb-4"> #}
+            <div class="mb-6">
+              {# <div class="dropdown-divider"></div> #}
+              <p class="text-gray-500 text-xs">
+                <a class="text-gray-500 text-xs" href="#">
+                  New around here? Sign up
+                </a>
+              </p>
+              <p class="text-gray-500 text-xs">
+                <a class="text-gray-500 text-xs" href="#">Forgot password?</a>
+              </p>
+            </div>
+          </form>
         {% endblock %}
       {% endembed %}
     </div>
