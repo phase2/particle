@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "name": "@phase2/generator-particle-drupal",
+  "version": "0.0.1",
+  "description": "A Yeoman Generator for a Particle Drupal Theme and Modules.",
+  "author": {
+    "name": "Phase2 Technology",
+    "url": "https://github.com/phase2/"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "drupal"
+  ],
+  "homepage": "https://github.com/phase2/particle#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phase2/particle.git",
+    "directory": "packages/generator-particle-drupal"
+  },
+  "bugs": {
+    "url": "https://github.com/phase2/particle/issues"
+  },
+  "license": "GPL-2.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "yeoman-generator": "^4.4.0"
+  }
+}

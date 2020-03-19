@@ -1,0 +1,18 @@
+name: Particle
+type: theme
+description: A Starter Drupal Theme.
+base theme: stable
+core: 8.x
+regions:
+  primary_menu: Primary menu
+  highlighted: Highlighted
+  header_branding: Header branding
+  header_cta: Header CTA
+  secondary_menu: Secondary menu
+  page_top: Page top
+  page_bottom: Page bottom
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: Sidebar first
+  sidebar_second: Sidebar second
+  footer: Footer

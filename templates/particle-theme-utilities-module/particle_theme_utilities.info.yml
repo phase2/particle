@@ -1,0 +1,8 @@
+name: Particle Theme Utilities
+type: module
+description: Utilities to extend Particle themes.
+package: Particle
+core: 8.x
+dependencies:
+  - components:components
+  - preprocess:preprocess

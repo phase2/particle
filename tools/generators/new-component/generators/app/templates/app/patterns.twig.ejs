@@ -1,7 +1,0 @@
-{% extends '@demo/_demo-block.twig' %}
-
-{% set demo = <%= underscoreName %>_demo_block %}
-
-{% block content %}
-  {% include '@<%= cleanPatternType %>/<%= name %>/_<%= name %>.twig' %}
-{% endblock %}

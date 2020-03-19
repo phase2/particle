@@ -1,0 +1,22 @@
+{
+  "name": "@phase2/prettier-config",
+  "version": "0.0.1",
+  "author": {
+    "name": "Phase2 Technology",
+    "url": "https://github.com/phase2/"
+  },
+  "description": "Custom Prettier config for Particle projects.",
+  "keywords": [
+    "prettier"
+  ],
+  "homepage": "https://github.com/phase2/particle#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phase2/particle.git",
+    "directory": "packages/prettier-config"
+  },
+  "bugs": {
+    "url": "https://github.com/phase2/particle/issues"
+  },
+  "license": "GPL-2.0"
+}

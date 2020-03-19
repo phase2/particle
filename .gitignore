@@ -1,10 +1,12 @@
-# Compiled files
-dist/
-_icons-generated.scss
-dependencyGraph.json
-patterns.zip
+# Lock Files
+yarn.lock
+package-lock.json
 
-# OS generated files
+# Package Lock Files
+packages/*/yarn.lock
+packages/*/package-lock.json
+
+# OS Generated
 *.swp
 .DS_Store
 .DS_Store?
@@ -13,14 +15,8 @@ patterns.zip
 
 # Dependencies
 node_modules
-vendor
 
-# Generated files
-*.sass-cache/
-.eslintcache
-*unison.*
-
-#IDE plugins
+#IDE Plugins
 .idea
 
 # Errors

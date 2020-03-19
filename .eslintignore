@@ -1,9 +1,0 @@
-# Ignore any path/file using .gitignore syntax
-
-node_modules/
-dist/
-vendor/
-tools/tests/vrt/backstop_data
-
-# Ignore yeoman new-component templates
-tools/generators/**/templates
