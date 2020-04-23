@@ -81,7 +81,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "fibers": "^5.0.0",
     "file-loader": "^5.1.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "jest": "^25.4.0",
     "jest-fetch-mock": "^3.0.3",
     "jest-vue-preprocessor": "^1.7.1",
