@@ -41,7 +41,7 @@ class RunScriptOnFiletypeChange extends ShellHelper {
         }
 
         // Run all commands synchronously
-        this.options.exec.forEach(script => this.handleScript(script));
+        this.options.exec.forEach((script) => this.handleScript(script));
 
         // Run callback to finish compilation
         callback();

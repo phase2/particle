@@ -20,15 +20,15 @@ const cssVarReader = cssVars2Obj();
 
 // Generate media queries for breakpointing.
 export const mediaBreakpoint = {
-  down: breakpoint => `screen and (max-width: ${breakpoint})`,
-  up: breakpoint => `screen and (min-width: ${breakpoint})`,
+  down: (breakpoint) => `screen and (max-width: ${breakpoint})`,
+  up: (breakpoint) => `screen and (min-width: ${breakpoint})`,
 };
 
 // Get the string value of the --breakpoints list (first value in object)
 // i.e. " xs, sm, md, lg, xl"
 const bpListString = cssVarReader([BP_VAR_NAME])[BP_VAR_NAME];
 // Transform string to array, i.e. ['xs', 'sm', 'md', 'lg', 'xl']
-const bpListArray = sass2Array(bpListString).map(bp => `${BP_PREFIX}${bp}`);
+const bpListArray = sass2Array(bpListString).map((bp) => `${BP_PREFIX}${bp}`);
 
 /**
  * Breakpoint object that looks like:

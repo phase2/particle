@@ -39,7 +39,7 @@ module.exports = () => {
   };
 
   // Set which pages to capture, and how to label them.
-  const scenarios = partials.map(partial => {
+  const scenarios = partials.map((partial) => {
     return {
       label: partial,
       url: `${plRoot}?p=${partial}`,

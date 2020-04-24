@@ -8,7 +8,7 @@ const plRootDomain = PL_BASE_DOMAIN || '0.0.0.0:8080';
 const plRoot = `http://${plRootDomain}/app-node-pl/pl`;
 
 // urls comes from particle, includes all demo paths from atoms+
-let urls = componentPaths.map(partial => `${plRoot}/${partial}`);
+let urls = componentPaths.map((partial) => `${plRoot}/${partial}`);
 
 // prod is any other links that need checked
 const prod = [];
