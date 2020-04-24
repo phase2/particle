@@ -14,7 +14,7 @@ export const randRGB = () => Math.round(Math.random() * 255);
  * @param {string} sassString - Sass list as string, i.e. ` foo, baz, bar, flerp`
  * @returns {Array}
  */
-export const sass2Array = sassString =>
+export const sass2Array = (sassString) =>
   sassString ? sassString.trim().split(', ') : [];
 
 /**
@@ -32,7 +32,7 @@ export const cssVars2Obj = () => {
    * @param {Array} cssVars - array of CSS variables to turn into object
    * @returns {object}
    */
-  return cssVars =>
+  return (cssVars) =>
     cssVars.reduce(
       (acc, cssVar) => ({
         ...acc,

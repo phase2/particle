@@ -14,7 +14,7 @@ const getValue = require('./dart-sass-value');
  * Take in a directory path, return a function that expects file naem and Sass
  * structure to be turned into JSON at the directory path
  */
-module.exports = destFolder => (sassFileName, value) => {
+module.exports = (destFolder) => (sassFileName, value) => {
   // e.g. apps/node-pl/pattern-lab/_data/sass-variables.json
   const filename = path.join(destFolder, sassFileName.getValue());
   // The JS representation of the Sass type
@@ -25,7 +25,7 @@ module.exports = destFolder => (sassFileName, value) => {
     if (readerr) console.error(readerr, `Creating ${path.basename(filename)}!`);
     // Only write output if there is a difference or non-existent target file
     if (jsondiff.diff(existingJson, output)) {
-      fs.outputJson(filename, output, writeerr => {
+      fs.outputJson(filename, output, (writeerr) => {
         if (writeerr) console.error(writeerr);
       });
     }

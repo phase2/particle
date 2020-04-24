@@ -115,7 +115,7 @@ module.exports = class extends Generator {
           // Return array of atomic folders within the app's design system
           return readdirSync(join(APP_DESIGN_SYSTEM, PATTERNS_FOLDER), {
             withFileTypes: true,
-          }).filter(folder => folder.isDirectory());
+          }).filter((folder) => folder.isDirectory());
         },
       },
       {
@@ -127,7 +127,7 @@ module.exports = class extends Generator {
       },
     ];
 
-    return this.prompt(prompts).then(props => {
+    return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
       this.props = {
         ...props,
@@ -146,7 +146,7 @@ module.exports = class extends Generator {
     // Convert 'patterns.twig.ejs' to 'cards.twig'. registerTransformStream is
     // a reserved method to which Yeoman provides all file streams from copyTpl()
     this.registerTransformStream(
-      rename(path => {
+      rename((path) => {
         // basename is 'patterns.twig' here
         const ext = extname(path.basename);
         // Original extname was '.ejs', change it to ext, which is now '.twig'
