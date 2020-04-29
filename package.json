@@ -63,8 +63,8 @@
     "vuex": "^3.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.4.0",
     "babel-loader": "^8.1.0",
