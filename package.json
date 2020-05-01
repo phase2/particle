@@ -106,7 +106,7 @@
     "terser-webpack-plugin": "^2.3.5",
     "url-loader": "^4.1.0",
     "vue-jest": "^3.0.5",
-    "vue-loader": "^15.9.1",
+    "vue-loader": "^15.9.2",
     "vue-template-compiler": "^2.6.11",
     "vue-testing-library": "^0.17.0",
     "webpack": "^4.43.0",
