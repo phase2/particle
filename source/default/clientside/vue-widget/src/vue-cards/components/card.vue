@@ -12,7 +12,7 @@
           {{ name }}
         </h5>
       </div>
-      <ul class="flex flex-col pl-0 mb-0 border rounded border-grey-light ">
+      <ul class="flex flex-col pl-0 mb-0 border rounded border-grey-light">
         <li
           class="relative block py-3 px-6 -mb-px border border-r-0 border-l-0 border-grey-light no-underline"
         >

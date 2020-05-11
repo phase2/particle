@@ -19,7 +19,7 @@
         @updateFilter="filter = $event"
       />
     </div>
-    <ul class="flex flex-col pl-0 mb-0 border rounded border-grey-light ">
+    <ul class="flex flex-col pl-0 mb-0 border rounded border-grey-light">
       <li
         v-for="{
           id: key,
@@ -90,7 +90,7 @@ export default {
       const data = await (
         await fetch('https://api.coinmarketcap.com/v2/ticker/?limit=10')
       ).json();
-      this.cryptos = Object.keys(data.data).map(key => ({
+      this.cryptos = Object.keys(data.data).map((key) => ({
         ...data.data[key],
         percent_change_7d: data.data[key].quotes.USD.percent_change_7d,
         price_usd: data.data[key].quotes.USD.price,

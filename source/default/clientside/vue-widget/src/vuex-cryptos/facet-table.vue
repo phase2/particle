@@ -15,7 +15,7 @@
       </h5>
       <facet-table-facets :facets="['all', 'winners', 'losers']" />
     </div>
-    <ul class="flex flex-col pl-0 mb-0 border rounded border-grey-light ">
+    <ul class="flex flex-col pl-0 mb-0 border rounded border-grey-light">
       <li
         v-for="{
           id: key,

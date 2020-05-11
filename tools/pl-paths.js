@@ -23,7 +23,7 @@ const {
 
 // all particle paths
 const paths = [].concat(
-  ...Object.values(patternPaths).map(atomic => Object.values(atomic))
+  ...Object.values(patternPaths).map((atomic) => Object.values(atomic))
 );
 
 // only check our actual components from atoms up
@@ -31,7 +31,7 @@ delete patternPaths['protons-demo'];
 // eslint-disable-next-line
 delete patternPaths['atoms-demo']['svgicons'];
 const componentPaths = [].concat(
-  ...Object.values(patternPaths).map(atomic => Object.values(atomic))
+  ...Object.values(patternPaths).map((atomic) => Object.values(atomic))
 );
 
 // Shape of navItems data:
@@ -75,8 +75,8 @@ const partials = navItems.patternTypes.reduce(
 module.exports = {
   paths,
   partials,
-  htmlPaths: paths.map(path => `patterns/${path}/${path}.rendered.html`),
+  htmlPaths: paths.map((path) => `patterns/${path}/${path}.rendered.html`),
   componentPaths: componentPaths.map(
-    path => `patterns/${path}/${path}.rendered.html`
+    (path) => `patterns/${path}/${path}.rendered.html`
   ),
 };

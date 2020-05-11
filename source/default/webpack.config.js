@@ -24,7 +24,7 @@ module.exports = {
                       path.resolve(__dirname, '_meta/**/*.*'),
                       path.resolve(__dirname, '_patterns/**/*.*'),
                     ],
-                    defaultExtractor: content =>
+                    defaultExtractor: (content) =>
                       content.match(/[A-Za-z0-9-_:/]+/g) || [],
                     extensions: ['yml', 'twig', 'jsx'],
                   },

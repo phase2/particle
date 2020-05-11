@@ -37,7 +37,7 @@ const actions = {
     const data = await (
       await fetch('https://api.coinmarketcap.com/v2/ticker/?limit=10')
     ).json();
-    const flattenedData = Object.keys(data.data).map(key => ({
+    const flattenedData = Object.keys(data.data).map((key) => ({
       ...data.data[key],
       percent_change_7d: data.data[key].quotes.USD.percent_change_7d,
       price_usd: data.data[key].quotes.USD.price,
@@ -53,7 +53,7 @@ const actions = {
  * GETTERS
  */
 const getters = {
-  filteredCryptos: state => {
+  filteredCryptos: (state) => {
     const { cryptos, filter } = state;
     switch (filter) {
       // Sort by positive change
@@ -83,9 +83,9 @@ store.registerModule('vueFacetTable', {
   actions,
   getters,
 });
-export default el =>
+export default (el) =>
   new Vue({
     el,
     store,
-    render: h => h(FacetTableComponent),
+    render: (h) => h(FacetTableComponent),
   });

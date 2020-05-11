@@ -90,8 +90,8 @@ card_background_4:
 card_border_1:
   card_title: Card Title
   card_text: Some quick example text to build on the card title and make up the bulk of the card's content.
-  card_border: warning
-  text_color: warning
+  card_border: success
+  text_color: success
 card_border_2:
   card_title: Card Title
   card_text: I'm using a lot of extra words and characters in this sentence to make sure it takes at least three lines!
