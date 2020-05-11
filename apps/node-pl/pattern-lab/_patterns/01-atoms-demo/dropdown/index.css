@@ -1,8 +1,0 @@
-.dropdown:hover .dropdown-menu {
-  display: block;
-  z-index: 50;
-}
-
-.header-dropdown {
-  font-family: Oswald, 'Times New Roman', serif;
-}

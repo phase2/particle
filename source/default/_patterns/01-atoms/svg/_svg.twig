@@ -10,19 +10,20 @@
 
 {% set svg_variant = svg.variant|default('embed') %}
 
+{# Classes Merge Handled by Variant Files #}
 {% set svg_classes = svg_classes|default([])|merge([
   'svg',
   svg_variant,
-]) | sort | join(' ') | trim %}
+]) %}
 
-{% if svg_variant === 'embed' %}
+{% if svg_variant == 'embed' %}
   {% include '@atoms/svg/_svg--embed.twig' with {
     svg: svg,
     svg_classes: svg_classes
   } %}
 {% endif %}
 
-{% if svg_variant === 'sprite' %}
+{% if svg_variant == 'sprite' %}
   {% include '@atoms/svg/_svg--sprite.twig' with {
     svg: svg,
     svg_classes: svg_classes

@@ -1,12 +1,15 @@
 /**
  * Apply the Design System to a single Drupal behavior
  */
+
 // ECMAScript polyfills, but NOT fetch(). Fetch() is web standard, not ECMAScript.
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+
 import { enableAllComponents } from '../../source/default';
 
 console.log('Particle Drupal behaviors ran.');
+
 Drupal.behaviors.designSystem = {
   attach($context, settings) {
     // Let's pretend we have a Drupal module called customCarouselModule that

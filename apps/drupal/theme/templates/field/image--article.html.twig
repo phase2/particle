@@ -11,11 +11,11 @@
  * @see template_preprocess_image()
  */
 #}
+
 {% set image_classes = [
   'm-3',
   'img',
-  'img-fluid',
   style_name|clean_class,
-  'float-right'
 ] | join(' ') | trim %}
+
 <img{{attributes.addClass(image_classes)}}/>

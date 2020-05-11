@@ -11,11 +11,13 @@
  * themed in menu-local-task.html.twig.
  */
 #}
+
 {% set nav_classes = [
   'nav',
   'nav-tabs',
   'mb-2',
 ] | join(' ') %}
+
 {% if primary %}
   <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
   <ul class="{{ nav_classes }}">{{ primary }}</ul>

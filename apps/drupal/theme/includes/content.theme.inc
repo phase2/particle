@@ -1,5 +1,6 @@
 <?php
+
 /**
  * @file
- * Functions to support theming content layout in the Particle theme.
+ * Functions to support theming content in the Particle theme.
  */

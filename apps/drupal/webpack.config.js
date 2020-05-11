@@ -1,19 +1,25 @@
 /**
  * Drupal-specific webpack config.
  */
+
 const path = require('path');
 const { DefinePlugin } = require('webpack');
+
 // Plugins
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
 const particle = require('../../particle');
+
 // Constants: environment
 const { NODE_ENV } = process.env;
+
 // Constants: root
 const { ASSETS_ATOMIC_FOLDER } = require('../../particle.root.config');
+
 // Constants: app
 const appConfig = require('./particle.app.config');
 
 const { APP_NAME, APP_DESIGN_SYSTEM, APP_DIST, APP_DIST_PUBLIC } = appConfig;
+
 const shared = {
   entry: {
     'drupal-jquery': [path.resolve(__dirname, 'drupal-jquery.js')],
@@ -52,8 +58,8 @@ const dev = {
     new RunScriptAfterEmit({
       exec: [
         // prettier-ignore
-        `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete! 
-        Edit apps/drupal/webpack.config.js to replace this line with 
+        `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete!
+        Edit apps/drupal/webpack.config.js to replace this line with
         'drupal cr all' now. 🚀\n`,
       ],
     }),

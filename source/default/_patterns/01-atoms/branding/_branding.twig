@@ -11,13 +11,14 @@
  * - site_slogan: [string] the site slogan provided by the app.
  */
 #}
+
 <aside class="branding">
   <div class="branding__site-logo">
     <a href="{{ url }}" title="{{ site_name }}" rel="home">
       {% if logo_svg_inline %}
         {% include '@atoms/svg/_svg.twig' with {
           svg: {
-            svgpath: logo_svg_inline,
+            path: logo_svg_inline,
             colorOriginal: true
           }
         } %}
@@ -32,6 +33,7 @@
       {% endif %}
     </a>
   </div>
+
   {% if site_name %}
     <h1 class="text-3xl branding__site-name">
       <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
@@ -44,4 +46,5 @@
       {{ site_slogan }}
     </p>
   {% endif %}
+
 </aside>

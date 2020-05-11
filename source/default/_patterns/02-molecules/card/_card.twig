@@ -16,13 +16,12 @@
   text_color: String: primary|secondary|succes|danger|warning|info|light|dark Text color.
   card_link: String: The path to another URL.
   card_link_text: String: The link's text.
-  card_list: Number: The number of items in the list.
-  list_item: Loop variable: Do not set.
   card_footer: String: The text on the footer.
 #}
 {# @param {int} card_width #}
 {# @param {string} view_change_uri  #}
 {# @param {int} user_location_id #}
+
 {% set card_classes = [
   'card',
   card_width ? 'w-' ~ card_width,
@@ -79,9 +78,6 @@
       {% endif %}
     </div>
   {% endblock %}
-  {% if list %}
-    {% include '@atoms/list-group/_list-group.twig' with list %}
-  {% endif %}
   {% if card_footer %}
     <div class="py-3 px-6 bg-grey-lighter border-t-1 border-grey-light">
       {{ card_footer }}
