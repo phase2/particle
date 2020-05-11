@@ -1,16 +1,21 @@
 /**
  * Button
  */
+
+// eslint-disable-next-line
 import $ from 'jquery';
+
 // Custom
 import 'protons';
+
 // Module template
 import './_button.twig';
-import './_button-outline.twig';
 
 export const name = 'button';
+
 export function disable() {}
-export function enable($context) {
-  $('#blah', $context).button('toggle');
-}
+
+// eslint-disable-next-line
+export function enable($context) {}
+
 export default enable;

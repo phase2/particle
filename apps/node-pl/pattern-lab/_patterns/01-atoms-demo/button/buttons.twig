@@ -1,83 +1,30 @@
-{% embed '@atoms/grid/_grid-1-up.twig' %}
-  {% block column_1 %}
-    <h1 class="mb-3">
-      Buttons
-    </h1>
-    <div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
-      <p class="text-lg font-light">
-        {{ buttons_helper }}
-      </p>
-    </div>
-    <hr />
-    <h2>
-      Button colors
-    </h2>
-    <div class="mb-3">
-      {% for btn in btn_colors %}
-        {% include '@atoms/button/_button.twig' with btn %}
-      {% endfor %}
-    </div>
-    <h2>
-      Button outline
-    </h2>
-    <div class="mb-3">
-      {% for btn in btn_outline %}
-        {% include '@atoms/button/_button.twig' with btn %}
-      {% endfor %}
-    </div>
-    <h2>
-      Button elements
-    </h2>
-    <div class="mb-3">
-      {% for alternate_button in alternate_buttons %}
-        {% set buttonElement =
-          alternate_button|merge({
-            button_color: 'green-600',
-            text_color: 'white'
-          })
-        %}
-        {% include '@atoms/button/_button.twig' with buttonElement %}
-      {% endfor %}
-    </div>
-    <h2>
-      Button size
-    </h2>
-    <div class="mb-3">
-      {% for size in sizes %}
-        {% include '@atoms/button/_button.twig' with size %}
-      {% endfor %}
-    </div>
-    <h2>
-      Button block
-    </h2>
-    <div class="mb-3">
-      <div class="flex flex-col md:flex-row lg:flex-row">
-        {% embed '@atoms/grid/_grid-3-up.twig' %}
-          {% block column_1 %}
-            {% include '@atoms/button/_button.twig' with block_level_1 %}
-          {% endblock %}
-          {% block column_2 %}
-            {% include '@atoms/button/_button.twig' with block_level_2 %}
-          {% endblock %}
-          {% block column_3 %}
-            {% include '@atoms/button/_button.twig' with block_level_3 %}
-          {% endblock %}
-        {% endembed %}
-      </div>
-    </div>
-    <h2>
-      Button state
-    </h2>
-    <div class="mb-3">
-      {% for state in states %}
-        {% include '@atoms/button/_button.twig' with state %}
-      {% endfor %}
-    </div>
-    <h2>
-      Button toggle
-    </h2>
-    <div class="mb-3">
-      {% include '@atoms/button/_button.twig' with toggleable %}
-    </div>
-  {% endblock %}
+{#
+/**
+ * @file Buttons!
+ *   Documenting Button Examples from Tailwind.
+ *
+ * Available variables:
+ * - button.element: [string]: button|a|input choose the element type for your button.
+ * - button.type: [string]: the html 'type' attribute.
+ * - button.color: [string]: The Tailwind color of the button.
+ * - button.outline: [boolean]: True|False, remove all background colors and images from a button.
+ * - button.size: [string]: lg|sm set whether the button is large or small.
+ * - button.text: [string]: Display text on the button.
+ *
+ * - button_classes: [array] Button classes from other partials.
+ * - button_attributes: [array] Button attributes from other partials.
+ *
+ */
+#}
+
+{% embed '@demo/_demo-block.twig' with {
+  demo: buttons_demo
+} %}
+  {% block content %}
+
+    {% include '@atoms/button/_button.twig' with {
+      button: button_1
+    } only %}
+
+  {% endblock content %}
 {% endembed %}

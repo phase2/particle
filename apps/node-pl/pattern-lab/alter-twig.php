@@ -165,7 +165,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $attributes_filter = new Twig_SimpleFilter('attributes', function ($attributes) {
+  $attributify_filter = new Twig_SimpleFilter('attributify', function ($attributes) {
     // if we already have attributes as a renderable string, return.
     if (is_string($attributes)) {
       return $attributes;
@@ -184,7 +184,7 @@ function addFilters(\Twig_Environment &$env, $config) {
       return implode($renderable_attributes, ' ');
     }
   });
-  $env->addFilter($attributes_filter);
+  $env->addFilter($attributify_filter);
 }
 
 function addFunctions(\Twig_Environment &$env, $config) {
