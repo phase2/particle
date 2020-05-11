@@ -1,3 +1,9 @@
+alert_demo:
+  title: 'Alert'
+  content:
+    lead: 'Demonstration of our Particle Alerts.'
+    summary: 'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.'
+
 alert_status:
   type: 'status'
   alert_title: 'Success!'
