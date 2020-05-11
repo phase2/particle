@@ -9,8 +9,20 @@ const tailwindConfig = require('../../source/default/tailwind.config.js');
 
 const pl = core(plConfig);
 
+// Retrieve the Theme from TailwindCSS
 const { theme } = resolveConfig(tailwindConfig);
-const { colors, spacing, screens, fontFamily, fontWeight, fontSize } = theme;
+// Destructure the Values to Demo.
+const {
+  borderColor,
+  borderRadius,
+  borderWidth,
+  colors,
+  spacing,
+  screens,
+  fontFamily,
+  fontWeight,
+  fontSize,
+} = theme;
 
 const { cleanPublic } = plConfig;
 const { NODE_ENV } = process.env;
@@ -22,6 +34,9 @@ const options = {
   data: {
     env: NODE_ENV || 'production',
     tokens: {
+      borderColor,
+      borderRadius,
+      borderWidth,
       colors,
       spacing,
       screens,

@@ -1,106 +1,58 @@
 {#
 /**
  * @file Colors!
+ *   Documenting Color Examples from Tailwind.
  *
  * Available variables:
  * - tokens.colors: [array] Provided from data as a list of color values.
  *
+ * @see https://tailwindcss.com/docs/customizing-colors
  */
 #}
 
-<div class="container mx-auto">
-  <div class="flex flex-wrap">
-    <div class="flex-grow">
-      <h1 class="mb-3">
-        Colors
-      </h1>
-      <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
-        <p class="text-base">
-          To override the default color palette, you can do so using the<code class="text-pink-500">
-            theme.colors
-          </code>section of your<code class="text-pink-500">
-            tailwind.config.js
-          </code>file.
-        </p>
-        <div>
-          <a href="https://tailwindcss.com/docs/customizing-colors/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block text-blue-500 text-sm mt-2">
-            Tailwind Documentation
-          </a>
-        </div>
-      </div>
-      <hr />
-    </div>
-  </div>
-  <div class="flex flex-wrap">
-    {% for colorName, colorValue in tokens.colors %}
-      {% if colorValue is iterable %}
-        {% for nestedColor, nestedValue in colorValue %}
-          {# The custom Twig filters `hex_to_rgba`, `rgba_string` and `luma` are found in alter-twig.php. #}
-          {% set luma = nestedValue|hex_to_rgba|rgba_string|luma %}
-          {% set colorClass = 'bg-' ~ colorName ~ '-' ~ nestedColor %}
-          <div class="w-2/6 p-4">
-            <div class="{{ colorClass }} {{
-              luma < 200
-                ? 'text-white'
-              }} rounded-lg shadow-inner text-center py-2 text-sm">
-              <div class="text-base">
-                {{ (colorName|upper) ~ ' ' ~ nestedColor }}
-              </div>
-              <div>
-                {{ nestedValue }}
-              </div>
-              <div class="mt-2">
-                Luminance:<code class="bg-white rounded-sm text-pink-500">
-                  {{ luma }}
-                </code>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      {% else %}
-        {% set luma = colorValue|hex_to_rgba|rgba_string|luma %}
-        <div class="w-2/6 p-4">
-          <div class="bg-{{ colorName }} {{
-            luma < 200 and colorName != 'transparent'
-              ? 'text-white'
-            }} rounded-lg shadow-inner text-center text-sm py-2">
-            <div>
-              {{ colorName|upper }}
-            </div>
-            <div>
-              {{ colorValue }}
-            </div>
-            <div class="mt-2">
-              Luminance:<code class="bg-white ounded-sm text-pink-500">
-                {{ luma }}
-              </code>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-  <br />
-  <h2>
-    Text Color
-  </h2>
-  <p>
-    Control the text color of an element using the<code class="text-pink-500">
-      .text-{color}
-    </code>utilities.
-  </p>
-  <br />
-  <br />
+{% embed '@demo/_demo-block.twig' with {
+  demo: colors_demo
+} %}
+  {% set tdClasses = 'border text-center' %}
+  {% set codeClasses = 'text-mono text-pink-500' %}
+  {% set swatchClasses = 'border p-10' %}
 
-  <h2>
-    Background Colors
-  </h2>
-  <p>
-    Control the background color of an element using the<code class="text-pink-500">
-      .bg-{color}
-    </code>utilities.
-  </p>
-</div>
+  {% block content %}
+    <table class="table-auto w-full">
+      <thead>
+      <tr class="border">
+        <th scope="col" class="p-4">Swatch</th>
+        <th scope="col" class="p-4">Name</th>
+        <th scope="col" class="p-4">Value</th>
+        <th scope="col" class="p-4">Luminance</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for colorName, colorValue in tokens.colors %}
+        {% if colorValue is not iterable and colorName != 'current' %}
+          {% set luma = colorValue | hex_to_rgba | rgba_string | luma %}
+          {% set colorClass = 'bg-' ~ colorName %}
+          <tr>
+            <td class="{{ swatchClasses ~ ' ' ~ colorClass }}"></td>
+            <td class="{{ tdClasses }}"><code class="{{ codeClasses }}">{{ colorName }}</code></td>
+            <td class="{{ tdClasses }}">{{ colorValue | upper }}</td>
+            <td class="{{ tdClasses }}">{{ luma }}</td>
+          </tr>
+        {% else %}
+          {% for nestedColor, nestedValue in colorValue %}
+            {# The custom Twig filters `hex_to_rgba`, `rgba_string` and `luma` are found in alter-twig.php. #}
+            {% set luma = nestedValue | hex_to_rgba | rgba_string | luma %}
+            {% set colorClass = 'bg-' ~ colorName ~ '-' ~ nestedColor %}
+            <tr>
+              <td class="{{ swatchClasses ~ ' ' ~ colorClass }}"></td>
+              <td class="{{ tdClasses }}"><code class="{{ codeClasses }}">{{ colorName ~ '-' ~ nestedColor }}</code></td>
+              <td class="{{ tdClasses }}">{{ nestedValue | upper }}</td>
+              <td class="{{ tdClasses }}">{{ luma }}</td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endblock content %}
+{% endembed %}

@@ -1,5 +1,6 @@
 // Default Tailwind config can be found here: https://github.com/tailwindcss/tailwindcss/blob/v1.2.0/stubs/defaultConfig.stub.js
 module.exports = {
+  purge: [],
   theme: {
     fontFamily: {
       body: ['Open Sans, Helvetica Neue, Helvetica Arial, sans-serif'],

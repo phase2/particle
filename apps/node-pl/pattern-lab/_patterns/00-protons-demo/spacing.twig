@@ -1,41 +1,41 @@
 {#
 /**
  * @file Spacing!
-
+ *   Documenting Spacing Examples from Tailwind.
  *
- * @see https://tailwindcss.com/docs/margin/
+ * Available variables:
+ * - tokens.spacing: [array] Provided from data as a list of spacing values.
+ *
+ * @see https://tailwindcss.com/docs/customizing-spacing
  */
 #}
-<div class="container mx-auto">
-	<div class="row-auto">
-		<div class="flex-grow">
-			<h1 class="mb-3">Spacing</h1>
-			<div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
-				<p class="text-base">To add to these items, adjust
-          <code class="text-pink-500">theme.spacing</code>
-					section of your
-          <code class="text-pink-500">tailwind.config.js</code>
-					file.</p>
-				<p>
-					<div>
-						<a href="https://tailwindcss.com/docs/margin" target="_blank" rel="noopener noreferrer" class="block text-sm mt-2 text-blue-500">Tailwind Documentation</a>
-					</div>
-				</p>
-			</div>
-			<hr>
-			{% for spacer, value in tokens.spacing %}
-				{% if spacer != 0 %}
-					<div style="margin: 10px;">
-						<div style="height: {{ value }}; width: {{ value }}; outline: solid 1px black; display: inline-block; margin-right: 5px;"></div>
-						<span>{{ value }}
-							:
-							<code class="text-pink-500">.m-{{ spacer }}</code>
-							||
-							<code class="text-pink-500">.p-{{ spacer }}</code>
-						</span>
-					</div>
-				{% endif %}
-			{% endfor %}
-		</div>
-	</div>
-</div>
+
+{% embed '@demo/_demo-block.twig' with {
+  demo: spacing_demo
+} %}
+  {% set tdClasses = 'border text-center' %}
+  {% block content %}
+    <table class="table-auto w-full">
+      <thead>
+      <tr class="border">
+        <th scope="col" class="p-4">Name</th>
+        <th scope="col" class="p-4">Size</th>
+        <th scope="col" class="p-4">Pixels</th>
+        <th scope="col" class="p-4">Example</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for spacer, value in tokens.spacing %}
+        {% if spacer != 0 %}
+          <tr>
+            <td class="{{ tdClasses }}">{{ spacer }}</td>
+            <td class="{{ tdClasses }}">{{ value }}</td>
+            <td class="{{ tdClasses }}">{{ value|trim('rem') * 16 ~ 'px' }}</td>
+            <td class="{{ tdClasses }}"><div class="{{ 'h-4 bg-blue-300 w-' ~ spacer }}"></div></td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endblock content %}
+{% endembed %}

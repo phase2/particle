@@ -1,32 +1,51 @@
 {#
 /**
  * @file Breakpoints!
- * Documenting Breakpoints.
+ *   Documenting Breakpoint Examples from Tailwind.
  *
+ * Available variables:
+ * - tokens.screens: [array] Provided from data as a list of breakpoint values.
+ *
+ * @see https://tailwindcss.com/docs/breakpoints
  */
 #}
 
-<div class="container mx-auto">
-	<div class="flex flex-wrap">
-		<div class="flex-grow">
-			<h1 class="mb-3">Breakpoints</h1>
-      <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
-        <p class="text-base">You define your project's breakpoints in the <code class="text-pink-500">theme.screens</code> section of your <code class="text-pink-500">tailwind.config.js file.</code></p>
-        <p class="text-base">The values are the <code class="text-pink-500;">min-width</code> where that breakpoint should start.</p>
-        <div>
-          <a href="https://tailwindcss.com/docs/breakpoints/" target="_blank" rel="noopener noreferrer" class="block text-blue-500 text-sm mt-2">Tailwind Documentation</a>
-        </div>
-      </div>
-			<hr>
-		</div>
-	</div>
-</div>
-<div class="relative">
-	<ul class="breakpoints">
-		{% for bp, value in tokens.screens %}
-			<li style="left: {{ value }}" class="absolute border-solid border-l-4 h-screen">
-				<span class="label">{{ bp }}:<br/>{{ value }}</span>
-			</li>
-		{% endfor %}
-	</ul>
-</div>
+{% embed '@demo/_demo-block.twig' with {
+  demo: breakpoints_demo
+} %}
+  {% set tdClasses = 'border text-center p-2' %}
+  {% block content %}
+    <table class="table-auto w-full">
+      <thead>
+      <tr class="border">
+        <th scope="col" class="p-4">Name</th>
+        <th scope="col" class="p-4">Size</th>
+        <th scope="col" class="p-4">Devices</th>
+        <th scope="col" class="p-4">Active?</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="{{ tdClasses }}">xs</td>
+        <td class="{{ tdClasses }}">Default</td>
+        <td class="{{ tdClasses }}">{{ breakpoints_demo.devices.xs }}</td>
+        <td class="{{ tdClasses }}">
+          <span class="text-white p-2 rounded-full bg-pink-500 {{ breakpoints_demo.active_classes.xs }}">xs</span>
+        </td>
+      </tr>
+
+      {% for name, size in tokens.screens %}
+        {% set activeClasses = 'text-white p-2 rounded-full bg-pink-500 ' ~ breakpoints_demo.active_classes[name] %}
+        <tr>
+          <td class="{{ tdClasses }}">{{ name }}</td>
+          <td class="{{ tdClasses }}">{{ size }}</td>
+          <td class="{{ tdClasses }}">{{ breakpoints_demo.devices[name] }}</td>
+          <td class="{{ tdClasses }}">
+            <span class="{{ activeClasses }}">{{ name }}</span>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endblock content %}
+{% endembed %}
