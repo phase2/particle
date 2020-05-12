@@ -19,7 +19,7 @@
     <div class="flex-grow w-full">
       {% block usage %}
         {% if demo.title %}
-          <h1 class="text-6xl mb-3">{{ demo.title|capitalize }}</h1>
+          <h1 class="text-6xl mb-3">{{ demo.title|title }}</h1>
         {% endif %}
         {% if demo.content %}
           <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
@@ -48,3 +48,6 @@
     </div>
   </div>
 </div>
+
+{% block full_width %}
+{% endblock full_width %}
