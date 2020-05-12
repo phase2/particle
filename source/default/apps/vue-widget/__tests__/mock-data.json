@@ -1,0 +1,219 @@
+{
+  "data": {
+    "1": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "website_slug": "bitcoin",
+      "rank": 1,
+      "circulating_supply": 17400850.0,
+      "total_supply": 17400850.0,
+      "max_supply": 21000000.0,
+      "quotes": {
+        "USD": {
+          "price": 3959.74888042,
+          "volume_24h": 5922715089.81843,
+          "market_cap": 68902996306.0,
+          "percent_change_1h": -1.45,
+          "percent_change_24h": -6.48,
+          "percent_change_7d": -8.51
+        }
+      },
+      "last_updated": 1543614922
+    },
+    "52": {
+      "id": 52,
+      "name": "XRP",
+      "symbol": "XRP",
+      "website_slug": "ripple",
+      "rank": 2,
+      "circulating_supply": 40327341704.0,
+      "total_supply": 99991780039.0,
+      "max_supply": 100000000000.0,
+      "quotes": {
+        "USD": {
+          "price": 0.3607038674,
+          "volume_24h": 515235650.127331,
+          "market_cap": 14546228116.0,
+          "percent_change_1h": -0.7,
+          "percent_change_24h": -4.31,
+          "percent_change_7d": -11.19
+        }
+      },
+      "last_updated": 1543614904
+    },
+    "1027": {
+      "id": 1027,
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "website_slug": "ethereum",
+      "rank": 3,
+      "circulating_supply": 103523370.0,
+      "total_supply": 103523370.0,
+      "max_supply": null,
+      "quotes": {
+        "USD": {
+          "price": 111.739336254,
+          "volume_24h": 1999047847.07039,
+          "market_cap": 11567632654.0,
+          "percent_change_1h": -1.95,
+          "percent_change_24h": -4.41,
+          "percent_change_7d": -9.01
+        }
+      },
+      "last_updated": 1543614917
+    },
+    "1831": {
+      "id": 1831,
+      "name": "Bitcoin Cash",
+      "symbol": "BCH",
+      "website_slug": "bitcoin-cash",
+      "rank": 4,
+      "circulating_supply": 17485875.0,
+      "total_supply": 17485875.0,
+      "max_supply": 21000000.0,
+      "quotes": {
+        "USD": {
+          "price": 171.343880447,
+          "volume_24h": 96169421.6798239,
+          "market_cap": 2996097676.0,
+          "percent_change_1h": -1.8,
+          "percent_change_24h": -4.34,
+          "percent_change_7d": -17.19
+        }
+      },
+      "last_updated": 1543614917
+    },
+    "512": {
+      "id": 512,
+      "name": "Stellar",
+      "symbol": "XLM",
+      "website_slug": "stellar",
+      "rank": 5,
+      "circulating_supply": 19154499889.0,
+      "total_supply": 104503027828.0,
+      "max_supply": null,
+      "quotes": {
+        "USD": {
+          "price": 0.1556238746,
+          "volume_24h": 92936058.2428502,
+          "market_cap": 2980897489.0,
+          "percent_change_1h": -2.28,
+          "percent_change_24h": -4.38,
+          "percent_change_7d": -13.48
+        }
+      },
+      "last_updated": 1543614905
+    },
+    "1765": {
+      "id": 1765,
+      "name": "EOS",
+      "symbol": "EOS",
+      "website_slug": "eos",
+      "rank": 6,
+      "circulating_supply": 906245118.0,
+      "total_supply": 1006245120.0,
+      "max_supply": null,
+      "quotes": {
+        "USD": {
+          "price": 2.8554152157,
+          "volume_24h": 851603539.35179,
+          "market_cap": 2587706098.0,
+          "percent_change_1h": -0.16,
+          "percent_change_24h": -4.28,
+          "percent_change_7d": -20.21
+        }
+      },
+      "last_updated": 1543614912
+    },
+    "2": {
+      "id": 2,
+      "name": "Litecoin",
+      "symbol": "LTC",
+      "website_slug": "litecoin",
+      "rank": 7,
+      "circulating_supply": 59373424.0,
+      "total_supply": 59373424.0,
+      "max_supply": 84000000.0,
+      "quotes": {
+        "USD": {
+          "price": 31.5279365418,
+          "volume_24h": 415811587.427468,
+          "market_cap": 1871921548.0,
+          "percent_change_1h": -2.02,
+          "percent_change_24h": -6.06,
+          "percent_change_7d": -1.62
+        }
+      },
+      "last_updated": 1543614905
+    },
+    "825": {
+      "id": 825,
+      "name": "Tether",
+      "symbol": "USDT",
+      "website_slug": "tether",
+      "rank": 8,
+      "circulating_supply": 1856421736.0,
+      "total_supply": 2580109502.0,
+      "max_supply": null,
+      "quotes": {
+        "USD": {
+          "price": 0.9874441584,
+          "volume_24h": 3996673146.8209,
+          "market_cap": 1833112798.0,
+          "percent_change_1h": -0.66,
+          "percent_change_24h": -0.99,
+          "percent_change_7d": 0.41
+        }
+      },
+      "last_updated": 1543614911
+    },
+    "3602": {
+      "id": 3602,
+      "name": "Bitcoin SV",
+      "symbol": "BSV",
+      "website_slug": "bitcoin-sv",
+      "rank": 9,
+      "circulating_supply": 17477861.0,
+      "total_supply": 17477861.0,
+      "max_supply": 21000000.0,
+      "quotes": {
+        "USD": {
+          "price": 95.1886397499,
+          "volume_24h": 170517023.214431,
+          "market_cap": 1663693809.0,
+          "percent_change_1h": -1.88,
+          "percent_change_24h": -0.54,
+          "percent_change_7d": 71.39
+        }
+      },
+      "last_updated": 1543614937
+    },
+    "2010": {
+      "id": 2010,
+      "name": "Cardano",
+      "symbol": "ADA",
+      "website_slug": "cardano",
+      "rank": 10,
+      "circulating_supply": 25927070538.0,
+      "total_supply": 31112483745.0,
+      "max_supply": 45000000000.0,
+      "quotes": {
+        "USD": {
+          "price": 0.0381533026,
+          "volume_24h": 29291629.1751257,
+          "market_cap": 989203367.0,
+          "percent_change_1h": -1.68,
+          "percent_change_24h": -8.09,
+          "percent_change_7d": -11.39
+        }
+      },
+      "last_updated": 1543614915
+    }
+  },
+  "metadata": {
+    "timestamp": 1543614153,
+    "num_cryptocurrencies": 2073,
+    "error": null
+  }
+}
