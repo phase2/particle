@@ -1,11 +1,16 @@
-{% embed '@atoms/grid/_grid-1-up.twig' %}
-  {% set container = true %}
-  {% block column_1 %}
-    <h1 class="mb-3">Card Grid Demonstration</h1>
-    <div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
-      <p class="text-lg font-light">This is for demonstration purposes only to show cards within a Grid. See code for usage examples within individual apps.</p>
-    </div>
-    <hr>
-    {% include '@organisms/card-grid/_card-grid.twig' %}
-  {% endblock %}
+{#
+/**
+ * @file Card Grids!
+ *   Documenting @organisms/card-grid/_card-grid.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig' with {
+  demo: card_grids_demo
+} %}
+  {% block content %}
+    {% include '@organisms/card-grid/_card-grid.twig' with {
+      card_grid: card_grid_1,
+    } %}
+  {% endblock content %}
 {% endembed %}
