@@ -1,13 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /*
 Example: Google Remote Fonts
 Serif - Google Fonts - Oswald
 Sans-Serif - Google Fonts - Open Sans
 Monospace - Google Fonts - Source Code Pro
 */
+
 @import url(https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap);
+
 body {
   @apply font-body;
 }

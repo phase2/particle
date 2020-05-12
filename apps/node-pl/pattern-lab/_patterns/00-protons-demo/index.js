@@ -6,4 +6,3 @@ import './spacing.twig';
 import './tables.twig';
 import './typography.twig';
 import './welcome.twig';
-import '../../../../../source/default/tokens/css/index.css'

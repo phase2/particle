@@ -30,7 +30,7 @@
     "lint": "npm run lint:js; npm run lint:css;",
     "fmt:js": "npm run lint:js -- --fix",
     "fmt:css": "npm run lint:css -- --fix && prettier --loglevel warn --write '**/*.css'",
-    "fmt:svg": "svgo -f ./source/urban/_patterns/01-atoms/svg/icons --config=./.svgo.yml",
+    "fmt:svg": "svgo -f ./source/default/_patterns/01-atoms/svg/icons --config=./.svgo.yml",
     "fmt": "npm run fmt:svg; npm run fmt:js; npm run fmt:css",
     "test:backstop:ref": "node tools/tests/vrt/backstop-example-reference.js",
     "test:backstop:test": "node tools/tests/vrt/backstop-example-test.js",

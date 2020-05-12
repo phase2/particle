@@ -1,7 +1,7 @@
 /**
  * Base css generation and global js logic.
  */
-import '../../tokens/css/index.css';
+import './tailwind.tokens.css';
 // Export global variables.
 export default {
   // Demo only, remove in practice
