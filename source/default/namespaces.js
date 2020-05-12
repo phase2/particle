@@ -11,7 +11,7 @@ module.exports = {
   // This Design System
   default: path.resolve(__dirname),
   // Sub-directory design system concepts
-  apps: path.resolve(__dirname, 'apps'),
+  lib: path.resolve(__dirname, 'lib'),
   static: path.resolve(__dirname, 'static'),
   tokens: path.resolve(__dirname, 'tokens'),
   // Atomic concepts

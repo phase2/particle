@@ -14,10 +14,10 @@ import './_vue-cards.twig';
 import './_vue-clock.twig';
 
 // All Vue widgets only execute on existence of DOM
-import FacetTableVue from 'apps/vue-widget/src/vue-cryptos';
-import FacetTableVueX from 'apps/vue-widget/src/vuex-cryptos';
-import VueCards from 'apps/vue-widget/src/vue-cards';
-import VueClock from 'apps/vue-widget/src/vue-clock';
+import FacetTableVue from 'lib/vue-widget/src/vue-cryptos';
+import FacetTableVueX from 'lib/vue-widget/src/vuex-cryptos';
+import VueCards from 'lib/vue-widget/src/vue-cards';
+import VueClock from 'lib/vue-widget/src/vue-clock';
 
 // Render Vue elements as soon as possible
 if (document.getElementById('vue-cryptos')) {

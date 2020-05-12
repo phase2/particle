@@ -24,7 +24,7 @@
  * - Utility functions used within methods()
  */
 
-import { randRGB } from 'apps/utils';
+import { randRGB } from 'lib/utils';
 
 export default {
   name: 'Banner',

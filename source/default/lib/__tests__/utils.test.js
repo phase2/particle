@@ -1,4 +1,4 @@
-import { randRGB, sass2Array, cssVars2Obj } from 'apps/utils';
+import { randRGB, sass2Array, cssVars2Obj } from 'lib/utils';
 
 test('0 >= randRGB <= 255', () => {
   const rand = randRGB();
