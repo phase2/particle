@@ -4,6 +4,7 @@
 const path = require('path');
 
 const patterns = path.resolve(__dirname, '_patterns');
+
 module.exports = {
   // Outside of atomic concepts
   patterns,
