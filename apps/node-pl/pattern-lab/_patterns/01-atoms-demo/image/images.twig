@@ -1,6 +1,7 @@
 {% embed '@demo/_demo-block.twig' with {
   demo: image_demo_block
 } %}
+
   {% block content %}
     <div class="primary-image-demo m-3">
       <h2 class="mb-3">Primary Image</h2>
@@ -16,6 +17,7 @@
           } %}
         {% endfor %}
     </div>
+
     <div class="picture-image-demo m-3">
       <h2>Picture with Multiple Sources</h2>
       <div>
@@ -24,6 +26,7 @@
         } %}
       </div>
     </div>
+
     <div class="direct-image-demo m-3">
       <h2>Image using paths.images path</h2>
       <div>
@@ -35,6 +38,7 @@
         } %}
       </div>
     </div>
+
     <div class="background-image-demo m-3">
       <h2>Background Images</h2>
       <div class="flex flex-wrap">
@@ -62,5 +66,6 @@
         </div>
       </div>
     </div>
+
   {% endblock content %}
 {% endembed %}

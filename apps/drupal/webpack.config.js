@@ -49,6 +49,7 @@ const shared = {
     }),
   ],
 };
+
 const dev = {
   stats: {
     children: false,
@@ -68,6 +69,7 @@ const dev = {
     jquery: 'jQuery',
   },
 };
+
 const prod = {
   stats: {
     children: false,
@@ -75,6 +77,7 @@ const prod = {
     chunks: false,
   },
 };
+
 module.exports = particle(
   // app: webpack
   { shared, dev, prod },

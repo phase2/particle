@@ -17,7 +17,9 @@ Drupal.behaviors.designSystem = {
     // called `interval`. Since this won't exist out of the box, we'll also
     // provide a default fallback object: { interval: 5000 }. Change this in
     // actual implementation.
+
     const { customCarouselModule = { interval: 5000 } } = settings;
+
     // Provide overrides to components from Drupal settings
     const componentSettings = {
       carousel: {
@@ -25,6 +27,7 @@ Drupal.behaviors.designSystem = {
       },
       // .. other component overrides go here
     };
+
     // Now enable all components with a custom componentSettings object
     enableAllComponents($context, componentSettings);
   },

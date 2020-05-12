@@ -10,9 +10,11 @@
  * @see template_preprocess_form()
  */
 #}
+
 {% set classes = [
   'form-inline',
 ] %}
+
 <form{{ attributes.addClass(classes) }}>
   {{ children }}
 </form>

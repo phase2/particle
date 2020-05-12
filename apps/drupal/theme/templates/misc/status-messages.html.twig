@@ -21,20 +21,23 @@
  *   - class: HTML classes.
  */
 #}
+
 {% set status_heading = {
   'status': 'Status message'|t,
   'error': 'Error message'|t,
   'warning': 'Warning message'|t,
   'info': 'Informative message'|t,
-  }
+}
 %}
+
 {% for type, messages in message_list %}
+
   <div role="contentinfo" aria-label="{{ status_heading[type] }}"{{ attributes|without('role', 'aria-label') }}>
     {% embed '@atoms/alert/_alert.twig' %}
       {% block alert_header %}
-        <a href="#" role="button" class="absolute pin-t pin-b pin-r px-4 py-3" data-dismiss="relative px-3 py-3 mb-4 border rounded" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">&times;</span></a>
+        <a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">&times;</span></a>
         {% if status_headings[type] %}
-          <h2 class="">{{ status_headings[type] }}</h2>
+          <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
         {% endif %}
       {% endblock alert_header %}
       {% block alert_content %}

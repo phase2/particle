@@ -5,6 +5,7 @@ import './vue-widgets.twig';
 import './vue-widgets.yml';
 
 import VueInputExample from './vue-html-example.vue';
+
 // Render Vue element from pre-existing markup in HTML
 if (document.getElementById('vue-html-example-1')) {
   // Use an IIFE for "new"
@@ -21,6 +22,7 @@ if (document.getElementById('vue-html-example-1')) {
       },
     }))();
 }
+
 // Render Vue element with template provided in .vue file
 if (document.getElementById('vue-input-text-component')) {
   (() =>

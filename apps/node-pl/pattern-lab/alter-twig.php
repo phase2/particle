@@ -15,6 +15,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($clean_class_filter);
+
   /**
    * Clean ID
    *
@@ -24,6 +25,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($clean_id_filter);
+
   /**
    * Format Date
    *
@@ -33,6 +35,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($format_date_filter);
+
   /**
    * Luma
    *
@@ -54,6 +57,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return 0.2126 * $rgba['r'] + 0.7152 * $rgba['g'] + 0.0722 * $rgba['b'];
   });
   $env->addFilter($luma_filter);
+
   /**
    * To rgba
    * Hex to rgba conversion
@@ -98,6 +102,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $output;
   });
   $env->addFilter($hex_to_rgba_filter);
+
   /**
    * Placeholder
    *
@@ -107,6 +112,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($placeholder_filter);
+
   /**
    * Drupal render filter.
    *
@@ -116,6 +122,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($render_filter);
+
   /**
    * RGBA String
    *
@@ -133,6 +140,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return array_combine(['r', 'g', 'b', 'a'], $res);
   });
   $env->addFilter($rgba_string_filter);
+
   /**
    * Safe Join
    *
@@ -142,6 +150,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($safe_join_filter);
+
   /**
    * Drupal translate filter.
    *
@@ -151,6 +160,7 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($t_filter);
+
   /**
    * Without
    *
@@ -160,8 +170,9 @@ function addFilters(\Twig_Environment &$env, $config) {
     return $string;
   });
   $env->addFilter($without_filter);
+
   /**
-   * Attributes
+   * Attributify
    *
    * @return string
    */
@@ -206,6 +217,7 @@ function addFunctions(\Twig_Environment &$env, $config) {
     ['is_safe' => ['html']]
   );
   $env->addFunction($link_function);
+
   /**
    * Path
    *
@@ -219,6 +231,7 @@ function addFunctions(\Twig_Environment &$env, $config) {
     }
   });
   $env->addFunction($path_function);
+
   /**
    * URL
    *
