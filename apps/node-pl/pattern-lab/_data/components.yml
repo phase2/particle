@@ -127,7 +127,13 @@ typography_demo:
 # Organisms Data
 
 ## Article
-article_demo:
+articles_demo:
+  title: 'Articles'
+  content:
+    lead: 'Demonstration of our Particle Articles.'
+    summary: 'Provide a demonstration of a possible article content type.'
+
+article_1:
   title: 'Lucidus'
   body:
     '<p>Cogo haero jus pala patria proprius turpis valde wisi. Eu feugiat laoreet si usitas valde vulputate. Bene dolus gilvus hos pala quibus ulciscor voco. Ad camur incassum ymo.</p>
@@ -161,36 +167,6 @@ article_demo:
 ## Footer
 footer:
   slogan: 'Powered by <a href="http://patternlab.io/" target="_blank">Pattern Lab</a>'
-
-## Navbar
-navbar_other_classes:
-  - navbar-expand-lg
-  - navbar-light
-  - bg-light
-navbar_demo:
-  brand_link: #
-  brand_text: Navbar
-  id: navbarSupportedContent
-  items:
-    - nav_item_text: Home
-      nav_item_link_classes: active
-    - nav_item_dropdown: true
-      buttonless_dropdown: true
-      dropdown_text: Dropdown
-      unique_classes: nav-link
-      unique_attributes: href="#"
-      button_element: a
-      dropdown_element: li
-      dropdown_other_classes: nav-item
-      dropdown_menu_items:
-        - dropdown_menu_item_text: Action
-        - dropdown_menu_item_text: Another Action
-        - dropdown_menu_item_text: Something else here
-    - nav_item_text: Link
-      nav_item_link_classes: ''
-    - nav_item_text: Disabled
-      nav_item_link_classes: disabled
-
 
 # Templates
 

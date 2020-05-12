@@ -1,18 +1,15 @@
-{% embed '@atoms/grid/_grid-1-up.twig' %}
-  {% set container = true %}
-  {% block column_1 %}
-    <h1 class="mb-3">Example Vue Apps</h1>
-    <div class="mb-3 p-3 bg-grey-lightest border border-grey rounded">
-      <p class="text-lg font-light">
-        <a href="https://vuejs.org/">Vue</a> is a flexible and robust UI library similar to React. <a href="https://vuex.vuejs.org/">VueX</a> is a simple state management solution that ties in natively to Vue. The following examples show off various ways to leverage Vue/X to meet feature requirements.
-      </p>
-      <p>Vue resources:</p>
-      <ul>
-        <li><a href="https://www.smashingmagazine.com/2018/02/jquery-vue-javascript/">Replacing jQuery With Vue.js: No Build Step Necessary</a></li>
-        <li><a href="https://vuex.vuejs.org/">VueX documentation</a></li>
-      </ul>
-    </div>
-    <hr>
+{#
+/**
+ * @file Vue Widgets!
+ *   Documenting @molecules/vue-widget/_VARIANT.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig' with {
+  demo: vue_widgets_demo
+} %}
+
+  {% block content %}
     <h2 class="mt-3">Vue in existing markup</h2>
     <p>View can work with markup that already exists in the DOM, similar to how we've always used jQuery.</p>
     <h3>Example:</h3>
@@ -140,5 +137,5 @@
       {% include '@molecules/vue-widget/_vue-clock.twig' %}
       </div>
     </div>
-  {% endblock column_1 %}
+  {% endblock content %}
 {% endembed %}
