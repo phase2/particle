@@ -26,7 +26,7 @@ module.exports = {
                     ],
                     defaultExtractor: (content) =>
                       content.match(/[A-Za-z0-9-_:/]+/g) || [],
-                    extensions: ['yml', 'twig', 'jsx'],
+                    extensions: ['yml', 'twig', 'jsx', 'json'],
                   },
                   // Use combined ltr/rtl in css for pl
                   // rtl: process.argv.includes('--pl-rtl'),
