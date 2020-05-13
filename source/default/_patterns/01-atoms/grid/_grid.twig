@@ -16,17 +16,16 @@
 
 {% set grid_classes = grid_classes|default([])|merge([
   'grid',
-  grid.variant ? 'grid--' ~ grid.variant : '',
   grid.container ? 'container' : '',
   grid.center ? 'mx-auto' : ''
-]) | sort | join(' ') | trim %}
+]) %}
 
 {% set column_classes = column_classes|default([])|merge([
   'flex',
   (grid.wrap is same as (false)) ? '' : 'flex-wrap',
 ]) | sort | join(' ') | trim %}
 
-<div {{ (grid_attributes is not empty) ? grid_attributes | attributify : '' }} class="{{ grid_classes }}">
+<div {{ (grid_attributes is not empty) ? grid_attributes | attributify : '' }} class="{{ grid_classes | sort | join(' ') | trim }}">
   <div class="{{ column_classes }}">
     {% block grid_content %}{% endblock grid_content %}
   </div>

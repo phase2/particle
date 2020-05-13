@@ -1,4 +1,6 @@
 # Define Particle theme's library CSS and JS assets along with dependencies
+# The paths below are set to default DRUPAL_DIST variable.
+# If you change DRUPAL_DIST path, update here.
 core:
   css:
     theme:

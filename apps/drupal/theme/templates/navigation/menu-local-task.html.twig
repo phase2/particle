@@ -20,5 +20,5 @@
   is_active ? 'active',
 ] | join(' ') %}
 
-{# Merge attributes/classes into link for Bootstrap #}
+{# Merge attributes/classes into link #}
 <li{{ attributes.addClass('nav-item') }}>{{ link|merge({'#options': {'attributes': {'class': link_classes}}}) }}</li>

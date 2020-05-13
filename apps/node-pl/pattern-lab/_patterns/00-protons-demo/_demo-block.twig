@@ -30,12 +30,15 @@
               <p class="pb-3">{{ demo.content.summary }}</p>
             {% endif %}
 
-            <a href="{{ demo.content.link.url|default('https://tailwindcss.com/docs') }}"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="block text-blue-500 text-sm">
-              {{ demo.content.link.text|default('Tailwind Documentation') }}
-            </a>
+            {% if demo.content.link.url %}
+              <a href="{{ demo.content.link.url|default('https://tailwindcss.com/docs') }}"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="block text-blue-500 text-sm">
+                {{ demo.content.link.text|default('Documentation') }}
+              </a>
+            {% endif %}
+
           </div>
         {% endif %}
       {% endblock usage %}

@@ -11,6 +11,10 @@
 
 {% extends '@atoms/grid/_grid.twig' %}
 
+{% set grid_classes = grid_classes|default([])|merge([
+  'grid--2-up',
+]) %}
+
 {% block grid_content %}
   <div class="w-full sm:w-1/2">
     {% block column_1 %}

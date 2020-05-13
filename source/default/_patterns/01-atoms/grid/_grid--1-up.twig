@@ -11,6 +11,10 @@
 
 {% extends '@atoms/grid/_grid.twig' %}
 
+{% set grid_classes = grid_classes|default([])|merge([
+  'grid--1-up',
+]) %}
+
 {% block grid_content %}
   <div class="flex-grow">
     {% block column_1 %}

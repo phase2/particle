@@ -9,7 +9,7 @@
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
 
 // Plugins
-// const StyleLintPlugin = require('stylelint-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -128,14 +128,12 @@ module.exports = {
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery
     // plugins to assume that `window.jquery` is available
     new ProvidePlugin({
-      // Bootstrap is dependant on jQuery and Popper
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
     }),
-    // // Yell at us while writing Sass
-    // new StyleLintPlugin(),
+    // // Yell at us while writing CSS
+    new StyleLintPlugin({ files: '**/*.css' }),
     // Handle .vue files
     new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.

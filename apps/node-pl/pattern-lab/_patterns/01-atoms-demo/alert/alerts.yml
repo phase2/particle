@@ -7,7 +7,7 @@ alert_demo:
 alert_status:
   type: 'status'
   alert_title: 'Success!'
-  alert_primary: 'These alerts are a useful way to call attention to pieces of content you want to highlight. The type is altered in the component match for Bootstrap. For example, this is a status message that gets success styling!'
+  alert_primary: 'These alerts are a useful way to call attention to pieces of content you want to highlight.'
   alert_secondary: "They even have useful footer areas for more info! Footers can be overridden if you don't want them!"
 alert_warning:
   type: 'warning'

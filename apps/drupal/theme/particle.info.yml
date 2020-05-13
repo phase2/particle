@@ -20,6 +20,8 @@ regions:
   sidebar_first: Sidebar first
   sidebar_second: Sidebar second
   footer: Footer
+# The paths below are set to default DRUPAL_DIST variable.
+# If you change DRUPAL_DIST path, update here.
 component-libraries:
   protons:
     paths: []
