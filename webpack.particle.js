@@ -133,7 +133,7 @@ module.exports = {
       'window.jQuery': 'jquery',
     }),
     // // Yell at us while writing CSS
-    new StyleLintPlugin({ files: '**/*.css' }),
+    new StyleLintPlugin({ files: '**/**/*.css' }),
     // Handle .vue files
     new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.

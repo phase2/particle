@@ -1,27 +1,31 @@
 {
   "extends": [
-    "stylelint-config-prettier",
-    "stylelint-config-recommended"
+    "stylelint-config-recommended",
+    "stylelint-config-prettier"
   ],
-  "plugins": [],
   "rules": {
-    "at-rule-no-unknown": [ true, {
-      "ignoreAtRules": [
-        "extends",
-        "tailwind"
-      ]
-    }],
-    "at-rule-no-vendor-prefix": true,
-    "block-no-empty": null,
+    "indentation": 2,
     "declaration-colon-space-after": "always",
     "declaration-no-important": true,
-    "indentation": 2,
     "max-nesting-depth": 3,
-    "media-feature-name-no-vendor-prefix": true,
-    "property-no-vendor-prefix": true,
     "selector-max-specificity": "0,3,3",
     "selector-max-id": 0,
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
     "selector-no-vendor-prefix": true,
-    "value-no-vendor-prefix": true
+    "value-no-vendor-prefix": true,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "responsive",
+          "variants",
+          "screen"
+        ]
+      }
+    ]
   }
 }
