@@ -23,6 +23,6 @@
     "selector-max-id": 0,
     "selector-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
-    "unit-whitelist": ["rem", "s"]
+    "unit-whitelist": ["rem"]
   }
 }
