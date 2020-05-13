@@ -22,7 +22,6 @@
     "selector-max-specificity": "0,3,3",
     "selector-max-id": 0,
     "selector-no-vendor-prefix": true,
-    "value-no-vendor-prefix": true,
-    "unit-whitelist": ["rem"]
+    "value-no-vendor-prefix": true
   }
 }
