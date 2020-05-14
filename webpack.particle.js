@@ -46,7 +46,7 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: [
           {
             loader: 'css-loader',
@@ -132,8 +132,8 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
-    // // Yell at us while writing CSS
-    new StyleLintPlugin({ files: '**/**/*.css' }),
+    // Yell at us while writing CSS
+    new StyleLintPlugin(),
     // Handle .vue files
     new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.

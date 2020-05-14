@@ -2,6 +2,7 @@
  * PostCSS config
  */
 
+const autoprefixer = require('autoprefixer');
 const postcssPresetEnv = require('postcss-preset-env');
 const cssnano = require('cssnano');
 const tailwindcss = require('tailwindcss');
@@ -14,6 +15,7 @@ module.exports = ({ options, env }) => {
     plugins: [
       // tailwindConfig is set per *design system* webpack.config.js.
       options.tailwindConfig && tailwindcss(options.tailwindConfig),
+      autoprefixer,
       // Hex in rgba like Sass
       hexrgba(),
       // postcss-rtl used for RTL classes on development.

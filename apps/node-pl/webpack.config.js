@@ -12,9 +12,8 @@ const particle = require('../../particle');
 
 // Constants: environment
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
-
 // Constants: root
-const { PATH_DIST } = require('../../particle.root.config');
+const { PATTERN_LAB_DIST } = require('../../particle.root.config');
 
 // Constants: app
 const appConfig = require('./particle.app.config');
@@ -31,6 +30,14 @@ const shared = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
       // Non-standard assets on the dependency chain
       {
         test: /\.(yml|md)$/,
@@ -57,7 +64,7 @@ const dev = {
     port: '8080',
     allowedHosts: ['.docksal', '.vm', '0.0.0.0', 'localhost'],
     // dev server starts from this folder.
-    contentBase: PATH_DIST,
+    contentBase: PATTERN_LAB_DIST,
     // local host name for devServer
     public: PARTICLE_PL_HOST,
     // Refresh devServer when dist/ changes (Pattern Lab)
