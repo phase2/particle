@@ -30,14 +30,6 @@ const shared = {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'css-loader',
-          },
-        ],
-      },
       // Non-standard assets on the dependency chain
       {
         test: /\.(yml|md)$/,

@@ -30,12 +30,12 @@ module.exports = {
                       // From MC, should be moved to app version.
                       path.resolve('apps/node-pl/**/*.*'),
                     ],
-                    whitelistPatterns: [
-                      /^bg/,
-                      /^text/,
-                      /:?-?m[xy]?-/,
-                      /:?p[xy]?-/,
-                    ],
+                    // whitelistPatterns: [
+                    //   /^bg/,
+                    //   /^text/,
+                    //   /:?-?m[xy]?-/,
+                    //   /:?p[xy]?-/,
+                    // ],
                     defaultExtractor: (content) =>
                       content.match(/[A-Za-z0-9-_:/]+/g) || [],
                     extensions: ['yml', 'twig', 'json'],

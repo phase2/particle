@@ -55,18 +55,18 @@ module.exports = {
             },
           },
           {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true,
+              root: '',
+            },
+          },
+          {
             // PostCSS config at ./postcss.config.js
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
               ident: 'postcss',
-            },
-          },
-          {
-            loader: 'resolve-url-loader',
-            options: {
-              sourceMap: true,
-              root: '',
             },
           },
         ],
@@ -133,7 +133,7 @@ module.exports = {
       'window.jQuery': 'jquery',
     }),
     // Yell at us while writing CSS
-    new StyleLintPlugin(),
+    // new StyleLintPlugin(),
     // Handle .vue files
     new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.
