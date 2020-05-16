@@ -9,7 +9,6 @@
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
 
 // Plugins
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -132,8 +131,6 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
-    // Yell at us while writing CSS
-    // new StyleLintPlugin(),
     // Handle .vue files
     new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.
