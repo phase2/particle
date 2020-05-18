@@ -12,11 +12,7 @@ const fontFamily = require('./tokens/font-family.tailwind');
 module.exports = {
   // Purge CSS from Tailwind Only.
   purge: {
-    content: [
-      path.resolve(__dirname, '_meta/**/*.*'),
-      path.resolve(__dirname, '_patterns/**/*.*'),
-      path.resolve('apps/node-pl/**/*.*'),
-    ],
+    content: [path.resolve(__dirname, '_patterns/**/*.*')],
     options: {
       whitelistPatterns: [/^bg/, /^text/, /:?-?m[xy]?-/, /:?p[xy]?-/],
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
