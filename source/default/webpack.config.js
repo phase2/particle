@@ -22,26 +22,6 @@ module.exports = {
                 ctx: {
                   // PostCSS Tailwind config
                   tailwindConfig: path.resolve(__dirname, 'tailwind.config.js'),
-                  // // PostCSS PurgeCSS config for Tailwind
-                  // purgeCssConfig: {
-                  //   content: [
-                  //     path.resolve(__dirname, '_meta/**/*.*'),
-                  //     path.resolve(__dirname, '_patterns/**/*.*'),
-                  //     // From MC, should be moved to app version.
-                  //     path.resolve('apps/node-pl/**/*.*'),
-                  //   ],
-                  //   // whitelistPatterns: [
-                  //   //   /^bg/,
-                  //   //   /^text/,
-                  //   //   /:?-?m[xy]?-/,
-                  //   //   /:?p[xy]?-/,
-                  //   // ],
-                  //   defaultExtractor: (content) =>
-                  //     content.match(/[A-Za-z0-9-_:/]+/g) || [],
-                  //   extensions: ['yml', 'twig', 'json'],
-                  // },
-                  // Use combined ltr/rtl in css for pl
-                  // rtl: process.argv.includes('--pl-rtl'),
                 },
               },
             },

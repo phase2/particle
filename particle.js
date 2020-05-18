@@ -87,7 +87,7 @@ const particle = (appWebpack, appConfig, options) => {
   // eslint-disable-next-line
   const dsWebpack = require(path.resolve(APP_DESIGN_SYSTEM, 'webpack.config'));
 
-return merge.smartStrategy({
+  return merge.smartStrategy({
     // Prepend the css style-loader vs MiniExtractTextPlugin
     'module.rules.use': 'prepend',
   })(
