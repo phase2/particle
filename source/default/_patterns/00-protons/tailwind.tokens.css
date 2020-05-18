@@ -12,7 +12,7 @@ Monospace - Google Fonts - Source Code Pro
 @import url(https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap);
 
 body {
-  @apply font-body;
+  @apply font-sans;
 }
 h1,
 h2,

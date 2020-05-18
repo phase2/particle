@@ -1,5 +1,5 @@
 {
-  "body": ["Open Sans, Helvetica Neue, Helvetica Arial, sans-serif"],
-  "mono": ["Source Code Pro, Courier New, monospace"],
-  "serif": ["Oswald, Times New Roman, serif"]
+  "sans": ["Open Sans, Helvetica Neue, Helvetica Arial, sans-serif"],
+  "serif": ["Oswald, Times New Roman, serif"],
+  "mono": ["Source Code Pro, Courier New, monospace"]
 }
