@@ -17,7 +17,7 @@ module.exports = {
       // Whitelist Non-DS Dependent Patterns.
       whitelistPatterns: [/^bg/, /^text/, /:?-?m[xy]?-/, /:?p[xy]?-/],
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
-      extensions: ['yml', 'twig', 'json'],
+      extensions: ['yml', 'twig', 'json', 'js', 'ts'],
     },
   },
   theme: {
