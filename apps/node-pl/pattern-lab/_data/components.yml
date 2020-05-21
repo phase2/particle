@@ -1,8 +1,7 @@
 ####
-# ** CAUTION **
+# ** Components Data **
 #
-# THIS DATA IS CURRENTLY ONLY REFRESHED ON A TWIG / JS CHANGE.
-# CHANGES MADE ONLY IN THIS FILE ARE NOT REGISTERED.
+# This data file contains all generic data for Pattern Lab for components.
 #
 # Use this file to register global data for components that need to share data.
 #
@@ -10,8 +9,88 @@
 
 # Protons Data
 
+## Borders
+borders_demo:
+  title: 'Borders'
+  content:
+    lead: 'Demonstration of our Particle design borders and variants.'
+    summary: 'To override the default borders, you can do so using the
+    <span class="font-mono text-pink-500">theme.borderColor</span>,
+    <span class="font-mono text-pink-500">theme.borderRadius</span>,
+    <span class="font-mono text-pink-500">theme.borderWidth</span>
+    sections of your <span class="font-mono text-pink-500">tailwind.config.js</span> file.'
+    link:
+      text: 'Tailwind Documentation'
+      url: 'https://tailwindcss.com/docs/border-radius'
+
+## Breakpoints
+breakpoints_demo:
+  title: 'Breakpoints'
+  devices:
+    xs: 'Mobile'
+    sm: 'Mobile XL'
+    md: 'Tablet'
+    lg: 'Desktop'
+    xl: 'Desktop HD'
+  active_classes:
+    xs: 'block sm:hidden md:hidden lg:hidden xl:hidden'
+    sm: 'hidden sm:block md:hidden lg:hidden xl:hidden'
+    md: 'hidden sm:hidden md:block lg:hidden xl:hidden'
+    lg: 'hidden sm:hidden md:hidden lg:block xl:hidden'
+    xl: 'hidden sm:hidden md:hidden lg:hidden xl:block'
+  content:
+    lead: 'Demonstration of our Particle Breakpoints.'
+    summary: 'To override the default breakpoint values, you can do so using the
+    <span class="font-mono text-pink-500">theme.screens</span> section of your
+    <span class="font-mono text-pink-500">tailwind.config.js</span> file.'
+    link:
+      text: 'Tailwind Documentation'
+      url: 'https://tailwindcss.com/docs/breakpoints'
+
+## Colors
+colors_demo:
+  title: 'Colors'
+  content:
+    lead: 'Demonstration of our Particle design colors and shades.'
+    summary: 'To override the default color palette, you can do so using the
+    <span class="font-mono text-pink-500">theme.colors</span> section of your
+    <span class="font-mono text-pink-500">tailwind.config.js</span> file.
+    See <span class="font-mono text-pink-500">design/particle/source/default/tokens/colors.json</span>
+    for our color design tokens. Use any Tailwind utility class modifier with
+    the <span class="text-mono text-pink-500">name</span> values below.'
+    link:
+      text: 'Tailwind Documentation'
+      url: 'https://tailwindcss.com/docs/customizing-colors/'
+
+## Spacing
+spacing_demo:
+  title: 'Spacing'
+  content:
+    lead: 'Demonstration of our Particle spacing.'
+    summary: 'To override the default spacing values, you can do so using the
+    <span class="font-mono text-pink-500">theme.spacing</span> section of your
+    <span class="font-mono text-pink-500">tailwind.config.js</span> file.
+    Use any Tailwind utility class modifier with the
+    <span class="text-mono text-pink-500">name</span> values below. 0 and 1px
+    values are also available for minimal use.'
+    link:
+      text: 'Tailwind Documentation'
+      url: 'https://tailwindcss.com/docs/customizing-spacing/'
+
 ## Table
-table:
+tables_demo:
+  title: 'Table'
+  content:
+    lead: 'Demonstration of our Particle table.'
+    summary: 'Tables can be overriddeen in Tailwing config using the
+    <span class="font-mono text-pink-500">theme.borderCollapse</span> and
+    <span class="font-mono text-pink-500">theme.tableLayout</span> sections of
+    your <span class="font-mono text-pink-500">tailwind.config.js</span> file.'
+    link:
+      text: 'Tailwind Documentation'
+      url: 'https://tailwindcss.com/docs/border-collapse'
+
+table_data:
   header:
     - 'First Name'
     - 'Last Name'
@@ -27,16 +106,34 @@ table:
       last_name: 'McGlynn'
       username: 'iure'
 
-## Border Radius
-border_radius_image:
-  variant: 'primary'
-  style: 'thumbnail'
-  placeholder: true
+## Typography
+typography_demo:
+  title: 'Typography'
+  content:
+    lead: 'Demonstration of our Particle Typography.'
+    summary: 'To override the default font values, you can do so using the
+    <span class="font-mono text-pink-500">theme.fontFamily</span>
+    <span class="font-mono text-pink-500">theme.fontWeight</span>,
+    <span class="font-mono text-pink-500">theme.fontSize</span>
+    sections of your <span class="font-mono text-pink-500">tailwind.config.js</span> file.'
+    link:
+      text: 'Tailwind Documentation'
+      url: 'https://tailwindcss.com/docs/font-family/'
 
-# Organisms Data - Used in Organisms and Higher
+# Atoms Data
+
+# Molecules Data
+
+# Organisms Data
 
 ## Article
-article_demo:
+articles_demo:
+  title: 'Articles'
+  content:
+    lead: 'Demonstration of our Particle Articles.'
+    summary: 'Provide a demonstration of a possible article content type.'
+
+article_1:
   title: 'Lucidus'
   body:
     '<p>Cogo haero jus pala patria proprius turpis valde wisi. Eu feugiat laoreet si usitas valde vulputate. Bene dolus gilvus hos pala quibus ulciscor voco. Ad camur incassum ymo.</p>
@@ -71,33 +168,6 @@ article_demo:
 footer:
   slogan: 'Powered by <a href="http://patternlab.io/" target="_blank">Pattern Lab</a>'
 
-## Navbar
-navbar_other_classes:
-  - navbar-expand-lg
-  - navbar-light
-  - bg-light
+# Templates
 
-navbar_demo:
-  brand_link: #
-  brand_text: Navbar
-  id: navbarSupportedContent
-
-  items:
-    - nav_item_text: Home
-      nav_item_link_classes: active
-    - nav_item_dropdown: true
-      buttonless_dropdown: true
-      dropdown_text: Dropdown
-      unique_classes: nav-link
-      unique_attributes: href="#"
-      button_element: a
-      dropdown_element: li
-      dropdown_other_classes: nav-item
-      dropdown_menu_items:
-        - dropdown_menu_item_text: Action
-        - dropdown_menu_item_text: Another Action
-        - dropdown_menu_item_text: Something else here
-    - nav_item_text: Link
-      nav_item_link_classes: ''
-    - nav_item_text: Disabled
-      nav_item_link_classes: disabled
+# Pages

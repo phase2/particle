@@ -36,8 +36,6 @@
 
 {% if image.variant == 'primary'%}
   <img data-src="{{ imgSrc }}"{% if image_classes %} class="{{ image_classes }}"{% endif %} alt="A placeholder image">
-
 {% elseif image.variant == 'bg' %}
   <div data-background-src="?{{ imgSrc }}" class="bg-img holderjs {{ image_classes }}"></div>
-
 {% endif %}

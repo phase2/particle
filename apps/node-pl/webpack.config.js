@@ -4,22 +4,21 @@
 
 // Library Imports
 const path = require('path');
-
 const { DefinePlugin } = require('webpack');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
-const sassExportData = require('../../tools/sass/sass-export-data');
 const particle = require('../../particle');
 
 // Constants: environment
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 // Constants: root
-const { PATH_DIST } = require('../../particle.root.config');
+const { PATTERN_LAB_DIST } = require('../../particle.root.config');
+
 // Constants: app
 const appConfig = require('./particle.app.config');
 
-const { APP_NAME, APP_PATH, APP_DIST, APP_DIST_PUBLIC } = appConfig;
+const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 
 const shared = {
   entry: {
@@ -31,24 +30,6 @@ const shared = {
   },
   module: {
     rules: [
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          {
-            loader: 'sass-loader',
-            options: {
-              sassOptions: {
-                // Used to generate JSON about variables like colors, fonts
-                functions: {
-                  'export-data($file, $value)': sassExportData(
-                    path.resolve(APP_PATH, 'pattern-lab/_data/')
-                  ),
-                },
-              },
-            },
-          },
-        ],
-      },
       // Non-standard assets on the dependency chain
       {
         test: /\.(yml|md)$/,
@@ -75,7 +56,7 @@ const dev = {
     port: '8080',
     allowedHosts: ['.docksal', '.vm', '0.0.0.0', 'localhost'],
     // dev server starts from this folder.
-    contentBase: PATH_DIST,
+    contentBase: PATTERN_LAB_DIST,
     // local host name for devServer
     public: PARTICLE_PL_HOST,
     // Refresh devServer when dist/ changes (Pattern Lab)
@@ -118,7 +99,7 @@ const dev = {
     },
   },
   plugins: [
-    // Recompile PL on any globbed PL file (see glob.js)
+    // Recompile PL on any globed PL file (see glob.js)
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md|json)$/,
       exec: [`npm run pl-node`],

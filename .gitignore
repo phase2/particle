@@ -1,6 +1,5 @@
 # Compiled files
 dist/
-_icons-generated.scss
 dependencyGraph.json
 patterns.zip
 
@@ -16,7 +15,6 @@ node_modules
 vendor
 
 # Generated files
-*.sass-cache/
 .eslintcache
 *unison.*
 

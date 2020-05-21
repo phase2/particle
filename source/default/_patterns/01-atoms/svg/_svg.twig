@@ -4,24 +4,28 @@
  * svg
  *
  * Available variables for svg:
- *  - svg.svgpath [string]: Generic element to define shape of svg.
- *    Example: '@atoms/svg/svg/person.svg'
- *  - svg.colorOriginal [bool]: Use the SVG's original color. "true" prevents
- *    CSS from overriding color
- *  - svg_classes [array<string>]: Array of string classes to add
- *    Example: 'svg-custom-class icon-big'
+ *  - svg.variant [string]: Indicates which svg pattern to use.
  */
 #}
 
-{# Starter defaults #}
-{%  set svg = svg|default({
-  svgpath: '@atoms/svg/svg/person.svg',
-  colorOriginal: false,
-}) %}
+{% set svg_variant = svg.variant|default('embed') %}
 
-{# Helper classes #}
-{% set svg_classes = svg_classes|default(['svg'])|merge([
-  not svg.colorOriginal ? 'svg--colorable' : '',
-]) | sort | join(' ') | trim %}
+{# Classes Merge Handled by Variant Files #}
+{% set svg_classes = svg_classes|default([])|merge([
+  'svg',
+  svg_variant,
+]) %}
 
-<span class="{{ svg_classes }}">{{ source(svg.svgpath) }}</span>
+{% if svg_variant == 'embed' %}
+  {% include '@atoms/svg/_svg--embed.twig' with {
+    svg: svg,
+    svg_classes: svg_classes
+  } %}
+{% endif %}
+
+{% if svg_variant == 'sprite' %}
+  {% include '@atoms/svg/_svg--sprite.twig' with {
+    svg: svg,
+    svg_classes: svg_classes
+  } %}
+{% endif %}

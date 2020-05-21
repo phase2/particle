@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * svg--sprite
+ *
+ * Available variables for svg--sprite:
+ *  - svg.name [string]: String filename of the SVG to use from svg/
+ *  - svg.fillCurrent [bool]: Use the tailwind's fill-current utility class.
+ *  - svg.strokeCurrent [bool]: Use the tailwind's stroke-current utility class.
+ *  - svg_classes [array<string>]: Array of string classes to add
+ *    Example: 'svg-custom-class icon-big'
+ */
+#}
+
+{% set svg_classes = svg_classes|default([])|merge([
+  svg.fillCurrent ? 'fill-current' : '',
+  svg.strokeCurrent ? 'stroke-current' : '',
+]) | sort | join(' ') | trim %}
+
+<svg class="{{ svg_classes }}" viewBox="0 0 500 500">
+  <use xlink:href="{{ paths.images }}/spritemap.svg?cacheBuster={{ random() }}#sprite-{{ svg.name }}"></use>
+</svg>

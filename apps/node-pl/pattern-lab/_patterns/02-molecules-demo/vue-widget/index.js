@@ -2,6 +2,7 @@ import Vue from 'vue';
 
 // Demo twig
 import './vue-widgets.twig';
+import './vue-widgets.yml';
 
 import VueInputExample from './vue-html-example.vue';
 

@@ -8,10 +8,7 @@
 // Import component assets
 import 'atoms/svg';
 
-// Demo-only styles
-import './_svg--icon-demo.scss';
-
 // Import demo assets
 import './svgs.twig';
 import './svgs.yml';
-import './svgs.md';
+

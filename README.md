@@ -28,8 +28,7 @@ In depth documentation about frontend approach using this project at [Phase2 Fro
 - [Webpack Dev Server](https://github.com/webpack/webpack-dev-server) for local hosting and hot reloading of assets into Pattern Lab
 - [Twig namespaced paths](https://symfony.com/doc/current/templating/namespaced_paths.html) automatically added into Drupal theme and Pattern Lab config. Within any twig file, `@atoms/thing.twig` means the same thing to Drupal theme and Pattern Lab.
 - Iconfont auto-generation
-- Bootstrap 4 integration, used for all starting example components
-- Auto-linting against the [AirBnB JavaScript Style Guide](https://github.com/airbnb/javascript) and sane Sass standards
+- Auto-linting against the [AirBnB JavaScript Style Guide](https://github.com/airbnb/javascript)
 - All Webpack files are fully configurable
 - Simple [Yeoman](http://yeoman.io/) generator for Design System component creation
 

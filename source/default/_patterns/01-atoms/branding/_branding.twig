@@ -18,16 +18,16 @@
       {% if logo_svg_inline %}
         {% include '@atoms/svg/_svg.twig' with {
           svg: {
-            svgpath: logo_svg_inline,
-            colorOriginal: true,
+            path: logo_svg_inline,
+            fillCurrent: true
           }
         } %}
       {% elseif logo_img_src %}
-        {% include "@atoms/image/_image.twig" with {
+        {% include '@atoms/image/_image.twig' with {
           image: {
             variant: 'primary',
             src: logo_img_src,
-            alt: site_name ~ ' site logo',
+            alt: site_name ~ ' site logo'
           }
         } %}
       {% endif %}
@@ -35,12 +35,16 @@
   </div>
 
   {% if site_name %}
-    <h1 class="display-3 branding__site-name">
-      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+    <h1 class="text-3xl branding__site-name">
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+        {{ site_name }}
+      </a>
     </h1>
   {% endif %}
-
   {% if site_slogan %}
-    <p class="lead branding__site-slogan">{{ site_slogan }}</p>
+    <p class="text-lg font-light branding__site-slogan">
+      {{ site_slogan }}
+    </p>
   {% endif %}
+
 </aside>

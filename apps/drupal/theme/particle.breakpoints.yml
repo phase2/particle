@@ -1,0 +1,36 @@
+# Optional Config for Responsive Image
+particle.xs:
+  label: xs
+  mediaQuery: '(min-width: 0px)'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+particle.sm:
+  label: sm
+  mediaQuery: '(min-width: 640px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+particle.md:
+  label: md
+  mediaQuery: '(min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+particle.lg:
+  label: lg
+  mediaQuery: '(min-width: 1024px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x
+particle.xl:
+  label: xl
+  mediaQuery: '(min-width: 1280px)'
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x

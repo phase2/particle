@@ -1,52 +1,41 @@
 {#
 /**
  * @file Spacing!
- * Documenting Spacing Examples from Bootstrap.
+ *   Documenting Spacing Examples from Tailwind.
  *
  * Available variables:
- * - scssSpacing: [array] Available in sass-variables.json.
+ * - tokens.spacing: [array] Provided from data as a list of spacing values.
  *
- * @see https://getbootstrap.com/docs/4.0/utilities/spacing/
+ * @see https://tailwindcss.com/docs/customizing-spacing
  */
 #}
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1 class="mb-3">Spacing</h1>
-      <div class="mb-3 p-3 bg-light border border-secondary rounded">
-        <p class="lead">To add to these items, adjust
-          <code>spacers()</code>
-          in
-          <code>non-printing/_bootstrap-overrides.scss</code>.</p>
-        <p>
-          <code>spacers(0)</code>
-          produces a value of
-          <code>0</code>
-          and is allowed but not shown in this demo.</p>
-        <p>The math for rem calculations here is based on a browser value of 16px as a
-          <code>$spacer</code>
-          value. To find out your spacer in pixels, simply multiply the rem value in the spacers list by this spacer value. For example, a 1.5rem value in
-          <code>$spacers</code>
-          is equivalent to 24px.</p>
-        <div>
-          <a href="https://getbootstrap.com/docs/4.0/utilities/spacing/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a>
-        </div>
-      </div>
-      <hr>
-
-      {% for spacer, value in scssSpacing %}
+{% embed '@demo/_demo-block.twig' with {
+  demo: spacing_demo
+} %}
+  {% set tdClasses = 'border text-center' %}
+  {% block content %}
+    <table class="table-auto w-full">
+      <thead>
+      <tr class="border">
+        <th scope="col" class="p-4">Name</th>
+        <th scope="col" class="p-4">Size</th>
+        <th scope="col" class="p-4">Pixels</th>
+        <th scope="col" class="p-4">Example</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for spacer, value in tokens.spacing %}
         {% if spacer != 0 %}
-          <div style="margin: 10px;">
-            <div style="height: {{ value }}; width: {{ value }}; outline: solid 1px black; display: inline-block; margin-right: 5px;"></div>
-            <span>{{ value }}
-              :
-              <code>spacers({{ spacer }})</code>
-            </span>
-          </div>
+          <tr>
+            <td class="{{ tdClasses }}">{{ spacer }}</td>
+            <td class="{{ tdClasses }}">{{ value }}</td>
+            <td class="{{ tdClasses }}">{{ value|trim('rem') * 16 ~ 'px' }}</td>
+            <td class="{{ tdClasses }}"><div class="{{ 'h-4 bg-blue-300 w-' ~ spacer }}"></div></td>
+          </tr>
         {% endif %}
       {% endfor %}
-
-    </div>
-  </div>
-</div>
+      </tbody>
+    </table>
+  {% endblock content %}
+{% endembed %}

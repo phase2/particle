@@ -8,9 +8,6 @@
 // Import component assets
 import 'atoms/image';
 
-// Demo-only styles
-import './_image-demo.scss';
-
 // Holder JS for Demos Only.
 import 'holderjs';
 

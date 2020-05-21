@@ -1,9 +1,0 @@
-// Just a demo
-@use '~tokens/sass/utils';
-
-.nav {
-  &--border {
-    border-color: utils.bs-theme-color('light');
-    border-style: solid;
-  }
-}

@@ -12,20 +12,26 @@
  */
 #}
 
+{% set article_classes = article_classes|default([])|merge([
+  'article',
+  article.variant ? 'article--' ~ article.variant : '',
+  'pb-3'
+]) | sort | join(' ') | trim %}
+
 {% set image_classes = [
   'm-3',
-  'rounded-circle',
+  'rounded-full',
   'float-right'
 ] | sort %}
 
-<article{{ (BUILD_TARGET == 'pl') ? ' class=' ~ classes : attributes.addClass(classes) }}>
+<article class="{{ article_classes }}">
 
   {% block article_header %}
-    <h2 class="ml-0">{{ article.title }}</h2>
+    <h2 class="pb-3">{{ article.title }}</h2>
   {% endblock article_header %}
 
   {% block article_content %}
-    <div class="ml-5 text-justify">
+    <div class="pb-5 text-justify">
       {% include '@atoms/image/_image.twig' with {
         image: article.image,
         image_classes: image_classes,
@@ -36,15 +42,16 @@
 
   {% block article_footer %}
     <div>
-      <span class="font-weight-bold">Tags:</span>
-      <ul class="list-inline">
+      <span class="font-bold">Tags:</span>
+      <ul class="list-none">
         {% for tag in article.tags  %}
-          <li class="list-inline-item"><a href="{{ tag.url }}" target="_blank">{{ tag.word }}</a></li>
+          <li class="inline"><a href="{{ tag.url }}" target="_blank">{{ tag.word }}</a></li>
         {% endfor %}
       </ul>
     </div>
+
     <blockquote class="text-right">
-      <footer class="blockquote-footer">
+      <footer class="block text-grey">
         Submitted by {{ article.author_name }} on {{ article.date }}
       </footer>
     </blockquote>

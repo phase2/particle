@@ -1,38 +1,31 @@
-{% embed '@atoms/grid/_grid-1-up.twig' %}
-  {% set container = true %}
+{#
+/**
+ * @file Vue Widgets!
+ *   Documenting @molecules/vue-widget/_VARIANT.twig
+ */
+#}
 
-  {% block column_1 %}
-    <h1 class="mb-3">Example Vue Apps</h1>
-    <div class="mb-3 p-3 bg-light border border-secondary rounded">
-      <p class="lead">
-        <a href="https://vuejs.org/">Vue</a> is a flexible and robust UI library similar to React. <a href="https://vuex.vuejs.org/">VueX</a> is a simple state management solution that ties in natively to Vue. The following examples show off various ways to leverage Vue/X to meet feature requirements.
-      </p>
-      <p>Vue resources:</p>
-      <ul>
-        <li><a href="https://www.smashingmagazine.com/2018/02/jquery-vue-javascript/">Replacing jQuery With Vue.js: No Build Step Necessary</a></li>
-        <li><a href="https://vuex.vuejs.org/">VueX documentation</a></li>
-      </ul>
-    </div>
-    <hr>
+{% embed '@demo/_demo-block.twig' with {
+  demo: vue_widgets_demo
+} %}
 
+  {% block content %}
     <h2 class="mt-3">Vue in existing markup</h2>
     <p>View can work with markup that already exists in the DOM, similar to how we've always used jQuery.</p>
-
     <h3>Example:</h3>
-
     {#
       The form below is one way to have a view component. Note that it relies on ./demo/index.js to function.
     #}
     <form id="vue-html-example-1" onsubmit="return false" class="p-5">
       <label for="vue-html-example-1-input">Send some text to space!</label>
-      <div class="input-group">
+      <div class="relative flex items-stretch w-full">
         <div class="input-group-prepend">
           <span class="input-group-text">You typed: <strong>{% raw %}{{ name }}{% endraw %}</strong></span>
         </div>
-        <input id="vue-html-example-1-input" class="form-control" type="text" v-model="name" placeholder="Send this text to outer space" />
+        <input id="vue-html-example-1-input" class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-grey-darker border border-grey rounded" type="text" v-model="name" placeholder="Send this text to outer space" />
         <div class="input-group-append">
           <button
-            class="btn btn-outline-primary"
+            class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-blue-dark border-blue bg-white hover:bg-blue-light hover:text-blue-darker"
             type="submit"
             @click="toSpace(name)"
           >🚀 Send to space
@@ -40,11 +33,9 @@
         </div>
       </div>
     </form>
-
     <p>The form above is instantiated entirely from HTML already existing in the page. This isn't optimal, but it is an option.</p>
-
-    <div class="row">
-      <div class="col-sm-6">
+    <div class="flex flex-wrap">
+      <div class="sm:w-1/2 pr-4 pl-4">
         <h4>HTML</h4>
         {% set example = '<form id="vue-html-example-1">
     <span>{{ name }}</span>
@@ -53,7 +44,7 @@
   </form>'%}
   <pre><code class="language-html">{% autoescape %}{{ example }}{% endautoescape %}</code></pre>
       </div>
-      <div class="col-sm-6">
+      <div class="sm:w-1/2 pr-4 pl-4">
         <h4>JavaScript</h4>
   <pre><code class="language-javascript">new Vue({
     el: '#vue-html-example-1',
@@ -68,9 +59,7 @@
   })</code></pre>
       </div>
     </div>
-
     <h2 class="mt-3">Vue using .vue files</h2>
-
     <p>We can achieve the same application using a .vue file and attach it to an id.</p>
     <h3>Example:</h3>
     {#
@@ -78,8 +67,8 @@
     #}
     <div id="vue-input-text-component"></div>
     <p>The .vue file encapsulates templating, logic, AND styles. This is ideal.</p>
-    <div class="row">
-      <div class="col-sm-6">
+    <div class="flex flex-wrap">
+      <div class="sm:w-1/2 pr-4 pl-4">
         <h4>.vue</h4>
         {% set example = '<template>
     <form id="vue-html-example-1">
@@ -102,10 +91,9 @@
   </script>'%}
         <pre><code class="language-html">{% autoescape %}{{ example }}{% endautoescape %}</code></pre>
       </div>
-      <div class="col-sm-6">
+      <div class="sm:w-1/2 pr-4 pl-4">
         <h4>JavaScript</h4>
         {% set example = "import VueExample2 from './vue-html-example.vue';
-
   new Vue({
     el: '#vue-html-example-2',
     components: { VueExample2 },
@@ -114,45 +102,40 @@
   <pre><code class="language-javascript">{% autoescape %}{{ example }}{% endautoescape %}</code></pre>
       </div>
     </div>
-
     <h2 class="mt-3">VueX</h2>
     <p>Below is an same application implemented in both regular Vue and then in Vue + VueX.</p>
-    <div class="alert alert-primary" role="alert">
+    <div class="relative px-3 py-3 mb-4 border rounded text-blue-darker border-blue-dark bg-blue-lighter" role="alert">
       Check vue-cryptos/ and vuex-cryptos/ for respective implementation details.
     </div>
-
-    <div class="row">
-      <div class="col-sm-6">
+    <div class="flex flex-wrap">
+      <div class="sm:w-1/2 pr-4 pl-4">
         <h2>Vue</h2>
         {% include '@molecules/vue-widget/_vue-cryptos.twig' %}
       </div>
-      <div class="col-sm-6">
+      <div class="sm:w-1/2 pr-4 pl-4">
         <h2>Vue + VueX</h2>
         {% include '@molecules/vue-widget/_vuex-cryptos.twig' %}
       </div>
     </div>
-
-    <div class="row">
-      <div class="col">
+    <div class="flex flex-wrap">
+      <div class="flex-grow">
         <h2 class="mt-3">Styles + Events in Vue</h2>
         <p>Below are multiple components communicating with each other through props and events.</p>
-        <div class="alert alert-primary" role="alert">
+        <div class="relative px-3 py-3 mb-4 border rounded text-blue-darker border-blue-dark bg-blue-lighter" role="alert">
           Check vue-cards/ for respective implementation details.
         </div>
         {% include '@molecules/vue-widget/_vue-cards.twig' %}
       </div>
     </div>
-
-    <div class="row">
-      <div class="col">
+    <div class="flex flex-wrap">
+      <div class="flex-grow">
       <h2 class="mt-3">Dynamic classes and the power of "computed"</h2>
         <p>Below is a clock deriving most of its state from a single data property, with changes triggered by an interval.</p>
-        <div class="alert alert-primary" role="alert">
+        <div class="relative px-3 py-3 mb-4 border rounded text-blue-darker border-blue-dark bg-blue-lighter" role="alert">
           Check vue-clock/ for respective implementation details.
         </div>
       {% include '@molecules/vue-widget/_vue-clock.twig' %}
       </div>
     </div>
-
-  {% endblock column_1 %}
+  {% endblock content %}
 {% endembed %}

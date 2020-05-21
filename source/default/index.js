@@ -19,9 +19,7 @@
  *     // ...
  *   };
  */
-
 import importAll from '../../tools/webpack/import-all';
-
 /**
  * Dynamically discover all root patterns using Webpack's require.context().
  * This attempts to find ONLY the first index.js file within a component folder.
@@ -38,22 +36,19 @@ import importAll from '../../tools/webpack/import-all';
  *   ./01-atoms/thing-component/blah/blah/
  * the regex finds only the top atomic level path (./thing-component) to include
  */
-
 const atomicContext = require.context(
   // From patterns folder
   './_patterns',
   // Deep dive all directories below
   true,
   // Get the first folders after atoms|molecules|organisms
-  /^\.\/(01-atoms|02-molecules|03-organisms)\/[\w-]+$/
+  /^\.\/(01-atoms|02-molecules|03-organisms|04-templates|05-pages)\/[\w-]+$/
 );
-
 /**
  * The components collection. Keys will be the exported name of each component,
  * values will be the component itself.
  */
 export const components = importAll(atomicContext);
-
 // Templates. Skipping for design system. Include per-app.
 // importAll(
 //   require.context(
@@ -70,18 +65,15 @@ export const components = importAll(atomicContext);
 //     /^\.\/[\w-]+$/ // See note on static regex
 //   )
 // );
-
 /**
  * All component names as an array
  * @returns {Array} List of components name strings
  */
 export const componentNames = () =>
   Object.values(components).map(({ name }) => name);
-
 /**
  * Enable all components against a piece of DOM with some settings
  */
 export const enableAllComponents = ($dom, settings) =>
   Object.values(components).forEach(({ enable }) => enable($dom, settings));
-
 export default components;

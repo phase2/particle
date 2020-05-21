@@ -1,0 +1,40 @@
+name: Particle
+type: theme
+description: A Theme with Pattern Lab
+base theme: stable
+core: 8.x
+libraries:
+  - particle/core
+libraries-override:
+  core/jquery: particle/jquery
+regions:
+  primary_menu: Primary menu
+  highlighted: Highlighted
+  header_branding: Header branding
+  header_cta: Header CTA
+  secondary_menu: Secondary menu
+  page_top: Page top
+  page_bottom: Page bottom
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: Sidebar first
+  sidebar_second: Sidebar second
+  footer: Footer
+# The paths below are set to default DRUPAL_DIST variable.
+# If you change DRUPAL_DIST path, update here.
+component-libraries:
+  protons:
+    paths: []
+  atoms:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms
+  molecules:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules
+  organisms:
+    paths:
+      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms
+  templates:
+    paths: []
+  pages:
+    paths: []

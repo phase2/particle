@@ -1,57 +1,36 @@
 {#
 /**
  * @file Button!
- * Documenting Button Examples from Bootstrap.
  *
  * Available variables:
- * - button_element: [string]: button|a|input choose the element type for your button.
- * - button_type: [string]: the html 'type' attribute.
- * - button_outline: [boolean]: True|False, remove all background colors and images from a button.
- * - buttonless_dropdown: [boolean]: True|False, toggle `btn` base class for dropdowns.
- * - button_color: [string]: primary|secondary|success|danger|warning|info|light|dark the color of the button.
- * - button_size: [string]: lg|sm set whether the button is large or small.
- * - button_block:  [boolean]: True|False set button to occupy the full width the parent element.
- * - button_active: [boolean]: True|False set button to appear pressed.
- * - button_other_classes: [array] Other classes not specified in the template.
- * - button_toggle: [string]: button|collapse set button's data-toggle html value.
- * - button_link: [string]: the URL the button will lead to.
- * - button_value: [string]: the html 'value' attribute.
- * - button_id: [string]: The button's html 'id' attribute.
- * - button_disabled: [boolean]: True|False set button to appear disabled.
- * - button_other_attributes: [string]: Other attributes not specified in the template.
- * - button_text: [string]: Display text on the button.
+ * - button.element: [string]: button|a|input choose the element type for your button.
+ * - button.color: [string]: The Tailwind color of the button.
+ * - button.hoverColor: [string]: The Tailwind hover color of the button.
+ * - button.text: [string]: Display text on the button.
  *
- * @see https://getbootstrap.com/docs/4.0/components/buttons/
+ * - button_classes: [array] Button classes from other partials.
+ * - button_attributes: [array] Button attributes from other partials.
+ *
  */
 #}
 
-{% set button_element = button_element | default ('button') %}
+{% set button_element = button.element | default('button') %}
 
-{% if button_element != 'a' %}
-  {% set button_type = 'type="' ~ button_type | default('button') ~ '"' %}
-{% endif %}
+{% set button_attributes = button_attributes|default({})|merge({
+  type: (button_element != 'a') ? 'button' : 'link',
+}) %}
 
-{% set button_classes = [
-  buttonless_dropdown ? '' : 'btn',
-  (button_color and not button_outline) ? 'btn-' ~ button_color,
-  button_outline ? 'btn-outline-' ~ button_color,
-  button_size ? 'btn-' ~ button_size,
-  button_block ? 'btn-block',
-  button_active ? 'active',
-  button_other_classes,
-] | sort | join(' ') | trim %}
+{% set button_classes = button_classes|default([])|merge([
+  'py-2',
+  'px-4',
+  'text-white',
+  'font-bold',
+  'rounded',
+  button.color ? button.color : 'bg-blue-500',
+  button.hoverColor ? 'hover:' ~ button.hoverColor : 'hover:bg-blue-700',
+]) | sort | join(' ') | trim %}
 
-{% set button_attributes = [
-  button_active ? 'aria-pressed="true"',
-  button_toggle ? 'data-toggle="' ~ button_toggle ~ '"',
-  button_link ? 'href=' ~ button_link,
-  button_value ? 'value="' ~ button_value ~ '"',
-  button_id ? 'id="' ~ button_id ~ '"',
-  button_disabled ? 'disabled',
-  button_other_attributes,
-] | sort | join(' ') | trim %}
-
-<{{ button_element }} {{ button_type }} class="{{ button_classes }}" {{ button_attributes }}>
-  {{ button_text }}
+<{{button_element}} {{ button_attributes | attributify }} class="{{ button_classes }}">
+	{{ button.text }}
   {% block right %}{% endblock right %}
-</{{ button_element }}>
+</{{button_element}}>

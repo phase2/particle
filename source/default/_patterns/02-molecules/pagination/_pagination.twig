@@ -1,44 +1,52 @@
 {#
-  Pagination!
-
-  pagination_title: String: The name of the pagination item for screen readers.
-  pagination_size (optional): String: sm | lg: The size of the pagination
-  page_icon: Boolean: Pagination uses icons for Previous and Next links.
-  page_items: Array: The set if page links to display.
-
-  see https://getbootstrap.com/docs/4.0/components/pagination/ for more details
+/**
+ * @file
+ *   pagination
+ *
+ * Available variables for pagination:
+ *  - pagination.variant [string]: When set, adds variant styling and behavior.
+ *  - pagination.title [string]: The title of the pagination.
+ *  - pagination.previous [array]: An instance of the previous link.
+ *  - pagination.list [array]: A list of terms describing pagination content.
+ *  - pagination.next [array]: An instance of the last/next link.
+ */
 #}
 
-{% set pagination_classes = [
+{% set pagination_classes = pagination_classes|default([])|merge([
   'pagination',
-  pagination_size ? 'pagination-' ~ pagination_size,
-  pagination_other_classes,
-] | sort | join(' ') | trim %}
+  pagination.variant ? 'pagination--' ~ pagination.variant : '',
+  'flex',
+  'list-reset',
+  'rounded',
+  'w-auto',
+  'font-sans'
+]) | sort | join(' ') | trim %}
 
-<nav aria-label="{{ pagination_title }}">
+<nav class="inline-flex shadow-sm" aria-label="{{ pagination.title }}">
+  {% set link_classes = [
+    'block',
+    'hover:text-white',
+    'hover:bg-blue-500',
+    'text-blue',
+    'border',
+    'border-gray-500',
+    'px-3',
+    'py-2',
+  ] | join(' ')%}
+
   <ul class="{{ pagination_classes }}">
+    {% if pagination.previous %}
+      <li><a class="{{ link_classes }}" href="{{ pagination.previous.url }}">{{ pagination.previous.title|default('Previous'|t) }}</a></li>
+    {% endif %}
 
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="{{ 'Previous'|t }}">
-        {% if page_icon %}
-          <span aria-hidden="true">&laquo;</span>
-        {% endif %}
-        <span {{ (page_icon) ? 'class="sr-only"' }}>{{ 'Previous'|t }}</span>
-      </a>
-    </li>
+    {% if pagination.links %}
+      {% for link in pagination.links %}
+        <li><a class="{{ link_classes }}" href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    {% endif %}
 
-    {% for item in page_items %}
-      <li class="page-item"><a class="page-link" href="{{ item.link }}">{{ item.title }}</a></li>
-    {% endfor %}
-
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="{{ 'Next'|t }}">
-        {% if page_icon %}
-          <span aria-hidden="true">&raquo;</span>
-        {% endif %}
-        <span {{ (page_icon) ? 'class="sr-only"' }}>{{ 'Next'|t }}</span>
-      </a>
-    </li>
-
+    {% if pagination.next %}
+      <li><a class="{{ link_classes }}" href="{{ pagination.next.url }}">{{ pagination.next.title|default('Next'|t) }}</a></li>
+    {% endif %}
   </ul>
 </nav>

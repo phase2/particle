@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
+<div class="container mx-auto">
+  <div class="flex flex-wrap">
+    <div class="flex-grow w-full">
 
       <div class="text-center mt-sm-5">
 
@@ -12,15 +12,17 @@
 
         <h1 class="mb-4">Welcome to Particle</h1>
 
-        {% set welcome_image = {
-          variant: 'primary',
-          src: paths.images ~ '/astrogoat.png',
-          alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
-        } %}
+        <div class="flex justify-center">
+          {% set welcome_image = {
+            variant: 'primary',
+            src: paths.images ~ '/astrogoat.png',
+            alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
+          } %}
 
-        {% include "@atoms/image/_image.twig" with {
-          image: welcome_image
-        } %}
+          {% include "@atoms/image/_image.twig" with {
+            image: welcome_image
+          } %}
+        </div>
 
         <p class="mt-4">Particle is a starterkit to help you make design systems
           with Webpack and Twig.</p>

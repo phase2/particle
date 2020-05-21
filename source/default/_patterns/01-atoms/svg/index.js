@@ -9,12 +9,12 @@ import svg4everybody from 'svg4everybody';
 import 'protons';
 import fontawesome from './fontawesome';
 
-// Module styles
-import './_svg.scss';
-
 // Module template
-import './_svg.twig';
-import './_svg--icon.twig';
+import './_svg--embed.twig';
+import './_svg--sprite.twig';
+
+// Module svg assets
+require.context('./icons', true, /\.svg$/);
 
 // Enable Fontawesome immediately
 fontawesome();

@@ -5,10 +5,6 @@
  * a Pattern Lab app.)
  */
 
-// Import component assets
-import 'organisms/footer';
-
-// Import demo assets
 import './footers.twig';
 import './footers.yml';
-import './footers.md';
+

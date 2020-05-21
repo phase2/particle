@@ -2,14 +2,11 @@
  * Merge shared jest config with local design system config
  */
 const path = require('path');
-
 const { merge } = require('lodash');
-
 const sharedConfig = require('../../jest.config');
 const namespaces = require('./namespaces');
 
 const rootDir = '../../';
-
 // i.e. source/default
 const dsPath = path.relative(path.join(__dirname, rootDir), __dirname);
 /**
@@ -38,7 +35,6 @@ const moduleNameMapper = Object.keys(namespaces).reduce((acc, entry) => {
   acc[nameRegex] = `<rootDir>/${namePath}/$1`;
   return acc;
 }, {});
-
 module.exports = merge({}, sharedConfig, {
   rootDir,
   moduleNameMapper,

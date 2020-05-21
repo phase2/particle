@@ -1,17 +1,16 @@
-{% embed '@atoms/grid/_grid-1-up.twig' %}
-  {% set container = true %}
+{#
+/**
+ * @file Articles!
+ *   Documenting @organisms/article/_article.twig
+ */
+#}
 
-  {% block column_1 %}
-    <h1 class="mb-3">Article Demonstration</h1>
-    <div class="mb-3 p-3 bg-light border border-secondary rounded">
-      <p class="lead">A simple demonstration of an article within our grid and 1 column.</p>
-      <p>It uses several Bootstrap components, such as an image floated right, a list of tags using <code>list-inline-item</code> and a <code>blockquote</code> footer to display author and date information.</p>
-    </div>
-    <hr>
-
+{% embed '@demo/_demo-block.twig' with {
+  demo: articles_demo
+} %}
+  {% block content %}
     {% include '@organisms/article/_article.twig' with {
-      article: article_demo
+      article: article_1,
     } %}
-
-  {% endblock %}
+  {% endblock content %}
 {% endembed %}

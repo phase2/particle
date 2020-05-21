@@ -1,74 +1,19 @@
-{% embed '@atoms/grid/_grid-1-up.twig' %}
-  {% set container = true %}
+{#
+/**
+ * @file Buttons!
+ *   Documenting @atoms/button/_button.twig
+ *
+ */
+#}
 
-  {% block column_1 %}
-    <h1 class="mb-3">Buttons</h1>
-    <div class="mb-3 p-3 bg-light border border-secondary rounded">
-      <p class="lead">{{ buttons_helper }}</p>
-      <div><a href="https://getbootstrap.com/docs/4.0/components/buttons/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
-    </div>
-    <hr>
+{% embed '@demo/_demo-block.twig' with {
+  demo: buttons_demo
+} %}
+  {% block content %}
 
-    <h2>Button colors</h2>
-    <div class="mb-3">
-      {% for name, rgb in scssColors %}
-        {% include '@atoms/button/_button.twig' with {
-          button_color: name,
-          button_text: name|capitalize,
-        } %}
-      {% endfor %}
-    </div>
+    {% include '@atoms/button/_button.twig' with {
+      button: button_1
+    } only %}
 
-    <h2>Button outline</h2>
-    <div class="mb-3">
-      {% for name, rgb in scssColors %}
-        {% include '@atoms/button/_button-outline.twig' with {
-          button_color: name,
-          button_text: name|capitalize,
-        } %}
-      {% endfor %}
-    </div>
-
-    <h2>Button elements</h2>
-    <div class="mb-3">
-      {% for alternate_button in alternate_buttons %}
-        {% set buttonElement = alternate_button|merge({ button_color: 'success', }) %}
-        {% include '@atoms/button/_button.twig' with buttonElement %}
-      {% endfor %}
-    </div>
-
-    <h2>Button size</h2>
-    <div class="mb-3">
-      {% for size in sizes %}
-        {% include '@atoms/button/_button.twig' with size %}
-      {% endfor %}
-    </div>
-
-    <h2>Button block</h2>
-    <div class="mb-3">
-      {% embed '@atoms/grid/_grid-3-up.twig' with { container: false } %}
-        {% block  column_1 %}
-          {% include '@atoms/button/_button.twig' with block_level_1 %}
-        {% endblock column_1 %}
-        {% block  column_2 %}
-          {% include '@atoms/button/_button.twig' with block_level_2 %}
-        {% endblock column_2 %}
-        {% block  column_3 %}
-          {% include '@atoms/button/_button.twig' with block_level_3 %}
-        {% endblock column_3 %}
-      {% endembed %}
-    </div>
-
-    <h2>Button state</h2>
-    <div class="mb-3">
-      {% for state in states %}
-        {% include '@atoms/button/_button.twig' with state %}
-      {% endfor %}
-    </div>
-
-    <h2>Button toggle</h2>
-    <div class="mb-3">
-      {% include '@atoms/button/_button.twig' with toggleable %}
-    </div>
-  {% endblock column_1 %}
+  {% endblock content %}
 {% endembed %}

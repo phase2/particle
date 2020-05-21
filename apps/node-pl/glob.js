@@ -13,6 +13,7 @@ import './pattern-lab/_meta/_01-foot.twig';
 const demoSystem = importAll(
   require.context('./pattern-lab/_patterns', true, /index\.js$/)
 );
+
 // Watch all files in the source/_data folder
 importAll(require.context('./pattern-lab/_data/', false, /\.(yml|json)$/));
 

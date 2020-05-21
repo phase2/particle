@@ -8,7 +8,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'vue'],
   moduleNameMapper: {
     // Jest doesn't care about styles, twig, images, fonts, etc
-    '\\.(twig|md|yml|yaml|css|scss|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+    '\\.(twig|md|yml|yaml|css|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/tools/tests/unit/__mocks__/fileMock.js',
   },
   transform: {

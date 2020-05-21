@@ -1,14 +1,18 @@
-{% embed '@atoms/grid/_grid-1-up.twig' %}
-  {% set container = true %}
+{#
+/**
+ * @file Footer!
+ *   Documenting @organisms/footer/_footer.twig
+ */
+#}
 
-  {% block column_1 %}
+{% embed '@demo/_demo-block.twig' with {
+  demo: footers_demo
+} %}
 
-    <h1 class="mb-3">Footer</h1>
-    <div class="mb-3 p-3 bg-light border border-secondary rounded">
-      <p class="lead">This is a simple footer to display inside a container.</p>
-    </div>
-    <hr>
-  {% endblock %}
+  {% block content %}
+    {% include '@organisms/footer/_footer.twig' with {
+      footer: footer_1,
+    } %}
+  {% endblock content %}
+
 {% endembed %}
-
-{% include '@organisms/footer/_footer.twig' %}

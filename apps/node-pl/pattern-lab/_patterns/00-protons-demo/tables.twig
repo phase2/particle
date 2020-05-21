@@ -1,368 +1,328 @@
 {#
 /**
  * @file Tables!
- * Documenting Table Examples from Bootstrap.
+ * Documenting Table Examples from Tailwind.
  *
  * Available variables:
- * - table.header: [array] A list of table headers from _data/tables.yaml
- * - table.content: [array] A list of table content from _data/tables.yaml
+ * - table_data.header: [array] A list of table headers from _data/tables.yaml
+ * - table_data.content: [array] A list of table content from _data/tables.yaml
  *
- * @see https://getbootstrap.com/docs/4.0/content/tables/
+ * @see https://tailwindcss.com/docs/table-layout
  */
 #}
 
-<div class="container">
-  <div class="row">
-    <div class="col mt-sm-5">
-      <h1 class="mb-3">Tables</h1>
-      <div class="mb-3 p-3 bg-light border border-secondary rounded">
-        <p class="lead">Documentation and examples for opt-in styling of tables (given their prevelant use in JavaScript plugins) with Bootstrap.</p>
-        <div><a href="https://getbootstrap.com/docs/4.0/content/tables/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
-      </div>
-      <hr>
+{% embed '@demo/_demo-block.twig' with {
+  demo: tables_demo
+} %}
 
-      <h2>Examples</h2>
-      <h3 class="py-2">Basic</h3>
-      <p>Quickly create a table style with the <code>.table</code> class as <code>&lt;table class="table"&gt;</code>.</p>
-      <div class="p-4 border">
-        <table class="table">
-          <caption>This caption example was created with <code>&lt;caption&gt;&lt;/caption&gt;</code>.</caption>
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
+  {% block content %}
+    <h2>Examples</h2>
+    <p class="pb-2">
+      Quickly create a w-full max-w-full mb-4 bg-transparent style with the<code class="text-pink-500">
+        .table-auto
+      </code>or<code class="text-pink-500">
+        .table-fixed
+      </code>class as<code class="text-pink-500">
+        &lt;table class="table-auto"&gt;
+      </code>or<code class="text-pink-500">
+        &lt;table class="table-fixed"&gt;
+      </code>.
+    </p>
+    <h3 class="py-2">
+      Auto
+    </h3>
+    <p class="pb-2">
+      Use<code class="text-pink-500">
+        .table-auto
+      </code>to allow the table to automatically size columns to fit the
+      contents of the cell.
+    </p>
+    <div class="p-4 border">
+      <table class="table-auto w-full">
+        <thead class="text-left border-b">
+        <tr>
+          <th scope="col" class="px-4 py-2">
+            #
+          </th>
+          {% for header in table_data.header %}
+            <th scope="col" class="px-4 py-2">
+              {{ header }}
+            </th>
           {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="py-2">Dark Basic</h3>
-      <p>As easy as adding the <code>table-dark</code> class to the table as <code>&lt;table class="table-dark"&gt;</code>!</p>
-      <div class="p-4 border">
-        <table class="table table-dark">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_data.content %}
+          <tr class="border-b">
+            <th scope="row" class="px-4 py-2 text-left">
+              {{ loop.index }}
+            </th>
+            <td class="px-4 py-2">
+              {{ content.first_name }}
+            </td>
+            <td class="px-4 py-2">
+              {{ content.last_name }}
+            </td>
+            <td class="px-4 py-2">
+              @{{ content.username }}
+            </td>
           </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="py-2">Table Head Options</h3>
-      <p>
-        Similar to tables and dark tables, use the modifier classes <code>.thead-light</code> or <code>.thead-dark</code> in your <code>&lt;thead&gt;</code> for a light or dark gray appearance.
-        For example, <code>&lt;thead class="thead-dark"&gt;</code> or <code>&lt;thead class="thead-light"&gt;</code>.
-      </p>
-      <div class="p-4 border">
-        <table class="table">
-          <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <div class="p-4 border">
-        <table class="table">
-          <thead class="thead-light">
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="py-2">Striped Rows</h3>
-      <p>
-        Use the <code>.table-striped</code> class with basic or dark tables to add zebra-striping to any table.
-        <code>&lt;table class="table table-striped"&gt;</code> or <code>&lt;table class="table table-dark table-striped"&gt;</code>
-      </p>
-      <div class="p-4 border">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-
-        <table class="table table-dark table-striped">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="py-2">Bordered table</h3>
-      <p>
-        Add <code>.table-bordered</code> for borders on all sides of the table and cells. Available for both basic and dark tables.
-        <code>&lt;table class="table table-bordered"&gt;</code> or <code>&lt;table class="table table-dark table-bordered"&gt;</code>
-      </p>
-      <div class="p-4 border">
-        <table class="table table-bordered">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-
-        <table class="table table-dark table-bordered">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="py-2">Hoverable rows</h3>
-      <p>
-        Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.
-        <code>&lt;table class="table table-hover"&gt;</code> or <code>&lt;table class="table table-dark table-hover"&gt;</code>
-      </p>
-      <div class="p-4 border">
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-
-        <table class="table table-dark table-hover">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="py-2">Small table</h3>
-      <p>
-        Add <code>.table-sm</code> to make tables more compact by cutting cell padding in half.
-        <code>&lt;table class="table table-sm"&gt;</code> or <code>&lt;table class="table table-dark table-sm"&gt;</code>
-      </p>
-      <div class="p-4 border">
-        <table class="table table-sm">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-
-        <table class="table table-dark table-sm">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            {% for header in table.header %}
-              <th scope="col">{{ header }}</th>
-            {% endfor %}
-          </tr>
-          </thead>
-          <tbody>
-          {% for content in table.content %}
-            <tr>
-              <th scope="row">{{ loop.index }}</th>
-              <td>{{ content.first_name }}</td>
-              <td>{{ content.last_name }}</td>
-              <td>@{{ content.username }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <h3 class="py-2">Contextual classes</h3>
-      <p>Use contextual classes to color table rows or individual cells.</p>
-      <div class="p-4 border">
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">Type</th>
-            <th scope="col">Row Code</th>
-            <th scope="col">Cell Code</th>
-          </tr>
-          </thead>
-          <tbody>
-          {% for colorName, colorValue in scssColors %}
-            <tr class="table-{{ colorName }}">
-              <th scope="row">{{ colorName }}</th>
-              <td><code>&lt;tr class="table-{{ colorName }}"&gt;...&lt;/tr&gt;</code></td>
-              <td><code>&lt;td class="table-{{ colorName }}"&gt;...&lt;/td&gt;</code></td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-        <p>Regular table background variants are not available with the dark table, however, you may use text or background utilities to achieve similar styles.</p>
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">Type</th>
-            <th scope="col">Row Code</th>
-            <th scope="col">Cell Code</th>
-          </tr>
-          </thead>
-          <tbody>
-          {% for colorName, colorValue in scssColors %}
-            {% set luma = colorValue|rgba_string|luma %}
-            <tr class="bg-{{ colorName }}">
-              <th {{ (luma < 200) ? "class='text-white'" }} scope="row">{{ colorName }}</th>
-              <td><code>&lt;tr class="bg-{{ colorName }}"&gt;...&lt;/tr&gt;</code></td>
-              <td><code>&lt;td class="bg-{{ colorName }}"&gt;...&lt;/td&gt;</code></td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
+        {% endfor %}
+        </tbody>
+      </table>
+      <caption>
+        This caption example was created with<code class="text-pink-500">
+          &lt;caption&gt;&lt;/caption&gt;
+        </code>.
+      </caption>
     </div>
-  </div>
-</div>
+    <h3 class="pb-2 pt-5">
+      Fixed
+    </h3>
+    <p class="pb-2">
+      Use<code class="text-pink-500">
+        .table-fixed
+      </code>to allow the table to ignore the content and use fixed widths for
+      columns. The width of the first row will set the column widths for the
+      whole table.
+    </p>
+    <div class="p-4 border">
+      <table class="table-auto w-full">
+        <thead class="text-left border-b">
+        <tr>
+          <th scope="col" class="px-4 py-2 w-1/2">
+            #
+          </th>
+          {% for header in table_data.header %}
+            <th scope="col" class="px-4 py-2 w-1/4">
+              {{ header }}
+            </th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_data.content %}
+          <tr class="border-b">
+            <th scope="row" class="px-4 py-2 text-left">
+              {{ loop.index }}
+            </th>
+            <td class="px-4 py-2">
+              {{ content.first_name }}
+            </td>
+            <td class="px-4 py-2">
+              {{ content.last_name }}
+            </td>
+            <td class="px-4 py-2">
+              @{{ content.username }}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <h2 class="pb-2 pt-5">
+      Styling tables examples
+    </h2>
+    <p>
+      As easy as adding Tailwind's utility classes like<code class="text-pink-500">
+        bg-gray-800
+      </code>and<code class="text-pink-500">
+        text-white
+      </code>to the table and/or its elements. For example,<code class="text-pink-500">
+        &lt;table class="bg-gray-800 text-white"&gt;
+      </code>!
+    </p>
+    <div class="p-4 border">
+      <table class="table-auto w-full bg-gray-800 text-white">
+        <thead class="text-left border-b">
+        <tr>
+          <th scope="col" class="px-4 py-2">
+            #
+          </th>
+          {% for header in table_data.header %}
+            <th scope="col" class="px-4 py-2">
+              {{ header }}
+            </th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_data.content %}
+          <tr class="border-b text-left">
+            <th scope="row" class="px-4 py-2">
+              {{ loop.index }}
+            </th>
+            <td class="px-4 py-2">
+              {{ content.first_name }}
+            </td>
+            <td class="px-4 py-2">
+              {{ content.last_name }}
+            </td>
+            <td class="px-4 py-2">
+              @{{ content.username }}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <h3 class="pb-2 pt-5">
+      Striped Rows
+    </h3>
+    <div class="p-4 border">
+      <table class="table-auto w-full">
+        <thead class="text-left border-b">
+        <tr>
+          <th scope="col" class="px-4 py-2">
+            #
+          </th>
+          {% for header in table_data.header %}
+            <th scope="col" class="px-4 py-2">
+              {{ header }}
+            </th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_data.content %}
+          <tr class="border-b {{
+          loop.index is not divisible by(2)
+          ? 'bg-gray-100'
+          }}">
+            <th scope="row" class="px-4 py-2 text-left">
+              {{ loop.index }}
+            </th>
+            <td class="px-4 py-2">
+              {{ content.first_name }}
+            </td>
+            <td class="px-4 py-2">
+              {{ content.last_name }}
+            </td>
+            <td class="px-4 py-2">
+              @{{ content.username }}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <br />
+      <table class="table-auto w-full">
+        <thead class="text-left text-white bg-gray-800">
+        <tr>
+          <th scope="col" class="px-4 py-2">
+            #
+          </th>
+          {% for header in table_data.header %}
+            <th scope="col" class="px-4 py-2">
+              {{ header }}
+            </th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_data.content %}
+          <tr class="text-white {{
+          loop.index is not divisible by(2)
+          ? 'bg-gray-700'
+          : 'bg-gray-800'
+          }}">
+            <th scope="row" class="px-4 py-2 text-left">
+              {{ loop.index }}
+            </th>
+            <td class="px-4 py-2">
+              {{ content.first_name }}
+            </td>
+            <td class="px-4 py-2">
+              {{ content.last_name }}
+            </td>
+            <td class="px-4 py-2">
+              @{{ content.username }}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <h3 class="pb-2 pt-5">
+      Hoverable rows
+    </h3>
+    <p>
+      Add<code class="text-pink-500">
+        .hover:
+      </code>pseudo classes on elements to enable a hover state within a<code class="text-pink-500">
+        &lt;table&gt;
+      </code>.<code class="text-pink-500">
+        &lt;tr class="hover:bg-gray-100"&gt;
+      </code>or<code class="text-pink-500">
+        &lt;tr class="hover:text-black"&gt;
+      </code>
+    </p>
+    <div class="p-4 border">
+      <table class="table-auto w-full">
+        <thead class="text-left border-b">
+        <tr>
+          <th scope="col" class="px-4 py-2">
+            #
+          </th>
+          {% for header in table_data.header %}
+            <th scope="col" class="px-4 py-2">
+              {{ header }}
+            </th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_data.content %}
+          <tr class="border-b hover:bg-gray-100">
+            <th scope="row" class="px-4 py-2 text-left">
+              {{ loop.index }}
+            </th>
+            <td class="px-4 py-2">
+              {{ content.first_name }}
+            </td>
+            <td class="px-4 py-2">
+              {{ content.last_name }}
+            </td>
+            <td class="px-4 py-2">
+              @{{ content.username }}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <br />
+      <table class="table-auto w-full bg-gray-800 text-white">
+        <thead class="text-left border-b">
+        <tr>
+          <th scope="col" class="px-4 py-2">
+            #
+          </th>
+          {% for header in table_data.header %}
+            <th scope="col" class="px-4 py-2">
+              {{ header }}
+            </th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in table_data.content %}
+          <tr class="border-b text-left hover:bg-gray-700">
+            <th scope="row" class="px-4 py-2">
+              {{ loop.index }}
+            </th>
+            <td class="px-4 py-2">
+              {{ content.first_name }}
+            </td>
+            <td class="px-4 py-2">
+              {{ content.last_name }}
+            </td>
+            <td class="px-4 py-2">
+              @{{ content.username }}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endblock content %}
+{% endembed %}

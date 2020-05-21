@@ -1,84 +1,58 @@
 {#
 /**
  * @file Colors!
- * Documenting Color Examples from Bootstrap.
+ *   Documenting Color Examples from Tailwind.
  *
  * Available variables:
- * - scssColors: [array] Provided from data as a list of color values.
+ * - tokens.colors: [array] Provided from data as a list of color values.
  *
- * @see https://getbootstrap.com/docs/4.0/utilities/colors/
+ * @see https://tailwindcss.com/docs/customizing-colors
  */
 #}
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1 class="mb-3">Colors</h1>
-      <div class="mb-3 p-3 bg-light border border-secondary rounded">
-        <p class="lead">To add to these items, add and override colors in <code>_colors.scss: $theme-colors()</code>.</p>
-        <div><a href="https://getbootstrap.com/docs/4.0/utilities/colors/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
-      </div>
-      <hr>
-    </div>
-  </div>
+{% embed '@demo/_demo-block.twig' with {
+  demo: colors_demo
+} %}
+  {% set tdClasses = 'border text-center' %}
+  {% set codeClasses = 'text-mono text-pink-500' %}
+  {% set swatchClasses = 'border p-10' %}
 
-  <div class="row">
-    {% for colorName, colorValue in scssColors %}
-      {# The custom Twig filters `rgba_string` and `luma` are found in _twig-components/filters/.
-       Feel free to add filters, but ensure that your implementing system is provided them. #}
-      {% set luma = colorValue|rgba_string|luma %}
-
-      <div class="col-md-3">
-        <div
-          class="card mb-3 {% if luma < 200 %}text-white{% endif %} bg-{{ colorName }}">
-          <div class="card-header">{{ colorValue }}</div>
-          <div class="card-body">
-            <h4 class="card-title">{{ colorName }}</h4>
-            <p class="card-text">Usage:</p>
-            <small><pre><code>map-get($theme-colors, {{ colorName }});</code></pre></small>
-            <p>Luminance: <code>{{ luma }}</code></p>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-
-  <h2>Text Color</h2>
-  <p>Colors can also be used with text classes. <code>_colors.scss:$theme-colors()</code>
-    is again the go-to here. <code>text-white</code> and
-    <code>text-black</code> are available by default.</p>
-
-  <div class="row border mb-3">
-    <div class="col-sm-10 offset-1">
-      {% for colorName, colorValue in scssColors %}
-        {% set luma = colorValue|rgba_string|luma %}
-        <p
-          class="p-3 mb-2 text-{{ colorName }} {% if luma > 200 %}bg-dark{% endif %}">
-          text-{{ colorName }}: <code>&lt;p class="text-{{ colorName }}"&gt;text-{{ colorName }}
-            &lt;/p&gt;</code></p>
+  {% block content %}
+    <table class="table-auto w-full">
+      <thead>
+      <tr class="border">
+        <th scope="col" class="p-4">Swatch</th>
+        <th scope="col" class="p-4">Name</th>
+        <th scope="col" class="p-4">Value</th>
+        <th scope="col" class="p-4">Luminance</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for colorName, colorValue in tokens.colors %}
+        {% if colorValue is not iterable and colorName != 'current' %}
+          {% set luma = colorValue | hex_to_rgba | rgba_string | luma %}
+          {% set colorClass = 'bg-' ~ colorName %}
+          <tr>
+            <td class="{{ swatchClasses ~ ' ' ~ colorClass }}"></td>
+            <td class="{{ tdClasses }}"><code class="{{ codeClasses }}">{{ colorName }}</code></td>
+            <td class="{{ tdClasses }}">{{ colorValue | upper }}</td>
+            <td class="{{ tdClasses }}">{{ luma }}</td>
+          </tr>
+        {% else %}
+          {% for nestedColor, nestedValue in colorValue %}
+            {# The custom Twig filters `hex_to_rgba`, `rgba_string` and `luma` are found in alter-twig.php. #}
+            {% set luma = nestedValue | hex_to_rgba | rgba_string | luma %}
+            {% set colorClass = 'bg-' ~ colorName ~ '-' ~ nestedColor %}
+            <tr>
+              <td class="{{ swatchClasses ~ ' ' ~ colorClass }}"></td>
+              <td class="{{ tdClasses }}"><code class="{{ codeClasses }}">{{ colorName ~ '-' ~ nestedColor }}</code></td>
+              <td class="{{ tdClasses }}">{{ nestedValue | upper }}</td>
+              <td class="{{ tdClasses }}">{{ luma }}</td>
+            </tr>
+          {% endfor %}
+        {% endif %}
       {% endfor %}
-    </div>
-  </div>
-
-  <h2>Background Colors</h2>
-  <p>Similar to the contextual text color classes, easily set the background of an element to any contextual class.
-    Anchor components will darken on hover, just like the text classes.
-    Background utilities do not set color, so in some cases you’ll want to use
-    <code>.text-*</code> utilities.</p>
-
-  <div class="row border">
-    <div class="col-sm-12">
-      <br>
-      <div class="row">
-        {% for colorName, colorValue in scssColors %}
-          {% set luma = colorValue|rgba_string|luma %}
-          <div class="p-3 mb-2 col-sm-10 offset-1 bg-{{ colorName }} {{ (luma < 200) ? 'text-white' }}">
-            bg-{{ colorName }}: <br><code>&lt;div class="bg-{{ colorName }}"&gt;&lt;/div&gt;</code>
-          </div>
-          <br>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-</div>
+      </tbody>
+    </table>
+  {% endblock content %}
+{% endembed %}

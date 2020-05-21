@@ -1,0 +1,15 @@
+services:
+  particle_theme.twig_extension:
+    arguments: ["@renderer"]
+    class: Drupal\particle_theme\TwigExtension\ParticleThemeTwig
+    tags:
+      - { name: twig.extension }
+
+  particle_theme.particle_tools:
+    class: Drupal\particle_theme\Tools\ParticleTools
+
+  particle_theme.atoms:
+    class: Drupal\particle_theme\Components\Atoms
+
+  particle_theme.molecules:
+    class: Drupal\particle_theme\Components\Molecules

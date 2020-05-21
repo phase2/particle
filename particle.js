@@ -8,10 +8,9 @@ const merge = require('webpack-merge');
 
 // Plugins:production
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 // Constants
-// NODE_ENV is set within all NPM scripts before running wepback, eg:
+// NODE_ENV is set within all NPM scripts before running webpack, eg:
 //
 //  "NODE_ENV='development' webpack-dev-server --config ./apps/pl/webpack.config.js --hot",
 //
@@ -35,7 +34,7 @@ const cssModes = {
     module: {
       rules: [
         {
-          test: /\.(sa|sc|c)ss$/,
+          test: /\.css$/,
           use: [{ loader: 'style-loader' }, { loader: 'vue-style-loader' }],
         },
       ],
@@ -48,7 +47,7 @@ const cssModes = {
     module: {
       rules: [
         {
-          test: /\.(sa|sc|c)ss$/,
+          test: /\.css$/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
@@ -59,15 +58,6 @@ const cssModes = {
       ],
     },
     plugins: [
-      new OptimizeCSSAssetsPlugin({
-        // Ensure css map file output
-        cssProcessorOptions: {
-          map: {
-            inline: false,
-            annotation: true,
-          },
-        },
-      }),
       new MiniCssExtractPlugin({
         filename: '[name].styles.css',
         chunkFilename: '[id].css',

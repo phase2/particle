@@ -3,7 +3,6 @@
 } %}
 
   {% block content %}
-
     <div class="primary-image-demo m-3">
       <h2 class="mb-3">Primary Image</h2>
         {% for imageStyleName, imageStyleSetting in imageStyles %}
@@ -12,7 +11,6 @@
             style: imageStyleName,
             placeholder: true,
           } %}
-
           {% include "@atoms/image/_image.twig" with {
             image: image,
             image_classes: ['d-inline', 'm-1']
@@ -43,27 +41,25 @@
 
     <div class="background-image-demo m-3">
       <h2>Background Images</h2>
-      <div class="row">
-        <div class="col-lg-6">
+      <div class="flex flex-wrap">
+        <div class="lg:w-1/2 pr-4 pl-4">
           <h3>SVG</h3>
           {% set image_bg_logo_demo = {
             variant: 'bg',
             src: paths.images ~ '/logo.svg',
             alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
           } %}
-
           {% include '@atoms/image/_image.twig' with {
             image: image_bg_logo_demo
           } %}
         </div>
-        <div class="col-lg-6">
+        <div class="lg:w-1/2 pr-4 pl-4">
           <h3>PNG</h3>
           {% set image_bg_astrogoat_demo = {
             variant: 'bg',
             src: paths.images ~ '/astrogoat.png',
             alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
           } %}
-
           {% include '@atoms/image/_image.twig' with {
             image: image_bg_astrogoat_demo
           } %}
@@ -72,5 +68,4 @@
     </div>
 
   {% endblock content %}
-
 {% endembed %}

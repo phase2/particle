@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Particle theme.
+ */
+
+/**
+ * Place any preprocess functions in .theme.inc files, or make a new one.
+ *
+ * The .theme files should contain logic for the elements in their corresponding
+ * template directories (ie 'blocks.theme.inc' should modify templates in
+ * 'templates/blocks'.)
+ */
+
+include 'includes/admin.theme.inc';
+include 'includes/block.theme.inc';
+include 'includes/content.theme.inc';
+include 'includes/field.theme.inc';
+include 'includes/form.theme.inc';
+include 'includes/layout.theme.inc';
+include 'includes/media.theme.inc';
+include 'includes/misc.theme.inc';
+include 'includes/navigation.theme.inc';
+include 'includes/node.theme.inc';
+include 'includes/suggestions.theme.inc';
+include 'includes/user.theme.inc';
+include 'includes/views.theme.inc';

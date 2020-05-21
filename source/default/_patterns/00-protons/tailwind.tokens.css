@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+Example: Google Remote Fonts
+Serif - Google Fonts - Oswald
+Sans-Serif - Google Fonts - Open Sans
+Monospace - Google Fonts - Source Code Pro
+*/
+
+@import url(https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap);
+
+body {
+  @apply font-sans;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif;
+}
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+h4 {
+  @apply text-lg;
+}
+a {
+  @apply text-blue-500;
+}
+code {
+  @apply text-pink-500;
+}
+tr {
+  @apply text-left;
+}

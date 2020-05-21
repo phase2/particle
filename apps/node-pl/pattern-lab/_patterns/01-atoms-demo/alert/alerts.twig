@@ -1,21 +1,17 @@
-{% embed '@atoms/grid/_grid-1-up.twig' %}
-  {% set container = true %}
+{#
+/**
+ * @file Alerts!
+ *   Documenting @atoms/alert/_alert.twig
+ */
+#}
 
-  {% block column_1 %}
-    <h1 class="mb-3">Alerts</h1>
-    <div class="mb-3 p-3 bg-light border border-secondary rounded">
-      <p class="lead">Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.</p>
-      <div><a href="https://getbootstrap.com/docs/4.0/components/alerts/" target="_blank" rel="noopener noreferrer">Bootstrap Documentation</a></div>
-    </div>
-    <hr>
-
+{% embed '@demo/_demo-block.twig' with {
+  demo: alert_demo
+} %}
+  {% block content %}
     {% include '@atoms/alert/_alert.twig' with alert_status %}
-
     {% include '@atoms/alert/_alert.twig' with alert_warning %}
-
     {% include '@atoms/alert/_alert.twig' with alert_error %}
-
     {% include '@atoms/alert/_alert.twig' with alert_info %}
-
-  {% endblock %}
+  {% endblock content %}
 {% endembed %}

@@ -15,7 +15,6 @@ to patch packages directly.
 ## Usage
 
 Add the following to your `package.json` file ins Particle:
-
 ```
  "scripts": {
   "postinstall": "patch-package"
@@ -30,7 +29,6 @@ root of Particle.
 
 When you run `npm install`, the `patch-package` module will run with the
 postinstall script above, patching your `npm` package with the source from the
-`patches` directory. 
-
+`patches` directory.
 Make sure to monitor these patches for any stale patches and prune as projects
-are updated.  
+are updated.

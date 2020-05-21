@@ -11,8 +11,10 @@ const particle = require('../../particle');
 
 // Constants: environment
 const { NODE_ENV } = process.env;
+
 // Constants: root
 const { ASSETS_ATOMIC_FOLDER } = require('../../particle.root.config');
+
 // Constants: app
 const appConfig = require('./particle.app.config');
 
@@ -57,8 +59,8 @@ const dev = {
     new RunScriptAfterEmit({
       exec: [
         // prettier-ignore
-        `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete! 
-        Edit apps/drupal/webpack.config.js to replace this line with 
+        `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete!
+        Edit apps/drupal/webpack.config.js to replace this line with
         'drupal cr all' now. 🚀\n`,
       ],
     }),

@@ -1,0 +1,8 @@
+vue_widgets_demo:
+  title: 'Vue Widgets'
+  content:
+    lead: 'Example Vue Applications'
+    summary: 'Vue is a flexible and robust UI library similar to React.'
+    link:
+      text: 'Vue Documentation'
+      url: 'https://vuejs.org/v2/guide/'

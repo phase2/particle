@@ -7,10 +7,8 @@
 
 // Library Imports
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
-const sass = require('sass');
 
 // Plugins
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -47,20 +45,12 @@ module.exports = {
         },
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.css$/,
         use: [
           {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-            },
-          },
-          {
-            // PostCSS config at ./postcss.config.js
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              ident: 'postcss',
             },
           },
           {
@@ -71,15 +61,11 @@ module.exports = {
             },
           },
           {
-            loader: 'sass-loader',
+            // PostCSS config at ./postcss.config.js
+            loader: 'postcss-loader',
             options: {
               sourceMap: true,
-              // dart-sass! Note: the `fibers` dev-dependency in package.json
-              // is required to make this run faster
-              implementation: sass,
-              sassOptions: {
-                outputStyle: 'compressed',
-              },
+              ident: 'postcss',
             },
           },
         ],
@@ -90,7 +76,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
-          emitWarning: true,
+          emitWarning: true, // development only
+          // emitWarning: false, // production only
         },
       },
       {
@@ -140,14 +127,10 @@ module.exports = {
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery
     // plugins to assume that `window.jquery` is available
     new ProvidePlugin({
-      // Bootstrap is dependant on jQuery and Popper
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
     }),
-    // Yell at us while writing Sass
-    new StyleLintPlugin(),
     // Handle .vue files
     new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.

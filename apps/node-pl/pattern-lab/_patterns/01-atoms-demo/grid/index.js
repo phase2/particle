@@ -1,2 +1,2 @@
-import './grid-demo.twig';
-import './layout-demo.twig';
+import './grids.twig';
+import './grids.yml';

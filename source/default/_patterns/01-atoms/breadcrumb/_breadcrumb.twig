@@ -1,7 +1,6 @@
 {#
 /**
  * @file Breadcumb!
- * Documenting Breadcrumb Examples from Bootstrap.
  *
  * Available variables:
  * - breadcrumb_items: [array] A list of breadcrumbs to render
@@ -9,17 +8,20 @@
  * - breadcrumb_link: [string] The URL of the breadcrumb
  *
  * @see https://www.w3.org/TR/wai-aria-practices/#breadcrumb
- * @see https://getbootstrap.com/docs/4.0/components/breadcrumb/
  */
 #}
-
 <nav aria-label="breadcrumb" role="navigation">
-  <ol class="breadcrumb">
+  <ol class="flex flex-wrap list-reset pt-3 pb-3 py-4 px-4 mb-4 bg-gray-200 rounded">
     {% for item in breadcrumb %}
       {% if loop.last %}
-        <li class="breadcrumb-item active is-active" aria-current="page">{{ item.text }}</li>
+        <li class="inline-block px-2 py-2 text-grey-dark active is-active"
+          aria-current="page">
+          {{ item.text }}
+        </li>
       {% else %}
-        <li class="breadcrumb-item"><a href="{{ (pl) ? '#' : item.url }}">{{ item.text }}</a></li>
+        <li class="inline-block px-2 py-2 text-grey-dark">
+          <a href="{{ pl ? '#' : item.url }}">{{ item.text }}</a>
+        </li>
       {% endif %}
     {% endfor %}
   </ol>
