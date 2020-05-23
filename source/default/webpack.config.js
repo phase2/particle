@@ -8,6 +8,9 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
 const namespaces = require('./namespaces');
 
+// Constants: root
+const { ASSETS_ATOMIC_FOLDER } = require('../../particle.root.config');
+
 module.exports = {
   module: {
     rules: [
@@ -27,6 +30,16 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+          outputPath: ASSETS_ATOMIC_FOLDER,
+          context: path.resolve(__dirname),
+          emit: true,
+        },
       },
     ],
   },

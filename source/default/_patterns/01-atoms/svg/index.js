@@ -13,17 +13,15 @@ import fontawesome from './fontawesome';
 import './_svg--embed.twig';
 import './_svg--sprite.twig';
 
-// Module svg assets
-require.context('./icons', true, /\.svg$/);
+// Import all SVGs into assets/images for reference in CSS/JS bundle
+require.context('./icons', false, /\.svg$/);
+// Import all SVGS into atomic/01-atoms/svg/icons for reference in twig embeds
+// require.context('./icons/?twig', false, /\.svg$/);
 
 // Enable Fontawesome immediately
 fontawesome();
 
 export const name = 'svg';
-
-export const defaults = {
-  dummyClass: 'js-svg-exists',
-};
 
 /**
  * Components may need to run clean-up tasks if they are removed from DOM.
@@ -43,7 +41,7 @@ export function disable($context, settings) {}
  * @param {jQuery} $context - A piece of DOM
  * @param {Object} settings - Settings object
  */
-export function enable($context, { svg = {} }) {
+export function enable($context) {
   // Find our component within the DOM
   const $svg = $('.svg', $context);
   // Bail if component does not exist
@@ -53,11 +51,6 @@ export function enable($context, { svg = {} }) {
 
   // Enable svg4everybody.
   svg4everybody();
-
-  // Merge defaults with incoming settings
-  const settings = Object.assign(defaults, svg);
-  // An example of what could be done with this component
-  $svg.addClass(settings.dummyClass);
 }
 
 export default enable;

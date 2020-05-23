@@ -4,7 +4,7 @@ SVG as CSS or inline. Furthermore, this pattern is setup to be optimized as a
 developer step via `npm run fmt:svg` or `npm run fmt`.
 
 ## Adding SVG
-To add an SVG to the system, simply add it to `@atoms/svg/svg/` directory and
+To add an SVG to the system, simply add it to `@atoms/svg/icons/` directory and
 run the format command. This step is **destructive**, so be aware of using
 source control to revert unintended changes.
 

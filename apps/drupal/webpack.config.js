@@ -41,6 +41,29 @@ const shared = {
           emit: true,
         },
       },
+      // {
+      //   test: /\.svg$/,
+      //   oneOf: [
+      //     {
+      //       resourceQuery: /twig/,
+      //       use: {
+      //         loader: 'file-loader',
+      //         options: {
+      //           name: '[path][name].[ext]',
+      //           outputPath: ASSETS_ATOMIC_FOLDER,
+      //           context: APP_DESIGN_SYSTEM,
+      //           emit: true,
+      //         },
+      //       }
+      //     },
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         name: 'images/[name].[ext]?[hash]',
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   plugins: [
