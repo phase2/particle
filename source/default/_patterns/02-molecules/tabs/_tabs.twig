@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * tabs
+ *
+ * Available variables for tabs:
+ *  - tabs.label [string]: Used for aria-label for tabslist.
+ *  - tabs.show_title_in_panel [boolean]: Shows title in panel.
+ *  - tabs.panel_title_element [string]: h2|(h3)|span Element to use for panel title.
+ *  - tabs.data [array]: array of tab objects.
+ *    - title [string]: Used for Tab title and Header inside of tab panel.
+ *    - panel [string]: Panel content.
+ */
+#}
+{% set seed = random() %}
+{% set title_element = tabs.panel_title_element|default('h3') %}
+<div class="tabs mb-4">
+  <ul class="tabs__list px-1" role="tablist" {{ tabs.label ? "aria-label='#{tabs.label}'" }}>
+    {% for item in tabs.data %}
+      {% set item_uid = "#{seed}-#{loop.index}" %}
+      {% set tab_id = "tabs-tab--#{item_uid}" %}
+      {% set panel_id = "tabs-panel--#{item_uid}" %}
+      <li class="tabs__list-item inline-block" role="presentation">
+        <a
+          class="tabs__list-link inline-block py-1 px-8 text-black border border-gray-500 border-b-0 rounded-t hover:border-blue-600 hover:underline hover:text-blue-600 focus:border-blue-600 focus:outline-none focus:underline focus:text-blue-600"
+          id="{{ tab_id }}"
+          href="#{{ panel_id }}"
+          role="tab"
+          aria-controls="{{ panel_id }}"
+          aria-selected="false"
+        >
+          {{ item.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="tabs__panels">
+    {% for item in tabs.data %}
+      {% set item_uid = "#{seed}-#{loop.index}" %}
+      {# A11y show initially let js choose to which to show/hide. #}
+      <section
+        class="tabs__panels-item border border-gray-500 p-4 bg-white focus:border-blue-600 focus:outline-none"
+        id="tabs-panel--{{ item_uid }}"
+        role="tabpanel"
+        aria-labelledby="tabs-tab--{{ item_uid }}"
+      >
+        {% if tabs.show_title_in_panel %}
+          <{{ title_element }}>{{ item.title }}</{{ title_element }}>
+        {% endif %}
+        {{ item.panel }}
+      </section>
+    {% endfor %}
+  </div>
+
+</div>

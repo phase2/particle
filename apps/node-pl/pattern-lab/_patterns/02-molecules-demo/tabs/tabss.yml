@@ -1,0 +1,21 @@
+tabs_demo_block:
+  title: Tabs Component
+  content:
+    lead: Accessibile tabs
+    summary: 'Based on examples from
+    <a href="https://inclusive-components.design/tabbed-interfaces/" target="_blank">Inclusive Components</a> and
+    <a href="https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-1/tabs.html/" target="_blank">w3.org</a>.</br>
+    <strong>Keyboard Navigation:</strong> Use <em>Tab key</em> to navigate to tabs.  Use <em>arrow keys</em> to change
+    active tab.  Down arrow to enter panel. <em>Tab key</em> will navigate to next tabbable element in active panel
+    or in page content.'
+
+tabs:
+  label: Demo Tabs
+  show_title_in_panel: true
+  data:
+    - title: Tab 1
+      panel: Panel 1 content
+    - title: Tab 2
+      panel: Panel 2 content
+    - title: Tab 3
+      panel: Panel 3 content

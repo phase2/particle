@@ -1,0 +1,7 @@
+
+.tabs__list-link:not([aria-selected="true"]):not(:hover) {
+  @apply bg-gray-300;
+}
+.tabs__list-link[aria-selected="true"]:not(:hover) {
+  @apply bg-white;
+}

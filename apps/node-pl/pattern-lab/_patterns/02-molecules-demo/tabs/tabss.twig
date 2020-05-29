@@ -1,0 +1,34 @@
+{% extends '@demo/_demo-block.twig' %}
+
+{% set demo = tabs_demo_block %}
+
+{% block content %}
+  <h2>Tab basic</h2>
+  {% include '@molecules/tabs/_tabs.twig' %}
+
+  <h2>Tab with components</h2>
+  {% set article_tab %}
+    {% include '@organisms/article/_article.twig' with {
+      article: article_1,
+    } %}
+  {% endset %}
+  {% include '@molecules/tabs/_tabs.twig' with {
+    tabs: tabs|merge({
+      data: [
+        {
+          title: 'Article Tab',
+          panel: article_tab,
+        },
+        {
+          title: 'Tab 2',
+          panel: excerpt.long,
+        },
+        {
+          title: 'Tab 3',
+          panel: "<p>#{excerpt.medium}<p>",
+        },
+      ],
+    }),
+  } %}
+
+{% endblock %}
