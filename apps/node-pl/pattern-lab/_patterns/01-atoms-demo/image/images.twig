@@ -42,18 +42,19 @@
     <div class="background-image-demo m-3">
       <h2>Background Images</h2>
       <div class="flex flex-wrap">
-        <div class="lg:w-1/2 pr-4 pl-4">
+        <div class="w-full lg:w-1/2 pr-4 pl-4">
           <h3>SVG</h3>
           {% set image_bg_logo_demo = {
             variant: 'bg',
             src: paths.images ~ '/logo.svg',
-            alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
+            alt: 'Early Particle logo!',
           } %}
           {% include '@atoms/image/_image.twig' with {
-            image: image_bg_logo_demo
+            image: image_bg_logo_demo,
+            image_classes: ['h-64','w-full','bg-center'],
           } %}
         </div>
-        <div class="lg:w-1/2 pr-4 pl-4">
+        <div class="w-full lg:w-1/2 pr-4 pl-4">
           <h3>PNG</h3>
           {% set image_bg_astrogoat_demo = {
             variant: 'bg',
@@ -61,7 +62,8 @@
             alt: 'A friendly goat wearing a space helmet. The Astrogoat!',
           } %}
           {% include '@atoms/image/_image.twig' with {
-            image: image_bg_astrogoat_demo
+            image: image_bg_astrogoat_demo,
+            image_classes: ['h-64','w-full','bg-contain','bg-center'],
           } %}
         </div>
       </div>
