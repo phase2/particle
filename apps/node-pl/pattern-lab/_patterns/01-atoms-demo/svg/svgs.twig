@@ -87,7 +87,12 @@
 
     <h1 class="mt-2">img src</h1>
     <p class="mb-2">If you need to reference these SVGs as src for an img tag.</p>
-    <img src="{{constant('@atoms/svg/icons/person.svg')}}"/>
+    <img class="w-10" src="{{paths.svgs ~ '/person.svg'}}"/>
+
+    <h1 class="mt-2">CSS classes</h1>
+    <p>Pure CSS classes</p>
+    <i class="sprite-person"></i>
+    <i class="sprite-close"></i>
 
 	{% endblock %}
 

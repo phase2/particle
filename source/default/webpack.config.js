@@ -53,6 +53,9 @@ module.exports = {
           svg4everybody: true,
           svgo: true,
         },
+        styles: {
+          filename: '~svg-icons.css',
+        },
       }
     ),
   ],

@@ -1,0 +1,5 @@
+[class^='sprite-'] {
+  @apply w-6 h-6;
+
+  display: inline-block;
+}
