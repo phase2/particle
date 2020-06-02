@@ -25,4 +25,3 @@ To prepare your Drupal installation to use Particle:
 1. Ensure the module is enabled: `drush en particle_theme`.
 1. Ensure the theme is enabled: `drush theme:enable particle`.
 1. Ensure the theme is set: `drush config-set system.theme default THEME_MACHINE_NAME`.
-
