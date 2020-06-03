@@ -1,0 +1,3 @@
+.accordion__trigger[aria-expanded="true"] .accordion__trigger-icon {
+  @apply transform rotate-180;
+}

@@ -1,0 +1,19 @@
+accordion_demo_block:
+  title: Accordion Component
+  content:
+    lead: Accessibile accordion.
+    summary: 'Based on examples from
+      <a href="https://inclusive-components.design/collapsible-sections/" target="_blank">Inclusive Components</a> and
+      <a href="https://www.w3.org/TR/wai-aria-practices/examples/accordion/accordion.html" target="_blank">w3.org</a>.</br>
+      <strong>Keyboard Navigation:</strong> Use <em>Tab key</em> to navigate to accordion.  Use <em>arrow keys</em> to
+      switch focus. <em>Enter key</em> or <em>Space key</em> will open panel. <em>Tab key</em> will navigate to next
+      tabbable element in open panel or in page content.'
+
+accordion:
+  data:
+    - title: Item 1
+      panel: Panel 1 content
+    - title: Item 2
+      panel: Panel 2 content
+    - title: Item 3
+      panel: Panel 3 content

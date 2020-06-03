@@ -1,0 +1,26 @@
+{% extends '@demo/_demo-block.twig' %}
+
+{% set demo = accordion_demo_block %}
+
+{% block content %}
+  <h2 class="mt-3">Accordion Default</h2>
+  {% include '@molecules/accordion/_accordion.twig' %}
+  <h2>Accordion - Allow Multiple Sections Open</h2>
+  {% include '@molecules/accordion/_accordion.twig' with {
+    accordion: accordion|merge({
+      allow_multiple: true
+    })
+  }%}
+  <h2 class="mt-3">Accordion - Allow All Sections Closed</h2>
+  {% include '@molecules/accordion/_accordion.twig' with {
+    accordion: accordion|merge({
+      allow_toggle: true
+    })
+  }%}
+  <h2 class="mt-3">Accordion - All Start Closed</h2>
+  {% include '@molecules/accordion/_accordion.twig' with {
+    accordion: accordion|merge({
+      collapsed: true
+    })
+  }%}
+{% endblock %}

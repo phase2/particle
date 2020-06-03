@@ -25,6 +25,8 @@ module.exports = {
     fontFamily,
     extend: {},
   },
-  variants: {},
+  variants: {
+    boxShadow: ['responsive', 'hover', 'focus', 'focus-within'],
+  },
   plugins: [],
 };

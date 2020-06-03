@@ -116,8 +116,12 @@
             {% set borderClass = 'border border-' ~ colorName %}
             <tr>
               <td class="{{ tdClasses }}">
-                <span class="inline-block h-8 w-8 bg-white {{ borderClass }}"></span>
-                <span class="inline-block h-8 w-8 bg-gray-100 {{ borderClass }}"></span>
+                <span class="inline-block p-1 bg-white">
+                  <span class="inline-block h-8 w-8 align-middle {{ borderClass }}"></span>
+                </span>
+                <span class="inline-block p-1 bg-black">
+                  <span class="inline-block h-8 w-8 mb-0 align-middle {{ borderClass }}"></span>
+                </span>
               </td>
               <td class="{{ tdClasses }}"><span class="{{ codeClasses }}">{{ borderClass }}</span></td>
               <td class="{{ tdClasses }}">{{ colorName }}</td>
@@ -128,8 +132,12 @@
               {% set borderClass = 'border border-' ~ colorName ~ '-' ~ nestedColor %}
               <tr>
                 <td class="{{ tdClasses }}">
-                  <span class="inline-block h-8 w-8 bg-white {{ borderClass }}"></span>
-                  <span class="inline-block h-8 w-8 bg-gray-100 {{ borderClass }}"></span>
+                  <span class="inline-block p-1 bg-white">
+                    <span class="inline-block h-8 w-8 align-middle {{ borderClass }}"></span>
+                  </span>
+                  <span class="inline-block p-1 bg-black">
+                    <span class="inline-block h-8 w-8 align-middle {{ borderClass }}"></span>
+                  </span>
                 </td>
                 <td class="{{ tdClasses }}"><span class="{{ codeClasses }}">{{ borderClass }}</span></td>
                 <td class="{{ tdClasses }}">{{ colorName ~ '-' ~ nestedColor }}</td>
