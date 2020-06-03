@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\particle_theme\Components;
+namespace Drupal\particle_helper\Components;
 
 /**
  * Provides ComponentMaker functions for Atoms.

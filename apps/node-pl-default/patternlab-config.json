@@ -54,11 +54,11 @@
   },
   "paths": {
     "source": {
-      "root": "./apps/node-pl/pattern-lab/",
-      "patterns": "./apps/node-pl/pattern-lab/_patterns/",
-      "data": "./apps/node-pl/pattern-lab/_data/",
-      "meta": "./apps/node-pl/pattern-lab/_meta/",
-      "annotations": "./apps/node-pl/pattern-lab/_annotations/",
+      "root": "./apps/node-pl-default/pattern-lab/",
+      "patterns": "./apps/node-pl-default/pattern-lab/_patterns/",
+      "data": "./apps/node-pl-default/pattern-lab/_data/",
+      "meta": "./apps/node-pl-default/pattern-lab/_meta/",
+      "annotations": "./apps/node-pl-default/pattern-lab/_annotations/",
       "styleguide": "dist/",
       "patternlabFiles": {
         "general-header": "views/partials/general-header.mustache",
@@ -88,7 +88,7 @@
     "inreview",
     "complete"
   ],
-  "patternExportDirectory": "apps/node-pl/pattern_exports/",
+  "patternExportDirectory": "apps/node-pl-default/pattern_exports/",
   "patternExportPatternPartials": [],
   "serverOptions": {
     "wait": 1000
@@ -165,7 +165,7 @@
           "id": "demo",
           "recursive": true,
           "paths": [
-            "./apps/node-pl/pattern-lab/_patterns/00-protons-demo"
+            "./apps/node-pl-default/pattern-lab/_patterns/00-protons-demo"
           ]
         },
         {
@@ -178,7 +178,7 @@
       ],
       "alterTwigEnv": [
         {
-          "file": "./apps/node-pl/pattern-lab/alter-twig.php",
+          "file": "./apps/node-pl-default/pattern-lab/alter-twig.php",
           "functions": [
             "addFilters",
             "addFunctions",

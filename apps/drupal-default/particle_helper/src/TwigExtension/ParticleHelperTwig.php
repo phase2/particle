@@ -1,19 +1,19 @@
 <?php
 
-namespace Drupal\particle_theme\TwigExtension;
+namespace Drupal\particle_helper\TwigExtension;
 
 use Drupal\Core\Template\Attribute;
 
 /**
  * {@inheritdoc}
  */
-class ParticleThemeTwig extends \Twig_Extension {
+class ParticleHelperTwig extends \Twig_Extension {
 
   /**
    * {@inheritdoc}
    */
   public function getName() {
-    return 'particle_theme_twig.twig_extension';
+    return 'particle_helper_twig.twig_extension';
   }
 
   /**

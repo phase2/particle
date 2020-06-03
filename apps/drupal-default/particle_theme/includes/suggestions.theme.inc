@@ -62,7 +62,7 @@ function particle_theme_suggestions_form_alter(array &$suggestions, array $varia
   // Particle Theme for Octane's Views Search and Drupal's Built-In Search.
   // This hook allows to apply two search block implementations to the same
   // theme file. Drupal only template file located at
-  // /Particle/apps/drupal/templates/form/form--particle-search.html.twig.
+  // /Particle/apps/drupal-default/templates/form/form--particle-search.html.twig.
   if ($id == 'views-exposed-form-search-page' || $id == 'search-block-form') {
     $suggestions[] = 'form__particle-search';
   }

@@ -60,7 +60,7 @@ const dev = {
       exec: [
         // prettier-ignore
         `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete!
-        Edit apps/drupal/webpack.config.js to replace this line with
+        Edit apps/drupal-default/webpack.config.js to replace this line with
         'drupal cr all' now. 🚀\n`,
       ],
     }),

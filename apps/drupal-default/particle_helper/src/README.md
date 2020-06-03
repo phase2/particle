@@ -1,4 +1,4 @@
-# Particle Theme
+# Particle Helper
 
 ## Extensions
 
@@ -39,8 +39,8 @@ Each component maker file is registered as a service and can be called inside
 any php file using Drupal's class resolver:
 
 ```php
-/** @var \Drupal\particle_theme\Components\Molecules */
-$molecules = \Drupal::service('particle_theme.molecules');
+/** @var \Drupal\particle_helper\Components\Molecules */
+$molecules = \Drupal::service('particle_helper.molecules');
 
 $header = $molecules->makeHeader('My Cool Header');
 ```
@@ -73,8 +73,8 @@ theme path from a defined theme constant:
 To use the Tools library in any php file again use Drupal's class resolver:
 
 ```php
-/** @var \Drupal\particle_theme\ParticleTools\ParticleTools */
-$tools = \Drupal::service('particle_theme.particle_tools');
+/** @var \Drupal\particle_helper\ParticleTools\ParticleTools */
+$tools = \Drupal::service('particle_helper.particle_tools');
 
 $theme_path = $tools->getThemePath();
 ```

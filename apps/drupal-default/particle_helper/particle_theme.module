@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains particle_theme.module.
+ * Contains particle_helper.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -10,10 +10,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function particle_theme_help($route_name, RouteMatchInterface $route_match) {
+function particle_helper_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the particle_theme module.
-    case 'help.page.particle_theme':
+    // Main module help for the particle_helper module.
+    case 'help.page.particle_helper':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Particle and Particle theme utilities') . '</p>';

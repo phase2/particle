@@ -27,13 +27,13 @@ component-libraries:
     paths: []
   atoms:
     paths:
-      - /dist/app-drupal/assets/atomic/_patterns/01-atoms
+      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms
   molecules:
     paths:
-      - /dist/app-drupal/assets/atomic/_patterns/02-molecules
+      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules
   organisms:
     paths:
-      - /dist/app-drupal/assets/atomic/_patterns/03-organisms
+      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms
   templates:
     paths: []
   pages:
