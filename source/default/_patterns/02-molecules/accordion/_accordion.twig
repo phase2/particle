@@ -7,24 +7,42 @@
  *  - accordion.data [array]: array of tab objects.
  *    - title [string]: Accordion title.
  *    - panel [string]: Panel content.
+ *    - button_attributes [array]: Accordion trigger attributes from other partials.
+ *    - panel_attributes [array]: Accordion panel attributes from other partials.
  *  - accordion.collapsed [bool]: Will start will all panels collapsed.
- *  - accordion.allow_toggle [bool]: Allow for each toggle to both open and close its section. Makes it possible for all sections to be closed. Assumes only one section may be open.
- *  - accordion.allow_multiple [bool]: Allow for multiple accordion sections to be expanded at the same time. Assumes data-allow-toggle otherwise the toggle on open sections would be disabled.
+ *  - accordion.allow_toggle [bool]: Allow for each toggle to both open and close its section. Makes it possible for all
+ *    sections to be closed. Assumes only one section may be open.
+ *  - accordion.allow_multiple [bool]: Allow for multiple accordion sections to be expanded at the same time. Assumes
+ *    data-allow-toggle otherwise the toggle on open sections would be disabled.
+ *  - accordion.trigger_element [string]: h2|h3|h4|div Element used to wrap accordion trigger.
+ *  - accordion.attributes [array]: Accordion attributes from other partials.
  */
 #}
 {% set seed = random() %}
 {% set trigger_element = accordion.trigger_element|default('h3') %}
-<div class="accordion mb-4 focus-within:shadow-outline"
-  {{ accordion.allow_toggle or accordion.collapsed ? 'data-allow-toggle="true"' }}
-  {{ accordion.allow_multiple ? 'data-allow-multiple="true"' }}
->
+{% set accordion_attributes = accordion.attributes|default({})|merge({
+  'data-allow-toggle': accordion.allow_toggle or accordion.collapsed ? 'true' : 'false',
+  'data-allow-multiple': accordion.allow_multiple ? 'true' : 'false',
+}) %}
+
+<div class="accordion mb-4 focus-within:shadow-outline" {{ accordion_attributes | attributify }} >
   {% for item in accordion.data %}
     {% set item_uid = "#{seed}-#{loop.index}" %}
-    <{{ trigger_element }}>
-      <button {{ loop.first and not accordion.collapsed ? 'aria-expanded="true"' }}
+    {% set button_attributes = item.button_attributes|default({})|merge({
+      'aria-expanded': (loop.first and not accordion.collapsed) ? 'true' : 'false',
+      'aria-controls': "accordion-panel--#{ item_uid }",
+      id: "accordion-trigger--#{ item_uid }",
+    }) %}
+    {% set panel_attributes = item.panel_attributes|default({})|merge({
+      id: "accordion-panel--#{ item_uid }",
+      role: "region",
+      'aria-labelledby': "accordion-trigger--#{ item_uid }",
+    }) %}
+
+  <{{ trigger_element }}>
+      <button {{ button_attributes | attributify }}
         class="accordion__trigger block w-full text-left px-4 py-2 border {{ loop.first ?: 'border-t-0' }} focus:outline-none focus:shadow-outline"
-        aria-controls="accordion-panel--{{ item_uid }}"
-        id="accordion-trigger--{{ item_uid }}">
+      >
         <span class="accordion__trigger-title flex justify-between items-center">
           {{ item.title }}
           <span class="accordion__trigger-icon inline-block w-4 h-4">
@@ -38,11 +56,7 @@
         </span>
       </button>
     </{{ trigger_element }}>
-    <div id="accordion-panel--{{ item_uid }}"
-         role="region"
-         aria-labelledby="accordion-trigger--{{ item_uid }}"
-         class="accordion__panel p-4 border border-t-0"
-         {{ loop.first and not accordion.collapsed ?: 'hidden' }}>
+    <div class="accordion__panel p-4 border border-t-0" {{ panel_attributes | attributify }} {{ loop.first and not accordion.collapsed ?: 'hidden' }}>
       {{ item.panel }}
     </div>
   {% endfor %}
