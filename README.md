@@ -2,7 +2,7 @@
 
 [![GitHub (pre-)release](https://img.shields.io/github/release/phase2/particle/all.svg)](https://github.com/phase2/particle/releases) [![Build Status](https://travis-ci.org/phase2/particle.svg?branch=master)](https://travis-ci.org/phase2/particle) [![Greenkeeper badge](https://badges.greenkeeper.io/phase2/particle.svg)](https://greenkeeper.io/)
 
-![Particle mascot: Astrogoat](apps/node-pl-default/pattern-lab/_patterns/01-atoms-demo/image/astrogoat.png?raw=true 'Astrogoat')
+![Particle mascot: Astrogoat](apps/pl-default/pattern-lab/_patterns/01-atoms-demo/image/astrogoat.png?raw=true 'Astrogoat')
 
 Particle is an opinionated set of tools and examples to:
 
@@ -62,7 +62,7 @@ npm run setup
 npm start
 ```
 
-Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/app-node-pl/pl/](http://0.0.0.0:8080/app-node-pl/pl/) (or [http://localhost:8080/app-node-pl/pl/](http://localhost:8080/app-node-pl/pl/)) and start working.
+Simply wait until the webpack bundle output appears then visit [http://0.0.0.0:8080/app-pl/pl/](http://0.0.0.0:8080/app-pl/pl/) (or [http://localhost:8080/app-pl/pl/](http://localhost:8080/app-pl/pl/)) and start working.
 
 That's it. For **much** greater detail on the frontend approach using this project, check out the [Phase2 Frontend Docs](https://phase2.gitbook.io/frontend/).
 

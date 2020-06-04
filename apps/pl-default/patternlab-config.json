@@ -54,11 +54,11 @@
   },
   "paths": {
     "source": {
-      "root": "./apps/node-pl-default/pattern-lab/",
-      "patterns": "./apps/node-pl-default/pattern-lab/_patterns/",
-      "data": "./apps/node-pl-default/pattern-lab/_data/",
-      "meta": "./apps/node-pl-default/pattern-lab/_meta/",
-      "annotations": "./apps/node-pl-default/pattern-lab/_annotations/",
+      "root": "./apps/pl-default/pattern-lab/",
+      "patterns": "./apps/pl-default/pattern-lab/_patterns/",
+      "data": "./apps/pl-default/pattern-lab/_data/",
+      "meta": "./apps/pl-default/pattern-lab/_meta/",
+      "annotations": "./apps/pl-default/pattern-lab/_annotations/",
       "styleguide": "dist/",
       "patternlabFiles": {
         "general-header": "views/partials/general-header.mustache",
@@ -69,11 +69,11 @@
       }
     },
     "public": {
-      "root": "dist/app-node-pl/pl",
-      "patterns": "dist/app-node-pl/pl/patterns/",
-      "data": "dist/app-node-pl/pl/styleguide/data/",
-      "annotations": "dist/app-node-pl/pl/annotations/",
-      "styleguide": "dist/app-node-pl/pl/styleguide/"
+      "root": "dist/app-pl/pl",
+      "patterns": "dist/app-pl/pl/patterns/",
+      "data": "dist/app-pl/pl/styleguide/data/",
+      "annotations": "dist/app-pl/pl/annotations/",
+      "styleguide": "dist/app-pl/pl/styleguide/"
     }
   },
   "patternExtension": "twig",
@@ -88,7 +88,7 @@
     "inreview",
     "complete"
   ],
-  "patternExportDirectory": "apps/node-pl-default/pattern_exports/",
+  "patternExportDirectory": "apps/pl-default/pattern_exports/",
   "patternExportPatternPartials": [],
   "serverOptions": {
     "wait": 1000
@@ -165,7 +165,7 @@
           "id": "demo",
           "recursive": true,
           "paths": [
-            "./apps/node-pl-default/pattern-lab/_patterns/00-protons-demo"
+            "./apps/pl-default/pattern-lab/_patterns/00-protons-demo"
           ]
         },
         {
@@ -178,7 +178,7 @@
       ],
       "alterTwigEnv": [
         {
-          "file": "./apps/node-pl-default/pattern-lab/alter-twig.php",
+          "file": "./apps/pl-default/pattern-lab/alter-twig.php",
           "functions": [
             "addFilters",
             "addFunctions",
