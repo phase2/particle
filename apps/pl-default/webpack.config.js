@@ -102,7 +102,7 @@ const dev = {
     // Recompile PL on any globed PL file (see glob.js)
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md|json)$/,
-      exec: [`npm run pl-node`],
+      exec: [`npm run pl`],
     }),
   ],
 };
