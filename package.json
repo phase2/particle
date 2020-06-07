@@ -32,7 +32,7 @@
     "fmt:css": "npm run lint:css -- --fix && prettier --loglevel warn --write '**/*.css'",
     "fmt:svg": "svgo -f ./source/default/_patterns/01-atoms/svg/icons --config=./.svgo.yml",
     "fmt:md": "prettier --prose-wrap always --write '**/*.md'",
-    "fmt": "npm run fmt:svg; npm run fmt:js; npm run fmt:css; npm run fmt:md",
+    "fmt": "npm run fmt:svg; npm run fmt:js; npm run fmt:css; npm run fmt:md;",
     "test:backstop:ref": "node tools/tests/vrt/backstop-example-reference.js",
     "test:backstop:test": "node tools/tests/vrt/backstop-example-test.js",
     "test:pa11y": "pa11y-ci --config tools/tests/accessibility/pa11y.js",
