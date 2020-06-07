@@ -31,7 +31,7 @@ environments for common HTML attributes.
 1. Ensure the theme is set:
    `drush config-set system.theme default THEME_MACHINE_NAME`.
 
-### <a name="decoupling">Decoupled Drupal Installation</a>
+### Decoupled Drupal Installation
 
 1. Move the contents of the `particle_helper` folder to your Drupal
    `modules/contrib` directory.
