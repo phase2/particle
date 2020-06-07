@@ -7,8 +7,8 @@
 The Components namespace is responsible for returning arrays matching particle
 components. They're subdivided by atomic concepts:
 
-* Atoms
-* Molecules
+- Atoms
+- Molecules
 
 Functions in each file should return data in the shape a Particle component
 expects. For example:
@@ -30,8 +30,8 @@ expects. For example:
   }
 ```
 
-This is helpful when you are using a component multiple times over several
-php modules and preprocess files.
+This is helpful when you are using a component multiple times over several php
+modules and preprocess files.
 
 #### Usage
 
@@ -52,9 +52,9 @@ All custom Twig Extensions specific to Particle can be added here.
 ### Particle Tools
 
 Similar to _Components_, ParticleTools provide helper functions for theme
-development. However, rather than return particle arrays these functions
-are helpers for interacting with Drupal. For example, you may want to get the
-theme path from a defined theme constant:
+development. However, rather than return particle arrays these functions are
+helpers for interacting with Drupal. For example, you may want to get the theme
+path from a defined theme constant:
 
 ```php
   /**
