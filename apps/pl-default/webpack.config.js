@@ -62,9 +62,9 @@ const dev = {
     // Refresh devServer when dist/ changes (Pattern Lab)
     watchContentBase: true,
     watchOptions: {
-      // Ignore all folders inside dist/app-node-pl so pl rebuilds refresh.
+      // Ignore all folders inside dist/app-pl so pl rebuilds refresh.
       // Note: prevents Webpack from watching many pl files,
-      ignored: /app-node-pl/,
+      ignored: /app-pl/,
     },
     // Open browser immediately
     open: true,
@@ -102,7 +102,7 @@ const dev = {
     // Recompile PL on any globed PL file (see glob.js)
     new RunScriptOnFiletypeChange({
       test: /\.(twig|yml|md|json)$/,
-      exec: [`npm run pl-node`],
+      exec: [`npm run pl`],
     }),
   ],
 };

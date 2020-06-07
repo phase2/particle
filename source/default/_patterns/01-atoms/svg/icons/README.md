@@ -1,4 +1,5 @@
 # SVG Pattern
+
 The SVG is a special pattern in Particle that is designed to allow us to include
 SVG as CSS or inline. Furthermore, this pattern is setup to be optimized as a
 developer step via `npm run fmt:svg` or `npm run fmt`.
@@ -32,5 +33,6 @@ This allows you to place color variables on path, for example:
 This allows you to use the color variables `var:color.fill="#000"` on path.
 
 ## Adjusting Formatting Configuration
+
 This pattern uses [SVGO](https://github.com/svg/svgo) to format and optimize SVG
 files. You can adjust the configuration at Particle's root in `/.svgo.yml`.

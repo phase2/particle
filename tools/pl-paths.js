@@ -6,7 +6,7 @@ const {
   patternPaths,
   navItems,
   // eslint-disable-next-line import/no-unresolved
-} = require('../dist/app-node-pl/pl/styleguide/data/patternlab-data.cjs.js');
+} = require('../dist/app-pl/pl/styleguide/data/patternlab-data.cjs.js');
 
 // Shape of patternPaths data:
 //
