@@ -1,3 +1,4 @@
 [class^='sprite-'] {
-  @apply w-6 h-6 inline-block;
+  /* Every implmentation of the pure CSS icon MUST set it's height and width. */
+  @apply inline-block;
 }
