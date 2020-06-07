@@ -1,4 +1,4 @@
-# Particle Theme
+# Particle Helper
 
 ## Extensions
 
@@ -7,8 +7,8 @@
 The Components namespace is responsible for returning arrays matching particle
 components. They're subdivided by atomic concepts:
 
-* Atoms
-* Molecules
+- Atoms
+- Molecules
 
 Functions in each file should return data in the shape a Particle component
 expects. For example:
@@ -30,8 +30,8 @@ expects. For example:
   }
 ```
 
-This is helpful when you are using a component multiple times over several
-php modules and preprocess files.
+This is helpful when you are using a component multiple times over several php
+modules and preprocess files.
 
 #### Usage
 
@@ -39,8 +39,8 @@ Each component maker file is registered as a service and can be called inside
 any php file using Drupal's class resolver:
 
 ```php
-/** @var \Drupal\particle_theme\Components\Molecules */
-$molecules = \Drupal::service('particle_theme.molecules');
+/** @var \Drupal\particle_helper\Components\Molecules */
+$molecules = \Drupal::service('particle_helper.molecules');
 
 $header = $molecules->makeHeader('My Cool Header');
 ```
@@ -52,9 +52,9 @@ All custom Twig Extensions specific to Particle can be added here.
 ### Particle Tools
 
 Similar to _Components_, ParticleTools provide helper functions for theme
-development. However, rather than return particle arrays these functions
-are helpers for interacting with Drupal. For example, you may want to get the
-theme path from a defined theme constant:
+development. However, rather than return particle arrays these functions are
+helpers for interacting with Drupal. For example, you may want to get the theme
+path from a defined theme constant:
 
 ```php
   /**
@@ -73,8 +73,8 @@ theme path from a defined theme constant:
 To use the Tools library in any php file again use Drupal's class resolver:
 
 ```php
-/** @var \Drupal\particle_theme\ParticleTools\ParticleTools */
-$tools = \Drupal::service('particle_theme.particle_tools');
+/** @var \Drupal\particle_helper\ParticleTools\ParticleTools */
+$tools = \Drupal::service('particle_helper.particle_tools');
 
 $theme_path = $tools->getThemePath();
 ```

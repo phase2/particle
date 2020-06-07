@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\particle_theme\Tools;
+namespace Drupal\particle_helper\Tools;
 
 use Drupal\particle\Particle;
 
