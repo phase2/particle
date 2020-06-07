@@ -89,7 +89,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
         options: {
           name: 'images/[name].[ext]?[hash]',

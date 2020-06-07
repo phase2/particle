@@ -14,6 +14,9 @@ function particle_preprocess(&$variables) {
   // Set the paths.assets variable globally, so that drupal can
   // find webpack-compiled assets.
   $variables['paths']['assets'] = Particle::ASSETS_PATH;
+  $variables['paths']['images'] = Particle::IMAGES_PATH;
+  $variables['paths']['fonts'] = Particle::FONTS_PATH;
+  $variables['paths']['svgs'] = Particle::SVGS_PATH;
 }
 
 /**
