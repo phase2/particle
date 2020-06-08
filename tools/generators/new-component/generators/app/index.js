@@ -11,7 +11,7 @@ const { join, relative, extname } = require('path');
 const { readdirSync } = require('fs');
 
 const Generator = require('yeoman-generator');
-const { camelCase, kebabCase, snakeCase } = require('lodash');
+const { camelCase, kebabCase, snakeCase, startCase } = require('lodash');
 const rename = require('gulp-rename');
 
 const { PATH_APPS } = require('../../../../../particle.root.config');
@@ -132,6 +132,7 @@ module.exports = class extends Generator {
       this.props = {
         ...props,
         // 'name' already exists as kebab-case-name (dashes)
+        upperCaseName: startCase(props.name),
         underscoreName: snakeCase(props.name),
         camelCaseName: camelCase(props.name),
         cleanPatternType: props.patternType.replace(/([0-9])\w+-/g, ''),

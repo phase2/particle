@@ -12,7 +12,7 @@
 //   return helpers
 //     .run(join(__dirname, '../generators/app'))
 //     .withPrompts({
-//       chooseApp: 'app-node-pl',
+//       chooseApp: 'app-pl',
 //       patternType: '02-molecules',
 //       name: 'New Component Test',
 //     })
