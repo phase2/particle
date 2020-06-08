@@ -21,5 +21,5 @@ Describe what problem you're solving. Link the issue from the issues tab.
 ## Summary of Changes
 
 <!--
-How did you solve the problem? Did you update any documentation this affected? 
+How did you solve the problem? Did you update any documentation this affected?
 -->
