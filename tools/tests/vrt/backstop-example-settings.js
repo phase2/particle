@@ -6,7 +6,7 @@
 
 const { partials } = require('../../pl-paths.js');
 
-const plRoot = 'http://0.0.0.0:8080/app-node-pl/pl';
+const plRoot = 'http://0.0.0.0:8080/app-pl/pl';
 
 module.exports = () => {
   // Set which resolutions to take screenshots at.
