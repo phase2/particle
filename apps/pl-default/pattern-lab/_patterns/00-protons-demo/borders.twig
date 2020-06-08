@@ -104,10 +104,10 @@
       <table class="table-auto w-full">
         <thead>
         <tr class="border">
-          <th scope="col" class="p-4">Demo</th>
           <th scope="col" class="p-4">Utility Class</th>
           <th scope="col" class="p-4">Color</th>
           <th scope="col" class="p-4">Value</th>
+          <th scope="col" class="p-4">Demo</th>
         </tr>
         </thead>
         <tbody>
@@ -115,6 +115,9 @@
           {% if colorValue is not iterable and colorName != 'current' %}
             {% set borderClass = 'border border-' ~ colorName %}
             <tr>
+              <td class="{{ tdClasses }}"><span class="{{ codeClasses }}">{{ borderClass }}</span></td>
+              <td class="{{ tdClasses }}">{{ colorName }}</td>
+              <td class="{{ tdClasses }}">{{ colorValue | upper }}</td>
               <td class="{{ tdClasses }}">
                 <span class="inline-block p-1 bg-white">
                   <span class="inline-block h-8 w-8 align-middle {{ borderClass }}"></span>
@@ -123,14 +126,14 @@
                   <span class="inline-block h-8 w-8 mb-0 align-middle {{ borderClass }}"></span>
                 </span>
               </td>
-              <td class="{{ tdClasses }}"><span class="{{ codeClasses }}">{{ borderClass }}</span></td>
-              <td class="{{ tdClasses }}">{{ colorName }}</td>
-              <td class="{{ tdClasses }}">{{ colorValue | upper }}</td>
             </tr>
           {% else %}
             {% for nestedColor, nestedValue in colorValue %}
               {% set borderClass = 'border border-' ~ colorName ~ '-' ~ nestedColor %}
               <tr>
+                <td class="{{ tdClasses }}"><span class="{{ codeClasses }}">{{ borderClass }}</span></td>
+                <td class="{{ tdClasses }}">{{ colorName ~ '-' ~ nestedColor }}</td>
+                <td class="{{ tdClasses }}">{{ nestedValue | upper }}</td>
                 <td class="{{ tdClasses }}">
                   <span class="inline-block p-1 bg-white">
                     <span class="inline-block h-8 w-8 align-middle {{ borderClass }}"></span>
@@ -139,9 +142,6 @@
                     <span class="inline-block h-8 w-8 align-middle {{ borderClass }}"></span>
                   </span>
                 </td>
-                <td class="{{ tdClasses }}"><span class="{{ codeClasses }}">{{ borderClass }}</span></td>
-                <td class="{{ tdClasses }}">{{ colorName ~ '-' ~ nestedColor }}</td>
-                <td class="{{ tdClasses }}">{{ nestedValue | upper }}</td>
               </tr>
             {% endfor %}
           {% endif %}
