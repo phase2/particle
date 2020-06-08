@@ -11,4 +11,3 @@ import 'atoms/svg';
 // Import demo assets
 import './svgs.twig';
 import './svgs.yml';
-

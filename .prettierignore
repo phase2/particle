@@ -1,11 +1,12 @@
-# Ignore any path/file using .gitignore syntax, ie:
+# Ignore any path/file using .gitignore syntax
 
-node_modules/
-vendor/
+# Dependencies
+node_modules
+vendor
 
+# Particle
 dist/
-pattern-lab/
+dependencyGraph.json
 tools/new-component/templates/
-
-package.json
 package-lock.json
+*.inc

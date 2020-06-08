@@ -1,7 +1,6 @@
-# Compiled files
-dist/
-dependencyGraph.json
-patterns.zip
+# Dependencies
+node_modules
+vendor
 
 # OS generated files
 *.swp
@@ -10,17 +9,18 @@ patterns.zip
 ._.DS_Store
 ._.DS_Store?
 
-# Dependencies
-node_modules
-vendor
-
 # Generated files
 .eslintcache
 *unison.*
 
-#IDE plugins
+# IDE plugins
 .idea
 
 # Errors
 npm-debug.log
 php_errors.log
+
+# Particle
+dist/
+dependencyGraph.json
+patterns.zip

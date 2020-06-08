@@ -5,7 +5,7 @@ particle_one_col:
   category: 'Columns: 1'
   default_region: content
   icon_map:
-  - [content]
+    - [content]
   regions:
     content:
       label: Main Content
@@ -16,7 +16,7 @@ particle_two_col:
   category: 'Columns: 2'
   default_region: first
   icon_map:
-  - [first, second]
+    - [first, second]
   regions:
     first:
       label: First
@@ -29,7 +29,7 @@ particle_three_col:
   category: 'Columns: 3'
   default_region: first
   icon_map:
-  - [first, second, third]
+    - [first, second, third]
   regions:
     first:
       label: First
@@ -44,7 +44,7 @@ particle_four_col:
   category: 'Columns: 4'
   default_region: first
   icon_map:
-  - [first, second, third, fourth]
+    - [first, second, third, fourth]
   regions:
     first:
       label: First
