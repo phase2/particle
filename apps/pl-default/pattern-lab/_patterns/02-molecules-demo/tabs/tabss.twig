@@ -7,7 +7,9 @@
   {% include '@molecules/tabs/_tabs.twig' %}
 
   <h2>Tab with components</h2>
+  {# Example of assigning a rendered element to a variable to be used for panel data. #}
   {% set article_tab %}
+    {# Article component using `article_1` data set in `apps/pl-default/pattern-lab/_data/components.yml` #}
     {% include '@organisms/article/_article.twig' with {
       article: article_1,
     } %}

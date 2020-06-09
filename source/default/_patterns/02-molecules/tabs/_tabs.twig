@@ -12,6 +12,7 @@
  *    - panel [string]: Panel content.
  */
 #}
+{# Use seed to ensure that each group of tabs have unique IDs, needed if multiple tabs are on a single page. #}
 {% set seed = random() %}
 {% set title_element = tabs.panel_title_element|default('h3') %}
 <div class="tabs mb-4">
@@ -22,7 +23,7 @@
       {% set panel_id = "tabs-panel--#{item_uid}" %}
       <li class="tabs__list-item inline-block" role="presentation">
         <a
-          class="tabs__list-link inline-block py-1 px-8 text-black border border-gray-500 border-b-0 rounded-t hover:border-blue-600 hover:underline hover:text-blue-600 focus:border-blue-600 focus:outline-none focus:underline focus:text-blue-600"
+          class="tabs__list-link inline-block py-1 px-8 text-black bg-gray-300 border border-gray-500 border-b-0 rounded-t hover:bg-white hover:border-blue-600 hover:underline hover:text-blue-600 focus:border-blue-600 focus:outline-none focus:underline focus:text-blue-600"
           id="{{ tab_id }}"
           href="#{{ panel_id }}"
           role="tab"
