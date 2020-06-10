@@ -22,10 +22,10 @@
   column_classes|default([])|merge(['flex', grid.wrap is same as(false) ? '' : 'flex-wrap'])|join(' ')|trim
 %}
 
-<div {{ grid_attributes is not empty ? grid_attributes|attributify : '' }}
-  class="{{ grid_classes|join(' ')|trim }}">
+<div {{ grid_attributes is not empty ? grid_attributes|attributify : '' }} class="{{ grid_classes|join(' ')|trim }}">
   <div class="{{ column_classes }}">
     {% block grid_content %}
+
     {% endblock grid_content %}
   </div>
 </div>
