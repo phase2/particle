@@ -1,4 +1,4 @@
-{% extends "block.html.twig" %}
+{% extends 'block.html.twig' %}
 {#
 /**
  * @file
@@ -23,5 +23,5 @@
     logo_svg_inline: logo_svg_inline,
     logo_img_src: logo_img_src
   } %}
-  {% include "@atoms/branding/_branding.twig" with logo %}
-{% endblock %}
+  {% include '@atoms/branding/_branding.twig' with logo %}
+{% endblock content %}

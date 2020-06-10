@@ -10,3 +10,7 @@ dependencyGraph.json
 tools/new-component/templates/
 package-lock.json
 *.inc
+# Ignore _01-foot.twig due to closing </body> and </html> tags with no openers
+_01-foot.twig
+# Ignore _button.twig while prettier-twig fails to recognize dynamic elements
+_button.twig

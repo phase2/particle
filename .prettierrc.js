@@ -1,6 +1,7 @@
 module.exports = {
+  plugins: ['./node_modules/prettier-plugin-twig-melody'],
   singleQuote: true,
-  trailingComma: 'es5',
   twigAlwaysBreakObjects: true,
-  twigOutputEndblockName : true,
+  twigOutputEndblockName: true,
+  twigPrintWidth: 120,
 };

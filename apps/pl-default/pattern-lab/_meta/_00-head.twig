@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html class="{{ htmlClass }}" lang="en">
-	<head>
-		<title>{{ title }}</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width" />
+  <head>
+    <title>
+      {{ title }}
+    </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
 
-    {# Bring back favicons when loader returns#}
-    {# <link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-16x16.png" sizes="16x16">#}
-    {# <link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-32x32.png" sizes="32x32">#}
+    {# Bring back favicons when loader returns #}
+    {# <link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-16x16.png" sizes="16x16"> #}
+    {# <link rel="icon" type="image/png" href="{{ paths.assets }}/favicons/favicon-32x32.png" sizes="32x32"> #}
 
-		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
-		{{ patternLabHead | raw }}
-		<!-- End Pattern Lab -->
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    {{ patternLabHead|raw }}
+    <!-- End Pattern Lab -->
 
     {% if env == 'production' %}
-    <link rel="stylesheet" href="{{ paths.assets }}/app.styles.css?cacheBuster={{ random() }}">
+      <link rel="stylesheet" href="{{ paths.assets }}/app.styles.css?cacheBuster={{ random() }}" />
     {% endif %}
 
+    {# prettier-ignore-start #}
 		<style type="text/css">
 			.spinner {
 				width: 40px;
@@ -70,6 +73,8 @@
 				display: block;
 			}
 		</style>
-
+    {# prettier-ignore-end #}
   </head>
 	<body class="{{ bodyClass }}">
+
+</html>
