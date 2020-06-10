@@ -27,7 +27,7 @@
           <button
             class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap py-2 px-4 rounded text-base leading-normal no-underline text-blue-dark border-blue bg-white hover:bg-blue-light hover:text-blue-darker"
             type="submit"
-            @click="toSpace(name)"
+            v-on:click="toSpace(name)"
           >🚀 Send to space
           </button>
         </div>
@@ -40,7 +40,7 @@
         {% set example = '<form id="vue-html-example-1">
     <span>{{ name }}</span>
     <input v-model="name"/>
-    <button @click="toSpace(name)">🚀 Send to space</button>
+    <button v-on:click="toSpace(name)">🚀 Send to space</button>
   </form>'%}
   <pre><code class="language-html">{% autoescape %}{{ example }}{% endautoescape %}</code></pre>
       </div>
@@ -74,7 +74,7 @@
     <form id="vue-html-example-1">
       <span>{{ name }}</span>
       <input v-model="name"/>
-      <button @click="toSpace(name)">🚀 Send to space</button>
+      <button v-on:click="toSpace(name)">🚀 Send to space</button>
     </form>
   </template>
   <script>
