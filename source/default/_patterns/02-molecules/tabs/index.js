@@ -14,6 +14,49 @@ import './_tabs.twig';
 import './tabs.css';
 
 export const name = 'tabs';
+export const tabsState = [];
+
+// The tab switching function
+export const switchTab = (tabsGroup) => {
+  tabsGroup.forEach((item) => {
+    if (item.selected) {
+      // Select tab.
+      $(`#${item.id}`)
+        .removeAttr('tabindex')
+        .attr('aria-selected', 'true')
+        .focus();
+    } else {
+      // Hide unselected panel.
+      $(`#${item.id}`).attr('tabindex', '-1').removeAttr('aria-selected');
+    }
+    // Show/hide selected panel.
+    $(`#${item.panelId}`).prop('hidden', !item.selected);
+  });
+};
+
+// Initially first tab to selected then update tab and panel based on state.
+export const initTabs = (tabsGroup) => {
+  const tabsInitialized = tabsGroup.map(function mapTabsInitial(item, i) {
+    return {
+      id: item.id,
+      panelId: item.panelId,
+      selected: i === 0,
+    };
+  });
+  return tabsInitialized;
+};
+
+// Update tab selected state.
+export const updateSelectedState = (selectedIndex, tabsGroup) => {
+  const tabsSelected = tabsGroup.map(function mapTabsSelected(item, i) {
+    return {
+      id: item.id,
+      panelId: item.panelId,
+      selected: i === selectedIndex,
+    };
+  });
+  return tabsSelected;
+};
 
 /**
  * Components may need to run clean-up tasks if they are removed from DOM.
@@ -26,47 +69,34 @@ export function disable($context, settings) {}
 
 /**
  * Each component has a chance to run when its enable function is called. It is
- * given a piece of DOM ($context) and a settings object. We destructure our
- * component key off the settings object and provide an empty object fallback.
- * Incoming settings override default settings via Object.assign().
+ * given a piece of DOM ($context).
  *
  * @param {jQuery} $context - A piece of DOM
- * @param {Object} settings - Settings object
  */
 export function enable($context) {
   // Get relevant elements and collections
   const $tabsWrapper = $('.tabs', $context);
 
-  const deactivatePanels = ($panels) => {
-    $panels.each(function panelsHidden() {
-      $(this).prop('hidden', true);
-    });
-  };
-
   $tabsWrapper.each(function eachTabsGroup() {
-    const $this = $(this);
-    const $tablist = $('.tabs__list', $this);
-    const $tabs = $('.tabs__list-link', $this);
-    const $panels = $('.tabs__panels-item', $this);
+    // Set initial objects.
+    const tabsGroup = [];
+    // const panelsObject = {};
 
-    // The tab switching function
-    const switchTab = (oldTab, newTab) => {
-      newTab.focus();
-      // Get id of panel controlled by newTab.
-      const newPanelId = $(newTab).attr('aria-controls');
-      // Make the active tab focusable by the user (Tab key) and add aria selected.
-      $(newTab).removeAttr('tabindex').attr('aria-selected', 'true');
-      $(oldTab).removeAttr('aria-selected').attr('tabindex', '-1');
-
-      // Hide all panels.
-      deactivatePanels($panels);
-      // Unhide new panel.
-      $(`#${newPanelId}`, $context).prop('hidden', false);
-    };
+    const $tabWrapper = $(this);
+    const $tablist = $('.tabs__list', $tabWrapper);
+    const $tabs = $('.tabs__list-link', $tabWrapper);
+    const $panels = $('.tabs__panels-item', $tabWrapper);
+    // Add to tabState for each tab collection.
+    tabsState.push(tabsGroup);
 
     // Add semantics are remove user focusability for each tab
     $tabs.each(function tabsInit(i, tab) {
-      $(tab).attr('tabindex', '-1');
+      const tabObject = {
+        id: $(tab).attr('id'),
+        panelId: $(tab).attr('aria-controls'),
+        selected: false,
+      };
+      tabsGroup.push(tabObject);
 
       // Handle clicking of tabs for mouse users
       $(tab).on('click', (e) => {
@@ -74,7 +104,11 @@ export function enable($context) {
         const $currentTab = $('[aria-selected="true"]', $tablist);
         // Switch tab if clicked tab is not current tab.
         if ($(e.currentTarget)[0] !== $currentTab[0]) {
-          switchTab($currentTab, e.currentTarget);
+          // Get current index.
+          const index = $tabs.index(e.currentTarget);
+          const tabsUpdated = updateSelectedState(index, tabsGroup);
+          // Update tabs to match state.
+          switchTab(tabsUpdated);
         }
       });
 
@@ -87,38 +121,36 @@ export function enable($context) {
         // Calculate the new tab's index where appropriate
         const { key } = e;
         if (key === 'ArrowLeft') {
-          e.preventDefault();
           let newTabIndex = index - 1;
           // If first item set last items index.
           if (index === 0) {
             newTabIndex = $tabs.length - 1;
           }
-          switchTab(e.currentTarget, $tabs[newTabIndex]);
+
+          const tabsUpdated = updateSelectedState(newTabIndex, tabsGroup);
+          // Update tabs to match state.
+          switchTab(tabsUpdated);
         } else if (key === 'ArrowRight') {
-          e.preventDefault();
           let newTabIndex = index + 1;
           // If last item set new tab index to 0.
           if (index === $tabs.length - 1) {
             newTabIndex = 0;
           }
-          switchTab(e.currentTarget, $tabs[newTabIndex]);
+
+          // Update Selected State.
+          const tabsUpdated = updateSelectedState(newTabIndex, tabsGroup);
+          // Update tabs to match state.
+          switchTab(tabsUpdated);
         } else if (key === 'ArrowDown') {
           $panels[i].focus();
         }
       });
     });
 
-    // Add tab panel semantics and hide them all.
-    $panels.each((i, panel) => {
-      $(panel).attr('tabindex', '-1');
-      $(panel).attr('aria-labelledby', $tabs[i].id);
-      $(panel).attr('hidden', true);
-    });
-
+    // Set first tab to selected.
+    const tabsInialized = initTabs(tabsGroup);
     // Initially activate the first tab and reveal the first tab panel.
-    $($tabs[0]).removeAttr('tabindex');
-    $($tabs[0]).attr('aria-selected', 'true');
-    $($panels[0]).attr('hidden', false);
+    switchTab(tabsInialized);
   });
 }
 
