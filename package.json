@@ -92,7 +92,7 @@
     "pa11y": "^5.3.0",
     "pa11y-ci": "^2.3.0",
     "postcss-cli": "^7.1.1",
-    "postcss-hexrgba": "^2.0.0",
+    "postcss-hexrgba": "^2.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "postcss-reporter": "^6.0.1",
