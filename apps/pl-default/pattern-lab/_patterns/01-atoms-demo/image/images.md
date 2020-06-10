@@ -3,9 +3,9 @@
 Please note that image implementations may contain this or similar code:
 
 ```twig
-{% include "@atoms/_image.twig" with {
+{% include '@atoms/_image.twig' with {
   image: {
-    src: paths.images ~ '/logo.svg',
+    src: paths.images ~ '/logo.svg'
   }
 } %}
 ```

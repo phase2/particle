@@ -9,8 +9,10 @@
  */
 #}
 
-{% set svg = {
-  path: '@atoms/svg/icons/person.svg',
-} | merge(svg) %}
+{% set svg =
+  {
+    path: '@atoms/svg/icons/person.svg'
+  }|merge(svg)
+%}
 
 {{ source(svg.path) }}

@@ -5,12 +5,14 @@
  */
 #}
 
-{% embed '@demo/_demo-block.twig' with {
-  demo: articles_demo
-} %}
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: articles_demo
+  }
+%}
   {% block content %}
     {% include '@organisms/article/_article.twig' with {
-      article: article_1,
+      article: article_1
     } %}
   {% endblock content %}
 {% endembed %}

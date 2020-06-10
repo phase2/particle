@@ -10,9 +10,11 @@
  */
 #}
 
-{% set svg = {
-  name: 'person',
-} | merge(svg) %}
+{% set svg =
+  {
+    name: 'person'
+  }|merge(svg)
+%}
 
 <svg viewBox="0 0 500 500">
   <use xlink:href="{{ paths.images }}/spritemap.svg?#sprite-{{ svg.name }}"></use>

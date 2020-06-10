@@ -6,14 +6,14 @@
  */
 #}
 
-{% embed '@demo/_demo-block.twig' with {
-  demo: buttons_demo
-} %}
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: buttons_demo
+  }
+%}
   {% block content %}
-
     {% include '@atoms/button/_button.twig' with {
       button: button_1
     } only %}
-
   {% endblock content %}
 {% endembed %}

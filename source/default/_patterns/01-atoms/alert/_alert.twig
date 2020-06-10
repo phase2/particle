@@ -37,7 +37,6 @@
     'relative',
     alert_other_classes
   ]
-    |sort
     |join(' ')
     |trim
 %}
@@ -51,12 +50,12 @@
         </h4>
       </div>
     {% endif %}
-  {% endblock %}
+  {% endblock alert_header %}
   {% block alert_content %}
     <p class="mb-2 text-base">
       {{ alert_primary }}
     </p>
-  {% endblock %}
+  {% endblock alert_content %}
   {% block alert_footer %}
     {% if alert_secondary %}
       <hr />
@@ -64,5 +63,5 @@
         {{ alert_secondary }}
       </p>
     {% endif %}
-  {% endblock %}
+  {% endblock alert_footer %}
 </div>
