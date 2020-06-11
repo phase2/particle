@@ -46,6 +46,19 @@ export const initTabs = (tabsGroup) => {
   return tabsInitialized;
 };
 
+// Return current selected index.
+export const selectedIndexState = (tabsGroup) => {
+  const currentSelectedIndex = tabsGroup.reduce(function filterCurrentSelected(
+    acc,
+    value,
+    i
+  ) {
+    return value.selected ? i : acc;
+  },
+  0);
+  return currentSelectedIndex;
+};
+
 // Update tab selected state.
 export const updateSelectedState = (selectedIndex, tabsGroup) => {
   const tabsSelected = tabsGroup.map(function mapTabsSelected(item, i) {
@@ -79,15 +92,21 @@ export function enable($context) {
 
   $tabsWrapper.each(function eachTabsGroup() {
     // Set initial objects.
-    const tabsGroup = [];
-    // const panelsObject = {};
+    let tabsGroup = [];
 
     const $tabWrapper = $(this);
-    const $tablist = $('.tabs__list', $tabWrapper);
     const $tabs = $('.tabs__list-link', $tabWrapper);
     const $panels = $('.tabs__panels-item', $tabWrapper);
     // Add to tabState for each tab collection.
     tabsState.push(tabsGroup);
+
+    const getTabsState = () => {
+      return tabsGroup;
+    };
+    const getSelectedIndex = () => {
+      const tabsData = getTabsState();
+      return selectedIndexState(tabsData);
+    };
 
     // Add semantics are remove user focusability for each tab
     $tabs.each(function tabsInit(i, tab) {
@@ -101,12 +120,14 @@ export function enable($context) {
       // Handle clicking of tabs for mouse users
       $(tab).on('click', (e) => {
         e.preventDefault();
-        const $currentTab = $('[aria-selected="true"]', $tablist);
+        // Get selected.
+        const selectedIndex = getSelectedIndex();
+        // Get current index.
+        const targetIndex = $tabs.index(e.currentTarget);
         // Switch tab if clicked tab is not current tab.
-        if ($(e.currentTarget)[0] !== $currentTab[0]) {
-          // Get current index.
-          const index = $tabs.index(e.currentTarget);
-          const tabsUpdated = updateSelectedState(index, tabsGroup);
+        if (targetIndex !== selectedIndex) {
+          const tabsUpdated = updateSelectedState(targetIndex, tabsGroup);
+          tabsGroup = tabsUpdated;
           // Update tabs to match state.
           switchTab(tabsUpdated);
         }
@@ -114,8 +135,8 @@ export function enable($context) {
 
       // Handle keydown events for keyboard users
       $(tab).on('keydown', (e) => {
-        // Get the index of the current tab in the tabs node list
-        const index = $tabs.index(e.currentTarget);
+        // Get selected index.
+        const index = getSelectedIndex();
 
         // Work out which key the user is pressing and
         // Calculate the new tab's index where appropriate
@@ -127,7 +148,10 @@ export function enable($context) {
             newTabIndex = $tabs.length - 1;
           }
 
+          // Update Selected State.
           const tabsUpdated = updateSelectedState(newTabIndex, tabsGroup);
+          tabsGroup = tabsUpdated;
+
           // Update tabs to match state.
           switchTab(tabsUpdated);
         } else if (key === 'ArrowRight') {
@@ -139,6 +163,8 @@ export function enable($context) {
 
           // Update Selected State.
           const tabsUpdated = updateSelectedState(newTabIndex, tabsGroup);
+          tabsGroup = tabsUpdated;
+
           // Update tabs to match state.
           switchTab(tabsUpdated);
         } else if (key === 'ArrowDown') {
@@ -149,6 +175,8 @@ export function enable($context) {
 
     // Set first tab to selected.
     const tabsInialized = initTabs(tabsGroup);
+    tabsGroup = tabsInialized;
+
     // Initially activate the first tab and reveal the first tab panel.
     switchTab(tabsInialized);
   });
