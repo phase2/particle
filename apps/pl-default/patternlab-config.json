@@ -132,6 +132,11 @@
           "paths": ["./apps/pl-default/pattern-lab/_patterns/00-protons-demo"]
         },
         {
+          "id": "demos",
+          "recursive": true,
+          "paths": ["./apps/pl-default/pattern-lab/_patterns"]
+        },
+        {
           "id": "macros",
           "recursive": true,
           "paths": ["./source/default/_macros"]
