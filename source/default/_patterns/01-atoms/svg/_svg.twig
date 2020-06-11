@@ -28,6 +28,7 @@
   ['svg', 'svg--' ~ svg.variant, svg.fillCurrent ? 'fill-current' : '', svg.strokeCurrent ? 'stroke-current' : '']
     |merge(svg_classes|default([]))
     |join(' ')
+    |trim
 %}
 
 <span class="{{ svg_classes }}">
