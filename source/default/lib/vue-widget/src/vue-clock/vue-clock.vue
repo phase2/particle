@@ -5,17 +5,17 @@
   >
     <div class="clock-face absolute top-0 right-0 bottom-0 left-0">
       <div
-        class="seconds-hand hand"
+        class="seconds-hand hand absolute left-0 w-1/2"
         data-testid="seconds-hand"
         :style="hands.seconds"
       ></div>
       <div
-        class="minutes-hand hand"
+        class="minutes-hand hand absolute left-0 w-1/2"
         data-testid="minutes-hand"
         :style="hands.minutes"
       ></div>
       <div
-        class="hours-hand hand"
+        class="hours-hand hand absolute left-0 w-1/2"
         data-testid="hours-hand"
         :style="hands.hours"
       ></div>
@@ -72,14 +72,14 @@ export default {
     dynamicClasses() {
       const { seconds } = this.time;
       return {
-        success: seconds >= 0 && seconds < 8,
-        primary: seconds >= 8 && seconds < 16,
-        salmon: seconds >= 16 && seconds < 24,
-        purple: seconds >= 24 && seconds < 32,
-        orange: seconds >= 32 && seconds < 40,
-        yellow: seconds >= 40 && seconds < 48,
-        dark: seconds >= 48 && seconds < 56,
-        cyan: seconds >= 56 && seconds <= 60,
+        'bg-gray-500': seconds >= 0 && seconds < 8,
+        'bg-red-500': seconds >= 8 && seconds < 16,
+        'bg-orange-500': seconds >= 16 && seconds < 24,
+        'bg-yellow-500': seconds >= 24 && seconds < 32,
+        'bg-green-500': seconds >= 32 && seconds < 40,
+        'bg-teal-500': seconds >= 40 && seconds < 48,
+        'bg-blue-500': seconds >= 48 && seconds < 56,
+        'bg-purple-500': seconds >= 56 && seconds <= 60,
       };
     },
   },
@@ -103,5 +103,14 @@ export default {
 }
 .clock-face {
   transform: rotate(90deg) translateY(-3px);
+}
+.hand {
+  top: 50%;
+  height: 6px;
+  transform-origin: 100%;
+}
+.hand::after {
+  content: '';
+  @apply block absolute top-0 right-0 bottom-0 left-0 bg-black;
 }
 </style>
