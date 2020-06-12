@@ -1,14 +1,15 @@
 <template>
   <form id="vue-html-example-1">
     <span>{{ name }}</span>
-    <input v-model="name"/>
-    <button v-on:click="toSpace(name)">🚀 Send to space</button>
+    <input v-model="name" />
+    <button @click="toSpace(name)">🚀 Send to space</button>
   </form>
 </template>
 <script>
+/* eslint-disable no-alert */
 export default {
   data: () => ({
-    name:''
+    name: '',
   }),
   methods: {
     toSpace() {

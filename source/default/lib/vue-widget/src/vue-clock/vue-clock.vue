@@ -1,5 +1,8 @@
 <template>
-  <div class="clock relative rounded-full border-solid border-black border-2" :class="dynamicClasses">
+  <div
+    class="clock relative rounded-full border-solid border-black border-2"
+    :class="dynamicClasses"
+  >
     <div class="clock-face absolute top-0 right-0 bottom-0 left-0">
       <div
         class="seconds-hand hand"
@@ -94,11 +97,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .clock {
-    width: 200px;
-    height: 200px;
-  }
-  .clock-face {
-    transform: rotate(90deg) translateY(-3px);
-  }
+.clock {
+  width: 200px;
+  height: 200px;
+}
+.clock-face {
+  transform: rotate(90deg) translateY(-3px);
+}
 </style>
