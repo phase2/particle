@@ -16,30 +16,31 @@
 #}
 
 {# Default SVG settings, overridden by incoming svg object #}
-{% set svg = {
-  fillCurrent: true,
-  variant: 'embed',
-} | merge(svg) %}
+{% set svg =
+  {
+    fillCurrent: true,
+    variant: 'embed'
+  }|merge(svg)
+%}
 
 {# Default SVG classes, overridden by incoming array #}
-{% set svg_classes = [
-  'svg',
-  'svg--' ~ svg.variant,
-  svg.fillCurrent ? 'fill-current' : '',
-  svg.strokeCurrent ? 'stroke-current' : '',
-] | merge(svg_classes|default([])) | filter(c => c is not empty) | join(' ') %}
+{% set svg_classes =
+  ['svg', 'svg--' ~ svg.variant, svg.fillCurrent ? 'fill-current' : '', svg.strokeCurrent ? 'stroke-current' : '']
+    |merge(svg_classes|default([]))
+    |join(' ')
+    |trim
+%}
 
-
-<span class="{{svg_classes}}">
-{% if svg.variant == 'embed' %}
-  {% include '@atoms/svg/_svg--embed.twig' with {
-    svg: svg,
-    svg_classes: svg_classes
-  } %}
-{% elseif svg.variant == 'sprite' %}
-  {% include '@atoms/svg/_svg--sprite.twig' with {
-    svg: svg,
-    svg_classes: svg_classes
-  } %}
-{% endif %}
+<span class="{{ svg_classes }}">
+  {% if svg.variant == 'embed' %}
+    {% include '@atoms/svg/_svg--embed.twig' with {
+      svg: svg,
+      svg_classes: svg_classes
+    } %}
+  {% elseif svg.variant == 'sprite' %}
+    {% include '@atoms/svg/_svg--sprite.twig' with {
+      svg: svg,
+      svg_classes: svg_classes
+    } %}
+  {% endif %}
 </span>

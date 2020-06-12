@@ -7,21 +7,22 @@ card_grids_demo:
 card_grid_1:
   title: 'Card Grid'
   items:
-    -
-      image:
+    - image:
         variant: 'primary'
         src: ''
         alt: 'Graybox placeholder image'
         style: 'card'
         placeholder: true
       title: 'Montes lacus congue'
-      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.'
+      body:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
+        quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
+        nihil.'
       list:
         - '#photography'
         - '#travel'
         - '#winter'
-    -
-      image:
+    - image:
         variant: 'primary'
         src: ''
         alt: 'Graybox placeholder image'
@@ -33,8 +34,7 @@ card_grid_1:
         - '#fun'
         - '#travel'
         - '#summer'
-    -
-      image:
+    - image:
         variant: 'primary'
         src: ''
         alt: 'Graybox placeholder image'

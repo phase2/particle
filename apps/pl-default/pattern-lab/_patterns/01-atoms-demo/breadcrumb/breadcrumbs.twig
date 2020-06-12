@@ -6,9 +6,11 @@
  */
 #}
 
-{% embed '@demo/_demo-block.twig' with {
-  demo: breadcrumbs_demo
-} %}
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: breadcrumbs_demo
+  }
+%}
   {% block content %}
     {% include '@atoms/breadcrumb/_breadcrumb.twig' with breadcrumb_1 %}
     {% include '@atoms/breadcrumb/_breadcrumb.twig' with breadcrumb_2 %}

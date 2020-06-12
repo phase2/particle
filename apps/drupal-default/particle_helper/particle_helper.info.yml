@@ -1,5 +1,7 @@
 name: 'Particle Helper'
 type: module
-description: 'Particle Components and Particle Tools. Theme utilities to integrate Drupal with Particle themes.'
+description:
+  'Particle Components and Particle Tools. Theme utilities to integrate Drupal
+  with Particle themes.'
 core: 8.x
 package: 'Particle'

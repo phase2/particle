@@ -16,4 +16,4 @@ settings:
   label: 'Search form'
   provider: search
   label_display: '0'
-visibility: {  }
+visibility: {}

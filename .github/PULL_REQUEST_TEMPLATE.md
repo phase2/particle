@@ -9,7 +9,7 @@ Please submit pull requests against the develop branch.
 
 Follow the existing code style. Check the tests succeed, including lint.
   npm run test
-  npm run lint
+  npm run fmt
 -->
 
 ## Issue Description

@@ -5,9 +5,11 @@
  */
 #}
 
-{% embed '@demo/_demo-block.twig' with {
-  demo: alert_demo
-} %}
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: alert_demo
+  }
+%}
   {% block content %}
     {% include '@atoms/alert/_alert.twig' with alert_status %}
     {% include '@atoms/alert/_alert.twig' with alert_warning %}

@@ -1,6 +1,6 @@
 services:
   particle_helper.twig_extension:
-    arguments: ["@renderer"]
+    arguments: ['@renderer']
     class: Drupal\particle_helper\TwigExtension\ParticleHelperTwig
     tags:
       - { name: twig.extension }

@@ -48,52 +48,42 @@
 {% if not has_components_module %}
   {% include '@particle/misc/components--error-message.html.twig' %}
 {% else %}
-<div class="layout-container">
+  <div class="layout-container">
+    {{ page.primary_menu }}
 
-  {{ page.primary_menu }}
+    {{ page.highlighted }}
 
-  {{ page.highlighted }}
+    <header role="banner">
+      {{ page.header_branding }}
+      {{ page.secondary_menu }}
+    </header>
 
-  <header role="banner">
-    {{ page.header_branding }}
-    {{ page.secondary_menu }}
-  </header>
+    {# Help Region not Included by Default. #}
+    {{ page.help }}
 
-  {# Help Region not Included by Default. #}
-  {{ page.help }}
+    <main class="container" role="main">
+      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+      {{ page.breadcrumb }}
+      <section class="row">
+        {% if page.sidebar_first %}
+          <aside class="layout-sidebar-first" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        {% endif %}
 
-  <main class="container" role="main">
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-    {{ page.breadcrumb }}
-    <section class="row">
-
-      {% if page.sidebar_first %}
-        <aside class="layout-sidebar-first" role="complementary">
-          {{ page.sidebar_first }}
-        </aside>
-      {% endif %}
-
-      {% if page.sidebar_first and page.sidebar_second %}
-      <div class="layout-content">
-        {% elseif page.sidebar_first or page.sidebar_second %}
         <div class="layout-content">
-          {% else %}
-          <div class="layout-content">
-            {% endif %}
-            {{ page.content }}
-          </div>
+          {{ page.content }}
+        </div>
 
-          {% if page.sidebar_second %}
-            <aside class="layout-sidebar-second" role="complementary">
-              {{ page.sidebar_second }}
-            </aside>
-          {% endif %}
-
-    </section>
-  </main>
-
-</div>{# /.layout-container #}
+        {% if page.sidebar_second %}
+          <aside class="layout-sidebar-second" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endif %}
+      </section>
+    </main>
+  </div>
+  {# /.layout-container #}
 
   {{ page.footer }}
-
 {% endif %}
