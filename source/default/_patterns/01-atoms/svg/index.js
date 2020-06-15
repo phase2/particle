@@ -14,6 +14,7 @@ import 'svg-spritemap-webpack-plugin/svg-icons.css';
 import './sprite-svg.css';
 
 // Module template
+import './_svg.twig';
 import './_svg--embed.twig';
 import './_svg--sprite.twig';
 

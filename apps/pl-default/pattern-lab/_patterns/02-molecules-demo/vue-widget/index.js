@@ -28,6 +28,6 @@ if (document.getElementById('vue-input-text-component')) {
   (() =>
     new Vue({
       el: '#vue-input-text-component',
-      render: h => h(VueInputExample),
+      render: (h) => h(VueInputExample),
     }))();
 }

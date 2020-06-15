@@ -16,7 +16,7 @@
 <picture>
   {% for item in image.srcset %}
     {% set key = bp[loop.index]|default('xl') %}
-    <source srcset="{{ item }}" media="(max-width: {{ scssBreakpoints[key] }})">
+    <source srcset="{{ item }}" media="(max-width: {{ scssBreakpoints[key] }})" />
   {% endfor %}
   {% include '@atoms/image/_image--primary.twig' with {
     image: image,

@@ -8,14 +8,14 @@
  */
 #}
 
-{% set card_grid_classes = card_grid_classes|default([])|merge([
-  'card-grid',
-]) | sort | join(' ') | trim %}
+{% set card_grid_classes = card_grid_classes|default([])|merge(['card-grid'])|join(' ')|trim %}
 
 <div class="{{ card_grid_classes }}">
   {% block card_grid_title %}
     {% if card_grid.title %}
-      <h3>{{ card_grid.title }}</h3>
+      <h3>
+        {{ card_grid.title }}
+      </h3>
     {% endif %}
   {% endblock card_grid_title %}
 
@@ -25,7 +25,7 @@
         {% for item in card_grid.items %}
           {% include '@molecules/card/_card.twig' with {
             card: item,
-            card_classes: ['w-full','sm:w-1/3','m-3'],
+            card_classes: ['w-full', 'sm:w-1/3', 'm-3']
           } %}
         {% endfor %}
       </div>

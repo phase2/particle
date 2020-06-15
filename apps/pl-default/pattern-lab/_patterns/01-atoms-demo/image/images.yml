@@ -2,7 +2,9 @@ image_demo_block:
   title: 'Image'
   text:
     lead: 'Image HTML patterns.'
-    summary: 'The image pattern includes variants to cover most image use cases, including background images and <code>picture</code>.'
+    summary:
+      'The image pattern includes variants to cover most image use cases,
+      including background images and <code>picture</code>.'
 
 image_primary_demo:
   variant: 'primary'
@@ -16,5 +18,10 @@ image_picture_demo:
   src: 'https://via.placeholder.com/500'
   alt: 'A graybox image'
   style: ''
-  srcset: ['https://via.placeholder.com/100', 'https://via.placeholder.com/200', 'https://via.placeholder.com/400']
+  srcset:
+    [
+      'https://via.placeholder.com/100',
+      'https://via.placeholder.com/200',
+      'https://via.placeholder.com/400',
+    ]
   placeholder: false

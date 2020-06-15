@@ -1,10 +1,11 @@
 grids_demo:
-  title: 'Grid & Layout'
+  title: Grid & Layout
   content:
-    lead: 'Demonstration of our Particle Grid and Layouts.'
-    summary: 'Tailwind Grids accomplished with flex utility classes. Grid items
-    wrap using <code>Flex Wrap</code> by default. To remove, add wrap as false
-    in the grid data.'
+    lead: Demonstration of our Particle Grid and Layouts.
+    summary:
+      Tailwind Grids accomplished with flex utility classes. Grid items wrap
+      using <code>Flex Wrap</code> by default. To remove, add wrap as false in
+      the grid data.
 
 grid_1:
   variant: 1-up

@@ -5,14 +5,14 @@
  */
 #}
 
-{% embed '@demo/_demo-block.twig' with {
-  demo: cards_demo
-} %}
-
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: cards_demo
+  }
+%}
   {% block content %}
     {% include '@molecules/card/_card.twig' with {
-      card: card_1,
+      card: card_1
     } %}
   {% endblock content %}
-
 {% endembed %}

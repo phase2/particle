@@ -21,30 +21,9 @@
     "tools-docs": false
   },
   "ishViewportRange": {
-    "s": [
-      240,
-      500,
-      240,
-      500,
-      240,
-      500
-    ],
-    "m": [
-      500,
-      800,
-      500,
-      800,
-      500,
-      800
-    ],
-    "l": [
-      800,
-      2600,
-      800,
-      2600,
-      800,
-      2600
-    ]
+    "s": [240, 500, 240, 500, 240, 500],
+    "m": [500, 800, 500, 800, 500, 800],
+    "l": [800, 2600, 800, 2600, 800, 2600]
   },
   "logLevel": "error",
   "outputFileSuffixes": {
@@ -115,75 +94,58 @@
         {
           "id": "uikit",
           "recursive": true,
-          "paths": [
-            "./node_modules/@pattern-lab/uikit-workshop/views-twig"
-          ]
+          "paths": ["./node_modules/@pattern-lab/uikit-workshop/views-twig"]
         },
         {
           "id": "protons",
           "recursive": true,
-          "paths": [
-            "./source/default/_patterns/00-protons"
-          ]
+          "paths": ["./source/default/_patterns/00-protons"]
         },
         {
           "id": "atoms",
           "recursive": true,
-          "paths": [
-            "source/default/_patterns/01-atoms"
-          ]
+          "paths": ["source/default/_patterns/01-atoms"]
         },
         {
           "id": "molecules",
           "recursive": true,
-          "paths": [
-            "./source/default/_patterns/02-molecules"
-          ]
+          "paths": ["./source/default/_patterns/02-molecules"]
         },
         {
           "id": "organisms",
           "recursive": true,
-          "paths": [
-            "./source/default/_patterns/03-organisms"
-          ]
+          "paths": ["./source/default/_patterns/03-organisms"]
         },
         {
           "id": "templates",
           "recursive": true,
-          "paths": [
-            "./source/default/_patterns/04-templates"
-          ]
+          "paths": ["./source/default/_patterns/04-templates"]
         },
         {
           "id": "pages",
           "recursive": true,
-          "paths": [
-            "./source/default/_patterns/05-pages"
-          ]
+          "paths": ["./source/default/_patterns/05-pages"]
         },
         {
           "id": "demo",
           "recursive": true,
-          "paths": [
-            "./apps/pl-default/pattern-lab/_patterns/00-protons-demo"
-          ]
+          "paths": ["./apps/pl-default/pattern-lab/_patterns/00-protons-demo"]
+        },
+        {
+          "id": "demos",
+          "recursive": true,
+          "paths": ["./apps/pl-default/pattern-lab/_patterns"]
         },
         {
           "id": "macros",
           "recursive": true,
-          "paths": [
-            "./source/default/_macros"
-          ]
+          "paths": ["./source/default/_macros"]
         }
       ],
       "alterTwigEnv": [
         {
           "file": "./apps/pl-default/pattern-lab/alter-twig.php",
-          "functions": [
-            "addFilters",
-            "addFunctions",
-            "addDebug"
-          ]
+          "functions": ["addFilters", "addFunctions", "addDebug"]
         }
       ]
     }
