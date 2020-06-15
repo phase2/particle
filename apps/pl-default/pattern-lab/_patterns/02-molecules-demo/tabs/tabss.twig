@@ -3,15 +3,19 @@
 {% set demo = tabs_demo_block %}
 
 {% block content %}
-  <h2>Tab basic</h2>
+  <h2>
+    Tab basic
+  </h2>
   {% include '@molecules/tabs/_tabs.twig' %}
 
-  <h2>Tab with components</h2>
+  <h2>
+    Tab with components
+  </h2>
   {# Example of assigning a rendered element to a variable to be used for panel data. #}
   {% set article_tab %}
     {# Article component using `article_1` data set in `apps/pl-default/pattern-lab/_data/components.yml` #}
     {% include '@organisms/article/_article.twig' with {
-      article: article_1,
+      article: article_1
     } %}
   {% endset %}
   {% include '@molecules/tabs/_tabs.twig' with {
@@ -19,18 +23,17 @@
       data: [
         {
           title: 'Article Tab',
-          panel: article_tab,
+          panel: article_tab
         },
         {
           title: 'Tab 2',
-          panel: excerpt.long,
+          panel: excerpt.long
         },
         {
           title: 'Tab 3',
-          panel: "<p>#{excerpt.medium}<p>",
-        },
-      ],
-    }),
+          panel: "<p>#{excerpt.medium}<p>"
+        }
+      ]
+    })
   } %}
-
-{% endblock %}
+{% endblock content %}

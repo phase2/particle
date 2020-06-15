@@ -1,4 +1,4 @@
 /* Base background color on aria-selected so style and function are based on same attribute */
-.tabs__list-link[aria-selected="true"] {
+.tabs__list-link[aria-selected='true'] {
   @apply bg-white;
 }
