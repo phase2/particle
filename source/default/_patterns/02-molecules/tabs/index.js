@@ -34,42 +34,17 @@ export const switchTab = (tabsGroup) => {
   });
 };
 
-// Initially first tab to selected then update tab and panel based on state.
-export const initTabs = (tabsGroup) => {
-  const tabsInitialized = tabsGroup.map(function mapTabsInitial(item, i) {
-    return {
-      id: item.id,
-      panelId: item.panelId,
-      selected: i === 0,
-    };
-  });
-  return tabsInitialized;
-};
-
 // Return current selected index.
-export const selectedIndexState = (tabsGroup) => {
-  const currentSelectedIndex = tabsGroup.reduce(function filterCurrentSelected(
-    acc,
-    value,
-    i
-  ) {
-    return value.selected ? i : acc;
-  },
-  0);
-  return currentSelectedIndex;
-};
+export const selectedIndexState = (tabsGroup) =>
+  tabsGroup.reduce((acc, value, i) => (value.selected ? i : acc), 0);
 
 // Update tab selected state.
-export const updateSelectedState = (selectedIndex, tabsGroup) => {
-  const tabsSelected = tabsGroup.map(function mapTabsSelected(item, i) {
-    return {
-      id: item.id,
-      panelId: item.panelId,
-      selected: i === selectedIndex,
-    };
-  });
-  return tabsSelected;
-};
+export const updateSelectedState = (selectedIndex, tabsGroup) =>
+  tabsGroup.map((item, i) => ({
+    id: item.id,
+    panelId: item.panelId,
+    selected: i === selectedIndex,
+  }));
 
 /**
  * Components may need to run clean-up tasks if they are removed from DOM.
@@ -100,12 +75,9 @@ export function enable($context) {
     // Add to tabState for each tab collection.
     tabsState.push(tabsGroup);
 
-    const getTabsState = () => {
-      return tabsGroup;
-    };
     const getSelectedIndex = () => {
-      const tabsData = getTabsState();
-      return selectedIndexState(tabsData);
+      console.log(selectedIndexState(tabsGroup));
+      return selectedIndexState(tabsGroup);
     };
 
     // Add semantics are remove user focusability for each tab
@@ -174,7 +146,7 @@ export function enable($context) {
     });
 
     // Set first tab to selected.
-    const tabsInialized = initTabs(tabsGroup);
+    const tabsInialized = updateSelectedState(0, tabsGroup);
     tabsGroup = tabsInialized;
 
     // Initially activate the first tab and reveal the first tab panel.
