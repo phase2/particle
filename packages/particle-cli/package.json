@@ -13,8 +13,8 @@
     "init"
   ],
   "bin": {
-    "@phase2/particle-cli": "bin/particle-cli",
-    "particle-cli": "bin/particle-cli"
+    "@phase2/particle-cli": "bin/particle-cli.js",
+    "particle-cli": "bin/particle-cli.js"
   },
   "homepage": "https://github.com/phase2/particle#readme",
   "repository": {
