@@ -24,17 +24,17 @@
   },
   "license": "GPL-2.0",
   "dependencies": {
-    "stylelint-config-prettier": "^6.0.0",
-    "stylelint-order": "2.2.1",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-order": "4.1.0",
     "stylelint-prettier": "1.1.2",
-    "stylelint-scss": "3.13.0",
-    "stylelint": "^12.0.0"
+    "stylelint-scss": "3.17.2",
+    "stylelint": ">=13.6.0"
   },
   "devDependencies": {
-    "eslint": "^5.4.0",
-    "stylelint": "9.5.0"
+    "eslint": "^7.2.0",
+    "stylelint": ">=13.6.0"
   },
   "peerDependencies": {
-    "stylelint": ">=9.4.0"
+    "stylelint": ">=13.6.0"
   }
 }
