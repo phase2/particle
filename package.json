@@ -29,7 +29,6 @@
     "test:watch": "jest --watch",
     "build": "tsc -p tsconfig.json",
     "build:watch": "npm run build --watch",
-    "clean": "rm -rf package-lock.json; lerna exec -- rm package-lock.json;",
     "update:check": "npx ncu && npx lerna exec --concurrency 1 --no-bail -- npx ncu",
     "update:start": "npm-upgrade && lerna exec --concurrency 1 -- npm-upgrade; npm run lerna:install"
   },
