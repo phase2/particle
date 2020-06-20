@@ -14,13 +14,11 @@
  */
 #}
 
-<div{{ wrapper_attributes }}>
-  {% include '@atoms/form-element/_textarea.twig'
-    with {
+<div {{ wrapper_attributes }}>
+  {% include '@atoms/form-element/_textarea.twig' with {
     textarea: {
       attributes: attributes,
-      content: value,
+      content: value
     }
-  }
-  %}
+  } %}
 </div>
