@@ -192,7 +192,7 @@ function addFilters(\Twig_Environment &$env, $config) {
         }
         $renderable_attributes[] = "{$key}=\"{$value}\"";
       }
-      return implode($renderable_attributes, ' ');
+      return implode(' ', $renderable_attributes);
     }
   });
   $env->addFilter($attributify_filter);
