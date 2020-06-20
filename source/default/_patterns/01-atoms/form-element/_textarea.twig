@@ -13,19 +13,19 @@
 {# Update Classes with Design System Values #}
 {% set textarea_classes =
   textarea_classes
-  |default([])
-  |merge(['textarea', 'form-textarea', textarea.attributes.class ? textarea.attributes.class|join(' ')|trim])
-  |join(' ')
-  |trim
+    |default([])
+    |merge(['textarea', 'form-textarea', textarea.attributes.class ? textarea.attributes.class|join(' ')|trim])
+    |join(' ')
+    |trim
 %}
 
 {# Update Attributes with New Classes + Supplemental Data #}
 {% set textarea_attributes =
   textarea.attributes
-  |default({})
-  |merge({
-  class: textarea_classes
-})
+    |default({})
+    |merge({
+      class: textarea_classes
+    })
 %}
 
 <textarea {{ textarea_attributes|attributify }}>

@@ -13,8 +13,8 @@
 {% set input =
   {
     attributes: {
-    type: 'text'
-  }
+      type: 'text'
+    }
   }|merge(input|default({}))
 %}
 
@@ -33,26 +33,26 @@
 {# Update Classes with Design System Values #}
 {% set input_classes =
   input_classes
-  |default([])
-  |merge(
-  [
-    'input',
-    'input--' ~ input_variant,
-    input_variant in (form_type_classes|keys) ? form_type_classes[input_variant] : form_type_classes.input,
-    input.attributes.class ? input.attributes.class|join(' ')|trim : ''
-  ]
-  )
-  |join(' ')
-  |trim
+    |default([])
+    |merge(
+      [
+        'input',
+        'input--' ~ input_variant,
+        input_variant in (form_type_classes|keys) ? form_type_classes[input_variant] : form_type_classes.input,
+        input.attributes.class ? input.attributes.class|join(' ')|trim : ''
+      ]
+    )
+    |join(' ')
+    |trim
 %}
 
 {# Update Attributes with New Classes + Supplemental Data #}
 {% set input_attributes =
   input.attributes
-  |default({})
-  |merge({
-  class: input_classes
-})
+    |default({})
+    |merge({
+      class: input_classes
+    })
 %}
 
 {% block input_content %}
