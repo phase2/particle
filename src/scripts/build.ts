@@ -1,7 +1,5 @@
-const fs = require('fs')
-const exec = require('child_process').exec
-
-const async = require('async') // npm install async
+import fs from 'fs'
+import { exec } from 'child_process'
 
 const distFolder = './dist' // add your scripts to folder named scripts
 const packagesFolder = './packages'
@@ -24,7 +22,11 @@ files.forEach((packageName: string) => {
         `cp ${path}/${item} ${distFolder}/${packageName}/${item}`,
         { shell: '/bin/bash' },
         (err: any, stdout: any, stderr: any) => {
-          console.log('this is with bash', stdout, stderr)
+          console.log(
+            `successfully wrote ${path}/${item} to dist`,
+            stdout,
+            stderr
+          )
         }
       )
     }
