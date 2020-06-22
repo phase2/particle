@@ -22,6 +22,23 @@ TBD
 1. `npm run build:watch` build the project in the dist folder
 1. `npm run test:watch` to start jest in watch mode (recommended)
 
+### Installing A Dependency
+
+1. Run `npm run build`, build will fire off the `tsc` build script and also copy the package.json and README.md files from the `packages/*` directories directly into the dist folder. Alternatively have the compiler in watch mode `npm run build:watch` and run `npm run postbuild` to copy the files in.
+1. Cd into `dist/<REPO_NAME>` and run `npm link`, this will link the **bin** alias as an alias in your terminal. Example the bin is named `@phase2/particle-cli` therefore running `npx @phase2/particle-cli -v` will invoke the binary file `particle-cli`.
+
+#### Example
+
+```bash
+npm install
+cd dist; cd particle-cli;
+npm unlink particle-cli; npm unlink @phase2/particle-cli; // npm unlink should also work
+npm link;
+npx @phase2/particle-cli -V; // works
+particle-cli -V; // works
+@phase2/particle-cli; // fails as npm does not directly register the alias, only the binary file
+```
+
 ### Clean the repo
 
 To remove package-lock.json from all levels of the repo simply run this command. PS is used to prevent grep from exiting as this throws an error with `lerna exec` even with the `--no-bail` flag.
