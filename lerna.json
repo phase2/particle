@@ -1,5 +1,4 @@
 {
-  "version": "11.0.0",
   "npmClient": "npm",
   "command": {
     "publish": {
@@ -10,8 +9,6 @@
       "npmClientArgs": ["--no-package-lock"]
     }
   },
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "version": "independent"
 }

@@ -24,8 +24,9 @@
  *
  */
 
-const create = function() {
-  console.log('Create Particle Project');
-};
+const create = () => {
+  console.log('Create Particle Project')
+  return true
+}
 
-module.exports = create;
+export default create

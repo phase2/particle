@@ -16,9 +16,12 @@ packages/*/package-lock.json
 # Dependencies
 node_modules
 
-#IDE Plugins
+# IDE Plugins
 .idea
 
 # Errors
 npm-debug.log
 php_errors.log
+
+# Typescript
+dist
