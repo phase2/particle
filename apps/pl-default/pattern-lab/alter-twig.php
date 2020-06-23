@@ -188,11 +188,11 @@ function addFilters(\Twig_Environment &$env, $config) {
         // If our values are an array, join the array into a string.
         if (is_array($value)) {
           asort($value);
-          $value = implode($value, ' ');
+          $value = implode(' ', $value);
         }
         $renderable_attributes[] = "{$key}=\"{$value}\"";
       }
-      return implode($renderable_attributes, ' ');
+      return implode(' ', $renderable_attributes);
     }
   });
   $env->addFilter($attributify_filter);
