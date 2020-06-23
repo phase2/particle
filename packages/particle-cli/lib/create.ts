@@ -24,8 +24,8 @@
  *
  */
 
-const create = () => {
-  console.log('Create Particle Project')
+const create = (data: any) => {
+  console.log('Create Particle Project with the data:', data)
   return true
 }
 

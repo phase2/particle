@@ -31,6 +31,10 @@
   },
   "dependencies": {
     "commander": "^5.1.0",
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "inquirer": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^6.5.0"
   }
 }
