@@ -1,7 +1,7 @@
 {
   "default": {
     "input": {
-      "borderRadius": "none"
+      "borderRadius": "theme('borderRadius.none')"
     }
   }
 }
