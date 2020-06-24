@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * select
+ *
+ * Available variables for select:
+ *  - select.options [array]: Collection of items to display.
+ *  - select.attributes [array]: Any set of valid HTML Attributes.
+ *      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+ */
+#}
+
+{# Update Classes with Design System Values #}
+{% set select_classes =
+  select_classes
+    |default([])
+    |merge(
+      [
+        'select',
+        select.attributes.multiple ? 'form-multiselect' : 'form-select',
+        select.attributes.class ? select.attributes.class|join(' ')|trim
+      ]
+    )
+    |join(' ')
+    |trim
+%}
+
+{# Update Attributes with New Classes + Supplemental Data #}
+{% set select_attributes =
+  select.attributes
+    |default({})
+    |merge({
+      class: select_classes
+    })
+%}
+
+{% spaceless %}
+  <select {{ select_attributes|attributify }}>
+    {% block select_content %}
+      {% for option in select.options %}
+        {% if option.type == 'optgroup' %}
+          <optgroup label="{{ option.label }}">
+            {% for sub_option in option.options %}
+              <option value="{{ sub_option.value }}"
+                {{ sub_option.selected ? ' selected="selected"' }}
+                {{ option.disabled ? ' disabled' }}>
+                {{ sub_option.label }}
+              </option>
+            {% endfor %}
+          </optgroup>
+        {% elseif option.type == 'option' %}
+          <option value="{{ option.value }}"
+            {{ option.selected ? ' selected="selected"' }}
+            {{ option.disabled ? ' disabled' }}>
+            {{ option.label }}
+          </option>
+        {% endif %}
+      {% endfor %}
+    {% endblock select_content %}
+  </select>
+{% endspaceless %}

@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme override for a select element.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the <select> tag.
+ * - options: The <option> element children.
+ *
+ * @see template_preprocess_select()
+ */
+#}
+
+{% include '@atoms/form-element/_select.twig' with {
+  select: {
+    attributes: attributes,
+    options: options
+  }
+} %}

@@ -65,6 +65,7 @@
     "@pattern-lab/core": "^5.10.1",
     "@pattern-lab/engine-twig-php": "^5.10.1",
     "@pattern-lab/uikit-workshop": "^5.10.2",
+    "@tailwindcss/custom-forms": "^0.2.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
