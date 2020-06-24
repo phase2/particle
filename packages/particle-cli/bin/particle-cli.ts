@@ -3,8 +3,8 @@
 import program from 'commander'
 
 import pkg from '../package.json'
-import { generatePromptOptions } from './../lib/generatePromptOptions'
-import create from '../lib/create'
+import { generatePromptOptions } from '../src/generatePromptOptions'
+import create from '../src/create'
 
 /**
  * Initialize Commander program with version.

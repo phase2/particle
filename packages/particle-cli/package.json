@@ -13,8 +13,8 @@
     "init"
   ],
   "bin": {
-    "@phase2/particle-cli": "bin/particle-cli.js",
-    "particle-cli": "bin/particle-cli.js"
+    "@phase2/particle-cli": "lib/bin/particle-cli.js",
+    "particle-cli": "lib/bin/particle-cli.js"
   },
   "homepage": "https://github.com/phase2/particle#readme",
   "repository": {
@@ -27,7 +27,9 @@
   },
   "license": "GPL-2.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
   },
   "dependencies": {
     "commander": "^5.1.0",
