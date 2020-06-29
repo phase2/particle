@@ -56,7 +56,7 @@
     "svg4everybody": "^2.1.9",
     "tailwindcss": "^1.4.6",
     "vue": "^2.6.11",
-    "vuex": "^3.4.0"
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
