@@ -1,12 +1,15 @@
 import {
+  CustomAnswers,
+  ConfigurationAnswers,
   DesignSystemPatternLibraryOptions,
+  FrontendFrameworkOptions,
   StaticTestingLibraryOptions,
 } from './types'
 import inquirer from 'inquirer'
 
 const prompt = inquirer.createPromptModule()
 
-const genericValidate = ({ min, max }: { min: number; max?: number }) => (
+const minMaxOptionsValidate = ({ min, max }: { min: number; max?: number }) => (
   answer: Record<string, string>[]
 ) => {
   if (answer.length < min || (!max ? false : answer.length > max)) {
@@ -17,15 +20,18 @@ const genericValidate = ({ min, max }: { min: number; max?: number }) => (
   return true
 }
 
-const configurationPrompt = () =>
+const configurationPrompt = (): Promise<ConfigurationAnswers> =>
   prompt([
     {
       type: 'input',
-      message: 'choose a repo name',
-      name: 'repoName',
+      message: 'choose a project name using kebab case, example: "my-project"',
+      name: 'projectName',
       validate: (name: string) => {
         if (!name || name.length < 4) {
-          return 'Please enter a repo name of more than 4 characters length'
+          return 'Please enter a project name of more than 4 characters length'
+        }
+        if (name.indexOf(' ') > 0) {
+          return 'Please enter a project name with no spaces'
         }
         return true
       },
@@ -55,11 +61,11 @@ const configurationPrompt = () =>
         { name: 'drupal only (Pattern Lab, Tailwind, Svgs)', value: 'drupal' },
         { name: 'custom', value: 'custom' },
       ],
-      validate: genericValidate({ min: 1, max: 1 }),
+      validate: minMaxOptionsValidate({ min: 1, max: 1 }),
     },
   ])
 
-const customPromptOptions = () => {
+const customPromptOptions = (): Promise<CustomAnswers> => {
   return prompt([
     {
       type: 'checkbox',
@@ -77,7 +83,51 @@ const customPromptOptions = () => {
           value: DesignSystemPatternLibraryOptions.PATTERN_LAB,
         },
       ],
-      validate: genericValidate({ min: 1 }),
+      validate: minMaxOptionsValidate({ min: 1 }),
+    },
+    {
+      type: 'checkbox',
+      message: 'What frontend framework are you using with Storybook?',
+      name: 'frontendFramework',
+      choices: [
+        {
+          name: 'React',
+          checked: true,
+          value: FrontendFrameworkOptions.REACT,
+        },
+        {
+          name: 'Webcomponents',
+          value: FrontendFrameworkOptions.WEBCOMPONENTS,
+        },
+      ],
+      // PR up for docs on inquirer to annotate second param answers https://github.com/SBoudrias/Inquirer.js/pull/936
+      filter: (value: FrontendFrameworkOptions[], answers: CustomAnswers) => {
+        if (
+          answers.designSystem.includes(
+            DesignSystemPatternLibraryOptions.PATTERN_LAB
+          )
+        ) {
+          return [FrontendFrameworkOptions.TWIG, ...value]
+        }
+        return value
+        // throw new Error(answers.designSystem)
+        // input will { answers, values } as we are modifying the return value in the choices section
+      },
+      when: (answers: CustomAnswers) => {
+        // Checks to see if we enabled typescript previously then asks the prompt
+        if (
+          new Set(answers.designSystem).has(
+            DesignSystemPatternLibraryOptions.STORYBOOK
+          )
+        ) {
+          return true
+        }
+
+        // Mutates answers object adds twig to selected choice (does not prompt user)
+        answers.frontendFramework = [FrontendFrameworkOptions.TWIG]
+
+        return false
+      },
     },
     {
       type: 'checkbox',
@@ -100,7 +150,7 @@ const customPromptOptions = () => {
       message:
         'Do you want ESModule support for typescript? \n -- choose(1 or both): Using both will allow for the best of both worlds but you will have to support bundling ESM for modern browsers and CJS for all other browsers --',
       name: 'Typescript options',
-      when: (answer) => {
+      when: (answer: CustomAnswers) => {
         // Checks to see if we enabled typescript previously then asks the prompt
         if (
           new Set(answer.staticTestingLibrary).has(
@@ -125,25 +175,19 @@ const customPromptOptions = () => {
     },
     {
       type: 'checkbox',
-      message: 'What frontened framework are you using?',
-      name: 'frontendFramework',
-      choices: [{ name: 'ReactJS', checked: true }, 'Twig', 'Polymer', 'none'],
-    },
-    {
-      type: 'checkbox',
       name: 'Are you using SVGs?',
       choices: [
         { checked: true, name: 'yes', value: true },
         { name: 'no', value: false },
       ],
-      validate: genericValidate({ min: 1, max: 1 }),
+      validate: minMaxOptionsValidate({ min: 1, max: 1 }),
     },
     {
       type: 'checkbox',
       message: 'What testing libraries do you want to use?',
       name: 'testingLibraries',
       choices: ['Jest', 'Cypress', 'Loki (Storybook only VRT)'],
-      validate: genericValidate({ min: 1 }),
+      validate: minMaxOptionsValidate({ min: 1 }),
     },
   ])
 }
