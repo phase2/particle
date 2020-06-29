@@ -34,12 +34,9 @@
     "update:start": "npm-upgrade && lerna exec --concurrency 1 -- npm-upgrade; npm run lerna:install"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
     "@lerna/link": "^3.21.0",
     "@types/jest": "^26.0.0",
     "@types/node": "^14.0.14",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^7.2.0",
     "jest": "^26.0.1",
     "jest-watch-typeahead": "^0.6.0",
@@ -50,8 +47,5 @@
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
-  },
-  "files": [
-    "dist/**/*"
-  ]
+  }
 }
