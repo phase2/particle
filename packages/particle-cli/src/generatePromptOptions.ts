@@ -1,5 +1,6 @@
 import {
   CustomAnswers,
+  ConfigOptions,
   ConfigurationAnswers,
   DesignSystemPatternLibraryOptions,
   FrontendFrameworkOptions,
@@ -198,7 +199,7 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
  */
 export const generatePromptOptions = async () => {
   const results = await configurationPrompt()
-  if (new Set(results.config).has('custom')) {
+  if (new Set(results.config).has(ConfigOptions.CUSTOM)) {
     return customPromptOptions()
   }
 

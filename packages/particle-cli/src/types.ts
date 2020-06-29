@@ -8,12 +8,6 @@ export enum DesignSystemPatternLibraryOptions {
   PATTERN_LAB = 'pattern_lab',
 }
 
-export enum ConfigurationOptions {
-  CUSTOM = 'custom',
-  MODERN_REACT = 'modern_react',
-  DRUPAL_ONLY = 'drupal',
-}
-
 export enum StaticTestingLibraryOptions {
   TYPESCRIPT = 'typescript',
 }
