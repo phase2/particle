@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-const program = require('commander')
-// const pkg = require('../package'); // can't do since this is not copied over into dist unless its an import
+import program from 'commander'
+
 import pkg from '../package.json'
-const create = require('../lib/create')
+import { generatePromptOptions } from '../src/generatePromptOptions'
+import create from '../src/create'
 
 /**
  * Initialize Commander program with version.
@@ -16,7 +17,7 @@ program
   .description('Scaffold your project from a set of prompts.')
   .action(function () {
     // @TODO Implement Create Function.
-    create()
+    generatePromptOptions().then(create)
   })
 
 // allow commander to parse `process.argv`

@@ -22,6 +22,7 @@ node_modules
 # Errors
 npm-debug.log
 php_errors.log
+lerna-debug.log
 
-# Typescript
-dist
+# Typescript outdir
+packages/*/lib
