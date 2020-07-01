@@ -7,7 +7,6 @@
     "url": "https://github.com/phase2/"
   },
   "description": "Custom ESLINT config for Phase2 projects.",
-  "main": "index.js",
   "keywords": [
     "eslint",
     "eslintconfig",
@@ -15,6 +14,10 @@
     "airbnb",
     "prettier"
   ],
+  "bin": {
+    "@phase2/particle-cli": "lib/eslint-config.js",
+    "particle-cli": "lib/eslint-config.js"
+  },
   "homepage": "https://github.com/phase2/particle#readme",
   "repository": {
     "type": "git",
@@ -25,8 +28,15 @@
     "url": "https://github.com/phase2/particle/issues"
   },
   "license": "GPL-2.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "test": "npm run jest"
+  },
   "devDependencies": {
-    "eslint": "^7.2.0"
+    "eslint": "^7.2.0",
+    "jest": "^26.1.0"
   },
   "peerDependencies": {
     "eslint": "^7.2.0"
