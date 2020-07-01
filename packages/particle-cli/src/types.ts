@@ -4,7 +4,7 @@ export enum CSSLibraryOptions {
   BOOTSTRAP = 'bootstrap',
 }
 
-export enum DesignSystemPatternLibraryOptions {
+export enum ComponentLibraryOptions {
   STORYBOOK = 'storybook',
   PATTERN_LAB = 'pattern_lab',
 }
@@ -39,7 +39,7 @@ export interface ConfigurationAnswers extends Naming {
 
 export interface CustomAnswers {
   cssLibrary: CSSLibraryOptions
-  designSystem: DesignSystemPatternLibraryOptions[]
+  componentLibrary: ComponentLibraryOptions[]
   frontendFramework: FrontendFrameworkOptions[]
   hasSVG: boolean
   hasTypescript: boolean

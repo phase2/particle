@@ -3,7 +3,7 @@ import {
   ConfigOptions,
   ConfigurationAnswers,
   CSSLibraryOptions,
-  DesignSystemPatternLibraryOptions,
+  ComponentLibraryOptions,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
 } from './types'
@@ -40,12 +40,12 @@ const configurationPrompt = (): Promise<ConfigurationAnswers> =>
     },
     {
       type: 'input',
-      message: 'choose a design system name',
-      name: 'designSystemName',
+      message: 'choose a component library name',
+      name: 'componentLibrary',
       default: 'default',
       validate: (name: string) => {
         if (!name || name.length < 4) {
-          return 'Please enter a repo name of more than 4 characters length'
+          return 'Please enter a library name of more than 4 characters length'
         }
         return true
       },
@@ -70,18 +70,18 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
   return prompt([
     {
       type: 'checkbox',
-      message: 'choose a Component/Pattern Library or a Design System',
-      name: 'designSystem',
+      message: 'choose a Component Library',
+      name: 'componentLibrary',
       choices: [
-        new inquirer.Separator('-- Design System choose(1 or both)--'),
+        new inquirer.Separator('-- Component Library choose(1 or both)--'),
         {
           name: 'Storybook',
-          value: DesignSystemPatternLibraryOptions.STORYBOOK,
+          value: ComponentLibraryOptions.STORYBOOK,
           checked: true,
         },
         {
           name: 'Pattern Lab',
-          value: DesignSystemPatternLibraryOptions.PATTERN_LAB,
+          value: ComponentLibraryOptions.PATTERN_LAB,
         },
       ],
       validate: minMaxOptionsValidate({ min: 1 }),
@@ -104,21 +104,19 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
       // PR up for docs on inquirer to annotate second param answers https://github.com/SBoudrias/Inquirer.js/pull/936
       filter: (value: FrontendFrameworkOptions[], answers: CustomAnswers) => {
         if (
-          answers.designSystem.includes(
-            DesignSystemPatternLibraryOptions.PATTERN_LAB
-          )
+          answers.componentLibrary.includes(ComponentLibraryOptions.PATTERN_LAB)
         ) {
           return [FrontendFrameworkOptions.TWIG, ...value]
         }
         return value
-        // throw new Error(answers.designSystem)
+        // throw new Error(answers.componentLibrary)
         // input will { answers, values } as we are modifying the return value in the choices section
       },
       when: (answers: CustomAnswers) => {
         // Checks to see if we enabled typescript previously then asks the prompt
         if (
-          new Set(answers.designSystem).has(
-            DesignSystemPatternLibraryOptions.STORYBOOK
+          new Set(answers.componentLibrary).has(
+            ComponentLibraryOptions.STORYBOOK
           )
         ) {
           return true
