@@ -2,9 +2,10 @@ import {
   CustomAnswers,
   ConfigOptions,
   ConfigurationAnswers,
+  CSSLibraryOptions,
   DesignSystemPatternLibraryOptions,
   FrontendFrameworkOptions,
-  StaticTestingLibraryOptions,
+  TestingLibraryOptions,
 } from './types'
 import inquirer from 'inquirer'
 
@@ -50,7 +51,7 @@ const configurationPrompt = (): Promise<ConfigurationAnswers> =>
       },
     },
     {
-      type: 'checkbox',
+      type: 'list',
       message: 'Choose a configuration',
       name: 'config',
       choices: [
@@ -62,7 +63,6 @@ const configurationPrompt = (): Promise<ConfigurationAnswers> =>
         { name: 'drupal only (Pattern Lab, Tailwind, Svgs)', value: 'drupal' },
         { name: 'custom', value: 'custom' },
       ],
-      validate: minMaxOptionsValidate({ min: 1, max: 1 }),
     },
   ])
 
@@ -131,63 +131,53 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
       },
     },
     {
-      type: 'checkbox',
+      type: 'list',
       message: 'Choose a CSS library',
       name: 'cssLibrary',
       choices: [
-        { name: 'Tailwind', checked: true },
-        'Sass',
-        { name: 'bootstrap', disabled: true },
+        { name: 'Tailwind', checked: true, value: CSSLibraryOptions.TAILWIND },
+        { name: 'Sass', value: CSSLibraryOptions.SASS },
+        {
+          name: 'Bootstrap',
+          disabled: true,
+          value: CSSLibraryOptions.BOOTSTRAP,
+        },
       ],
     },
     {
-      type: 'checkbox',
-      message: '[optional] choose a static typing library',
-      name: 'staticTestingLibrary',
-      choices: [StaticTestingLibraryOptions.TYPESCRIPT],
+      type: 'confirm',
+      message: 'Do you want to use typescript?',
+      name: 'hasTypescript',
     },
     {
-      type: 'checkbox',
-      message:
-        'Do you want ESModule support for typescript? \n -- choose(1 or both): Using both will allow for the best of both worlds but you will have to support bundling ESM for modern browsers and CJS for all other browsers --',
-      name: 'Typescript options',
+      type: 'confirm',
+      message: 'Do you want ESModule support for typescript?',
+      name: 'typescriptEsm',
       when: (answer: CustomAnswers) => {
         // Checks to see if we enabled typescript previously then asks the prompt
-        if (
-          new Set(answer.staticTestingLibrary).has(
-            StaticTestingLibraryOptions.TYPESCRIPT
-          )
-        ) {
+        if (answer.hasTypescript) {
           return true
         }
         return false
       },
-      choices: [
-        new inquirer.Separator(
-          '-- choose(1 or both): Using both will allow for the best of both worlds but you will have to support bundling ESM for modern browsers and CJS for all other browsers --'
-        ), // TODO perhaps we add this part into the message
-        {
-          name: 'typescript CJS (all browsers but slower on modern browsers)',
-          value: 'cjs',
-          checked: true,
-        },
-        { name: 'typescript ESM (for modern browsers only)', value: 'esm' },
-      ],
     },
     {
-      type: 'checkbox',
+      type: 'confirm',
       name: 'Are you using SVGs?',
-      choices: [
-        { checked: true, name: 'yes', value: true },
-        { name: 'no', value: false },
-      ],
-      validate: minMaxOptionsValidate({ min: 1, max: 1 }),
     },
     {
       type: 'checkbox',
       message: 'What testing libraries do you want to use?',
       name: 'testingLibraries',
-      choices: ['Jest', 'Cypress', 'Loki (Storybook only VRT)'],
+      choices: [
+        { name: 'Jest', value: TestingLibraryOptions.JEST },
+        { name: 'Cypress', value: TestingLibraryOptions.CYPRESS },
+        { name: 'Selenium', value: TestingLibraryOptions.SELENIUM },
+        {
+          name: 'Loki (Storybook only VRT)',
+          value: TestingLibraryOptions.LOKI,
+        },
+      ],
       validate: minMaxOptionsValidate({ min: 1 }),
     },
   ])
@@ -199,7 +189,7 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
  */
 export const generatePromptOptions = async () => {
   const results = await configurationPrompt()
-  if (new Set(results.config).has(ConfigOptions.CUSTOM)) {
+  if (results.config === ConfigOptions.CUSTOM) {
     return customPromptOptions()
   }
 

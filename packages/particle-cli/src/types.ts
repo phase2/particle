@@ -1,15 +1,12 @@
 export enum CSSLibraryOptions {
   TAILWIND = 'tailwind',
+  SASS = 'sass',
   BOOTSTRAP = 'bootstrap',
 }
 
 export enum DesignSystemPatternLibraryOptions {
   STORYBOOK = 'storybook',
   PATTERN_LAB = 'pattern_lab',
-}
-
-export enum StaticTestingLibraryOptions {
-  TYPESCRIPT = 'typescript',
 }
 
 export enum FrontendFrameworkOptions {
@@ -29,12 +26,23 @@ interface Naming {
   designSystemName: string
 }
 
+export enum TestingLibraryOptions {
+  JEST = 'jest',
+  CYPRESS = 'cypress',
+  LOKI = 'loki',
+  SELENIUM = 'selenium',
+}
+
 export interface ConfigurationAnswers extends Naming {
   config: ConfigOptions
 }
 
 export interface CustomAnswers {
+  cssLibrary: CSSLibraryOptions
   designSystem: DesignSystemPatternLibraryOptions[]
   frontendFramework: FrontendFrameworkOptions[]
-  staticTestingLibrary: StaticTestingLibraryOptions[]
+  hasSVG: boolean
+  hasTypescript: boolean
+  testingLibraries: TestingLibraryOptions[]
+  typescriptEsm?: boolean
 }
