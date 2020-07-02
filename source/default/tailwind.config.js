@@ -8,9 +8,9 @@ const path = require('path');
 // Tailwind Plugins
 const tailwindCustomForms = require('@tailwindcss/custom-forms');
 
-const colors = require('./tokens/colors.tailwind.json');
-const customForms = require('./tokens/custom-forms.tailwind.json');
-const fontFamily = require('./tokens/font-family.tailwind.json');
+const colors = require('./tokens/colors.tailwind');
+const customForms = require('./tokens/custom-forms.tailwind');
+const fontFamily = require('./tokens/font-family.tailwind');
 
 // Default Tailwind config can be found here: https://github.com/tailwindcss/tailwindcss/blob/v1.2.0/stubs/defaultConfig.stub.js
 module.exports = {
