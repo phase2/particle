@@ -23,13 +23,15 @@ export enum ConfigOptions {
 
 interface Naming {
   projectName: string
-  designSystemName: string
+  componentLibraryName: string
+  componentLibraryPath: string
 }
 
 export enum TestingLibraryOptions {
-  JEST = 'jest',
   CYPRESS = 'cypress',
+  JEST = 'jest',
   LOKI = 'loki',
+  PA11Y = 'pa11y',
   SELENIUM = 'selenium',
 }
 
@@ -39,10 +41,14 @@ export interface ConfigurationAnswers extends Naming {
 
 export interface CustomAnswers {
   cssLibrary: CSSLibraryOptions
-  componentLibrary: ComponentLibraryOptions[]
+  componentLibraryTypes: ComponentLibraryOptions[]
   frontendFramework: FrontendFrameworkOptions[]
   hasSVG: boolean
   hasTypescript: boolean
   testingLibraries: TestingLibraryOptions[]
   typescriptEsm?: boolean
+}
+
+export interface Answers extends Naming {
+  options: CustomAnswers
 }

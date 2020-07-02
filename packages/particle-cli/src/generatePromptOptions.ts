@@ -1,4 +1,7 @@
+import inquirer from 'inquirer'
+
 import {
+  Answers,
   CustomAnswers,
   ConfigOptions,
   ConfigurationAnswers,
@@ -7,7 +10,6 @@ import {
   FrontendFrameworkOptions,
   TestingLibraryOptions,
 } from './types'
-import inquirer from 'inquirer'
 
 const prompt = inquirer.createPromptModule()
 
@@ -20,6 +22,30 @@ const minMaxOptionsValidate = ({ min, max }: { min: number; max?: number }) => (
     }`
   }
   return true
+}
+
+const options: Record<string, CustomAnswers> = {
+  [ConfigOptions.MODERN_REACT]: {
+    cssLibrary: CSSLibraryOptions.TAILWIND,
+    componentLibraryTypes: [ComponentLibraryOptions.STORYBOOK],
+    frontendFramework: [FrontendFrameworkOptions.REACT],
+    hasSVG: true,
+    hasTypescript: true,
+    testingLibraries: [TestingLibraryOptions.JEST],
+    typescriptEsm: false,
+  },
+  [ConfigOptions.DRUPAL]: {
+    cssLibrary: CSSLibraryOptions.TAILWIND,
+    componentLibraryTypes: [ComponentLibraryOptions.PATTERN_LAB],
+    frontendFramework: [FrontendFrameworkOptions.TWIG],
+    hasSVG: true,
+    hasTypescript: false, // TODO find out if there is much benefit especially if most things are TWIG centric
+    testingLibraries: [
+      TestingLibraryOptions.CYPRESS,
+      TestingLibraryOptions.PA11Y,
+    ], // How much JS are we actually using for Twig centric functions
+    typescriptEsm: false,
+  },
 }
 
 const configurationPrompt = (): Promise<ConfigurationAnswers> =>
@@ -41,14 +67,22 @@ const configurationPrompt = (): Promise<ConfigurationAnswers> =>
     {
       type: 'input',
       message: 'choose a component library name',
-      name: 'componentLibrary',
-      default: 'default',
+      name: 'componentLibraryName',
+      default: 'particle',
       validate: (name: string) => {
         if (!name || name.length < 4) {
           return 'Please enter a library name of more than 4 characters length'
         }
         return true
       },
+    },
+    {
+      type: 'input',
+      message:
+        'Where does your component library exist relative to the root of the project',
+      default: (answers: ConfigurationAnswers) =>
+        `./project/components/${answers.componentLibraryName}/`,
+      name: 'componentLibraryPath',
     },
     {
       type: 'list',
@@ -58,9 +92,12 @@ const configurationPrompt = (): Promise<ConfigurationAnswers> =>
         {
           name:
             'modern react (storybook, tailwind, react, typescript, jest | cypress, svgs)',
-          value: 'modern-react',
+          value: ConfigOptions.MODERN_REACT,
         },
-        { name: 'drupal only (Pattern Lab, Tailwind, Svgs)', value: 'drupal' },
+        {
+          name: 'drupal only (Pattern Lab, Tailwind, Svgs)',
+          value: ConfigOptions.DRUPAL,
+        },
         { name: 'custom', value: 'custom' },
       ],
     },
@@ -71,7 +108,7 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
     {
       type: 'checkbox',
       message: 'choose a Component Library',
-      name: 'componentLibrary',
+      name: 'componentLibraryTypes',
       choices: [
         new inquirer.Separator('-- Component Library choose(1 or both)--'),
         {
@@ -104,7 +141,9 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
       // PR up for docs on inquirer to annotate second param answers https://github.com/SBoudrias/Inquirer.js/pull/936
       filter: (value: FrontendFrameworkOptions[], answers: CustomAnswers) => {
         if (
-          answers.componentLibrary.includes(ComponentLibraryOptions.PATTERN_LAB)
+          answers.componentLibraryTypes.includes(
+            ComponentLibraryOptions.PATTERN_LAB
+          )
         ) {
           return [FrontendFrameworkOptions.TWIG, ...value]
         }
@@ -115,7 +154,7 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
       when: (answers: CustomAnswers) => {
         // Checks to see if we enabled typescript previously then asks the prompt
         if (
-          new Set(answers.componentLibrary).has(
+          new Set(answers.componentLibraryTypes).has(
             ComponentLibraryOptions.STORYBOOK
           )
         ) {
@@ -175,6 +214,7 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
           name: 'Loki (Storybook only VRT)',
           value: TestingLibraryOptions.LOKI,
         },
+        { name: 'Pa11y', value: TestingLibraryOptions.PA11Y },
       ],
       validate: minMaxOptionsValidate({ min: 1 }),
     },
@@ -187,9 +227,20 @@ const customPromptOptions = (): Promise<CustomAnswers> => {
  */
 export const generatePromptOptions = async () => {
   const results = await configurationPrompt()
+
+  // if custom exit here
   if (results.config === ConfigOptions.CUSTOM) {
-    return customPromptOptions()
+    const customOptions = await customPromptOptions()
+
+    return {
+      ...results,
+      options: customOptions,
+    }
   }
 
-  return Promise.resolve(results)
+  // else reference preconfig
+  return {
+    ...results,
+    options: options[results.config],
+  }
 }
