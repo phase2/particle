@@ -29,16 +29,20 @@
   },
   "license": "GPL-2.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run jest",
     "tsc": "tsc",
-    "tsc:watch": "tsc --watch",
-    "test": "npm run jest"
+    "tsc:watch": "tsc --watch"
   },
   "devDependencies": {
+    "@types/mkdirp": "^1.0.1",
     "eslint": "^7.2.0",
     "jest": "^26.1.0"
   },
   "peerDependencies": {
     "eslint": "^7.2.0"
+  },
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "node-fs-extra": "^0.8.2"
   }
 }
