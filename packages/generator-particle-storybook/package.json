@@ -1,0 +1,31 @@
+{
+  "name": "generator-particle-storybook",
+  "version": "0.0.1",
+  "description": "Generates particle storybook",
+  "files": [
+    "lib/generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "particle"
+  ],
+  "homepage": "https://github.com/phase2/particle#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phase2/particle.git",
+    "directory": "packages/generator-particle-drupal"
+  },
+  "dependencies": {
+    "yeoman-generator": "^4.11.0"
+  },
+  "devDependencies": {
+    "@types/yeoman-generator": "^3.1.4",
+    "typescript": "^3.9.6",
+    "yo": "^3.1.1"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
+  }
+}
