@@ -1,0 +1,33 @@
+{
+  "name": "eslint-config-jest",
+  "version": "1.0.0",
+  "description": "Jest ESLINT config for Phase2 projects",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "jest",
+    "prettier"
+  ],
+  "author": "Shawn Mealey <mealeyst@gmail.com>",
+  "homepage": "https://github.com/phase2/particle/tree/master/packages/eslint-config-jest#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phase2/particle.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/phase2/particle/issues"
+  },
+  "peerDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-jest": "^7.20.3",
+    "prettier": "^2.0.5"
+  }
+}
