@@ -1,11 +1,10 @@
 {
-  "name": "generator-particle-storybook",
+  "name": "generator-particle",
   "version": "0.0.1",
-  "description": "Generates particle storybook",
+  "description": "Generates the file structure for particle",
   "files": [
     "lib/generators"
   ],
-  "main": "generators/index.js",
   "keywords": [
     "yeoman-generator",
     "particle"
@@ -14,9 +13,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/phase2/particle.git",
-    "directory": "packages/generator-particle-drupal"
+    "directory": "packages/generator-particle"
   },
   "dependencies": {
+    "chalk": "^4.1.0",
     "yeoman-generator": "^4.11.0"
   },
   "devDependencies": {
