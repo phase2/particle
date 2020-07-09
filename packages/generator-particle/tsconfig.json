@@ -2,7 +2,14 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./lib",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "preserveConstEnums": true,
+    "baseUrl": "./",
+    "paths": {
+      "common-files": ["./common/index"]
+    },
+    "composite": true
   },
-  "include": ["./src/generators"]
+  "references": [{ "path": "../common" }],
+  "include": ["./src/generators", "../common"]
 }

@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Generates the file structure for particle",
   "files": [
-    "lib/generators"
+    "lib",
+    "lib/generator-particle/src/generators",
+    "lib/common"
   ],
   "keywords": [
     "yeoman-generator",
@@ -20,7 +22,6 @@
     "yeoman-generator": "^4.11.0"
   },
   "devDependencies": {
-    "@phase2/particle-cli": "file:../particle-cli",
     "@types/yeoman-generator": "^3.1.4",
     "typescript": "^3.9.6",
     "yo": "^3.1.1"

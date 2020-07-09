@@ -1,23 +1,21 @@
-// import { ConfigOptions } from './../../../particle-cli/src/types' // TODO perhaps install these types separately from the module instead of the path. IE npm install -D particle-cli or @types/particle-cli
 import Generator from 'yeoman-generator'
 import { white, green, red } from 'chalk'
 
-import * as types from '@phase2/particle-cli'
-import { Answers } from '@phase2/particle-cli'
-
-const {
+// import * as p2 from '@phase2/particle-cli'
+import {
+  Answers,
   CSSLibraryOptions,
   ComponentLibraryOptions,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
-} = types
+} from '../../../../common/index'
 
-const baseDependencies = []
+const baseDependencies = [1, 2, 3]
 
 module.exports = class extends Generator {
-  // answers: any = { options: { frontendFramework: 'blah' } }
+  // answers: Answers = { options: { frontendFramework: 'blah' } }
   answers: Answers = {
-    projectName: 'hello-world',
+    projectName: 'hello-world1',
     componentLibraryName: 'particle',
     componentLibraryPath: './src/default',
     options: {
@@ -39,6 +37,7 @@ module.exports = class extends Generator {
     const { frontendFramework } = this.answers.options
 
     console.log(this.answers)
+    // console.log(p2)
 
     console.log(white('running npm init'))
     // await this.spawnCommandSync('npm', ['init', '-y'])
