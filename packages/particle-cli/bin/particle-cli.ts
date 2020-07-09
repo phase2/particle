@@ -18,6 +18,7 @@ program
   .action(function () {
     // @TODO Implement Create Function.
     generatePromptOptions().then(create)
+    // create({})
   })
 
 // allow commander to parse `process.argv`

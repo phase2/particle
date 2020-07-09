@@ -8,10 +8,12 @@
     "url": "https://github.com/phase2/"
   },
   "keywords": [
-    "cli",
+    "particle",
     "create-project",
-    "init"
+    "cli"
   ],
+  "main": "lib/bin/particle-cli.js",
+  "types": "lib/src/types.d.ts",
   "bin": {
     "@phase2/particle-cli": "lib/bin/particle-cli.js",
     "particle-cli": "lib/bin/particle-cli.js"
@@ -32,9 +34,12 @@
     "tsc:watch": "tsc --watch"
   },
   "dependencies": {
+    "chalk": "^4.1.0",
     "commander": "^5.1.0",
     "esm": "^3.2.25",
-    "inquirer": "^7.2.0"
+    "inquirer": "^7.2.0",
+    "typescript": "^3.9.6",
+    "yo": "^3.1.1"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0"

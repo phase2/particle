@@ -2,11 +2,33 @@
 import Generator from 'yeoman-generator'
 import { white, green, red } from 'chalk'
 
+import * as types from '@phase2/particle-cli'
+import { Answers } from '@phase2/particle-cli'
+
+const {
+  CSSLibraryOptions,
+  ComponentLibraryOptions,
+  FrontendFrameworkOptions,
+  TestingLibraryOptions,
+} = types
+
 const baseDependencies = []
 
 module.exports = class extends Generator {
-  answers: { frontendFramework: string } = {
-    frontendFramework: 'react', // comes from particle CLI
+  // answers: any = { options: { frontendFramework: 'blah' } }
+  answers: Answers = {
+    projectName: 'hello-world',
+    componentLibraryName: 'particle',
+    componentLibraryPath: './src/default',
+    options: {
+      cssLibrary: CSSLibraryOptions.TAILWIND,
+      componentLibraryTypes: [ComponentLibraryOptions.STORYBOOK],
+      frontendFramework: [FrontendFrameworkOptions.REACT],
+      hasSVG: true,
+      hasTypescript: true,
+      testingLibraries: [TestingLibraryOptions.JEST],
+      typescriptEsm: false,
+    },
   }
   // async prompting() {}
 
@@ -14,10 +36,12 @@ module.exports = class extends Generator {
    * @todo add support for testing inputs and outputs
    */
   async createPackageJson() {
-    const { frontendFramework } = this.answers
+    const { frontendFramework } = this.answers.options
+
+    console.log(this.answers)
 
     console.log(white('running npm init'))
-    await this.spawnCommandSync('npm', ['init', '-y'])
+    // await this.spawnCommandSync('npm', ['init', '-y'])
 
     const dependencies = [`@storybook/${frontendFramework}`]
 
@@ -32,7 +56,7 @@ module.exports = class extends Generator {
         )
       )
     }
-    console.log(green('Success!'))
+    console.log(green('Success! Again!'))
   }
 
   // Either run npm install in current DIR or CD into the install DIR and install

@@ -9,6 +9,7 @@ import {
   ComponentLibraryOptions,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
+  // @ts-ignore
 } from './types'
 
 const prompt = inquirer.createPromptModule()
