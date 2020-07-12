@@ -7,10 +7,10 @@ dependencies:
     - system
   theme:
     - particle
-id: particle_mainnavigation
+id: particle_mainnavigation_3
 theme: particle
-region: primary_menu
-weight: 10
+region: offcanvas_sidebar
+weight: 0
 provider: null
 plugin: 'system_menu_block:main'
 settings:
@@ -19,5 +19,5 @@ settings:
   provider: system
   label_display: '0'
   level: 1
-  depth: 2
-visibility: {}
+  depth: 0
+visibility: {  }

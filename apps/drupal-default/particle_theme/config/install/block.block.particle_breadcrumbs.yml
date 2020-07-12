@@ -5,15 +5,15 @@ dependencies:
     - system
   theme:
     - particle
-id: particle_messages
+id: particle_breadcrumbs
 theme: particle
-region: highlighted
-weight: -50
+region: content_header
+weight: -7
 provider: null
-plugin: system_messages_block
+plugin: system_breadcrumb_block
 settings:
-  id: system_messages_block
-  label: 'Status messages'
+  id: system_breadcrumb_block
+  label: Breadcrumbs
   provider: system
   label_display: '0'
-visibility: {}
+visibility: {  }

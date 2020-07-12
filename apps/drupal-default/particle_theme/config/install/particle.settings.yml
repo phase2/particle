@@ -1,2 +1,46 @@
-logo:
-  use_default: true
+# General Settings
+themag_toggle_scroll_to_top: 1
+themag_sticky_sidebar: 0
+
+# Search Block
+themag_search_button_text: 'Go'
+themag_search_field_placeholder_text: 'Enter the terms you wish to search for'
+
+# Header
+themag_header_style: 'header_a'
+themag_header_banner: '<img src="http://via.placeholder.com/728x90">'
+themag_sticky_header: 1
+themag_header_user_icon: 1
+themag_header_search_icon: 1
+themag_header_cart_icon: 1
+
+# Social Media Pages
+themag_facebook: 'https://www.facebook.com/'
+themag_twitter: 'https://twitter.com/'
+themag_youtube: 'https://www.youtube.com/'
+themag_instagram: 'https://instagram.com/'
+themag_pinterest: 'https://www.pinterest.com/'
+themag_snapchat: 'https://www.snapchat.com/'
+
+# MailChimp Signup Block
+themag_mailchimp_signup_headline: 'Sign Up for Our Newsletters'
+themag_mailchimp_signup_text: 'Get awesome content in your inbox every week.'
+
+# Teaser
+themag_teaser_show_media_contained_icons: 1
+themag_teaser_show_author_name: 1
+themag_teaser_show_post_date: 1
+themag_teaser_date_format: 'short'
+
+# RRSSB Buttons
+themag_rrssb_buttons:
+  rrssb_facebook: rrssb_facebook
+  rrssb_twitter: rrssb_twitter
+  rrssb_googleplus: rrssb_googleplus
+  rrssb_email: rrssb_email
+
+# Advanced Settings
+themag_use_custom_css_file: 0
+themag_use_custom_js_file: 0
+themag_additional_css: ''
+themag_additional_javascript: ''

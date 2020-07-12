@@ -3,10 +3,10 @@ status: true
 dependencies:
   theme:
     - particle
-id: particle_local_tasks
+id: particle_tabs
 theme: particle
-region: content
-weight: -60
+region: content_administration
+weight: -8
 provider: null
 plugin: local_tasks_block
 settings:
@@ -16,4 +16,4 @@ settings:
   label_display: '0'
   primary: true
   secondary: true
-visibility: {}
+visibility: {  }
