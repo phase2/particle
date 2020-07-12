@@ -20,4 +20,4 @@ settings:
   provider: views
   label_display: '0'
   views_label: visible
-visibility: {}
+visibility: {  }

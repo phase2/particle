@@ -7,15 +7,15 @@ dependencies:
     - system
   theme:
     - particle
-id: particle_footer
+id: particle_footer_2
 theme: particle
-region: footer
+region: footer_bottom_second
 weight: 0
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
   id: 'system_menu_block:footer'
-  label: 'Footer menu'
+  label: Footer
   provider: system
   label_display: '0'
   level: 1

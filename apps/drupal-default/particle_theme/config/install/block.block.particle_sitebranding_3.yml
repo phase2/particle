@@ -5,10 +5,10 @@ dependencies:
     - system
   theme:
     - particle
-id: particle_sitebranding
+id: particle_sitebranding_3
 theme: particle
-region: header_branding
-weight: 0
+region: logo
+weight: -9
 provider: null
 plugin: system_branding_block
 settings:
@@ -17,6 +17,6 @@ settings:
   provider: system
   label_display: '0'
   use_site_logo: true
-  use_site_name: true
-  use_site_slogan: true
-visibility: {}
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

@@ -8,7 +8,7 @@ dependencies:
 id: particle_content
 theme: particle
 region: content
-weight: 0
+weight: -6
 provider: null
 plugin: system_main_block
 settings:
@@ -16,4 +16,4 @@ settings:
   label: 'Main page content'
   provider: system
   label_display: '0'
-visibility: {}
+visibility: {  }

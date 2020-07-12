@@ -3,10 +3,10 @@ status: true
 dependencies:
   theme:
     - particle
-id: particle_page_title
+id: particle_pagetitle_2
 theme: particle
-region: content
-weight: -50
+region: content_header
+weight: -8
 provider: null
 plugin: page_title_block
 settings:
@@ -14,4 +14,4 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {}
+visibility: {  }
