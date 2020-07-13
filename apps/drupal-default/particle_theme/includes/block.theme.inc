@@ -48,7 +48,7 @@ function particle_theme_suggestions_block_alter(&$suggestions, $variables) {
 
 }
 
-function themag_st_preprocess_block(&$variables) {
+function particle_preprocess_block(&$variables) {
 
   if ($variables['plugin_id'] == 'entity_browser_block:employee_blocks') {
 
