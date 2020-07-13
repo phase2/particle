@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+
+<div{{ attributes.addClass('user__info-wrapper') }}>
+  <div class="container">
+    <div class="row align-items-center text-center text-lg-left">
+      <div class="col-12 col-lg-3 mb-4 mb-lg-0">{{ content.user_picture }}</div>
+      <div class="col-12 col-lg-9">
+        <h1>{{ user.getDisplayName }}</h1>
+        {{ content|without('user_picture', 'field_facebook', 'field_twitter', 'field_google_plus', 'field_instagram', 'field_linkedin', 'field_pinterest') }}
+        <div class="mt-4 mt-lg-0">
+          {{ include('@themag/user/components/user-social-pages.html.twig') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{# Header social media pages menu #}
+
+<div class="header__social-menu">
+  {% for social_page in themag_st.social_media_pages %}
+    <a href="{{ social_page.url }}" target="_blank">
+      {{ social_page.icon|raw }}
+      {% if social_page.title|striptags|trim  %}
+        <span class="small">{{ social_page.title }}</span>
+      {% endif %}
+    </a>
+  {% endfor %}
+</div>

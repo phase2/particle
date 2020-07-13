@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media item.
+ *
+ * Available variables:
+ * - media: The media item, with limited access to object properties and
+ *   methods. Only method names starting with "get", "has", or "is" and
+ *   a few common methods such as "id", "label", and "bundle" are available.
+ *   For example:
+ *   - entity.getEntityTypeId() will return the entity type ID.
+ *   - entity.hasField('field_example') returns TRUE if the entity includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   Calling other methods, such as entity.delete(), will result in
+ *   an exception.
+ *   See \Drupal\Core\Entity\EntityInterface for a full list of methods.
+ * - name: Name of the media item.
+ * - content: Media content.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - attributes: HTML attributes for the containing element.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Attach PhotoSwipe library #}
+{{ attach_library('themag/grid-image-gallery') }}
+
+{% if content %}
+    <div{{ attributes }}>
+      {% for i in 0..media.field_media_images.value|length -1 %}
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+          <img class="img-fluid" src="{{ content.field_media_images[i].field_image.0['#markup'] }}"
+               itemprop="thumbnail"
+               data-original-src="{{ file_url(media.field_media_images[i].entity.field_image.0.entity.uri.value) }}"
+               data-original-src-width="{{ media.field_media_images[i].entity.field_image.0.value.width }}"
+               data-original-src-height="{{ media.field_media_images[i].entity.field_image.0.value.height }}"
+               data-caption-class="photoswipe__image-caption"
+               alt="{{ media.field_media_images[i].entity.field_image.0.value.alt }}"
+          />
+          <figcaption class="photoswipe__image-caption">
+            {{ media.field_media_images[i].entity.field_description.value }}
+          </figcaption>
+        </figure>
+      {% endfor %}
+      {{ content|without('field_media_images') }}
+    </div>
+{% endif %}

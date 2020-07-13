@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Small Teaser Card
+ */
+#}
+
+{%
+  set teaser_classes = [
+  'teaser--compact',
+  'teaser--large-compact',
+  'text-md-center'
+]
+%}
+
+{% set attributes = attributes.addClass(teaser_classes) %}
+{% extends '@themag/content/types/mg_article/teaser/node--mg-article--teaser.html.twig' %}
+
+{# Change the order of teaser content #}
+
+{% set teaser_header_block %}
+  {% block teaser_header_block %}
+    {{ parent() }}
+  {% endblock %}
+{% endset %}
+
+{% set teaser_authored_block %}
+  {% block teaser_authored_block %}
+    {{ parent() }}
+  {% endblock %}
+{% endset %}
+
+{% set teaser_text_block %}
+  {% block teaser_text_block %}
+    {{ parent() }}
+  {% endblock %}
+{% endset %}
+
+{% set teaser_restof_block %}
+  {% block teaser_restof_block %}
+    {{ parent() }}
+  {% endblock %}
+{% endset %}
+
+{% block teaser_content %}
+  {{ teaser_header_block }}
+  {{ teaser_text_block }}
+  {{ teaser_authored_block }}
+  {{ teaser_restof_block }}
+{% endblock %}

@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+<div{{attributes.addClass('employee-grid')}}>
+	{{ title_prefix }}
+	{% if label %}
+		<h2{{title_attributes}}>
+			<span class="title-text">{{ label }}</span>
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{% block content %}
+	{% for key,element in employeeimages %}
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+          {% if field_employee_website[key]|field_value is not empty %}
+            <a href={{ field_employee_website[key]|field_value }}>
+          {% endif %}
+					<img src={{element|image_style('utc_employee_small_310x450_')}}>
+              {% if field_employee_website[key]|field_value is not empty %}
+                </a>
+              {% endif %}
+					<div
+						class="utc-card">
+						{# TODO card-body needs to be refactored as is used in the aggregator block #}
+						<div class="card-body" style="width: 355px;">
+							<h3 class="card-title mb-1">
+								{{ field_employee_first_name[key]}}
+								{{ field_employee_last_name[key]}}</h3>
+							<h4 class="card-subtitle mb-3 text-muted">
+								{{ field_employee_title[key]}}</h4>
+							<h6>{{field_employee_email[key]}}</h6>
+							<address>
+								{{field_employee_office_location[key]}}
+							</br>
+							<a href={{ "tel:" ~ field_employee_telephone[key]}}>
+								{{ field_employee_telephone[key]}}
+							</a>
+						</address>
+              {% if field_employee_website[key]|field_value is not empty %}
+                <a class="btn btn-secondary" href={{ field_employee_website[key]|field_value }}>More info</a>
+              {% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endfor %}{% endblock %}</div>

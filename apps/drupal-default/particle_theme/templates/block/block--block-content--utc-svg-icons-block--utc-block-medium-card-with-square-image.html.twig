@@ -1,0 +1,77 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+<div{{attributes}}>
+	{{ title_prefix }}
+	{% if label %}
+		<h2{{title_attributes}}>
+			<span class="title-text">{{ label }}</span>
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{# {% block content %}
+	    <div{{ content_attributes }}>{{ content }}</div>
+	  {% endblock %} #}
+	<div class="programs-container">
+		<div class="">
+			<div class="center">
+				<h3 class="sr-only">Executive job search information…</h3>
+				<a href="https://www.utc.edu/chancellor/executive-searches/index.php"><img style="margin: 48px 0px 24px 0px;" src="https://www.utc.edu/img/icons/svg/utc-home-executive-search.svg" alt="UTC Executive Search logo" width="300"></a>
+			</div>
+			<div class="center">
+				<h4 style="text-transform: uppercase;">Executive Job Search</h4>
+				<p>
+					<a href="https://www.utc.edu/chancellor/executive-searches/index.php">Dean of the College of Arts and Sciences</a>
+				</p>
+			</div>
+		</div>
+		<div class="">
+			<div class="center">
+				<h3 class="sr-only">Sleep Well</h3>
+				<a href="https://www.utc.edu/sleepwell"><img style="margin: 12px 0px 12px 0px;" src="https://www.utc.edu/img/icons/svg/utc-sleep-well.svg" alt="UTC Sleep Well logo" width="300"></a>
+			</div>
+			<div class="center">
+				<h4 style="text-transform: uppercase;">Health and Wellness</h4>
+				<p>
+					<a href="https://www.utc.edu/sleepwell">Sleep is vital to well-being…</a>
+				</p>
+			</div>
+		</div>
+		<div class="">
+			<a class="center">
+				<h3 class="sr-only">UTC Strategic Plan information</h3>
+				<a href="https://www.utc.edu/strategic-plan/index.php"><img style="margin: 48px 0px 24px 0px;" src="https://www.utc.edu/img/icons/svg/utc-strategic-plan.svg" alt="UTC Strategic Plan" width="300"></a>
+			</a>
+			<div class="center">
+				<h4 style="text-transform: uppercase;">Progress Update</h4>
+				<p>
+					<a href="https://www.utc.edu/strategic-plan/index.php">View and download…</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

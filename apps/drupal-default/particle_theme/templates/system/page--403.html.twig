@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Error 404 page.
+ */
+#}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mt-6 mx-auto error-wrapper">
+      <div class="error-code">403</div>
+      <h1 class="display-4">{{ page['#title'] }}</h1>
+
+      {{ page.content }}
+
+      <a href="{{ front_page }}" class="d-block mt-2">Back to Home</a>
+    </div>
+  </div>
+</div>

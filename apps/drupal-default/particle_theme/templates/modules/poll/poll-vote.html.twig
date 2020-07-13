@@ -1,0 +1,15 @@
+{#
+/**
+ */
+#}
+{{ form.messages }}
+<div class="poll poll--vote">
+  <div class="poll__form">
+    {% if show_question %}
+      <h3 class="poll__question">{{ question }}</h3>
+    {% endif %}
+    {{ form.choice }}
+    {{ form.actions }}
+  </div>
+{{ form|without('actions', 'choice', 'messages', 'question') }}
+</div>

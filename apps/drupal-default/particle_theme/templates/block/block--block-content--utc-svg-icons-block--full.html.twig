@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+<div{{attributes}}>
+	{{ title_prefix }}
+	{% if label %}
+		<h2{{title_attributes}}>
+			<span class="title-text">{{ label }}</span>
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{% block content %}
+		{# <div{{content_attributes}}>{{ content }}</div> #}
+  <div id="iconsRow">
+		<ul role="navigation" aria-label="Where do you want to go?">
+			<li>
+				<a href="https://www.utc.edu/apply"><img class="svg icon-home" src="https://www.utc.edu/img/icons/svg/utc-home-icon-apply.svg" alt=""><br>Apply
+					<br>Today!</a>
+			</li>
+			<li>
+				<a href="https://www.utc.edu/newsroom.php"><img class="svg icon-home" src="https://www.utc.edu/img/icons/svg/utc-home-icon-newsroom.svg" alt=""><br>UTC
+					<br>Newsroom</a>
+			</li>
+			<li>
+				<a href="https://blog.utc.edu/web/"><img class="svg icon-home wide" src="https://www.utc.edu/img/icons/svg/utc-home-icon-reboot.svg" alt=""><br>Learn about
+					<br>the
+					<span class="sr-only">website reboot</span>
+					project</a>
+			</li>
+			<li>
+				<a href="https://www.utc.edu/about/chattanooga.php"><img class="svg icon-home" src="https://www.utc.edu/img/icons/svg/utc-home-icon-nooga.svg" alt=""><br>Life at UTC
+					<br>&amp; Chattanooga</a>
+			</li>
+			<li>
+				<a href="https://www.utc.edu/bridges-beyond-classroom/"><img class="svg icon-home" src="https://www.utc.edu/img/icons/svg/utc-home-icon-experiential-learning.svg" alt=""><br>Experiential
+					<br>Learning</a>
+			</li>
+			<!-- <li><a href="#"><img class="svg icon-home" src="/img/icons/svg/utc-home-icon-your-career.svg" /><br />Your career <br />starts today</a></li> -->
+		</ul>
+	{% endblock %}
+  </div>
+</div>

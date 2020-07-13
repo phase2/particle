@@ -1,0 +1,101 @@
+{#
+/**
+ * @file
+ * Default Article Teaser
+ */
+#}
+
+{# Teaser Markup #}
+{# ============= #}
+<article{{ attributes.addClass('teaser') }}>
+
+  {# == Media == #}
+  {# =========== #}
+  {% block media_block %}
+    {% if content.field_mg_image.0 %}
+      <div class="teaser__media">
+        <div class="position-relative">
+          {% if themag.teaser.media_contained.html and themag.teaser.show_media_contained_icons %}
+            {% block media_icons %}
+              <div class="teaser__media-icons">
+                {{ themag.teaser.media_contained.html|raw }}
+              </div>
+            {% endblock %}
+          {% endif %}
+          {% block teaser_image %}
+            <div class="image teaser__image">
+              <a href="{{ url }}">
+                {{ content.field_mg_image }}
+              </a>
+            </div>
+          {% endblock %}
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block teaser_content_block %}
+    <div{{ content_attributes.addClass('teaser__content') }}>
+      {% block teaser_content %}
+        {# == Title & Channel == #}
+        {# ===================== #}
+        {% block teaser_header_block %}
+          <header>
+            {% if content.field_mg_category.0 %}
+              {% block channel %}
+                <div class="channel teaser__channel">
+                  {{ content.field_mg_category }}
+                </div>
+              {% endblock %}
+            {% endif %}
+            {% block teaser_headline %}
+              {{ title_prefix }}
+              <h2 class="teaser__headline">
+                <a href="{{ url }}">{{ label }}</a>
+              </h2>
+              {{ title_suffix }}
+            {% endblock %}
+          </header>
+        {% endblock %}
+
+        {# == Authored info == #}
+        {# =================== #}
+        {% block teaser_authored_block %}
+          {% if themag.teaser.show_post_date or show_author_name %}
+            {% block authored_info %}
+              <footer class="teaser__authored">
+                {% if themag.teaser.show_post_date %}
+                  {% block authored_date %}
+                    <span class="date">{{ date }}</span>
+                  {% endblock %}
+                {% endif %}
+
+                {% if themag.teaser.show_author_name %}
+                  {% block authored_by %}
+                    <span>,</span> <span class="author">{{ 'by'|t }} {{ author_name }}</span>
+                  {% endblock %}
+                {% endif %}
+              </footer>
+            {% endblock %}
+          {% endif %}
+        {% endblock %}
+
+        {# == Teaser text == #}
+        {# ================= #}
+        {% block teaser_text_block %}
+          {% if content.field_mg_summary.0 %}
+            {% block teaser_text %}
+              <div class="teaser__body">
+                {{ content.field_mg_summary }}
+              </div>
+            {% endblock %}
+          {% endif %}
+        {% endblock %}
+
+        {% block teaser_restof_block %}
+          {{ content|without('field_mg_image', 'field_mg_summary', 'field_mg_category') }}
+        {% endblock %}
+      {% endblock %}
+    </div>
+  {% endblock %}
+</article>

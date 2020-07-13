@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Theme override to display a page-node (post) of type mg_article.
+ *
+ * * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
+ * - page.highlighted: Items for the highlighted content region.
+ * - page.help: Dynamic help text, mostly for admin pages.
+ * - page.content: The main content of the current page.
+ * - page.sidebar_first: Items for the first sidebar.
+ * - page.sidebar_second: Items for the second sidebar.
+ * - page.footer: Items for the footer region.
+ * - page.breadcrumb: Items for the breadcrumb region.
+ *
+ * TheMAG article variables
+ * - article.display_submitted:
+ * - article.author_id:
+ * - article.author_name:
+ * - article.author_picture:
+ *
+ * - article.teaser_image:
+ * - article.content:
+ * - article.category:
+ * - article.tags:
+ * - article.post_layout
+ *
+ * @see @themag/includes/page.inc -> themag_preprocess_page()
+ */
+#}
+
+{# Extend page.html.twig #}
+{% extends '@themag/base-layout/page/page.html.twig' %}
+
+{% block page_content %}
+    <div class="container-full my-6">
+      {% block content_top %}
+        {% if page.content_top %}
+          <div class="row">
+            <div class="col-12">
+             {{ page.content_top }}
+            </div>
+          </div>
+        {% endif %}
+      {% endblock %}
+
+      {% block content_main %}
+        <div class="row">
+            <div class="col-12 col-lg-8 mx-lg-auto">
+              {{ page.content_header }}
+              {{ page.content_administration }}
+              {{ page.content }}
+            </div>
+         </div>
+      {% endblock %}
+
+      {% block content_bottom %}
+        {% if page.content_bottom %}
+          <div class="row">
+            <div class="col-12 mt-4 mb-4 mt-lg-9 mb-lg-6">
+              {{ page.content_bottom }}
+            </div>
+          </div>
+        {% endif %}
+      {% endblock %}
+    </div>
+  {% endblock %}

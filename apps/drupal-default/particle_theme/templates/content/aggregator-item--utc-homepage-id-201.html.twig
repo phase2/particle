@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a feed item in an aggregator page.
+ *
+ * Available variables:
+ * - url: URL to the originating feed item.
+ * - title: Title of the feed item.
+ * - adapted time: timestamp of the aggregator item..
+ * - content: All field items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given element.
+ * - attributes: HTML attributes for the wrapper.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_aggregator_item()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{%
+  set classes = [
+  'aggregator-item',
+  feed ? 'aggregator-item--' ~ feed|clean_class,
+]
+%}
+
+{% block before %}{% endblock %}
+
+{% block item %}
+  <article{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+
+
+{#        <time>{{adapted_time}}</time>#}
+        {% set date = adapted_time | split('-') %}
+    <div class="row">
+{#      <div class="col-sm-4">#}
+      <div>
+        <div class="dateicon">
+          <span class="binds"></span>
+          <span class="month">{{date[0]}}</span>
+          <h1 class="day">{{date[1]}}</h1>
+        </div>
+      </div>
+      <div class="col-sm-10">
+          <a href="{{ url }}"> <b>{{ title }}</b></a>
+           {% set foo = content.description['#markup'] | split('-') %}
+            {% set footwo = foo[1] | split(':') %}
+           <p class="ptagwhitespace smallerfont">{{ foo[0]}}</p>
+          <p class="ptagwhitespace smallerfont">{{ footwo[0]}}</p>
+      </div>
+  </article>
+{% endblock %}
+
+{% block after %}{% endblock %}

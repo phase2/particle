@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Small Teaser Card
+ */
+#}
+
+{%
+  set teaser_classes = [
+    'teaser--item',
+    'teaser--tiny-item'
+  ]
+%}
+
+{% set attributes = attributes.addClass(teaser_classes) %}
+{% extends '@themag/content/types/mg_article/teaser/node--mg-article--teaser.html.twig' %}
+
+
+{# Remove media icons from tiny teaser. #}
+{% block media_icons %}
+{% endblock %}

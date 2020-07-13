@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a meter.
+ *
+ * Available variables:
+ * - display_value: The textual representation of the meter bar.
+ * - form: One or more forms to which the <meter> element belongs; multiple
+ *   forms separated by spaces.
+ * - high: A number specifying the range that is considered to be a high value.
+ * - low: A number specifying the range that is considered to be a low value.
+ * - max: A number specifying the maximum value of the range.
+ * - min: A number specifying the minimum value of the range.
+ * - optimum: A number specifying what value is the optimal value for the gauge.
+ * - value: A number specifying the current value of the gauge.
+ * - percentage: A number specifying the current percentage of the gauge.
+ * - attributes: HTML attributes for the containing element.
+ * - choice: The choice of a poll.
+ *
+ * @see template_preprocess()
+ * @see template_preprocess_region()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="poll__result">
+
+  <div class="poll__choice">
+    <div class="poll__choice__percent">{{ percentage }}%</div>
+    <div>
+      <div class="poll__choice__title">{{ choice }}</div>
+      <div class="poll__choice__votes">({{ value }} votes)</div>
+    </div>
+  </div>
+
+  <div{{ attributes }}>
+    <div style="width: {{ percentage }}%" class="foreground"></div>
+  </div>
+
+</div>

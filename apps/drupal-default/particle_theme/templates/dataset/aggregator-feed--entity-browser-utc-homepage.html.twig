@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Theme override to present an aggregator feed.
+ *
+ * The contents are rendered above feed listings when browsing source feeds.
+ * For example, "example.com/aggregator/sources/1".
+ *
+ * Available variables:
+ * - title: (optional) Title of the feed item.
+ * - content: All field items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given element.
+ * - attributes: HTML attributes for the wrapper.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_aggregator_feed()
+ */
+#}
+
+<div>
+	<details>
+		<summary class="card-header_m" id="cardH-{{random(50)}}">
+			<a href="#homepagefeed">
+				{{ title }}
+			</a>
+		</summary>
+		<div class="card-body">
+			{{ content }}
+		</div>
+	</details>
+</div>

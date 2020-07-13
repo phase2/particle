@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Page - Layout builder enabled.
+#}
+<div class="layout-builder-powered-page">
+  {% include '@themag/base-layout/header/header.html.twig' %}
+    {{ page.offcanvas_sidebar }}
+    {{ page.content_administration }}
+    {{ page.content }}
+  {% include '@themag_st/base-layout/footer/footer.html.twig' %}
+</div>

@@ -1,0 +1,37 @@
+<div class="user__social-pages">
+  {% if content.field_facebook[0]['#plain_text'] %}
+    <a href="{{ content.field_facebook[0]['#plain_text'] }}" target="_blank">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  {% endif %}
+  {% if content.field_twitter[0]['#plain_text'] %}
+    <a href="{{ content.field_twitter[0]['#plain_text'] }}" target="_blank">
+      <i class="fab fa-twitter"></i>
+    </a>
+  {% endif %}
+  {% if content.field_google_plus[0]['#plain_text'] %}
+    <a href="{{ content.field_google_plus[0]['#plain_text'] }}" target="_blank">
+      <i class="fab fa-google-plus-g"></i>
+    </a>
+  {% endif %}
+  {% if content.field_instagram[0]['#plain_text'] %}
+    <a href="{{ content.field_instagram[0]['#plain_text'] }}" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+  {% endif %}
+  {% if content.field_pinterest[0]['#plain_text'] %}
+    <a href="{{ content.field_pinterest[0]['#plain_text'] }}" target="_blank">
+      <i class="fab fa-pinterest-p"></i>
+    </a>
+  {% endif %}
+  {% if content.field_linkedin[0]['#plain_text'] %}
+    <a href="{{ content.field_linkedin[0]['#plain_text'] }}" target="_blank">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  {% endif %}
+  {% if content.field_snapchat[0]['#plain_text'] %}
+    <a href="{{ content.field_snapchat[0]['#plain_text'] }}" target="_blank">
+      <i class="fab fa-snapchat-ghost></i>
+    </a>
+  {% endif %}
+</div>

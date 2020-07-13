@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a feed item in an aggregator page.
+ *
+ * Available variables:
+ * - url: URL to the originating feed item.
+ * - title: Title of the feed item.
+ * - adapted time: timestamp of the aggregator item..
+ * - content: All field items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given element.
+ * - attributes: HTML attributes for the wrapper.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_aggregator_item()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{%
+  set classes = [
+    'aggregator-item',
+    feed ? 'aggregator-item--' ~ feed|clean_class,
+  ]
+%}
+
+{% block before %}{% endblock %}
+
+{% block item %}
+  <article{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+
+    {% if title %}
+    {% block title %}
+      <h3>
+        <a href="{{ url }}">{{ title }}</a>
+      </h3>
+    {% endblock %}
+    {% endif %}
+
+    {{ title_suffix }}
+
+    {% block content %}
+      {# {{content}} #}
+
+      {# alternative number one #}
+      {# {% set eventtime = content.description['#markup'] | split('-')[0] %} #}
+      {% set foo = content.description['#markup'] | split('-') %}
+      {% set footwo = foo[1] | split(':') %}
+      {{ foo[0]}}
+      {{ footwo[0]}}
+      {{adapted_time}}
+{#       {{ content.description['#markup']} | split('-', 1);} #}
+        {# {{ dump(content.timestamp['#items'].0.list) }} #}
+{#       {{ elements.['#aggregator_item'] }}#}
+{#       {{ devel_breakpoint() }}#}
+
+{#      {{ devel_breakpoint() }}#}
+    {% endblock %}
+  </article>
+{% endblock %}
+
+{% block after %}{% endblock %}

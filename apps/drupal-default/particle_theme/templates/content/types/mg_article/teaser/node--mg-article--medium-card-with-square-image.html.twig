@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Medium Teaser Card
+ */
+#}
+
+{%
+  set teaser_classes = [
+    'teaser--card',
+    'teaser--bordered',
+    'teaser--medium-card-square-image'
+  ]
+%}
+
+{% set attributes = attributes.addClass(teaser_classes) %}
+{% extends '@themag/content/types/mg_article/teaser/node--mg-article--teaser.html.twig' %}

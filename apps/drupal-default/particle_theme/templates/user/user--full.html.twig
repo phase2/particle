@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+
+<div{{ attributes }}>
+
+{#  @todo Remove commented code. #}
+{#  <div class="row">#}
+{#    <div class="col-3 col-md-4 col-lg-3 mb-4 mb-md-0">{{ content.user_picture }}</div>#}
+{#    <div class="col-9 col-md-8 col-lg-9">#}
+
+{#      <div class="account-info-wrapper">#}
+{#        <div class="form-group">#}
+{#          <h4 class="label">{{ 'Account informations'|t }}</h4>#}
+{#          <div class="account-user-name">#}
+{#            <span class="font-weight-bold">{{ 'User name'|t }}</span>: {{ user.getAccountName }}#}
+{#          </div>#}
+{#          <div class="account-mail">#}
+{#            <span class="font-weight-bold">{{ 'E-mail'|t }}</span>: {{ user.mail.value }}#}
+{#          </div>#}
+{#        </div>#}
+{#        {{ content.member_for }}#}
+{#      </div>#}
+
+{#    </div>#}
+{#  </div>#}
+
+  {{ content|without('user_picture', 'member_for') }}
+</div>
