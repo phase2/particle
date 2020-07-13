@@ -1,6 +1,7 @@
-// import { ConfigOptions } from './../../../particle-cli/src/types' // TODO perhaps install these types separately from the module instead of the path. IE npm install -D particle-cli or @types/particle-cli
 import Generator from 'yeoman-generator'
 import { white, green, red } from 'chalk'
+
+import { Answers } from './../../../../common'
 
 const storybookAddons: string[] = [
   '@storybook/addon-viewport',
@@ -10,15 +11,21 @@ const storybookAddons: string[] = [
   '@storybook/addon-links',
 ]
 
+const storybookSupportedVersion = '^5.3.19'
+
 /**
  * @todo export npm dependencies directly to app and use there for install, provide an install flag to fire off npm install on completion of this generator.
  * @assumption we are already inside the particle root directory
  */
 module.exports = class extends Generator {
-  // comes from particle CLI answers key
-  answers: { frontendFramework: string; npmInstall: boolean } = {
-    frontendFramework: 'react',
-    npmInstall: false,
+  configuration: Answers
+  updatePackageJson: (newJson: Record<string, any>) => void
+  constructor(args: any, opts: any) {
+    super(args, opts)
+    this.configuration = opts.configuration
+    this.updatePackageJson = opts.updatePackageJson
+
+    console.log(this.updatePackageJson)
   }
   // async prompting() {}
 
@@ -27,25 +34,34 @@ module.exports = class extends Generator {
    * @todo Potentially create a helper function that moves around directories
    */
   async createStorybook() {
-    const { frontendFramework } = this.answers
+    this.updatePackageJson({ name: 'hello world' })
+    const { frontendFramework } = this.configuration.options
     const dependencies = [`@storybook/${frontendFramework}`, ...storybookAddons]
 
     console.log(white('installing storybook dependencies'))
+
     try {
-      await this.spawnCommandSync('echo', ['install', '-D', ...dependencies])
+      // This will add the storybook dependencies and supported version directly onto the package.json
+      // this.fs.extendJSON('./package.json', {
+      //   scripts: {
+      //     'build:storybook': 'build-storybook -c ./apps/storybook',
+      //     'dev:storybook': 'start-storybook -p 6006 -c ./apps/storybook',
+      //   },
+      //   devDependencies: dependencies.reduce<Record<string, string>>(
+      //     (acc, value) => {
+      //       acc[value] = storybookSupportedVersion
+      //       return acc
+      //     },
+      //     {}
+      //   ),
+      // })
     } catch (e) {
       console.log(
         red(
-          `An error occured while calling npm install. 
-           1. Perhaps npm is not installed correctly. Confirm by running npm --version`
+          `An error occured while writting storybook dependencies to the package.json`
         )
       )
     }
-    console.log(green('Success!'))
+    console.log('done')
   }
-
-  // Either run npm install in current DIR or CD into the install DIR and install
-  // npmInstall() {
-  //   console.log('called npm install')
-  // }
 }

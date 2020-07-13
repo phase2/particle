@@ -1,5 +1,5 @@
 {
-  "name": "generator-particle",
+  "name": "@phase2/generator-particle",
   "version": "0.0.1",
   "description": "Generates the file structure for particle",
   "files": [
@@ -19,9 +19,11 @@
   },
   "dependencies": {
     "chalk": "^4.1.0",
+    "lodash.merge": "^4.6.2",
     "yeoman-generator": "^4.11.0"
   },
   "devDependencies": {
+    "@types/lodash.merge": "^4.6.6",
     "@types/yeoman-generator": "^3.1.4",
     "typescript": "^3.9.6",
     "yo": "^3.1.1"
@@ -29,5 +31,15 @@
   "scripts": {
     "tsc": "tsc",
     "tsc:watch": "tsc --watch"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/phase2/particle/issues"
+  },
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
 }

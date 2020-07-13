@@ -2,7 +2,12 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./lib",
-    "rootDir": "./"
+    // "rootDir": "./",
+    "preserveConstEnums": true,
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true
   },
-  "include": ["./src", "./bin"]
+  "references": [{ "path": "../common" }],
+  "include": ["./src", "./bin", "./package.json"]
 }

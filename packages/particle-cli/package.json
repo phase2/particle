@@ -12,6 +12,10 @@
     "create-project",
     "cli"
   ],
+  "files": [
+    "lib/src",
+    "lib/bin"
+  ],
   "main": "lib/bin/particle-cli.js",
   "types": "lib/src/types.d.ts",
   "bin": {

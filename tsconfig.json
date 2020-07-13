@@ -10,7 +10,9 @@
     "declaration": true,
     "noImplicitAny": true,
     "removeComments": true,
-    "noLib": false
+    "noLib": false,
+    "composite": true
   },
+  "references": [{ "path": "./packages/common/tsconfig.json" }],
   "exclude": ["node_modules", "**/__tests__/*"]
 }

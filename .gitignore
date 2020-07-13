@@ -24,5 +24,6 @@ npm-debug.log
 php_errors.log
 lerna-debug.log
 
-# Typescript outdir
+# Typescript
 packages/*/lib
+tsconfig.tsbuildinfo

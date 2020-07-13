@@ -1,7 +1,6 @@
 import inquirer from 'inquirer'
 
 import {
-  Answers,
   CustomAnswers,
   ConfigOptions,
   ConfigurationAnswers,
@@ -9,8 +8,7 @@ import {
   ComponentLibraryOptions,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
-  // @ts-ignore
-} from './types'
+} from '../../common'
 
 const prompt = inquirer.createPromptModule()
 
