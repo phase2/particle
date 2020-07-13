@@ -7,6 +7,8 @@ dependencies:
     - menu_block
   theme:
     - particle
+_core:
+  default_config_hash: tuSmzRU6PP3DIYJ8UH058AcUaL3Hfsi1ryG9wcbBjqY
 id: utcbrandbarmenu_particle
 theme: particle
 region: header_primary_menu
@@ -17,7 +19,7 @@ settings:
   id: 'menu_block:utc-brandbar-menu'
   label: 'UTC Brandbar Menu'
   provider: menu_block
-  label_display: visible
+  label_display: '0'
   follow: false
   follow_parent: child
   level: 1

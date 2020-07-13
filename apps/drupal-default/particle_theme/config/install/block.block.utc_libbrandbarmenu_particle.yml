@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utclib-brandbar-menu
+  module:
+    - ctools
+    - menu_block
+  theme:
+    - particle
+id: utc_libbrandbarmenu_particle
+theme: particle
+region: header_primary_menu
+weight: 0
+provider: null
+plugin: 'menu_block:utclib-brandbar-menu'
+settings:
+  id: 'menu_block:utclib-brandbar-menu'
+  label: 'UTCLib Brandbar Menu'
+  provider: menu_block
+  label_display: '0'
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 1
+  expand: false
+  parent: 'utclib-brandbar-menu:'
+  suggestion: utclib_brandbar_menu
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      utc_library: utc_library
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
