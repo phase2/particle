@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.shortcuts
+  module:
+    - menu_block
+  theme:
+    - particle
+id: utc_shortcuts_particle
+theme: particle
+region: footer_second
+weight: 0
+provider: null
+plugin: 'menu_block:shortcuts'
+settings:
+  id: 'menu_block:shortcuts'
+  label: 'UTC Shortcuts'
+  provider: menu_block
+  label_display: '0'
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 0
+  expand: false
+  parent: 'shortcuts:'
+  suggestion: shortcuts
+visibility: {  }

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - tb_megamenu
+  theme:
+    - particle
+id: utcsecondarymenu_particle
+theme: particle
+region: header_secondary_menu
+weight: 0
+provider: null
+plugin: 'tb_megamenu_menu_block:secondary-menu'
+settings:
+  id: 'tb_megamenu_menu_block:secondary-menu'
+  label: 'UTC Secondary Menu'
+  provider: tb_megamenu
+  label_display: '0'
+visibility: {  }

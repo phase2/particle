@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utc-brandbar-menu
+  module:
+    - menu_block
+  theme:
+    - particle
+id: utcbrandbarmenu_particle
+theme: particle
+region: header_primary_menu
+weight: 0
+provider: null
+plugin: 'menu_block:utc-brandbar-menu'
+settings:
+  id: 'menu_block:utc-brandbar-menu'
+  label: 'UTC Brandbar Menu'
+  provider: menu_block
+  label_display: visible
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 0
+  expand: false
+  parent: 'utc-brandbar-menu:'
+  suggestion: utc_brandbar_menu
+visibility: {  }

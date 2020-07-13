@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b53fdcd3-00e9-4c33-bcd1-c7e58557ef43'
+  module:
+    - block_content
+  theme:
+    - particle
+id: copyrightnotice_particle
+theme: particle
+region: footer_bottom_first
+weight: 0
+provider: null
+plugin: 'block_content:b53fdcd3-00e9-4c33-bcd1-c7e58557ef43'
+settings:
+  id: 'block_content:b53fdcd3-00e9-4c33-bcd1-c7e58557ef43'
+  label: 'Copyright notice'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utc-offcanvas-sidebar
+  module:
+    - menu_block
+  theme:
+    - particle
+id: utc_offcanvas_sidebar_particle
+theme: particle
+region: offcanvas_sidebar
+weight: 0
+provider: null
+plugin: 'menu_block:utc-offcanvas-sidebar'
+settings:
+  id: 'menu_block:utc-offcanvas-sidebar'
+  label: 'UTC Offcanvas sidebar'
+  provider: menu_block
+  label_display: '0'
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 0
+  expand: false
+  parent: 'utc-offcanvas-sidebar:'
+  suggestion: utc_offcanvas_sidebar
+visibility: {  }

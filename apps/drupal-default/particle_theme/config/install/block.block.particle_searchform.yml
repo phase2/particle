@@ -3,15 +3,15 @@ status: true
 dependencies:
   theme:
     - particle
-id: particle_local_actions
+id: particle_searchform
 theme: particle
-region: content
-weight: -20
+region: search
+weight: -5
 provider: null
-plugin: local_actions_block
+plugin: search_form_ßblock
 settings:
-  id: local_actions_block
-  label: 'Primary admin actions'
+  id: search_form_block
+  label: 'Search form'
   provider: core
   label_display: '0'
 visibility: {  }

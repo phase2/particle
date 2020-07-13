@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.info-for
+  module:
+    - menu_block
+  theme:
+    - particle
+id: utcinfoforparticle
+theme: particle
+region: footer_first
+weight: 0
+provider: null
+plugin: 'menu_block:info-for'
+settings:
+  id: 'menu_block:info-for'
+  label: 'UTC Info for'
+  provider: menu_block
+  label_display: '0'
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 0
+  expand: false
+  parent: 'info-for:'
+  suggestion: info_for
+visibility: {  }
