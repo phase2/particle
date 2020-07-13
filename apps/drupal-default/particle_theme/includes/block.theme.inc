@@ -33,6 +33,19 @@ function particle_theme_suggestions_block_alter(&$suggestions, $variables) {
   } else{
     $suggestions[] = ('block__'. str_replace('-', '_', ltrim($nid2, '/')) . "_id_" . $nid . "_label_" . preg_replace('/\s+/', '_', $variables['elements']['#configuration']['label']));
   }
+
+  if (!empty($variables['elements']['content']['#block_content'])) {
+    $block = $variables['elements']['content']['#block_content'];
+    // Add `block--BLOCK-TYPE.html.twig`.
+    $suggestions[] = 'block__' . $block->bundle();
+    $view_mode = $variables['elements']['#configuration']['view_mode'];
+    if (!empty($view_mode)) {
+      // Add `block--BLOCK-TYPE--VIEW-MODE.html.twig`.
+      $suggestions[] = 'block__' . $block->bundle() . '__' . $view_mode;
+    }
+  }
+
+
 }
 
 function themag_st_preprocess_block(&$variables) {
