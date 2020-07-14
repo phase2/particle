@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
+    "module": "commonjs",
+    "target": "es2019",
     "declaration": true,
     "declarationMap": true,
-    "noEmit": true,
+    "outDir": "./lib",
     "composite": true,
     "strict": true,
     "moduleResolution": "node"

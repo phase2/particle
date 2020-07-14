@@ -9,9 +9,7 @@ import {
   ComponentLibraryOptions,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
-} from '../../../../common'
-
-const baseDependencies = [1, 2, 3]
+} from '../../../../common/lib'
 
 module.exports = class extends Generator {
   // configuration will come from the constructor argument

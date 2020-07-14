@@ -1,4 +1,4 @@
-import { FrontendFrameworkOptions } from './../../../../../common/index.d'
+import { FrontendFrameworkOptions } from './../../../../../common'
 export interface PreviewConfig {
   frontendFramework: FrontendFrameworkOptions
 }

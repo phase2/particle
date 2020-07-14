@@ -3,7 +3,7 @@ import Generator from 'yeoman-generator'
 import { white, green, red } from 'chalk'
 import fs from 'fs'
 
-import { Answers, FrontendFrameworkOptions } from './../../../../common'
+import { Answers, FrontendFrameworkOptions } from './../../../../common/lib'
 import { main } from './templates/main'
 
 export const storybookAddons: string[] = [
