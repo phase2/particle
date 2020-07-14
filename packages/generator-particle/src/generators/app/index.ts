@@ -1,5 +1,4 @@
 import Generator from 'yeoman-generator'
-import { white, green, red } from 'chalk'
 import merge from 'lodash.merge'
 import fs from 'fs'
 
@@ -23,8 +22,6 @@ module.exports = class extends Generator {
       type: String,
       description: 'stringified configuration from particle-cli',
     })
-
-    console.log('you passed the following config', opts.configuration)
 
     if (typeof opts.configuration === 'string') {
       this.configuration = JSON.parse(opts.configuration)
@@ -63,7 +60,6 @@ module.exports = class extends Generator {
   }
 
   _updatePackageJson(newValues: Record<string, any>) {
-    console.log('called package json update with', newValues)
     this.packageJson = merge(this.packageJson, newValues)
   }
 

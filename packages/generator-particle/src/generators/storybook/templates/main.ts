@@ -1,5 +1,5 @@
 export interface MainConfig {
-  designSystemPath: string // this will have to be resolved based off storybook location in apps/storybook and the path of the component_library
+  componentLibraryPath: string // this will have to be resolved based off storybook location in apps/storybook and the path of the component_library
   addons: string[]
   storiesRoot: string[]
 }

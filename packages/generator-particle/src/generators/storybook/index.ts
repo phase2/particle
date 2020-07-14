@@ -63,7 +63,7 @@ module.exports = class extends Generator {
       this.destinationPath(`${storybookPath}/main.js`),
       main({
         addons: storybookAddons,
-        designSystemPath: `../../${this.configuration.componentLibraryPath}`,
+        componentLibraryPath: `../../${this.configuration.componentLibraryPath}`,
         storiesRoot,
       })
     )
