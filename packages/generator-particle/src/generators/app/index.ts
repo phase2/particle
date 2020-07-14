@@ -9,7 +9,7 @@ import {
   ComponentLibraryOptions,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
-} from '../../../../common/lib'
+} from '@phase2/particle-types'
 
 module.exports = class extends Generator {
   // configuration will come from the constructor argument
@@ -18,19 +18,31 @@ module.exports = class extends Generator {
 
   constructor(args: any, opts: any) {
     super(args, opts)
-    this.configuration = opts.configuration || {
-      projectName: 'new-project',
-      componentLibraryName: 'particle',
-      componentLibraryPath: './src/default',
-      options: {
-        cssLibrary: CSSLibraryOptions.TAILWIND,
-        componentLibraryTypes: [ComponentLibraryOptions.STORYBOOK],
-        frontendFramework: [FrontendFrameworkOptions.REACT],
-        hasSVG: true,
-        hasTypescript: true,
-        testingLibraries: [TestingLibraryOptions.JEST],
-        typescriptEsm: false,
-      },
+    // makes config a required argument
+    this.option('configuration', {
+      type: String,
+      description: 'stringified configuration from particle-cli',
+    })
+
+    console.log('you passed the following config', opts.configuration)
+
+    if (typeof opts.configuration === 'string') {
+      this.configuration = JSON.parse(opts.configuration)
+    } else {
+      this.configuration = opts.configuration || {
+        projectName: 'new-project',
+        componentLibraryName: 'particle',
+        componentLibraryPath: './src/default',
+        options: {
+          cssLibrary: CSSLibraryOptions.TAILWIND,
+          componentLibraryTypes: [ComponentLibraryOptions.STORYBOOK],
+          frontendFramework: [FrontendFrameworkOptions.REACT],
+          hasSVG: true,
+          hasTypescript: true,
+          testingLibraries: [TestingLibraryOptions.JEST],
+          typescriptEsm: false,
+        },
+      }
     }
 
     this.packageJson = {
@@ -47,7 +59,6 @@ module.exports = class extends Generator {
       dependencies: {},
       devDependencies: {},
     }
-
     this._updatePackageJson = this._updatePackageJson.bind(this)
   }
 
@@ -55,36 +66,11 @@ module.exports = class extends Generator {
     console.log('called package json update with', newValues)
     this.packageJson = merge(this.packageJson, newValues)
   }
-  // async prompting() {}
-
-  /**
-   * @todo add support for testing inputs and outputs
-   */
-  // async createPackageJsonConfig() {
-  //   // Call N number of generators that mutate the package.json
-  //   console.log('calling storybook generator')
-  // this.composeWith('@phase2/particle:storybook', {
-  //   configuration: this.configuration,
-  //   updatePackageJson: this._updatePackageJson,
-  // })
-
-  //   console.log('new package', this.packageJson)
-
-  //   // Write the packageJson
-  //   // const packageJsonContent = this.fs.readJSON(
-  //   //   this.destinationPath('package.json')
-  //   // )
-
-  //   // const newPackageJsonContent = merge(packageJsonContent, packageJson)
-
-  //   // write package.json once
-  // }
 
   /**
    * Creates the package.json, package.json should never need to be re-written
    */
   _createPackageJson() {
-    console.log('newJSON', this.packageJson)
     fs.writeFileSync(
       this.destinationPath('package.json'),
       JSON.stringify(this.packageJson, null, 2)
@@ -112,12 +98,8 @@ module.exports = class extends Generator {
 
   writing() {
     this._createPackageJson()
-  }
 
-  // NPM install should be called after all dependencies are written to the package.json
-  // Retain for debugging and disable for production
-  async npmInstall(dependencies: string[], options: Record<string, any>) {
-    // console.log(dependencies, options)
-    // await this.spawnCommandSync('npm', ['install'])
+    // Installs all dependencies
+    this.npmInstall()
   }
 }

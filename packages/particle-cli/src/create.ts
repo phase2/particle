@@ -23,9 +23,17 @@
  * postcss.config.js
  *
  */
+import { spawn } from 'child_process'
 
 const create = (data: any) => {
   console.log('Create Particle Project with the data:', data)
+  spawn(
+    'npx',
+    ['yo', '@phase2/particle', '--configuration', JSON.stringify(data)],
+    {
+      stdio: 'inherit',
+    }
+  )
   return true
 }
 

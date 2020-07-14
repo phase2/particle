@@ -1,11 +1,4 @@
-import { FrontendFrameworkOptions } from '@phase2/particle-types'
-export interface PreviewConfig {
-  frontendFramework: FrontendFrameworkOptions
-}
-
-export const preview = (
-  config: PreviewConfig
-) => `import { addDecorator, addParameters } from '@storybook/${config.frontendFramework}'
+import { addDecorator, addParameters } from '@storybook/react'
 import { withA11y } from '@storybook/addon-a11y'
 
 // Enable a11y checks for all stories
@@ -20,4 +13,3 @@ addParameters({
         : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
   },
 })
-`

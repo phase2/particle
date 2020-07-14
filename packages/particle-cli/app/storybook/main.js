@@ -1,18 +1,4 @@
-export interface MainConfig {
-  designSystemPath: string // this will have to be resolved based off storybook location in apps/storybook and the path of the component_library
-  addons: string[]
-  storiesRoot: string[]
-}
-
-const stringifyAndSingleQuote = (val: string[]) =>
-  JSON.stringify(val).replace('"', "'")
-
-/**
- * app/storybook/main.js
- */
-export const main = (
-  config: MainConfig
-) => `const path = require('path')frontendFramework
+const path = require('path')frontendFramework
 
 const APP_COMPONENT_LIBRARY = path.resolve(__dirname, '../../src/default')
 const particle = require('../../particle')
@@ -23,8 +9,8 @@ const prod = {}
 const cssMode = process.env.NODE_ENV === 'production' ? 'extract' : 'hot'
 
 module.exports = {
-  addons: ${stringifyAndSingleQuote(config.addons)},
-  stories: ${stringifyAndSingleQuote(config.storiesRoot)},
+  addons: ['@storybook/addon-viewport","@storybook/addon-knobs","@storybook/addon-actions","@storybook/addon-a11y","@storybook/addon-links"],
+  stories: ['./stories/**/*.story.tsx"],
   webpackFinal: (config) => {
     /**
      * Delete the CSS management rules from Storybook.
@@ -48,4 +34,3 @@ module.exports = {
     )
   },
 }
-`

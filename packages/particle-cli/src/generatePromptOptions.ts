@@ -8,7 +8,7 @@ import {
   ComponentLibraryOptions,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
-} from '../../common'
+} from '@phase2/particle-types'
 
 const prompt = inquirer.createPromptModule()
 

@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "Generates the file structure for particle",
   "files": [
-    "lib",
-    "lib/generator-particle/src/generators",
-    "lib/common"
+    "lib/generators"
   ],
   "keywords": [
     "yeoman-generator",
@@ -18,6 +16,7 @@
     "directory": "packages/generator-particle"
   },
   "dependencies": {
+    "@phase2/particle-types": "file:../types",
     "chalk": "^4.1.0",
     "lodash.merge": "^4.6.2",
     "yeoman-generator": "^4.11.0"

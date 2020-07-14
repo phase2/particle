@@ -1,10 +1,12 @@
 {
-  "name": "@phase2/particle-common",
+  "name": "@phase2/particle-types",
   "version": "0.0.1",
   "description": "shared types and functions",
   "files": [
     "lib"
   ],
+  "main": "lib/types.js",
+  "types": "lib/types.d.ts",
   "keywords": [],
   "homepage": "https://github.com/phase2/particle#readme",
   "repository": {

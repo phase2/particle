@@ -1,9 +1,9 @@
 import { preview } from './templates/preview'
 import Generator from 'yeoman-generator'
-import { white, green, red } from 'chalk'
+import { white } from 'chalk'
 import fs from 'fs'
 
-import { Answers, FrontendFrameworkOptions } from './../../../../common/lib'
+import { Answers, FrontendFrameworkOptions } from '@phase2/particle-types'
 import { main } from './templates/main'
 
 export const storybookAddons: string[] = [
@@ -53,7 +53,7 @@ module.exports = class extends Generator {
   }
 
   async createStorybookFiles() {
-    console.log('creating files & folders for storybook')
+    console.log(white('creating files & folders for storybook'))
 
     // create the folders
     fs.mkdirSync(`${process.cwd()}/${storybookPath}/`, { recursive: true })
