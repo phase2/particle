@@ -1,9 +1,12 @@
+import { preview } from './templates/preview'
 import Generator from 'yeoman-generator'
 import { white, green, red } from 'chalk'
+import fs from 'fs'
 
-import { Answers } from './../../../../common'
+import { Answers, FrontendFrameworkOptions } from './../../../../common'
+import { main } from './templates/main'
 
-const storybookAddons: string[] = [
+export const storybookAddons: string[] = [
   '@storybook/addon-viewport',
   '@storybook/addon-knobs',
   '@storybook/addon-actions',
@@ -12,10 +15,12 @@ const storybookAddons: string[] = [
 ]
 
 const storybookSupportedVersion = '^5.3.19'
+const storybookPath = 'app/storybook'
+const storiesRoot: string[] = ['./stories/**/*.story.tsx']
 
 /**
- * @todo export npm dependencies directly to app and use there for install, provide an install flag to fire off npm install on completion of this generator.
  * @assumption we are already inside the particle root directory
+ * Currently only supports react
  */
 module.exports = class extends Generator {
   configuration: Answers
@@ -24,44 +29,49 @@ module.exports = class extends Generator {
     super(args, opts)
     this.configuration = opts.configuration
     this.updatePackageJson = opts.updatePackageJson
-
-    console.log(this.updatePackageJson)
   }
-  // async prompting() {}
 
-  /**
-   * @todo add support for testing inputs and outputs
-   * @todo Potentially create a helper function that moves around directories
-   */
-  async createStorybook() {
-    this.updatePackageJson({ name: 'hello world' })
-    const { frontendFramework } = this.configuration.options
-    const dependencies = [`@storybook/${frontendFramework}`, ...storybookAddons]
+  addStorybookDependencies() {
+    // TODO to add support for other frameworks
+    const dependencies = ['@storybook/react', ...storybookAddons]
 
-    console.log(white('installing storybook dependencies'))
+    console.log(white('adding storybook dependencies to the packageJson'))
 
-    try {
-      // This will add the storybook dependencies and supported version directly onto the package.json
-      // this.fs.extendJSON('./package.json', {
-      //   scripts: {
-      //     'build:storybook': 'build-storybook -c ./apps/storybook',
-      //     'dev:storybook': 'start-storybook -p 6006 -c ./apps/storybook',
-      //   },
-      //   devDependencies: dependencies.reduce<Record<string, string>>(
-      //     (acc, value) => {
-      //       acc[value] = storybookSupportedVersion
-      //       return acc
-      //     },
-      //     {}
-      //   ),
-      // })
-    } catch (e) {
-      console.log(
-        red(
-          `An error occured while writting storybook dependencies to the package.json`
-        )
-      )
-    }
-    console.log('done')
+    this.updatePackageJson({
+      scripts: {
+        'build:storybook': 'build-storybook -c ./apps/storybook',
+        'dev:storybook': 'start-storybook -p 6006 -c ./apps/storybook',
+      },
+      devDependencies: dependencies.reduce<Record<string, string>>(
+        (acc, value: string) => {
+          acc[value] = storybookSupportedVersion
+          return acc
+        },
+        {}
+      ),
+    })
+  }
+
+  async createStorybookFiles() {
+    console.log('creating files & folders for storybook')
+
+    // create the folders
+    fs.mkdirSync(`${process.cwd()}/${storybookPath}/`, { recursive: true })
+
+    // create the files
+    fs.writeFileSync(
+      this.destinationPath(`${storybookPath}/main.js`),
+      main({
+        addons: storybookAddons,
+        designSystemPath: `../../${this.configuration.componentLibraryPath}`,
+        storiesRoot,
+      })
+    )
+    fs.writeFileSync(
+      this.destinationPath(`${storybookPath}/preview.js`),
+      preview({
+        frontendFramework: FrontendFrameworkOptions.REACT,
+      })
+    )
   }
 }

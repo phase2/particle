@@ -56,20 +56,8 @@ module.exports = class extends Generator {
   _updatePackageJson(newValues: Record<string, any>) {
     console.log('called package json update with', newValues)
     this.packageJson = merge(this.packageJson, newValues)
-    console.log(this.packageJson)
   }
   // async prompting() {}
-
-  initializing() {
-    this.composeWith('@phase2/particle:storybook', {
-      configuration: this.configuration,
-      updatePackageJson: this._updatePackageJson,
-    })
-  }
-
-  writing() {
-    console.log('hello world', this.packageJson)
-  }
 
   /**
    * @todo add support for testing inputs and outputs
@@ -97,13 +85,36 @@ module.exports = class extends Generator {
   /**
    * Creates the package.json, package.json should never need to be re-written
    */
-  // createPackageJson() {
-  //   console.log('newJSON', this.packageJson)
-  //   fs.writeFileSync(
-  //     this.destinationPath('package.json'),
-  //     JSON.stringify(this.packageJson, null, 2)
-  //   )
-  // }
+  _createPackageJson() {
+    console.log('newJSON', this.packageJson)
+    fs.writeFileSync(
+      this.destinationPath('package.json'),
+      JSON.stringify(this.packageJson, null, 2)
+    )
+  }
+
+  /**
+   * Initializes all sub:generators that have been opted in
+   */
+  initializing() {
+    // Initialize storybook
+    if (
+      this.configuration.options.frontendFramework.includes(
+        FrontendFrameworkOptions.REACT
+      )
+    ) {
+      this.composeWith('@phase2/particle:storybook', {
+        configuration: this.configuration,
+        updatePackageJson: this._updatePackageJson,
+      })
+    }
+
+    // Add other subgenerators here
+  }
+
+  writing() {
+    this._createPackageJson()
+  }
 
   // NPM install should be called after all dependencies are written to the package.json
   // Retain for debugging and disable for production
