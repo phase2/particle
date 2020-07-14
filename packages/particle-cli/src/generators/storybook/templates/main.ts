@@ -14,7 +14,9 @@ export const main = (
   config: MainConfig
 ) => `const path = require('path')frontendFramework
 
-const APP_COMPONENT_LIBRARY = path.resolve(__dirname, '../../src/default')
+const APP_COMPONENT_LIBRARY = path.resolve(__dirname, '${
+  config.componentLibraryPath
+}')
 const particle = require('../../particle')
 
 const dev = {}
