@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 import program from 'commander'
+import path from 'path'
+import { spawn } from 'child_process'
 
-import pkg from '../package.json'
-import { generatePromptOptions } from '../src/generatePromptOptions'
-import create from '../src/create'
+import pkg from '../../package.json'
 
 /**
  * Initialize Commander program with version.
@@ -16,8 +16,10 @@ program
   .alias('init')
   .description('Scaffold your project from a set of prompts.')
   .action(function () {
-    // @TODO Implement Create Function.
-    generatePromptOptions().then(create)
+    // runs yeoman under the hood and resolves the yeoman module directly
+    spawn('yo', [path.resolve(__dirname, '../generators/app/')], {
+      stdio: 'inherit',
+    })
   })
 
 // allow commander to parse `process.argv`

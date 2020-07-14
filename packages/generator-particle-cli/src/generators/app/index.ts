@@ -1,14 +1,23 @@
 import Generator from 'yeoman-generator'
 import merge from 'lodash.merge'
 import fs from 'fs'
+import path from 'path'
 
 import {
   Answers,
   CSSLibraryOptions,
   ComponentLibraryOptions,
+  ConfigurationAnswers,
+  ConfigOptions,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
 } from '@phase2/particle-types'
+
+import {
+  configurationPrompt,
+  customPromptOptions,
+  options as configOptions,
+} from './generatePromptOptions'
 
 module.exports = class extends Generator {
   // configuration will come from the constructor argument
@@ -23,27 +32,16 @@ module.exports = class extends Generator {
       description: 'stringified configuration from particle-cli',
     })
 
-    if (typeof opts.configuration === 'string') {
-      this.configuration = JSON.parse(opts.configuration)
-    } else {
-      this.configuration = opts.configuration || {
-        projectName: 'new-project',
-        componentLibraryName: 'particle',
-        componentLibraryPath: './src/default',
-        options: {
-          cssLibrary: CSSLibraryOptions.TAILWIND,
-          componentLibraryTypes: [ComponentLibraryOptions.STORYBOOK],
-          frontendFramework: [FrontendFrameworkOptions.REACT],
-          hasSVG: true,
-          hasTypescript: true,
-          testingLibraries: [TestingLibraryOptions.JEST],
-          typescriptEsm: false,
-        },
-      }
-    }
+    // if (typeof opts.configuration === 'string') {
+    //   this.configuration = JSON.parse(opts.configuration)
+    // } else if (opts.configuration) {
+    // } else {
+    //   throw Error('No configuration provided')
+    //   this.configuration = opts.configuration
+    // }
 
     this.packageJson = {
-      name: this.configuration.projectName,
+      name: 'project-name',
       version: '1.0.0',
       main: 'index.js',
       scripts: {
@@ -73,22 +71,45 @@ module.exports = class extends Generator {
     )
   }
 
+  async _promptUser() {
+    // Initialize storybook
+    const results: ConfigurationAnswers = await this.prompt(configurationPrompt)
+
+    // if custom exit here
+    if (results.config === ConfigOptions.CUSTOM) {
+      const customOptions = await this.prompt(customPromptOptions)
+
+      this.configuration = {
+        ...results,
+        options: customOptions,
+      }
+    } else {
+      this.configuration = {
+        ...results,
+        options: configOptions[results.config],
+      }
+    }
+
+    this.packageJson.name = results.projectName
+  }
+
   /**
    * Initializes all sub:generators that have been opted in
    */
-  initializing() {
-    // Initialize storybook
+  async initializing() {
+    this._promptUser()
+
+    // All composed generators must be resolved through path to work properly for local generators
     if (
       this.configuration.options.frontendFramework.includes(
         FrontendFrameworkOptions.REACT
       )
     ) {
-      this.composeWith('@phase2/particle:storybook', {
+      this.composeWith(path.resolve(__dirname, '../storybook'), {
         configuration: this.configuration,
         updatePackageJson: this._updatePackageJson,
       })
     }
-
     // Add other subgenerators here
   }
 
