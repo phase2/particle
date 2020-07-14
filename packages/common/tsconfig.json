@@ -4,8 +4,7 @@
     "module": "es2015",
     "declaration": true,
     "declarationMap": true,
-    // "outDir": "./",
-    // "rootDir": ".",
+    "noEmit": true,
     "composite": true,
     "strict": true,
     "moduleResolution": "node"
