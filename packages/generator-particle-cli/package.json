@@ -1,5 +1,5 @@
 {
-  "name": "@phase2/generator-particle",
+  "name": "@phase2/generator-particle-cli",
   "version": "0.0.1",
   "description": "Generates the file structure for particle",
   "files": [
