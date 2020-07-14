@@ -86,7 +86,7 @@ module.exports = class extends Generator {
    * Initializes all sub:generators that have been opted in
    */
   async initializing() {
-    this._promptUser()
+    await this._promptUser()
 
     // All composed generators must be resolved through path to work properly for local generators
     if (

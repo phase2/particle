@@ -21,7 +21,7 @@
     "directory": "packages/particle-cli"
   },
   "dependencies": {
-    "@phase2/particle-types": "file:../types",
+    "@phase2/particle-types": "file:../particle-types",
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
     "inquirer": "^7.2.0",
