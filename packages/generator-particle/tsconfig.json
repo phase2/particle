@@ -11,5 +11,5 @@
     "composite": true
   },
   "references": [{ "path": "../common" }],
-  "include": ["./src/generators", "../common"]
+  "include": ["./src/generators", "../common/lib"]
 }

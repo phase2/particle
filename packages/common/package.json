@@ -1,0 +1,25 @@
+{
+  "name": "@phase2/particle-common",
+  "version": "0.0.1",
+  "description": "shared types and functions",
+  "files": [
+    "lib"
+  ],
+  "keywords": [],
+  "homepage": "https://github.com/phase2/particle#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phase2/particle.git",
+    "directory": "packages/generator-particle"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.9.6"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
