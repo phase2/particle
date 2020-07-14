@@ -5,12 +5,9 @@ import path from 'path'
 
 import {
   Answers,
-  CSSLibraryOptions,
-  ComponentLibraryOptions,
   ConfigurationAnswers,
   ConfigOptions,
   FrontendFrameworkOptions,
-  TestingLibraryOptions,
 } from '@phase2/particle-types'
 
 import {
@@ -31,14 +28,6 @@ module.exports = class extends Generator {
       type: String,
       description: 'stringified configuration from particle-cli',
     })
-
-    // if (typeof opts.configuration === 'string') {
-    //   this.configuration = JSON.parse(opts.configuration)
-    // } else if (opts.configuration) {
-    // } else {
-    //   throw Error('No configuration provided')
-    //   this.configuration = opts.configuration
-    // }
 
     this.packageJson = {
       name: 'project-name',
