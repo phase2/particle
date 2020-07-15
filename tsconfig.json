@@ -12,5 +12,5 @@
     "removeComments": true,
     "noLib": false
   },
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "exclude": ["node_modules", "**/__tests__/*", "packages/**/lib/"]
 }

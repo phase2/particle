@@ -1,42 +1,52 @@
 {
-  "private": true,
   "name": "@phase2/particle-cli",
   "version": "0.0.1",
-  "description": "A CLI to bootstrap design system projects",
-  "author": {
-    "name": "Phase2 Technology",
-    "url": "https://github.com/phase2/"
-  },
-  "keywords": [
-    "cli",
-    "create-project",
-    "init"
+  "description": "Generates the file structure for particle",
+  "files": [
+    "lib/src/generators/app",
+    "lib/src/generators/storybook"
   ],
   "bin": {
-    "@phase2/particle-cli": "lib/bin/particle-cli.js",
-    "particle-cli": "lib/bin/particle-cli.js"
+    "@phase2/particle-cli": "lib/src/bin/particle-cli.js",
+    "particle-cli": "lib/src/bin/particle-cli.js"
   },
+  "keywords": [
+    "yeoman-generator",
+    "particle"
+  ],
   "homepage": "https://github.com/phase2/particle#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/phase2/particle.git",
     "directory": "packages/particle-cli"
   },
-  "bugs": {
-    "url": "https://github.com/phase2/particle/issues"
+  "dependencies": {
+    "@phase2/particle-types": "file:../particle-types",
+    "chalk": "^4.1.0",
+    "commander": "^5.1.0",
+    "inquirer": "^7.2.0",
+    "lodash.merge": "^4.6.2",
+    "yeoman-generator": "^4.11.0",
+    "yo": "^3.1.1"
   },
-  "license": "GPL-2.0",
+  "devDependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/lodash.merge": "^4.6.6",
+    "@types/yeoman-generator": "^3.1.4",
+    "typescript": "^3.9.6"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "tsc:watch": "tsc --watch"
   },
-  "dependencies": {
-    "commander": "^5.1.0",
-    "esm": "^3.2.25",
-    "inquirer": "^7.2.0"
+  "bugs": {
+    "url": "https://github.com/phase2/particle/issues"
   },
-  "devDependencies": {
-    "@types/inquirer": "^6.5.0"
-  }
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
 }

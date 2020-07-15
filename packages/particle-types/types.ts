@@ -21,7 +21,7 @@ export enum ConfigOptions {
   CUSTOM = 'custom',
 }
 
-interface Naming {
+export interface Naming {
   projectName: string
   componentLibraryName: string
   componentLibraryPath: string
