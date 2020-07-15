@@ -39,7 +39,8 @@ module.exports = class extends Generator {
       keywords: [],
       author: '',
       license: 'ISC',
-      description: '',
+      description: 'Particle boilerplate project',
+      repository: {},
       dependencies: {},
       devDependencies: {},
     }

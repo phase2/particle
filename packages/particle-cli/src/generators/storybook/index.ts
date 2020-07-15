@@ -7,11 +7,11 @@ import { Answers, FrontendFrameworkOptions } from '@phase2/particle-types'
 import { main } from './templates/main'
 
 export const storybookAddons: string[] = [
-  '@storybook/addon-viewport',
   '@storybook/addon-knobs',
   '@storybook/addon-actions',
-  '@storybook/addon-a11y',
   '@storybook/addon-links',
+  '@storybook/addon-viewport',
+  '@storybook/addon-a11y',
 ]
 
 const storybookSupportedVersion = '^5.3.19'

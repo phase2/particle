@@ -48,23 +48,24 @@ export const options: Record<string, CustomAnswers> = {
 export const configurationPrompt = [
   {
     type: 'input',
-    message: 'choose a project name using kebab case, example: "my-project"',
+    message: 'choose a project name using kebab case, example: "p2-project"',
     name: 'projectName',
     validate: (name: string) => {
       if (!name || name.length < 4) {
         return 'Please enter a project name of more than 4 characters length'
       }
       if (name.indexOf(' ') > 0) {
-        return 'Please enter a project name with no spaces'
+        return 'Please enter a two word project name with no spaces'
       }
       return true
     },
   },
   {
     type: 'input',
-    message: 'choose a component library name',
+    message:
+      'choose a component library name using kebab case. example "project-default"',
     name: 'componentLibraryName',
-    default: 'particle',
+    default: 'project-default',
     validate: (name: string) => {
       if (!name || name.length < 4) {
         return 'Please enter a library name of more than 4 characters length'
@@ -77,7 +78,7 @@ export const configurationPrompt = [
     message:
       'Where does your component library exist relative to the root of the project',
     default: (answers: ConfigurationAnswers) =>
-      `./project/components/${answers.componentLibraryName}/`,
+      `./source/${answers.componentLibraryName}/`,
     name: 'componentLibraryPath',
   },
   {

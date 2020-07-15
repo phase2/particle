@@ -1,22 +1,21 @@
+import { stringifyAndSingleQuote } from '../../../utils/helpers'
+
 export interface MainConfig {
   componentLibraryPath: string // this will have to be resolved based off storybook location in apps/storybook and the path of the component_library
   addons: string[]
   storiesRoot: string[]
 }
 
-const stringifyAndSingleQuote = (val: string[]) =>
-  JSON.stringify(val).replace('"', "'")
-
 /**
  * app/storybook/main.js
+ * @TODO require('../../particle) is a placeholder until we have proper base config
  */
-export const main = (
-  config: MainConfig
-) => `const path = require('path')frontendFramework
+export const main = (config: MainConfig) => `const path = require('path')
 
 const APP_COMPONENT_LIBRARY = path.resolve(__dirname, '${
   config.componentLibraryPath
 }')
+// TODO Needs to be replaced with proper base config object. TBD at later date
 const particle = require('../../particle')
 
 const dev = {}
