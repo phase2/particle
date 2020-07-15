@@ -10,8 +10,6 @@ import {
   TestingLibraryOptions,
 } from '@phase2/particle-types'
 
-// const prompt = inquirer.createPromptModule()
-
 const minMaxOptionsValidate = ({ min, max }: { min: number; max?: number }) => (
   answer: Record<string, string>[]
 ) => {
