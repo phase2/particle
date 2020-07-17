@@ -15,16 +15,12 @@
  * @see template_preprocess_details()
  */
 #}
-<details{{ attributes.addClass(['details']) }}>
-  {%
-    set summary_classes = [
-      'summary',
-      required ? 'js-form-required',
-      required ? 'form-required',
-    ]
-  %}
+<details {{ attributes.addClass(['details']) }}>
+  {% set summary_classes = ['summary', required ? 'js-form-required', required ? 'form-required'] %}
   {%- if title -%}
-    <summary{{ summary_attributes.addClass(summary_classes) }}>{{ title }}</summary>
+    <summary {{ summary_attributes.addClass(summary_classes) }}>
+      {{ title }}
+    </summary>
   {%- endif -%}
 
   {% if errors %}
