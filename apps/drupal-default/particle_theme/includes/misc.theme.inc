@@ -5,7 +5,7 @@
  * Functions to support theming miscellaneous things the Particle theme.
  */
 
-use Drupal\theme\custom\Particle\Particle;
+use Drupal\Particle\Particle;
 
 /**
  * Implements hook_preprocess().
@@ -33,12 +33,4 @@ function particle_page_attachments_alter(array &$page) {
     ],
   ];
   $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];
-}
-
-/**
- * Implements hook_preprocess_details().
- */
-function particle_preprocess_details(array &$variables) {
-  $variables['attributes']['class'][] = 'details';
-  $variables['summary_attributes']['class'] = 'summary';
 }
