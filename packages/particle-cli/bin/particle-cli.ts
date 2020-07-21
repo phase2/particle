@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 import program from 'commander'
-import path from 'path'
 import { spawn } from 'child_process'
 
-import pkg from '../../package.json'
+import pkg from '../package.json'
 
 /**
  * Initialize Commander program with version.
@@ -17,7 +16,7 @@ program
   .description('Scaffold your project from a set of prompts.')
   .action(function () {
     // runs yeoman under the hood and resolves the yeoman module directly
-    spawn('yo', [path.resolve(__dirname, '../generators/app/')], {
+    spawn('yo', [require.resolve('@phase2/generator-particle-base')], {
       stdio: 'inherit',
     })
   })
