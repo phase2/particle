@@ -1,56 +1,151 @@
-particle_one_col:
-  label: 'Particle one column'
-  path: layout/particle-onecol
-  template: particle-onecol
-  category: 'Columns: 1'
-  default_region: content
+# Particle Layouts
+# @see apps/drupal-default/particle_theme/templates/layout/layout.html.twig
+particle_one_column:
+  label: 'Container Column'
+  category: 'Particle Columns: 1'
+  description: A single column layout.
+  class: '\Drupal\particle_helper\Plugin\Layout\ParticleLayout'
+  path: layout
+  template: layout
+  default_region: main
   icon_map:
     - [content]
   regions:
-    content:
-      label: Main Content
-particle_two_col:
-  label: 'Particle two column'
-  path: layout/particle-twocol
-  template: particle-twocol
-  category: 'Columns: 2'
-  default_region: first
+    main:
+      label: Particle Main Content
+      region_classes: ['layout__region', 'layout__region--main', 'w-full']
+
+particle_one_column_breakout:
+  label: 'Breakout Column'
+  category: 'Particle Columns: 1'
+  description: A single column layout that breaks out of the site container.
+  class: '\Drupal\particle_helper\Plugin\Layout\ParticleLayout'
+  path: layout
+  template: layout
+  default_region: main
   icon_map:
-    - [first, second]
+    - [content]
   regions:
-    first:
-      label: First
-    second:
-      label: Second
-particle_three_col:
-  label: 'Particle three column'
-  path: layout/particle-threecol
-  template: particle-threecol
-  category: 'Columns: 3'
-  default_region: first
+    main:
+      label: Particle Main Content
+      region_classes: ['layout__region', 'layout__region--main', 'w-breakout']
+
+particle_two_column_3_1:
+  label: 'Two Columns: 3:1'
+  category: 'Particle Columns: 2'
+  description: A two column layout with 2/3 main and 1/3 aside sections.
+  class: '\Drupal\particle_helper\Plugin\Layout\ParticleLayout'
+  path: layout
+  template: layout
+  default_region: main
   icon_map:
+    - [top]
+    - [main, main, aside]
+    - [bottom]
+  regions:
+    main:
+      label: Particle Main
+      region_classes:
+        [
+          'layout__region',
+          'layout__region--main',
+          'w-full',
+          'md:w-2/3',
+          'pr-6',
+          'md:pr-8',
+        ]
+    aside:
+      label: Particle Sidebar
+      region_classes:
+        ['layout__region', 'layout__region--aside', 'w-full', 'md:w-1/3']
+
+particle_three_col_1_1:
+  label: 'Three Columns: 1:1'
+  category: 'Particle Columns: 3'
+  description: A three column layout with equal 1/3 width columns.
+  class: '\Drupal\particle_helper\Plugin\Layout\ParticleLayout'
+  path: layout
+  template: layout
+  default_region: main
+  icon_map:
+    - [top]
     - [first, second, third]
+    - [bottom]
   regions:
     first:
-      label: First
+      label: Particle First
+      region_classes:
+        [
+          'layout__region',
+          'layout__region--first',
+          'w-full',
+          'md:w-1/3',
+          'pr-6',
+          'md:pr-8',
+        ]
     second:
-      label: Second
+      label: Particle Second
+      region_classes:
+        [
+          'layout__region',
+          'layout__region--second',
+          'w-full',
+          'md:w-1/3',
+          'pr-6',
+          'md:pr-8',
+        ]
     third:
-      label: Third
-particle_four_col:
-  label: 'Particle four column'
-  path: layout/particle-fourcol
-  template: particle-fourcol
-  category: 'Columns: 4'
-  default_region: first
+      label: Particle Third
+      region_classes:
+        ['layout__region', 'layout__region--third', 'w-full', 'md:w-1/3']
+
+particle_four_col_1_1:
+  label: 'Four Columns: 1:1'
+  category: 'Particle Columns: 4'
+  description: A four column layout with equal 1/4 width columns.
+  class: '\Drupal\particle_helper\Plugin\Layout\ParticleLayout'
+  path: layout
+  template: layout
+  default_region: main
   icon_map:
+    - [top]
     - [first, second, third, fourth]
+    - [bottom]
   regions:
     first:
-      label: First
+      label: Particle First
+      region_classes:
+        [
+          'layout__region',
+          'layout__region--first',
+          'w-full',
+          'md:w-1/3',
+          'pr-6',
+          'md:pr-8',
+        ]
     second:
-      label: Second
+      label: Particle Second
+      region_classes:
+        [
+          'layout__region',
+          'layout__region--second',
+          'w-full',
+          'md:w-1/3',
+          'pr-6',
+          'md:pr-8',
+        ]
     third:
-      label: Third
+      label: Particle Third
+      region_classes:
+        [
+          'layout__region',
+          'layout__region--third',
+          'w-full',
+          'md:w-1/3',
+          'pr-6',
+          'md:pr-8',
+        ]
     fourth:
-      label: Fourth
+      label: Particle Fourth
+      region_classes:
+        ['layout__region', 'layout__region--fourth', 'w-full', 'md:w-1/3']
