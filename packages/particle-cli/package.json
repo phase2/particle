@@ -20,7 +20,7 @@
     "@phase2/particle-types": "file:../particle-types",
     "chalk": "^4.1.0",
     "commander": "^6.0.0",
-    "yeoman-generator": "^4.11.0"
+    "yo": "^3.1.1"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
