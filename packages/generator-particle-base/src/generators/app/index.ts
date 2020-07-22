@@ -1,7 +1,6 @@
 import Generator from 'yeoman-generator'
 import merge from 'lodash.merge'
 import fs from 'fs'
-import path from 'path'
 
 import {
   Answers,
@@ -26,8 +25,12 @@ module.exports = class extends Generator {
     // makes config a required argument
     this.option('configuration', {
       type: String,
-      description: 'stringified configuration from particle-cli',
+      description: 'stringified configuration object from particle-cli',
     })
+
+    this.configuration = opts.configuration
+      ? JSON.parse(opts.configuration)
+      : {}
 
     this.packageJson = {
       name: 'project-name',
@@ -89,16 +92,19 @@ module.exports = class extends Generator {
   async initializing() {
     await this._promptUser()
 
-    // All composed generators must be resolved through path to work properly for local generators
+    // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
     if (
       this.configuration.options.frontendFramework.includes(
         FrontendFrameworkOptions.REACT
       )
     ) {
-      this.composeWith(path.resolve(__dirname, '../storybook'), {
-        configuration: this.configuration,
-        updatePackageJson: this._updatePackageJson,
-      })
+      this.composeWith(
+        require.resolve('@phase2/generator-particle-storybook'),
+        {
+          configuration: this.configuration,
+          updatePackageJson: this._updatePackageJson,
+        }
+      )
     }
     // Add other subgenerators here
   }

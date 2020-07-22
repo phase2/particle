@@ -1,14 +1,15 @@
 {
-  "name": "@phase2/particle-cli",
+  "name": "@phase2/generator-particle-storybook",
   "version": "0.0.1",
-  "description": "Generates the file structure for particle",
-  "bin": {
-    "particle-cli": "lib/bin/particle-cli.js"
-  },
+  "description": "Generates the file structure for particle storybook",
+  "files": [
+    "lib/generators"
+  ],
   "keywords": [
     "yeoman-generator",
     "particle"
   ],
+  "main": "lib/generators/app/index.js",
   "homepage": "https://github.com/phase2/particle#readme",
   "repository": {
     "type": "git",
@@ -16,11 +17,9 @@
     "directory": "packages/particle-cli"
   },
   "dependencies": {
-    "@phase2/generator-particle-base": "file:../generator-particle-base",
     "@phase2/particle-types": "file:../particle-types",
     "chalk": "^4.1.0",
-    "commander": "^6.0.0",
-    "yo": "^3.1.1"
+    "yeoman-generator": "^4.11.0"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
@@ -35,7 +34,6 @@
   "bugs": {
     "url": "https://github.com/phase2/particle/issues"
   },
-  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"

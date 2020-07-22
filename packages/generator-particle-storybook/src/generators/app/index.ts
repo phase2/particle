@@ -37,6 +37,8 @@ module.exports = class extends Generator {
 
     console.log(white('adding storybook dependencies to the packageJson'))
 
+    // if noInstall flag is passed assume that updatePackageJson was passed and fire off command
+    // else run npm install
     this.updatePackageJson({
       scripts: {
         'build:storybook': 'build-storybook -c ./apps/storybook',
