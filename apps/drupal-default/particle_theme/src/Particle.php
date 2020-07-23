@@ -24,4 +24,5 @@ class Particle {
    * Provides the frontend docs for reference.
    */
   const FRONTEND_DOCS = 'https://phase2.github.io/frontend-docs/';
+
 }
