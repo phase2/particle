@@ -16,6 +16,7 @@
     "directory": "packages/particle-cli"
   },
   "dependencies": {
+    "@phase2/generator-particle-patternlab": "file:../generator-particle-patternlab",
     "@phase2/generator-particle-storybook": "file:../generator-particle-storybook",
     "@phase2/particle-types": "file:../particle-types",
     "chalk": "^4.1.0",

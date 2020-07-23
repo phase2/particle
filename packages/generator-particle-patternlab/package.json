@@ -1,0 +1,38 @@
+{
+  "name": "generator-particle-patternlab",
+  "version": "0.0.1",
+  "description": "A Yeoman Generator for Particle Patternlab Component Library",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Shawn Mealey <mealeyst@gmail.com>",
+  "homepage": "https://github.com/phase2/particle/tree/master/packages/generator-particle-patternlab#readme",
+  "license": "ISC",
+  "main": "lib/generators/app/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phase2/particle.git"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
+  },
+  "bugs": {
+    "url": "https://github.com/phase2/particle/issues"
+  },
+  "dependencies": {
+    "lodash": "^4.17.19",
+    "yeoman-generator": "^4.11.0"
+  },
+  "devDependencies": {
+    "@types/yeoman-generator": "^3.1.4",
+    "typescript": "^3.9.6"
+  }
+}
