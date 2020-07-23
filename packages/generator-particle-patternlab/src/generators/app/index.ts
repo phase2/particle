@@ -30,13 +30,13 @@ module.exports = class extends Generator {
   }
   async configuring() {
     const pkgJson = await this.fs.readJSON('./package.json')
+    console.log(typeof pkgJson)
     _.merge(pkgJson.dependencies, plDependencies)
     _.merge(pkgJson.scripts, plScripts)
-    console.log(pkgJson)
-    this.fs.writeJSON('./package.json', JSON.stringify(pkgJson, null, 2))
+    this.fs.writeJSON('./package.json', pkgJson)
   }
   async writing() {
-    console.log('Writing', this.templatePath())
+    // console.log('Writing', this.templatePath())
     this.fs.copy(this.templatePath('source'), this.destinationPath('source'))
   }
   async install() {
