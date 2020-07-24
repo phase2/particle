@@ -14,19 +14,18 @@
  */
 #}
 
-{% set grid_classes = grid_classes|default([])|merge([
-  'grid',
-  grid.container ? 'container' : '',
-  grid.center ? 'mx-auto' : ''
-]) %}
+{% set grid_classes =
+  grid_classes|default([])|merge(['grid', grid.container ? 'container' : '', grid.center ? 'mx-auto' : ''])
+%}
 
-{% set column_classes = column_classes|default([])|merge([
-  'flex',
-  (grid.wrap is same as (false)) ? '' : 'flex-wrap',
-]) | sort | join(' ') | trim %}
+{% set column_classes =
+  column_classes|default([])|merge(['flex', grid.wrap is same as(false) ? '' : 'flex-wrap'])|join(' ')|trim
+%}
 
-<div {{ (grid_attributes is not empty) ? grid_attributes | attributify : '' }} class="{{ grid_classes | sort | join(' ') | trim }}">
+<div {{ grid_attributes is not empty ? grid_attributes|attributify : '' }} class="{{ grid_classes|join(' ')|trim }}">
   <div class="{{ column_classes }}">
-    {% block grid_content %}{% endblock grid_content %}
+    {% block grid_content %}
+
+    {% endblock grid_content %}
   </div>
 </div>

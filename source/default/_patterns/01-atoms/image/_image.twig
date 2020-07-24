@@ -12,11 +12,15 @@
  */
 #}
 
-{% set image_classes = image_classes|default([])|merge([
-  'image',
-  image.style ? 'image--' ~ image.style : '',
-  image.variant ? 'image--' ~ image.variant : '',
-]) | sort | join(' ') | trim %}
+{% set image_classes =
+  image_classes
+    |default([])
+    |merge(
+      ['image', 'img-fluid', image.style ? 'image--' ~ image.style : '', image.variant ? 'image--' ~ image.variant : '']
+    )
+    |join(' ')
+    |trim
+%}
 
 {% if image.placeholder %}
   {% include '@atoms/image/_image--placeholder.twig' with {

@@ -1,0 +1,84 @@
+{% extends '@demo/_demo-block.twig' %}
+
+{% set demo = form_element_demo_block %}
+
+{% block content %}
+  {% set tdClasses = 'border text-center p-4' %}
+
+  <h2>
+    Input Types
+  </h2>
+  <table class="table-auto w-full">
+    <thead>
+      <tr class="border">
+        <th scope="col" class="p-4">
+          Type
+        </th>
+        <th scope="col" class="p-4">
+          Description
+        </th>
+        <th scope="col" class="p-4">
+          Rendered
+        </th>
+        <th scope="col" class="p-4">
+          Spec
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for input in form_inputs %}
+        <tr>
+          <td class="{{ tdClasses }}">
+            {{ input.attributes.type }}
+          </td>
+          <td class="{{ tdClasses }}">
+            {{ input.description }}
+          </td>
+          <td class="{{ tdClasses }}">
+            {% include '@atoms/form-element/_input.twig' %}
+          </td>
+          <td class="{{ tdClasses }}">
+            {% if input.html5 %}
+              <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <hr class="m-10" />
+
+  <h2 class="pb-4">
+    Additional Form Content
+  </h2>
+  <div class="pb-4">
+    <h3 class="heading-3">
+      Text Area
+    </h3>
+    {% include '@atoms/form-element/_textarea.twig' with {
+      textarea: textarea_1
+    } %}
+  </div>
+
+  <h3>
+    Select
+  </h3>
+  <div class="flex pb-4">
+    <div class="w-1/2 h-12">
+      {% include '@atoms/form-element/_select.twig' with {
+        select: select_single
+      } %}
+    </div>
+    <div class="w-1/2 h-12">
+      {% include '@atoms/form-element/_select.twig' with {
+        select: select_multiple
+      } %}
+    </div>
+  </div>
+
+  <hr class="m-10" />
+{% endblock content %}

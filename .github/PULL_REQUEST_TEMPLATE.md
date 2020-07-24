@@ -5,11 +5,11 @@ Closes Issue #X
 <!--
 These markdown comments are for description only. They can be deleted.
 
-Please submit pull requests against the develop branch.
+Please submit pull requests against the master branch.
 
 Follow the existing code style. Check the tests succeed, including lint.
   npm run test
-  npm run lint
+  npm run fmt
 -->
 
 ## Issue Description

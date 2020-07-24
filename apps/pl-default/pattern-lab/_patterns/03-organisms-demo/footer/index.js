@@ -7,4 +7,3 @@
 
 import './footers.twig';
 import './footers.yml';
-

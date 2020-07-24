@@ -1,0 +1,227 @@
+form_element_demo_block:
+  title: Form Element
+  content:
+    lead: HTML Form Elements
+    summary:
+      These patterns are used for any valid HTML form element. Input styling is
+      targetted against the input <code>type</code> attribute. <br> How an
+      <code>&lt;input&gt;</code> works varies considerably depending on the
+      value of its type attribute, hence the different types are covered in
+      their own separate reference pages. If this attribute is not html5ified,
+      the default type adopted is text.
+    link:
+      text: Mozilla Documentation
+      url: https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms
+
+form_inputs:
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A push button with no default behavior displaying the value of the value
+      attribute, empty by default.
+    attributes:
+      type: button
+      id: form-button
+      value: Button
+  - # Description and HTML5 keys are for this Demo Only.
+    description: A check box allowing single values to be selected/deselected.
+    attributes:
+      type: checkbox
+      id: form-checkbox
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control for specifying a color; opening a color picker when active in
+      supporting browsers.
+    html5: TRUE
+    attributes:
+      type: color
+      id: form-color
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control for entering a date (year, month, and day, with no time). Opens
+      a date picker or numeric wheels for year, month, day when active in
+      supporting browsers.
+    html5: TRUE
+    attributes:
+      type: date
+      id: form-date
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control for entering a date and time, with no time zone. Opens a date
+      picker or numeric wheels for date- and time-components when active in
+      supporting browsers.
+    html5: TRUE
+    attributes:
+      type: datetime-local
+      id: form-datetime-local
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A field for editing an email address. Looks like a text input, but has
+      validation parameters and relevant keyboard in supporting browsers and
+      devices with dynamic keyboards.
+    html5: TRUE
+    attributes:
+      type: email
+      id: form-email
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control that lets the user select a file. Use the accept attribute to
+      define the types of files that the control can select.
+    attributes:
+      type: file
+      id: form-file
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control that is not displayed but whose value is submitted to the
+      server. There is an example in the next column, but it's hidden!
+    attributes:
+      type: hidden
+      id: form-hidden
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A graphical submit button. Displays an image defined by the src attribute.
+      The alt attribute displays if the image src is missing.
+    attributes:
+      type: image
+      id: form-image
+  - # Description and HTML5 keys are for this Demo Only.
+    description: A control for entering a month and year, with no time zone.
+    html5: TRUE
+    attributes:
+      type: month
+      id: form-month
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control for entering a number. Displays a spinner and adds default
+      validation when supported. Displays a numeric keypad in some devices with
+      dynamic keypads.
+    html5: TRUE
+    attributes:
+      type: number
+      id: form-number
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A single-line text field whose value is obscured. Will alert user if site
+      is not secure.
+    attributes:
+      type: password
+      id: form-password
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A radio button, allowing a single value to be selected out of multiple
+      choices with the same name value.
+    attributes:
+      type: radio
+      id: form-radio
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control for entering a number whose exact value is not important.
+      Displays as a range widget defaulting to the middle value. Used in
+      conjunction min and max to define the range of acceptable values.
+    html5: TRUE
+    attributes:
+      type: range
+      id: form-range
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A button that resets the contents of the form to default values. Not
+      recommended.
+    attributes:
+      type: reset
+      id: form-reset
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A single-line text field for entering search strings. Line-breaks are
+      automatically removed from the input value. May include a delete icon in
+      supporting browsers that can be used to clear the field. Displays a search
+      icon instead of enter key on some devices with dynamic keypads.
+    html5: TRUE
+    attributes:
+      type: search
+      id: form-search
+  - # Description and HTML5 keys are for this Demo Only.
+    description: A button that submits the form.
+    attributes:
+      type: submit
+      id: form-submit
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control for entering a telephone number. Displays a telephone keypad in
+      some devices with dynamic keypads.
+    html5: TRUE
+    attributes:
+      type: tel
+      id: form-tel
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      The default value. A single-line text field. Line-breaks are automatically
+      removed from the input value.
+    attributes:
+      type: text
+      id: form-text
+  - # Description and HTML5 keys are for this Demo Only.
+    description: A control for entering a time value with no time zone.
+    html5: TRUE
+    attributes:
+      type: time
+      id: form-time
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A field for entering a URL. Looks like a text input, but has validation
+      parameters and relevant keyboard in supporting browsers and devices with
+      dynamic keyboards.
+    html5: TRUE
+    attributes:
+      type: url
+      id: form-url
+  - # Description and HTML5 keys are for this Demo Only.
+    description:
+      A control for entering a date consisting of a week-year number and a week
+      number with no time zone.
+    html5: TRUE
+    attributes:
+      type: week
+      id: form-week
+
+textarea_1:
+  attributes:
+    id: textarea-1
+    cols: 60
+    rows: 10
+    name: textarea-1
+
+select_single:
+  attributes:
+    id: single-select
+    name: Single Select
+  options:
+    - type: option
+      label: Option 1
+      value: Option 1
+    - type: option
+      label: Option 2
+      value: Option 2
+    - type: option
+      label: Option 3
+      value: Option 3
+    - type: optgroup
+      label: More
+      options:
+        - type: option
+          label: Option 4
+          value: Option 4
+
+select_multiple:
+  attributes:
+    id: multi-select
+    name: Single Multiple
+    multiple: multiple
+  options:
+    - type: option
+      label: Option 1
+      value: Option 1
+    - type: option
+      label: Option 2
+      value: Option 2
+    - type: option
+      label: Option 3
+      value: Option 3

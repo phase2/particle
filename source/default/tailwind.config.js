@@ -5,8 +5,12 @@
 
 const path = require('path');
 
-const colors = require('./tokens/colors.tailwind.json');
-const fontFamily = require('./tokens/font-family.tailwind.json');
+// Tailwind Plugins
+const tailwindCustomForms = require('@tailwindcss/custom-forms');
+
+const colors = require('./tokens/colors.tailwind');
+const customForms = require('./tokens/custom-forms.tailwind');
+const fontFamily = require('./tokens/font-family.tailwind');
 
 // Default Tailwind config can be found here: https://github.com/tailwindcss/tailwindcss/blob/v1.2.0/stubs/defaultConfig.stub.js
 module.exports = {
@@ -15,16 +19,23 @@ module.exports = {
     content: [path.resolve(__dirname, '_patterns/**/*.*')],
     options: {
       // Whitelist Non-DS Dependent Patterns.
-      whitelistPatterns: [/^bg/, /^text/, /:?-?m[xy]?-/, /:?p[xy]?-/],
+      whitelistPatterns: [
+        /^bg/,
+        /^text/,
+        /:?-?m[rltbxy]?-/,
+        /:?p[rltbxy]?-/,
+        /:?w-/,
+      ],
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
       extensions: ['yml', 'twig', 'json', 'js', 'ts'],
     },
   },
   theme: {
     colors,
+    customForms,
     fontFamily,
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [tailwindCustomForms],
 };

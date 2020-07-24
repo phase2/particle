@@ -1,6 +1,6 @@
 <?php
 
 /**
-* @file
-* Functions to support theming admin in the Particle theme.
-*/
+ * @file
+ * Functions to support theming admin in the Particle theme.
+ */

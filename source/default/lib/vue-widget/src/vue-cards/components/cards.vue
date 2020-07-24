@@ -1,9 +1,9 @@
 <template>
-  <div class="row">
+  <div class="flex flex-wrap">
     <div
       v-for="card in cards"
       :key="card.phone"
-      class="card-wrapper col-sm-12 col-md-6 col-lg-4 mb-3 card-hover"
+      class="card-wrapper mb-3 w-full sm:w-1/3 cursor-pointer"
       :data-testid="`card-wrapper-${card.id}`"
       @click="[toggle(card), $emit('set-name', card.name)]"
     >

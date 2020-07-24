@@ -20,4 +20,4 @@ settings:
   label_display: '0'
   level: 1
   depth: 0
-visibility: {  }
+visibility: {}

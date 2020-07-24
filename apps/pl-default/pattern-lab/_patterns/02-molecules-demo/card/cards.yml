@@ -2,7 +2,9 @@ cards_demo:
   title: 'Cards'
   content:
     lead: 'Demonstration of our Particle Cards.'
-    summary: 'Provide the classic card component utilizing Tailwind component as default'
+    summary:
+      'Provide the classic card component utilizing Tailwind component as
+      default'
 
 card_1:
   image:
@@ -12,7 +14,9 @@ card_1:
     style: 'card'
     placeholder: true
   title: Card Title
-  body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.'
+  body:
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
+    quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.'
   list:
     - '#photography'
     - '#travel'

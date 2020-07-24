@@ -11,10 +11,8 @@
  */
 #}
 
-{% set classes = [
-  'form-inline',
-] %}
+{% set classes = ['form-inline'] %}
 
-<form{{ attributes.addClass(classes) }}>
+<form {{ attributes.addClass(classes) }}>
   {{ children }}
 </form>

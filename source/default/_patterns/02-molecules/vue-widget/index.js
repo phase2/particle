@@ -8,26 +8,14 @@ import 'protons';
 import 'molecules/card';
 
 // Module template
-import './_vuex-cryptos.twig';
-import './_vue-cryptos.twig';
 import './_vue-cards.twig';
 import './_vue-clock.twig';
 
 // All Vue widgets only execute on existence of DOM
-import FacetTableVue from 'lib/vue-widget/src/vue-cryptos';
-import FacetTableVueX from 'lib/vue-widget/src/vuex-cryptos';
 import VueCards from 'lib/vue-widget/src/vue-cards';
 import VueClock from 'lib/vue-widget/src/vue-clock';
 
 // Render Vue elements as soon as possible
-if (document.getElementById('vue-cryptos')) {
-  FacetTableVue('#vue-cryptos');
-}
-
-if (document.getElementById('vuex-cryptos')) {
-  FacetTableVueX('#vuex-cryptos');
-}
-
 if (document.getElementById('vue-cards')) {
   VueCards('#vue-cards');
 }

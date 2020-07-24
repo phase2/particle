@@ -12,31 +12,38 @@
  */
 #}
 
-{% set pagination_classes = pagination_classes|default([])|merge([
-  'pagination',
-  pagination.variant ? 'pagination--' ~ pagination.variant : '',
-  'flex',
-  'list-reset',
-  'rounded',
-  'w-auto',
-  'font-sans'
-]) | sort | join(' ') | trim %}
+{% set pagination_classes =
+  pagination_classes
+    |default([])
+    |merge(
+      [
+        'pagination',
+        pagination.variant ? 'pagination--' ~ pagination.variant : '',
+        'flex',
+        'list-reset',
+        'rounded',
+        'w-auto',
+        'font-sans'
+      ]
+    )
+    |join(' ')
+    |trim
+%}
 
 <nav class="inline-flex shadow-sm" aria-label="{{ pagination.title }}">
-  {% set link_classes = [
-    'block',
-    'hover:text-white',
-    'hover:bg-blue-500',
-    'text-blue',
-    'border',
-    'border-gray-500',
-    'px-3',
-    'py-2',
-  ] | join(' ')%}
+  {% set link_classes =
+    ['block', 'hover:text-white', 'hover:bg-blue-500', 'text-blue', 'border', 'border-gray-500', 'px-3', 'py-2']|join(
+      ' '
+    )
+  %}
 
   <ul class="{{ pagination_classes }}">
     {% if pagination.previous %}
-      <li><a class="{{ link_classes }}" href="{{ pagination.previous.url }}">{{ pagination.previous.title|default('Previous'|t) }}</a></li>
+      <li>
+        <a class="{{ link_classes }}" href="{{ pagination.previous.url }}">
+          {{ pagination.previous.title|default('Previous'|t) }}
+        </a>
+      </li>
     {% endif %}
 
     {% if pagination.links %}
@@ -46,7 +53,9 @@
     {% endif %}
 
     {% if pagination.next %}
-      <li><a class="{{ link_classes }}" href="{{ pagination.next.url }}">{{ pagination.next.title|default('Next'|t) }}</a></li>
+      <li>
+        <a class="{{ link_classes }}" href="{{ pagination.next.url }}">{{ pagination.next.title|default('Next'|t) }}</a>
+      </li>
     {% endif %}
   </ul>
 </nav>

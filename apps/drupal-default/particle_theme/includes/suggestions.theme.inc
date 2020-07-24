@@ -55,7 +55,6 @@ function particle_theme_suggestions_image_alter(array &$suggestions, array $vari
  * Implements hook_theme_suggestions_HOOK_alter().
  *
  * @TODO evaluate for Search.
- *
  */
 function particle_theme_suggestions_form_alter(array &$suggestions, array $variables) {
   $id = $variables['element']['#id'];

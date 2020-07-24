@@ -148,12 +148,9 @@ module.exports = class extends Generator {
     // a reserved method to which Yeoman provides all file streams from copyTpl()
     this.registerTransformStream(
       rename((path) => {
-        // basename is 'patterns.twig' here
-        const ext = extname(path.basename);
-        // Original extname was '.ejs', change it to ext, which is now '.twig'
-        path.extname = ext;
-        // Remove extension ('.twig') from basename, replace 'pattern" with name
-        path.basename = path.basename.replace(ext, '').replace('pattern', name);
+        // basename is ie '_patterns.twig' here
+        // Replace 'pattern" with name
+        path.basename = path.basename.replace('pattern', name);
         return path;
       })
     );
