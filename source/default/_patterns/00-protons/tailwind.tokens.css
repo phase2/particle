@@ -1,19 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/**
+ * @file
+ * Root CSS file to add Tailwind Configuration.
+ *
+ * This file adds Tailwind to the project via the @tailwind directive.
+ * Custom rules and overrides for each section are applied between.
+ */
 
-/*
-Example: Google Remote Fonts
-Serif - Google Fonts - Oswald
-Sans-Serif - Google Fonts - Open Sans
-Monospace - Google Fonts - Source Code Pro
+/**
+ * Font Imports
+ *
+ * Serif - Google Fonts - Oswald
+ * Sans-Serif - Google Fonts - Open Sans
+ * Monospace - Google Fonts - Source Code Pro
+ *
 */
+@import url('https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap');
 
-@import url(https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap);
+/**
+ * Tailwind Base
+ *
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+*/
+@tailwind base;
+
+/**
+ * Custom Base
+ *
+ * Add extra base styles.
+ */
 
 body {
-  @apply font-sans;
+  @apply text-base font-sans;
 }
+
+code {
+  @apply font-mono text-pink-500;
+}
+
+hr {
+  @apply border-gray-600;
+}
+
 h1,
 h2,
 h3,
@@ -22,24 +50,143 @@ h5,
 h6 {
   @apply font-serif;
 }
+
 h1 {
+  @apply text-4xl;
+}
+
+h2 {
   @apply text-3xl;
 }
-h2 {
+
+h3 {
   @apply text-2xl;
 }
-h3 {
+
+h4 {
   @apply text-xl;
 }
-h4 {
+
+h5 {
   @apply text-lg;
 }
+
+h6 {
+  @apply text-base;
+}
+
 a {
   @apply text-blue-500;
 }
-code {
-  @apply text-pink-500;
-}
+
 tr {
   @apply text-left;
+}
+
+/**
+ * Tailwind Components
+ *
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins.
+ */
+@tailwind components;
+
+/**
+ * Tailwind Utilities
+ *
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins.
+ */
+@tailwind utilities;
+
+/**
+ * Custom Utilities
+ *
+ * Add extra token level utility classes to the design.
+ */
+
+/**
+ * Text Styles
+ */
+
+/* Provide Body Reset Utility Class */
+.body {
+  @apply text-base font-sans;
+}
+
+/* Headings 1 - 6 Default */
+.heading-1 {
+  @apply text-4xl font-sans;
+}
+
+.heading-2 {
+  @apply text-3xl font-sans;
+}
+
+.heading-3 {
+  @apply text-2xl font-sans;
+}
+
+.heading-4 {
+  @apply text-xl font-sans;
+}
+
+.heading-5 {
+  @apply text-lg font-sans;
+}
+
+.heading-6 {
+  @apply text-base font-sans;
+}
+
+.small {
+  @apply text-sm font-sans;
+}
+
+/* Text Style Media Queries */
+@screen lg {
+  .heading-1 {
+    @apply text-5xl;
+  }
+  .heading-2 {
+    @apply text-4xl;
+  }
+  .heading-3 {
+    @apply text-3xl;
+  }
+  .heading-4 {
+    @apply text-2xl;
+  }
+  .heading-5 {
+    @apply text-xl;
+  }
+  .heading-6 {
+    @apply text-lg;
+  }
+}
+
+/**
+ * Misc Utils
+ */
+
+/* Width Breakout for Full-Width Inside .container */
+.w-breakout {
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Consistent Block Spacing for All Components */
+.component-wrapper {
+  @apply w-full pb-12;
+}
+
+@screen md {
+  .component-wrapper {
+    @apply pb-16;
+  }
 }
