@@ -22,8 +22,8 @@ class ParticleLayout extends LayoutDefault implements PluginFormInterface {
    */
   public function defaultConfiguration() {
     return parent::defaultConfiguration() + [
-        'spacer_bottom' => '',
-      ];
+      'spacer_bottom' => '',
+    ];
   }
 
   /**
