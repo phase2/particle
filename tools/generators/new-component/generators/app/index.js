@@ -7,7 +7,7 @@
  * where they live.
  */
 
-const { join, relative, extname } = require('path');
+const { join, relative } = require('path');
 const { readdirSync } = require('fs');
 
 const Generator = require('yeoman-generator');
