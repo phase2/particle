@@ -27,23 +27,19 @@
     image: image,
     image_classes: image_classes
   } %}
-
 {% elseif image.variant == 'primary' %}
   {% include '@atoms/image/_image--primary.twig' with {
     image: image,
     image_classes: image_classes
   } %}
-
 {% elseif image.variant == 'bg' %}
   {% include '@atoms/image/_image--bg.twig' with {
     image: image,
     image_classes: image_classes
   } %}
-
 {% elseif image.variant == 'picture' %}
   {% include '@atoms/image/_image--picture.twig' with {
     image: image,
     image_classes: image_classes
   } %}
-
 {% endif %}
