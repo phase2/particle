@@ -84,7 +84,11 @@
         </thead>
         <tbody>
           {% for key, value in tokens.borderWidth %}
-            {% set borderClass = key is not same as('default') ? 'border-' ~ key : 'border' %}
+            {# Normally we'd solve this with `is same as()`, but we're working #}
+            {# around a twig linter here. #}
+            {% set borderClass = 'border-' ~ key %}
+            {% set borderClass = borderClass == 'border-default' ? 'border' : borderClass %}
+
             <tr>
               <td class="{{ tdClasses }}">
                 <span class="{{ codeClasses }}">{{ borderClass }}</span>

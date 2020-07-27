@@ -18,9 +18,7 @@
   grid_classes|default([])|merge(['grid', grid.container ? 'container' : '', grid.center ? 'mx-auto' : ''])
 %}
 
-{% set column_classes =
-  column_classes|default([])|merge(['flex', grid.wrap is same as(false) ? '' : 'flex-wrap'])|join(' ')|trim
-%}
+{% set column_classes = column_classes|default([])|merge(['flex', grid.wrap ?? 'flex-wrap'])|join(' ')|trim %}
 
 <div {{ grid_attributes is not empty ? grid_attributes|attributify : '' }} class="{{ grid_classes|join(' ')|trim }}">
   <div class="{{ column_classes }}">
