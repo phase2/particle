@@ -1,6 +1,6 @@
 {
   "extends": ["config:base"],
-  "baseBranches": ["master"],
+  "baseBranches": ["main"],
   "bumpVersion": null,
   "labels": ["dependency update"],
   "patch": {

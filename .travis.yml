@@ -39,4 +39,4 @@ deploy:
   skip_cleanup: true
   on:
     repo: phase2/particle
-    branch: master
+    branch: main

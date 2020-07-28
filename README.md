@@ -1,7 +1,7 @@
 # Particle: A design system integrating to Pattern Lab and a Drupal 8 theme
 
 [![GitHub (pre-)release](https://img.shields.io/github/release/phase2/particle/all.svg)](https://github.com/phase2/particle/releases)
-[![Build Status](https://travis-ci.org/phase2/particle.svg?branch=master)](https://travis-ci.org/phase2/particle)
+[![Build Status](https://travis-ci.org/phase2/particle.svg?branch=main)](https://travis-ci.org/phase2/particle)
 [![Greenkeeper badge](https://badges.greenkeeper.io/phase2/particle.svg)](https://greenkeeper.io/)
 
 ![Particle mascot: Astrogoat](apps/pl-default/pattern-lab/_patterns/01-atoms-demo/image/astrogoat.png?raw=true 'Astrogoat')
