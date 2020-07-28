@@ -12,7 +12,7 @@ export enum ComponentLibraryOptions {
 export enum FrontendFrameworkOptions {
   TWIG = 'twig',
   REACT = 'react',
-  WEBCOMPONENTS = 'webcomponents',
+  WEBCOMPONENTS = 'web-components',
 }
 
 export enum ConfigOptions {
