@@ -19,9 +19,20 @@ module.exports = class extends Generator {
   // configuration will come from the constructor argument
   configuration: Answers
   packageJson: Record<string, any>
+  cliVersion: string
 
   constructor(args: any, opts: any) {
     super(args, opts)
+    console.log(args)
+    this.cliVersion = ''
+    for (let i = 0; i < args.length; i++) {
+      const value = args[i]
+      const regex = /(cli-version=)(\d.*)/
+      const matches = regex.exec(value)
+      if (matches) {
+        this.cliVersion = matches[2]
+      }
+    }
     // makes config a required argument
     this.option('configuration', {
       type: String,
@@ -82,7 +93,14 @@ module.exports = class extends Generator {
         options: configOptions[results.config],
       }
     }
-
+    fs.writeFileSync(
+      '.particle-rc',
+      JSON.stringify(
+        { ...this.configuration, ...{ 'cli-version': this.cliVersion } },
+        null,
+        2
+      )
+    )
     this.packageJson.name = results.projectName
   }
 
