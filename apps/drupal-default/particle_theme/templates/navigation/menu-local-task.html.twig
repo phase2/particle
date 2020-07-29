@@ -15,10 +15,17 @@
  */
 #}
 
-{% set link_classes = [
-  'task-link',
-  is_active ? 'task-link--active' : 'task-link--inactive'
-] %}
+{% set link_classes = ['task-link', is_active ? 'task-link--active' : 'task-link--inactive']|join(' ') %}
 
 {# Merge attributes/classes into link #}
-<li {{ attributes.addClass('mr-3') }}>{{ link|merge({'#options': {'attributes': {'class': link_classes}}}) }}</li>
+<li {{ attributes.addClass('mr-3') }}>
+  {{
+    link|merge({
+      '#options': {
+        attributes: {
+          class: link_classes
+        }
+      }
+    })
+  }}
+</li>
