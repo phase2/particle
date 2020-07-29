@@ -19,12 +19,10 @@ module.exports = class extends Generator {
   // configuration will come from the constructor argument
   configuration: Answers
   packageJson: Record<string, any>
-  cliVersion: string
+  cliVersion = ''
 
   constructor(args: any, opts: any) {
     super(args, opts)
-    console.log(args)
-    this.cliVersion = ''
     for (let i = 0; i < args.length; i++) {
       const value = args[i]
       const regex = /(cli-version=)(\d.*)/
