@@ -75,6 +75,21 @@ module.exports = class extends Generator {
     )
   }
 
+  /**
+   * Creeate a particle config file
+   */
+
+  _writeParticleConfig() {
+    fs.writeFileSync(
+      '.particle-rc',
+      JSON.stringify(
+        { ...this.configuration, ...{ 'cli-version': this.cliVersion } },
+        null,
+        2
+      )
+    )
+  }
+
   async _promptUser() {
     // Initialize storybook
     const results: ConfigurationAnswers = await this.prompt(configurationPrompt)
@@ -93,14 +108,6 @@ module.exports = class extends Generator {
         options: configOptions[results.config],
       }
     }
-    fs.writeFileSync(
-      '.particle-rc',
-      JSON.stringify(
-        { ...this.configuration, ...{ 'cli-version': this.cliVersion } },
-        null,
-        2
-      )
-    )
     this.packageJson.name = results.projectName
   }
 
@@ -129,6 +136,7 @@ module.exports = class extends Generator {
 
   writing() {
     this._createPackageJson()
+    this._writeParticleConfig()
 
     // Installs all dependencies
     this.npmInstall()
