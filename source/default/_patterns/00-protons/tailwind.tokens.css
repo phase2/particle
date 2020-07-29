@@ -190,3 +190,24 @@ tr {
     @apply pb-16;
   }
 }
+
+/**
+ * Drupal Theme Overrides
+ */
+
+/* Menu-Local-Task Links */
+.task-link {
+  @apply inline-block border py-1 px-3;
+}
+
+.task-link--active {
+  @apply border-blue-500 bg-blue-500 text-white;
+}
+
+.task-link--inactive {
+  @apply border-white  text-blue-500;
+}
+
+.task-link--inactive:hover {
+  @apply border-gray-200 bg-gray-200;
+}
