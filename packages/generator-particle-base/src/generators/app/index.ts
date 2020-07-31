@@ -19,9 +19,18 @@ module.exports = class extends Generator {
   // configuration will come from the constructor argument
   configuration: Answers
   packageJson: Record<string, any>
+  cliVersion = ''
 
   constructor(args: any, opts: any) {
     super(args, opts)
+    for (let i = 0; i < args.length; i++) {
+      const value = args[i]
+      const regex = /(cli-version=)(\d.*)/
+      const matches = regex.exec(value)
+      if (matches) {
+        this.cliVersion = matches[2]
+      }
+    }
     // makes config a required argument
     this.option('configuration', {
       type: String,
@@ -64,6 +73,21 @@ module.exports = class extends Generator {
     )
   }
 
+  /**
+   * Creeate a particle config file
+   */
+
+  _writeParticleConfig() {
+    fs.writeFileSync(
+      '.particle-rc',
+      JSON.stringify(
+        { ...this.configuration, ...{ 'cli-version': this.cliVersion } },
+        null,
+        2
+      )
+    )
+  }
+
   async _promptUser() {
     // Initialize storybook
     const results: ConfigurationAnswers = await this.prompt(configurationPrompt)
@@ -82,7 +106,6 @@ module.exports = class extends Generator {
         options: configOptions[results.config],
       }
     }
-
     this.packageJson.name = results.projectName
   }
 
@@ -111,6 +134,7 @@ module.exports = class extends Generator {
 
   writing() {
     this._createPackageJson()
+    this._writeParticleConfig()
 
     // Installs all dependencies
     this.npmInstall()
