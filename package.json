@@ -23,7 +23,7 @@
   },
   "license": "GPL-2.0",
   "scripts": {
-    "lerna:install": "npx lerna bootstrap --hoist",
+    "lerna:install": "lerna bootstrap --hoist",
     "postinstall": "npm run lerna:install",
     "pretty-check": "prettier --check packages/**/*.js",
     "test": "jest",
@@ -31,23 +31,25 @@
     "build": "lerna run --parallel --scope='{@phase2/*,generator-*}' tsc && npm run postbuild",
     "build:watch": "lerna run --parallel --scope='{@phase2/*,generator-*}' tsc:watch",
     "postbuild": "ts-node ./src/scripts/build.ts",
-    "update:check": "npx ncu && npx lerna exec --concurrency 1 --no-bail -- npx ncu",
+    "update:check": "ncu && lerna exec --concurrency 1 --no-bail -- ncu",
     "update:start": "npm-upgrade && lerna exec --concurrency 1 -- npm-upgrade; npm run lerna:install"
+  },
+  "dependencies": {
+    "lerna": "^3.22.1",
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "@lerna/link": "^3.21.0",
     "@phase2/prettier-config-particle": "./packages/prettier-config",
-    "@types/jest": "^26.0.0",
-    "@types/node": "^14.0.14",
-    "eslint": "^7.2.0",
-    "jest": "^26.0.1",
+    "@types/jest": "^26.0.8",
+    "@types/node": "^14.0.27",
+    "eslint": "^7.6.0",
+    "jest": "^26.2.2",
     "jest-watch-typeahead": "^0.6.0",
-    "lerna": "^3.22.1",
-    "npm-check-updates": "^7.0.1",
-    "npm-upgrade": "^2.0.3",
+    "npm-check-updates": "^7.0.2",
+    "npm-upgrade": "^2.0.4",
     "prettier": "2.0.5",
-    "ts-jest": "^26.1.0",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.6"
+    "ts-jest": "^26.1.4",
+    "ts-node": "^8.10.2"
   }
 }

@@ -16,7 +16,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "tsc": "tsc",
