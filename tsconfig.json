@@ -10,7 +10,8 @@
     "declaration": true,
     "noImplicitAny": true,
     "removeComments": true,
-    "noLib": false
+    "noLib": false,
+    "strict": true
   },
   "exclude": ["node_modules", "**/__tests__/*", "packages/**/lib/"]
 }
