@@ -1,46 +1,64 @@
-# General Settings
 themag_toggle_scroll_to_top: 1
-themag_sticky_sidebar: 0
-
-# Search Block
-themag_search_button_text: 'Go'
+themag_sticky_sidebar: 1
+themag_search_button_text: 'Go Mocs!'
 themag_search_field_placeholder_text: 'Enter the terms you wish to search for'
-
-# Header
-themag_header_style: 'header_a'
-themag_header_banner: '<img src="http://via.placeholder.com/728x90">'
-themag_sticky_header: 1
+themag_header_style: custom_header
+themag_header_banner: ''
+themag_sticky_header: 0
 themag_header_user_icon: 1
 themag_header_search_icon: 1
 themag_header_cart_icon: 1
-
-# Social Media Pages
-themag_facebook: 'https://www.facebook.com/'
-themag_twitter: 'https://twitter.com/'
-themag_youtube: 'https://www.youtube.com/'
-themag_instagram: 'https://instagram.com/'
-themag_pinterest: 'https://www.pinterest.com/'
-themag_snapchat: 'https://www.snapchat.com/'
-
-# MailChimp Signup Block
+themag_facebook: 'https://www.facebook.com/UTChattanooga/'
+themag_twitter: 'https://twitter.com/UTChattanooga'
+themag_youtube: 'https://www.youtube.com/utchattanooga'
+themag_instagram: 'https://www.instagram.com/utchattanooga/'
+themag_pinterest: ''
 themag_mailchimp_signup_headline: 'Sign Up for Our Newsletters'
 themag_mailchimp_signup_text: 'Get awesome content in your inbox every week.'
-
-# Teaser
 themag_teaser_show_media_contained_icons: 1
 themag_teaser_show_author_name: 1
 themag_teaser_show_post_date: 1
-themag_teaser_date_format: 'short'
-
-# RRSSB Buttons
+themag_teaser_date_format: short
 themag_rrssb_buttons:
   rrssb_facebook: rrssb_facebook
   rrssb_twitter: rrssb_twitter
   rrssb_googleplus: rrssb_googleplus
   rrssb_email: rrssb_email
-
-# Advanced Settings
+  rrssb_tumblr: 0
+  rrssb_linkedin: 0
+  rrssb_reddit: 0
+  rrssb_vk: 0
+  rrssb_hackernews: 0
+  rrssb_pocket: 0
 themag_use_custom_css_file: 0
 themag_use_custom_js_file: 0
 themag_additional_css: ''
 themag_additional_javascript: ''
+_core:
+  default_config_hash: fHHaUGvjJA7bTEfUbWjRWIV6y3KiI9aQ7FaHxFqUm3s
+features:
+  node_user_picture: true
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+logo:
+  use_default: false
+  path: themes/custom/themag_st/utc-wordmark.svg
+favicon:
+  use_default: true
+themag_facebook_link_title: ''
+themag_twitter_link_title: ''
+themag_google-plus: ''
+themag_google-plus_link_title: ''
+themag_youtube_link_title: ''
+themag_instagram_link_title: ''
+themag_pinterest_link_title: ''
+themag_tumblr: ''
+themag_tumblr_link_title: ''
+themag_linked-in: ''
+themag_linked-in_link_title: ''
+themag_compatibility_mode: 0
+themag_snapchat: 'https://www.snapchat.com/add/utchattanooga'
+themag_snapchat_link_title: ''
+themag_header_search_icon_as_link: 0
+themag_search_page_path: ''
