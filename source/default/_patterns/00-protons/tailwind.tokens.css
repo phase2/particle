@@ -12,7 +12,15 @@ Monospace - Google Fonts - Source Code Pro
 @import url(https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap);
 
 body {
-  @apply font-sans;
+  @apply font-utcbody;
+  background-color: text-white;
+  color: text-gray-100;
+
+  .field--name-field-summary,
+  .field--name-body,
+  .field--name-field-additional-informations {
+    color: inherit;
+  }
 }
 h1,
 h2,
@@ -20,10 +28,16 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-serif;
+  @apply font-utcheadings;
+  font-weight: 700;
+  @apply text-blue-100;
+  
 }
 h1 {
-  @apply text-3xl;
+  /* font-weight: 700; */
+  @apply text-blue-100;
+  /* color: #112e51; */
+  /* @apply text-3xl; */
 }
 h2 {
   @apply text-2xl;
@@ -42,4 +56,11 @@ code {
 }
 tr {
   @apply text-left;
+}
+
+/* // Makes google custom page index visible
+// This a rare exception as the class is loading through a CDN */
+.gsc-cursor-page {
+  background: transparent !important;
+  @apply text-blue-100;
 }
