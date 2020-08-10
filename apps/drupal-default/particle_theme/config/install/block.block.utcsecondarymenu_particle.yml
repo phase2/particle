@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - we_megamenu_block
+    - we_megamenu
   theme:
     - particle
 id: utcsecondarymenu_particle
