@@ -24,7 +24,7 @@
   "license": "GPL-2.0",
   "scripts": {
     "lerna:install": "lerna bootstrap",
-    "postinstall": "npm run lerna:install; npm run build",
+    "postinstall": "npm run lerna:install",
     "pretty-check": "prettier --check packages/**/*.js",
     "test": "jest",
     "test:watch": "jest --watch",
