@@ -17,8 +17,9 @@ program
   .action(function () {
     // runs yeoman under the hood and resolves the yeoman module directly
     spawn(
-      'yo',
+      'npx',
       [
+        'yo',
         require.resolve('@phase2/generator-particle-base'),
         `cli-version=${pkg.version}`,
         'example-arg',

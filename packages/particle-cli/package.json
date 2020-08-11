@@ -16,8 +16,8 @@
     "directory": "packages/particle-cli"
   },
   "dependencies": {
-    "@phase2/generator-particle-base": "file:../generator-particle-base",
-    "@phase2/particle-types": "file:../particle-types",
+    "@phase2/generator-particle-base": "^0.0.1",
+    "@phase2/particle-types": "^0.0.1",
     "chalk": "^4.1.0",
     "commander": "^6.0.0",
     "yo": "^3.1.1"

@@ -17,7 +17,7 @@
     "directory": "packages/particle-cli"
   },
   "dependencies": {
-    "@phase2/particle-types": "file:../particle-types",
+    "@phase2/particle-types": "^0.0.1",
     "chalk": "^4.1.0",
     "yeoman-generator": "^4.11.0"
   },

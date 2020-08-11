@@ -16,8 +16,8 @@
     "directory": "packages/particle-cli"
   },
   "dependencies": {
-    "@phase2/generator-particle-storybook": "file:../generator-particle-storybook",
-    "@phase2/particle-types": "file:../particle-types",
+    "@phase2/generator-particle-storybook": "^0.0.1",
+    "@phase2/particle-types": "^0.0.1",
     "chalk": "^4.1.0",
     "inquirer": "^7.3.3",
     "lodash.merge": "^4.6.2",
