@@ -24,11 +24,13 @@
   "license": "GPL-2.0",
   "scripts": {
     "lerna:install": "lerna bootstrap",
-    "postinstall": "npm run lerna:install",
+    "postinstall": "npm run lerna:install; npm run build",
     "pretty-check": "prettier --check packages/**/*.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "lerna run --parallel --scope='{@phase2/*,generator-*}' tsc",
+    "build": "lerna run --concurrency 1 --scope='{@phase2/particle-types,@phase2/generator-particle-storybook,@phase2/generator-particle-base,@phase2/particle-cli}' tsc",
+    "dev:clean:node_modules": "lerna exec --parallel --scope='{@phase2/particle-types,@phase2/generator-particle-storybook,@phase2/generator-particle-base,@phase2/particle-cli}' 'rm -rf node_modules'",
+    "dev:clean:lib": "lerna exec --parallel --scope='{@phase2/particle-types,@phase2/generator-particle-storybook,@phase2/generator-particle-base,@phase2/particle-cli}' 'rm -rf lib/'",
     "build:watch": "lerna run --parallel --scope='{@phase2/*,generator-*}' tsc:watch",
     "update:check": "ncu && lerna exec --concurrency 1 --no-bail -- ncu",
     "update:start": "npm-upgrade && lerna exec --concurrency 1 -- npm-upgrade; npm run lerna:install"

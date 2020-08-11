@@ -25,19 +25,17 @@ TBD
 
 ### Installing A Dependency
 
-1. Run `npm run build`, build will fire off the `tsc` build script and also copy the package.json and README.md files from the `packages/*` directories directly into the dist folder. Alternatively have the compiler in watch mode `npm run build:watch` and run `npm run postbuild` to copy the files in.
+1. Run `npm run build`, build will fire off the `tsc` build script for all typescript repos in order of dependency chain.
 1. Cd into `package/<PACKAGE_NAME>` and run `npm link`, this will link the **lib/bin** or `main/index.js` alias as an alias in your terminal. Example the bin is named (or aliased) `@phase2/particle-cli` therefore running `npx @phase2/particle-cli -v` will invoke the binary file `particle-cli`.
+1. Alternatively use `node` to test out a dependency in lib. Example `node packages/particle-cli/lib/bin/particle-cli.js -V`
 
 #### Example
 
 ```bash
 npm install
-cd dist; cd particle-cli;
-npm unlink particle-cli; npm unlink @phase2/particle-cli; // npm unlink should also work
+cd packages/particle-cli;
 npm link;
-npx @phase2/particle-cli -V; // works
-particle-cli -V; // works
-@phase2/particle-cli; // fails as npm does not directly register the alias, only the binary file
+particle-cli -V;
 ```
 
 ### Clean the repo
@@ -47,6 +45,10 @@ To remove package-lock.json from all levels of the repo simply run this command.
 ```bash
 ps -ef | (grep -q -s -R ^$1 package-lock.json && rm -rf package-lock.json) | { grep -v grep || true; }; lerna exec -- ps -ef | (grep -q -s -R ^$1 package-lock.json && rm -rf package-lock.json) | { grep -v grep || true; }
 ```
+
+To remove all typescript lib files run `npm dev:clean:lib`
+
+To remove all node_modules in packages run `npm dev:clean:node_modules`
 
 ### Upgrading dependencies
 
