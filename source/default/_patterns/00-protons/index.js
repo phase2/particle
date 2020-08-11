@@ -3,6 +3,7 @@
  */
 
 import './tailwind.tokens.css';
+import './legacy/js/utc-sidebar-menu.js';
 
 // Export global variables.
 export default {

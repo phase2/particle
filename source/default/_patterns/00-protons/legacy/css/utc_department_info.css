@@ -1,0 +1,88 @@
+/* // UTC Styles department info block */
+.department-info--dept-info-light-blue {
+  background-color: lightblue;
+  padding: 2rem 0rem 1rem;
+}
+
+address.flex-list {
+  list-style: none;
+  position: relative;
+  margin: 1em;
+  overflow: hidden;
+}
+address.flex-list ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 0;
+}
+address.flex-list li {
+  display: inline;
+  line-height: 1.2em;
+  padding: 0 10px;
+  border-left: solid 1px gray;
+}
+address.flex-list li:first-child {
+  border-left: none;
+}
+address.flex-list li div.field--name-field-utc-department-phone .field__item a:before {
+ /* font-family: $utc-icons;
+  */
+  font-weight: 900;
+  color: blue;
+ /* font-size: $font-size-xs;
+  */
+  display: inline;
+  padding-right: 6px;
+  vertical-align: top;
+  content: "\f095";
+}
+address.flex-list li div.field--name-field-utc-department-fax-number .field__item a:before {
+ /* font-family: $utc-icons;
+  */
+  font-weight: 900;
+  color: blue;
+ /* font-size: $font-size-xs;
+  */
+  display: inline;
+  padding-right: 6px;
+  vertical-align: top;
+  content: "\f1ac";
+}
+
+.department--hours {
+  text-align: center;
+}
+.department--hours .field__label {
+  color: blue;
+  /* font-family: $utc-headings; */
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.department--hours .field__label:after {
+  content: none;
+}
+
+
+@include media-breakpoint-down(lg) {
+  address.flex-list {
+    position: relative;
+    margin: 1em;
+    overflow: hidden;
+ }
+  address.flex-list ul {
+    display: list-item;
+    flex-direction: none;
+    flex-wrap: none;
+    justify-content: center;
+    text-align: center;
+    margin-left: 0;
+ }
+  address.flex-list li {
+    display: block;
+    line-height: 1.8em;
+    padding: 0 8px;
+    border-left: none;
+ }
+}

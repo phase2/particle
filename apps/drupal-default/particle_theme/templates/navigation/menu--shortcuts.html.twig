@@ -18,22 +18,21 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{# might not be needed anymore #}
-{# {% import _self as menus %} #}
+{% import _self as menus %}
 
 {#
   We call a macro which calls itself to render the full tree.
   @see https://twig.symfony.com/doc/1.x/tags/macro.html
 #}
-{# {{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes, 0) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('sidebar-menu') }}>
+      <ul{{ attributes.addClass('menu') }}>
     {% else %}
-      <ul class="sidebar-menu">
+      <ul class="menu">
     {% endif %}
     {% for item in items %}
       {%
@@ -42,7 +41,7 @@
           item.is_expanded ? 'menu-item--expanded',
           item.is_collapsed ? 'menu-item--collapsed',
           item.in_active_trail ? 'menu-item--active-trail',
-      ]
+        ]
       %}
       <li{{ item.attributes.addClass(classes) }}>
         {{ link(item.title, item.url) }}
@@ -53,4 +52,4 @@
     {% endfor %}
     </ul>
   {% endif %}
-{% endmacro %} #}
+{% endmacro %}

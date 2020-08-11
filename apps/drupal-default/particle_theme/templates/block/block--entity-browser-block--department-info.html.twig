@@ -26,43 +26,57 @@
  */
 #}
 <div{{attributes}}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{title_attributes}}>
-      <span class="title-text">{{ label }}</span>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-  {% block content %}
-    {% for key,element in field_utc_department_email %}
-      <div{{content_attributes}}>
-        <h2 style="text-align: center;">{{blocktitle[key]}}</h2>
-        <div>
-          <address class="flex-list">
-            <ul>
-              {% if field_utc_department_building[key]|field_value is not empty %}
-                <li>{{field_utc_department_building[key]|field_value}}</li>
-              {% endif %}
-              {% if field_utc_department_mail_code[key] is not empty %}
-                <li>Dept&nbsp;{{field_utc_department_mail_code[key]}}</li>
-              {% endif %}
-              {% if field_utc_department_street_addr[key]|field_value is not empty %}
-                <li>{{field_utc_department_street_addr[key]|field_value}}</li>
-              {% endif %}
-              {% if field_utc_department_phone[key]|field_value is not empty %}
-                <li>{{field_utc_department_phone[key]}}</li>
-              {% endif %}
-              {% if field_utc_department_fax_number[key]|field_value is not empty %}
-                <li>{{field_utc_department_fax_number[key]}}</li>
-              {% endif %}
-              {% if field_utc_department_email[key]|field_value is not empty %}
-                {% set mail = 'mailto:' ~ field_utc_department_email[key]|field_value|render %}
-                <li><a href="{{mail}}">{{field_utc_department_email[key]|field_value}}</a></li>
-              {% endif %}
-            </ul>
-          </address>
-        </div>
-      </div>
-    {% endfor %}
-  {% endblock %}
+	{{ title_prefix }}
+	{% if label %}
+		<h2{{title_attributes}}>
+			<span class="title-text">{{ label }}</span>
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{% block content %}
+		{% for key,element in field_utc_department_email %}
+			{%
+  			set classes = [
+    		'department-info--' ~ view_mode[key]|clean_class,
+  			]
+ 			%}
+			<div{{content_attributes.addClass(classes)}}>
+
+				<h2 style="text-align: center;">{{blocktitle[key]}}</h2>
+				<div>
+					<address class="flex-list">
+						<ul>
+							{% if field_utc_department_building[key]|field_value is not empty %}
+								<li>{{field_utc_department_building[key]|field_value}}</li>
+							{% endif %}
+							{% if field_utc_department_mail_code[key] is not empty %}
+								<li>Dept&nbsp;{{field_utc_department_mail_code[key]}}</li>
+							{% endif %}
+							{% if field_utc_department_street_addr[key]|field_value is not empty %}
+								<li>{{field_utc_department_street_addr[key]|field_value}}</li>
+							{% endif %}
+							{% if field_utc_department_phone[key]|field_value is not empty %}
+								<li>{{field_utc_department_phone[key]}}</li>
+							{% endif %}
+							{% if field_utc_department_fax_number[key]|field_value is not empty %}
+								<li>{{field_utc_department_fax_number[key]}}</li>
+							{% endif %}
+							{% if field_utc_department_email[key]|field_value is not empty %}
+								{% set mail = 'mailto:' ~ field_utc_department_email[key]|field_value|render %}
+								<li>
+									<a href="{{mail}}">{{field_utc_department_email[key]|field_value}}</a>
+								</li>
+							{% endif %}
+						</address>
+
+						{% if content.0.field_utc_department_hours|field_value is not empty %}
+							<div class="department--hours">
+								{{content.0.field_utc_department_hours}}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+		{% endblock %}
+	</ul>
 </div>

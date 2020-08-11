@@ -1,0 +1,9 @@
+.gsc-cursor-page {
+    background: transparent !important;
+    @apply text-blue-600;
+  }
+
+
+.hellowordl{
+    background: red;
+}

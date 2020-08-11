@@ -30,12 +30,12 @@ h5,
 h6 {
   @apply font-utcheadings;
   font-weight: 700;
-  @apply text-blue-100;
+  @apply text-blue-600;
   
 }
 h1 {
   /* font-weight: 700; */
-  @apply text-blue-100;
+  @apply text-blue-600;
   /* color: #112e51; */
   /* @apply text-3xl; */
 }
@@ -60,7 +60,8 @@ tr {
 
 /* // Makes google custom page index visible
 // This a rare exception as the class is loading through a CDN */
-.gsc-cursor-page {
-  background: transparent !important;
-  @apply text-blue-100;
-}
+
+@import "./legacy/css/global.css";
+@import "./legacy/css/utc-sidebar-menu.css";
+@import "./legacy/css/footer.css";
+@import "./legacy/css/utc_department_info.css";

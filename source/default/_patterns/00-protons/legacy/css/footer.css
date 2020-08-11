@@ -1,0 +1,101 @@
+/* // UTC Styles for footer */
+
+/* @import "../../variables"; */
+.footer-wrapper {
+  /* @apply text-blue-600; */
+  background-color: lightblue;
+  padding: 2.1rem 0;
+}
+
+.footer-wrapper p,
+.region-footer-second h2.teaser__headline a {
+  color: white;
+}
+
+.footer-bottom-wrapper {
+  background: blue;
+  color: white;
+}
+.footer-bottom-wrapper p, .footer-bottom-wrapper a {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.footer-bottom-wrapper a:not(.btn) {
+  color: yellow;
+  padding-bottom: 0.075rem;
+  border-bottom: 1px solid yellow;
+  white-space: nowrap;
+}
+.footer-bottom-wrapper a:not(.btn):hover {
+  color: blue;
+  padding-bottom: 0.075rem;
+  border-bottom: 1px solid text-blue-100;
+  text-decoration: none;
+}
+.footer-bottom-wrapper a:not(.btn):active {
+  color: yellow;
+  padding-bottom: 0.075rem;
+  border-bottom: 1px solid yellow;
+  text-decoration: none;
+}
+
+/* // Google Map */
+#block-googlemap > .block__content > div > iframe {
+  width: 100%;
+}
+
+#edit-submit--2 {
+  font-size: .65rem;
+}
+
+/* // info for */
+#block-infofor > .block__title, #block-shortcuts > .block__title {
+  display: block;
+}
+#block-infofor > .block__title::after, #block-shortcuts > .block__title::after, #block-infofor > .block__title::before, #block-shortcuts > .block__title::before {
+  border-top: none;
+}
+#block-infofor .menu, #block-shortcuts .menu {
+  padding-left: 0;
+}
+#block-infofor .menu .menu-item, #block-shortcuts .menu .menu-item {
+  list-style-type: none;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.8em;
+}
+#block-infofor .menu a, #block-shortcuts .menu a {
+  color: blue;
+}
+#block-infofor .menu a:hover, #block-shortcuts .menu a:hover {
+  color: yellow;
+  text-decoration: none;
+}
+
+#block-infofor-menu,
+#block-shortcuts-menu{
+  color: white !important;
+  text-align: left;
+  font-size: 1.4em;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 992px) {
+  #block-infofor,
+  #block-shortcuts,
+  #block-infofor > #block-infofor-menu,
+  #block-shortcuts > #block-shortcuts-menu {
+    text-align: center;
+  }
+
+  #block-themag-st-sitebranding-4 .site-logo img {
+    display: block;
+    width: 81%;
+    margin: 0 auto 1em auto;
+ }
+}
+
+#block-copyrightnotice {
+  padding: 1.5em 0 0 0;
+  text-align: center;
+}
