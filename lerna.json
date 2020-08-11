@@ -6,7 +6,7 @@
       "message": "chore(release): publish"
     },
     "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClientArgs": ["--hoist", "--no-package-lock"]
     }
   },
   "packages": ["packages/*"],
