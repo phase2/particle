@@ -7,7 +7,7 @@ dependencies:
     - menu_block
   theme:
     - particle
-id: utcinfoforparticle
+id: utcinfofor_particle
 theme: particle
 region: footer_first
 weight: 0

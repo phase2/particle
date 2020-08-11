@@ -3,7 +3,7 @@ status: true
 dependencies:
   theme:
     - particle
-id: particle_pagetitle
+id: pagetitle_particle
 theme: particle
 region: content_header
 weight: -8

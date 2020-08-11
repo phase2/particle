@@ -5,7 +5,7 @@ dependencies:
     - system
   theme:
     - particle
-id: particle_content
+id: content_particle
 theme: particle
 region: content
 weight: -6

@@ -5,7 +5,7 @@ dependencies:
     - system
   theme:
     - particle
-id: particle_sitebranding
+id: sitebranding_particles
 theme: particle
 region: logo
 weight: -9

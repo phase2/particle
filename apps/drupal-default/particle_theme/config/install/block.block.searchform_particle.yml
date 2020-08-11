@@ -7,7 +7,7 @@ dependencies:
     - particle
 _core:
   default_config_hash: gYLI0xXf-fkizo0XEHgdtN5Jp2Tc8ofBpXSGaiVPCNg
-id: particle_searchform
+id: searchform_particle
 theme: particle
 region: search
 weight: 0

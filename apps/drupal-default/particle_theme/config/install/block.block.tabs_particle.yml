@@ -3,7 +3,7 @@ status: true
 dependencies:
   theme:
     - particle
-id: particle_tabs
+id: tabs_particle
 theme: particle
 region: content_administration
 weight: -8

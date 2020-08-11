@@ -5,7 +5,7 @@ dependencies:
     - system
   theme:
     - particle
-id: particle_breadcrumbs
+id: breadcrumbs_particle
 theme: particle
 region: content_header
 weight: -7
