@@ -116,6 +116,13 @@ module.exports = class extends Generator {
     await this._promptUser()
 
     // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
+    this.composeWith(require.resolve('@phase2/generator-particle-eslint-config'),
+      {
+        configuration: this.configuration,
+        updatePackageJson: this._updatePackageJson,
+        }
+      )
+
     if (
       this.configuration.options.frontendFramework.includes(
         FrontendFrameworkOptions.REACT
