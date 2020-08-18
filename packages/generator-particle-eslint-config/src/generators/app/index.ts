@@ -3,6 +3,7 @@ import { Answers } from '@phase2/particle-types'
 import _ from 'lodash';
 import { _cypress, _jest, _main, _react, _typescript, _vue } from './configs'
 import fs from 'fs'
+import util from 'util'
 
 /**
  * @assumption we are already inside the particle root directory
@@ -25,17 +26,29 @@ module.exports = class extends Generator {
   }
 
   buildESLint() {
+    // Destructure relevant options data.
     const {frontendFramework ,hasTypescript, testingLibraries  } = this.configuration.options
-    console.log(frontendFramework, hasTypescript, testingLibraries)
+
+    // Check for frontend framework.
     const fe: object = frontendFramework[0] === 'react' ? _react : 'vue' ? _vue : {};
+
+    // Check for typescript.
     const ts: object = !!hasTypescript ? _typescript : {};
+
+    // create array of possible testing libraries.
     const tests: string[] = <string[]>testingLibraries;
     const cyp: object = tests.includes('cypress') ? _cypress : {};
     const jest: object = tests.includes('jest') ? _jest : {};
-    const content = _.mergeWith(_main, fe, ts, cyp, jest, this.refiner);
-    console.log(content, _main, fe, ts, cyp, jest)
 
-   // fs.writeFileSync(`${process.cwd()}/.eslintrc.js`, JSON.stringify(content))
-    // return _.mergeWith (_main, fe, ts, cyp, jest, this.refiner)
+    // Compile module as string.
+    const esModule = `module.exports = ${
+      util.inspect(
+        _.mergeWith(_main, fe, ts, cyp, jest, this.refiner), 
+        {depth: null}
+        )
+      }
+    `;
+
+   fs.writeFileSync(`${process.cwd()}/.eslintrc.js`, esModule)
  }
 }
