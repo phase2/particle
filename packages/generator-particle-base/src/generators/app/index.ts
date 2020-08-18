@@ -94,8 +94,8 @@ module.exports = class extends Generator {
    **/
 
   _eslintCompile(configuration: Answers ) {
-    const {frontendFramework, testingLibraries, hasTypescript } = configuration.options;
-    const validPackages: string[] = ['react', 'vue', 'cypress', 'jest', 'typescript']
+    const { frontendFramework, testingLibraries, hasTypescript } = configuration.options;
+    const validPackages: string[] = ['react', 'vue', 'cypress', 'jest', 'typescript'];
     const extend: string[] = [...frontendFramework, ...testingLibraries,  hasTypescript ? 'typescript': ''];
     const elements: string[] = _.filter(extend, (el)=> validPackages.includes(el)).map(el => `\n'@phase2/eslint-config/${el}'`);
 
