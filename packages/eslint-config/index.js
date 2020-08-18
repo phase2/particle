@@ -1,7 +1,6 @@
 // @TODO Divide Base Config from 'Rules' Configs
 module.exports = {
-  extends: ['airbnb-base', 'plugin:prettier/recommended'],
-  plugins: ['prettier'],
+  extends: ['airbnb-base'],
   env: {
     browser: true,
     node: true,
