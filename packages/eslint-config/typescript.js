@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['prettier/@typescript', './index.js'],
+  extends: ['prettier/@typescript'],
   overrides: [
     {
       files: ['**/*.ts?(x)'],
