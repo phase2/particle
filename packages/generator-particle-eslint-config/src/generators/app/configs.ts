@@ -48,7 +48,7 @@ export const _vue: object = {
   extends: ['plugin:vue/recommended', 'prettier/vue'],
 }
 
-export const _main: object = module.exports = {
+export const _main = {
   extends: ['airbnb-base', 'plugin:prettier/recommended'],
   plugins: ['prettier'],
   env: {
