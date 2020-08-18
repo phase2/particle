@@ -94,10 +94,24 @@ module.exports = class extends Generator {
    **/
 
   _eslintCompile(configuration: Answers ) {
-    const { frontendFramework, testingLibraries, hasTypescript } = configuration.options;
-    const validPackages: string[] = ['react', 'vue', 'cypress', 'jest', 'typescript'];
-    const extend: string[] = [...frontendFramework, ...testingLibraries,  hasTypescript ? 'typescript': ''];
-    const elements: string[] = _.filter(extend, (el)=> validPackages.includes(el)).map(el => `\n'@phase2/eslint-config/${el}'`);
+    const { frontendFramework, testingLibraries, hasTypescript } = configuration.options
+
+    // Array of all valid eslint-config sub-modules listed in CLI.
+    const validPackages: string[] = ['react', 'vue', 'cypress', 'jest', 'typescript']
+
+    // Array of users CLI selections.
+    const extend: string[] = [
+      ...frontendFramework,
+      ...testingLibraries,
+      hasTypescript ? 'typescript' : ''
+    ]
+
+    // Filter for valid packages and construct extends array elements.
+    const elements: string[] = _.filter(
+      extend, (el)=> validPackages
+        .includes(el))
+          .map(el => `\n'@phase2/eslint-config/${el}'`
+          )
 
     const esModule = `module.exports = {
       extends: [
@@ -136,7 +150,9 @@ module.exports = class extends Generator {
   async initializing() {
     await this._promptUser()
 
+    // Compile eslintrc.js file from user input.
     this._eslintCompile(this.configuration)
+
     // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
     if (
       this.configuration.options.frontendFramework.includes(
