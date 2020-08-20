@@ -28,6 +28,7 @@
     "pretty-check": "prettier --check packages/**/*.js",
     "test": "jest",
     "test:watch": "jest --watch",
+    "comz": "git-cz",
     "build": "lerna run --concurrency 1 --scope='{@phase2/particle-types,@phase2/generator-particle-storybook,@phase2/generator-particle-base,@phase2/particle-cli}' tsc",
     "dev:clean:node_modules": "lerna exec --parallel --scope='{@phase2/particle-types,@phase2/generator-particle-storybook,@phase2/generator-particle-base,@phase2/particle-cli}' 'rm -rf node_modules'",
     "dev:clean:lib": "lerna exec --parallel --scope='{@phase2/particle-types,@phase2/generator-particle-storybook,@phase2/generator-particle-base,@phase2/particle-cli}' 'rm -rf lib/'",
@@ -44,6 +45,8 @@
     "@phase2/prettier-config-particle": "./packages/prettier-config",
     "@types/jest": "^26.0.8",
     "@types/node": "^14.0.27",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.6.0",
     "jest": "^26.2.2",
     "jest-watch-typeahead": "^0.6.0",
@@ -52,5 +55,10 @@
     "prettier": "2.0.5",
     "ts-jest": "^26.1.4",
     "ts-node": "^8.10.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
