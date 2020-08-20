@@ -33,23 +33,22 @@
   },
   "license": "GPL-2.0",
   "devDependencies": {
-    "eslint": "^7.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint": "^7.2.0"
   },
   "peerDependencies": {
-    "eslint": "^7",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint": "^7"
   },
   "dependencies": {
     "@typescript-eslint/parser": "^3.8.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-cypress": "^2.11.1",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.5",
-    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.0",
     "prettier": "^2.0.5"
   }
 }

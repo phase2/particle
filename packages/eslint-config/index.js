@@ -5,6 +5,7 @@ module.exports = {
     browser: true,
     node: true,
   },
+  plugins: ['eslint-plugin-import'],
   rules: {
     'no-console': 'warn',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
