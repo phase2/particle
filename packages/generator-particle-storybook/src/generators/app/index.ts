@@ -1,7 +1,5 @@
 import Generator from 'yeoman-generator'
-import merge from 'lodash.merge'
 var mkdirp = require('mkdirp')
-// import fs from 'fs'
 
 import { Answers, FrontendFrameworkOptions } from '@phase2/particle-types'
 import { main } from './templates/main'
@@ -123,11 +121,6 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    // this.fs.copyTpl(
-    //   this.templatePath('main.js'),
-    //   this.destinationPath('.storybook/main.js'),
-    //   { storybook_addons: this.props.storybook_addons.toString() }
-    // )
     mkdirp.sync(this.destinationPath('.storybook'))
     this.fs.write(
       this.destinationPath(`.storybook/main.js`),
