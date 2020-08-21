@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['prettier/react', './index.js'],
+  extends: ['prettier/react'],
   rules: {
     'react/jsx-filename-extension': 'off',
     'import/extensions': [

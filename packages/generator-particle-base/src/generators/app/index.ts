@@ -1,6 +1,7 @@
 import Generator from 'yeoman-generator'
 import merge from 'lodash.merge'
 import fs from 'fs'
+import _ from 'lodash';
 
 import {
   Answers,
@@ -88,6 +89,40 @@ module.exports = class extends Generator {
     )
   }
 
+  /**
+   * Create eslintrc file
+   **/
+
+  _eslintCompile(configuration: Answers ) {
+    const { frontendFramework, testingLibraries, hasTypescript } = configuration.options
+
+    // Array of all valid eslint-config sub-modules listed in CLI.
+    const validPackages: string[] = ['react', 'vue', 'cypress', 'jest', 'typescript']
+
+    // Array of users CLI selections.
+    const extend: string[] = [
+      ...frontendFramework,
+      ...testingLibraries,
+      hasTypescript ? 'typescript' : ''
+    ]
+
+    // Filter for valid packages and construct extends array elements.
+    const elements: string[] = _.filter(
+      extend, (el)=> validPackages
+        .includes(el))
+          .map(el => `\n'@phase2/eslint-config/${el}'`
+          )
+
+    const esModule = `module.exports = {
+      extends: [
+      '@phase2/eslint-config', ${elements}
+      ]
+    }`
+
+    fs.writeFileSync(`${process.cwd()}/.eslintrc.js`, esModule)
+
+  }
+
   async _promptUser() {
     // Initialize storybook
     const results: ConfigurationAnswers = await this.prompt(configurationPrompt)
@@ -114,6 +149,9 @@ module.exports = class extends Generator {
    */
   async initializing() {
     await this._promptUser()
+
+    // Compile eslintrc.js file from user input.
+    this._eslintCompile(this.configuration)
 
     // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
     if (
