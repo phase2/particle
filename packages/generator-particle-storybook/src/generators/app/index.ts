@@ -132,7 +132,7 @@ module.exports = class extends Generator {
     this.fs.write(
       this.destinationPath(`.storybook/main.js`),
       main({
-        addons: this.props.storybook_addons,
+        addons: this.props.storybook_addons.map(addon => `@storybook/addon-${addon}`),
         componentLibraryPath: `../..`,
         storiesRoot: [
           '../stories/**/*.stories.mdx',
