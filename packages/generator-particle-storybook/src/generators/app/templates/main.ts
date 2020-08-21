@@ -24,8 +24,8 @@ const prod = {}
 const cssMode = process.env.NODE_ENV === 'production' ? 'extract' : 'hot'
 
 module.exports = {
-  addons: ${stringifyAndSingleQuote(config.addons)},
-  stories: ${stringifyAndSingleQuote(config.storiesRoot)},
+  addons: [${stringifyAndSingleQuote(config.addons).toString()}],
+  stories: [${stringifyAndSingleQuote(config.storiesRoot).toString()}],
   webpackFinal: (config) => {
     /**
      * Delete the CSS management rules from Storybook.

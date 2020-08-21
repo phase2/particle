@@ -1,8 +1,10 @@
 import Generator from 'yeoman-generator'
 import merge from 'lodash.merge'
-import fs from 'fs'
+var mkdirp = require('mkdirp')
+// import fs from 'fs'
 
 import { Answers, FrontendFrameworkOptions } from '@phase2/particle-types'
+import { main } from './templates/main'
 
 type FrontendOptionsMap = { [key in FrontendFrameworkOptions]: string }
 
@@ -101,7 +103,6 @@ module.exports = class extends Generator {
   }
 
   configuring() {
-    console.log(this.props)
     let devDependencies: LooseObject = {}
     storybookAddons.forEach((addon) => {
       if (this.props.storybook_addons.includes(addon.name)) {
@@ -118,11 +119,28 @@ module.exports = class extends Generator {
       },
     }
 
-    // merge(pkgJson.devDependencies, { [storybookTypeKey]: sbVersion })
     this.fs.extendJSON(this.destinationPath('package.json'), pkgJson)
-    // this.fs.writeJSON('./package.json', pkgJson)
   }
-  // }
+
+  writing() {
+    // this.fs.copyTpl(
+    //   this.templatePath('main.js'),
+    //   this.destinationPath('.storybook/main.js'),
+    //   { storybook_addons: this.props.storybook_addons.toString() }
+    // )
+    mkdirp.sync(this.destinationPath('.storybook'))
+    this.fs.write(
+      this.destinationPath(`.storybook/main.js`),
+      main({
+        addons: this.props.storybook_addons,
+        componentLibraryPath: `../..`,
+        storiesRoot: [
+          '../stories/**/*.stories.mdx',
+          '../stories/**/*.stories.@(js|jsx|ts|tsx)',
+        ],
+      })
+    )
+  }
 
   install() {
     this.npmInstall()

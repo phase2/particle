@@ -1,2 +1,3 @@
-export const stringifyAndSingleQuote = (val: string[]) =>
-  JSON.stringify(val).replace('"', "'")
+export const stringifyAndSingleQuote = (array: string[]) => {
+  return array.map((value) => `'${value}'`)
+}
