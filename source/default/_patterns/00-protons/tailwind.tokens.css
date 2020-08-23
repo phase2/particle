@@ -12,9 +12,9 @@ Monospace - Google Fonts - Source Code Pro
 @import url(https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap);
 
 body {
-  @apply font-utcbody;
-  background-color: text-white;
-  color: text-gray-100;
+  @apply font-utcbody text-gray-700;
+  /* background-color: text-white; */
+  /* color: text-gray-100; */
 
   .field--name-field-summary,
   .field--name-body,
@@ -30,14 +30,15 @@ h5,
 h6 {
   @apply font-utcheadings;
   font-weight: 700;
-  @apply text-blue-600;
+  @apply text-utc-new-blue-600;
   
 }
 h1 {
   /* font-weight: 700; */
-  @apply text-blue-600;
+  @apply text-utc-new-blue-600; 
+  @apply font-bold;
+  @apply text-6xl;
   /* color: #112e51; */
-  /* @apply text-3xl; */
 }
 h2 {
   @apply text-2xl;
@@ -49,7 +50,7 @@ h4 {
   @apply text-lg;
 }
 a {
-  @apply text-blue-500;
+  @apply text-utc-new-blue-500;
 }
 code {
   @apply text-pink-500;
@@ -60,8 +61,3 @@ tr {
 
 /* // Makes google custom page index visible
 // This a rare exception as the class is loading through a CDN */
-
-@import "./legacy/css/global.css";
-@import "./legacy/css/utc-sidebar-menu.css";
-@import "./legacy/css/footer.css";
-@import "./legacy/css/utc_department_info.css";

@@ -7,3 +7,23 @@
 .hellowordl{
     background: red;
 }
+.utcpage-title {
+  display: inline-block;
+  background-color: transparent;
+  border-bottom: 9px solid yellow;
+  @apply text-utc-new-blue-500 text-6xl font-bold;
+  /* color: $utc-blue; */
+  padding-top: 1em;
+  margin-bottom: 0;
+  padding-bottom: 15px;
+  padding-right: 0;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  line-height: 1.1;
+}
+.utcblock--page-title-block {
+  position: relative;
+  border-top: none;
+  text-align: center;
+}

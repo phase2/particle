@@ -1,6 +1,6 @@
 /* // UTC Styles department info block */
 .department-info--dept-info-light-blue {
-  background-color: lightblue;
+  @apply bg-utc-new-blue-400;
   padding: 2rem 0rem 1rem;
 }
 
@@ -30,7 +30,8 @@ address.flex-list li div.field--name-field-utc-department-phone .field__item a:b
  /* font-family: $utc-icons;
   */
   font-weight: 900;
-  color: blue;
+  /* color: blue; */
+  @apply bg-utc-new-blue-500;
  /* font-size: $font-size-xs;
   */
   display: inline;
@@ -42,7 +43,8 @@ address.flex-list li div.field--name-field-utc-department-fax-number .field__ite
  /* font-family: $utc-icons;
   */
   font-weight: 900;
-  color: blue;
+  @apply bg-utc-new-blue-500;
+  /* color: blue; */
  /* font-size: $font-size-xs;
   */
   display: inline;
@@ -55,7 +57,8 @@ address.flex-list li div.field--name-field-utc-department-fax-number .field__ite
   text-align: center;
 }
 .department--hours .field__label {
-  color: blue;
+  /* color: blue; */
+  @apply text-utc-new-blue-500;
   /* font-family: $utc-headings; */
   font-size: 1.5em;
   font-weight: 700;
