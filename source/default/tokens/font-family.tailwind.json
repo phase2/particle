@@ -2,6 +2,6 @@
   "sans": ["Open Sans, Helvetica Neue, Helvetica Arial, sans-serif"],
   "serif": ["Oswald, Times New Roman, serif"],
   "mono": ["Source Code Pro, Courier New, monospace"],
-  "utcbody": ["Open Sans, Helvetica Neue, Helvetica Arial, sans-serif"],
-  "utcheadings": ["Open Sans, Helvetica Neue, Helvetica Arial, sans-serif"]
+  "utcbody": ["Open Sans, Helvetica Neue, sans-serif"],
+  "utcheadings": ["Exo, Helvetica Neue, sans-serif"]
 }
