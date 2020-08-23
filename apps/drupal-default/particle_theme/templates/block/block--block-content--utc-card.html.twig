@@ -7,7 +7,7 @@
  * Available variables:
  */
 #}
-
+ 
 {% block content %}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
@@ -15,9 +15,9 @@
 
 	{# I belive all of these variables defined by Drupal inputs would remain here, but the
   grid portion would be moved to a different template file if/when a design system is implemented #}
-
+	{% set card_color = content.field_card_color|field_value|render %}
 	{% set text_alignment = content.field_card_content_alignment|field_value|render %}
-	{% set card_count = content["#block_content"].field_card_count.0.value%}
+	{% set card_count = content["#block_content"].field_card_count.0.value %}
 	{% set card_width = content.field_single_card_width|field_value|render %}
 	{% set card_type = content["#block_content"].field_card_type.0.value %}
 
@@ -26,6 +26,8 @@
     card_link: content.field_card_link.0['#url'],
     card_title: content.field_card_title|field_value,
     card_image: content.field_card_image|field_value,
+	card_icon: content.field_card_icon|field_value,
+	card_icon_color: content.field_card_icon_color|field_value|render,
     card_text: content.field_card_body|field_value,
     card_button_text: content.field_card_button.0['#title'],
     card_button_url: content.field_card_button.0['#url'],
@@ -38,6 +40,8 @@
     card_link: content.field_card_link_2.0['#url'],
     card_title: content.field_card_title_2|field_value,
     card_image: content.field_card_image_2|field_value,
+	card_icon: content.field_card_icon_2|field_value,
+	card_icon_color: content.field_card_icon_color_2|field_value|render,
     card_text: content.field_card_body_2|field_value,
     card_button_text: content.field_card_button_2.0['#title'],
     card_button_url: content.field_card_button_2.0['#url'],
@@ -50,6 +54,8 @@
     card_link: content.field_card_link_3.0['#url'],
     card_title: content.field_card_title_3|field_value,
     card_image: content.field_card_image_3|field_value,
+	card_icon: content.field_card_icon_3|field_value,
+	card_icon_color: content.field_card_icon_color_3|field_value|render,
     card_text: content.field_card_body_3|field_value,
     card_button_text: content.field_card_button_3.0['#title'],
     card_button_url: content.field_card_button_3.0['#url'],
@@ -68,22 +74,22 @@
 
 
 		{% if card_count == 1 %}
-			<div class="utc-card-2__container"> {% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
+			<div class="utc-card-grid__container"> 
+			{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
 			{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
-			{% set card_link_target = "On" in content.field_card_link_target.0 ? '_blank' %}
 			{% include 'block--utc-card.html.twig' with item_card_1 %}
 		</div>
 	{% endif %}
 
 	{% if card_count == 2 %}
 		{% set card_width = '100' %}
-		<div class="row utc-card-2__row">
-			<div class="col-sm-12 col-lg-6 utc-card-2__container">
+		<div class="row utc-card-grid">
+			<div class="col-sm-12 col-lg-6 utc-card-grid__container">
 				{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% include 'block--utc-card.html.twig' with item_card_1 %}
 			</div>
-			<div class="col-sm-12 col-lg-6 utc-card-2__container">
+			<div class="col-sm-12 col-lg-6 utc-card-grid__container">
 				{% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% include 'block--utc-card.html.twig' with item_card_2 %}
@@ -94,20 +100,20 @@
 	{% if card_count == 3 %}
 		{% set card_width = '100' %}
 
-		<div class="row utc-card-2__row">
-			<div class="col-sm-12 col-lg-4 utc-card-2__container">
+		<div class="row utc-card-grid">
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
 				{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% set card_link_target = card_link_target.0 == On ? '_blank' %}
 				{% include 'block--utc-card.html.twig' with item_card_1 %}
 			</div>
-			<div class="col-sm-12 col-lg-4 utc-card-2__container">
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
 				{% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% include 'block--utc-card.html.twig' with item_card_2 %}
 			</div>
 
-			<div class="col-sm-12 col-lg-4 utc-card-2__container">
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
 				{% set button_style_select = content["#block_content"].field_card_button_type_3.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% include 'block--utc-card.html.twig' with item_card_3 %}
