@@ -1,0 +1,109 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a TheMAG layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div{{ attributes }}>
+
+  <div class="layout__article-intro">
+    {# == Article media == #}
+    <div{{ region_attributes.article_media }}>
+      {{ content.article_media }}
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          {# == Article header == #}
+          {% if(content.article_header) %}
+            <header{{ region_attributes.article_header }}>
+              {{ content.article_header }}
+            </header>
+          {% endif %}
+
+          {# == Article footer (article meta) == #}
+          {% if(content.article_footer) %}
+            <footer {{ region_attributes.article_footer }}>
+              {{ content.article_footer }}
+            </footer>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# == Tabs == #}
+  {% if(content.tabs) %}
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-lg-auto">
+          <div{{ region_attributes.tabs }}>
+            {{ content.tabs }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="container">
+    {# == Article content top == #}
+    {% if(content.article_content_top) %}
+      <div class="row">
+        <div{{ region_attributes.article_content_top.addClass('col-12') }}>
+          {{ content.article_content_top }}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="col-12 col-lg-8 mx-lg-auto">
+        <div class="mx-2 mx-md-0">
+          {# == Socil buttons == #}
+          {% if(content.article_social_buttons) %}
+            <div{{ region_attributes.article_social_buttons }}>
+              {{ content.article_social_buttons }}
+            </div>
+          {% endif %}
+
+          {# == Article main content == #}
+          {% if(content.article_content) %}
+            <div{{ region_attributes.article_content }}>
+              {{ content.article_content }}
+            </div>
+          {% endif %}
+        </div>
+        </div>
+      </div>
+
+    {# == Content bottom == #}
+    {% if(content.article_content_bottom) %}
+      <div class="row">
+        <div{{ region_attributes.article_content_bottom.addClass('col-12') }}>
+          {{ content.article_content_bottom }}
+        </div>
+      </div>
+    {% endif %}
+  </div>{# end: .container #}
+
+
+  {# == Comments == #}
+  {% if(content.article_comments) %}
+    <div{{ region_attributes.article_comments }}>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-8 mx-lg-auto">
+            {{ content.article_comments }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>

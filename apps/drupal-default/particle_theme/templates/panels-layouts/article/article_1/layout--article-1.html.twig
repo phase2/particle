@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a TheMAG layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div{{ attributes.addClass('container', 'pt-5') }}>
+
+  {# == Article content top == #}
+  {% if(content.article_content_top) %}
+    {% block article_content_top %}
+      <div class="row">
+        <div{{ region_attributes.article_content_top.addClass('col-12') }}>
+          {{ content.article_content_top }}
+        </div>
+      </div>
+    {% endblock %}
+  {% endif %}
+
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="mx-2 mx-md-0">
+
+        {# == Article header == #}
+        {% block article_header %}
+          <header{{ region_attributes.article_header }}>
+            {{ content.article_header }}
+          </header>
+        {% endblock %}
+
+        {# == Article footer (article meta) == #}
+        {% block article_footer %}
+          <footer {{ region_attributes.article_footer }}>
+            {{ content.article_footer }}
+          </footer>
+        {% endblock %}
+
+        <div{{ region_attributes.article_social_buttons }}>
+          {{ content.article_social_buttons }}
+        </div>
+
+        {# == Tabs == #}
+        {% block tabs %}
+          <header{{ region_attributes.tabs }}>
+            {{ content.tabs }}
+          </header>
+        {% endblock %}
+
+        {# == Article main content == #}
+        <div{{ region_attributes.article_content }}>
+          {{ content.article_content }}
+        </div>
+
+        {# == Article comments == #}
+        <div{{ region_attributes.article_comments }}>
+          {{ content.article_comments }}
+        </div>
+      </div>
+    </div>
+
+
+    {# == Sidebar right == #}
+    <aside
+        {{ region_attributes.article_sidebar_right
+            .addClass('col-12', 'col-lg-4', 'js-sticky-container')
+        }}>
+      {{ content.article_sidebar_right }}
+    </aside>
+  </div>
+
+  {# == Article content bottom == #}
+  {% if(content.article_content_bottom) %}
+    {% block article_content_bottom %}
+      <div class="row">
+        <div{{ region_attributes.article_content_bottom.addClass('col-12') }}>
+          {{ content.article_content_bottom }}
+        </div>
+      </div>
+    {% endblock %}
+  {% endif %}
+
+</div>

@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Default theme implementation for layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+
+<div{{ attributes }}>
+
+  {# == Heading == #}
+  {# ============= #}
+
+  <div class="layout__header-wrapper">
+    {% block page_heading %}
+      <header{{ region_attributes.page_header }}>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              {{ content.page_header }}
+            </div>
+          </div>
+        </div>
+      </header>
+    {% endblock %}
+
+     {% if(content.page_tabs) %}
+        <div{{ region_attributes.page_tabs }}>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                {{ content.page_tabs }}
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+  </div>
+
+  {# == Region: Content == #}
+  {# ===================== #}
+  {% block region_content %}
+    <div{{ region_attributes.page_content }}>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            {{ content.page_content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+</div>

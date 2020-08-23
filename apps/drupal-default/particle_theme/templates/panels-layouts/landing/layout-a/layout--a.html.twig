@@ -1,0 +1,133 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a TheMAG layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+
+<div{{ attributes }}>
+
+  {# ---------------- #}
+  {# REGION: FEATURED #}
+  {# ---------------- #}
+  <div{{ region_attributes.featured }}>
+    {{ content.featured }}
+  </div>
+
+
+  <div class="container">
+    {# ----------- #}
+    {# REGION: TOP #}
+    {# ----------- #}
+    {% if content.top %}
+      <div class="row">
+        <div{{ region_attributes.top.addClass('col-12') }} >
+          {{ content.top }}
+        </div>
+      </div>
+    {% endif %}
+
+
+    {# ----------------- #}
+    {# REGION: TOP BELOW #}
+    {# ----------------- #}
+    {% if content.top_left_below or content.top_middle_below or content.top_right_below %}
+      <div class="row">
+        <div{{ region_attributes.top_left_below.addClass('col-12', 'col-lg-4') }}>
+          {{ content.top_left_below }}
+        </div>
+        <div{{ region_attributes.top_middle_below.addClass('col-12', 'col-lg-4') }}>
+          {{ content.top_middle_below }}
+        </div>
+        <div{{ region_attributes.top_right_below.addClass('col-12', 'col-lg-4') }}>
+          {{ content.top_right_below }}
+        </div>
+      </div>
+    {% endif %}
+
+
+    {# ------------------- #}
+    {# REGION MIDDLE ABOVE #}
+    {# ------------------- #}
+    {% if content.middle_left_above or content.middle_right_above %}
+      <div class="row">
+        <div{{ region_attributes.middle_left_above.addClass('col-12', 'col-lg-8') }}>
+          {{ content.middle_left_above }}
+        </div>
+        <div{{ region_attributes
+                .middle_right_above.addClass('col-12', 'col-lg-4', 'js-sticky-container')
+        }}>
+          {{ content.middle_right_above }}
+        </div>
+      </div>
+    {% endif %}
+
+
+    {# ------------- #}
+    {# REGION MIDDLE #}
+    {# ------------- #}
+    {% if content.middle %}
+      <div class="row">
+        <div{{ region_attributes.middle.addClass('col-12') }}>
+          {{ content.middle }}
+        </div>
+      </div>
+    {% endif %}
+
+
+    {# ------------------- #}
+    {# REGION MIDDLE BELOW #}
+    {# ------------------- #}
+    {% if content.middle_left_below or content.middle_middle_below or content.middle_right_below %}
+      <div class="row">
+        <div{{ region_attributes.middle_left_below.addClass('col-12', 'col-lg-4') }}>
+          {{ content.middle_left_below }}
+        </div>
+        <div{{ region_attributes.middle_middle_below.addClass('col-12', 'col-lg-4') }}>
+          {{ content.middle_middle_below }}
+        </div>
+        <div{{ region_attributes.middle_right_below.addClass('col-12', 'col-lg-4') }}>
+          {{ content.middle_right_below }}
+        </div>
+      </div>
+    {% endif %}
+
+
+    {# ------------------- #}
+    {# REGION BOTTOM ABOVE #}
+    {# ------------------- #}
+    {% if content.bottom_left_above or content.bottom_right_above %}
+      <div class="row">
+        <div{{ region_attributes.bottom_left_above.addClass('col-12', 'col-lg-8') }}>
+          {{ content.bottom_left_above }}
+        </div>
+        <div{{ region_attributes.bottom_right_above
+                .addClass('col-12', 'col-lg-4', 'js-sticky-container')
+        }}>
+          {{ content.bottom_right_above }}
+        </div>
+      </div>
+    {% endif %}
+
+
+    {# ------------- #}
+    {# REGION BOTTOM #}
+    {# ------------- #}
+    {% if content.bottom %}
+      <div class="row">
+        <div{{ region_attributes.bottom.addClass('col-12') }}>
+          {{ content.bottom }}
+        </div>
+      </div>
+    {% endif %}
+
+
+  </div> {# /.container #}
+</div>

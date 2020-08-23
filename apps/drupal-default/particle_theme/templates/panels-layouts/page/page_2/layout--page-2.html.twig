@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Default theme implementation for layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% extends "@themag/panels-layouts/page/page_1/layout--page-1.html.twig" %}
+
+{# == Region: Content == #}
+{# ===================== #}
+{% block region_content %}
+  <div class="container">
+    <div class="row">
+      <div{{ region_attributes.page_content.addClass('col-12', 'col-lg-8') }}>
+        {{ content.page_content }}
+      </div>
+      <div{{ region_attributes.page_sidebar_right.addClass('col-12', 'col-lg-4', 'js-sticky-container') }}>
+        {{ content.page_sidebar_right }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

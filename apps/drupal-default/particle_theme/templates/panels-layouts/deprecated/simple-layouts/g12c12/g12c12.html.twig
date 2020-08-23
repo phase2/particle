@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a TheMAG layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set classes = [ 'g12c12' ] %}
+{% if themag.sticky_sidebar %}
+  {% set sticky_classs = 'stick-in-parent' %}
+{% endif %}
+
+{% if content %}
+<div{{ attributes.addClass(classes) }}>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 layout-region">
+        {{ content.col_1 }}
+      </div>
+    </div>
+  </div> {# /.container #}
+
+</div>
+{% endif %}

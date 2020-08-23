@@ -1,0 +1,120 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a TheMAG layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div{{ attributes }}>
+
+  <div class="layout__article-intro">
+    {# == Article media == #}
+    <div{{ region_attributes.article_media }}>
+      {{ content.article_media }}
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          {# == Article header == #}
+          {% if(content.article_header) %}
+            <header{{ region_attributes.article_header }}>
+              {{ content.article_header }}
+            </header>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {# == Meta and Social Buttons == #}
+
+  <div class="layut__meta-wrapper">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-6">
+          {# == Article footer (article meta) == #}
+          {% if(content.article_footer) %}
+            <footer {{ region_attributes.article_footer }}>
+              {{ content.article_footer }}
+            </footer>
+          {% endif %}
+        </div>
+        <div class="col-12 col-lg-6">
+          {# == Socil buttons == #}
+          {% if(content.article_social_buttons) %}
+            <div{{ region_attributes.article_social_buttons }}>
+              {{ content.article_social_buttons }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    {# == Article content top == #}
+    {% if(content.article_content_top) %}
+      <div class="row">
+        <div{{ region_attributes.article_content_top.addClass('col-12') }}>
+          {{ content.article_content_top }}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="mx-2 mx-md-0">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+
+          {# == Tabs == #}
+          {% if(content.tabs) %}
+            <div{{ region_attributes.tabs }}>
+              {{ content.tabs }}
+            </div>
+          {% endif %}
+
+          {# == Article main content == #}
+          {% if(content.article_content) %}
+            <div{{ region_attributes.article_content }}>
+              {{ content.article_content }}
+            </div>
+          {% endif %}
+
+          {# == Comments == #}
+          {% if(content.article_comments) %}
+            <div{{ region_attributes.article_comments }}>
+              {{ content.article_comments }}
+            </div>
+          {% endif %}
+        </div>
+
+        {# == Sidebar right == #}
+        <aside
+            {{ region_attributes.article_sidebar_right
+                  .addClass('col-12', 'col-lg-4', 'js-sticky-container')
+            }}>
+          {{ content.article_sidebar_right }}
+        </aside>
+      </div>
+    </div>
+
+    {# == Content bottom == #}
+    {% if(content.article_content_bottom) %}
+      <div class="row">
+        <div{{ region_attributes.article_content_bottom.addClass('col-12') }}>
+          {{ content.article_content_bottom }}
+        </div>
+      </div>
+    {% endif %}
+  </div>{# end: .container #}
+
+
+</div>

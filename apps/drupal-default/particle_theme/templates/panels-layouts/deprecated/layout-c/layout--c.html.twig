@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a TheMAG layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set classes = [ 'layout--c' ] %}
+{% if themag.sticky_sidebar %}
+  {% set sticky_classs = 'stick-in-parent' %}
+{% endif %}
+
+{% if content %}
+<div{{ attributes.addClass(classes) }}>
+
+  {# ---------------- #}
+  {# REGION: FEATURED #}
+  {# ---------------- #}
+  <div class="layout-region layout-region--featured">
+    {{ content.featured }}
+  </div>
+
+  <div class="container">
+
+    {# ----------- #}
+    {# REGION: TOP #}
+    {# ----------- #}
+    {% if content.top %}
+      <div class="row">
+        <div class="col-12 layout-region layout-region--top">
+          {{ content.top }}
+        </div>
+      </div>
+    {% endif %}
+
+    {# ------------- #}
+    {# REGION MIDDLE #}
+    {# ------------- #}
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1 layout-region layout-region--middle">
+        {{ content.middle }}
+      </div>
+    </div>
+
+    {# ------------- #}
+    {# REGION BOTTOM #}
+    {# ------------- #}
+    <div class="row">
+      <div class="col-12 layout-region layout-region--bottom">
+        {{ content.bottom }}
+      </div>
+    </div>
+  </div> {# /.container #}
+
+</div>
+{% endif %}

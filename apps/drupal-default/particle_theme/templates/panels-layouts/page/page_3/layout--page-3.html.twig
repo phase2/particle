@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Default theme implementation for layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% extends "@themag/panels-layouts/page/page_1/layout--page-1.html.twig" %}
+
+{# == Region: Content == #}
+{# ===================== #}
+{% block region_content %}
+  <div class="container">
+
+    {% if(content.page_content_top) %}
+      <div class="row">
+        <div{{ region_attributes.page_content_top .addClass('col-12') }}>
+          {{ content.page_content_top }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if(content.page_content or content.page_sidebar_right) %}
+      <div class="row">
+        <div{{ region_attributes.page_content.addClass('col-12', 'col-lg-8') }}>
+          {{ content.page_content }}
+        </div>
+        <div{{ region_attributes.page_sidebar_right.addClass('col-12', 'col-lg-4', 'js-sticky-container') }}>
+          {{ content.page_sidebar_right }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if(content.page_content_bottom) %}
+      <div class="row">
+        <div{{ region_attributes.page_content_bottom .addClass('col-12') }}>
+          {{ content.page_content_bottom }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if(content.page_content_bottom_below_first or content.page_content_bottom_below_second) %}
+      <div class="row">
+        <div{{ region_attributes.page_content_bottom_below_first.addClass('col-12', 'col-lg-8') }}>
+          {{ content.page_content_bottom_below_first }}
+        </div>
+        <div{{ region_attributes.page_content_bottom_below_second.addClass('col-12', 'col-lg-4', 'js-sticky-container') }}>
+          {{ content.page_content_bottom_below_second }}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock %}
