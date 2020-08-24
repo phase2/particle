@@ -1,0 +1,25 @@
+/* // UTC Styles for employees */
+
+.utc-custom-blocks h2.block__title {
+	display: none;
+}
+
+.utc-custom-blocks .block__content {
+	padding: 1rem 0;
+}
+
+@media (min-width: 992px){
+  .themag-layout .block:not(:last-child) {
+    margin-bottom: 0px;
+  }
+}
+.employee-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(310px, max-content));
+}
+.card-body {
+  margin-top:-18px;
+}
+.utc-card{
+  margin-left: -23px;
+}

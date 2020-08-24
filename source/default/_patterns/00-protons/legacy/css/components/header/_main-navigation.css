@@ -1,0 +1,33 @@
+.block--region-header-primary-menu > ul.menu > li > a {
+	color: blue;
+}
+
+.block--region-header-primary-menu > ul.menu > li > a:hover {
+	text-decoration: none;
+	background: blue;
+	color: yellow;
+}
+
+.block--region-header-primary-menu > ul.menu > li > a {
+	border-radius: 0;
+	padding: 12px;
+}
+
+.block--region-header-primary-menu > ul.menu > li > a:hover {
+	padding: 12px;
+}
+
+/* // .tb-megamenu .dropdown-menu li > a {
+// 	color: blue;
+// }
+
+// .tb-megamenu .dropdown-menu li > a:hover,
+// .tb-megamenu .dropdown-menu li > a:focus,
+// .tb-megamenu .dropdown-submenu:hover > a,
+// .tb-megamenu .dropdown-menu li > span.tb-megamenu-no-link:hover,
+// .tb-megamenu .dropdown-menu li > span.tb-megamenu-no-link:focus,
+// .tb-megamenu .dropdown-submenu:hover > span.tb-megamenu-no-link {
+// 	text-decoration: none;
+// 	background: blue;
+// 	color: yellow;
+// } */

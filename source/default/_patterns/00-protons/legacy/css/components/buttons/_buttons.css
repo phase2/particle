@@ -1,0 +1,242 @@
+/* // UTC Styles for buttons
+//Sass could be reformatted to extend off the core .btn class and possibly use some arrays to adjust button styles/colors
+
+// base button style borrowed from Bootstrap */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  /* // white-space: nowrap; */
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 0;
+  /* margin-bottom: 1rem; //not sure whether we should blanket margin like this or allow where it is used to drive margin */
+  padding: .375rem .75rem;
+  /* font-size: $font-size-base; */
+  line-height: 1.5;
+  border-radius: 0;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+}
+
+
+/* Button Colors */
+/* if we rework how the overall link styles are applied, may no longer need the a. in these classes */
+.btn--navy,
+.btn-primary,
+.btn-dark {
+	background-color: blue;
+	color: white;
+}
+
+.btn--navy:hover,
+  .btn-primary:hover,
+  .btn-dark:hover {
+	background: #3333ff;
+	color: white;
+}
+
+.btn--navy:active, .btn--navy:not(:disabled):not(.disabled):active,
+  .btn-primary:active,
+  .btn-primary:not(:disabled):not(.disabled):active,
+  .btn-dark:active,
+  .btn-dark:not(:disabled):not(.disabled):active {
+	background: #3333ff;
+	color: white;
+}
+
+.btn--navy:focus, .btn--navy:not(:disabled):not(.disabled):active:focus,
+  .btn-primary:focus,
+  .btn-primary:not(:disabled):not(.disabled):active:focus,
+  .btn-dark:focus,
+  .btn-dark:not(:disabled):not(.disabled):active:focus {
+	-webkit-box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+/* .btn--yellow,
+.btn-danger,
+.btn-secondary {
+  background-color: $utc-yellow;
+  color: $utc-blue;
+
+  &:hover
+    {
+    background: lighten($utc-yellow, 10%);
+    color: $utc-blue;
+
+  }
+
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    color: $utc-blue;
+    background: lighten($utc-yellow, 10%);
+
+  }
+
+  &:focus,
+  &:not(:disabled):not(.disabled):active:focus {
+    -webkit-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+    -moz-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+    box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+
+  }
+}
+
+.btn--navy-outline,
+.btn-info {
+  background-color: $white;
+  color: $utc-blue;
+  border: 2px solid $utc-blue;
+
+
+  &:hover,
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    background-color: $utc-blue;
+    color: $white;
+    border: 2px solid $utc-blue;
+    -webkit-box-shadow: inset 0px 0px 5px #403636;
+    -moz-box-shadow: inset 0px 0px 5px #403636;
+    box-shadow: inset 0px 0px 5px #403636;
+  }
+
+  &:focus,
+  &:not(:disabled):not(.disabled):active:focus {
+    -webkit-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+    -moz-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+    box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+  }
+}
+
+.btn--burgundy,
+.btn-warning {
+  background-color: $utc-burgundy;
+  color: $white;
+
+  &:hover {
+    background: lighten($utc-burgundy, 5%);
+    color: $white;
+  }
+
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    color: $white;
+    background: lighten($utc-burgundy, 5%);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba($utc-burgundy, .5);
+    box-shadow: 0 0 0 0.2rem rgba($utc-burgundy, .5);
+
+  }
+
+  &:focus,
+  &:not(:disabled):not(.disabled):active:focus
+    {
+      -webkit-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+      -moz-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+      box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+  }
+}
+
+
+.btn--white-outline {
+  background-color: transparent;
+  color: $white;
+  border: 2px solid $white;
+
+  &:hover,
+  &:active {
+    background: darken($utc-yellow, 15%);
+    color: $utc-blue;
+    border: 2px solid $white;
+  }
+
+  &:focus
+    {
+      -webkit-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+      -moz-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+      box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+  }
+}
+
+.btn--green,
+.btn-success {
+  background-color: $utc-green;
+  color: $white;
+
+  &:hover,
+  &:active {
+    background-color: $utc-green-2;
+    color: $white;
+  }
+
+  &:focus,
+  &:not(:disabled):not(.disabled):active:focus {
+    -webkit-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+      -moz-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+      box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.20);
+  }
+}
+
+.btn--lightblue,
+.btn-light {
+  background-color: $utc-lightblue;
+  color: $utc-blue;
+
+  &:hover,
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    background-color: darken($utc-lightblue, 10%);
+  }
+
+  &:focus,
+  &:not(:disabled):not(.disabled):active:focus {
+    -webkit-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+    -moz-box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+    box-shadow: inset 0px 0px 8px 2px rgba(0,0,0,0.10);
+  }
+} */
+
+/* Button Types */
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+.btn--pill {
+  border-radius: 24px;
+}
+
+
+/* Button Sizes */
+.btn--small,
+.btn-sm {
+  padding: .25rem .5rem;
+  /* font-size: $font-size-sm; */
+  line-height: 1.5;
+}
+
+.btn--large,
+.btn-lg {
+  padding: .5rem 1rem;
+  /* font-size: $font-size-lg; */
+  line-height: 1.5;
+}
+
+.btn--extra-large {
+  padding: 1.5rem;
+  /* font-size: $font-size-xl; */
+  font-weight: 700;
+  /* font-family: $utc-headings; */
+}
+
+/* // Call to Action Block Buttons */
+
+a.button_cta_custom {
+  width: 100%;
+  border-radius: 0px;
+}

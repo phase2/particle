@@ -1,0 +1,136 @@
+/* //this is a hacky way to fix extra margin caused by themag theme at certain widths
+//possibly look at padding and margin of layout blocks
+//across site to determine whether all padding/margin should be dictated by block type vs.
+//in the layout
+
+//this class should be moved to a card grid scss file
+//in particle */
+@include media-breakpoint-up(md) {
+.utc-item-two-col .utc-item-card__view-two-col {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.utc-item-two-col .utc-item-card__view-two-col > .utc-item-card__container {
+width: 49%;
+}
+}
+.utc-item-card__container {
+  margin-bottom: 30px;
+}
+
+
+.utc-item-card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 0;
+  /* // box-shadow: $utc-shadow; */
+}
+
+a .utc-item-card:hover {
+  background-color: $whitesmoke;
+  box-shadow: 0 10px 15px -3px rgba(black, 0.2),
+    0 4px 6px -2px rgba(black, 0.05);
+}
+
+.utc-item-card h3 {
+  font-size: 1.35rem;
+}
+
+h2:first-child {
+  margin-top: 1rem;
+}
+
+@include media-breakpoint-down(md) {
+  .utc-item-card {
+    min-height: 150px;
+  }
+}
+
+
+.utc-item-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.utc-item-card .media-image {
+  height: 100%;
+
+}
+
+.utc-item-card .field--name-field-image {
+  flex: 0 1 35%;
+}
+
+
+
+.utc-item-card__body {
+  padding: 1.25rem 1.25rem .25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  flex: 1 0 75%;
+
+
+}
+
+@include media-breakpoint-up(sm) {
+  .utc-item-card {
+    flex-direction: row;
+  }
+}
+
+.utc-item-card__title {
+  /* font-size: $font-size-lg; */
+  font-weight: 600;
+}
+
+//used in library item card template
+.utc-item-card__action-container--line {
+  border-top: 2px solid gray;
+  padding-top: 1.25rem;
+}
+
+.utc-item-card__action-container--gray-bg {
+  background-color: whitesmoke;
+  margin: 0 -1.25rem -.25rem -1.25rem;
+
+}
+
+.utc-item-card__action-container--gray-bg .utc-item-card__action {
+  padding: 1.25rem 1.25rem .25rem;
+}
+
+.utc-item-card__action .btn {
+  margin-bottom: 0;
+}
+
+.utc-item-card__badges ul {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+}
+
+.utc-item-card__badges ul li {
+  display: inline-block;
+  margin: .25rem;
+  background-color: lightblue;
+  padding: .3rem .75rem;
+  border-radius: 10rem;
+  font-size: .95rem;
+  line-height: .95rem;
+}
+
+a .utc-item-card__body {
+  color: black;
+}
+

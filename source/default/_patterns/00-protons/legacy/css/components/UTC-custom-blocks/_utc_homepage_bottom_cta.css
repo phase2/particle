@@ -1,0 +1,21 @@
+@import "../../variables";
+.cta-caption {
+    width: 500px;
+    /* background-color: $utc-opaque; */
+    color: white !important;
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 20%;
+    left: 0;
+}
+.cta-caption h2 {
+	color: white;
+}
+
+@media (max-width: 767px){
+.cta-caption {
+    position: relative !important;
+    width: 100% !important;
+}
+}

@@ -1,0 +1,51 @@
+
+.dateicon {
+  display: block;
+  /* //width: 100px; */
+  width: 50px;
+  height: 110px;
+  /* //margin: 0px auto; */
+  margin: 0px;
+  /* //background: #fff; */
+  text-align: center;
+  font-family: 'Helvetica', sans-serif;
+  position: relative;
+}
+
+/* //.dateicon .binds {
+//  position: absolute;
+//  height: 15px;
+//  width: 60px;
+//  background: transparent;
+//  border: 2px solid #999;
+//  border-width: 0 5px;
+//  top: -6px;
+//  left: 0;
+//  right: 0;
+//  margin: auto;
+//} */
+
+.dateicon .month {
+  background: lightblue;
+  display: block;
+ /* // padding: 8px 0; */
+  color: blue;
+ /* // font-size: 12px; */
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  box-shadow: inset 0 -1px 0 0 #666;
+}
+
+.dateicon .day {
+  display: block;
+  margin: 0;
+  /* //padding: 10px 0; */
+  /* //font-size: 48px; */
+  font-size: 26px;
+  box-shadow: 0 0 3px #ccc;
+  position: relative;
+}
+
+.smallerfont{
+  font-size: 0.8em;
+}

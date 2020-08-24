@@ -1,0 +1,18 @@
+/* //
+// @file
+// CSS for off-canvas dialog.
+//
+
+// Off-Canvas base
+// */
+#drupal-off-canvas *,
+#drupal-off-canvas *:not(div) {
+  color: #85bef4;
+  background: #263238;
+}
+
+/* ///needs a media query if full screen it should change. */
+
+  .ui-widget.ui-dialog.ui-dialog-off-canvas .ui-dialog-titlebar {
+        background: #11171a;
+}

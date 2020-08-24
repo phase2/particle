@@ -1,0 +1,30 @@
+/* @import "../../variables";
+//bernardo M
+h4 {
+    font-size: 17.5px;
+}
+
+.center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.programs-container {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+column-gap: 30px;
+}
+.programs-container a:hover img {
+    filter: drop-shadow($utc-yellow 0px 0px 0.75rem);
+    }
+
+@media (max-width: 600px) {
+    .programs-container {
+        display: grid;
+        grid-template-columns: auto;
+    }
+  } */
+
+
+

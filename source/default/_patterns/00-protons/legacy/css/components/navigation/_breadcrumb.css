@@ -1,0 +1,38 @@
+.breadcrumb ol,
+.breadcrumb li,
+.simple-breadcrumb ol,
+.simple-breadcrumb li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 14px;
+}
+
+.breadcrumb ol,
+.simple-breadcrumb ol {
+	display: flex;
+	flex-flow: wrap;
+}
+
+.breadcrumb li a:hover,
+.simple-breadcrumb li a:hover {
+	text-decoration: underline;
+}
+
+.breadcrumb li:after,
+.simple-breadcrumb li:after {
+	content: " / ";
+	margin-right: 3px;
+}
+
+.breadcrumb li:last-child:after,
+.simple-breadcrumb li:last-child:after {
+	display: none;
+}
+
+@media (max-width: 991px) {
+	.breadcrumb ol,
+  .simple-breadcrumb ol {
+		display: grid;
+	}
+}
