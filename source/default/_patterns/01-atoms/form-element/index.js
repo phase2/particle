@@ -9,7 +9,7 @@ import $ from 'jquery';
 import 'protons';
 
 // Module template
-import './_input.twig';
+// import './_input.twig';
 import './_select.twig';
 import './_textarea.twig';
 

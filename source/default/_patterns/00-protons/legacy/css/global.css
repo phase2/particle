@@ -27,3 +27,7 @@
   border-top: none;
   text-align: center;
 }
+/* overrides parent mag and particle conflict */
+.button--primary {
+  color: black;
+}
