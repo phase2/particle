@@ -1,0 +1,22 @@
+/* //new background styles for sections, used by themag layout builder plugins
+
+  // Background colors */
+  .utc-section-bg--white {
+    background-color: white;
+  }
+  
+  .utc-section-bg--gray {
+    background-color: gray;
+  }
+  
+  .utc-section-bg--gray-light {
+    background-color: gray;
+  }
+  
+  .utc-section-bg--blue {
+    background-color: blue;
+  }
+  
+  .utc-section-bg--blue-light {
+    background-color: lightblue;
+  }

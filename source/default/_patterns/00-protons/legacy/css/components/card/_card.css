@@ -1,0 +1,253 @@
+/* //this is a hacky way to fix extra margin caused by themag theme at certain widths
+//possibly look at padding and margin of layout blocks
+//across site to determine whether all padding/margin should be dictated by block type vs.
+//in the layout
+
+//this class should be moved to a card grid scss file
+//in particle */
+.utc-card-grid__container {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 991.98px) {
+  .utc-card-grid__container:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+
+.utc-card-2 {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+
+.utc-card-2 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.utc-card-2__body {
+  padding: 1.25rem;
+}
+
+.utc-card-2__body--with-action {
+  margin-bottom: 2.5rem;
+}
+
+.utc-card-2__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.utc-card-2__action-container {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0.25rem;
+}
+
+.utc-card-2--align-center {
+  text-align: center !important;
+}
+
+.utc-card-2--align-right {
+  text-align: right !important;
+}
+
+.utc-card-2--align-right .utc-card-2__action-container {
+  right: 4%;
+}
+
+//card width
+
+.utc-card-2--w-100 {
+  width: 100%;
+}
+
+.utc-card-2--w-75 {
+  width: 75%;
+}
+
+@media (max-width: 991.98px) {
+  .utc-card-2--w-75 {
+    width: 100%;
+  }
+}
+
+//aligns with two card rows
+.utc-card-2--w-50 {
+  width: 48.8%;
+}
+
+@media (max-width: 991.98px) {
+  .utc-card-2--w-50 {
+    width: 100%;
+  }
+}
+
+//card colors and hovers
+.utc-card-2--white {
+  word-wrap: break-word;
+  background-color: #ffffff;
+  border: 1px solid #c0c9d0;
+  border-radius: 0;
+  box-shadow: 0 10px 15px -3px rgba(#000000, 0.1),
+    0 4px 6px -2px rgba(#000000, 0.05);
+}
+
+.utc-card-2--white.utc-card-2--card-link:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
+    0 4px 6px -2px rgba(#000000, 0.05);
+}
+
+.utc-card-2--lightblue {
+  word-wrap: break-word;
+  background-color: #dde6ee;
+  border: 1px solid #c0c9d0;
+  border-radius: 0;
+  box-shadow: 0 10px 15px -3px rgba(#000000, 0.1),
+    0 4px 6px -2px rgba(#000000, 0.05);
+}
+
+.utc-card-2--lightblue.utc-card-2--card-link:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
+    0 4px 6px -2px rgba(#000000, 0.05);
+}
+
+.utc-card-2--none {
+  word-wrap: break-word;
+  background-color: none;
+  border: 0px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.utc-card-2--none.utc-card-2--card-link:hover {
+  filter: drop-shadow(#fdb736 0px 0px 0.75rem);
+}
+
+.utc-card-2__icon .fontawesome-icons {
+  text-align: center;
+  font-size: 75px;
+  line-height: 1rem;
+  margin: 2.25rem 1.25rem 1rem;
+  color: #000000;
+}
+
+.utc-card-2__icon .utc-card-2:hover {
+  color: #000000;
+}
+
+.utc-card-2--blue .fontawesome-icons {
+  color: #112e51;
+}
+
+.utc-card-2--blue .fontawesome-icons:hover {
+  color: #112e51;
+}
+
+.utc-card-2--yellow .fontawesome-icons {
+  color: #fdb736;
+}
+
+.utc-card-2--yellow .fontawesome-icons:hover {
+  color: #fdb736;
+}
+
+// ========== Thumbnail Card =========
+.utc-card-2--thumbnail.utc-card-2--align-center {
+  text-align: center !important;
+}
+
+.utc-card-2--thumbnail.utc-card-2--align-center .utc-card-2__action-container {
+  left: 0;
+  width: 100%;
+}
+
+.utc-card-2--thumbnail.utc-card-2--align-center .btn {
+  width: 75%;
+}
+
+// ========== Wide Card =========
+
+@media (min-width: 576px) {
+  .utc-card-2--wide {
+    flex-direction: row;
+  }
+
+  .utc-card-2--wide .utc-card-2__body {
+    flex: 1 0 65%;
+  }
+
+  .utc-card-2--wide .utc-card-2__icon {
+    display: flex;
+    flex: 0 1 35%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .utc-card-2--wide .utc-card-2__icon .fontawesome-icons {
+    margin: 0 -1.25rem 0 0;
+  }
+
+  //image span full width of column container
+  .utc-card-2--wide .media-image {
+    height: 100%;
+  }
+
+  .utc-card-2--wide .field--name-field-image {
+    flex: 0 1 35%;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .utc-card-2--wide {
+    min-height: 150px;
+  }
+}
+
+// ========== Sidebar Card =========
+.utc-sidebar-card {
+  word-wrap: break-word;
+  background-color: #ffffff;
+  border: 1px solid #c0c9d0;
+  border-radius: 0;
+  box-shadow: 0 10px 15px -3px rgba(#000000, 0.05),
+    0 4px 6px -2px rgba(#000000, 0.05);
+  margin-bottom: 2rem;
+}
+
+.utc-sidebar-card__header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #c0c9d0;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.utc-sidebar-card--blue {
+  color: #ffffff;
+  background-color: #112e51;
+}
+
+.utc-sidebar-card--yellow {
+  color: #112e51;
+  background-color: #fdb736;
+}
+
+.utc-sidebar-card__body {
+  padding: 1.25rem;
+}
+
+//adjust h3 size for visuals/accessibility
+.utc-sidebar-card h3 {
+  font-size: 1.25rem;
+}
