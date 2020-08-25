@@ -1,27 +1,34 @@
 .ckeditor-accordion-container > dl dt > a {
 	display: block;
 	font-size: 500;
-	background-color: white;
-	color: gray;
+	/* background-color: white; */
+	@apply bg-gray-100;
+	/* color: gray; */
+	@apply text-gray-700;
 	cursor: pointer;
 	-webkit-transition: background-color 300ms;
 	transition: background-color 300ms;
 	border-bottom: 1px solid gray;
+	/* @apply border-bottom-gray-400; */
 }
 
 .ckeditor-accordion-container > dl dt > a:hover {
-	background-color: gray;
+	/* background-color: gray; */
+	@apply bg-gray-400;
 	border-bottom: 0;
 	text-decoration: none;
 }
 
 .ckeditor-accordion-container > dl dt.active > a {
-	background-color: gray;
+	/* background-color: gray; */
+	@apply bg-gray-400;
 }
 
 .ckeditor-accordion-container > dl dt.active > a:hover {
-	color: gray;
-	background-color: gray;
+	/* color: gray; */
+	@apply text-gray-400;
+	/* background-color: gray; */
+	@apply bg-gray-800;
 }
 
 /* contents */
@@ -39,5 +46,7 @@
 
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::before,
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
-	background: gray;
+	/* background: gray; */
+	@apply bg-gray-700;
+
 }
