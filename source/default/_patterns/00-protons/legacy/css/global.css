@@ -1,12 +1,13 @@
 .gsc-cursor-page {
     background: transparent !important;
+    /* color: $utc-blue !important; */
     @apply text-blue-600;
   }
 
 
 .hellowordl{
     background: red;
-}
+} 
 .utcpage-title {
   display: inline-block;
   background-color: transparent;
@@ -29,5 +30,6 @@
 }
 /* overrides parent mag and particle conflict */
 .button--primary {
+  @apply text-black;
   color: black;
 }

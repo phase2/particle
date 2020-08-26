@@ -1,22 +1,22 @@
 /* // UTC Styles for footer */
 /* @import "../../variables"; */
 .footer-wrapper {
-  /* @apply text-blue-600; */
+  /*   background-color: $utc-blue; */
   @apply bg-utc-new-blue-500;
   padding: 2.1rem 0;
 }
 
 .footer-wrapper p,
 .region-footer-second h2.teaser__headline a {
-  @apply text-gray-100;
+  @apply text-white;
   /* color: white; */
 }
 .footer-wrapper a{
-  @apply text-gray-100;
+  @apply text-white;
 }
 
 .footer-bottom-wrapper {
-  @apply bg-utc-new-blue-700 text-gray-100;
+  @apply bg-utc-new-blue-800 text-white;
   /* background: blue; */
   /* color: white; */
 }
@@ -28,14 +28,14 @@
   @apply text-utc-new-gold-500;
   /* color: yellow; */
   padding-bottom: 0.075rem;
-  border-bottom: 1px solid yellow;
+  border-bottom: 1px solid #FEE2AF;
   white-space: nowrap;
 }
 .footer-bottom-wrapper a:not(.btn):hover {
-  @apply text-utc-new-blue-400;
+  @apply text-utc-new-blue-100;
   /* color: blue; */
   padding-bottom: 0.075rem;
-  border-bottom: 1px solid blue; 
+  border-bottom: 1px solid #EBF8FF; 
   /* text-blue-100; */
   text-decoration: none;
 }
@@ -43,7 +43,7 @@
   @apply text-utc-new-gold-500;
   /* ?color: yellow; */
   padding-bottom: 0.075rem;
-  border-bottom: 1px solid yellow;
+  border-bottom: 1px solid #FFEDCD;
   text-decoration: none;
 }
 
@@ -74,7 +74,7 @@
 }
 #block-infofor .menu a, #block-shortcuts .menu a {
   /* color: blue; */
-  @apply text-utc-new-blue-400;
+  @apply text-utc-new-blue-100;
 }
 #block-infofor .menu a:hover, #block-shortcuts .menu a:hover {
   /* color: yellow; */
@@ -84,7 +84,7 @@
 
 #block-infofor-menu,
 #block-shortcuts-menu{
-  
+  @apply text-white;
   /* color: white !important; */
   text-align: left;
   font-size: 1.4em;
