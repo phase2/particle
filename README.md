@@ -4,13 +4,13 @@
 CheatSheet
 
 **Warning**
-1.  the module and the submodule both have a master and develop branch
-1.  if working on the git submodule don't update utccloud parent repo until you have commited changes. (data can be lost if you update utccloud while working on particle subtheme)
+1.  the module and the submodule both have a master and develop branch.
+1.  if working on the git submodule don't update utccloud parent repo until you have commited changes. (data can be lost if you update utccloud while working on particle subtheme.
 1.  Only commit the changes on the parent git repo when you want utccloud to refer to the latest revision of the particle repo. In other words, it should be done once per PR to the main repo.
 
 
 **Setup**
-1.  git submodule update --init --recursive -> the first time the submodule is added to your repo
+1.  git submodule update --init --recursive -> the first time the submodule is added to your repo.
 1.  git submodule update --recursive -> after is beeing added once.
 1.  composer install and npm install -> if blt setup and sync have not been used.
 
