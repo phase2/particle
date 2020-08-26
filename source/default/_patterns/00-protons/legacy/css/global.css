@@ -1,16 +1,17 @@
 .gsc-cursor-page {
     background: transparent !important;
+    /* color: $utc-blue !important; */
     @apply text-blue-600;
   }
 
 
 .hellowordl{
     background: red;
-}
+} 
 .utcpage-title {
   display: inline-block;
   background-color: transparent;
-  border-bottom: 9px solid #FDB736;
+  border-bottom: 9px solid; /* #FDB736; */
   @apply text-utc-new-blue-500 text-6xl font-bold;
   /* color: $utc-blue; */
   padding-top: 1em;
@@ -29,5 +30,6 @@
 }
 /* overrides parent mag and particle conflict */
 .button--primary {
+  @apply text-black;
   color: black;
 }
