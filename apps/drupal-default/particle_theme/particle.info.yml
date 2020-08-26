@@ -5,6 +5,7 @@ base theme: themag
 core: 8.x
 libraries:
   - particle/core
+  - particle/google-fonts
 libraries-override:
   core/jquery: particle/jquery
 regions:
