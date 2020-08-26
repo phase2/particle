@@ -2,21 +2,26 @@
 
   // Background colors */
   .utc-section-bg--white {
-    background-color: white;
+    /* background-color: white; */
+    @apply bg-white;
   }
   
   .utc-section-bg--gray {
-    background-color: gray;
+    /* background-color: gray; */
+    @apply bg-gray-400;
   }
   
   .utc-section-bg--gray-light {
-    background-color: gray;
+    /* background-color: gray; */
+    @apply bg-gray-300;
   }
   
   .utc-section-bg--blue {
-    background-color: blue;
+    /* background-color: blue; */
+    @apply bg-utc-new-blue-500;
   }
   
   .utc-section-bg--blue-light {
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    @apply bg-blue-100;
   }
