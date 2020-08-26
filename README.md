@@ -10,7 +10,7 @@ CheatSheet
 
 
 **Setup**
-1.  git submodule update --init --recursive -> the first time the submodule is added to your repo.
+1.  git submodule update --init --recursive -> the first time the submodule is added to your repo (on MacOS, linux handles this fine).
 1.  git submodule update --recursive -> after is beeing added once.
 1.  composer install and npm install -> if blt setup and sync have not been used.
 
