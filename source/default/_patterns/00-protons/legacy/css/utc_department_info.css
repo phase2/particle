@@ -1,6 +1,7 @@
 /* // UTC Styles department info block */
 .department-info--dept-info-light-blue {
-  @apply bg-utc-new-blue-400;
+  @apply bg-blue-100;
+  /* background-color: $utc-lightblue; */
   padding: 2rem 0rem 1rem;
 }
 
@@ -21,7 +22,7 @@ address.flex-list li {
   display: inline;
   line-height: 1.2em;
   padding: 0 10px;
-  border-left: solid 1px gray;
+  border-left: solid 1px #ADB2B6;
 }
 address.flex-list li:first-child {
   border-left: none;
