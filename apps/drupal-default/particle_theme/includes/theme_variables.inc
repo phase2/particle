@@ -55,11 +55,11 @@ function particle_preprocess(&$variables, $hook) {
   ];
 
   foreach ($social_media_pages as $page_key => $page) {
-    $social_media_page_url = theme_get_setting('themag_' . $page_key);
+    $social_media_page_url = theme_get_setting('particle' . $page_key);
 
     if (isset($social_media_page_url) && $social_media_page_url != "") {
-      $variables['themag']['social_media_pages'][$page_key]['url'] = theme_get_setting('themag_' . $page_key);
-      $variables['themag']['social_media_pages'][$page_key]['title'] = theme_get_setting('themag_' . $page_key . '_link_title');
+      $variables['themag']['social_media_pages'][$page_key]['url'] = theme_get_setting('particle' . $page_key);
+      $variables['themag']['social_media_pages'][$page_key]['title'] = theme_get_setting('particle' . $page_key . '_link_title');
       $variables['themag']['social_media_pages'][$page_key]['icon'] = '<i class="' . $page['fa_icon'] . '"></i>';
     }
   }
