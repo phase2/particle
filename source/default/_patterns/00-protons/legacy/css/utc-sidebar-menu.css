@@ -32,17 +32,21 @@
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
-    /* .menu-item-sidemenu a {
-      background-color: $utc-gray-2;
+    .menu-item-sidemenu a {
+      /* background-color: $utc-gray-2; */
+      @apply bg-gray-200;
     }
     .menu-item-sidemenu a:hover {
-      color: $white;
-      background-color: $utc-darkgray;
-    } */
+      /* color: $white; */
+      @apply text-white;
+      /* background-color: $utc-darkgray; */
+      @apply bg-gray-700;
+    }
   }
 
   .utc-sidebar .menu-btn {
-    background: $utc-lightblue;
+    /* background: $utc-lightblue; */
+    @apply bg-blue-100;
     text-align: center;
     cursor: s-resize;
   }
@@ -62,7 +66,8 @@
   }
 
   .utc-sidebar .more i {
-    color: $utc-gray;
+    /* color: $utc-gray; */
+    @apply text-gray-400;
     transition: transform 0.3s;
   }
 
@@ -72,44 +77,55 @@
     cursor: move;
   }
   
-/* .menu-item-sidemenu {
+.menu-item-sidemenu {
   a {
-    background: $white;
-    color: $utc-blue;
+    /* background: $white; */
+    @apply bg-white;
+    /* color: $utc-blue; */
+    @apply text-utc-new-blue-500;
     font-weight: 500;
-    border: 1px solid $utc-gray;
+    border: 1px solid; /* $utc-gray; */
+    @apply border-gray-400;
     display: block;
     padding: 1rem 1.2rem;
     &:hover {
-      background-color: $utc-blue;
-      color: $utc-yellow;
+      /* background-color: $utc-blue; */
+      @apply bg-utc-new-blue-500;
+      /* color: $utc-yellow; */
+      @apply text-utc-new-gold-500;
       text-decoration: none;
     }
   }
   .is-active {
-    background-color: $utc-blue !important;
-    color: $utc-yellow;
+    /* background-color: $utc-blue !important; */
+    @apply bg-utc-new-blue-500 !important;
+    /* color: $utc-yellow; */
+    @apply text-utc-new-gold-500;
     text-decoration: none;
   }
-} */
+}
 
 .menu-item-sidemenu a {
   /* background: white; 
   color: blue; */
-  @apply bg-gray-100 text-utc-new-blue-500;
+  @apply bg-white;
+  @apply text-utc-new-blue-500;
   font-weight: 500;
-  border: 1px solid gray;
+  border: 1px solid; /* gray; */
+  @apply border-gray-400;
   display: block;
   padding: 1rem 1.2rem;
 }
 .menu-item-sidemenu a:hover {
-  @apply bg-utc-new-blue-700 text-utc-new-gold-500;
+  @apply bg-utc-new-blue-500;
+  @apply text-utc-new-gold-500;
   /* background-color: blue;
   color: yellow; */
   text-decoration: none;
 }
 .menu-item-sidemenu .is-active {
-  @apply bg-utc-new-blue-700 text-utc-new-gold-800 !important;
+  @apply bg-utc-new-blue-500;
+  @apply text-utc-new-gold-500;
   /* background-color: blue !important;
   color: yellow; */
   text-decoration: none;
@@ -160,7 +176,7 @@
   
     .section_menu {
       /* background: yellow; */
-      @apply bg-utc-new-gold-500 text-gray-100;
+      @apply bg-utc-new-gold-500 text-gray-800;
       padding: 5px 30px;
       /* color: gray; */
       cursor: pointer;
