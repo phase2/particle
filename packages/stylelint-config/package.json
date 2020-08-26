@@ -7,11 +7,15 @@
     "url": "https://github.com/phase2/"
   },
   "description": "Custom Stylelint config for Particle projects.",
+  "main": "index.js",
   "keywords": [
     "stylelint",
     "stylelint-config",
     "config",
     "prettier"
+  ],
+  "files": [
+    "index.js"
   ],
   "homepage": "https://github.com/phase2/particle#readme",
   "repository": {
