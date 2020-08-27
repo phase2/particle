@@ -2,7 +2,8 @@
 .cta-caption {
     width: 500px;
     /* background-color: $utc-opaque; */
-    color: white !important;
+    /* color: white !important; */
+    @apply text-white;
     position: absolute;
     top: auto;
     right: 0;
@@ -10,7 +11,8 @@
     left: 0;
 }
 .cta-caption h2 {
-	color: white;
+    /* color: white; */
+    @apply text-white;
 }
 
 @media (max-width: 767px){
