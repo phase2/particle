@@ -1,6 +1,7 @@
 .header__main {
   /* // add heading */
-	color: white;
+	/* color: white; */
+	@apply text-white;
 	font-weight: 600;
 }
 
@@ -10,7 +11,8 @@
 
 .header__container-wrapper--header__main {
 	padding: 1rem 0;
-	background-color: white;
+	/* background-color: white; */
+	@apply bg-white;
 }
 
 .header--custom-header .header__main {
@@ -18,15 +20,18 @@
 }
 
 .header--custom-header .header__main .header__social-menu a {
-	color: blue;
-}
+	/* color: blue; */
+	@apply text-utc-new-blue-500;
+} 
 
 .header--custom-header .header__main .header__social-menu a:hover {
-	color: yellow;
+	/* color: yellow; */
+	@apply text-utc-new-gold-500;
 }
 
 .header--custom-header .header__main .fas {
-	color: blue;
+	/* color: blue; */
+	@apply text-utc-new-blue-500;
 }
 
 .header--custom-header .header__container-wrapper--header__main {
@@ -48,7 +53,8 @@
 
 @media screen and (max-width: 992px) {
 	.header--custom-header .header__main {
-		color: blue;
+		/* color: blue; */
+		@apply text-utc-new-blue-500;
 	}
 }
 
