@@ -1,24 +1,27 @@
 .block--region-header-primary-menu > ul.menu > li > a {
-	color: blue;
+    /* color: blue; */
+    @apply text-utc-new-blue-500;
 }
 
 .block--region-header-primary-menu > ul.menu > li > a:hover {
-	text-decoration: none;
-	background: blue;
-	color: yellow;
+    text-decoration: none;
+    /* background: blue; */
+    @apply bg-utc-new-blue-500;
+    /* color: yellow; */
+    @apply text-utc-new-gold-500;
 }
 
 .block--region-header-primary-menu > ul.menu > li > a {
-	border-radius: 0;
-	padding: 12px;
+    border-radius: 0;
+    padding: 12px;
 }
 
 .block--region-header-primary-menu > ul.menu > li > a:hover {
-	padding: 12px;
+    padding: 12px;
 }
-
+ 
 /* // .tb-megamenu .dropdown-menu li > a {
-// 	color: blue;
+//  color: blue;
 // }
 
 // .tb-megamenu .dropdown-menu li > a:hover,
@@ -27,7 +30,8 @@
 // .tb-megamenu .dropdown-menu li > span.tb-megamenu-no-link:hover,
 // .tb-megamenu .dropdown-menu li > span.tb-megamenu-no-link:focus,
 // .tb-megamenu .dropdown-submenu:hover > span.tb-megamenu-no-link {
-// 	text-decoration: none;
-// 	background: blue;
-// 	color: yellow;
+//  text-decoration: none;
+//  background: blue;
+//  color: yellow;
 // } */
+
