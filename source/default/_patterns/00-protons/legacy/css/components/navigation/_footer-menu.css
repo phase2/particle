@@ -26,5 +26,6 @@
 }
 
 .menu--footer ul.menu li a {
-	color: gray;
+	/* color: #607d8b; */
+	@apply text-gray-500;
 }
