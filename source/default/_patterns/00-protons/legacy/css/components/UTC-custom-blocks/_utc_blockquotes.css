@@ -4,14 +4,15 @@ blockquote {
   /* font-family: $utc-headings; */
   font-weight: 700;
   /* //background-color: $utc-lightyellow; */
-  border-left: 12px solid gray;
+  border-left: 12px solid #CBD5E0;
   /* margin: 1.5em 9px; */
   padding: 0.5em 9px;
   quotes: "\201C""\201D""\2018""\2019";
 }
 
 blockquote:before {
-  color: gray;
+  /* color: gray; */
+  @apply text-gray-400;
   content: open-quote;
   font-size: 4em;
   line-height: 0.1em;
