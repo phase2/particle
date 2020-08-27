@@ -3,5 +3,5 @@ type: module
 description:
   'Particle Components and Particle Tools. Theme utilities to integrate Drupal
   with Particle themes.'
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 package: 'Particle'
