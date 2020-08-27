@@ -8,22 +8,26 @@
 }
 
 .accordion > .card .card-header_m {
-  background: blue;
+  /* background: blue; */
+  @apply bg-utc-new-blue-500;
 }
 
 summary[id^="cardH-"] > a {
-  color: whitesmoke;
+  /* color: whitesmoke; */
+  @apply text-gray-200;
   font-weight: 600;
   font-size: 18px;
   text-transform: none;
 }
 
 .card-header_m:hover {
-  background: blue;
+  /* background: blue; */
+  @apply bg-utc-new-blue-500;
 }
 
 .card-header_m {
-  background: blue;
+  /* background: blue; */
+  @apply bg-utc-new-blue-500;
   border-radius: 0;
 }
 
