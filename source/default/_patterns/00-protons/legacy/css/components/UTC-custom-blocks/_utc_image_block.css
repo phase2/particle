@@ -2,7 +2,8 @@
 
 .figure-caption-utc {
   font-size: 90%;
-  color: #6c757d;
+  /* color: #6c757d; */
+  @apply text-gray-700;
   line-height: normal;
   letter-spacing: normal;
   margin-top: 0.2rem;
