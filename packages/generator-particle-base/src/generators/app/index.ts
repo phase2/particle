@@ -79,7 +79,7 @@ module.exports = class extends Generator {
 
   _writeParticleConfig() {
     fs.writeFileSync(
-      '.particle-rc',
+      '.particlerc',
       JSON.stringify(
         { ...this.configuration, ...{ 'cli-version': this.cliVersion } },
         null,
