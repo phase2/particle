@@ -34,8 +34,6 @@ themag_use_custom_css_file: 0
 themag_use_custom_js_file: 0
 themag_additional_css: ''
 themag_additional_javascript: ''
-_core:
-  default_config_hash: fHHaUGvjJA7bTEfUbWjRWIV6y3KiI9aQ7FaHxFqUm3s
 features:
   node_user_picture: true
   comment_user_picture: true
