@@ -1,1 +1,0 @@
-import './articles.twig';
