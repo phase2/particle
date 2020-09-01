@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ *   card
+ *
+ * Available variables for card:
+ *  - card.variant [string]: When set, adds variant styling and behavior.
+ *  - card.image [array]: Implements @atoms/image/_image.twig.
+ *  - card.title [string]: The title of the card.
+ *  - card.body [string]: The body content of the card.
+ *  - card.list [array]: A list of terms describing card content.
+ */
+#}
+
+{% set card_classes =
+  card_classes
+    |default([])
+    |merge(['card', card.variant ? 'card--' ~ card.variant : '', 'max-w-sm', 'rounded', 'overflow-hidden', 'shadow-lg'])
+    |sort
+    |join(' ')
+    |trim
+%}
+
+<div class="{{ card_classes }}">
+  {% block card_header %}
+    {% if card.image %}
+      {% include '@atoms/image/_image.twig' with {
+        image: card.image,
+        image_classes: ['w-full']
+      } %}
+    {% endif %}
+  {% endblock card_header %}
+
+  {% block card_content %}
+    <div class="px-6 py-4">
+      {% if card.title %}
+        <h3 class="font-bold text-xl mb-2">
+          {{ card.title }}
+        </h3>
+      {% endif %}
+      {% if card.body %}
+        <p class="text-gray-700 text-base">
+          {{ card.body }}
+        </p>
+      {% endif %}
+    </div>
+  {% endblock card_content %}
+
+  {% block card_footer %}
+    {% if card.list %}
+      <div class="px-6 py-4">
+        {% for item in card.list %}
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+            {{ item }}
+          </span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endblock card_footer %}
+</div>

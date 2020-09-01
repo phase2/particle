@@ -1,0 +1,79 @@
+{#
+/**
+ * @file Colors!
+ *   Documenting Color Examples from Tailwind.
+ *
+ * Available variables:
+ * - tokens.colors: [array] Provided from data as a list of color values.
+ *
+ * @see https://tailwindcss.com/docs/customizing-colors
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: colors_demo
+  }
+%}
+  {% block content %}
+    {% set tdClasses = 'border text-center' %}
+    {% set codeClasses = 'text-mono text-pink-500' %}
+    {% set swatchClasses = 'border p-10' %}
+    <table class="table-auto w-full">
+      <thead>
+        <tr class="border">
+          <th scope="col" class="p-4">
+            Swatch
+          </th>
+          <th scope="col" class="p-4">
+            Name
+          </th>
+          <th scope="col" class="p-4">
+            Value
+          </th>
+          <th scope="col" class="p-4">
+            Luminance
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for colorName, colorValue in tokens.colors %}
+          {% if colorValue is not iterable and colorName != 'current' %}
+            {% set luma = colorValue|hex_to_rgba|rgba_string|luma %}
+            {% set colorClass = 'bg-' ~ colorName %}
+            <tr>
+              <td class="{{ swatchClasses ~ ' ' ~ colorClass }}"></td>
+              <td class="{{ tdClasses }}">
+                <code class="{{ codeClasses }}">{{ colorName }}</code>
+              </td>
+              <td class="{{ tdClasses }}">
+                {{ colorValue|upper }}
+              </td>
+              <td class="{{ tdClasses }}">
+                {{ luma }}
+              </td>
+            </tr>
+          {% else %}
+            {% for nestedColor, nestedValue in colorValue %}
+              {# The custom Twig filters `hex_to_rgba`, `rgba_string` and `luma` are found in alter-twig.php. #}
+              {% set luma = nestedValue|hex_to_rgba|rgba_string|luma %}
+              {% set colorClass = 'bg-' ~ colorName ~ '-' ~ nestedColor %}
+              <tr>
+                <td class="{{ swatchClasses ~ ' ' ~ colorClass }}"></td>
+                <td class="{{ tdClasses }}">
+                  <code class="{{ codeClasses }}">{{ colorName ~ '-' ~ nestedColor }}</code>
+                </td>
+                <td class="{{ tdClasses }}">
+                  {{ nestedValue|upper }}
+                </td>
+                <td class="{{ tdClasses }}">
+                  {{ luma }}
+                </td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endblock content %}
+{% endembed %}

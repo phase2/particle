@@ -1,0 +1,46 @@
+{#
+/**
+ * @file Button!
+ *
+ * Available variables:
+ * - button.element: [string]: button|a|input choose the element type for your button.
+ * - button.color: [string]: The Tailwind color of the button.
+ * - button.hoverColor: [string]: The Tailwind hover color of the button.
+ * - button.text: [string]: Display text on the button.
+ *
+ * - button_classes: [array] Button classes from other partials.
+ * - button_attributes: [array] Button attributes from other partials.
+ *
+ */
+#}
+
+{% set button_element = button.element|default('button') %}
+
+{% set button_attributes =
+  button_attributes
+    |default({})
+    |merge({
+      type: button_element != 'a' ? 'button' : 'link'
+    })
+%}
+
+{% set button_classes =
+  [
+    'py-2',
+    'px-4',
+    'text-white',
+    'font-bold',
+    'rounded',
+    button.color ? button.color : 'bg-blue-500',
+    button.hoverColor ? 'hover:' ~ button.hoverColor : 'hover:bg-blue-700'
+  ]
+    |merge(button_classes|default([]))
+    |join(' ')
+    |trim
+%}
+
+<{{button_element}} {{ button_attributes|attributify }} class="{{ button_classes }}">
+  {{ button.text }}
+  {% block right %}
+  {% endblock right %}
+</{{button_element}}>

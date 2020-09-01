@@ -1,0 +1,13 @@
+{#
+/**
+ * @file Footer!
+ *
+ * Available variables:
+ * - footer.slogan: [string]: A handy slogan to display.
+ */
+#}
+<footer class="container mx-auto p-3 footer" role="contentinfo">
+  {% block footer %}
+    {{ footer.slogan }}
+  {% endblock footer %}
+</footer>

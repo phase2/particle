@@ -1,0 +1,19 @@
+{#
+/**
+ * @file Breadcrumbs!
+ *   Documenting @atoms/breadcrumb/_breadcrumb.twig
+ *
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: breadcrumbs_demo
+  }
+%}
+  {% block content %}
+    {% include '@atoms/breadcrumb/_breadcrumb.twig' with breadcrumb_1 %}
+    {% include '@atoms/breadcrumb/_breadcrumb.twig' with breadcrumb_2 %}
+    {% include '@atoms/breadcrumb/_breadcrumb.twig' with breadcrumb_3 %}
+  {% endblock content %}
+{% endembed %}

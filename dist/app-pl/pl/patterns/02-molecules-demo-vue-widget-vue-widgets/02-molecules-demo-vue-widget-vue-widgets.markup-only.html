@@ -1,0 +1,185 @@
+<div class="container mx-auto">
+  <div class="flex flex-wrap">
+    <div class="flex-grow w-full">
+                        <h1 class="text-6xl mb-3">
+            Vue Widgets
+          </h1>
+                          <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
+                          <p class="pb-3">
+                Example Vue Applications
+              </p>
+                                      <p class="pb-3">
+                Vue is a flexible and robust UI library similar to React.
+              </p>
+            
+                          <a href="https://vuejs.org/v2/guide/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-blue-500 text-sm">
+                Vue Documentation
+              </a>
+                      </div>
+                  </div>
+
+    <div class="flex-grow w-full">
+          <h2 class="mt-3">
+      Vue in existing markup
+    </h2>
+    <p>
+      View can work with markup that already exists in the DOM, similar to how we've always used jQuery. The form below
+      is one way to have a view component. Note that it relies on ./demo/index.js to function.
+    </p>
+    <h3>
+      Example:
+    </h3>
+    <form id="vue-html-example-1" onsubmit="return false" class="p-5">
+      <label for="vue-html-example-1-input">Send some text to space!</label>
+      <div class="flex items-center">
+        <input id="vue-html-example-1-input"
+          class="appearance-none py-2 px-2 text-base leading-normal bg-white text-grey-darker border border-grey rounded"
+          type="text"
+          v-model="name"
+          placeholder="Send this text to outer space" />
+
+        <button class="border py-2 px-4 rounded text-blue-500 border-blue-500 bg-white hover:bg-blue-200 hover:text-blue-700"
+          type="submit"
+          v-on:click="toSpace(name)">
+          🚀 Send to space
+        </button>
+
+        <div class="ml-2">
+          You typed: <strong>{{ name }}</strong>
+        </div>
+      </div>
+    </form>
+
+    <p>
+      The form above is instantiated entirely from HTML already existing in the page. This isn't optimal, but it is an
+      option.
+    </p>
+    <div class="flex">
+      <div class="sm:w-1/2 pr-4 pl-4">
+        <h4>
+          HTML
+        </h4>
+                        <pre><code class="language-html">&lt;form id=&quot;vue-html-example-1&quot;&gt;
+  &lt;span&gt;{{ name }}&lt;/span&gt;
+  &lt;input v-model=&quot;name&quot; /&gt;
+  &lt;button v-on:click=&quot;toSpace(name)&quot;&gt;🚀 Send to space&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+      </div>
+      <div class="sm:w-1/2 pr-4 pl-4">
+        <h4>
+          JavaScript
+        </h4>
+                        <pre><code class="language-javascript">/* eslint-disable no-new, no-alert */
+import Vue from &#039;vue&#039;;
+
+new Vue({
+  el: &#039;#vue-html-example-1&#039;,
+  data: {
+    name: &#039;&#039;,
+  },
+  methods: {
+    toSpace() {
+      alert(this.name);
+    },
+  },
+});
+</code></pre>
+      </div>
+    </div>
+
+    <h2 class="mt-3">
+      Vue using .vue files
+    </h2>
+    <p>
+      We can achieve the same application using a .vue file and attach it to an id.
+    </p>
+    <h3>
+      Example (attached via ID here in the HTML):
+    </h3>
+    <div id="vue-input-text-component"></div>
+    <p>
+      The .vue file encapsulates templating and logic. This is ideal.
+    </p>
+    <div class="flex">
+      <div class="sm:w-1/2 pr-4 pl-4">
+        <h4>
+          .vue
+        </h4>
+                        <pre><code class="language-html">&lt;template&gt;
+  &lt;form id=&quot;vue-html-example-1&quot;&gt;
+    &lt;span&gt;{{ name }}&lt;/span&gt;
+    &lt;input v-model=&quot;name&quot; /&gt;
+    &lt;button @click=&quot;toSpace(name)&quot;&gt;🚀 Send to space&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/template&gt;
+&lt;script&gt;
+/* eslint-disable no-alert */
+export default {
+  data: () =&gt; ({
+    name: &#039;&#039;,
+  }),
+  methods: {
+    toSpace() {
+      alert(this.name);
+    },
+  },
+};
+&lt;/script&gt;
+</code></pre>
+      </div>
+      <div class="sm:w-1/2 pr-4 pl-4">
+        <h4>
+          JavaScript
+        </h4>
+                        <pre><code class="language-javascript">/* eslint-disable no-new */
+import Vue from &#039;vue&#039;;
+import VueExample2 from &#039;./vue-html-example.vue&#039;;
+
+new Vue({
+  el: &#039;#vue-html-example-2&#039;,
+  components: { VueExample2 },
+  template: &#039;&lt;VueExample2/&gt;&#039;,
+});
+</code></pre>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div class="flex-grow">
+        <h2 class="mt-3">
+          Styles + Events in Vue
+        </h2>
+        <p>
+          Below are multiple components communicating with each other through props and events.
+        </p>
+        <div class="relative px-3 py-3 mb-4 border rounded text-blue-darker border-blue-dark bg-blue-lighter"
+          role="alert">
+          Check vue-cards/ for respective implementation details.
+        </div>
+        <div id="vue-cards"></div>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div class="flex-grow">
+        <h2 class="mt-3">
+          Dynamic classes and the power of "computed"
+        </h2>
+        <p>
+          Below is a clock deriving most of its state from a single data property, with changes triggered by an
+          interval.
+        </p>
+        <div class="relative px-3 py-3 mb-4 border rounded text-blue-darker border-blue-dark bg-blue-lighter"
+          role="alert">
+          Check vue-clock/ for respective implementation details.
+        </div>
+        <div id="vue-clock"></div>
+      </div>
+    </div>
+      </div>
+  </div>
+</div>

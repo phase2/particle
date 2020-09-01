@@ -1,0 +1,59 @@
+{#
+/**
+ * @file Spacing!
+ *   Documenting Spacing Examples from Tailwind.
+ *
+ * Available variables:
+ * - tokens.spacing: [array] Provided from data as a list of spacing values.
+ *
+ * @see https://tailwindcss.com/docs/customizing-spacing
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: spacing_demo
+  }
+%}
+  {% block content %}
+    {% set tdClasses = 'border text-center' %}
+    <table class="table-auto w-full">
+      <thead>
+        <tr class="border">
+          <th scope="col" class="p-4">
+            Name
+          </th>
+          <th scope="col" class="p-4">
+            Size
+          </th>
+          <th scope="col" class="p-4">
+            Pixels
+          </th>
+          <th scope="col" class="p-4">
+            Example
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for spacer, value in tokens.spacing %}
+          {% if spacer != 0 %}
+            <tr>
+              <td class="{{ tdClasses }}">
+                {{ spacer }}
+              </td>
+              <td class="{{ tdClasses }}">
+                {{ value }}
+              </td>
+              <td class="{{ tdClasses }}">
+                {{ (value|trim('rem')) * 16 ~ 'px' }}
+              </td>
+              <td class="{{ tdClasses }}">
+                <div class="{{ 'h-4 bg-blue-300 w-' ~ spacer }}"></div>
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endblock content %}
+{% endembed %}

@@ -1,0 +1,47 @@
+{#
+/**
+ * @file Branding!
+ * Designed to be added inside a Jumbotron.
+ *
+ * Available variables:
+ * - url: [string] the url the block directs to.
+ * - logo_svg_inline: [string] The SVG path.
+ * - logo_img_src: [string] The IMG path.
+ * - site_name: [string] the site name provided by the app.
+ * - site_slogan: [string] the site slogan provided by the app.
+ */
+#}
+
+<aside class="branding">
+  <div class="branding__site-logo">
+    <a href="{{ url }}" title="{{ site_name }}" rel="home">
+      {% if logo_svg_inline %}
+        {% include '@atoms/svg/_svg.twig' with {
+          svg: {
+            path: logo_svg_inline,
+            fillCurrent: true
+          }
+        } %}
+      {% elseif logo_img_src %}
+        {% include '@atoms/image/_image.twig' with {
+          image: {
+            variant: 'primary',
+            src: logo_img_src,
+            alt: site_name ~ ' site logo'
+          }
+        } %}
+      {% endif %}
+    </a>
+  </div>
+
+  {% if site_name %}
+    <h1 class="text-3xl branding__site-name">
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+    </h1>
+  {% endif %}
+  {% if site_slogan %}
+    <p class="text-lg font-light branding__site-slogan">
+      {{ site_slogan }}
+    </p>
+  {% endif %}
+</aside>

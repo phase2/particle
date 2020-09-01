@@ -1,0 +1,23 @@
+{#
+/**
+ * @file Breadcumb!
+ *
+ * Available variables:
+ * - breadcrumb_items: [array] A list of breadcrumbs to render
+ * - breadcrumb_title: [string] The title of the breadcrumb
+ * - breadcrumb_link: [string] The URL of the breadcrumb
+ *
+ * @see https://www.w3.org/TR/wai-aria-practices/#breadcrumb
+ */
+#}
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="flex flex-wrap list-reset pt-3 pb-3 py-4 px-4 mb-4 bg-gray-200 rounded">
+    {% for item in breadcrumb %}
+      {% if loop.last %}
+        <li class="inline-block px-2 py-2 text-grey-dark active is-active" aria-current="page">{{ item.text }}</li>
+      {% else %}
+        <li class="inline-block px-2 py-2 text-grey-dark"><a href="{{ pl ? '#' : item.url }}">{{ item.text }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>

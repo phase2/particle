@@ -1,0 +1,133 @@
+{#
+/**
+ * @file Vue Widgets!
+ *   Documenting @molecules/vue-widget/_VARIANT.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: vue_widgets_demo
+  }
+%}
+  {% block content %}
+    <h2 class="mt-3">
+      Vue in existing markup
+    </h2>
+    <p>
+      View can work with markup that already exists in the DOM, similar to how we've always used jQuery. The form below
+      is one way to have a view component. Note that it relies on ./demo/index.js to function.
+    </p>
+    <h3>
+      Example:
+    </h3>
+    <form id="vue-html-example-1" onsubmit="return false" class="p-5">
+      <label for="vue-html-example-1-input">Send some text to space!</label>
+      <div class="flex items-center">
+        <input id="vue-html-example-1-input"
+          class="appearance-none py-2 px-2 text-base leading-normal bg-white text-grey-darker border border-grey rounded"
+          type="text"
+          v-model="name"
+          placeholder="Send this text to outer space" />
+
+        <button class="border py-2 px-4 rounded text-blue-500 border-blue-500 bg-white hover:bg-blue-200 hover:text-blue-700"
+          type="submit"
+          v-on:click="toSpace(name)">
+          🚀 Send to space
+        </button>
+
+        <div class="ml-2">
+          You typed: <strong>{% raw %}{{ name }}{% endraw %}</strong>
+        </div>
+      </div>
+    </form>
+
+    <p>
+      The form above is instantiated entirely from HTML already existing in the page. This isn't optimal, but it is an
+      option.
+    </p>
+    <div class="flex">
+      <div class="sm:w-1/2 pr-4 pl-4">
+        <h4>
+          HTML
+        </h4>
+        {% set example = source('@demos/02-molecules-demo/vue-widget/example-1.html') %}
+        {# prettier-ignore #}
+        <pre><code class="language-html">{%- autoescape 'html' -%}{{- example -}}{%- endautoescape -%}</code></pre>
+      </div>
+      <div class="sm:w-1/2 pr-4 pl-4">
+        <h4>
+          JavaScript
+        </h4>
+        {% set example = source('@demos/02-molecules-demo/vue-widget/example-1.js') %}
+        {# prettier-ignore #}
+        <pre><code class="language-javascript">{%- autoescape 'html'-%}{{- example -}}{%- endautoescape -%}</code></pre>
+      </div>
+    </div>
+
+    <h2 class="mt-3">
+      Vue using .vue files
+    </h2>
+    <p>
+      We can achieve the same application using a .vue file and attach it to an id.
+    </p>
+    <h3>
+      Example (attached via ID here in the HTML):
+    </h3>
+    <div id="vue-input-text-component"></div>
+    <p>
+      The .vue file encapsulates templating and logic. This is ideal.
+    </p>
+    <div class="flex">
+      <div class="sm:w-1/2 pr-4 pl-4">
+        <h4>
+          .vue
+        </h4>
+        {% set example = source('@demos/02-molecules-demo/vue-widget/example-2.vue') %}
+        {# prettier-ignore #}
+        <pre><code class="language-html">{%- autoescape 'html' -%}{{- example -}}{%- endautoescape -%}</code></pre>
+      </div>
+      <div class="sm:w-1/2 pr-4 pl-4">
+        <h4>
+          JavaScript
+        </h4>
+        {% set example = source('@demos/02-molecules-demo/vue-widget/example-2.js') %}
+        {# prettier-ignore #}
+        <pre><code class="language-javascript">{%- autoescape 'html' -%}{{- example -}}{%- endautoescape -%}</code></pre>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div class="flex-grow">
+        <h2 class="mt-3">
+          Styles + Events in Vue
+        </h2>
+        <p>
+          Below are multiple components communicating with each other through props and events.
+        </p>
+        <div class="relative px-3 py-3 mb-4 border rounded text-blue-darker border-blue-dark bg-blue-lighter"
+          role="alert">
+          Check vue-cards/ for respective implementation details.
+        </div>
+        {% include '@molecules/vue-widget/_vue-cards.twig' %}
+      </div>
+    </div>
+
+    <div class="flex">
+      <div class="flex-grow">
+        <h2 class="mt-3">
+          Dynamic classes and the power of "computed"
+        </h2>
+        <p>
+          Below is a clock deriving most of its state from a single data property, with changes triggered by an
+          interval.
+        </p>
+        <div class="relative px-3 py-3 mb-4 border rounded text-blue-darker border-blue-dark bg-blue-lighter"
+          role="alert">
+          Check vue-clock/ for respective implementation details.
+        </div>
+        {% include '@molecules/vue-widget/_vue-clock.twig' %}
+      </div>
+    </div>
+  {% endblock content %}
+{% endembed %}

@@ -1,0 +1,67 @@
+{#
+/**
+ * @file Alert!
+ *
+ * Available variables:
+ * - type: [string] status | warning | error: The type of error to display.
+ * - alert_degree: [string] (optional) The degree of error. Set via Type for Accessibility.
+ * - alert_title: [string] The heading value of the Alert.
+ * - alert_primary: [string] The paragraph value of the Alert.
+ * - alert_secondary: [string] (optional) The value of the footer.
+ *
+ */
+#}
+{% set status_bg = {
+  status: 'bg-green-200',
+  error: 'bg-red-200',
+  warning: 'bg-yellow-200',
+  info: 'bg-blue-200'
+} %}
+{% set status_text = {
+  status: 'text-green-800',
+  error: 'text-red-800',
+  warning: 'text-yellow-800',
+  info: 'text-blue-800'
+} %}
+
+{% set alert_classes =
+  [
+    'mb-0',
+    'alert',
+    status_bg[type],
+    status_text[type],
+    'alert-dismissible',
+    'fade',
+    'show',
+    'rounded',
+    'relative',
+    alert_other_classes
+  ]
+    |join(' ')
+    |trim
+%}
+{% set alert_degree = type == 'error' ? 'role=alert' : 'aria-live=polite' %}
+<div class="p-4 {{ alert_classes }}" {{ alert_degree }}>
+  {% block alert_header %}
+    {% if alert_title %}
+      <div class="flex justify-between">
+        <h4 class="text-2xl">
+          {{ alert_title }}
+        </h4>
+      </div>
+    {% endif %}
+  {% endblock alert_header %}
+  {% block alert_content %}
+    <p class="mb-2 text-base">
+      {{ alert_primary }}
+    </p>
+  {% endblock alert_content %}
+  {% block alert_footer %}
+    {% if alert_secondary %}
+      <hr />
+      <p class="mt-2 text-base">
+        {{ alert_secondary }}
+      </p>
+    {% endif %}
+  {% endblock alert_footer %}
+</div>

@@ -1,0 +1,18 @@
+{#
+/**
+ * @file Pagination!
+ *   Documenting @molecules/pagination/_pagination.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: paginations_demo
+  }
+%}
+  {% block content %}
+    {% include '@molecules/pagination/_pagination.twig' with {
+      pagination: pagination_1
+    } %}
+  {% endblock content %}
+{% endembed %}

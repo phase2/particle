@@ -1,0 +1,31 @@
+{#
+/**
+ * @file Grid!
+ *
+ * Available variables:
+ * - grid.variant: [string]: Type of grid to included, defaults to 1-up.
+ * - grid.container: [string]: Whether the grid embeds wrapping container class.
+ * - grid.center: [string]: Whether the grid is centered.
+ * - grid.wrap: [boolean]: Whether the items wrap.
+ *
+ * - grid_classes: [array] Grid classes from other partials.
+ * - grid_attributes: [array] Grid attributes from other partials.
+ *
+ */
+#}
+
+{% set grid_classes =
+  grid_classes|default([])|merge(['grid', grid.container ? 'container' : '', grid.center ? 'mx-auto' : ''])
+%}
+
+{% set column_classes =
+  column_classes|default([])|merge(['flex', grid.wrap is same as(false) ? '' : 'flex-wrap'])|join(' ')|trim
+%}
+
+<div {{ grid_attributes is not empty ? grid_attributes|attributify : '' }} class="{{ grid_classes|join(' ')|trim }}">
+  <div class="{{ column_classes }}">
+    {% block grid_content %}
+
+    {% endblock grid_content %}
+  </div>
+</div>

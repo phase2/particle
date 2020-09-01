@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * textarea
+ *
+ * Available variables for textarea:
+ *  - textarea.variant [string]: The type of textarea (defaults to attribute of type).
+ *  - textarea.attributes [array]: Any set of valid HTML Attributes.
+ *      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
+ */
+#}
+
+{# Update Classes with Design System Values #}
+{% set textarea_classes =
+  textarea_classes
+    |default([])
+    |merge(['textarea', 'form-textarea', textarea.attributes.class ? textarea.attributes.class|join(' ')|trim])
+    |join(' ')
+    |trim
+%}
+
+{# Update Attributes with New Classes + Supplemental Data #}
+{% set textarea_attributes =
+  textarea.attributes
+    |default({})
+    |merge({
+      class: textarea_classes
+    })
+%}
+
+<textarea {{ textarea_attributes|attributify }}>
+  {% block textarea_content %}
+    {{ textarea.content }}
+  {% endblock textarea_content %}
+</textarea>

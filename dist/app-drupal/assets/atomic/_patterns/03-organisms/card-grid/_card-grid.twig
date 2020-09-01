@@ -1,0 +1,34 @@
+{#
+/**
+ * @file Card Grid!
+ *
+ * Available variables:
+ * - card_grid.title: [string]: The title of the card grid.
+ * - card_grid.items: [array]: A collection of cards to display.
+ */
+#}
+
+{% set card_grid_classes = card_grid_classes|default([])|merge(['card-grid'])|join(' ')|trim %}
+
+<div class="{{ card_grid_classes }}">
+  {% block card_grid_title %}
+    {% if card_grid.title %}
+      <h3>
+        {{ card_grid.title }}
+      </h3>
+    {% endif %}
+  {% endblock card_grid_title %}
+
+  {% block card_grid_items %}
+    {% if card_grid.items %}
+      <div class="flex flex-wrap">
+        {% for item in card_grid.items %}
+          {% include '@molecules/card/_card.twig' with {
+            card: item,
+            card_classes: ['w-full', 'sm:w-1/3', 'm-3']
+          } %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endblock card_grid_items %}
+</div>

@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * svg--sprite
+ *
+ * Available variables for svg--sprite:
+ *  - svg.name [string]: SVG file name, minus the extension
+ *    Example: 'person'
+ *
+ */
+#}
+
+{% set svg =
+  {
+    name: 'person'
+  }|merge(svg)
+%}
+
+<svg viewBox="0 0 500 500">
+  <use xlink:href="{{ paths.images }}/spritemap.svg?#sprite-{{ svg.name }}"></use>
+</svg>

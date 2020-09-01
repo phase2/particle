@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ *   pagination
+ *
+ * Available variables for pagination:
+ *  - pagination.variant [string]: When set, adds variant styling and behavior.
+ *  - pagination.title [string]: The title of the pagination.
+ *  - pagination.previous [array]: An instance of the previous link.
+ *  - pagination.list [array]: A list of terms describing pagination content.
+ *  - pagination.next [array]: An instance of the last/next link.
+ */
+#}
+
+{% set pagination_classes =
+  pagination_classes
+    |default([])
+    |merge(
+      [
+        'pagination',
+        pagination.variant ? 'pagination--' ~ pagination.variant : '',
+        'flex',
+        'list-reset',
+        'rounded',
+        'w-auto',
+        'font-sans'
+      ]
+    )
+    |join(' ')
+    |trim
+%}
+
+<nav class="inline-flex shadow-sm" aria-label="{{ pagination.title }}">
+  {% set link_classes =
+    ['block', 'hover:text-white', 'hover:bg-blue-500', 'text-blue', 'border', 'border-gray-500', 'px-3', 'py-2']|join(
+      ' '
+    )
+  %}
+
+  <ul class="{{ pagination_classes }}">
+    {% if pagination.previous %}
+      <li>
+        <a class="{{ link_classes }}" href="{{ pagination.previous.url }}">
+          {{ pagination.previous.title|default('Previous'|t) }}
+        </a>
+      </li>
+    {% endif %}
+
+    {% if pagination.links %}
+      {% for link in pagination.links %}
+        <li><a class="{{ link_classes }}" href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    {% endif %}
+
+    {% if pagination.next %}
+      <li>
+        <a class="{{ link_classes }}" href="{{ pagination.next.url }}">{{ pagination.next.title|default('Next'|t) }}</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>

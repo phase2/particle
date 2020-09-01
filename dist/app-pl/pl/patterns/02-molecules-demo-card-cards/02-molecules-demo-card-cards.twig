@@ -1,0 +1,18 @@
+{#
+/**
+ * @file Cards!
+ *   Documenting @molecules/card/_card.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: cards_demo
+  }
+%}
+  {% block content %}
+    {% include '@molecules/card/_card.twig' with {
+      card: card_1
+    } %}
+  {% endblock content %}
+{% endembed %}
