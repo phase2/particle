@@ -52,11 +52,11 @@ in particle */
 }
 
 .utc-card-2--align-center {
-  text-align: center !important;
+  text-align: center;
 }
 
 .utc-card-2--align-right {
-  text-align: right !important;
+  text-align: right;
 }
 
 .utc-card-2--align-right .utc-card-2__action-container {
@@ -165,7 +165,7 @@ in particle */
 
 /* ========== Thumbnail Card ========= */
 .utc-card-2--thumbnail.utc-card-2--align-center {
-  text-align: center !important;
+  text-align: center;
 }
 
 .utc-card-2--thumbnail.utc-card-2--align-center .utc-card-2__action-container {
