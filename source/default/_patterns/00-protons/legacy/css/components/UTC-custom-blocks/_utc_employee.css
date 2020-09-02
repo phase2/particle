@@ -15,7 +15,7 @@
 }
 .employee-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(310px, max-content));
+  grid-template-columns: repeat(auto-fit,minmax(320px, max-content));
 }
 .card-body {
   margin-top:-18px;
