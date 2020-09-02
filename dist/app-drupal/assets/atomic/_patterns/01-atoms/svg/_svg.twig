@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * svg
+ *
+ * See _svg--embed.twig and _svg-sprite.twig for variables specific to those
+ * variants.
+ *
+ * Available variables for svg:
+ *  - svg.variant [string]: Indicates which svg pattern to use.
+ *  - svg.fillCurrent [bool]: Use the tailwind's fill-current utility class.
+ *  - svg.strokeCurrent [bool]: Use the tailwind's stroke-current utility class.
+ *  - svg_classes [array<string>]: Array of string classes to add
+ *      Example: ['text-red-500', 'w-10']
+ */
+#}
+
+{# Default SVG settings, overridden by incoming svg object #}
+{% set svg =
+  {
+    fillCurrent: true,
+    variant: 'embed'
+  }|merge(svg)
+%}
+
+{# Default SVG classes, overridden by incoming array #}
+{% set svg_classes =
+  ['svg', 'svg--' ~ svg.variant, svg.fillCurrent ? 'fill-current' : '', svg.strokeCurrent ? 'stroke-current' : '']
+    |merge(svg_classes|default([]))
+    |join(' ')
+    |trim
+%}
+
+<span class="{{ svg_classes }}">
+  {% if svg.variant == 'embed' %}
+    {% include '@atoms/svg/_svg--embed.twig' with {
+      svg: svg,
+      svg_classes: svg_classes
+    } %}
+  {% elseif svg.variant == 'sprite' %}
+    {% include '@atoms/svg/_svg--sprite.twig' with {
+      svg: svg,
+      svg_classes: svg_classes
+    } %}
+  {% endif %}
+</span>

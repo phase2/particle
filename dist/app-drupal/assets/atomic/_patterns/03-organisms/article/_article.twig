@@ -1,0 +1,58 @@
+{#
+/**
+ * @file Article!
+ * An Article implementation.
+ *
+ * Available variables:
+ * - article.title: [string]: The title of the article.
+ * - article.body: [string]: Body content for a article.
+ * - article.author_name: [string]: The name of the author.
+ * - article.date: [string]: A simple string date.
+ * - article.tags: [array]: An array of tags.
+ */
+#}
+
+{% set article_classes =
+  article_classes
+    |default([])
+    |merge(['article', article.variant ? 'article--' ~ article.variant : '', 'pb-3'])
+    |join(' ')
+    |trim
+%}
+
+{% set image_classes = ['m-3', 'rounded-full', 'float-right']|sort %}
+
+<article class="{{ article_classes }}">
+  {% block article_header %}
+    <h2 class="pb-3">
+      {{ article.title }}
+    </h2>
+  {% endblock article_header %}
+
+  {% block article_content %}
+    <div class="pb-5 text-justify">
+      {% include '@atoms/image/_image.twig' with {
+        image: article.image,
+        image_classes: image_classes
+      } %}
+      {{ article.body }}
+    </div>
+  {% endblock article_content %}
+
+  {% block article_footer %}
+    <div>
+      <span class="font-bold">Tags:</span>
+      <ul class="list-none">
+        {% for tag in article.tags %}
+          <li class="inline"><a href="{{ tag.url }}" target="_blank">{{ tag.word }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <blockquote class="text-right">
+      <footer class="block text-grey">
+        Submitted by {{ article.author_name }} on {{ article.date }}
+      </footer>
+    </blockquote>
+  {% endblock article_footer %}
+</article>

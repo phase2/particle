@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * grid--4-up
+ *   Implements 4-column grid.
+ *
+ * Available variables for grid--4up:
+ *  - Inherit variables from @atoms/grid/_grid.twig
+ */
+#}
+
+{% extends '@atoms/grid/_grid.twig' %}
+
+{% set grid_classes = grid_classes|default([])|merge(['grid--4-up']) %}
+
+{% block grid_content %}
+  <div class="w-full sm:w-1/4">
+    {% block column_1 %}
+      <span>Column 1/4</span>
+    {% endblock column_1 %}
+  </div>
+
+  <div class="w-full sm:w-1/4">
+    {% block column_2 %}
+      <span>Column 2/4</span>
+    {% endblock column_2 %}
+  </div>
+
+  <div class="w-full sm:w-1/4">
+    {% block column_3 %}
+      <span>Column 4/4</span>
+    {% endblock column_3 %}
+  </div>
+
+  <div class="w-full sm:w-1/4">
+    {% block column_4 %}
+      <span>Column 4/4</span>
+    {% endblock column_4 %}
+  </div>
+{% endblock grid_content %}

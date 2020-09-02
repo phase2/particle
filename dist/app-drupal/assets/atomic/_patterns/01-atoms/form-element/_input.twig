@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * input
+ *
+ * Available variables for input:
+ *  - input.attributes [array]: Any set of valid HTML Attributes.
+ *      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+ */
+#}
+
+{# Default Input settings, overridden by incoming Input object #}
+{% set input =
+  {
+    attributes: {
+      type: 'text'
+    }
+  }|merge(input|default({}))
+%}
+
+{# Set the Variant for CSS Class by Attribute Value of Type #}
+{% set input_variant = input.attributes.type ? input.attributes.type : 'text' %}
+
+{# Non-Input Form Types #}
+{% set form_type_classes = {
+  input: 'form-input',
+  checkbox: 'form-checkbox',
+  color: 'form-color',
+  radio: 'form-radio',
+  range: 'form-range'
+} %}
+
+{# Update Classes with Design System Values #}
+{% set input_classes =
+  input_classes
+    |default([])
+    |merge(
+      [
+        'input',
+        'input--' ~ input_variant,
+        input_variant in (form_type_classes|keys) ? form_type_classes[input_variant] : form_type_classes.input,
+        input.attributes.class ? input.attributes.class|join(' ')|trim : ''
+      ]
+    )
+    |join(' ')
+    |trim
+%}
+
+{# Update Attributes with New Classes + Supplemental Data #}
+{% set input_attributes =
+  input.attributes
+    |default({})
+    |merge({
+      class: input_classes
+    })
+%}
+
+{% block input_content %}
+  <input {{ input_attributes|attributify }} />
+{% endblock input_content %}

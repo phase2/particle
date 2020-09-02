@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * image
+ *
+ * Available variables for image:
+ *  - image.variant [string]: Indicates which image pattern to use.
+ *  - image.src [string]: Specifies the URL of an image.
+ *  - image.alt [string]: Specifies an alternate text for an image.
+ *  - image.placeholder [bool]: Specifies image as placeholder (see _image--placeholder.twig).
+ *  - image.style [string]: Specifies image size or style attribute.
+ */
+#}
+
+{% set image_classes =
+  image_classes
+    |default([])
+    |merge(
+      ['image', 'img-fluid', image.style ? 'image--' ~ image.style : '', image.variant ? 'image--' ~ image.variant : '']
+    )
+    |join(' ')
+    |trim
+%}
+
+{% if image.placeholder %}
+  {% include '@atoms/image/_image--placeholder.twig' with {
+    image: image,
+    image_classes: image_classes
+  } %}
+{% elseif image.variant == 'primary' %}
+  {% include '@atoms/image/_image--primary.twig' with {
+    image: image,
+    image_classes: image_classes
+  } %}
+{% elseif image.variant == 'bg' %}
+  {% include '@atoms/image/_image--bg.twig' with {
+    image: image,
+    image_classes: image_classes
+  } %}
+{% elseif image.variant == 'picture' %}
+  {% include '@atoms/image/_image--picture.twig' with {
+    image: image,
+    image_classes: image_classes
+  } %}
+{% endif %}

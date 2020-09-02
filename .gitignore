@@ -21,6 +21,6 @@ npm-debug.log
 php_errors.log
 
 # Particle
-dist/
+# dist/
 dependencyGraph.json
 patterns.zip
