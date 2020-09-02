@@ -1,10 +1,10 @@
-/* //this is a hacky way to fix extra margin caused by themag theme at certain widths
-//possibly look at padding and margin of layout blocks
-//across site to determine whether all padding/margin should be dictated by block type vs.
-//in the layout
+/* this is a hacky way to fix extra margin caused by themag theme at certain widths
+possibly look at padding and margin of layout blocks
+across site to determine whether all padding/margin should be dictated by block type vs.
+in the layout
 
-//this class should be moved to a card grid scss file
-//in particle */
+this class should be moved to a card grid scss file
+in particle */
 .utc-card-grid__container {
   margin-bottom: 30px;
 }
@@ -63,7 +63,7 @@
   right: 4%;
 }
 
-//card width
+/* card width */
 
 .utc-card-2--w-100 {
   width: 100%;
@@ -79,7 +79,7 @@
   }
 }
 
-//aligns with two card rows
+/* aligns with two card rows */
 .utc-card-2--w-50 {
   width: 48.8%;
 }
@@ -90,7 +90,7 @@
   }
 }
 
-//card colors and hovers
+/* card colors and hovers */
 .utc-card-2--white {
   word-wrap: break-word;
   background-color: #ffffff;
@@ -141,15 +141,9 @@
   color: #000000;
 }
 
-.utc-card-2__icon .utc-card-2:hover {
-  color: #000000;
-}
+
 
 .utc-card-2--blue .fontawesome-icons {
-  color: #112e51;
-}
-
-.utc-card-2--blue .fontawesome-icons:hover {
   color: #112e51;
 }
 
@@ -157,11 +151,19 @@
   color: #fdb736;
 }
 
+.utc-card-2__icon .utc-card-2:hover {
+  color: #000000;
+}
+.utc-card-2--blue .fontawesome-icons:hover {
+  color: #112e51;
+}
+
+
 .utc-card-2--yellow .fontawesome-icons:hover {
   color: #fdb736;
 }
 
-// ========== Thumbnail Card =========
+/* ========== Thumbnail Card ========= */
 .utc-card-2--thumbnail.utc-card-2--align-center {
   text-align: center !important;
 }
@@ -175,7 +177,7 @@
   width: 75%;
 }
 
-// ========== Wide Card =========
+/* ========== Wide Card ========= */
 
 @media (min-width: 576px) {
   .utc-card-2--wide {
@@ -197,7 +199,7 @@
     margin: 0 -1.25rem 0 0;
   }
 
-  //image span full width of column container
+  /* image span full width of column container */
   .utc-card-2--wide .media-image {
     height: 100%;
   }
@@ -213,7 +215,7 @@
   }
 }
 
-// ========== Sidebar Card =========
+/* ========== Sidebar Card ========= */
 .utc-sidebar-card {
   word-wrap: break-word;
   background-color: #ffffff;
@@ -247,7 +249,7 @@
   padding: 1.25rem;
 }
 
-//adjust h3 size for visuals/accessibility
+/* adjust h3 size for visuals/accessibility */
 .utc-sidebar-card h3 {
   font-size: 1.25rem;
 }

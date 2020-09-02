@@ -1,92 +1,124 @@
+{% extends "block.html.twig" %}
 {#
 /**
- * @file
- * Theme override to display a block.
+ * @file Card Grid!
+ * Implements a grid of cards using Bootstrap layout.
  *
  * Available variables:
- * - plugin_id: The ID of the block implementation.
- * - label: The configured label of the block if visible.
- * - configuration: A list of the block's configuration values.
- *   - label: The configured label for the block.
- *   - label_display: The display settings for the label.
- *   - provider: The module or other provider that provided this block plugin.
- *   - Block plugin specific settings will also be stored here.
- * - content: The content of this block.
- * - attributes: array of HTML attributes populated by modules, intended to
- *   be added to the main container tag of this template.
- *   - id: A valid HTML ID and guaranteed unique.
- * - title_attributes: Same as attributes, except applied to the main title
- *   tag that appears in the template.
- * - title_prefix: Additional output populated by modules, intended to be
- *   displayed in front of the main title tag that appears in the template.
- * - title_suffix: Additional output populated by modules, intended to be
- *   displayed after the main title tag that appears in the template.
- *
- * @see template_preprocess_block()
  */
 #}
+ 
+{% block content %}
+	{% set rendered_content = content|render %}
+	{# Sets variable to trigger content render array. #}
 
-{# could be the base card template in a design system #}
-{# set variables for card classes based on Drupal input - likely relocate in design system #}
 
-{% set card_classes = [
-  'utc-card-2',
-  'h-100',
-  card_type ? 'utc-card-2--' ~ card_type,
-  card_color ? 'utc-card-2--' ~ card_color : 'utc-card-2--white',
-  card_width ? 'utc-card-2--w-' ~ card_width,
-  text_alignment ? 'utc-card-2--align-' ~ text_alignment,
-  card_link ? 'utc-card-2--card-link',
-] | sort | join(' ') | trim %}
+	{# I belive all of these variables defined by Drupal inputs would remain here, but the
+  grid portion would be moved to a different template file if/when a design system is implemented #}
+	{% set card_color = content.field_card_color|field_value|render %}
+	{% set text_alignment = content.field_card_content_alignment|field_value|render %}
+	{% set card_count = content["#block_content"].field_card_count.0.value %}
+	{% set card_width = content.field_single_card_width|field_value|render %}
+	{% set card_type = content["#block_content"].field_card_type.0.value %}
 
-{# could use include statements for items like images and buttons in design system #}
-  {% if card_link %}
-    <a href="{{ card_link }}" target="{{ card_link_target }}">
-  {% endif %}
+	{# set variables for card content based on Drupal input #}
+	{% set item_card_1 = {
+    card_link: content.field_card_link.0['#url'],
+    card_title: content.field_card_title|field_value,
+    card_image: content.field_card_image|field_value,
+	card_icon: content.field_card_icon|field_value,
+	card_icon_color: content.field_card_icon_color|field_value|render,
+    card_text: content.field_card_body|field_value,
+    card_button_text: content.field_card_button.0['#title'],
+    card_button_url: content.field_card_button.0['#url'],
+	card_button_target: content.field_card_button_target[0]|render == 'On' ? '_blank',
+    card_link_target: content.field_card_link_target[0]|render == 'On' ? '_blank',
+    
+    } %}
 
-  <div class="{{ card_classes }}">
+	{% set item_card_2 = {
+    card_link: content.field_card_link_2.0['#url'],
+    card_title: content.field_card_title_2|field_value,
+    card_image: content.field_card_image_2|field_value,
+	card_icon: content.field_card_icon_2|field_value,
+	card_icon_color: content.field_card_icon_color_2|field_value|render,
+    card_text: content.field_card_body_2|field_value,
+    card_button_text: content.field_card_button_2.0['#title'],
+    card_button_url: content.field_card_button_2.0['#url'],
+	card_button_target: content.field_card_button_target_2[0]|render == 'On' ? '_blank',
+    card_link_target: content.field_card_link_target_2[0]|render == 'On' ? '_blank',
+  
+    } %}
 
-    {% if (card_icon is empty) and card_image %}
-      {{ card_image }}
-    {% endif %}
-
-    {% if card_icon %}
-      <div class="utc-card-2__icon utc-card-2__icon--{{ card_icon_color }}">
-        {{ card_icon }}
-      </div>
-    {% endif %}
-
-    {% block card_body %}
-
-      {% if (card_link is empty) and card_button_url %}
-        <div class="utc-card-2__body utc-card-2__body--with-action">
-      {% else %}
-        <div class="utc-card-2__body">
-      {% endif %}
-
-        {% if card_title %}
-          <h3 class="utc-card-2__title">{{ card_title }}
-          </h3>
-        {% endif %}
-
-        {% if card_text %}
-         <div class="utc-card-2__text">{{ card_text }}
-         </div>
-        {% endif %}
-
-        {% if (card_link is empty) and card_button_url %}
-          <div class="utc-card-2__action-container">
-            <a href="{{ card_button_url }}" class="{{ button_style }}" target="{{ card_button_target }}">
-              {{ card_button_text }}
-           </a>
-         </div>
-        {% endif %}
+	{% set item_card_3 = {
+    card_link: content.field_card_link_3.0['#url'],
+    card_title: content.field_card_title_3|field_value,
+    card_image: content.field_card_image_3|field_value,
+	card_icon: content.field_card_icon_3|field_value,
+	card_icon_color: content.field_card_icon_color_3|field_value|render,
+    card_text: content.field_card_body_3|field_value,
+    card_button_text: content.field_card_button_3.0['#title'],
+    card_button_url: content.field_card_button_3.0['#url'],
+	card_button_target: content.field_card_button_target_3[0]|render == 'On' ? '_blank',
+    card_link_target: content.field_card_link_target_3[0]|render == 'On' ? '_blank',
       
-       </div>
-      {% endblock card_body %}
+    } %}
 
-  </div>
+	{# there may be a way to loop instead of using if statements 
+			(which looks like how the particle card grid works), 
+			but this was hard to figure out without an example of how to 
+			iterate through the UI input using that component template #}
 
-	{% if card_link %}
-     </a>
-  {% endif %}
+	{# there may also be a way to move button style select info in to the above variabes for item_card_1
+			just couldn't get it working #}
+
+
+		{% if card_count == 1 %}
+			<div class="utc-card-grid__container"> 
+			{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
+			{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+			{% include 'block--utc-card-base.html.twig' with item_card_1 %}
+		</div>
+	{% endif %}
+
+	{% if card_count == 2 %}
+		{% set card_width = '100' %}
+		<div class="row utc-card-grid">
+			<div class="col-sm-12 col-lg-6 utc-card-grid__container">
+				{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
+				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+				{% include 'block--utc-card-base.html.twig' with item_card_1 %}
+			</div>
+			<div class="col-sm-12 col-lg-6 utc-card-grid__container">
+				{% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
+				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+				{% include 'block--utc-card-base.html.twig' with item_card_2 %}
+			</div>
+		</div>
+	{% endif %}
+
+	{% if card_count == 3 %}
+		{% set card_width = '100' %}
+
+		<div class="row utc-card-grid">
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
+				{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
+				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+				{% set card_link_target = card_link_target.0 == On ? '_blank' %}
+				{% include 'block--utc-card-base.html.twig' with item_card_1 %}
+			</div>
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
+				{% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
+				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+				{% include 'block--utc-card-base.html.twig' with item_card_2 %}
+			</div>
+
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
+				{% set button_style_select = content["#block_content"].field_card_button_type_3.0.target_id %}
+				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+				{% include 'block--utc-card-base.html.twig' with item_card_3 %}
+			</div>
+		</div>
+	{% endif %}
+
+{% endblock %}
