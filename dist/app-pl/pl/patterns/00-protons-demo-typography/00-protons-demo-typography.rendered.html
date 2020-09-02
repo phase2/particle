@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    <title>
+      Pattern Lab
+    </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+            
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    
+    <!-- End Pattern Lab -->
+
+          <link rel="stylesheet" href="../../../assets/app.styles.css?cacheBuster=2064373281" />
+    
+		<style type="text/css">
+			.spinner {
+				width: 40px;
+				height: 40px;
+
+				position: relative;
+				margin: 100px auto;
+				display: none;
+			}
+
+			.double-bounce1, .double-bounce2 {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				background-color: #333;
+				opacity: 0.6;
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				-webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+				animation: sk-bounce 2.0s infinite ease-in-out;
+			}
+
+			.double-bounce2 {
+				-webkit-animation-delay: -1.0s;
+				animation-delay: -1.0s;
+			}
+
+			@-webkit-keyframes sk-bounce {
+				0%, 100% {
+					-webkit-transform: scale(0.0)
+				}
+				50% {
+					-webkit-transform: scale(1.0)
+				}
+			}
+
+			@keyframes sk-bounce {
+				0%, 100% {
+					transform: scale(0.0);
+					-webkit-transform: scale(0.0);
+				}
+				50% {
+					transform: scale(1.0);
+					-webkit-transform: scale(1.0);
+				}
+			}
+
+			.pl-loading .spinner {
+				display: block;
+			}
+		</style>
+
+  </head>
+	<body class="pl pl-loading"><div class="container mx-auto">
+  <div class="flex flex-wrap">
+    <div class="flex-grow w-full">
+                        <h1 class="text-6xl mb-3">
+            Typography
+          </h1>
+                          <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
+                          <p class="pb-3">
+                Demonstration of our Particle Typography.
+              </p>
+                                      <p class="pb-3">
+                To override the default font values, you can do so using the <span class="font-mono text-pink-500">theme.fontFamily</span> <span class="font-mono text-pink-500">theme.fontWeight</span>, <span class="font-mono text-pink-500">theme.fontSize</span> sections of your <span class="font-mono text-pink-500">tailwind.config.js</span> file.
+              </p>
+            
+                          <a href="https://tailwindcss.com/docs/font-family/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-blue-500 text-sm">
+                Tailwind Documentation
+              </a>
+                      </div>
+                  </div>
+
+    <div class="flex-grow w-full">
+                      <div class="pb-3">
+      <h2 class="text-3xl">
+        Font Family
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="text-mono text-pink-500">font-family</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Properties
+            </th>
+            <th scope="col" class="p-4">
+              Demo
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-sans</span>
+              </td>
+              <td class="border p-3">
+                <span class="text-mono text-pink-500">Open Sans, Helvetica Neue, Helvetica Arial, sans-serif</span>
+              </td>
+              <td class="border p-3">
+                <span class="font-sans">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-serif</span>
+              </td>
+              <td class="border p-3">
+                <span class="text-mono text-pink-500">Oswald, Times New Roman, serif</span>
+              </td>
+              <td class="border p-3">
+                <span class="font-serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-mono</span>
+              </td>
+              <td class="border p-3">
+                <span class="text-mono text-pink-500">Source Code Pro, Courier New, monospace</span>
+              </td>
+              <td class="border p-3">
+                <span class="font-mono">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-utcbody</span>
+              </td>
+              <td class="border p-3">
+                <span class="text-mono text-pink-500">Open Sans, Helvetica Neue, sans-serif</span>
+              </td>
+              <td class="border p-3">
+                <span class="font-utcbody">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-utcheadings</span>
+              </td>
+              <td class="border p-3">
+                <span class="text-mono text-pink-500">Exo, Helvetica Neue, sans-serif</span>
+              </td>
+              <td class="border p-3">
+                <span class="font-utcheadings">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</span>
+              </td>
+            </tr>
+                  </tbody>
+      </table>
+    </div>
+
+        <div class="pb-3">
+      <h2 class="text-3xl">
+        Font Size
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="text-mono text-pink-500">font-size</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Properties
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-xs</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">0.75rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-sm</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">0.875rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-base</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">1rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-lg</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">1.125rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-xl</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">1.25rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-2xl</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">1.5rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-3xl</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">1.875rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-4xl</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">2.25rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-5xl</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">3rem</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">text-6xl</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">4rem</span>
+              </td>
+            </tr>
+                  </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-2xl pb-3">
+      Usage
+    </h3>
+    <div class="border pb-3">
+                      <div class="text-mono text-pink-500">
+          <span>text-xs</span>
+        </div>
+        <div class="text-xs">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-sm</span>
+        </div>
+        <div class="text-sm">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-base</span>
+        </div>
+        <div class="text-base">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-lg</span>
+        </div>
+        <div class="text-lg">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-xl</span>
+        </div>
+        <div class="text-xl">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-2xl</span>
+        </div>
+        <div class="text-2xl">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-3xl</span>
+        </div>
+        <div class="text-3xl">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-4xl</span>
+        </div>
+        <div class="text-4xl">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-5xl</span>
+        </div>
+        <div class="text-5xl">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>text-6xl</span>
+        </div>
+        <div class="text-6xl">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+          </div>
+
+        <div class="pb-3">
+      <h2 class="text-3xl">
+        Font Weight
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="text-mono text-pink-500">font-weight</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Properties
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-hairline</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">100</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-thin</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">200</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-light</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">300</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-normal</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">400</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-medium</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">500</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-semibold</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">600</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-bold</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">700</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-extrabold</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">800</span>
+              </td>
+            </tr>
+                                  <tr>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">font-black</span>
+              </td>
+              <td class="text-center border p-3">
+                <span class="text-mono text-pink-500">900</span>
+              </td>
+            </tr>
+                  </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-2xl pb-3">
+      Usage
+    </h3>
+    <div class="border pb-3">
+                      <div class="text-mono text-pink-500">
+          <span>font-hairline</span>
+        </div>
+        <div class="font-hairline">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>font-thin</span>
+        </div>
+        <div class="font-thin">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>font-light</span>
+        </div>
+        <div class="font-light">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>font-normal</span>
+        </div>
+        <div class="font-normal">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>font-medium</span>
+        </div>
+        <div class="font-medium">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>font-semibold</span>
+        </div>
+        <div class="font-semibold">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>font-bold</span>
+        </div>
+        <div class="font-bold">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>font-extrabold</span>
+        </div>
+        <div class="font-extrabold">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+                      <div class="text-mono text-pink-500">
+          <span>font-black</span>
+        </div>
+        <div class="font-black">
+          Lorem ipsum dolor sit (37 characters)
+        </div>
+          </div>
+      </div>
+  </div>
+</div><!--DO NOT REMOVE-->
+<script type="text/json" id="pl-pattern-data-footer" class="pl-js-pattern-data">
+  {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"","patternBreadcrumb":{"patternType":"protons-demo"},"patternExtension":"twig","patternName":"Typography","patternPartial":"protons-demo-typography","patternState":"","patternEngineName":"twig-php","extraOutput":{}}
+</script>
+
+<script>
+  window.patternData = {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"","patternBreadcrumb":{"patternType":"protons-demo"},"patternExtension":"twig","patternName":"Typography","patternPartial":"protons-demo-typography","patternState":"","patternEngineName":"twig-php","extraOutput":{}};
+</script>
+
+<script>
+  /*!
+   * scriptLoader - v0.1
+   *
+   * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+   * Licensed under the MIT license
+   *
+   */
+
+  var scriptLoader = {
+
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1599063712044">
+  (function() {
+    if (self != top) {
+      var cb = '1599063712044';
+      var js = [];
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+
+<script type="module">
+  // always load Pattern-specific JS so UI like accordions, etc can continue to work even when viewed as a standalone HTML page
+  import('../../styleguide/js/patternlab-pattern.modern.js');
+</script>
+
+<script id="pl-js-insert-1599063712044" nomodule>
+  /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+  !function(e){var t=function(t,n){"use strict";var o=e.document.getElementsByTagName("script")[0],r=e.document.createElement("script");return r.src=t,r.async=!0,o.parentNode.insertBefore(r,o),n&&"function"==typeof n&&(r.onload=n),r};"undefined"!=typeof module?module.exports=t:e.loadJS=t}("undefined"!=typeof global?global:this);
+
+  // always load Pattern-specific JS so UI like accordions, etc can continue to work even when viewed as a standalone HTML page
+  loadJS('../../styleguide/js/patternlab-pattern.js');
+</script>
+
+
+<script src="../../../assets/app.js?cacheBuster=1010772537"></script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{#
+/**
+ * @file Articles!
+ *   Documenting @organisms/article/_article.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: articles_demo
+  }
+%}
+  {% block content %}
+    {% include '@organisms/article/_article.twig' with {
+      article: article_1
+    } %}
+  {% endblock content %}
+{% endembed %}

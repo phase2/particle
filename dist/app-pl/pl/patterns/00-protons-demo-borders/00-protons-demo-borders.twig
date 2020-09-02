@@ -1,0 +1,213 @@
+{#
+/**
+ * @file Borders!
+ *   Documenting Border Examples from Tailwind.
+ *
+ * Available variables:
+ * - tokens.borderColor: [array] Provided from data as a list of border color values.
+ * - tokens.borderRadius: [array] Provided from data as a list of border radius values.
+ * - tokens.borderWidth: [array] Provided from data as a list of border width values.
+ *
+ * @see https://tailwindcss.com/docs/border-radius
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: borders_demo
+  }
+%}
+  {% block content %}
+    {% set tdClasses = 'border text-center p-2' %}
+    {% set codeClasses = 'text-mono text-pink-500' %}
+    {# Border Radius Demo #}
+    <div class="pb-3">
+      <h2 class="text-3xl">
+        Border Radius
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="{{ codeClasses }}">border-radius</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Value
+            </th>
+            <th scope="col" class="p-4">
+              Demo
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in tokens.borderRadius %}
+            <tr>
+              <td class="{{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ 'rounded-' ~ key }}</span>
+              </td>
+              <td class="{{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ value }}</span>
+              </td>
+              <td class="{{ tdClasses }}">
+                <span class="inline-block text-white h-8 w-8 bg-pink-500 {{ 'rounded-' ~ key }}"></span>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {# Border Width Demo #}
+    <div class="pb-3">
+      <h2 class="text-3xl">
+        Border Width
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="{{ codeClasses }}">border-width</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Width
+            </th>
+            <th scope="col" class="p-4">
+              Demo
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in tokens.borderWidth %}
+            {% set borderClass = key is not same as('default') ? 'border-' ~ key : 'border' %}
+            <tr>
+              <td class="{{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ borderClass }}</span>
+              </td>
+              <td class="{{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ value }}</span>
+              </td>
+              <td class="{{ tdClasses }}">
+                <span class="inline-block text-white h-8 w-8 bg-gray-100 border-pink-500 {{ borderClass }}"></span>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {# Border Style Demo #}
+    {% set borderStyles = ['solid', 'dashed', 'dotted', 'double', 'none'] %}
+    <div class="pb-3">
+      <h2 class="text-3xl">
+        Border Style
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="{{ codeClasses }}">border-style</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Demo
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for style in borderStyles %}
+            <tr>
+              <td class="{{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ 'border border-' ~ style }}</span>
+              </td>
+              <td class="{{ tdClasses }}">
+                <span class="inline-block text-white h-8 w-8 bg-gray-100 {{
+                  'border border-'
+                    ~ style
+                  }} border-pink-500 ">
+
+                </span>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {# Border Color Demo #}
+    <div class="pb-3">
+      <h2 class="text-3xl">
+        Border Color
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="{{ codeClasses }}">border-color</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Demo
+            </th>
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Color
+            </th>
+            <th scope="col" class="p-4">
+              Value
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for colorName, colorValue in tokens.borderColor %}
+            {% if colorValue is not iterable and colorName != 'current' %}
+              {% set borderClass = 'border border-' ~ colorName %}
+              <tr>
+                <td class="{{ tdClasses }}">
+                  <span class="inline-block h-8 w-8 bg-white {{ borderClass }}"></span>
+                  <span class="inline-block h-8 w-8 bg-gray-100 {{ borderClass }}"></span>
+                </td>
+                <td class="{{ tdClasses }}">
+                  <span class="{{ codeClasses }}">{{ borderClass }}</span>
+                </td>
+                <td class="{{ tdClasses }}">
+                  {{ colorName }}
+                </td>
+                <td class="{{ tdClasses }}">
+                  {{ colorValue|upper }}
+                </td>
+              </tr>
+            {% else %}
+              {% for nestedColor, nestedValue in colorValue %}
+                {% set borderClass = 'border border-' ~ colorName ~ '-' ~ nestedColor %}
+                <tr>
+                  <td class="{{ tdClasses }}">
+                    <span class="inline-block h-8 w-8 bg-white {{ borderClass }}"></span>
+                    <span class="inline-block h-8 w-8 bg-gray-100 {{ borderClass }}"></span>
+                  </td>
+                  <td class="{{ tdClasses }}">
+                    <span class="{{ codeClasses }}">{{ borderClass }}</span>
+                  </td>
+                  <td class="{{ tdClasses }}">
+                    {{ colorName ~ '-' ~ nestedColor }}
+                  </td>
+                  <td class="{{ tdClasses }}">
+                    {{ nestedValue|upper }}
+                  </td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endblock content %}
+{% endembed %}

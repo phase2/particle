@@ -1,0 +1,164 @@
+{#
+/**
+ * @file Typography!
+ *   Documenting Typography Examples from Tailwind.
+ *
+ * Available variables:
+ * - tokens.fontFamily: [array] Provided from data as a list of font family values.
+ * - tokens.fontSize: [array] Provided from data as a list of font size values.
+ * - tokens.fontWeight: [array] Provided from data as a list of font weight values.
+ *
+ * @see https://tailwindcss.com/docs/font-family
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: typography_demo
+  }
+%}
+  {% block content %}
+    {% set tdClasses = 'border p-3' %}
+    {% set codeClasses = 'text-mono text-pink-500' %}
+    {# Font Family Demo #}
+    <div class="pb-3">
+      <h2 class="text-3xl">
+        Font Family
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="{{ codeClasses }}">font-family</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Properties
+            </th>
+            <th scope="col" class="p-4">
+              Demo
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in tokens.fontFamily %}
+            {% set textClass = 'font-' ~ key %}
+            <tr>
+              <td class="text-center {{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ textClass }}</span>
+              </td>
+              <td class="{{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ value|join(' ') }}</span>
+              </td>
+              <td class="{{ tdClasses }}">
+                <span class="{{ textClass }}">{{ excerpt.short }}</span>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {# Font Size Demo #}
+    <div class="pb-3">
+      <h2 class="text-3xl">
+        Font Size
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="{{ codeClasses }}">font-size</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Properties
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in tokens.fontSize %}
+            {% set textClass = 'text-' ~ key %}
+            <tr>
+              <td class="text-center {{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ textClass }}</span>
+              </td>
+              <td class="text-center {{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ value }}</span>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-2xl pb-3">
+      Usage
+    </h3>
+    <div class="border pb-3">
+      {% for key, value in tokens.fontSize %}
+        {% set textClass = 'text-' ~ key %}
+        <div class="{{ codeClasses }}">
+          <span>{{ textClass }}</span>
+        </div>
+        <div class="{{ textClass }}">
+          {{ headline.short }}
+        </div>
+      {% endfor %}
+    </div>
+
+    {# Font Weight Demo #}
+    <div class="pb-3">
+      <h2 class="text-3xl">
+        Font Weight
+      </h2>
+      <div class="pb-3">
+        CSS Property: <span class="{{ codeClasses }}">font-weight</span>
+      </div>
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="border">
+            <th scope="col" class="p-4">
+              Utility Class
+            </th>
+            <th scope="col" class="p-4">
+              Properties
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in tokens.fontWeight %}
+            {% set weightClass = 'font-' ~ key %}
+            <tr>
+              <td class="text-center {{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ weightClass }}</span>
+              </td>
+              <td class="text-center {{ tdClasses }}">
+                <span class="{{ codeClasses }}">{{ value }}</span>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-2xl pb-3">
+      Usage
+    </h3>
+    <div class="border pb-3">
+      {% for key, value in tokens.fontWeight %}
+        {% set weightClass = 'font-' ~ key %}
+        <div class="{{ codeClasses }}">
+          <span>{{ weightClass }}</span>
+        </div>
+        <div class="{{ weightClass }}">
+          {{ headline.short }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endblock content %}
+{% endembed %}

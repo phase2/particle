@@ -1,0 +1,93 @@
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: svg_demo_block
+  }
+%}
+  {% block content %}
+    <h1 class="mt-2">
+      Embed
+    </h1>
+    <p class="mb-2">
+      Includes the entire SVG markup within the DOM. This is the preferred method.
+    </p>
+    <div class="flex">
+      <!-- Embed: The minimum required information. Note the FULL namespaced path to to the icon svg. Width here is set by a WRAPPING <div>. -->
+      <div class="w-10">
+        {% include '@atoms/svg/_svg.twig' with {
+          svg: {
+            path: '@atoms/svg/icons/person.svg'
+          }
+        } %}
+      </div>
+      <!-- Embed: Width is still set via a wrapping div, and so is color. Note: set color via a TEXT color class, due to embedded SVGs defaulting to fill: currentColor; -->
+      <div class="w-6 text-blue-500">
+        {% include '@atoms/svg/_svg.twig' with {
+          svg: {
+            path: '@atoms/svg/icons/close.svg'
+          }
+        } %}
+      </div>
+      <!-- Embed: Leveraging additional classes being passed directly to the SVG component, no need for an extra wrapping <div> -->
+      {% include '@atoms/svg/_svg.twig' with {
+        svg: {
+          path: '@atoms/svg/icons/search.svg'
+        },
+        svg_classes: ['text-red-500', 'w-4']
+      } %}
+    </div>
+
+    <h1 class="mt-2">
+      Sprite map
+    </h1>
+    <p class="mb-2">
+      Sprite maps combine all SVGs into a single "sheet" and only let the named SVG "peak" through the masked square.
+    </p>
+    <div class="flex">
+      <!-- Sprite: minimum required information, variant: 'sprite' and name of the SVG. Width here is set by a WRAPPING <div>. -->
+      <div class="w-10">
+        {% include '@atoms/svg/_svg.twig' with {
+          svg: {
+            variant: 'sprite',
+            name: 'person'
+          }
+        } %}
+      </div>
+      <!-- Sprite: Width is still set via a wrapping div, and so is color. Note: set color via a TEXT color class, due to embedded SVGs defaulting to fill: currentColor; -->
+      <div class="w-6 text-blue-500">
+        {% include '@atoms/svg/_svg.twig' with {
+          svg: {
+            variant: 'sprite',
+            name: 'close'
+          }
+        } %}
+      </div>
+      <!-- Sprite: Leveraging additional classes being passed directly to the SVG component, no need for an extra wrapping <div> -->
+      {% include '@atoms/svg/_svg.twig' with {
+        svg: {
+          variant: 'sprite',
+          name: 'search'
+        },
+        svg_classes: ['text-red-500', 'w-4']
+      } %}
+    </div>
+
+    <h1 class="mt-2">
+      img src
+    </h1>
+    <p class="mb-2">
+      If you need to reference these SVGs as src for an img tag.
+    </p>
+    <!-- Reference the special paths.svg variable to set the src of an <img/> with the path to an SVG -->
+    <img class="w-10" src="{{ paths.svgs ~ '/person.svg' }}" />
+
+    <h1 class="mt-2">
+      CSS classes
+    </h1>
+    <p>
+      Pure CSS classes
+    </p>
+    <!-- Sometimes we need to use pure CSS to set the background image of an element. Note: These are not yet colorable via pure CSS. Avoid. -->
+    <i class="sprite-person w-6 h-6"></i>
+    <i class="sprite-close w-6 h-6"></i>
+  {% endblock content %}
+{% endembed %}

@@ -1,0 +1,18 @@
+{#
+/**
+ * @file Card Grids!
+ *   Documenting @organisms/card-grid/_card-grid.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: card_grids_demo
+  }
+%}
+  {% block content %}
+    {% include '@organisms/card-grid/_card-grid.twig' with {
+      card_grid: card_grid_1
+    } %}
+  {% endblock content %}
+{% endembed %}

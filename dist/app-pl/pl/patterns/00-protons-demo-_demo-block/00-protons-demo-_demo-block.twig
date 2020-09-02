@@ -1,0 +1,63 @@
+{#
+/**
+ * @file Demo Block!
+ *   A helper twig file for displaying Pattern Lab demos with container and docs.
+ *
+ * Available variables:
+ * - demo.title: [string] The title of the demo.
+ * - demo.content: [array] Collection of demo content items.
+ * - demo.content.lead: [string] Leading statement for demo.
+ * - demo.content.summary: [string] Summary of demo item.
+ * - demo.content.link.url: [string] Link to docs.
+ * - demo.content.link.text: [array] Description of link.
+ *
+ */
+#}
+<div class="container mx-auto">
+  <div class="flex flex-wrap">
+    <div class="flex-grow w-full">
+      {% block usage %}
+        {% if demo.title %}
+          <h1 class="text-6xl mb-3">
+            {{ demo.title|title }}
+          </h1>
+        {% endif %}
+        {% if demo.content %}
+          <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
+            {% if demo.content.lead %}
+              <p class="pb-3">
+                {{ demo.content.lead }}
+              </p>
+            {% endif %}
+            {% if demo.content.summary %}
+              <p class="pb-3">
+                {{ demo.content.summary }}
+              </p>
+            {% endif %}
+
+            {% if demo.content.link.url %}
+              <a href="{{ demo.content.link.url|default('https://tailwindcss.com/docs') }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-blue-500 text-sm">
+                {{ demo.content.link.text|default('Documentation') }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endblock usage %}
+    </div>
+
+    <div class="flex-grow w-full">
+      {% block content %}
+        <div>
+          A simple demo block for new components.
+        </div>
+      {% endblock content %}
+    </div>
+  </div>
+</div>
+
+{% block full_width %}
+
+{% endblock full_width %}

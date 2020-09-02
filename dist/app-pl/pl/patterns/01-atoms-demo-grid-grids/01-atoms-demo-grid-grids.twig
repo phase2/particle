@@ -1,0 +1,90 @@
+{#
+/**
+ * @file Grids!
+ *   Documenting @atoms/grid/_grid-VARNANT.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: grids_demo
+  }
+%}
+  {% block content %}
+
+  {% endblock content %}
+  {% block full_width %}
+    <h2>
+      One column
+    </h2>
+    {% embed '@atoms/grid/_grid--1-up.twig'
+      with {
+        grid: grid_1,
+        grid_classes: ['bg-pink-200', 'h-12']
+      }
+    %}
+      {% block column_1 %}
+        <h2 class="text-gray-800">
+          Add your column content in blocks.
+        </h2>
+      {% endblock column_1 %}
+    {% endembed %}
+
+    <h2>
+      Two column
+    </h2>
+    {% embed '@atoms/grid/_grid--2-up.twig'
+      with {
+        grid: grid_2
+      }
+    %}
+      {% block column_1 %}
+        <div class="bg-pink-400 h-12 border border-dotted"></div>
+      {% endblock column_1 %}
+      {% block column_2 %}
+        <div class="bg-pink-400 h-12 border border-dotted"></div>
+      {% endblock column_2 %}
+    {% endembed %}
+
+    <h2>
+      Three column
+    </h2>
+    {% embed '@atoms/grid/_grid--3-up.twig'
+      with {
+        grid: grid_3
+      }
+    %}
+      {% block column_1 %}
+        <div class="bg-pink-600 h-12 border border-dotted"></div>
+      {% endblock column_1 %}
+      {% block column_2 %}
+        <div class="bg-pink-600 h-12 border border-dotted"></div>
+      {% endblock column_2 %}
+      {% block column_3 %}
+        <div class="bg-pink-600 h-12 border border-dotted"></div>
+      {% endblock column_3 %}
+    {% endembed %}
+
+    <h2>
+      Four column
+    </h2>
+    {% embed '@atoms/grid/_grid--4-up.twig'
+      with {
+        grid: grid_4
+      }
+    %}
+      {% block column_1 %}
+        <div class="bg-pink-800 h-12 border border-dotted"></div>
+      {% endblock column_1 %}
+      {% block column_2 %}
+        <div class="bg-pink-800 h-12 border border-dotted"></div>
+      {% endblock column_2 %}
+      {% block column_3 %}
+        <div class="bg-pink-800 h-12 border border-dotted"></div>
+      {% endblock column_3 %}
+      {% block column_4 %}
+        <div class="bg-pink-800 h-12 border border-dotted"></div>
+      {% endblock column_4 %}
+    {% endembed %}
+  {% endblock full_width %}
+{% endembed %}

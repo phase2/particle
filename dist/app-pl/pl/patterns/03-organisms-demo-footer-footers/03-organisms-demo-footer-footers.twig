@@ -1,0 +1,18 @@
+{#
+/**
+ * @file Footer!
+ *   Documenting @organisms/footer/_footer.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: footers_demo
+  }
+%}
+  {% block content %}
+    {% include '@organisms/footer/_footer.twig' with {
+      footer: footer_1
+    } %}
+  {% endblock content %}
+{% endembed %}

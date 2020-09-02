@@ -1,0 +1,28 @@
+{#
+/**
+ * @file Branding!
+ *   Documenting @atoms/branding/_branding.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: branding_demo
+  }
+%}
+  {% block content %}
+    {% include '@atoms/branding/_branding.twig' with {
+      url: '#',
+      logo_svg_inline: '@atoms/branding/logo.svg',
+      site_name: 'Particle',
+      site_slogan: 'Site Slogan that Describes the Logo Above with Inline SVG'
+    } %}
+
+    {% include '@atoms/branding/_branding.twig' with {
+      url: '#',
+      logo_img_src: paths.images ~ '/logo.svg',
+      site_name: 'Particle',
+      site_slogan: 'Site Slogan that Describes the Logo Above with Src SVG'
+    } %}
+  {% endblock content %}
+{% endembed %}

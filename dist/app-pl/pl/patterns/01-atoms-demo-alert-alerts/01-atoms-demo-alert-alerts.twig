@@ -1,0 +1,19 @@
+{#
+/**
+ * @file Alerts!
+ *   Documenting @atoms/alert/_alert.twig
+ */
+#}
+
+{% embed '@demo/_demo-block.twig'
+  with {
+    demo: alert_demo
+  }
+%}
+  {% block content %}
+    {% include '@atoms/alert/_alert.twig' with alert_status %}
+    {% include '@atoms/alert/_alert.twig' with alert_warning %}
+    {% include '@atoms/alert/_alert.twig' with alert_error %}
+    {% include '@atoms/alert/_alert.twig' with alert_info %}
+  {% endblock content %}
+{% endembed %}

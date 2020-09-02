@@ -1,0 +1,580 @@
+<div class="container mx-auto">
+  <div class="flex flex-wrap">
+    <div class="flex-grow w-full">
+                        <h1 class="text-6xl mb-3">
+            Form Element
+          </h1>
+                          <div class="mb-3 p-3 bg-gray-100 border border-black border-lg">
+                          <p class="pb-3">
+                HTML Form Elements
+              </p>
+                                      <p class="pb-3">
+                These patterns are used for any valid HTML form element. Input styling is targetted against the input <code>type</code> attribute. <br> How an <code>&lt;input&gt;</code> works varies considerably depending on the value of its type attribute, hence the different types are covered in their own separate reference pages. If this attribute is not html5ified, the default type adopted is text.
+              </p>
+            
+                          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-blue-500 text-sm">
+                Mozilla Documentation
+              </a>
+                      </div>
+                  </div>
+
+    <div class="flex-grow w-full">
+        
+  <h2>
+    Input Types
+  </h2>
+  <table class="table-auto w-full">
+    <thead>
+      <tr class="border">
+        <th scope="col" class="p-4">
+          Type
+        </th>
+        <th scope="col" class="p-4">
+          Description
+        </th>
+        <th scope="col" class="p-4">
+          Rendered
+        </th>
+        <th scope="col" class="p-4">
+          Spec
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+              <tr>
+          <td class="border text-center p-4">
+            button
+          </td>
+          <td class="border text-center p-4">
+            A push button with no default behavior displaying the value of the value attribute, empty by default.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="button" id="form-button" value="Button" class="input input--button form-input" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            checkbox
+          </td>
+          <td class="border text-center p-4">
+            A check box allowing single values to be selected/deselected.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="checkbox" id="form-checkbox" class="input input--checkbox form-checkbox" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            color
+          </td>
+          <td class="border text-center p-4">
+            A control for specifying a color; opening a color picker when active in supporting browsers.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="color" id="form-color" class="input input--color form-color" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            date
+          </td>
+          <td class="border text-center p-4">
+            A control for entering a date (year, month, and day, with no time). Opens a date picker or numeric wheels for year, month, day when active in supporting browsers.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="date" id="form-date" class="input input--date form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            datetime-local
+          </td>
+          <td class="border text-center p-4">
+            A control for entering a date and time, with no time zone. Opens a date picker or numeric wheels for date- and time-components when active in supporting browsers.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="datetime-local" id="form-datetime-local" class="input input--datetime-local form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            email
+          </td>
+          <td class="border text-center p-4">
+            A field for editing an email address. Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="email" id="form-email" class="input input--email form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            file
+          </td>
+          <td class="border text-center p-4">
+            A control that lets the user select a file. Use the accept attribute to define the types of files that the control can select.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="file" id="form-file" class="input input--file form-input" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            hidden
+          </td>
+          <td class="border text-center p-4">
+            A control that is not displayed but whose value is submitted to the server. There is an example in the next column, but it's hidden!
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="hidden" id="form-hidden" class="input input--hidden form-input" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            image
+          </td>
+          <td class="border text-center p-4">
+            A graphical submit button. Displays an image defined by the src attribute. The alt attribute displays if the image src is missing.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="image" id="form-image" class="input input--image form-input" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            month
+          </td>
+          <td class="border text-center p-4">
+            A control for entering a month and year, with no time zone.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="month" id="form-month" class="input input--month form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            number
+          </td>
+          <td class="border text-center p-4">
+            A control for entering a number. Displays a spinner and adds default validation when supported. Displays a numeric keypad in some devices with dynamic keypads.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="number" id="form-number" class="input input--number form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            password
+          </td>
+          <td class="border text-center p-4">
+            A single-line text field whose value is obscured. Will alert user if site is not secure.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="password" id="form-password" class="input input--password form-input" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            radio
+          </td>
+          <td class="border text-center p-4">
+            A radio button, allowing a single value to be selected out of multiple choices with the same name value.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="radio" id="form-radio" class="input input--radio form-radio" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            range
+          </td>
+          <td class="border text-center p-4">
+            A control for entering a number whose exact value is not important. Displays as a range widget defaulting to the middle value. Used in conjunction min and max to define the range of acceptable values.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="range" id="form-range" class="input input--range form-range" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            reset
+          </td>
+          <td class="border text-center p-4">
+            A button that resets the contents of the form to default values. Not recommended.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="reset" id="form-reset" class="input input--reset form-input" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            search
+          </td>
+          <td class="border text-center p-4">
+            A single-line text field for entering search strings. Line-breaks are automatically removed from the input value. May include a delete icon in supporting browsers that can be used to clear the field. Displays a search icon instead of enter key on some devices with dynamic keypads.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="search" id="form-search" class="input input--search form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            submit
+          </td>
+          <td class="border text-center p-4">
+            A button that submits the form.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="submit" id="form-submit" class="input input--submit form-input" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            tel
+          </td>
+          <td class="border text-center p-4">
+            A control for entering a telephone number. Displays a telephone keypad in some devices with dynamic keypads.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="tel" id="form-tel" class="input input--tel form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            text
+          </td>
+          <td class="border text-center p-4">
+            The default value. A single-line text field. Line-breaks are automatically removed from the input value.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="text" id="form-text" class="input input--text form-input" />
+          </td>
+          <td class="border text-center p-4">
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            time
+          </td>
+          <td class="border text-center p-4">
+            A control for entering a time value with no time zone.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="time" id="form-time" class="input input--time form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            url
+          </td>
+          <td class="border text-center p-4">
+            A field for entering a URL. Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="url" id="form-url" class="input input--url form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+              <tr>
+          <td class="border text-center p-4">
+            week
+          </td>
+          <td class="border text-center p-4">
+            A control for entering a date consisting of a week-year number and a week number with no time zone.
+          </td>
+          <td class="border text-center p-4">
+            
+
+
+
+
+
+  <input type="week" id="form-week" class="input input--week form-input" />
+          </td>
+          <td class="border text-center p-4">
+                          <a class="inline-flex text-lg font-sans font-bold no-underline hover-underline text-blue-500 hover:text-blue-700"
+                href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+                HTML5
+              </a>
+                      </td>
+        </tr>
+          </tbody>
+  </table>
+
+  <hr class="m-10" />
+
+  <h2 class="pb-4">
+    Additional Form Content
+  </h2>
+  <div class="pb-4">
+    <h3 class="heading-3">
+      Text Area
+    </h3>
+    
+
+
+<textarea id="textarea-1" cols="60" rows="10" name="textarea-1" class="textarea form-textarea">
+      
+  </textarea>
+  </div>
+
+  <h3>
+    Select
+  </h3>
+  <div class="flex pb-4">
+    <div class="w-1/2 h-12">
+      
+
+
+<select id="single-select" name="Single Select" class="select form-select"><option value="Option 1"
+            
+            >
+            Option 1
+          </option><option value="Option 2"
+            
+            >
+            Option 2
+          </option><option value="Option 3"
+            
+            >
+            Option 3
+          </option><optgroup label="More"><option value="Option 4"
+                
+                >
+                Option 4
+              </option></optgroup></select>    </div>
+    <div class="w-1/2 h-12">
+      
+
+
+<select id="multi-select" name="Single Multiple" multiple="multiple" class="select form-multiselect"><option value="Option 1"
+            
+            >
+            Option 1
+          </option><option value="Option 2"
+            
+            >
+            Option 2
+          </option><option value="Option 3"
+            
+            >
+            Option 3
+          </option></select>    </div>
+  </div>
+
+  <hr class="m-10" />
+    </div>
+  </div>
+</div>
