@@ -1,0 +1,177 @@
+/*----------
+show/hide vertical and horizontal buttons based on media query
+disabled until solution for back to top arrow found.
+@include media-breakpoint-only(xl) {
+    div#sliderVertical {
+        display: none;
+    }
+}
+@include media-breakpoint-down(lg) {
+    div#sliderHorizontal {
+        display: none;
+    }
+}
+---------- */
+#sliderContentHorizontal {
+	display: none;
+}
+
+/*---------- temp hide horizontal button ---------- */
+div#sliderHorizontal {
+	display: none;
+}
+
+/*---------- position and size div containers for buttons ---------- */
+.lib-help {
+	position: fixed;
+	z-index: 400;
+}
+
+.lib-help--horizontal {
+	display: block;
+	min-width: 13rem;
+	bottom: 1rem;
+	right: 1rem;
+	transition: 5s;
+}
+
+.lib-help--vertical {
+	bottom: 30%;
+	display: flex;
+	flex-direction: row;
+	display: -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	transition: .5s;
+	right: -15rem;
+}
+
+/*---------- help button ---------- */
+.lib-help__btn-main {
+	font-size: 1.1rem;
+	line-height: 1.5;
+	display: block;
+	background: #781e1e;
+	color: #ffffff;
+	cursor: pointer;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: .6rem 1.6rem;
+	text-align: center;
+}
+
+.lib-help__btn-main:hover {
+	background-color: #fdb736;
+	color: #781e1e;
+}
+
+.lib-help__btn-main--gold {
+	background-color: #fdb736;
+	color: #781e1e;
+}
+
+.lib-help__btn-main--gold:hover {
+	background-color: #781e1e;
+	color: #fdb736;
+}
+
+.lib-help__btn-main--vertical {
+	width: 3rem;
+	line-height: 1.5rem;
+	height: 13rem;
+	padding: 1.2rem .5rem;
+}
+
+.lib-help__icon::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: "\f075";
+	margin-right: .3rem;
+}
+
+.lib-help__button-text--vertical {
+	-webkit-transform-origin: 5.7rem 5.5rem;
+	-moz-transform-origin: 5.7rem 5.5rem;
+	-ms-transform-origin: 5.7rem 5.5rem;
+	-o-transform-origin: 5.7rem 5.5rem;
+	transform-origin: 5.7rem 5.5rem;
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	transform: rotate(270deg);
+	width: 11.7rem;
+	float: left;
+}
+
+@media (min-width: 768px) {
+	.lib-help__button-text--vertical {
+		-webkit-transform-origin: 5.6rem 5.4rem;
+		-moz-transform-origin: 5.6rem 5.4rem;
+		-ms-transform-origin: 5.6rem 5.4rem;
+		-o-transform-origin: 5.6rem 5.4rem;
+		transform-origin: 5.6rem 5.4rem;
+		width: 11.5rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.lib-help__button-text--vertical {
+		-webkit-transform-origin: 5.3rem 5.1rem;
+		-moz-transform-origin: 5.3rem 5.1rem;
+		-ms-transform-origin: 5.3rem 5.1rem;
+		-o-transform-origin: 5.3rem 5.1rem;
+		transform-origin: 5.3rem 5.1rem;
+		width: 10rem;
+	}
+}
+
+/*---------- slider content ---------- */
+.lib-help__content {
+	background: #fff;
+	text-align: center;
+}
+
+.lib-help__content--horizontal {
+	padding: .5rem 0rem .6rem;
+}
+
+.lib-help__content--vertical {
+	padding: 2rem .4rem;
+	width: 15rem;
+	height: 13rem;
+}
+
+.lib-help__content--vertical-open {
+	right: 0 !important;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.lib-help__btn-sub {
+	display: block;
+	border: 2px solid #112e51;
+	color: #112e51;
+	font-weight: bold;
+	background-color: #ffffff;
+	border-radius: 0;
+	margin: .6rem 1rem;
+}
+
+.lib-help__btn-sub:hover, .lib-help__btn-sub:focus {
+	color: #ffffff;
+	background-color: #112e51;
+}
+
+.lib-help__link {
+	color: #112e51;
+	font-size: 1rem;
+	text-decoration: underline;
+}
+
+.lib-help__link:hover, .lib-help__link:active {
+	color: #205493;
+	text-decoration: underline;
+}

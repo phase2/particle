@@ -1,4 +1,3 @@
-{% extends "block.html.twig" %}
 {#
 /**
  * @file
@@ -26,34 +25,15 @@
  * @see template_preprocess_block()
  */
 #}
-
-
-{# set variables for card classes based on Drupal input - likely relocate in design system #}
-
-
-  {% set card_heading = content.field_sidebar_card_heading|field_value %}
-  {% set card_heading_color = content.field_sidebar_card_header_color|field_value|render %}
-  {% set card_text = content.field_sidebar_card_body|field_value %}
-
-{% set card_classes = [
-  'utc-sidebar-card',
-] | sort | join(' ') | trim %}
-
-
-
-{# could use include statements for items like images and buttons in design system #}
-
-{% block content %}
-<div class="{{ card_classes }}">
-  {% if card_heading %}
-    <h3 class="utc-sidebar-card__header utc-sidebar-card--{{ card_heading_color }}">
-      {{ card_heading }}
-    </h3>
-  {% endif %}
-    <div class="utc-sidebar-card__body">
-      {% if card_text %}
-        <div class="utc-sidebar-card__text">{{ card_text }}</div>
-      {% endif %}
-    </div>
+<div{{ attributes }}>
+  {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>
+         <span class="title-text">{{ label }}</span>
+      </h2>
+    {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <div{{ content_attributes }}>{{ content }}</div>
+  {% endblock %}
 </div>
-{% endblock %}

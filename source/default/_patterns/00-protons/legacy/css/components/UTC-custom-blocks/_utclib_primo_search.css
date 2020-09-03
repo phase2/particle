@@ -1,0 +1,126 @@
+.lib-bg-full--img-blue {
+  background-image: url(https://liblab.utc.edu/library/images/around-the-building/library-exterior-trees.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 29, 57, 0.8);
+  background-blend-mode: multiply;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .lib-bg-full--img-blue {
+    background-color: #112e51;
+    background-image: none;
+  }
+}
+
+.lib-search__card {
+  background-color: #ffffff;
+  padding: 1rem;
+}
+
+a.lib-search__info {
+  float: right;
+  color: #fdb736;
+  border-bottom: 0px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+a.lib-search__info:hover,
+a.lib-search__info:active,
+a.lib-search__info:focus {
+  color: #dde6ee;
+  border-bottom: 0px;
+}
+
+a.lib-search__info i.fa-info {
+  color: #112e51;
+}
+
+.lib-search__container {
+  margin: 1.5rem 2rem 0.5rem;
+}
+
+.lib-search__title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.5rem;
+  color: black;
+}
+
+.lib-search__input-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+input.lib-search__input {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+  color: #000000;
+  background-color: #f5f5f5;
+  border: 2px solid #112e51;
+  border-radius: 0;
+  font-size: 1rem;
+  height: auto;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input.lib-search__input:hover,
+input.lib-search__input:active,
+input.lib-search__input:focus {
+  border: 2px solid #fdb736;
+  background-color: #ffffff;
+  box-shadow: none;
+}
+
+.lib-search__button-container {
+  display: flex;
+  margin-left: 0px;
+}
+
+.lib-search__button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 0;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
+  color: #ffffff;
+  background-color: #112e51;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.lib-search__button:hover,
+.lib-search__button:active,
+.lib-search__button:focus {
+  color: #112e51;
+  background-color: #fdb736;
+  box-shadow: none;
+}
+
+.lib-search__links {
+  text-align: right;
+  list-style: none;
+  margin: 0;
+}
+
+.lib-search__links li {
+  display: inline-block;
+}
+
+.lib-search__links li:nth-child(n + 2):before {
+  content: '|';
+}
