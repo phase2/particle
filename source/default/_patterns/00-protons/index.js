@@ -33,6 +33,9 @@ import './legacy/css/components/UTC-custom-blocks/_utclib_events_feed.css';
 
 //Legacy JS
 import './legacy/js/utc-sidebar-menu.js';
+import './legacy/js/utc-lib-chatbutton.js';
+import './legacy/js/utc-lib-primosearch.js';
+import './legacy/js/slick-custom-arrows.js';
 
 // Export global variables.
 export default {
