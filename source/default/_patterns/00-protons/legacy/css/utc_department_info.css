@@ -38,7 +38,7 @@ address.flex-list li div.field--name-field-utc-department-phone .field__item a:b
   display: inline;
   padding-right: 6px;
   vertical-align: top;
-  content: "\f095";
+  /* content: "\f095"; */
 }
 address.flex-list li div.field--name-field-utc-department-fax-number .field__item a:before {
  /* font-family: $utc-icons;
@@ -51,7 +51,7 @@ address.flex-list li div.field--name-field-utc-department-fax-number .field__ite
   display: inline;
   padding-right: 6px;
   vertical-align: top;
-  content: "\f1ac";
+  /* content: "\f1ac"; */
 }
 
 .department--hours {
