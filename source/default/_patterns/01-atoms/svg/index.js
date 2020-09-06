@@ -19,7 +19,7 @@ import './_svg--embed.twig';
 import './_svg--sprite.twig';
 
 // Import all SVGs into assets/images for reference in CSS/JS bundle
-require.context('./icons', false, /\.svg$/);
+require.context('static/icons/svg', false, /\.svg$/);
 
 // Enable Fontawesome immediately, comment this out if not using FontAwesome
 fontawesome();

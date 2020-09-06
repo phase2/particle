@@ -15,7 +15,7 @@
       <div class="w-10">
         {% include '@atoms/svg/_svg.twig' with {
           svg: {
-            path: '@atoms/svg/icons/person.svg'
+            path: paths.svgs ~ '/person.svg'
           }
         } %}
       </div>
@@ -23,14 +23,14 @@
       <div class="w-6 text-blue-500">
         {% include '@atoms/svg/_svg.twig' with {
           svg: {
-            path: '@atoms/svg/icons/close.svg'
+            path: paths.svgs ~ '/close.svg'
           }
         } %}
       </div>
       <!-- Embed: Leveraging additional classes being passed directly to the SVG component, no need for an extra wrapping <div> -->
       {% include '@atoms/svg/_svg.twig' with {
         svg: {
-          path: '@atoms/svg/icons/search.svg'
+          path: paths.svgs ~ '/search.svg'
         },
         svg_classes: ['text-red-500', 'w-4']
       } %}
@@ -78,7 +78,7 @@
       If you need to reference these SVGs as src for an img tag.
     </p>
     <!-- Reference the special paths.svg variable to set the src of an <img/> with the path to an SVG -->
-    <img class="w-10" src="{{ paths.svgs ~ '/person.svg' }}" />
+    <img class="w-10" src="{{ paths.images ~ '/person.svg' }}" />
 
     <h1 class="mt-2">
       CSS classes

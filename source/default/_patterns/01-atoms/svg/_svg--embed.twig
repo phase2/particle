@@ -5,13 +5,13 @@
  *
  * Available variables for svg--embed:
  *  - svg.path [string]: Atomic path to SVG file.
- *      Example: '@atoms/svg/icons/person.svg'
+ *      Example: paths.svgs ~ '/search.svg'
  */
 #}
 
 {% set svg =
   {
-    path: '@atoms/svg/icons/person.svg'
+    path: paths.svgs ~ '/search.svg'
   }|merge(svg)
 %}
 
