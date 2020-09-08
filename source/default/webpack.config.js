@@ -38,7 +38,7 @@ module.exports = {
         output: {
           filename: 'images/spritemap.svg',
           svg4everybody: true,
-          svgo: true,
+          svgo: false,
         },
         styles: {
           filename: '~svg-icons.css',
