@@ -13,6 +13,40 @@
 //     }
 //   }
 // } */
+/* this blocks fixed the footer to be centered */
+/* #block-utcinfofor-particle{
+	text-align: center;
+	margin-top: 1rem;
+	padding-left: 0;
+
+}
+
+#block-utc-shortcuts-particle
+{
+	text-align: center;
+	margin-top: 1rem;
+	padding-left: 0;
+
+} */
+
+@media (max-width: 991px) {
+	#block-utcinfofor-particle{
+		text-align: center;
+		margin-top: 1rem;
+		padding-left: 0;
+	
+	}
+	
+	#block-utc-shortcuts-particle
+	{
+		text-align: center;
+		margin-top: 1rem;
+		padding-left: 0;
+	
+	}	
+}
+
+
 
 .menu--footer ul.menu {
 	text-align: center;
