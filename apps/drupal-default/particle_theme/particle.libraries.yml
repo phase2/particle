@@ -27,6 +27,13 @@ google-fonts:
     base:
       https://fonts.googleapis.com/css?family=Exo:500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:400,400i,600,600i,700,700i&display=swap: { type: external }
 
+ckeditor-jquery:
+  js:
+    ../../../dist/app-drupal/assets/ckeditor-jquery.js:
+  dependencies:
+    - particle/jquery
+    - particle/jquery.ui.dialog
+    - core/jquery
 # utc-lib-chatbutton:
 #   version: VERSION
 #   js:
