@@ -42,9 +42,13 @@
 %}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
   {# temporarily removes mobile view of a section menu #}
-  {# <input type="checkbox" id="menu"> #}
-  {# <label for="menu" class="section_menu">Section Menu #}
-  {# <i class="fa fa-bars" aria-hidden="true"></i></label> #}
+  {# <input type="checkbox" id="menu">
+  <label for="menu" class="section_menu">Section Menu
+  <i class="fas fa-bars" aria-hidden="true"></i></label> #}
+
+  {# <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> I have a bike</label><br> #}
+  {# <button type="button" onclick="alert('Hello world!')">Click Me!</button> #}
 <nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}

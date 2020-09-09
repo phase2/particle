@@ -83,7 +83,7 @@
     @apply bg-white;
     /* color: $utc-blue; */
     @apply text-utc-new-blue-500;
-    font-weight: 500;
+    /* font-weight: 500; */
     border: 1px solid; /* $utc-gray; */
     @apply border-gray-400;
     display: block;
@@ -148,8 +148,9 @@
   }
 
   .section_menu {
-    background: $utc-yellow;
+    @apply bg-utc-new-gold-500;
     padding: 5px 30px;
+    @apply text-gray-800;
     color: $utc-darkgray-2;
     cursor: pointer;
     user-select: none;
@@ -176,7 +177,8 @@
   
     .section_menu {
       /* background: yellow; */
-      @apply bg-utc-new-gold-500 text-gray-800;
+      @apply bg-utc-new-gold-500;
+      @apply text-gray-800;
       padding: 5px 30px;
       /* color: gray; */
       cursor: pointer;
@@ -184,12 +186,12 @@
     }
   
     input#menu {
-      display: none;
+      /* display: none; */
     }
   
     .block--menu-block{
-      max-height: 0;
-      overflow: hidden;
+      /* max-height: 0; */
+      /* overflow: hidden; this hides the sidemenu */
     }
   
     input:checked ~ .utc-sidebar {

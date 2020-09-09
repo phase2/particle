@@ -26,7 +26,8 @@ import './legacy/css/components/UTC-custom-blocks/_utclib_item_card.css';
 import './legacy/css/components/UTC-custom-blocks/_utclib_primo_search.css';
 import './legacy/css/components/UTC-custom-blocks/_utclib_help_btn.css';
 import './legacy/css/components/UTC-custom-blocks/_utclib_events_feed.css';
-
+import './legacy/css/components/navigation/_breadcrumb.css';
+import './legacy/css/utc-sidebar-menu.css';
 // import "./legacy/css/components/UTC-custom-blocks/";
 // import "./legacy/css/components/field/";
 
@@ -36,6 +37,7 @@ import './legacy/js/utc-sidebar-menu.js';
 import './legacy/js/utc-lib-chatbutton.js';
 import './legacy/js/utc-lib-primosearch.js';
 import './legacy/js/slick-custom-arrows.js';
+// import './legacy/js/ckeditor-jquery.js';
 
 // Export global variables.
 export default {
