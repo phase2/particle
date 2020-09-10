@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+
+<div{{ attributes }}>
+  {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>
+         <span class="title-text">{{ label }}</span>
+      </h2>
+    {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {# <div{{ content_attributes }}>{{ content }}</div> #}
+</div>
+
+<div class="utc-hero-temporary-fix">
+  <video autoplay="" class="" height="150" id="" loop=" muted=" poster="sites/default/files/2020-04/20160826-campus-candids-2880x1280-compressor.jpg" width="300">Your browser does not support the video tag. Please upgrade your browser.</video>
+
+  <div class="container ">
+    <div class="menu-overlay-desktop" role="navigation" aria-label="IT navigation for larger viewports">
+      <h1 class="utc-hero-title">Information Technology</h1>
+
+      <a class="btn btn-inverse btn-large utc-hero-big-btn" href="/information-technology/get-help" id="information-technologyapply-btn" tabindex="-1">Get Help!</a>
+
+      <ul class="menu-overlay-desktop-items">
+
+        <li><a class="btn btn-inverse btn-block utc-menu-btn" href="/information-technology/working-from-home" tabindex="-1">Technology Resources for Employees</a></li>
+        <li><a class="btn btn-inverse btn-block utc-menu-btn" href="/information-technology/learning-from-home" tabindex="-1">Technology Resources for Students</a></li>
+        <li><a class="btn btn-inverse btn-block utc-menu-btn" href="/information-technology/passwords" tabindex="-1">Passwords</a></li>
+        <li><a class="btn btn-inverse btn-block utc-menu-btn" href="/information-technology/security" tabindex="-1">Information Security</a></li>
+        <li><a class="btn btn-inverse btn-block utc-menu-btn" href="/information-technology/services/employee-software" tabindex="-1">Software Requests</a></li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="menu-overlay-mobile" role="navigation" aria-label="IT navigation for smaller viewports">
+    <h1 class="page-title">Information Technology</h1>
+
+    <ul>
+      <li><a class="btn btn-primary" href="/information-technology/help.php">Get Help</a></li>
+      <li><a class="btn btn-primary" href="/information-technology/working-from-home">Technology Resources for Employees</a></li>
+      <li><a class="btn btn-primary" href="/information-technology/learning-from-home">Technology Resources for Students</a></li>
+      <li><a class="btn btn-primary" href="/information-technology/passwords">Information&nbsp;Security</a></li>
+      <li><a class="btn btn-primary" href="/information-technology/services/employee-software">Software&nbsp;Requests</a></li>
+    </ul>
+  </div>
+</div>
+
+  {% endblock %}

@@ -1,0 +1,88 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+<div{{ attributes }}>
+  {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>
+         <span class="title-text">{{ label }}</span>
+      </h2>
+    {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {# <div{{ content_attributes }}>{{ content }}</div> #}
+         <div class="financialaidparallax1">
+            <div class="container-fluid center" id="financialaidstudent_type_wrapper">
+            <h1>Which type of student are you?</h1>
+
+            <div class="row-fluid">
+            <div class="col-sm-4 top-buffer">
+            <h2><a class="btn btn-lg btn-inverse btn-block financialaidundergrad-btn" href="#freshman" id="freshmen_btn">First-time Freshman</a></h2>
+            </div>
+
+            <div class="col-sm-4 top-buffer">
+            <h2><a class="btn btn-lg btn-inverse btn-block financialaidundergrad-btn" href="#continuing" id="continuing_btn">Continuing Undergraduate</a></h2>
+            </div>
+
+            <div class="col-sm-4 top-buffer">
+            <h2><a class="btn btn-lg btn-inverse btn-block financialaidundergrad-btn" href="#graduate" id="graduate_btn">Graduate</a></h2>
+            </div>
+            </div>
+
+            <div class="row-fluid">
+            <div class="col-sm-4 top-buffer">
+            <h2><a class="btn btn-lg btn-inverse btn-block financialaidundergrad-btn" href="#transfer" id="transfer_btn">Transfer</a></h2>
+            </div>
+
+            <div class="col-sm-4 top-buffer">
+            <h2><a class="btn btn-lg btn-inverse btn-block financialaidundergrad-btn" href="#postbac" id="postbac_btn">Post-Baccalaureate</a></h2>
+            </div>
+
+            <div class="col-sm-4 top-buffer">
+            <h2><a class="btn btn-lg btn-inverse btn-block financialaidundergrad-btn" href="#veteran" id="veteran_btn">Veteran</a></h2>
+            </div>
+            </div>
+
+            <div class="row-fluid">
+            <div class="col-sm-4 offset4 top-buffer">
+            <h2><a class="btn btn-lg btn-inverse btn-block financialaidundergrad-btn" href="#transient" id="transient_btn">Transient</a></h2>
+            </div>
+            </div>
+            </div>
+            </div>
+           
+           
+
+
+
+
+
+  {% endblock %}
+</div>
+
+
+

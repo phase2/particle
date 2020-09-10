@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+
+{% for key,row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row lib-event-item clearfix',
+    ]
+  %}
+  {% set temptitle = view.style_plugin.getField(key, 'field_utc_rss_feed_item_title')|render|striptags %}
+  {# check for '(Cancelled)' in title #}
+  {% if '(Cancelled)' in temptitle %}
+  {# skip #}
+  {% else %}
+  {# split title by colon to parse out type of event (only on first :) #}
+  {% set titlearray = temptitle|split(':', 2) %}
+  {# check for 'workshops' in title #}
+  {% if 'Workshop' in titlearray[0] %}
+    {% set badge = titlearray[0]|replace({("Free"):""}) %}
+    {% set title = titlearray[1] %}
+    {% set badgecolor = "rgb(120, 30, 30)" %}
+  {% else %} {# otherwise set as a workshop + remove 'free' #}
+    {% set badge = "Library Event" %}
+    {% set title = temptitle %} {# need to fix this once we get other events #}
+    {% set badgecolor = "rgb(0, 56, 107)" %} {# force color change - may be better to set a class #}
+    {% endif %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+  <a href="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|render|striptags }}" target="_blank">
+    {# the basic HTML structure is pulled from OUCampus and likely needs updating #}
+    <div class="event-date-cal">
+      <div class="date date-small">
+        <strong>{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime')|render|striptags }}</strong>
+        <span>{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_1')|render|striptags }}</span>
+      </div>
+    </div>
+    <div class="event-details">
+      <span class="badge" style="background-color: {{ badgecolor }}; color:white;">{{ badge }}</span>
+      <span class="event-title">
+    {{ title }}
+      </span>
+      {% set comparedates = view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_3')|render|striptags %}
+      {% set comparearray = comparedates|split(" ; ") %}
+      {% if  comparearray[0]|trim != comparearray[1]|trim %}
+        <span class="event-time"><i class="fas fa-calendar"></i>
+        {{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_4')|render|striptags }}
+        </span>
+      {% else %}
+      <span class="event-time">
+        <i class="fas fa-clock"></i>
+      {{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_2')|render|striptags }}
+      </span>
+      {% endif %}
+    </div>
+  </div></a>
+  {% endif %}
+{% endfor %}
