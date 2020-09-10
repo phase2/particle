@@ -28,6 +28,10 @@ import './legacy/css/components/UTC-custom-blocks/_utclib_help_btn.css';
 import './legacy/css/components/UTC-custom-blocks/_utclib_events_feed.css';
 import './legacy/css/components/navigation/_breadcrumb.css';
 import './legacy/css/components/navigation/_footer-menu.css';
+
+import './legacy/css/information-technology/_header.css';
+import './legacy/css/information-technology/_midpagewidget.css';
+
 // import "./legacy/css/components/UTC-custom-blocks/";
 // import "./legacy/css/components/field/";
 

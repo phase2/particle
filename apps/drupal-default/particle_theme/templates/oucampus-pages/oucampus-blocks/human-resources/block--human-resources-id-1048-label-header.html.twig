@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+
+<div{{ attributes }}>
+  {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>
+         <span class="title-text">{{ label }}</span>
+      </h2>
+    {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {# <div{{ content_attributes }}>{{ content }}</div> #}
+
+                <div class="humanresourcestopvid">
+        <div aria-label="Dean of Students Navigation" class="humanresourcesmenu-overlay" role="navigation"><a class="btn btn-inverse btn-large humanresourcesundergrad-btn" href="/human-resources/employment-services/employment/index.php" id="humanresourcesapply-btn">Work at UTC <span>| Apply Today</span></a>
+        <ul class="humanresources-inline">
+            <li class="top-buffer"><a class="btn btn-inverse btn-block humanresourcesundergrad-btn" href="/human-resources/employment-services/index.php">Employment Services</a></li>
+            <li class="top-buffer"><a class="btn btn-inverse btn-block humanresourcesundergrad-btn" href="/human-resources/total-compensation/index.php">Total Compensation</a></li>
+            <li class="top-buffer"><a class="btn btn-inverse btn-block humanresourcesundergrad-btn" href="/human-resources/employee-relations/index.php">Employee Relations</a></li>
+            <li class="top-buffer"><a class="btn btn-inverse btn-block humanresourcesundergrad-btn" href="/human-resources/professional-development/index.php">Professional Development</a></li>
+            <li class="top-buffer"><a class="btn btn-inverse btn-block humanresourcesundergrad-btn" href="/human-resources/profiles/index.php">Contact Us</a></li>
+        </ul>
+        </div>
+
+        <div class="humanresourcestitle-overlay">
+        <h1>Office of Human Resources</h1>
+        </div>
+        </div>
+
+
+
+
+
+
+
+  {% endblock %}
+</div>

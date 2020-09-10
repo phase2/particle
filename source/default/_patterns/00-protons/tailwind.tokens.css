@@ -15,6 +15,13 @@ Monospace - Google Fonts - Source Code Pro
 blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
   margin: 0.5rem;
 }
+/* temporary override for twailwind list styles */
+ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  padding-left: 2.4rem;
+}
 body {
   @apply font-utcbody text-gray-700;
   /* background-color: text-white; */

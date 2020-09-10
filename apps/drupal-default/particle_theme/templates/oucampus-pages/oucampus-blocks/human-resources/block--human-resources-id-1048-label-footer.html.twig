@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+<div{{ attributes }}>
+  {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>
+         <span class="title-text">{{ label }}</span>
+      </h2>
+    {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {# <div{{ content_attributes }}>{{ content }}</div> #}
+
+            <div class="humanresourcesparallax1">
+        <div class="container-fluid center" id="humanresourcesstudent_type_wrapper">
+        <h1>How can we help?</h1>
+
+        <div class="row-fluid">
+        <div class="span6 top-buffer">
+        <h2><a class="btn btn-large btn-inverse btn-block humanresourcesundergrad-btn" href="https://irisweb.tennessee.edu/irj/portal" id="midnav-btn">My IRIS Web Portal</a></h2>
+        </div>
+
+        <div class="span6 top-buffer">
+        <h2><a class="btn btn-large btn-inverse btn-block humanresourcesundergrad-btn" href="https://ut.taleo.net/" id="midnav-btn">UT Taleo</a></h2>
+        </div>
+        </div>
+
+        <div class="row-fluid">
+        <div class="span6  top-buffer">
+        <h2><a class="btn btn-large btn-inverse btn-block humanresourcesundergrad-btn" href="/human-resources/forms.php" id="midnav-btn">HR Forms</a></h2>
+        </div>
+
+        <div class="span6 top-buffer">
+        <h2><a class="btn btn-large btn-inverse btn-block humanresourcesundergrad-btn" href="https://kate.tennessee.edu" id="midnav-btn">K@TE</a></h2>
+        </div>
+        </div>
+
+        <div class="row-fluid">
+        <div class="span6 top-buffer">
+        <h2><a class="btn btn-large btn-inverse btn-block humanresourcesundergrad-btn" href="https://universitytennessee.policytech.com/?public=true" id="midnav-btn">UTC Policies</a></h2>
+        </div>
+
+        <div class="span6 top-buffer">
+        <h2><a class="btn btn-large btn-inverse btn-block humanresourcesundergrad-btn" href="/human-resources/employment-services/new-employees.php" id="midnav-btn">New Employees</a></h2>
+        </div>
+        </div>
+
+        <div class="row-fluid">
+        <div class="span6  top-buffer">
+        <h2><a class="btn btn-large btn-inverse btn-block humanresourcesundergrad-btn" href="https://policy.tennessee.edu/" id="midnav-btn">UT System Policies</a></h2>
+        </div>
+
+        <div class="span6 top-buffer">
+        <h2><a class="btn btn-large btn-inverse btn-block humanresourcesundergrad-btn" href="https://hr.tennessee.edu/" id="midnav-btn">UT System HR</a></h2>
+        </div>
+        </div>
+        </div>
+        </div>
+
+  {% endblock %}
+</div>
+
+
