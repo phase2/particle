@@ -9,6 +9,8 @@ libraries:
 libraries-override:
   core/jquery: particle/jquery
 regions:
+  top_bar_first: 'Top bar first'
+  top_bar_second: 'Top bar second'
   header_secondary_menu: 'Secondary menu'
   logo: 'Logo'
   header_primary_menu: 'Primary menu'
