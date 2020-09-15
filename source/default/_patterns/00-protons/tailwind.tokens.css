@@ -75,6 +75,9 @@ h4 {
 a {
   @apply text-utc-new-blue-500;
 }
+p{
+  @apply text-gray-800;
+}
 code {
   @apply text-pink-500;
 }
