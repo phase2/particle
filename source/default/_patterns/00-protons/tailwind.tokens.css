@@ -22,7 +22,7 @@ ol, ul, dl {
   list-style-type: disc;
   padding-left: 2.4rem;
 }
-
+/* 
 #block-utcinfofor-particle > ul.menu {
   margin: 0;
   padding: 0;
@@ -32,7 +32,7 @@ ol, ul, dl {
   margin: 0;
   padding: 0;
   list-style: none;
-}
+} */
 
 body {
   @apply font-utcbody text-gray-700;

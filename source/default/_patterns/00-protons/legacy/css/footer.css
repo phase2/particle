@@ -57,33 +57,33 @@
 }
 
 /* // info for */
-#block-infofor > .block__title, #block-shortcuts > .block__title {
+#block-utcinfofor-particle > .block__title, #block-utc-shortcuts-particle > .block__title {
   display: block;
 }
-#block-infofor >.block__title::after, #block-shortcuts > .block__title::after, #block-infofor > .block__title::before, #block-shortcuts > .block__title::before {
+#block-utcinfofor-particle >.block__title::after, #block-utc-shortcuts-particle > .block__title::after, #block-utcinfofor-particle > .block__title::before, #block-utc-shortcuts-particle > .block__title::before {
   border-top: none;
 }
-#block-infofor .menu, #block-shortcuts .menu {
-  padding-left: 0;
+#block-utcinfofor-particle .menu, #block-utc-shortcuts-particle .menu {
+  padding-left: 0.5rem;
 }
-#block-infofor .menu .menu-item, #block-shortcuts .menu .menu-item {
+#block-utcinfofor-particle .menu .menu-item, #block-utc-shortcuts-particle .menu .menu-item {
   list-style-type: none;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.8em;
 }
-#block-infofor .menu a, #block-shortcuts .menu a {
+#block-utcinfofor-particle .menu a, #block-utc-shortcuts-particle .menu a {
   /* color: blue; */
   @apply text-utc-new-blue-100;
 }
-#block-infofor .menu a:hover, #block-shortcuts .menu a:hover {
+#block-utcinfofor-particle .menu a:hover, #block-utc-shortcuts-particle .menu a:hover {
   /* color: yellow; */
   @apply text-utc-new-gold-500;
   text-decoration: none;
 }
 
-#block-infofor-menu,
-#block-shortcuts-menu{
+#block-utcinfofor-particle-menu,
+#block-utc-shortcuts-particle-menu{
   @apply text-white;
   /* color: white !important; */
   text-align: left;
@@ -92,10 +92,10 @@
 }
 
 @media screen and (max-width: 992px) {
-  #block-infofor,
-  #block-shortcuts,
-  #block-infofor > #block-infofor-menu,
-  #block-shortcuts > #block-shortcuts-menu {
+  #block-utcinfofor-particle,
+  #block-utc-shortcuts-particle,
+  #block-utcinfofor-particle > #block-utcinfofor-particle-menu,
+  #block-utc-shortcuts-particle > #block-utc-shortcuts-particle-menu {
     text-align: center;
   }
 
@@ -120,3 +120,4 @@
   border-top: none;
   border-bottom: none;
 }
+
