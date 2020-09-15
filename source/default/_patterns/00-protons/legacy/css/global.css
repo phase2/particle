@@ -33,3 +33,26 @@
   @apply text-black;
   color: black;
 }
+
+
+.UTCtextblock__links strong > a {
+	font-weight: normal;
+}
+
+.UTCtextblock__links a:not(.btn) {
+	@apply text-blue-500;
+	border-bottom: 1.5px solid #4299E1;
+	text-decoration: none;
+}
+
+.UTCtextblock__links a:not(.btn):hover {
+	@apply text-utc-new-blue-500;
+	border-bottom: 1.5px solid #112e51;
+	text-decoration: none;
+}
+
+.UTCtextblock__links a:not(.btn):active {
+	color: #FDB736;
+	border-bottom: 1.5px solid #FDB736;
+	text-decoration: none;
+}
