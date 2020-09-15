@@ -56,3 +56,7 @@
 	border-bottom: 1.5px solid #FDB736;
 	text-decoration: none;
 }
+
+.header__main {
+  @apply font-utcheadings;
+}
