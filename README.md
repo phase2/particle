@@ -71,10 +71,9 @@ To this end every commit should be made using ```npm run commit``` or ```npx cz`
 
 ![](https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png)
 
-On the CI we are also using [Commistar](https://commitsar.tech/) (see .github/workflows/pr-commit-lint.yml) which will check your commits to make sure they all adhere to semvar specs. If you commit without using Commitizen, or have to fix a commit, follow this format:
-
+If you commit without using Commitizen, or have to fix a commit, follow this format:
 
 [type](https://www.conventionalcommits.org/en/v1.0.0/) (scope/file changed, optional): message  
 EX: ```chore(README.md): update documentation ```
 
-Currently Commistar will not prevent you from merging pull requests if all of you commits do not adhere to the specification.
+In case you make the wrong kind of commit [SEE THIS](https://www.conventionalcommits.org/en/v1.0.0/#what-do-i-do-if-i-accidentally-use-the-wrong-commit-type)
