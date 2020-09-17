@@ -15,7 +15,6 @@ in particle */
   }
 }
 
-
 .utc-card-2 {
   position: relative;
   box-sizing: border-box;
@@ -24,7 +23,6 @@ in particle */
   flex-direction: column;
   min-width: 0;
 }
-
 
 .utc-card-2 img {
   height: 100%;
@@ -92,31 +90,29 @@ in particle */
 
 /* card colors and hovers */
 .utc-card-2--white {
+  @apply bg-white;
   word-wrap: break-word;
-  background-color: #ffffff;
-  border: 1px solid #c0c9d0;
+  border: 0;
   border-radius: 0;
-  box-shadow: 0 10px 15px -3px rgba(#000000, 0.1),
-    0 4px 6px -2px rgba(#000000, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
 }
 
 .utc-card-2--white.utc-card-2--card-link:hover {
-  background-color: #f5f5f5;
+  @apply bg-gray-200;
   box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
     0 4px 6px -2px rgba(#000000, 0.05);
 }
 
 .utc-card-2--lightblue {
   word-wrap: break-word;
-  background-color: #dde6ee;
-  border: 1px solid #c0c9d0;
+  @apply bg-gray-300;
+  border: 0;
   border-radius: 0;
-  box-shadow: 0 10px 15px -3px rgba(#000000, 0.1),
-    0 4px 6px -2px rgba(#000000, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
 }
 
 .utc-card-2--lightblue.utc-card-2--card-link:hover {
-  background-color: #f5f5f5;
+  @apply bg-gray-200;
   box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
     0 4px 6px -2px rgba(#000000, 0.05);
 }
@@ -138,29 +134,26 @@ in particle */
   font-size: 75px;
   line-height: 1rem;
   margin: 2.25rem 1.25rem 1rem;
-  color: #000000;
+  @apply text-black;
 }
 
-
-
-.utc-card-2--blue .fontawesome-icons {
-  color: #112e51;
+.utc-card-2__icon--blue .fontawesome-icons {
+  @apply text-utc-new-blue-500;
 }
 
-.utc-card-2--yellow .fontawesome-icons {
-  color: #fdb736;
+.utc-card-2__icon--yellow .fontawesome-icons {
+  @apply text-utc-new-gold-500;
 }
 
 .utc-card-2__icon .utc-card-2:hover {
-  color: #000000;
+  @apply text-black;
 }
-.utc-card-2--blue .fontawesome-icons:hover {
-  color: #112e51;
+.utc-card-2__icon--blue .fontawesome-icons:hover {
+  @apply text-utc-new-blue-500;
 }
 
-
-.utc-card-2--yellow .fontawesome-icons:hover {
-  color: #fdb736;
+.utc-card-2__icon--yellow .fontawesome-icons:hover {
+  @apply text-utc-new-gold-500;
 }
 
 /* ========== Thumbnail Card ========= */
@@ -217,32 +210,30 @@ in particle */
 
 /* ========== Sidebar Card ========= */
 .utc-sidebar-card {
+  @apply bg-white;
   word-wrap: break-word;
-  background-color: #ffffff;
-  border: 1px solid #c0c9d0;
+  border: 0;
   border-radius: 0;
-  box-shadow: 0 10px 15px -3px rgba(#000000, 0.05),
-    0 4px 6px -2px rgba(#000000, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
   margin-bottom: 2rem;
 }
 
 .utc-sidebar-card__header {
+  @apply bg-gray-200;
   padding: 0.75rem 1.25rem;
-  margin-bottom: 0;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #c0c9d0;
+  margin: 0;
   font-weight: 700;
   font-size: 1.15rem;
 }
 
 .utc-sidebar-card--blue {
-  color: #ffffff;
-  background-color: #112e51;
+  @apply text-white;
+  @apply bg-utc-new-blue-500;
 }
 
 .utc-sidebar-card--yellow {
-  color: #112e51;
-  background-color: #fdb736;
+  @apply text-utc-new-blue-500;
+  @apply bg-utc-new-gold-500;
 }
 
 .utc-sidebar-card__body {
