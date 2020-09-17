@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+<div{{ attributes }}>
+  {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>
+         <span class="title-text">{{ label }}</span>
+      </h2>
+    {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {# <div{{ content_attributes }}>{{ content }}</div> #}
+
+   <div class="college-engineering-computer-sciencetopvid">
+                     <video width="300" height="150" id="admissions_vid" autoplay="" muted="" loop="" class="fillWidth" poster="images/cecs-video-poster2.jpg">
+                        
+                        <source src="https://www.utc.edu/college-engineering-computer-science/videos/homepage-vid.webm" type="video/webm">
+                        
+                        <source src="https://www.utc.edu/college-engineering-computer-science/videos/homepage-vid.mp4" type="video/mp4">
+                        Your browser does not support the video tag. Please upgrade your browser. 
+                     </video>
+                     
+                     <div class="college-engineering-computer-sciencemenu-overlay" role="navigation" aria-label="Admissions Navigation">
+                        
+                        <ul class="college-engineering-computer-scienceinline">
+                           
+                           <li><a class="btn btn-inverse btn-block college-engineering-computer-scienceundergrad-btn" href="/college-engineering-computer-science/about-us/annual-review.php">Annual Review</a></li>
+                           
+                           <li><a class="btn btn-inverse btn-block college-engineering-computer-scienceundergrad-btn" href="/college-engineering-computer-science/center-for-student-success/">Center for Student Success</a></li>
+                           
+                           <li><a class="btn btn-inverse btn-block college-engineering-computer-scienceundergrad-btn" href="/college-engineering-computer-science/about-us/enews.php">Latest News</a></li>
+                           
+                           <li><a class="btn btn-inverse btn-block college-engineering-computer-scienceundergrad-btn" href="/college-engineering-computer-science/center-for-student-success/scholarships.php">Scholarships</a></li>
+                           
+                           <li><a class="btn btn-inverse btn-block college-engineering-computer-scienceundergrad-btn" href="/college-engineering-computer-science/about-us/contact-us.php">Contact Us</a></li>
+                           
+                        </ul>
+                        
+                     </div>
+                     
+                     <div class="college-engineering-computer-sciencetitle-overlay">
+                        	
+                        <h1>College of Engineering and Computer Science</h1>
+                        
+                     </div>
+                     
+                  </div>
+
+
+  {% endblock %}
+</div>
+
+

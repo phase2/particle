@@ -1,6 +1,7 @@
 /* // UTC Styles department info block */
 .department-info--dept-info-light-blue {
-  @apply bg-blue-100;
+  /* bg-blue-100; */
+  @apply bg-gray-300;
   /* background-color: $utc-lightblue; */
   padding: 2rem 0rem 1rem;
 }

@@ -1,0 +1,91 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{# card_link: view.style_plugin.getField(key, 'field_utclib_item_link')|render|striptags, #}
+{% if title %}
+	<h2>{{ title }}</h2>
+{% endif %}
+
+{% set card_classes = [
+  'utc-item-card',
+  'h-100',
+  card_link ? 'utc-item-card--card-link',
+] | sort | join(' ') | trim %}
+<div class="utc-item-card__view-two-col">
+{% for key,row in rows %}
+	{% set content = {
+	card_link: view.style_plugin.getField(key, 'field_utclib_item_link'),
+    card_image: view.style_plugin.getField(key, 'field_utclib_item_image'),
+    card_title: view.style_plugin.getField(key, 'field_utclib_item_title'),
+    card_text: view.style_plugin.getField(key, 'field_utclib_item_body')|raw,  
+    card_badges: view.style_plugin.getField(key, 'field_utclib_item_badges')|raw, 
+    card_add_info: view.style_plugin.getField(key, 'field_utclib_item_add_info'), 
+    card_divider: view.style_plugin.getField(key, 'field_utclib_item_divider')|render|striptags|clean_class,
+ } %}
+
+
+	<div class="utc-item-card__container">
+
+	{% if content.card_link %}
+		{{ content.card_link }}
+	{% endif %}
+
+	  	<div class="{{ card_classes }}">
+
+    	{% if content.card_image %}
+      		{{ content.card_image }}
+    	{% endif %}
+
+			<div class="utc-item-card__body">
+				<div class="utc-card-item__content">
+
+					{% if content.card_title %}
+						<h3 class="utc-card-item__title">{{ content.card_title }}
+						</h3>
+					{% endif %}
+
+					{% if content.card_text %}
+						<div class="utc-card-item__text">{{ content.card_text }}
+						</div>
+					{% endif %}
+
+					{% if content.card_badges %}
+						<div class="utc-item-card__badges">
+							{{ content.card_badges }}
+						</div>
+					{% endif %}
+
+				</div>
+			
+						{% if content.card_add_info %}
+						<div class="utc-item-card__action-container utc-item-card__action-container--{{ content.card_divider }}">
+							<div class="utc-item-card__action">
+								{{ content.card_add_info }}
+							</div>
+						</div>
+						{% endif %}
+
+			</div>
+		</div>
+
+	{% if content.card_link %}
+		</a>
+	{% endif %}
+
+	</div>
+{% endfor %}
+</div>

@@ -27,19 +27,26 @@ google-fonts:
     base:
       https://fonts.googleapis.com/css?family=Exo:500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:400,400i,600,600i,700,700i&display=swap: { type: external }
 
-utc-lib-chatbutton:
-  version: VERSION
+ckeditor-jquery:
   js:
-    ../../../dist/app-drupal/assets/legacy/js/utc-lib-chatbutton.js: {}
+    ../../../dist/app-drupal/assets/ckeditor-jquery.js:
   dependencies:
+    - particle/jquery
+    - particle/jquery.ui.dialog
     - core/jquery
+# utc-lib-chatbutton:
+#   version: VERSION
+#   js:
+#     ../../../dist/app-drupal/assets/legacy/js/utc-lib-chatbutton.js: {}
+#   dependencies:
+#     - core/jquery
 
-utc-lib-primosearch:
-  version: VERSION
-  js:
-    ../../../dist/app-drupal/assets/legacy/js/utc-lib-primosearch.js: {}
-  dependencies:
-    - core/jquery
+# utc-lib-primosearch:
+#   version: VERSION
+#   js:
+#     ../../../dist/app-drupal/assets/legacy/js/utc-lib-primosearch.js: {}
+#   dependencies:
+#     - core/jquery
 
 # slick-custom-arrows:
 #   version: VERSION

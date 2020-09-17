@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{{ attach_library('themag_st/utc-lib-chatbutton') }}
+
+<div><!--deleted attributes to remove additonal footer spacing -->
+	{{ title_prefix }}
+	{% if label %}
+		<h2{{title_attributes}}>
+			<span class="title-text">{{ label }}</span>
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{% block content %}
+		{# <div{{ content_attributes }}>{{ content }}</div> #}
+
+    <!--
+		<div id="sliderHorizontal" class="lib-help lib-help--horizontal">
+			<header class="btn lib-help__btn-main lib-help__icon lib-help__js--color-toggle lib-help__js--text-toggle">
+				Ask a Librarian
+			</header>
+
+			<div id="sliderContentHorizontal" class="lib-help__content lib-help__content--horizontal">
+
+				<div class="needs-js">chat loading...</div>
+				<a href="/library/help">
+					<div class="btn lib-help__btn-sub">More Help Options</div>
+				</a>
+				<a id="closeHorizontalSlider" href="#" class="lib-help__link">No thanks!</a>
+
+			</div>
+		</div>
+		 -->
+
+		<div id="sliderVertical" class="lib-help lib-help--vertical">
+			<header class="btn lib-help__btn-main lib-help__btn-main--vertical lib-help__js--color-toggle">
+				<div class="lib-help__icon lib-help__button-text--vertical lib-help__js--text-toggle">
+					Ask a Librarian
+				</div>
+			</header>
+
+			<div id="sliderContentVertical" class="lib-help__content lib-help__content--vertical">
+
+				<div class="needs-js">chat loading...</div>
+        <a href="/library/help">
+					<div class="btn lib-help__btn-sub">More Help Options</div>
+				</a>
+				<a id="closeVerticalSlider" href="#" class="lib-help__link">No thanks!</a>
+
+			</div>
+			<!-- chat vertical content -->
+
+		</div>
+	{% endblock %}
+</div>

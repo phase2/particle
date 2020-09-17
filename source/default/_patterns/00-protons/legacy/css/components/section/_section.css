@@ -23,5 +23,6 @@
   
   .utc-section-bg--blue-light {
     /* background-color: lightblue; */
-    @apply bg-blue-100;
+    /* orginal color bg-blue-100; */
+    @apply bg-gray-300;
   }

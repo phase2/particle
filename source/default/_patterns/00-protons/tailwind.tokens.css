@@ -15,6 +15,25 @@ Monospace - Google Fonts - Source Code Pro
 blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
   margin: 0.5rem;
 }
+/* temporary override for twailwind list styles */
+ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  padding-left: 2.4rem;
+}
+/* 
+#block-utcinfofor-particle > ul.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#block-utc-shortcuts-particle > ul.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+} */
+
 body {
   @apply font-utcbody text-gray-700;
   /* background-color: text-white; */
@@ -45,7 +64,7 @@ h1 {
   /* color: #112e51; */
 }
 h2 {
-  @apply text-2xl;
+  @apply text-4xl;
 }
 h3 {
   @apply text-xl;
@@ -55,6 +74,9 @@ h4 {
 }
 a {
   @apply text-utc-new-blue-500;
+}
+p{
+  @apply text-gray-800;
 }
 code {
   @apply text-pink-500;
