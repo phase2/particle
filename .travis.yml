@@ -65,7 +65,7 @@ notifications:
 deploy:
   provider: releases
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github_token: 6eb9230aafaaf0f36cf03dec25f9c726bccf6bc6  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   edge: true
   verbose: true
