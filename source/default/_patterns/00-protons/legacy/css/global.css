@@ -60,3 +60,8 @@
 .header__main {
   @apply font-utcheadings;
 }
+
+.demo_class_particle_andtravis{
+	@apply text-blue-500;
+	border-bottom: 1.5px solid #4299E1;
+}
