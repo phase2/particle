@@ -1,6 +1,5 @@
 language: php
 php:
-  - 7.1
   - 7.2
 # env:
 #   matrix:
@@ -37,7 +36,7 @@ script:
 before_deploy: 
    - git add .
    - git commit -m "Adding particle dist/ assets"
-   - git push
+  #  - git push origin develop
 
 notifications:
   email:
