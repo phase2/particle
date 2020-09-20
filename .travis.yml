@@ -33,15 +33,27 @@ script:
   - npm run build:drupal --if-present
   - npm run build:pl --if-present
 
-before_deploy: 
+after_success: 
    - git add .
    - git commit -m "Adding particle dist/ assets"
+  #  - git push https://bmartinez287:${GITHUB_API_KEY}@${GH_REF} HEAD:develop  #clownvary is my username on github, you need to use yourself , do not use travis or others.
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  keep_history: true
+  github_token: ${GITHUB_API_KEY}  # Your GitHub token set in Travis CI console
+  target_branch: develop        # Add this line - To push into GitHub master branch
+  on:
+    all_branches: true
+    # branch: staging            # Your GitHub repo default branch
   #  - git push origin develop
 
-notifications:
-  email:
-    on_success: always
-    on_failure: always
+# notifications:
+#   email:
+#     on_success: always
+#     on_failure: always
+
 # deploy:
 #   provider: s3
 #   access_key_id: AKIAJBL5BZGAV2VFZZNA
@@ -62,13 +74,13 @@ notifications:
 #      on:
 #        branch: develop
 #        php: 7.3
-deploy:
-  provider: releases
-  skip_cleanup: true
-  api_key: 6eb9230aafaaf0f36cf03dec25f9c726bccf6bc6  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
-  edge: true
-  verbose: true
-  on:
-    repo: UTCWeb/particle
-    branch: develop
+# deploy:
+#   provider: releases
+#   skip_cleanup: true
+#   api_key: 6eb9230aafaaf0f36cf03dec25f9c726bccf6bc6  # Set in the settings page of your repository, as a secure variable
+#   keep_history: true
+#   edge: true
+#   verbose: true
+#   on:
+#     repo: UTCWeb/particle
+#     branch: develop
