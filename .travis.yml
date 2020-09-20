@@ -35,7 +35,7 @@ script:
 
 after_success: 
    - git add .
-   - git commit -m "Adding particle dist/ assets"
+   - git commit -m "[skip travis] Adding particle dist/ assets"
   #  - git push https://bmartinez287:${GITHUB_API_KEY}@${GH_REF} HEAD:develop  #clownvary is my username on github, you need to use yourself , do not use travis or others.
 
 deploy:
