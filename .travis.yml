@@ -44,43 +44,7 @@ deploy:
   keep_history: true
   github_token: ${GITHUB_API_KEY}  # Your GitHub token set in Travis CI console
   target_branch: develop        # Add this line - To push into GitHub master branch
-  on:
-    all_branches: true
+  # on:
+  #   all_branches: true
     # branch: staging            # Your GitHub repo default branch
-  #  - git push origin develop
 
-# notifications:
-#   email:
-#     on_success: always
-#     on_failure: always
-
-# deploy:
-#   provider: s3
-#   access_key_id: AKIAJBL5BZGAV2VFZZNA
-#   secret_access_key:
-#     secure: Fss1itHfFSEIM+lO0c9avjZcOKWFNlz10V1ml2lFETmLW/rLiNXExy2cEStMgpodV9IwzcvRtfnyRIi6n9f+GzZFiPm7q8krlBT8T7pROzEM9AvIV273Q6hK687HrGrOiq/0hhXhA8aUI7QRGw7e4eZoI71/w2NiFk+r22fSDug=
-#   bucket: p2-particle
-#   local-dir: dist
-#   acl: public_read
-#   skip_cleanup: true
-#   on:
-#     repo: phase2/particle
-#     branch: master
-# deploy:
-#    - provider: script
-#      script: "${BLT_DIR}/scripts/travis/deploy_branch"
-#     #  script: blt artifact:deploy --commit-msg "Automated commit by Travis CI for Build ${TRAVIS_BUILD_ID}" --branch "${TRAVIS_BRANCH}-build" --no-interaction --verbose --ignore-dirty
-#      skip_cleanup: true
-#      on:
-#        branch: develop
-#        php: 7.3
-# deploy:
-#   provider: releases
-#   skip_cleanup: true
-#   api_key: 6eb9230aafaaf0f36cf03dec25f9c726bccf6bc6  # Set in the settings page of your repository, as a secure variable
-#   keep_history: true
-#   edge: true
-#   verbose: true
-#   on:
-#     repo: UTCWeb/particle
-#     branch: develop
