@@ -46,5 +46,6 @@ deploy:
   target_branch: develop        # Add this line - To push into GitHub master branch
   on:
     branch: develop
+    condition: $TRAVIS_COMMIT_MESSAGE =~ ^(?!(Deploy)).+$
     # branch: staging            # Your GitHub repo default branch
 
