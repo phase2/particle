@@ -78,6 +78,9 @@ a {
 p{
   @apply text-gray-800;
 }
+ul{
+  @apply text-gray-800;
+}
 code {
   @apply text-pink-500;
 }
