@@ -88,17 +88,18 @@ h2:first-child {
 }
 
 .utc-item-card__content {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
 }
 
 .utc-item-card__action-container--line {
   border-top: 1px solid #c0c9d0;
   padding-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .utc-item-card__action-container--gray-bg {
   @apply bg-gray-200;
-  margin: 0 -1.25rem -1.25rem;
+  margin: 0.5rem -1.25rem -1.25rem;
 }
 
 .utc-item-card__action-container--gray-bg .utc-item-card__action {
