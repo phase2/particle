@@ -30,7 +30,8 @@ in particle */
   word-wrap: break-word;
   border: 0;
   border-radius: 0;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 a .utc-item-card:hover {
@@ -82,12 +83,12 @@ h2:first-child {
 }
 
 .utc-item-card__title {
-  font-size: 1.25;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
 .utc-item-card__content {
-margin-bottom: 1.25rem;
+  margin-bottom: .5rem;
 }
 
 .utc-item-card__action-container--line {
@@ -116,15 +117,15 @@ margin-bottom: 1.25rem;
 }
 
 .utc-item-card__badges ul li {
+  @apply bg-gray-300;
   display: inline-block;
   margin: 0.25rem;
-  background-color: #dde6ee;
-  padding: 0.3rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 10rem;
   font-size: 0.95rem;
   line-height: 0.95rem;
 }
 
 a .utc-item-card__body {
-  color: black;
+  @apply text-black;
 }
