@@ -47,8 +47,23 @@
   @apply text-black;
   color: black;
 }
+.utc-card-2__text a:not(.btn) {
+	@apply text-blue-500;
+	border-bottom: 1.5px solid #4299E1;
+	text-decoration: none;
+}
 
+.utc-card-2__text a:not(.btn):hover {
+	@apply text-utc-new-blue-500;
+	border-bottom: 1.5px solid #112e51;
+	text-decoration: none;
+}
 
+.utc-card-2__text a:not(.btn):active {
+	color: #FDB736;
+	border-bottom: 1.5px solid #FDB736;
+	text-decoration: none;
+}
 .UTCtextblock__links strong > a {
 	font-weight: normal;
 }
