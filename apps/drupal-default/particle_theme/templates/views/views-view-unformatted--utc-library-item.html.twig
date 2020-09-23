@@ -40,7 +40,7 @@
 
 	<div class="utc-item-card__container">
 
-	{% if content.card_link %}
+	{% if content.card_link %} 
 		{{ content.card_link }}
 	{% endif %}
 
@@ -51,15 +51,15 @@
     	{% endif %}
 
 			<div class="utc-item-card__body">
-				<div class="utc-card-item__content">
+				<div class="utc-item-card__content">
 
 					{% if content.card_title %}
-						<h3 class="utc-card-item__title">{{ content.card_title }}
+						<h3 class="utc-item-card__title">{{ content.card_title }}
 						</h3>
 					{% endif %}
 
 					{% if content.card_text %}
-						<div class="utc-card-item__text">{{ content.card_text }}
+						<div class="utc-item-card__text">{{ content.card_text }}
 						</div>
 					{% endif %}
 
