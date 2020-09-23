@@ -1,5 +1,9 @@
 
-//version 1.0
+/* //version 1.0 */
 .editor-link-dialog #drupal-modal{
+    overflow: visible;
+}
+
+#drupal-modal > #ui-id-2 {
     overflow: visible;
 }

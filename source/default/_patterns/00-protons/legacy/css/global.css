@@ -4,6 +4,20 @@
     @apply text-blue-600;
   }
 
+#edit-keys{
+  background: rgb(255, 255, 255) !important;
+}
+
+/* removes title lines coming from the parent mag */
+.block--region-content-header.block--page-title-block:after, .block--region-content-header.block--page-title-block:before, .block--layout-builder.block--page-title-block:after, .block--layout-builder.block--page-title-block:before {
+  content: "";
+  display: none;
+  width: 100%;
+  /* border-top: 1px solid #90a4ae; */
+  position: absolute;
+  bottom: calc(41% + 1.5px);
+  z-index: 0;
+}
 
 .hellowordl{
     background: red;
