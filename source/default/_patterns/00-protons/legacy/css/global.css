@@ -4,6 +4,20 @@
     @apply text-blue-600;
   }
 
+#search-form > #edit-basic > #edit-keys{
+  background: rgb(255, 255, 255) !important;
+}
+
+/* removes title lines coming from the parent mag */
+.block--region-content-header.block--page-title-block:after, .block--region-content-header.block--page-title-block:before, .block--layout-builder.block--page-title-block:after, .block--layout-builder.block--page-title-block:before {
+  content: "";
+  display: none;
+  width: 100%;
+  /* border-top: 1px solid #90a4ae; */
+  position: absolute;
+  bottom: calc(41% + 1.5px);
+  z-index: 0;
+}
 
 .hellowordl{
     background: red;
@@ -33,8 +47,23 @@
   @apply text-black;
   color: black;
 }
+.utc-card-2__text a:not(.btn) {
+	@apply text-blue-500;
+	border-bottom: 1.5px solid #4299E1;
+	text-decoration: none;
+}
 
+.utc-card-2__text a:not(.btn):hover {
+	@apply text-utc-new-blue-500;
+	border-bottom: 1.5px solid #112e51;
+	text-decoration: none;
+}
 
+.utc-card-2__text a:not(.btn):active {
+	color: #FDB736;
+	border-bottom: 1.5px solid #FDB736;
+	text-decoration: none;
+}
 .UTCtextblock__links strong > a {
 	font-weight: normal;
 }
@@ -55,6 +84,13 @@
 	color: #FDB736;
 	border-bottom: 1.5px solid #FDB736;
 	text-decoration: none;
+}
+
+/* it makes the layout builder background consistent */
+.layout-builder {
+  padding: 0;
+  border: none;
+  background-color: inherit;
 }
 
 .header__main {
