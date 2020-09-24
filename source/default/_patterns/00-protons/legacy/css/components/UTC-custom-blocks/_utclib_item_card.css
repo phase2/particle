@@ -5,40 +5,38 @@ in the layout
 
 this class should be moved to a card grid scss file
 in particle */
-@media (min-width: 768px) {
-.utc-item-two-col .utc-item-card__view-two-col {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.utc-item-two-col .utc-item-card__view-two-col > .utc-item-card__container {
-width: 49%;
-}
+@media (min-width: 1024px) {
+  .utc-item-two-col .utc-item-card__view-two-col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .utc-item-two-col .utc-item-card__view-two-col > .utc-item-card__container {
+    width: 49%;
+  }
 }
 .utc-item-card__container {
   margin-bottom: 30px;
 }
 
-
 .utc-item-card {
+  @apply bg-white;
   position: relative;
   box-sizing: border-box;
   display: flex;
   flex: 0 0 auto;
-  flex-direction: column;
+  flex-direction: row;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
-  border: 1px solid #c0c9d0;
+  border: 0;
   border-radius: 0;
-  box-shadow: 0 10px 15px -3px rgba(#000, 0.1),
-  0 4px 6px -2px rgba(#000, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 a .utc-item-card:hover {
-  background-color: #f5f5f5;
-  box-shadow: 0 10px 15px -3px rgba($black, 0.2),
-    0 4px 6px -2px rgba(#000, 0.05);
+  @apply bg-gray-200;
+  box-shadow: 0 10px 15px -3px rgba(#000, 0.2), 0 4px 6px -2px rgba(#000, 0.05);
 }
 
 .utc-item-card h3 {
@@ -55,7 +53,6 @@ h2:first-child {
   }
 }
 
-
 .utc-item-card img {
   height: 100%;
   width: 100%;
@@ -64,51 +61,49 @@ h2:first-child {
 
 .utc-item-card .media-image {
   height: 100%;
-
 }
 
 .utc-item-card .field--name-field-image {
   flex: 0 1 35%;
 }
 
-
-
 .utc-item-card__body {
-  padding: 1.25rem 1.25rem .25rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: auto;
   flex: 1 0 75%;
-
-
 }
 
-@include media-breakpoint-up(sm) {
+@media (min-width: 768px) {
   .utc-item-card {
     flex-direction: row;
   }
 }
 
 .utc-item-card__title {
-  font-size: 1.25;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
-//used in library item card template
+.utc-item-card__content {
+  margin-bottom: 0rem;
+}
+
 .utc-item-card__action-container--line {
-  border-top: 2px solid #c0c9d0;
-  padding-top: 1.25rem;
+  border-top: 1px solid #c0c9d0;
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .utc-item-card__action-container--gray-bg {
-  background-color: #f5f5f5;
-  margin: 0 -1.25rem -.25rem -1.25rem;
-
+  @apply bg-gray-200;
+  margin: 0.5rem -1.25rem -1.25rem;
 }
 
 .utc-item-card__action-container--gray-bg .utc-item-card__action {
-  padding: 1.25rem 1.25rem .25rem;
+  padding: 1rem;
 }
 
 .utc-item-card__action .btn {
@@ -119,19 +114,19 @@ h2:first-child {
   list-style: none;
   display: inline-block;
   padding: 0;
+  margin-bottom: 0;
 }
 
 .utc-item-card__badges ul li {
+  @apply bg-gray-300;
   display: inline-block;
-  margin: .25rem;
-  background-color: #dde6ee;
-  padding: .3rem .75rem;
+  margin: 0.25rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 10rem;
-  font-size: .95rem;
-  line-height: .95rem;
+  font-size: 0.95rem;
+  line-height: 0.95rem;
 }
 
 a .utc-item-card__body {
-  color: black;
+  @apply text-black;
 }
-

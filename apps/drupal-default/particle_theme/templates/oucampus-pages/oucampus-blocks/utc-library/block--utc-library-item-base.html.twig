@@ -1,0 +1,89 @@
+
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+
+	{% set card_classes = [
+  'utc-item-card',
+  'h-100',
+  card_link ? 'utc-item-card--card-link',
+] | sort | join(' ') | trim %}
+
+
+	<div class="utc-item-card__container">
+		{% if content.card_link %}
+			{{ content.card_link }}
+		{% endif %}
+
+		<div class="{{ card_classes }}">
+
+			{% if content.card_image %}
+				{{ content.card_image }}
+			{% endif %}
+
+			<div class="utc-item-card__body">
+				<div class="utc-item-card__content">
+
+					{% if content.card_title %}
+						<h3 class="utc-item-card__title">{{ content.card_title }}
+						</h3>
+					{% endif %}
+
+					{% if content.card_text %}
+						<div class="utc-item-card__text">{{ content.card_text }}
+						</div>
+					{% endif %}
+					{% block badges %}
+						{% if content.card_badges %}
+							<div class="utc-item-card__badges">
+								<ul>
+									{% for key, item in content.card_badges if key|first != '#' %}
+										<li>{{ item }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+					{% endif %}
+					{% endblock %}
+
+				</div>
+				{% if content.card_add_info %}
+					<div class="utc-item-card__action-container utc-item-card__action-container--{{ content.card_divider }}">
+						<div class="utc-item-card__action">
+							{{ content.card_add_info }}
+						</div>
+					</div>
+				{% endif %}
+
+			</div>
+		</div>
+
+		{% if content.card_link %}
+		</a>
+	{% endif %}
+
+</div>

@@ -37,55 +37,16 @@
     card_divider: view.style_plugin.getField(key, 'field_utclib_item_divider')|render|striptags|clean_class,
  } %}
 
-
-	<div class="utc-item-card__container">
-
-	{% if content.card_link %}
-		{{ content.card_link }}
-	{% endif %}
-
-	  	<div class="{{ card_classes }}">
-
-    	{% if content.card_image %}
-      		{{ content.card_image }}
-    	{% endif %}
-
-			<div class="utc-item-card__body">
-				<div class="utc-card-item__content">
-
-					{% if content.card_title %}
-						<h3 class="utc-card-item__title">{{ content.card_title }}
-						</h3>
-					{% endif %}
-
-					{% if content.card_text %}
-						<div class="utc-card-item__text">{{ content.card_text }}
-						</div>
-					{% endif %}
-
-					{% if content.card_badges %}
-						<div class="utc-item-card__badges">
-							{{ content.card_badges }}
-						</div>
-					{% endif %}
-
-				</div>
-			
-						{% if content.card_add_info %}
-						<div class="utc-item-card__action-container utc-item-card__action-container--{{ content.card_divider }}">
-							<div class="utc-item-card__action">
-								{{ content.card_add_info }}
-							</div>
-						</div>
-						{% endif %}
-
-			</div>
+	{% embed 'block--utc-library-item-base.html.twig' with content %}
+{% block badges %}
+	{% if content.card_badges %}
+		<div class="utc-item-card__badges">
+				{{ content.card_badges }}
 		</div>
-
-	{% if content.card_link %}
-		</a>
 	{% endif %}
+{% endblock %}
+{% endembed %}
 
-	</div>
+
 {% endfor %}
 </div>
