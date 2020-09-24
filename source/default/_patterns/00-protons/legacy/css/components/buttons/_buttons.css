@@ -26,14 +26,14 @@
 .btn--navy:hover,
 .btn-primary:hover,
 .btn-dark:hover {
-  @apply bg-blue-700;
+  @apply bg-blue-900;
   @apply text-white;
 }
 
 .btn--navy:active,
 .btn-primary:active,
 .btn-dark:active {
-  @apply bg-blue-700;
+  @apply bg-blue-900;
   @apply text-white;
 }
 
@@ -101,12 +101,12 @@
 .btn--burgundy:hover,
 .btn-warning:hover {
   @apply bg-utc-new-gold-500;
-  @apply text-red-900;;
+  @apply text-red-900;
 }
 
 .btn--burgundy:active,
 .btn-warning:active {
-  @apply text-white;
+	@apply text-red-900;
   @apply bg-utc-new-gold-500;
   box-shadow: 0 0 0 0.2rem rgba(120, 30, 30, 0.5);
 }
