@@ -1,22 +1,21 @@
 .btn-group__title--center {
-	text-align: center;
+  text-align: center;
 }
 
 .btn-group__title--white {
-	color: #fff;
+  color: #fff;
 }
 
 .btn-group__btn {
-	white-space: normal;
-	height: 100%;
-	margin-top: auto;
-	margin-bottom: auto;
-	display: inline-flex;
-	min-width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-	justify-content: center;
-	text-align: center;
-	align-items: center;
-	vertical-align: middle;
+  white-space: normal;
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: inline-flex;
+  min-width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
 }
