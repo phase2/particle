@@ -32,53 +32,41 @@
 
 .btn--navy:active,
 .btn-primary:active,
-.btn-dark:active,
-.btn--navy:not(:disabled):not(.disabled):active,
-.btn-primary:not(:disabled):not(.disabled):active,
-.btn-dark:not(:disabled):not(.disabled):active {
+.btn-dark:active {
   @apply bg-blue-700;
   @apply text-white;
 }
 
 .btn--navy:focus,
 .btn-primary:focus,
-.btn-dark:focus,
-.btn-primary:not(:disabled):not(.disabled):active:focus,
-.btn--navy:not(:disabled):not(.disabled):active:focus,
-.btn-dark:not(:disabled):not(.disabled):active:focus {
+.btn-dark:focus {
   box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn--yellow,
 .btn-danger,
 .btn-secondary {
-  @apply bg-utc-new-gold-600;
-  @apply bg-utc-new-blue-500;
+  @apply bg-utc-new-gold-500;
+  @apply text-utc-new-blue-500;
 }
 
 .btn--yellow:hover,
 .btn-danger:hover,
 .btn-secondary:hover {
-  @apply bg-utc-new-gold-500;
-  @apply bg-utc-new-blue-500;
+  @apply bg-utc-new-gold-600;
+  @apply text-utc-new-blue-500;
 }
 
 .btn--yellow:active,
 .btn-danger:active,
-.btn-secondary:active,
-.btn-danger:not(:disabled):not(.disabled):active,
-.btn--yellow:not(:disabled):not(.disabled):active,
-.btn-secondary:not(:disabled):not(.disabled):active {
-  @apply bg-utc-new-gold-500;
-  @apply bg-utc-new-blue-500;
+.btn-secondary:active {
+  @apply bg-utc-new-gold-600;
+  @apply text-utc-new-blue-500;
 }
 
 .btn--yellow:focus,
 .btn-danger:focus,
-.btn-secondary:focus,
-.btn--yellow:not(:disabled):not(.disabled):active:focus,
-.btn-danger:not(:disabled):not(.disabled):active:focus,
-.btn-secondary:not(:disabled):not(.disabled):active:focus {
+.btn-secondary:focus {
   box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -92,9 +80,7 @@
 .btn--navy-outline:hover,
 .btn--navy-outline:active,
 .btn-info:hover,
-.btn-info:active,
-.btn--navy-outline:not(:disabled):not(.disabled):active,
-.btn-info:not(:disabled):not(.disabled):active {
+.btn-info:active {
   @apply bg-utc-new-blue-500;
   @apply text-white;
   border: 2px solid #112e51;
@@ -102,9 +88,7 @@
 }
 
 .btn-info:focus,
-.btn--navy-outline:focus,
-.btn--navy-outline:not(:disabled):not(.disabled):active:focus,
-.btn-info:not(:disabled):not(.disabled):active:focus {
+.btn--navy-outline:focus {
   box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -117,22 +101,18 @@
 .btn--burgundy:hover,
 .btn-warning:hover {
   @apply bg-utc-new-gold-500;
-  @apply text-white;
+  @apply text-red-900;;
 }
 
 .btn--burgundy:active,
-.btn-warning:active,
-.btn--burgundy:not(:disabled):not(.disabled):active,
-.btn-warning:not(:disabled):not(.disabled):active {
+.btn-warning:active {
   @apply text-white;
   @apply bg-utc-new-gold-500;
   box-shadow: 0 0 0 0.2rem rgba(120, 30, 30, 0.5);
 }
 
 .btn--burgundy:focus,
-.btn-warning:focus,
-.btn--burgundy:not(:disabled):not(.disabled):active:focus,
-.btn-warning:not(:disabled):not(.disabled):active:focus {
+.btn-warning:focus {
   box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -168,9 +148,7 @@
 }
 
 .btn--green:focus,
-.btn-success:focus,
-.btn--green:not(:disabled):not(.disabled):active:focus,
-.btn-success:not(:disabled):not(.disabled):active:focus {
+.btn-success:focus {
   box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -183,16 +161,13 @@
 .btn--lightblue:hover,
 .btn--lightblue:active,
 .btn-light:hover,
-.btn-light:active,
-.btn--lightblue:not(:disabled):not(.disabled):active,
-.btn-light:not(:disabled):not(.disabled):active {
+.btn-light:active {
   @apply bg-gray-400;
+  @apply text-utc-new-blue-500;
 }
 
 .btn--lightblue:focus,
-.btn-light:focus,
-.btn--lightblue:not(:disabled):not(.disabled):active:focus,
-.btn-light:not(:disabled):not(.disabled):active:focus {
+.btn-light:focus {
   box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.1);
 }
 
