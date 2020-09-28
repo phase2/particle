@@ -1,0 +1,15 @@
+services:
+  <%= themeNameSnake %>_helper.twig_extension:
+    arguments: ['@renderer']
+    class: Drupal\<%= themeNameSnake %>_helper\TwigExtension\<%= themeNamePascal %>HelperTwig
+    tags:
+      - { name: twig.extension }
+
+  <%= themeNameSnake %>_helper.<%= themeNameSnake %>_tools:
+    class: Drupal\<%= themeNameSnake %>_helper\Tools\<%= themeNamePascal %>Tools
+
+  <%= themeNameSnake %>_helper.atoms:
+    class: Drupal\<%= themeNameSnake %>_helper\Components\Atoms
+
+  <%= themeNameSnake %>_helper.molecules:
+    class: Drupal\<%= themeNameSnake %>_helper\Components\Molecules

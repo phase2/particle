@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains <%= themeNameSnake %>_helper.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function <%= themeNameSnake %>_helper_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the <%= themeNameSnake %>_helper module.
+    case 'help.page.<%= themeNameSnake %>_helper':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('<%= themeNameTitle %> theme utilities') . '</p>';
+      return $output;
+
+    default:
+  }
+}

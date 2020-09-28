@@ -1,0 +1,32 @@
+<?php
+
+namespace Drupal\<%= themeNameSnake %>_helper\Tools;
+
+use Drupal\<%= themeNameSnake %>\<%= themeNamePascal %>;
+
+/**
+ * Provides project specific functions for <%= themeNameTitle %> theme.
+ */
+class <%= themeNamePascal %>Tools {
+
+  /**
+   * Return the theme path relative to the Drupal root.
+   *
+   * @return string
+   *   The theme path.
+   */
+  public static function getThemePath() {
+    return drupal_get_path('theme', <%= themeNamePascal %>::THEME_NAME);
+  }
+
+  /**
+   * Return the theme's name.
+   *
+   * @return string
+   *   The theme's name.
+   */
+  public static function getThemeName() {
+    return <%= themeNamePascal %>::THEME_NAME;
+  }
+
+}

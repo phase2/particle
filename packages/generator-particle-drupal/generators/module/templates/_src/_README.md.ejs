@@ -1,0 +1,80 @@
+# <%= themeNameTitle %> Helper
+
+## Extensions
+
+### Components
+
+The Components namespace is responsible for returning arrays matching <%= themeNameTitle %>
+components. They're subdivided by atomic concepts:
+
+- Atoms
+- Molecules
+
+Functions in each file should return data in the shape a <%= themeNameTitle %> component
+expects. For example:
+
+```php
+  /**
+   * Makes a header in <%= themeNameTitle %> format.
+   *
+   * @param string $title
+   *   The header title.
+   *
+   * @return array
+   *   The header data as an array matching <%= themeNameTitle %> component.
+   */
+  public function makeHeader($title) {
+    return [
+      'title' => !empty($title) ? $title : '',
+    ];
+  }
+```
+
+This is helpful when you are using a component multiple times over several php
+modules and preprocess files.
+
+#### Usage
+
+Each component maker file is registered as a service and can be called inside
+any php file using Drupal's class resolver:
+
+```php
+/** @var \Drupal\<%= themeNameSnake %>_helper\Components\Molecules */
+$molecules = \Drupal::service('<%= themeNameSnake %>_helper.molecules');
+
+$header = $molecules->makeHeader('My Cool Header');
+```
+
+### Twig Extension
+
+All custom Twig Extensions specific to <%= themeNameTitle %> can be added here.
+
+### <%= themeNameTitle %> Tools
+
+Similar to _Components_, <%= themeNamePascal %>Tools provide helper functions for theme
+development. However, rather than return <%= themeNametitle %> arrays these functions are
+helpers for interacting with Drupal. For example, you may want to get the theme
+path from a defined theme constant:
+
+```php
+  /**
+   * Return the theme path relative to the Drupal root.
+   *
+   * @return string
+   *   The theme path.
+   */
+  public function getThemePath() {
+    return drupal_get_path('theme', <%= themeNamePascal %>::THEME_NAME);
+  }
+```
+
+#### Usage
+
+To use the Tools library in any php file again use Drupal's class resolver:
+
+```php
+/** @var \Drupal\<%= themeNameSnake %>_helper\<%= themeNamePascal %>Tools\<%= themeNamePascal %>Tools */
+$tools = \Drupal::service('<%= themeNameSnake %>_helper.<%= themeNameSnake %>_tools');
+
+$theme_path = $tools->getThemePath();
+```
