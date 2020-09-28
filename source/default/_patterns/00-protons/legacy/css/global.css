@@ -68,7 +68,7 @@
 	font-weight: normal;
 }
 
-.UTCtextblock__links a:not(.btn) {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link) {
 	@apply text-blue-500;
 	border-bottom: 1.5px solid #4299E1;
 	text-decoration: none;
