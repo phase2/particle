@@ -1,10 +1,75 @@
-/*this is a hacky way to fix extra margin caused by themag theme at certain widths
-possibly look at padding and margin of layout blocks
-across site to determine whether all padding/margin should be dictated by block type vs.
-in the layout
+/* style view filters */
+.lib-item-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: .625rem 2rem 1.625rem;
+}
+.lib-item-form .form-item {
+  margin-left: 0.5rem;
+}
 
-this class should be moved to a card grid scss file
-in particle */
+.lib-item-form .form-actions {
+  display: none;
+}
+.lib-item-form .form-item label,
+.lib-item-form legend {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  @apply text-utc-new-blue-500;
+}
+
+/* style search */
+.lib-item-form .form-input {
+  height: 50px;
+  border: 1px solid;
+  border-radius: 0;
+  @apply bg-gray-200;
+  @apply border-gray-400;
+}
+
+.lib-item-form .js-form-item-search {
+  flex-grow: 10;
+}
+
+/* style select menus */
+.lib-item-form .form-select {
+  height: 50px;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 0;
+  @apply bg-gray-200;
+  @apply border-gray-400;
+}
+
+.js-form-type-select {
+  flex-grow: 1;
+}
+
+/* style checkboxes */
+.lib-item-form .form-item label.option {
+  font-size: 1rem;
+}
+
+.lib-item-form .form-checkboxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.lib-item-form .form-input.form-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lib-item-form .form-input.form-checkbox:checked {
+  @apply bg-utc-new-blue-500;
+}
+
+
+
 @media (min-width: 1024px) {
   .utc-item-two-col .utc-item-card__view-two-col {
     display: flex;
