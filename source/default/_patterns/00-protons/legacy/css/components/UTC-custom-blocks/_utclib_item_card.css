@@ -1,10 +1,88 @@
-/*this is a hacky way to fix extra margin caused by themag theme at certain widths
-possibly look at padding and margin of layout blocks
-across site to determine whether all padding/margin should be dictated by block type vs.
-in the layout
+/* style view filters */
+.lib-item-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem 0rem;
+}
+.lib-item-form .form-item {
+  margin-left: 0.5rem;
+}
 
-this class should be moved to a card grid scss file
-in particle */
+.lib-item-form .form-actions {
+  display: none;
+}
+.lib-item-form .form-item label,
+.lib-item-form legend {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  @apply text-utc-new-blue-500;
+}
+
+/* style search and select menus */
+
+.lib-item-form .js-form-item-search {
+  flex-grow: 10;
+}
+
+.js-form-type-select {
+  flex-grow: 1;
+}
+
+.lib-item-form .form-input,
+.lib-item-form .form-select {
+  height: 55px;
+  width: 100%;
+  border: 2px solid;
+  border-radius: 0;
+  @apply bg-white;
+  @apply border-utc-new-blue-500;
+  @apply text-utc-new-blue-500;
+  font-size: 1.25rem;
+}
+
+/* style checkboxes */
+.lib-item-form .form-item label.option {
+  font-size: 1rem;
+}
+
+.lib-item-form .form-checkboxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.lib-item-form .form-input.form-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lib-item-form .form-input.form-checkbox:checked {
+  @apply bg-utc-new-blue-500;
+}
+
+/* if form is in full width container */
+
+.container-full .lib-item-form-container {
+  margin: 0rem -1rem;
+  @apply bg-gray-200;
+}
+
+.container-full .view-utc-library-item .view-content,
+.container-full .lib-item-form {
+  margin: 0rem 5rem 1rem;
+  padding: 1.5rem 0rem 3rem;
+}
+
+.container-full .lib-item-form .form-input,
+.container-full .lib-item-form .form-select {
+  border: 0;
+  border-radius: 0;
+  @apply border-gray-400;
+}
+
 @media (min-width: 1024px) {
   .utc-item-two-col .utc-item-card__view-two-col {
     display: flex;
