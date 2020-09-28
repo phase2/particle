@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Theme override of an image.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the img tag.
+ * - style_name: (optional) The name of the image style applied.
+ *   We're using as a class below. Set you style in Drupal to a
+ *
+ * @see template_preprocess_image()
+ */
+#}
+
+{% set image_classes = ['m-3', 'img', style_name|clean_class]|join(' ')|trim %}
+
+<img {{ attributes.addClass(image_classes) }} />

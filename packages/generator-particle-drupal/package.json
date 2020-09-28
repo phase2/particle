@@ -30,5 +30,8 @@
   },
   "dependencies": {
     "yeoman-generator": "^4.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0"
   }
 }
