@@ -11,11 +11,16 @@ const {
 } = require('lodash');
 const path = require('path');
 const fs = require('fs');
+const rename = require('gulp-rename');
 
 // Logo for Terminal Output
 const logo = require('../../logo');
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+  }
+
   // Initialize config from Particle if it exists.
   initializing() {
     try {
@@ -78,6 +83,24 @@ module.exports = class extends Generator {
   writing() {
     // Update our yo configuration from props.
     this.config.set(this.props);
+
+    // Replace `_theme_name` from incoming files to theme's snake case.
+    this.registerTransformStream(
+      rename((path) => {
+        path.basename = path.basename.replace(
+          '_theme_name',
+          this.props.themeNameSnake
+        );
+        return path;
+      })
+    );
+
+    // Copy Config
+    this.fs.copyTpl(
+      this.templatePath('_config'),
+      path.join(this.destinationPath(this.props.drupalThemePath), 'config'),
+      { themeNameSnake: this.props.themeNameSnake }
+    );
 
     this.log(
       chalk.bgGreen(
