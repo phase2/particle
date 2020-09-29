@@ -52,20 +52,24 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'themeDescription',
         message: 'What description should we give your theme?',
-        default: this.config.get('themeDescription'),
+        default: this.config.get('themeDescription')
+          ? this.config.get('themeDescription')
+          : `A theme for ${this.config.get('projectName')} projects.`,
       },
       {
         type: 'input',
         name: 'drupalThemePath',
         message: 'Where should we write your Drupal theme?',
-        default: this.config.get('drupalThemePath'),
+        default: this.config.get('drupalThemePath')
+          ? this.config.get('drupalThemePath')
+          : 'project/themes/custom',
       },
       {
         type: 'input',
         name: 'drupalDist',
         message:
           'Where relative path from the drupal theme will you compile drupal assets (ex: "/dist")?',
-        default: this.config.get('drupalDist'),
+        default: '/dist',
       },
     ];
 
@@ -76,6 +80,9 @@ module.exports = class extends Generator {
         themeNamePascal: upperFirst(camelCase(props.themeName)),
         themeNameSnake: snakeCase(props.themeName),
         themeNameKebab: kebabCase(props.themeName),
+        drupalThemeWritePath: `${props.drupalThemePath}/${snakeCase(
+          props.themeName
+        )}`,
       };
     });
   }
@@ -103,7 +110,7 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath(),
-      path.join(this.destinationPath(this.props.drupalThemePath)),
+      path.join(this.destinationPath(this.props.drupalThemeWritePath)),
       this.props
     );
 

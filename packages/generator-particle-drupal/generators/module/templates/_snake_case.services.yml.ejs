@@ -1,0 +1,15 @@
+services:
+  <%= moduleNameSnake %>.twig_extension:
+    arguments: ['@renderer']
+    class: Drupal\<%= moduleNameSnake %>\TwigExtension\<%= moduleNamePascal %>Twig
+    tags:
+      - { name: twig.extension }
+
+  <%= moduleNameSnake %>.tools:
+    class: Drupal\<%= moduleNameSnake %>\Tools\<%= moduleNamePascal %>Tools
+
+  <%= moduleNameSnake %>.atoms:
+    class: Drupal\<%= moduleNameSnake %>\Components\Atoms
+
+  <%= moduleNameSnake %>.molecules:
+    class: Drupal\<%= moduleNameSnake %>\Components\Molecules

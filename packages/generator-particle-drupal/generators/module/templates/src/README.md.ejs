@@ -39,8 +39,8 @@ Each component maker file is registered as a service and can be called inside
 any php file using Drupal's class resolver:
 
 ```php
-/** @var \Drupal\<%= themeNameSnake %>_helper\Components\Molecules */
-$molecules = \Drupal::service('<%= themeNameSnake %>_helper.molecules');
+/** @var \Drupal\<%= moduleNameSnake %>\Components\Molecules */
+$molecules = \Drupal::service('<%= moduleNameSnake %>.molecules');
 
 $header = $molecules->makeHeader('My Cool Header');
 ```
@@ -49,10 +49,10 @@ $header = $molecules->makeHeader('My Cool Header');
 
 All custom Twig Extensions specific to <%= themeNameTitle %> can be added here.
 
-### <%= themeNameTitle %> Tools
+### <%= moduleNameTitle %> Tools
 
-Similar to _Components_, <%= themeNamePascal %>Tools provide helper functions for theme
-development. However, rather than return <%= themeNametitle %> arrays these functions are
+Similar to _Components_, <%= moduleNamePascal %>Tools provide helper functions for theme
+development. However, rather than return <%= themeNameTitle %> arrays these functions are
 helpers for interacting with Drupal. For example, you may want to get the theme
 path from a defined theme constant:
 
@@ -73,8 +73,8 @@ path from a defined theme constant:
 To use the Tools library in any php file again use Drupal's class resolver:
 
 ```php
-/** @var \Drupal\<%= themeNameSnake %>_helper\<%= themeNamePascal %>Tools\<%= themeNamePascal %>Tools */
-$tools = \Drupal::service('<%= themeNameSnake %>_helper.<%= themeNameSnake %>_tools');
+/** @var \Drupal\<%= moduleNameSnake %>\<%= moduleNamePascal %>Tools\<%= moduleNamePascal %>Tools */
+$tools = \Drupal::service('<%= moduleNameSnake %>.<%= moduleNameSnake %>_tools');
 
 $theme_path = $tools->getThemePath();
 ```
