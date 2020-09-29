@@ -2,22 +2,31 @@ const Generator = require('yeoman-generator');
 
 // Module Dependencies
 const chalk = require('chalk');
-const { camelCase, kebabCase, snakeCase, startCase, upperFirst } = require('lodash');
+const {
+  camelCase,
+  kebabCase,
+  snakeCase,
+  startCase,
+  upperFirst,
+} = require('lodash');
 const path = require('path');
 const fs = require('fs');
 
 // Logo for Terminal Output
-const logo = require('../../logo')
+const logo = require('../../logo');
 
 module.exports = class extends Generator {
   // Initialize config from Particle if it exists.
   initializing() {
     try {
-      const config = fs.readFileSync(path.join(this.destinationPath(), '.particlerc.json'), 'utf8')
+      const config = fs.readFileSync(
+        path.join(this.destinationPath(), '.particlerc.json'),
+        'utf8'
+      );
       const { projectName, drupalThemePath, drupalDist } = JSON.parse(config);
-      this.config.defaults({projectName, drupalThemePath, drupalDist});
+      this.config.defaults({ projectName, drupalThemePath, drupalDist });
     } catch (e) {
-      this.log(chalk.bgRed(`Skipping Particle Defaults: ${e}`))
+      this.log(chalk.bgRed(`Skipping Particle Defaults: ${e}`));
     }
   }
 
@@ -30,7 +39,9 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'themeName',
         message: 'What would you like to name your theme?',
-        default: this.config.get('projectName') ? `${this.config.get('projectName')} Theme` : 'Particle',
+        default: this.config.get('projectName')
+          ? `${this.config.get('projectName')} Theme`
+          : 'Particle',
       },
       {
         type: 'input',
@@ -47,7 +58,8 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'drupalDist',
-        message: 'Where relative path from the drupal theme will you compile drupal assets (ex: "/dist")?',
+        message:
+          'Where relative path from the drupal theme will you compile drupal assets (ex: "/dist")?',
         default: this.config.get('drupalDist'),
       },
     ];
@@ -61,16 +73,16 @@ module.exports = class extends Generator {
         themeNameKebab: kebabCase(props.themeName),
       };
     });
-
-
-
   }
 
   writing() {
     // Update our yo configuration from props.
     this.config.set(this.props);
 
-
-    this.log(chalk.bgGreen(`Your Drupal Theme "${this.props.themeNameKebab}" has been created!`));
+    this.log(
+      chalk.bgGreen(
+        `Your Drupal Theme "${this.props.themeNameKebab}" has been created!`
+      )
+    );
   }
 };
