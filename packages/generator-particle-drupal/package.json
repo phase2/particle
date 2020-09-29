@@ -26,12 +26,20 @@
   },
   "license": "GPL-2.0",
   "scripts": {
+    "lint": "eslint --ext .js ./",
+    "fix": "npm run lint; prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "chalk": "^4.1.0",
     "yeoman-generator": "^4.11.0"
   },
   "devDependencies": {
-    "eslint": "^7.10.0"
+    "eslint": "^7.10.0",
+    "eslint-plugin-ejs": "0.0.2",
+    "lodash": "^4.17.20",
+    "prettier": "^2.1.2",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^3.0.0"
   }
 }
