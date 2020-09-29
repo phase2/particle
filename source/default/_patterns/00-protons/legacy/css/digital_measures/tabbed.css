@@ -163,6 +163,7 @@
 
 	.dm-profile-main-image {
 		max-width: 100% !important;
+		margin-left: 0px !important;
 	}
 
 	.dm-profile-preamble
