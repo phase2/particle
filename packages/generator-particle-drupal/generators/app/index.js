@@ -84,22 +84,30 @@ module.exports = class extends Generator {
     // Update our yo configuration from props.
     this.config.set(this.props);
 
-    // Replace `_theme_name` from incoming files to theme's snake case.
+    // Transform file case for incoming files.
     this.registerTransformStream(
       rename((path) => {
+        // Retain dot files.
         path.basename = path.basename.replace(
-          '_theme_name',
+          '_dot',
+          '.'
+        );
+        path.basename = path.basename.replace(
+          '_snake_case',
           this.props.themeNameSnake
+        );
+        path.basename = path.basename.replace(
+          '_pascal_case',
+          this.props.themeNamePascal
         );
         return path;
       })
     );
 
-    // Copy Config
     this.fs.copyTpl(
-      this.templatePath('_config'),
-      path.join(this.destinationPath(this.props.drupalThemePath), 'config'),
-      { themeNameSnake: this.props.themeNameSnake }
+      this.templatePath(),
+      path.join(this.destinationPath(this.props.drupalThemePath)),
+      this.props
     );
 
     this.log(

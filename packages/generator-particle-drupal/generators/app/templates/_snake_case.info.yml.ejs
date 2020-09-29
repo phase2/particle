@@ -1,12 +1,12 @@
 name: <%= themeNamePascal %>
 type: theme
-description: <%= themeNameDescription %>
+description: <%= themeDescription %>
 base theme: stable
 core_version_requirement: ^8.8 || ^9
 libraries:
   - <%= themeNameSnake %>/core
 libraries-override:
-  core/jquery: <%= themeNameDescription %>/jquery
+  core/jquery: <%= themeNameSnake %>/jquery
 regions:
   primary_menu: Primary menu
   highlighted: Highlighted
