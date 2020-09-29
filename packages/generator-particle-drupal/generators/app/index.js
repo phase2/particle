@@ -88,10 +88,7 @@ module.exports = class extends Generator {
     this.registerTransformStream(
       rename((path) => {
         // Retain dot files.
-        path.basename = path.basename.replace(
-          '_dot',
-          '.'
-        );
+        path.basename = path.basename.replace('_dot', '.');
         path.basename = path.basename.replace(
           '_snake_case',
           this.props.themeNameSnake
