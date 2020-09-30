@@ -106,7 +106,7 @@
 
 .btn--burgundy:active,
 .btn-warning:active {
-	@apply text-red-900;
+  @apply text-red-900;
   @apply bg-utc-new-gold-500;
   box-shadow: 0 0 0 0.2rem rgba(120, 30, 30, 0.5);
 }
