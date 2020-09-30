@@ -68,19 +68,19 @@
 	font-weight: normal;
 }
 
-.UTCtextblock__links a:not(.btn) {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link) {
 	@apply text-blue-500;
 	border-bottom: 1.5px solid #4299E1;
 	text-decoration: none;
 }
 
-.UTCtextblock__links a:not(.btn):hover {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover {
 	@apply text-utc-new-blue-500;
 	border-bottom: 1.5px solid #112e51;
 	text-decoration: none;
 }
 
-.UTCtextblock__links a:not(.btn):active {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active {
 	color: #FDB736;
 	border-bottom: 1.5px solid #FDB736;
 	text-decoration: none;
