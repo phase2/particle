@@ -1,0 +1,178 @@
+/**
+ * Copyright (c) 2018, Watermark
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.dm-profile-section:not(.dm-profile-section--main-image) img {
+	max-width: 100%;
+	height: auto;
+}
+
+.dm-profile-preamble {
+	background-color: #112e51;
+	color: rgb(255, 255, 255);
+	padding: 1.5rem 1.5rem 1rem 3rem;
+	box-sizing: border-box;
+}
+
+.dm-profile-preamble .dm-profile-heading {
+	background-color: rgb(255, 255, 255);
+	color: #112e51;
+	display: inline-block;
+	padding: 0.25rem 1rem;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.dm-profile-preamble .dm-profile-activities {
+	background-color: #112e51;
+	color: rgb(255, 255, 255);
+}
+
+.dm-profile-preamble .dm-profile-content .dm-profile-activities {
+	text-align: left;
+}
+
+.dm-profile-tabs {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	text-align: center;
+	top: 0.15rem;
+	z-index: 50;
+}
+
+.dm-profile-tabs__item {
+	background-color: #fdb736;
+	border: 0;
+	display: block;
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.dm-profile-tabs__item--active {
+	background-color: #112e51;
+}
+.dm-profile-tabs > .dm-profile-tabs__item--active > .dm-profile-tabs__link {
+	color: rgb(255, 255, 255) !important;
+}
+
+.dm-profile-tabs__link {
+	display: block;
+	font-size: 1.15rem;
+	font-weight: bold;
+	margin: 0 0.25rem;
+	text-decoration: none;
+}
+
+.dm-profile-tabs > .dm-profile-tabs__item > .dm-profile-tabs__link {
+	box-shadow: none;
+	color: #112e51;
+}
+
+.dm-profile-tabs__item--active .dm-profile-tabs__link::after {
+	content: ' \27F5';
+	font-weight: bold;
+}
+.dm-profile-section--hidden {
+	display: none;
+}
+
+.dm-profile-section--tabbed {
+	border: 0;
+	padding: 0.25rem 1rem;
+	position: relative;
+	z-index: 10;
+}
+
+.dm-profile-section--tabbed:focus {
+	outline: none;
+	box-shadow: inset 0 0 0 0.15rem lightblue;
+}
+
+.dm-profile-break {
+	background-color: #fdb736;
+	height: 0.15rem;
+	margin: 0.5rem 0;
+	padding: 0;
+}
+
+.dm-profile-preamble .dm-profile-report-section {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.dm-profile-preamble--with-main-image {
+	padding: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.dm-profile-preamble
+	.dm-profile-section--main-image
+	+ .dm-profile-report-section {
+	padding: 1em 1em 0;
+}
+
+.dm-profile-section--main-image {
+	box-sizing: border-box;
+	-ms-flex-item-align: center;
+	align-self: center;
+	width: 100%;
+}
+
+.dm-profile-main-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-width: 25em;
+	margin: 0 auto;
+	height: auto;
+}
+
+/* mobile-first media queries */
+@media (min-width: 640px) {
+	.dm-profile-tabs {
+		margin-top: 2rem;
+	}
+
+	.dm-profile-tabs__item {
+		display: inline-block;
+		margin: 0 1rem 1rem;
+	}
+
+	.dm-profile-tabs__link {
+		display: inline;
+	}
+
+	.dm-profile-tabs__item--active .dm-profile-tabs__link::after {
+		content: normal;
+	}
+
+	.dm-profile-section--main-image {
+		display: inline-block;
+		width: 25%;
+	}
+
+	.dm-profile-main-image {
+		max-width: 100% !important;
+		margin-left: 0px !important;
+	}
+
+	.dm-profile-preamble
+		.dm-profile-section--main-image
+		+ .dm-profile-report-section {
+		display: inline-block;
+		vertical-align: top;
+		padding-left: 1.5rem;
+		padding-top: 1.5rem;
+		width: 75%;
+	}
+}
