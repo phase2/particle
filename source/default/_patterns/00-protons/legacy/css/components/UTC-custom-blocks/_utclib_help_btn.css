@@ -74,7 +74,7 @@ disabled until solution for back to top arrow found.
 }
 
 .lib-help__icon::before {
-  font-family: 'Font Awesome 5 Free', san-serif;
+  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   content: '\f075';
   margin-right: 0.3rem;
