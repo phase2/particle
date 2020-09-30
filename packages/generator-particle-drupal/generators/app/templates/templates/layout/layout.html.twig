@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display theme layouts.
+ *
+ * NOTE: This file can handle any selected layout by passing additional data
+ *   in the theme.layouts.yml file. This is not included by default.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set layout_classes = [
+  'layout',
+  'layout--' ~ (layout.id|clean_class),
+  'layout__grid',
+  'flex',
+  'flex-wrap',
+  settings.spacer_bottom ? settings.spacer_bottom|clean_class
+] %}
+
+{% if content %}
+  <div {{ attributes.addClass(layout_classes) }}>
+    {% for key, value in layout.getRegions %}
+      {% if content[key] %}
+        <div {{ region_attributes[key].addClass(value.region_classes) }}>
+          {{ content[key] }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

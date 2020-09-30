@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming users in the <%= themeNamePascal %> theme.
+ */
+
+/**
+ * Implements hook_preprocess_user().
+ */
+function <%= themeNameSnake %>_preprocess_user(&$variables) {
+  unset($variables['content']['member_for']);
+}

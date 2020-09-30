@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming miscellaneous things the <%= themeNamePascal %> theme.
+ */
+
+use Drupal\<%= themeNameSnake %>\<%= themeNamePascal %>;
+
+/**
+ * Implements hook_preprocess().
+ */
+function <%= themeNameSnake %>_preprocess(&$variables) {
+  $variables['paths']['assets'] = <%= themeNamePascal %>::ASSETS_PATH;
+  $variables['paths']['images'] = <%= themeNamePascal %>::IMAGES_PATH;
+  $variables['paths']['fonts'] = <%= themeNamePascal %>::FONTS_PATH;
+  $variables['paths']['svgs'] = <%= themeNamePascal %>::SVGS_PATH;
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function <%= themeNameSnake %>_page_attachments_alter(array &$page) {
+  // Tell IE to use latest rendering engine (not to use compatibility mode).
+  $ie_edge = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+      'http-equiv' => 'X-UA-Compatible',
+      'content' => 'IE=edge',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];
+}
