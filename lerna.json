@@ -1,14 +1,15 @@
 {
   "npmClient": "npm",
+  "version": "independent",
+  "packages": ["packages/*"],
   "command": {
     "publish": {
       "ignoreChanges": ["ignored-file", "*.md"],
-      "message": "chore(release): publish"
+      "message": "chore(release): publish",
+      "conventionalCommits": true
     },
     "bootstrap": {
-      "npmClientArgs": ["--hoist", "--no-package-lock"]
+      "npmClientArgs": ["--no-package-lock"]
     }
-  },
-  "packages": ["packages/*"],
-  "version": "independent"
+  }
 }

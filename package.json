@@ -23,9 +23,10 @@
   },
   "license": "GPL-2.0",
   "scripts": {
-    "lerna:install": "lerna bootstrap",
+    "lerna:install": "lerna bootstrap --hoist",
     "postinstall": "npm run lerna:install; npm run build",
     "pretty-check": "prettier --check packages/**/*.js",
+    "publish": "lerna publish  --yes",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "lerna run --concurrency 1 --scope='{@phase2/particle-types,@phase2/generator-particle-storybook,@phase2/generator-particle-base,@phase2/particle-cli}' tsc",
@@ -33,9 +34,11 @@
     "dev:clean:lib": "lerna exec --parallel --scope='{@phase2/particle-types,@phase2/generator-particle-storybook,@phase2/generator-particle-base,@phase2/particle-cli}' 'rm -rf lib/'",
     "build:watch": "lerna run --parallel --scope='{@phase2/*,generator-*}' tsc:watch",
     "update:check": "ncu && lerna exec --concurrency 1 --no-bail -- ncu",
-    "update:start": "npm-upgrade && lerna exec --concurrency 1 -- npm-upgrade; npm run lerna:install"
+    "update:start": "npm-upgrade && lerna exec --concurrency 1 -- npm-upgrade; npm run lerna:install",
+    "commit": "cz"
   },
   "dependencies": {
+    "commitizen": "^4.2.1",
     "lerna": "^3.22.1",
     "typescript": "^3.9.7"
   },
@@ -44,6 +47,7 @@
     "@phase2/prettier-config-particle": "./packages/prettier-config",
     "@types/jest": "^26.0.8",
     "@types/node": "^14.0.27",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.6.0",
     "jest": "^26.2.2",
     "jest-watch-typeahead": "^0.6.0",
@@ -52,5 +56,10 @@
     "prettier": "2.0.5",
     "ts-jest": "^26.1.4",
     "ts-node": "^8.10.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
