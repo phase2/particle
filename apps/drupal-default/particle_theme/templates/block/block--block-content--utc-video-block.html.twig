@@ -38,39 +38,29 @@
 	{% block content %}
 		<div class="container">
 			{% if video_alignment_val  == 'center' %}
-				<div class="row justify-content-center">
-					{# <div class="col-lg-10 col-md-12 col-sm-12"> #}
+				<div style="display:grid; justify-content: center;">
 						<div {{content_attributes}}>{{ content.field_utc_video}}
-						{# </div> #}
-					</div>
+						</div>
 				</div>
 			{% elseif video_alignment_val == 'left' %}
-				<div class="row justify-content-start">
-					{# <div class="col-lg-10 col-md-12 col-sm-12"> #}
+				<div style="display:grid; justify-content: left;">
 						<div {{content_attributes}}>{{ content.field_utc_video}}
-						{# </div> #}
 					</div>
 				</div>
 			{% elseif video_alignment_val == 'right' %}
-				<div class="row justify-content-end">
-					{# <div class="col-lg-10 col-md-12 col-sm-12"> #}
+				<div style="display:grid; justify-content: right;">
 						<div {{content_attributes}}>{{ content.field_utc_video}}
-					{# </div> #}
 					</div>
 				</div>
 			{# full screen and row do not work as expected yet #}
 			{% elseif video_alignment_val == 'full-screen' %}
-				<div class="row">
-					<div class="col-12">
+				<div style="display:grid; justify-content: center;">
 						<div {{content_attributes}}>{{ content.field_utc_video}}
 						</div>
-					</div>
 				</div>
 			{% else %}
-				<div class="row">
-					<div class="col-12">
+				<div class="display:grid; justify-content: center;">
 						<div {{content_attributes}}>{{ content.field_utc_video}}
-						</div>
 					</div>
 				</div>
 			{% endif %}
