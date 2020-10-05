@@ -8,28 +8,26 @@
  *      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
  */
 #}
-
 {# Default Input settings, overridden by incoming Input object #}
 {% set input =
   {
+    variant: 'text',
     attributes: {
       type: 'text'
     }
   }|merge(input|default({}))
 %}
-
-{# Set the Variant for CSS Class by Attribute Value of Type #}
-{% set input_variant = input.attributes.type ? input.attributes.type : 'text' %}
-
 {# Non-Input Form Types #}
 {% set form_type_classes = {
   input: 'form-input',
+  button: 'form-input button button--primary button--sm',
+  submit: 'form-input button button--primary button--sm',
+  reset: 'form-input button button--secondary button--sm',
   checkbox: 'form-checkbox',
   color: 'form-color',
   radio: 'form-radio',
   range: 'form-range'
 } %}
-
 {# Update Classes with Design System Values #}
 {% set input_classes =
   input_classes
@@ -37,15 +35,12 @@
     |merge(
       [
         'input',
-        'input--' ~ input_variant,
-        input_variant in (form_type_classes|keys) ? form_type_classes[input_variant] : form_type_classes.input,
-        input.attributes.class ? input.attributes.class|join(' ')|trim : ''
+        'input--' ~ input.variant,
+        input.variant in (form_type_classes|keys) ? form_type_classes[input.variant] : form_type_classes.input,
+        input.attributes.class ? input.attributes.class
       ]
     )
-    |join(' ')
-    |trim
 %}
-
 {# Update Attributes with New Classes + Supplemental Data #}
 {% set input_attributes =
   input.attributes
@@ -54,7 +49,6 @@
       class: input_classes
     })
 %}
-
 {% block input_content %}
   <input {{ input_attributes|attributify }} />
 {% endblock input_content %}
