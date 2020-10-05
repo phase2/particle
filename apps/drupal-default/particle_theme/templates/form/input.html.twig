@@ -10,11 +10,12 @@
  * @see template_preprocess_input()
  */
 #}
-
-{% include '@atoms/form-element/_input.twig' with {
-  input: {
-    attributes: attributes
+{% include '@atoms/form-element/_input.twig'
+  with {
+    input: {
+      variant: variant,
+      attributes: attributes
+    }
   }
-} %}
-
+%}
 {{ children }}

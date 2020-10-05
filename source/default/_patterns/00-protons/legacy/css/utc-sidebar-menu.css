@@ -108,7 +108,7 @@
     user-select: none;
  }
   input#mobile_menu {
-    /* display: none; */
+    display: none;
  }
   .block--menu-block {
     max-height: 0;
