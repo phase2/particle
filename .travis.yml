@@ -44,9 +44,10 @@ deploy:
   keep_history: true
   github_token: ${GITHUB_API_KEY}  # Your GitHub token set in Travis CI console
   target_branch: develop        # Add this line - To push into GitHub master branch
+  verbose: true
   on:
     branch: develop
-    condition: [[ $TRAVIS_PULL_REQUEST == “true” ]] && [[ $TRAVIS_BRANCH == “develop” ]]
+    condition: sender != "deploy bot"
     # condition: type = push
     # condition: ${TRAVIS_COMMIT_MESSAGE} =~ ^(?!(Deploy)).+$
     # branch: staging            # Your GitHub repo default branch
