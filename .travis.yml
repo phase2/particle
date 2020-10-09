@@ -47,8 +47,5 @@ deploy:
   verbose: true
   on:
     branch: develop
-    condition: sender != "deploy bot"
-    # condition: type = push
-    # condition: ${TRAVIS_COMMIT_MESSAGE} =~ ^(?!(Deploy)).+$
-    # branch: staging            # Your GitHub repo default branch
-
+after_deploy:
+  - travis_terminate 0
