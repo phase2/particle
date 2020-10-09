@@ -47,5 +47,6 @@ deploy:
   verbose: true
   on:
     branch: develop
+
 after_deploy:
-  - travis_terminate 0
+  - travis_terminate 1
