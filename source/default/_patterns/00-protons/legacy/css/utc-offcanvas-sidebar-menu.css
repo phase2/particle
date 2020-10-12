@@ -1,10 +1,16 @@
-.utc-offcanvas-sidebar-menu {
-  display: block;
+.utc-offcanvas-sidebar-menu{
   padding: 15px 20px;
+  list-style: none;
+}
+.utc-offcanvas-sidebar-menu > li{
   border-bottom: 1px solid rgba(144, 164, 174, 0.2);
+}
+.utc-offcanvas-sidebar-menu > li > a{
   color: #FFF;
+  display: block;
   font-weight: bold;
-  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 1.1rem;
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
