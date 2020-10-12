@@ -1,0 +1,11 @@
+.utc-offcanvas-sidebar-menu {
+  display: block;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(144, 164, 174, 0.2);
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+}
