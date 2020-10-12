@@ -110,7 +110,7 @@
   input#mobile_menu {
     display: none;
  }
-  .block--menu-block {
+  .utc-sidebar {
     max-height: 0;
     overflow: hidden;
  }
