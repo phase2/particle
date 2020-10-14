@@ -19,7 +19,11 @@ plugins:
   - minifyStyles: true
   - moveElemsAttrsToGroup: true
   - moveGroupAttrsToElems: true
-  - removeAttrs: false
+  - removeAttrs:
+      attrs: 'fill'
+  - addAttributesToSVGElement:
+      attributes:
+        - fill: 'currentColor'
   - removeComments: true
   - removeDesc: true
   - removeDimensions: true

@@ -13,7 +13,7 @@ paths:
   assets: '../../../assets'
   images: '../../../assets/images'
   fonts: '../../../assets/fonts'
-  svgs: '../../../assets/atomic/_patterns/01-atoms/svg/icons'
+  svgs: '@static/icons/svg'
 bodyClass: 'pl pl-loading'
 
 # Generic Starter Template Data

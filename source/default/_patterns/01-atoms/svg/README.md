@@ -8,9 +8,10 @@ by running `npm run fmt:svg` or `npm run fmt`.
 
 ## Adding Icons SVG
 
-To add an Icon SVG to the system, simply add it to `@atoms/svg/icons/` directory
-and run the format command. This format step is **destructive**, so be aware of
-using source control to revert unintended changes.
+To add an Icon SVG to the system, simply add it to
+`source/default/static/icons/svg/` directory and run the format command. This
+format step is **destructive**, so be aware of using source control to revert
+unintended changes.
 
 ## Adjusting Formatting Configuration
 
