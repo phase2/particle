@@ -1,16 +1,19 @@
 .gsc-cursor-page {
-    background: transparent !important;
-    /* color: $utc-blue !important; */
-    @apply text-blue-600;
-  }
+  background: transparent !important;
+  /* color: $utc-blue !important; */
+  @apply text-blue-600;
+}
 
-#search-form > #edit-basic > #edit-keys{
+#search-form > #edit-basic > #edit-keys {
   background: rgb(255, 255, 255) !important;
 }
 
 /* removes title lines coming from the parent mag */
-.block--region-content-header.block--page-title-block:after, .block--region-content-header.block--page-title-block:before, .block--layout-builder.block--page-title-block:after, .block--layout-builder.block--page-title-block:before {
-  content: "";
+.block--region-content-header.block--page-title-block:after,
+.block--region-content-header.block--page-title-block:before,
+.block--layout-builder.block--page-title-block:after,
+.block--layout-builder.block--page-title-block:before {
+  content: '';
   display: none;
   width: 100%;
   /* border-top: 1px solid #90a4ae; */
@@ -19,13 +22,13 @@
   z-index: 0;
 }
 
-.hellowordl{
-    background: red;
-} 
+.hellowordl {
+  background: red;
+}
 .utcpage-title {
   /* display: inline-block; */
   background-color: transparent;
-  border-bottom: 9px solid #FDB736;
+  border-bottom: 9px solid #fdb736;
   @apply text-utc-new-blue-500 text-6xl font-bold;
   /* color: $utc-blue; */
   padding-top: 1em;
@@ -47,43 +50,48 @@
   @apply text-black;
   color: black;
 }
-.utc-card-2__text a:not(.btn) {
-	@apply text-blue-500;
-	border-bottom: 1.5px solid #4299E1;
-	text-decoration: none;
+.utc-card-2__text a:not(.btn),
+.utc-sidebar-card a:not(.btn),
+.utc-item-card a:not(.btn)
+ {
+  @apply text-blue-500;
+  border-bottom: 1.5px solid #4299e1;
+  text-decoration: none;
 }
 
-.utc-card-2__text a:not(.btn):hover {
-	@apply text-utc-new-blue-500;
-	border-bottom: 1.5px solid #112e51;
-	text-decoration: none;
+.utc-card-2__text a:not(.btn):hover,
+.utc-sidebar-card a:not(.btn):hover,
+.utc-item-card a:not(.btn):hover {
+  @apply text-utc-new-blue-500;
+  border-bottom: 1.5px solid #112e51;
+  text-decoration: none;
 }
 
 .utc-card-2__text a:not(.btn):active {
-	color: #FDB736;
-	border-bottom: 1.5px solid #FDB736;
-	text-decoration: none;
+  color: #fdb736;
+  border-bottom: 1.5px solid #fdb736;
+  text-decoration: none;
 }
 .UTCtextblock__links strong > a {
-	font-weight: normal;
+  font-weight: normal;
 }
 
 .UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link) {
-	@apply text-blue-500;
-	border-bottom: 1.5px solid #4299E1;
-	text-decoration: none;
+  @apply text-blue-500;
+  border-bottom: 1.5px solid #4299e1;
+  text-decoration: none;
 }
 
 .UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover {
-	@apply text-utc-new-blue-500;
-	border-bottom: 1.5px solid #112e51;
-	text-decoration: none;
+  @apply text-utc-new-blue-500;
+  border-bottom: 1.5px solid #112e51;
+  text-decoration: none;
 }
 
 .UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active {
-	color: #FDB736;
-	border-bottom: 1.5px solid #FDB736;
-	text-decoration: none;
+  color: #fdb736;
+  border-bottom: 1.5px solid #fdb736;
+  text-decoration: none;
 }
 
 /* it makes the layout builder background consistent */
@@ -96,7 +104,7 @@
 .header__main {
   @apply font-utcheadings;
 }
-.travisandutclib{
-	@apply text-blue-500;
-	border-bottom: 1.5px solid #4299E1;
+.travisandutclib {
+  @apply text-blue-500;
+  border-bottom: 1.5px solid #4299e1;
 }
