@@ -112,6 +112,10 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+.utc-item-card--mobile-stack {
+  flex-direction: column;
+}
+
 a .utc-item-card:hover {
   @apply bg-gray-200;
   box-shadow: 0 10px 15px -3px rgba(#000, 0.2), 0 4px 6px -2px rgba(#000, 0.05);
@@ -193,7 +197,7 @@ h2:first-child {
   display: inline-block;
   padding: 0;
   margin-bottom: 0;
-}
+} 
 
 .utc-item-card__badges ul li {
   @apply bg-gray-300;
