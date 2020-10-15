@@ -1,19 +1,13 @@
-/* eslint-disable no-new, no-alert */
+/* eslint-disable no-new */
 import Vue from 'vue';
+import VueExample2 from './vue-html-example.vue';
 
 new Vue({
-  el: '#vue-html-example-1',
-  data: {
-    name: '',
-  },
-  methods: {
-    toSpace() {
-      alert(this.name);
-    },
-  },
+  el: '#vue-html-example-2',
+  components: { VueExample2 },
+  template: '<VueExample2/>',
 });
- HTML
-if (document.getElementById('vue-html-example-1')) {
+f (document.getElementById('vue-html-example-1')) {
   // Use an IIFE for "new"
   (() =>
     new Vue({
