@@ -14,7 +14,7 @@
 }
 .lib-item-form .form-item label,
 .lib-item-form legend {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   margin-bottom: 0.5rem;
   padding-top: 1rem;
@@ -33,14 +33,14 @@
 
 .lib-item-form .form-input,
 .lib-item-form .form-select {
-  height: 55px;
+  height: 50px;
   width: 100%;
   border: 2px solid;
   border-radius: 0;
   @apply bg-white;
   @apply border-utc-new-blue-500;
   @apply text-utc-new-blue-500;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 /* style checkboxes */
@@ -110,6 +110,10 @@
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.utc-item-card--mobile-stack {
+  flex-direction: column;
 }
 
 a .utc-item-card:hover {
@@ -193,7 +197,7 @@ h2:first-child {
   display: inline-block;
   padding: 0;
   margin-bottom: 0;
-}
+} 
 
 .utc-item-card__badges ul li {
   @apply bg-gray-300;
