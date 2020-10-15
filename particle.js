@@ -35,7 +35,7 @@ const cssModes = {
       rules: [
         {
           test: /\.css$/,
-          use: [{ loader: 'style-loader' }, { loader: 'vue-style-loader' }],
+          use: [{ loader: 'style-loader' }],
         },
       ],
     },

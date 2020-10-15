@@ -2,12 +2,12 @@
  * Accepts the result of require.context() to add it all to our great big
  * components object with keys that are the name of components, i.e.
  *
- *   // 01-atoms/vue-widget/index.js
- *   export const name = 'vue-widget';
+ *   // 01-atoms/button/index.js
+ *   export const name = 'button';
  *
  * results in:
  *
- *   components['vue-widget'] = {name: 'vue-widget', enable() {}, disable() {}}
+ *   components['button'] = {name: 'button', enable() {}, disable() {}}
  *
  * @param context
  */

@@ -9,7 +9,6 @@
 const { ProgressPlugin, ProvidePlugin } = require('webpack');
 
 // Plugins
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 // Constants: environment
@@ -35,15 +34,6 @@ module.exports = {
   devtool: NODE_ENV === 'development' ? 'eval' : 'source-map',
   module: {
     rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            js: 'babel-loader',
-          },
-        },
-      },
       {
         test: /\.css$/,
         use: [
@@ -71,7 +61,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(js|vue)$/,
+        test: /\.js$/,
         enforce: 'pre',
         exclude: /node_modules/,
         loader: 'eslint-loader',
@@ -131,20 +121,9 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
-    // Handle .vue files
-    new VueLoaderPlugin(),
     // Only add ProgressPlugin for non-production env.
     ...(NODE_ENV === 'production'
       ? []
       : [new ProgressPlugin({ profile: false })]),
   ],
-  resolve: {
-    alias: {
-      // Since we operate in a world where random Vue templates might have to
-      // be output via twig, we need the Vue build that includes the whole
-      // template compiling engine. If we are on a build that will NEVER read
-      // HTML from the DOM and use it as a template, then remove this line.
-      vue$: 'vue/dist/vue.esm.js',
-    },
-  },
 };
