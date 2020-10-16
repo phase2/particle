@@ -5,6 +5,9 @@
   overflow-y: scroll;
   border-radius: 0;
   font-size: 14px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  @apply border-gray-200;
 }
 
 .lib-events-box__item {
@@ -23,6 +26,15 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+.lib-events-box__item:hover {
+  @apply bg-gray-100;
+}
+
+a.lib-events-box__link:hover {
+  @apply text-utc-new-blue-500;
+  text-decoration: none;
+}
+
 .lib-events-box__event-date {
   flex: 0 1 35%;
   @apply bg-gray-300;
@@ -33,6 +45,7 @@
   justify-content: center;
   padding: 10px;
 }
+
 .lib-events-box__event-date-day {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 2.5rem;
@@ -48,6 +61,8 @@
   padding: 0.75rem;
   height: auto;
   flex: 1 0 75%;
+  display: flex;
+  flex-direction: column;
 }
 .lib-events-box__item-title {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -56,15 +71,27 @@
 
 .lib-events-box__item-badge {
   margin: 8px 0 0;
-  display: inline-block;
   padding: .15rem 0.5rem;
   border-radius: 10rem;
+  align-self: flex-start;
 }
 
-.lib-c-feed-container a {
-  color: #000;
-  text-decoration: none;
+.lib-events-box__item-badge--faculty-workshop {
+  @apply bg-red-900;
+  @apply text-white;
 }
+
+.lib-events-box__item-badge--workshop {
+  @apply bg-utc-new-gold-500;
+  @apply text-utc-new-blue-500;
+}
+
+.lib-events-box__item-badge--event {
+  @apply bg-utc-new-blue-500;
+  @apply text-white;
+}
+
+
 
 /* workshops */
 p:empty {
