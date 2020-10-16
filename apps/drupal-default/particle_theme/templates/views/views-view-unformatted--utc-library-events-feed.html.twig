@@ -23,9 +23,9 @@
 {% for key,row in rows %}
   {%
     set row_classes = [
-      default_row_class ? 'views-row lib-event-item clearfix',
+      default_row_class ? 'views-row lib-events-box__item',
     ]
-  %}
+  %} 
   {% set temptitle = view.style_plugin.getField(key, 'field_utc_rss_feed_item_title')|render|striptags %}
   {# check for '(Cancelled)' in title #}
   {% if '(Cancelled)' in temptitle %}
@@ -43,18 +43,17 @@
     {% set title = temptitle %} {# need to fix this once we get other events #}
     {% set badgecolor = "rgb(0, 56, 107)" %} {# force color change - may be better to set a class #}
     {% endif %}
-  <div{{ row.attributes.addClass(row_classes) }}>
+
   <a href="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|render|striptags }}" target="_blank">
     {# the basic HTML structure is pulled from OUCampus and likely needs updating #}
-    <div class="event-date-cal">
-      <div class="date date-small">
-        <strong>{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime')|render|striptags }}</strong>
-        <span>{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_1')|render|striptags }}</span>
-      </div>
+   <div{{ row.attributes.addClass(row_classes) }}>
+    <div class="lib-events-box__event-date">
+        <span class="lib-events-box__event-date-day">{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_1')|render|striptags }}</span>
+        <span class="lib-events-box__event-date-month">{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime')|render|striptags }}</span>
     </div>
-    <div class="event-details">
-      <span class="badge" style="background-color: {{ badgecolor }}; color:white;">{{ badge }}</span>
-      <span class="event-title">
+
+    <div class="lib-events-box__event-details">
+      <span class="lib-events-box__item-title">
     {{ title }}
       </span>
       {% set comparedates = view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_3')|render|striptags %}
@@ -69,6 +68,7 @@
       {{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_2')|render|striptags }}
       </span>
       {% endif %}
+      <span class="lib-events-box__item-badge" style="background-color: {{ badgecolor }}; color:white;">{{ badge }}</span>
     </div>
   </div></a>
   {% endif %}
