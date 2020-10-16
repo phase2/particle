@@ -4,10 +4,11 @@
   margin-top: 5px;
   overflow-y: scroll;
   border-radius: 0;
-  font-size: 14px;
+  font-size: .9rem;
   border-top: 2px solid;
   border-bottom: 2px solid;
   @apply border-gray-200;
+
 }
 
 .lib-events-box__item {
@@ -21,13 +22,12 @@
   border: 0;
   border-radius: 0;
   margin-top: 10px;
-  margin-right: 10px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .lib-events-box__item:hover {
-  @apply bg-gray-100;
+  @apply bg-gray-200;
 }
 
 a.lib-events-box__link:hover {
@@ -37,19 +37,21 @@ a.lib-events-box__link:hover {
 
 .lib-events-box__event-date {
   flex: 0 1 35%;
-  @apply bg-gray-300;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 0rem 1rem;
+  border-right: 2px solid;
+  margin: .5rem 0rem;
+  @apply border-utc-new-blue-500;
 }
 
 .lib-events-box__event-date-day {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 2.25rem;
+  line-height: 2.25rem;
 }
 .lib-events-box__event-date-month {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -66,29 +68,36 @@ a.lib-events-box__link:hover {
 }
 .lib-events-box__item-title {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+
+.lib-events-box__event-time {
+  @apply text-gray-700;
 }
 
 .lib-events-box__item-badge {
-  margin: 8px 0 0;
-  padding: .15rem 0.5rem;
-  border-radius: 10rem;
-  align-self: flex-start;
+  margin: 0;
+  padding: 0;
 }
 
 .lib-events-box__item-badge--faculty-workshop {
-  @apply bg-red-900;
-  @apply text-white;
+  @apply text-red-900;
+  text-transform: uppercase;
+  font-weight: 400;
+
 }
 
 .lib-events-box__item-badge--workshop {
-  @apply bg-utc-new-gold-500;
-  @apply text-utc-new-blue-500;
+  @apply text-blue-700;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 .lib-events-box__item-badge--event {
-  @apply bg-utc-new-blue-500;
-  @apply text-white;
+  @apply text-green-800;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 
