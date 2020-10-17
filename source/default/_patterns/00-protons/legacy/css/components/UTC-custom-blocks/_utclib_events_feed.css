@@ -74,6 +74,7 @@ a.lib-events-box__link:hover {
 
 .lib-events-box__event-time {
   @apply text-gray-700;
+  font-size: .85rem;
 }
 
 .lib-events-box__item-badge {
