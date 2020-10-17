@@ -4,11 +4,10 @@
   margin-top: 5px;
   overflow-y: scroll;
   border-radius: 0;
-  font-size: .9rem;
+  font-size: 0.9rem;
   border-top: 2px solid;
   border-bottom: 2px solid;
   @apply border-gray-200;
-
 }
 
 .lib-events-box__item {
@@ -44,7 +43,7 @@ a.lib-events-box__link:hover {
   justify-content: center;
   padding: 0rem 1rem;
   border-right: 2px solid;
-  margin: .5rem 0rem;
+  margin: 0.5rem 0rem;
   @apply border-utc-new-blue-500;
 }
 
@@ -71,10 +70,9 @@ a.lib-events-box__link:hover {
   font-weight: 600;
 }
 
-
 .lib-events-box__event-time {
   @apply text-gray-700;
-  font-size: .85rem;
+  font-size: 0.85rem;
 }
 
 .lib-events-box__item-badge {
@@ -86,7 +84,6 @@ a.lib-events-box__link:hover {
   @apply text-red-900;
   text-transform: uppercase;
   font-weight: 400;
-
 }
 
 .lib-events-box__item-badge--workshop {
@@ -101,103 +98,74 @@ a.lib-events-box__link:hover {
   font-weight: 400;
 }
 
-
-
 /* workshops */
+.lib-event-card {
+  @apply bg-white;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  min-width: 0;
+  border: 0;
+  border-radius: 0;
+  margin-top: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.lib-event-card__img {
+  flex: 0 1 35%;
+}
+
+.lib-event-card__img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.lib-event-card__event-date {
+  @apply bg-white;
+  padding: 1rem;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.lib-event-card__event-date-day {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 3.25rem;
+  line-height: 3.25rem;
+  display: block;
+  text-align: center;
+}
+.lib-events-card__event-date-month {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+}
+
+.lib-event-card__description {
+  flex: 1 0 65%;
+  padding: 1rem;
+}
+
+.lib-event-card__event-location {
+  margin-bottom: 10px;
+}
+
 p:empty {
   display: none;
 }
 div.vevent div:last-child {
   display: none;
 }
-.description {
-  margin: 10px 0 0;
-  font-size: 1rem;
-  color: #90a4ae;
-}
-.well {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
-  background-color: #e9e9e9;
-  border: 1px solid #d7d7d7;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-}
-.welltopperGold {
-  line-height: 1.25em;
-}
-.well .welltopperGold {
-  background: #e0aa0f;
-  margin: -20px -20px 0 -20px;
-  padding: 10px 20px;
-  border-radius: 4px 4px 0 0;
-  color: whitesmoke;
-  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
-  text-shadow: 1px 1px 1px #956e00, 1px 1px 4px #956e00, 1px -1px 0 #956e00,
-    -1px 1px 0 #956e00, 1px 1px 0 #956e00;
-}
-.welltopperGold a {
-  color: whitesmoke;
-}
-.date-large {
-  padding-left: 0;
-  padding-right: 0;
-  display: block;
-  float: left;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  position: relative;
-  background-color: #ffffff;
-  overflow: hidden;
-  max-width: 5em;
-  height: 5em;
-  font-size: 1em;
-}
-.date-large strong {
-  position: absolute;
-  top: 0;
-  padding: 0.0125em 0;
-  color: #fff;
-  background-color: #112e51;
-}
-.date-large span {
-  margin-top: -0.35em;
-  width: 100%;
-  font-size: 2.5em;
-  letter-spacing: -0.05em;
-  padding-top: 0.8em;
-  color: #112e51;
-}
-p.workshopDesc {
-  min-height: 80px;
-  display: inherit;
-  margin-top: 10px;
-  padding-right: 3px;
-}
-img.workshop {
-  padding: 0 3px;
-  min-height: 5em;
-  height: 5em;
-  text-align: right;
-  border-radius: 8px;
-  float: right;
-}
+
 .p-name {
   display: none;
 }
 .h-event {
   min-height: 7em;
-}
-.workshopDesc {
-  float: right;
-  padding-left: 0.5em;
-}
-.nudge {
-  margin-left: 100px;
-}
-.btn-block {
-  width: 100%;
-}
-.btn-block span {
-  margin: 0 10px;
 }
