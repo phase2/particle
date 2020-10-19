@@ -26,7 +26,7 @@
       default_row_class ? 'views-row lib-events-box__item',
     ]
   %}
-	{% set temptitle = view.style_plugin.getField(key, 'field_utc_rss_feed_item_title')|render|striptags %}
+	{% set temptitle = view.style_plugin.getField(key, 'field_utc_rss_feed_item_title')|render|striptags|convert_encoding('UTF-8', 'HTML-ENTITIES') %}
 	{# check for '(Cancelled)' in title #}
 	{% if '(Cancelled)' in temptitle %}
 		{# skip #}
