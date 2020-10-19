@@ -118,6 +118,15 @@ a.lib-events-box__link:hover {
   flex: 0 1 35%;
 }
 
+@media (min-width: 576px) {
+  .lib-event-card {
+    flex-direction: column;
+  }
+  .lib-event-card__img img {
+    height: 150px;
+  }
+}
+
 .lib-event-card__img img {
   height: 100%;
   width: 100%;
@@ -127,7 +136,7 @@ a.lib-events-box__link:hover {
   @apply bg-white;
   padding: 1rem;
   position: absolute;
-  top: 8px;
+  top: 16px;
   left: 16px;
 }
 
@@ -138,10 +147,10 @@ a.lib-events-box__link:hover {
   display: block;
   text-align: center;
 }
-.lib-events-card__event-date-month {
+.lib-event-card__event-date-month {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   display: block;
   text-align: center;
@@ -149,11 +158,34 @@ a.lib-events-box__link:hover {
 
 .lib-event-card__description {
   flex: 1 0 65%;
-  padding: 1rem;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.lib-event-card__title {
+  font-size: 1.5rem;
+}
+
+.p-description {
+  font-size: .8rem;
+}
+
+.lib-event-card__event-full-date {
+  margin-left: 0.5rem;
+}
+
+.lib-event-card__event-time {
+  margin-left: 0.5rem;
 }
 
 .lib-event-card__event-location {
+  margin-left: 0.5rem;
   margin-bottom: 10px;
+}
+
+.lib-event-card__event-register {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
 }
 
 p:empty {
