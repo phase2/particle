@@ -110,7 +110,6 @@ a.lib-events-box__link:hover {
   @apply border-utc-new-blue-500;
   @apply text-utc-new-blue-500;
   font-size: 1rem;
-
 }
 
 .view-utc-library-workshops-feed label:not(.option) {
@@ -118,7 +117,7 @@ a.lib-events-box__link:hover {
   line-height: 1.5rem;
   margin-bottom: 0.5rem;
   @apply text-utc-new-blue-500;
-} 
+}
 
 .lib-event-card {
   @apply bg-white;
@@ -139,6 +138,12 @@ a.lib-events-box__link:hover {
   flex: 0 1 35%;
 }
 
+.lib-event-card__img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 576px) {
   .lib-event-card {
     flex-direction: column;
@@ -146,12 +151,6 @@ a.lib-events-box__link:hover {
   .lib-event-card__img img {
     height: 150px;
   }
-}
-
-.lib-event-card__img img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
 .lib-event-card__event-date {
   @apply bg-white;
@@ -179,7 +178,7 @@ a.lib-events-box__link:hover {
 
 .lib-event-card__description {
   flex: 1 0 65%;
-  padding: 0rem .5rem;
+  padding: 0rem 0.5rem;
   font-size: 0.9rem;
 }
 
@@ -188,7 +187,7 @@ a.lib-events-box__link:hover {
 }
 
 .p-description {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .lib-event-card__event-full-date {
