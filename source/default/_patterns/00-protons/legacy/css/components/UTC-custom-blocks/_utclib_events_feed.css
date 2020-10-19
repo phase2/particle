@@ -99,6 +99,27 @@ a.lib-events-box__link:hover {
 }
 
 /* workshops */
+
+/* filter */
+.view-utc-library-workshops-feed .form-select {
+  height: 50px;
+  width: 100%;
+  border: 2px solid;
+  border-radius: 0;
+  @apply bg-white;
+  @apply border-utc-new-blue-500;
+  @apply text-utc-new-blue-500;
+  font-size: 1rem;
+
+}
+
+.view-utc-library-workshops-feed label:not(.option) {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  @apply text-utc-new-blue-500;
+} 
+
 .lib-event-card {
   @apply bg-white;
   position: relative;
@@ -118,7 +139,7 @@ a.lib-events-box__link:hover {
   flex: 0 1 35%;
 }
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
   .lib-event-card {
     flex-direction: column;
   }
@@ -158,7 +179,7 @@ a.lib-events-box__link:hover {
 
 .lib-event-card__description {
   flex: 1 0 65%;
-  padding: 1.5rem;
+  padding: 0rem .5rem;
   font-size: 0.9rem;
 }
 
@@ -167,7 +188,7 @@ a.lib-events-box__link:hover {
 }
 
 .p-description {
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 .lib-event-card__event-full-date {
