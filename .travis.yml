@@ -10,6 +10,7 @@ php:
 # blocklist
 branches:
   except:
+  - develop
   - /^Deploy\s.*$/
 matrix:
   fast_finish: true
