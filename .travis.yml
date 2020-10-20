@@ -49,7 +49,7 @@ deploy:
   github_token: ${GITHUB_API_KEY}  # Your GitHub token set in Travis CI console
   target_branch: develop        # Add this line - To push into GitHub master branch
   verbose: true
-  commit_message: "Test to travis [skip travis]"
+  commit_message: "[skip travis] Testing travis [skip travis-ci]"
   on:
     branch: develop
 
