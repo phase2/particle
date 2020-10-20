@@ -8,9 +8,9 @@ php:
 #     - TRAVIS_NODE_VERSION="12"
 
 # blocklist
-branches:
-  except:
-  - /^Deploy\s.*$/
+# branches:
+#   except:
+#   - /^Deploy\s.*$/
 matrix:
   fast_finish: true
 # before_install:
@@ -50,4 +50,4 @@ deploy:
   on:
     branch: develop
   verbose: true
-  commit_message: "[skip travis] Testing travis [skip travis-ci]"
+  commit_message: "[skip travis] Deploying Compiled Assets [skip travis-ci]"
