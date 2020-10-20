@@ -44,14 +44,10 @@ after_success:
 
 deploy:
   provider: pages
-  skip_cleanup: true
-  keep_history: true
-  github_token: ${GITHUB_API_KEY}  # Your GitHub token set in Travis CI console
-  target_branch: develop        # Add this line - To push into GitHub master branch
-  verbose: true
-  commit_message: "[skip travis] Testing travis [skip travis-ci]"
+  edge: true
+  target_branch: develop 
+  github-token: ${GITHUB_API_KEY}  # Your GitHub token set in Travis CI console
   on:
     branch: develop
-
-# after_deploy:
-#   - travis_terminate 1
+  verbose: true
+  commit_message: "[skip travis] Testing travis [skip travis-ci]"
