@@ -7,6 +7,10 @@ php:
 #     - TRAVIS_NODE_VERSION="11"
 #     - TRAVIS_NODE_VERSION="12"
 
+# blocklist
+branches:
+  except:
+  - /^Deploy\s.*$/
 matrix:
   fast_finish: true
 # before_install:
@@ -48,5 +52,5 @@ deploy:
   on:
     branch: develop
 
-after_deploy:
-  - travis_terminate 1
+# after_deploy:
+#   - travis_terminate 1
