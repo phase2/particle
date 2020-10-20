@@ -19,13 +19,7 @@ module.exports = {
     content: [path.resolve(__dirname, '_patterns/**/*.*')],
     options: {
       // Whitelist Non-DS Dependent Patterns.
-      whitelistPatterns: [
-        /^bg/,
-        /^text/,
-        /:?-?m[rltbxy]?-/,
-        /:?p[rltbxy]?-/,
-        /:?w-/,
-      ],
+      whitelistPatterns: [/^bg/, /^text/, /^w-/, /^h-/, /^js-/, /^form-/],
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
       extensions: ['yml', 'twig', 'json', 'js', 'ts'],
     },

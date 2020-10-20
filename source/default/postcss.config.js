@@ -1,27 +1,28 @@
 /**
  * PostCSS config
  */
+const path = require('path');
 
 const postcssPresetEnv = require('postcss-preset-env');
 const cssnano = require('cssnano');
 const tailwindcss = require('tailwindcss');
 const hexrgba = require('postcss-hexrgba');
-const stylelint = require('stylelint');
-const postcssReporter = require('postcss-reporter');
 
-module.exports = ({ options, env }) => {
+const tailwWindPath = path.resolve(__dirname, 'tailwind.config.js');
+
+module.exports = ({ mode }) => {
+  console.log('postcss running');
+
   return {
     plugins: [
-      stylelint(),
-      // tailwindConfig is set per *design system* webpack.config.js.
-      options.tailwindConfig && tailwindcss(options.tailwindConfig),
+      // All tailwind config
+      tailwindcss(tailwWindPath),
       // Hex in rgba like Sass
       hexrgba(),
       // Use .browserslistrc to determine CSS mutations
       postcssPresetEnv(),
       // Heavy processing for production
-      env === 'production' && cssnano(),
-      postcssReporter({ clearReportedMessages: true }),
+      mode === 'production' && cssnano(),
     ],
   };
 };

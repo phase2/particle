@@ -5,10 +5,10 @@
 // Library Imports
 const path = require('path');
 const { DefinePlugin } = require('webpack');
+const { merge } = require('webpack-merge');
 
 // Plugins
 const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-filetype-change');
-const particle = require('../../particle');
 
 // Constants: environment
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
@@ -18,9 +18,13 @@ const { PATTERN_LAB_DIST } = require('../../particle.root.config');
 // Constants: app
 const appConfig = require('./particle.app.config');
 
+// Get design system config
+const dsWebpackConfig = require('../../source/default/webpack.config');
+
 const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
 
-const shared = {
+// Webpack configuration unique to the Pattern Lab app
+const plWebpackConfig = {
   entry: {
     app: [path.resolve(__dirname, 'index.js')],
   },
@@ -30,7 +34,7 @@ const shared = {
   },
   module: {
     rules: [
-      // Non-standard assets on the dependency chain
+      // PL-only assets on the dependency chain
       {
         test: /\.(yml|md)$/,
         loader: 'file-loader',
@@ -44,13 +48,13 @@ const shared = {
     new DefinePlugin({
       BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
+    // Recompile PL on any globed PL file (see glob.js)
+    new RunScriptOnFiletypeChange({
+      test: /\.(twig|yml|md|json)$/,
+      exec: [`npm run pl`],
+    }),
   ],
-  stats: {
-    children: false,
-  },
-};
-
-const dev = {
+  // Webpack Dev Server config ONLY (Pattern Lab live-reload)
   devServer: {
     host: '0.0.0.0',
     port: '8080',
@@ -76,46 +80,18 @@ const dev = {
     historyApiFallback: true,
     // Injects all the webpack dev server code right in the page
     inline: true,
-    // All stats available here: https://webpack.js.org/configuration/stats/
-    stats: {
-      depth: true,
-      entrypoints: true,
-      chunkModules: true,
-      chunkOrigins: true,
-      env: true,
-      colors: true,
-      hash: true,
-      version: true,
-      timings: true,
-      assets: true,
-      chunks: false,
-      modules: false,
-      reasons: true,
-      source: true,
-      errors: true,
-      errorDetails: true,
-      warnings: true,
-      publicPath: true,
-    },
   },
-  plugins: [
-    // Recompile PL on any globed PL file (see glob.js)
-    new RunScriptOnFiletypeChange({
-      test: /\.(twig|yml|md|json)$/,
-      exec: [`npm run pl`],
-    }),
-  ],
 };
 
-const prod = {};
+// In dev mode, make sure we use 'style-loader' instead of MiniCssExtractPlugin.loader
+if (NODE_ENV === 'development') {
+  // Find CSS loader rules
+  const cssRuleIndex = dsWebpackConfig.module.rules.findIndex((rule) =>
+    'test.css'.match(rule.test)
+  );
+  // Change MiniCssExtractPlugin.loader (always first) to 'style-loader'
+  dsWebpackConfig.module.rules[cssRuleIndex].use[0] = 'style-loader';
+}
 
-module.exports = particle(
-  // app: webpack
-  { shared, dev, prod },
-  // app: config
-  appConfig,
-  // Options
-  {
-    cssMode: NODE_ENV === 'development' ? 'hot' : 'extract',
-  }
-);
+// Merge together root, design system, and app webpack config
+module.exports = merge(dsWebpackConfig, plWebpackConfig);

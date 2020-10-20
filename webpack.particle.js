@@ -10,6 +10,8 @@ const { ProgressPlugin, ProvidePlugin } = require('webpack');
 
 // Plugins
 const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 // Constants: environment
 // NODE_ENV is set within all NPM scripts before running Webpack, eg:
@@ -26,7 +28,6 @@ const { NODE_ENV = 'production' } = process.env;
 // process.traceDeprecation = true;
 
 module.exports = {
-  // entry: {}, // See entryPrepend() and particle() below for entry details
   mode: NODE_ENV, // development|production
   output: {
     filename: '[name].js',
@@ -37,27 +38,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'resolve-url-loader',
-            options: {
-              sourceMap: true,
-              root: '',
-            },
-          },
-          {
-            // PostCSS config at ./postcss.config.js
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              ident: 'postcss',
-            },
-          },
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'resolve-url-loader',
+          'postcss-loader',
         ],
       },
       {
@@ -74,9 +58,7 @@ module.exports = {
         test: /\.js$/,
         // @babel runtime and core must NOT be transformed by babel
         exclude: /@babel(?:\/|\\{1,2})runtime|core-js/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: ['babel-loader'],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -114,6 +96,8 @@ module.exports = {
     ],
   },
   plugins: [
+    // Throw stylelint warnings and errors to console
+    new StylelintPlugin(),
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery
     // plugins to assume that `window.jquery` is available
     new ProvidePlugin({
@@ -121,9 +105,13 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
+    // Write CSS to disk
+    new MiniCssExtractPlugin(),
     // Only add ProgressPlugin for non-production env.
     ...(NODE_ENV === 'production'
       ? []
       : [new ProgressPlugin({ profile: false })]),
   ],
+  // All stats available here: https://webpack.js.org/configuration/stats/
+  // stats: {},
 };
