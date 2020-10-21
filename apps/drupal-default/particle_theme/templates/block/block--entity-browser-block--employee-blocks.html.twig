@@ -69,25 +69,30 @@
 							</p>
 						
 						<hr />
-						
-						<p>
-							 <i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ content.employee_email }}">
-							 {{ content.employee_email }}
-							 </a>
-						</p>
-						<p>
-							<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ content.employee_office }}
-						</p>
-						<p>
-							<i class="fas fa-phone-alt fa-fw"></i><a href={{ "tel:" ~ field_employee_telephone[key]}}>
-								{{ content.employee_telephone }}
-							</a>
-						</p>
+						{% if content.employee_email %}
+							<p>
+								<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ content.employee_email }}">
+								{{ content.employee_email }}
+								</a>
+							</p>
+						{% endif %}
+						{% if content.employee_office %}
+							<p>
+								<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ content.employee_office }}
+							</p>
+						{% endif %}
+						{% if content.employee_telephone %}
+							<p>
+								<i class="fas fa-phone-alt fa-fw"></i><a href={{ "tel:" ~ field_employee_telephone[key]}}>
+									{{ content.employee_telephone }}
+								</a>
+							</p>
+						{% endif %}
 						</div>
 						{% if content.employee_website  is not empty %}
-						<div class="employee-card__button">
-							<a class="btn btn-light" href={{ content.employee_website  }}>More info</a>
-						</div>
+							<div class="employee-card__button">
+								<a class="btn btn-light" href={{ content.employee_website  }}>More info</a>
+							</div>
 						{% endif %}
 				
 					</div>
