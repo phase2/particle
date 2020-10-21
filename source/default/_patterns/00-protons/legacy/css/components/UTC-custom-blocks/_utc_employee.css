@@ -15,6 +15,16 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+.employee-card__container {
+  margin-bottom: 30px;
+}
+
+.employee-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 
 .employee-card__body {
   padding: .5rem;
