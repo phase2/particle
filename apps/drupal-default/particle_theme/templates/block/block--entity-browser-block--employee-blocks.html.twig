@@ -26,7 +26,8 @@
  */
 #}
 
-<div{{attributes.addClass('employee-grid')}}>
+<div{{attributes.addClass('')}}>
+<div class="row">
 	{{ title_prefix }}
 	{% if label %}
 		<h2{{title_attributes}}>
@@ -36,40 +37,41 @@
 	{{ title_suffix }}
 	{% block content %}
 	{% for key,element in employeeimages %}
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-          {% if field_employee_website[key]|field_value is not empty %}
-            <a href={{ field_employee_website[key]|field_value }}>
-          {% endif %}
-					<img src={{element|image_style('utc_employee_small_310x450_')}}>
-              {% if field_employee_website[key]|field_value is not empty %}
-                </a>
-              {% endif %}
-					<div>
-						{# class="utc-card"> #}
-						{# TODO card-body needs to be refactored as is used in the aggregator block #}
-						<div class="" style="width: 330px;">
-							<h3 class="card-title mb-1" style="margin-left: 0px;">
-								{{ field_employee_first_name[key]}}
-								{{ field_employee_last_name[key]}}</h3>
-							<h4 class="card-subtitle mb-3 text-muted" style="margin-left: 0px;">
-								{{ field_employee_title[key]}}</h4>
-							<h6 style="margin-left: 0px;">{{field_employee_email[key]}}</h6>
-							<address>
-								{{field_employee_office_location[key]}}
-							</br>
-							<a href={{ "tel:" ~ field_employee_telephone[key]}}>
-								{{ field_employee_telephone[key]}}
-							</a>
-						</address>
-              {% if field_employee_website[key]|field_value is not empty %}
-                <a class="btn btn-secondary" href={{ field_employee_website[key]|field_value }}>More info</a>
-              {% endif %}
-					</div>
-				</div>
+		<div class="col-md-4 col-sm-6 utc-card-grid__container">
+			<div class="utc-card-2 utc-card-2--white h-100">
+				{% if field_employee_website[key]|field_value is not empty %}
+					<a href={{ field_employee_website[key]|field_value }}>
+				{% endif %}
+				<img src={{element|image_style('utc_employee_small_310x450_')}}>
+				{% if field_employee_website[key]|field_value is not empty %}
+					</a>
+				{% endif %}
+					{# TODO card-body needs to be refactored as is used in the aggregator block #}
+				<div class="utc-card-2__body">
+					<h3 class="card-title mb-1" style="margin-left: 0px;">
+						{{ field_employee_first_name[key]}}
+						{{ field_employee_last_name[key]}}
+					</h3>
+					<h4 class="card-subtitle mb-3 text-muted" style="margin-left: 0px;">
+						{{ field_employee_title[key]}}
+					</h4>
+					<h6 style="margin-left: 0px;">
+						{{field_employee_email[key]}}
+					</h6>
+					<address>
+						{{field_employee_office_location[key]}}
+						</br>
+						<a href={{ "tel:" ~ field_employee_telephone[key]}}>
+							{{ field_employee_telephone[key]}}
+						</a>
+					</address>
+					{% if field_employee_website[key]|field_value is not empty %}
+						<a class="btn btn-secondary" href={{ field_employee_website[key]|field_value }}>More info</a>
+					{% endif %}
+			  	</div>
 			</div>
 		</div>
+	{% endfor %}
+	{% endblock %}
 	</div>
-
-{% endfor %}{% endblock %}</div>
+</div>
