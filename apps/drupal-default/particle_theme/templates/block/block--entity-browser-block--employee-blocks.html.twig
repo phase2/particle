@@ -1,3 +1,4 @@
+{% extends "block.html.twig" %}
 {#
 /**
  * @file
@@ -26,17 +27,8 @@
  */
 #}
 
-<div{{attributes.addClass('')}}>
-
-	<div class="row w-75%">
-		{{ title_prefix }}
-		{% if label %}
-			<h2{{title_attributes}}>
-				<span class="title-text">{{ label }}</span>
-			</h2>
-		{% endif %}
-		{{ title_suffix }}
-		{% block content %}
+{% block content %}
+	<div class="row">
 		{% for key,element in employeeimages %}
 			{% set content = {
     			employee_first: field_employee_first_name[key],
@@ -53,7 +45,7 @@
 					{% if content.employee_website is not empty %}
 						<a href={{ content.employee_website }}>
 						{% endif %}
-						<img class="h-auto" src="{{ content.employee_image }}" />
+						<img class="h-auto" src="{{ content.employee_image }}"/>
 						{% if content.employee_website is not empty %}
 						</a>
 					{% endif %}
@@ -67,36 +59,38 @@
 							<p class="employee-card__title">
 								{{ content.employee_title }}
 							</p>
-						
-						<hr />
-						{% if content.employee_email %}
-							<p>
-								<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ content.employee_email }}">
-								{{ content.employee_email }}
-								</a>
-							</p>
-						{% endif %}
-						{% if content.employee_office %}
-							<p>
-								<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ content.employee_office }}
-							</p>
-						{% endif %}
-						{% if content.employee_telephone %}
-							<p>
-								<i class="fas fa-phone-alt fa-fw"></i><a href={{ "tel:" ~ field_employee_telephone[key]}}>
-									{{ content.employee_telephone }}
-								</a>
-							</p>
-						{% endif %}
+
+							<hr/>
+							{% if content.employee_email %}
+								<p>
+									<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ content.employee_email }}">
+										{{ content.employee_email }}
+									</a>
+								</p>
+							{% endif %}
+							{% if content.employee_office %}
+								<p>
+									<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ content.employee_office }}
+								</p>
+							{% endif %}
+							{% if content.employee_telephone %}
+								<p>
+									<i class="fas fa-phone-alt fa-fw"></i>
+									<a href={{ "tel:" ~ field_employee_telephone[key]}}>
+										{{ content.employee_telephone }}
+									</a>
+								</p>
+							{% endif %}
 						</div>
 						{% if content.employee_website  is not empty %}
 							<div class="employee-card__button">
-								<a class="btn btn-light" href={{ content.employee_website  }}>More info</a>
+								<a class="btn btn-light" href={{ content.employee_website }}>More info</a>
 							</div>
 						{% endif %}
-				
+
 					</div>
 				</div>
 			</div>
-	{% endfor %}
-{% endblock %}</div>
+		{% endfor %}
+	</div>
+{% endblock %}
