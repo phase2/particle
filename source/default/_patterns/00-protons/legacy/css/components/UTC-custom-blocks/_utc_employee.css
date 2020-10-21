@@ -1,5 +1,42 @@
 /* // UTC Styles for employees */
 
+.employee-card {
+  @apply bg-white;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+.employee-card__body {
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  flex: 1 0;
+}
+
+.employee-card__info {
+
+}
+.employee-card__name {
+  font-weight: 400;
+}
+
+.employee-card__button a {
+  margin-bottom: .5rem;
+  margin-left: .5rem;
+}
+
 .utc-custom-blocks h2.block__title {
 	display: none;
 }
@@ -8,18 +45,13 @@
 	padding: 1rem 0;
 }
 
+/* not sure what else this is impacting, would need to explore before removing */
 @media (min-width: 992px){
   .themag-layout .block:not(:last-child) {
     margin-bottom: 0px;
   }
 }
-.employee-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(320px, max-content));
-}
+/* used by aggregator feed */
 .card-body {
   margin-top:-18px;
-}
-.utc-card{
-  margin-left: -23px;
 }
