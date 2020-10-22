@@ -1,3 +1,4 @@
+{% extends "block.html.twig" %}
 {#
 /**
  * @file
@@ -26,50 +27,70 @@
  */
 #}
 
-<div{{attributes.addClass('employee-grid')}}>
-	{{ title_prefix }}
-	{% if label %}
-		<h2{{title_attributes}}>
-			<span class="title-text">{{ label }}</span>
-		</h2>
-	{% endif %}
-	{{ title_suffix }}
-	{% block content %}
-	{% for key,element in employeeimages %}
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-          {% if field_employee_website[key]|field_value is not empty %}
-            <a href={{ field_employee_website[key]|field_value }}>
-          {% endif %}
-					<img src={{element|image_style('utc_employee_small_310x450_')}}>
-              {% if field_employee_website[key]|field_value is not empty %}
-                </a>
-              {% endif %}
-					<div>
-						{# class="utc-card"> #}
-						{# TODO card-body needs to be refactored as is used in the aggregator block #}
-						<div class="" style="width: 330px;">
-							<h3 class="card-title mb-1" style="margin-left: 0px;">
-								{{ field_employee_first_name[key]}}
-								{{ field_employee_last_name[key]}}</h3>
-							<h4 class="card-subtitle mb-3 text-muted" style="margin-left: 0px;">
-								{{ field_employee_title[key]}}</h4>
-							<h6 style="margin-left: 0px;">{{field_employee_email[key]}}</h6>
-							<address>
-								{{field_employee_office_location[key]}}
-							</br>
-							<a href={{ "tel:" ~ field_employee_telephone[key]}}>
-								{{ field_employee_telephone[key]}}
-							</a>
-						</address>
-              {% if field_employee_website[key]|field_value is not empty %}
-                <a class="btn btn-secondary" href={{ field_employee_website[key]|field_value }}>More info</a>
-              {% endif %}
+{% block content %}
+	<div class="row">
+		{% for key,element in employeeimages %}
+			{% set content = {
+    			employee_first: field_employee_first_name[key],
+				employee_last: field_employee_last_name[key],
+				employee_image: element|image_style('utc_employee_small_310x450_'),
+				employee_website: field_employee_website[key]|field_value,
+				employee_title: field_employee_title[key],
+				employee_email: field_employee_email[key],
+				employee_telephone: field_employee_telephone[key],
+				employee_office: field_employee_office_location[key],	
+ 		   } %}
+			<div class="col-lg-4 col-md-6 employee-card__container">
+				<div class="employee-card h-100">
+					{% if content.employee_website is not empty %}
+						<a href={{ content.employee_website }}>
+						{% endif %}
+						<img class="h-auto" src="{{ content.employee_image }}"/>
+						{% if content.employee_website is not empty %}
+						</a>
+					{% endif %}
+					{# TODO card-body needs to be refactored as is used in the aggregator block #}
+					<div class="employee-card__body">
+						<div class="employee-card__info">
+							<h3 class="employee-card__name">
+								{{ content.employee_first }}
+								{{ content.employee_last }}
+							</h3>
+							<p class="employee-card__title">
+								{{ content.employee_title }}
+							</p>
+
+							<hr/>
+							{% if content.employee_email %}
+								<p>
+									<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ content.employee_email }}">
+										{{ content.employee_email }}
+									</a>
+								</p>
+							{% endif %}
+							{% if content.employee_office %}
+								<p>
+									<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ content.employee_office }}
+								</p>
+							{% endif %}
+							{% if content.employee_telephone %}
+								<p>
+									<i class="fas fa-phone-alt fa-fw"></i>
+									<a href={{ "tel:" ~ field_employee_telephone[key]}}>
+										{{ content.employee_telephone }}
+									</a>
+								</p>
+							{% endif %}
+						</div>
+						{% if content.employee_website  is not empty %}
+							<div class="employee-card__button">
+								<a class="btn btn-light" href={{ content.employee_website }}>More info</a>
+							</div>
+						{% endif %}
+
 					</div>
 				</div>
 			</div>
-		</div>
+		{% endfor %}
 	</div>
-
-{% endfor %}{% endblock %}</div>
+{% endblock %}
