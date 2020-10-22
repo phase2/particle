@@ -46,9 +46,9 @@ To remove package-lock.json from all levels of the repo simply run this command.
 ps -ef | (grep -q -s -R ^$1 package-lock.json && rm -rf package-lock.json) | { grep -v grep || true; }; lerna exec -- ps -ef | (grep -q -s -R ^$1 package-lock.json && rm -rf package-lock.json) | { grep -v grep || true; }
 ```
 
-To remove all typescript lib files run `npm dev:clean:lib`
+To remove all typescript lib files run `npm run dev:clean:lib`
 
-To remove all node_modules in packages run `npm dev:clean:node_modules`
+To remove all node_modules in packages run `npm run dev:clean:node_modules`
 
 ### Upgrading dependencies
 
