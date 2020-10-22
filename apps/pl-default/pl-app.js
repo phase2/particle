@@ -26,6 +26,7 @@ const {
 
 const { cleanPublic } = plConfig;
 const { NODE_ENV } = process.env;
+
 // Start/stop message template
 const message = `Pattern Lab Node v${pl.version()} ${NODE_ENV} compile`;
 // Shared options between dev/prod

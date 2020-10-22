@@ -6,12 +6,7 @@
  */
 
 module.exports = {
-  extends: [
-    'airbnb-base',
-    'plugin:jest/recommended',
-    'plugin:prettier/recommended',
-  ],
-  plugins: ['prettier'],
+  extends: ['airbnb-base', 'plugin:jest/recommended', 'prettier'],
   root: true,
   globals: {
     Drupal: true,

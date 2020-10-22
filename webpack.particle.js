@@ -98,6 +98,8 @@ module.exports = {
   plugins: [
     // Throw stylelint warnings and errors to console
     new StylelintPlugin(),
+    // Write CSS to disk
+    new MiniCssExtractPlugin(),
     // Provides "global" vars mapped to an actual dependency. Allows e.g. jQuery
     // plugins to assume that `window.jquery` is available
     new ProvidePlugin({
@@ -105,8 +107,7 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
-    // Write CSS to disk
-    new MiniCssExtractPlugin(),
+
     // Only add ProgressPlugin for non-production env.
     ...(NODE_ENV === 'production'
       ? []

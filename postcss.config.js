@@ -1,26 +1,28 @@
 /**
  * PostCSS config
  */
+
 const path = require('path');
 
+const tailwindcss = require('tailwindcss');
 const postcssPresetEnv = require('postcss-preset-env');
 const cssnano = require('cssnano');
-const tailwindcss = require('tailwindcss');
 const hexrgba = require('postcss-hexrgba');
 
-const tailwWindPath = path.resolve(__dirname, 'tailwind.config.js');
+const tailWindPath = path.resolve(
+  __dirname,
+  './source/default/tailwind.config.js'
+);
 
 module.exports = ({ mode }) => {
-  console.log('postcss running');
-
   return {
     plugins: [
       // All tailwind config
-      tailwindcss(tailwWindPath),
+      tailwindcss(tailWindPath),
       // Hex in rgba like Sass
       hexrgba(),
       // Use .browserslistrc to determine CSS mutations
-      postcssPresetEnv(),
+      mode === 'production' && postcssPresetEnv(),
       // Heavy processing for production
       mode === 'production' && cssnano(),
     ],

@@ -91,6 +91,8 @@ if (NODE_ENV === 'development') {
   );
   // Change MiniCssExtractPlugin.loader (always first) to 'style-loader'
   dsWebpackConfig.module.rules[cssRuleIndex].use[0] = 'style-loader';
+
+  console.log(dsWebpackConfig.module.rules[cssRuleIndex]);
 }
 
 // Merge together root, design system, and app webpack config

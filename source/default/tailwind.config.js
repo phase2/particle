@@ -25,11 +25,19 @@ module.exports = {
     },
   },
   theme: {
+    // Replace default Tailwind config here
     colors,
     customForms,
     fontFamily,
+    // Extend (add to) default Tailwdind config here
     extend: {},
   },
   variants: {},
   plugins: [tailwindCustomForms],
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+    defaultLineHeights: true,
+    standardFontWeights: true,
+  },
 };
