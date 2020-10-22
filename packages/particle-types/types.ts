@@ -25,6 +25,7 @@ export interface Naming {
   projectName: string
   componentLibraryName: string
   componentLibraryPath: string
+  drupalRootPath: string
 }
 
 export enum TestingLibraryOptions {

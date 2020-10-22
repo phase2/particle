@@ -100,6 +100,15 @@ export const configurationPrompt = [
   },
 ]
 
+export const drupalRootOptions = [
+  {
+    type:'input',
+    message: 'Where should your Drupal root exist?',
+    default: `./source/drupal/`,
+    name: 'drupalRootPath',
+  }
+]
+
 export const customPromptOptions = [
   {
     type: 'checkbox',

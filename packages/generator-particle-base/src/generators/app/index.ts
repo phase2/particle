@@ -12,6 +12,7 @@ import {
 import {
   configurationPrompt,
   customPromptOptions,
+  drupalRootOptions,
   options as configOptions,
 } from './generatePromptOptions'
 
@@ -100,6 +101,15 @@ module.exports = class extends Generator {
         ...results,
         options: customOptions,
       }
+    } else if (results.config === ConfigOptions.DRUPAL) {
+      const root = await this.prompt(drupalRootOptions)
+
+      this.configuration = {
+        ...results,
+        ...root,
+        options: configOptions[results.config]
+      }
+      // ADD DRUPAL LOCATION PROMPT HERE
     } else {
       this.configuration = {
         ...results,
