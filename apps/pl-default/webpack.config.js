@@ -2,8 +2,8 @@
  * Pattern Lab-specific webpack config.
  */
 
-// Library Imports
 const path = require('path');
+
 const { DefinePlugin } = require('webpack');
 const { merge } = require('webpack-merge');
 
@@ -13,15 +13,12 @@ const RunScriptOnFiletypeChange = require('../../tools/webpack/run-script-on-fil
 // Constants: environment
 const { NODE_ENV, PARTICLE_PL_HOST = '' } = process.env;
 // Constants: root
-const { PATTERN_LAB_DIST } = require('../../particle.root.config');
-
-// Constants: app
-const appConfig = require('./particle.app.config');
+const { PATH_DIST } = require('../../particle.root.config');
 
 // Get design system config
 const dsWebpackConfig = require('../../source/default/webpack.config');
 
-const { APP_NAME, APP_DIST, APP_DIST_PUBLIC } = appConfig;
+const APP_NAME = 'app-pl';
 
 // Webpack configuration unique to the Pattern Lab app
 const plWebpackConfig = {
@@ -29,8 +26,10 @@ const plWebpackConfig = {
     app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: APP_DIST,
-    publicPath: APP_DIST_PUBLIC,
+    // Where CSS/JS/images live in pl dist/ folder
+    path: path.join(PATH_DIST, APP_NAME, 'assets'),
+    //
+    publicPath: `/${path.join(APP_NAME, 'assets')}`,
   },
   module: {
     rules: [
@@ -60,7 +59,7 @@ const plWebpackConfig = {
     port: '8080',
     allowedHosts: ['.docksal', '.vm', '0.0.0.0', 'localhost'],
     // dev server starts from this folder.
-    contentBase: PATTERN_LAB_DIST,
+    contentBase: PATH_DIST,
     // local host name for devServer
     public: PARTICLE_PL_HOST,
     // Refresh devServer when dist/ changes (Pattern Lab)
