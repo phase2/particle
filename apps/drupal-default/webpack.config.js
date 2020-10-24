@@ -3,19 +3,14 @@
  */
 
 const path = require('path');
+
 const { DefinePlugin } = require('webpack');
 const { merge } = require('webpack-merge');
-
-// Constants: root
-const { ASSETS_ATOMIC_FOLDER } = require('../../particle.root.config');
-
-// Constants: app
-const appConfig = require('./particle.app.config');
 
 // Get design system config
 const dsWebpackConfig = require('../../source/default/webpack.config');
 
-const { APP_NAME, APP_DESIGN_SYSTEM, APP_DIST, APP_DIST_PUBLIC } = appConfig;
+const APP_NAME = 'app-drupal';
 
 const drupalWebpackConfig = {
   entry: {
@@ -23,8 +18,10 @@ const drupalWebpackConfig = {
     app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: APP_DIST,
-    publicPath: APP_DIST_PUBLIC,
+    // Output all CSS/JS/images/twig to dist/ within drupal theme
+    path: path.resolve(__dirname, 'particle_theme/dist'),
+    // @TODO: Does drupal need publicPath?
+    // publicPath: APP_DIST_PUBLIC,
   },
   module: {
     rules: [
@@ -33,8 +30,8 @@ const drupalWebpackConfig = {
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
-          outputPath: ASSETS_ATOMIC_FOLDER,
-          context: APP_DESIGN_SYSTEM,
+          outputPath: 'atomic/',
+          context: path.resolve(__dirname, '../../source/default/'),
           emit: true,
         },
       },
