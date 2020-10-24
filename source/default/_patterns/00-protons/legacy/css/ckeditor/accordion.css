@@ -1,52 +1,73 @@
 .ckeditor-accordion-container > dl dt > a {
-	display: block;
-	font-size: 500;
-	/* background-color: white; */
-	@apply bg-gray-100;
-	/* color: gray; */
-	@apply text-gray-700;
-	cursor: pointer;
-	-webkit-transition: background-color 300ms;
-	transition: background-color 300ms;
-	border-bottom: 1px solid gray;
-	/* @apply border-bottom-gray-400; */
+  display: block;
+  font-size: 500;
+  @apply bg-white;
+  @apply text-utc-new-blue-500;
+  cursor: pointer;
+  -webkit-transition: background-color 300ms;
+  transition: background-color 300ms;
+  border: 3px solid;
+  @apply border-gray-400;
+  margin: -3px 0px;
 }
 
 .ckeditor-accordion-container > dl dt > a:hover {
-	/* background-color: gray; */
-	@apply bg-gray-400;
-	border-bottom: 0;
-	text-decoration: none;
+  @apply bg-gray-400;
+  text-decoration: none;
 }
 
 .ckeditor-accordion-container > dl dt.active > a {
-	/* background-color: gray; */
-	@apply bg-gray-400;
+  @apply bg-gray-400;
+  @apply border-utc-new-blue-500;
+  border: 3px solid;
+  @apply border-gray-400;
+  border-bottom: 3px solid;
+  margin-top: 3px;
+  transition: border-color 1s ease-out;
 }
 
 .ckeditor-accordion-container > dl dt.active > a:hover {
-	/* color: gray; */
-	@apply text-gray-400;
-	/* background-color: gray; */
-	@apply bg-gray-800;
+  @apply bg-gray-400;
+  @apply border-gray-400;
+  border-bottom: 3px solid;
 }
 
 /* contents */
 .ckeditor-accordion-container > dl dd {
-	display: none;
-	padding: 0 15px;
-	margin: 0;
-	will-change: height;
+  display: none;
+  padding: 0.75rem 1.25rem;
+  margin: 0;
+  will-change: height;
+}
+
+.ckeditor-accordion-container > dl dd.active {
+  @apply bg-white;
+  border: 3px solid;
+  @apply border-utc-new-blue-500;
+  border-top: 0;
+  margin-bottom: 3px;
+  transition: border-color 1s ease-out;
 }
 
 .ckeditor-accordion-container > dl {
-	position: relative;
-	border: 0;
+  position: relative;
+  border: 0;
+  padding-left: 0;
 }
 
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::before,
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
-	/* background: gray; */
-	@apply bg-gray-700;
+  @apply bg-gray-700;
+}
 
+.ckeditor-accordion-container > dl dt:last-of-type > a  {
+  border-bottom: 3px solid;
+  @apply border-gray-400;
+}
+.ckeditor-accordion-container > dl dt.active:last-of-type {
+@apply bg-gray-400;
+border: 3px solid;
+@apply border-utc-new-blue-500;
+border-bottom: 0;
+transition: border-color 1s ease-out;
 }

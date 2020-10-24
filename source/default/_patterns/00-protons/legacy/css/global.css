@@ -76,19 +76,19 @@
   font-weight: normal;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link) {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
   @apply text-blue-500;
   border-bottom: 1.5px solid #4299e1;
   text-decoration: none;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover:not(.ckeditor-accordion-toggler):hover {
   @apply text-utc-new-blue-500;
   border-bottom: 1.5px solid #112e51;
   text-decoration: none;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active:not(.ckeditor-accordion-toggler):active {
   color: #fdb736;
   border-bottom: 1.5px solid #fdb736;
   text-decoration: none;
