@@ -20,8 +20,6 @@ const drupalWebpackConfig = {
   output: {
     // Output all CSS/JS/images/twig to dist/ within drupal theme
     path: path.resolve(__dirname, 'particle_theme/dist'),
-    // @TODO: Does drupal need publicPath?
-    // publicPath: APP_DIST_PUBLIC,
   },
   module: {
     rules: [

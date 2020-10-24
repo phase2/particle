@@ -27,9 +27,10 @@ const plWebpackConfig = {
   },
   output: {
     // Where CSS/JS/images live in pl dist/ folder
-    path: path.join(PATH_DIST, APP_NAME, 'assets'),
-    // @TODO: Does PL need publicPath?
-    publicPath: `/${path.join(APP_NAME, 'assets')}`,
+    path: path.join(PATH_DIST, APP_NAME, 'assets/'),
+    // Since pl serves assets from a folder sibling to pl/, this is needed
+    publicPath:
+      NODE_ENV === 'development' ? `/${path.join(APP_NAME, 'assets/')}` : '',
   },
   module: {
     rules: [
