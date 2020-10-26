@@ -30,7 +30,7 @@
 {% block content %}
 	<div class="row">
 		{% for key,element in employeeimages %}
-			{% set content = {
+			{% set variables = {
     			employee_first: field_employee_first_name[key],
 				employee_last: field_employee_last_name[key],
 				employee_image: element|image_style('utc_employee_small_310x450_'),
@@ -39,58 +39,131 @@
 				employee_email: field_employee_email[key],
 				employee_telephone: field_employee_telephone[key],
 				employee_office: field_employee_office_location[key],	
+				view_field: field_view_mode[key],
  		   } %}
-			<div class="col-lg-4 col-md-6 employee-card__container">
-				<div class="employee-card h-100">
-					{% if content.employee_website is not empty %}
-						<a href={{ content.employee_website }}>
-						{% endif %}
-						<img class="h-auto" src="{{ content.employee_image }}"/>
-						{% if content.employee_website is not empty %}
-						</a>
-					{% endif %}
-					{# TODO card-body needs to be refactored as is used in the aggregator block #}
-					<div class="employee-card__body">
-						<div class="employee-card__info">
-							<h3 class="employee-card__name">
-								{{ content.employee_first }}
-								{{ content.employee_last }}
-							</h3>
-							<p class="employee-card__title">
-								{{ content.employee_title }}
-							</p>
 
-							<hr/>
-							{% if content.employee_email %}
-								<p>
-									<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ content.employee_email }}">
-										{{ content.employee_email }}
-									</a>
-								</p>
+			{% if variables.view_field != "default" and variables.view_field != "full" and variables.view_field != "utc_small_teaser_card" 
+			and variables.view_field != "utc_original_size"%}
+				<h3>
+					Only default, full and original views mode are supported
+				</h3>
+				<h3>
+					The employee block for
+					{{variables.employee_first}}
+					{{variables.employee_last}}
+					needs to be updated</h3>
+			{% endif %}
+			{% if variables.view_field == "default" or variables.view_field == "full" or variables.view_field == "utc_small_teaser_card" %}
+				<div class="col-lg-4 col-md-6 employee-card__container">
+					<div class="employee-card h-100">
+						{% if variables.employee_website is not empty %}
+							<a href={{ variables.employee_website }}>
 							{% endif %}
-							{% if content.employee_office %}
-								<p>
-									<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ content.employee_office }}
+							<img class="h-auto" src="{{ variables.employee_image }}"/>
+							{% if variables.employee_website is not empty %}
+							</a>
+						{% endif %}
+						{# TODO card-body needs to be refactored as is used in the aggregator block #}
+						<div class="employee-card__body">
+							<div class="employee-card__info">
+								<h3 class="employee-card__name">
+									{{ variables.employee_first }}
+									{{ variables.employee_last }}
+								</h3>
+								<p class="employee-card__title">
+									{{ variables.employee_title }}
 								</p>
-							{% endif %}
-							{% if content.employee_telephone %}
-								<p>
-									<i class="fas fa-phone-alt fa-fw"></i>
-									<a href={{ "tel:" ~ field_employee_telephone[key]}}>
-										{{ content.employee_telephone }}
-									</a>
-								</p>
-							{% endif %}
-						</div>
-						{% if content.employee_website  is not empty %}
-							<div class="employee-card__button">
-								<a class="btn btn-light" href={{ content.employee_website }}>More info</a>
+
+								<hr/>
+								{% if variables.employee_email %}
+									<p>
+										<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ variables.employee_email }}">
+											{{ variables.employee_email }}
+										</a>
+									</p>
+								{% endif %}
+								{% if variables.employee_office %}
+									<p>
+										<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ variables.employee_office }}
+									</p>
+								{% endif %}
+								{% if variables.employee_telephone %}
+									<p>
+										<i class="fas fa-phone-alt fa-fw"></i>
+										<a href={{ "tel:" ~ field_employee_telephone[key]}}>
+											{{ variables.employee_telephone }}
+										</a>
+									</p>
+								{% endif %}
 							</div>
-						{% endif %}
+							{% if variables.employee_website  is not empty %}
+								<div class="employee-card__button">
+									<a class="btn btn-light" href={{ variables.employee_website }}>More info</a>
+								</div>
+							{% endif %}
 
+						</div>
 					</div>
 				</div>
-			</div>
+			{% endif %}
+
+
+			{% if variables.view_field == "utc_original_size" %}
+				<div class="col-lg-4 col-md-6 employee-card__container">
+					<div class="employee-card h-100">
+						{% if variables.employee_website is not empty %}
+							<a href={{ variables.employee_website }}>
+							{% endif %}
+							{# <img class="h-auto" src="{{ variables.employee_image }}"/> #}
+							{% if variables.employee_website is not empty %}
+							</a>
+						{% endif %}
+						{# TODO card-body needs to be refactored as is used in the aggregator block #}
+						<div class="employee-card__body">
+							<div class="employee-card__info">
+								<h3 class="employee-card__name">
+									{{ variables.employee_first }}
+									{{ variables.employee_last }}
+								</h3>
+								<p class="employee-card__title">
+									{{ variables.employee_title }}
+								</p>
+
+								<hr/>
+								{% if variables.employee_email %}
+									<p>
+										<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ variables.employee_email }}">
+											{{ variables.employee_email }}
+										</a>
+									</p>
+								{% endif %}
+								{% if variables.employee_office %}
+									<p>
+										<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ variables.employee_office }}
+									</p>
+								{% endif %}
+								{% if variables.employee_telephone %}
+									<p>
+										<i class="fas fa-phone-alt fa-fw"></i>
+										<a href={{ "tel:" ~ field_employee_telephone[key]}}>
+											{{ variables.employee_telephone }}
+										</a>
+									</p>
+								{% endif %}
+							</div>
+							{% if variables.employee_website  is not empty %}
+								<div class="employee-card__button">
+									<a class="btn btn-light" href={{ variables.employee_website }}>More info</a>
+								</div>
+							{% endif %}
+
+						</div>
+					</div>
+				</div>
+			{% endif %}
+
 		{% endfor %}
 	</div>
+	{# {% endif %} #}
 {% endblock %}
+
