@@ -3,31 +3,23 @@
  */
 
 const path = require('path');
+
 const { DefinePlugin } = require('webpack');
+const { merge } = require('webpack-merge');
 
-// Plugins
-const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
-const particle = require('../../particle');
+// Get design system config
+const dsWebpackConfig = require('../../source/default/webpack.config');
 
-// Constants: environment
-const { NODE_ENV } = process.env;
+const APP_NAME = 'app-drupal';
 
-// Constants: root
-const { ASSETS_ATOMIC_FOLDER } = require('../../particle.root.config');
-
-// Constants: app
-const appConfig = require('./particle.app.config');
-
-const { APP_NAME, APP_DESIGN_SYSTEM, APP_DIST, APP_DIST_PUBLIC } = appConfig;
-
-const shared = {
+const drupalWebpackConfig = {
   entry: {
     'drupal-jquery': [path.resolve(__dirname, 'drupal-jquery.js')],
     app: [path.resolve(__dirname, 'index.js')],
   },
   output: {
-    path: APP_DIST,
-    publicPath: APP_DIST_PUBLIC,
+    // Output all CSS/JS/images/twig to dist/ within drupal theme
+    path: path.resolve(__dirname, 'particle_theme/dist'),
   },
   module: {
     rules: [
@@ -36,8 +28,8 @@ const shared = {
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
-          outputPath: ASSETS_ATOMIC_FOLDER,
-          context: APP_DESIGN_SYSTEM,
+          outputPath: 'atomic/',
+          context: path.resolve(__dirname, '../../source/default/'),
           emit: true,
         },
       },
@@ -48,44 +40,13 @@ const shared = {
       BUILD_TARGET: JSON.stringify(APP_NAME),
     }),
   ],
-};
-
-const dev = {
-  stats: {
-    children: false,
-    entrypoints: false,
-  },
-  plugins: [
-    new RunScriptAfterEmit({
-      exec: [
-        // prettier-ignore
-        `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete! Edit 
-        apps/drupal-default/webpack.config.js to replace this line with
-        anything you'd like run after rebuilding assets, e.g.
-        'drupal cr all'. 🚀\n`,
-      ],
-    }),
-  ],
   externals: {
     jquery: 'jQuery',
   },
-};
-
-const prod = {
   stats: {
     children: false,
-    entrypoints: false,
     chunks: false,
   },
 };
 
-module.exports = particle(
-  // app: webpack
-  { shared, dev, prod },
-  // app: config
-  appConfig,
-  // Use extract css
-  {
-    cssMode: 'extract',
-  }
-);
+module.exports = merge(dsWebpackConfig, drupalWebpackConfig);

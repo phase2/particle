@@ -4,32 +4,14 @@
 
 const path = require('path');
 
+const { merge } = require('webpack-merge');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
+const rootWebpackConfig = require('../../webpack.particle');
 const namespaces = require('./namespaces');
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                path: path.join('postcss.config.js'),
-                ctx: {
-                  // PostCSS Tailwind config
-                  tailwindConfig: path.resolve(__dirname, 'tailwind.config.js'),
-                },
-              },
-            },
-          },
-        ],
-      },
-    ],
-  },
+// Merge root Webpack config with design system Webpack config
+module.exports = merge(rootWebpackConfig, {
   plugins: [
     // Sprite system options
     new SVGSpritemapPlugin(
@@ -50,6 +32,5 @@ module.exports = {
     // JavaScript can import other components via shorthand, eg:
     //   `import thing from 'atoms/thing';`
     alias: namespaces,
-    extensions: ['.js', '.json'],
   },
-};
+});

@@ -10,11 +10,11 @@
  * If you prefer NO MAGIC, then simply modify this file so that you import each
  * component manually, and provide keys to the `components` module, ie.
  *
- *   import * as vueWidget from '@molecules/vue-widget';
+ *   import * as button from '@atoms/button';
  *   import * as card from '@molecules/card';
  *   // ...
  *   export const components = {
- *     vueWidget,
+ *     button,
  *     card,
  *     // ...
  *   };

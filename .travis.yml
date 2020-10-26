@@ -4,9 +4,9 @@ php:
   - 7.2
 env:
   matrix:
-    - TRAVIS_NODE_VERSION="8"
     - TRAVIS_NODE_VERSION="10"
     - TRAVIS_NODE_VERSION="12"
+    - TRAVIS_NODE_VERSION="14"
 before_install:
   - '. $HOME/.nvm/nvm.sh'
   - nvm install $TRAVIS_NODE_VERSION
@@ -23,7 +23,7 @@ before_script:
   - node --version
   - npm --version
 script:
-  - npm run ci
+  - npm run verify
 notifications:
   email:
     on_success: always

@@ -4,10 +4,10 @@
 core:
   css:
     theme:
-      ../../../dist/app-drupal/assets/app.styles.css:
+      dist/app.css:
         minified: true
   js:
-    ../../../dist/app-drupal/assets/app.js:
+    dist/app.js:
       preprocess: false
   # See all in Drupal's `core/core.libraries.yml`
   dependencies:
@@ -18,6 +18,6 @@ core:
 # See `libraries-override` in particle.info.yml
 jquery:
   js:
-    ../../../dist/app-drupal/assets/drupal-jquery.js:
+    dist/drupal-jquery.js:
       preprocess: false
       weight: -20

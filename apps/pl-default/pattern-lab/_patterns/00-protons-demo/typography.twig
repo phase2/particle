@@ -88,7 +88,8 @@
                 <span class="{{ codeClasses }}">{{ textClass }}</span>
               </td>
               <td class="text-center {{ tdClasses }}">
-                <span class="{{ codeClasses }}">{{ value }}</span>
+                <p class="{{ codeClasses }}">Font size: {{ value[0] }}</p>
+                <p class="{{ codeClasses }}">Line height: {{ value[1].lineHeight }}</p>
               </td>
             </tr>
           {% endfor %}

@@ -2,7 +2,7 @@
  * @file
  * Root CSS file to add Tailwind Configuration.
  *
- * This file adds Tailwind to the project via the @tailwind directive.
+ * This file adds Tailwind to the project via @tailwind.
  * Custom rules and overrides for each section are applied between.
  */
 
@@ -14,6 +14,7 @@
  * Monospace - Google Fonts - Source Code Pro
  *
 */
+
 @import url('https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap');
 
 /**
