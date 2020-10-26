@@ -50,24 +50,26 @@
   @apply text-black;
   color: black;
 }
-.utc-card-2__text a:not(.btn),
-.utc-sidebar-card a:not(.btn),
-.utc-item-card a:not(.btn)
+.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
+.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler)
  {
   @apply text-blue-500;
   border-bottom: 1.5px solid #4299e1;
   text-decoration: none;
 }
 
-.utc-card-2__text a:not(.btn):hover,
-.utc-sidebar-card a:not(.btn):hover,
-.utc-item-card a:not(.btn):hover {
+.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):hover,
+.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):hover {
   @apply text-utc-new-blue-500;
   border-bottom: 1.5px solid #112e51;
   text-decoration: none;
 }
 
-.utc-card-2__text a:not(.btn):active {
+.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):active,
+.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):active,
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):active {
   color: #fdb736;
   border-bottom: 1.5px solid #fdb736;
   text-decoration: none;
@@ -76,19 +78,19 @@
   font-weight: normal;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link) {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
   @apply text-blue-500;
   border-bottom: 1.5px solid #4299e1;
   text-decoration: none;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover:not(.ckeditor-accordion-toggler):hover {
   @apply text-utc-new-blue-500;
   border-bottom: 1.5px solid #112e51;
   text-decoration: none;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active {
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active:not(.ckeditor-accordion-toggler):active {
   color: #fdb736;
   border-bottom: 1.5px solid #fdb736;
   text-decoration: none;
