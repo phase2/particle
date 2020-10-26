@@ -8,25 +8,25 @@
   -webkit-transition: 300ms;
   transition: 300ms;
   border: 2px solid;
-  @apply border-gray-400;
+  @apply border-gray-300;
   margin: 5px 0px 0px;
 }
 
 .ckeditor-accordion-container > dl dt > a:hover {
-  @apply bg-gray-400;
+  @apply bg-gray-300;
   @apply border-utc-new-blue-500;
   text-decoration: none;
 }
 
 .ckeditor-accordion-container > dl dt.active > a {
-  @apply bg-gray-400;
+  @apply bg-gray-300;
   @apply border-utc-new-blue-500;
   border: 2px solid;
   border-bottom: none;
 }
 
 .ckeditor-accordion-container > dl dt.active > a:hover {
-  @apply bg-gray-400;
+  @apply bg-gray-300;
   @apply border-utc-new-blue-500;
   border-bottom: none;
 }
