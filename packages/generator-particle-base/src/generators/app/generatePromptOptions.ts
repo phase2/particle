@@ -12,7 +12,7 @@ const minMaxOptionsValidate = ({ min, max }: { min: number; max?: number }) => (
 ) => {
   if (answer.length < min || (!max ? false : answer.length > max)) {
     return `You must choose a minimum of ${min} option(s)${
-      max ? ` and a maximum of ${max} option(s)` : ''
+      max ? ` and a maximum of ${max} option(s).` : ''
     }`
   }
   return true
@@ -37,7 +37,7 @@ export const designThemePrompt = () => [
   },
   {
     type: 'input',
-    message: 'choose a design theme name using kebab case. (min 4 chars) Ex: "alpha"',
+    message: 'Choose a design theme name using kebab case. (min 4 chars) Ex: "alpha".',
     name: 'themeName',
     default: 'default',
     validate: (name: string) => {
@@ -85,35 +85,35 @@ export const generatorLoop = async() => {
 export const propOptions = [
   {
     type: 'input',
-    message: 'choose a abbreviation for your/client\'s name. (min 3 chars) Ex: Home Depot "hdp"',
+    message: 'Choose a abbreviation for your/client\'s name. (min 3 chars)',
     name: 'clientAbbreviation',
     validate: (name: string) => {
       if (!name || name.length < 3) {
-        return 'Please enter a project name of more than 4 characters length'
+        return 'Please enter a project name of more than 4 characters length.'
       }
       if (name.indexOf(' ') > 0) {
-        return 'Please enter a two word project name with no spaces'
+        return 'Please enter a two word project name with no spaces.'
       }
       return true
     }
   },
   {
     type: 'input',
-    message: 'choose a name for the overall project using kebab case. (min 4 chars) Ex: "website", or "saphire-dagger"',
+    message: 'Choose a name for the overall project using kebab case. (min 4 chars) Ex: "website", or "saphire-dagger"',
     name: 'projectName',
     validate: (name: string) => {
       if (!name || name.length < 4) {
-        return 'Please enter a project name of more than 4 characters length'
+        return 'Please enter a project name of more than 4 characters length.'
       }
       if (name.indexOf(' ') > 0) {
-        return 'Please enter a two word project name with no spaces'
+        return 'Please enter a two word project name with no spaces.'
       }
       return true
     },
   },
   {
     type: 'confirm',
-    message: 'will you be using Drupal?',
+    message: 'Will you be using Drupal?',
     name: 'hasDrupal',
     default: false,
   },
