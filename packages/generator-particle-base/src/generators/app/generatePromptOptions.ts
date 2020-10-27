@@ -82,20 +82,6 @@ export const generatorLoop = async() => {
   return themesArray;
 }
 
-// export const drupalRootOptions = [
-//   {
-//     type: 'input',
-//     message: 'Where should your Drupal root exist?',
-//     default: `./source/drupal/`,
-//     name: 'drupalRootPath',
-//     when: (answer: CustomAnswers) => {
-//       if (answer.hasDrupal) {
-//         inquirer.prompt(drupalRootOptions)
-//       }
-//     }
-//   }
-// ]
-
 export const propOptions = [
   {
     type: 'input',
