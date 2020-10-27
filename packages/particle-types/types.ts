@@ -4,28 +4,16 @@ export enum CSSLibraryOptions {
   BOOTSTRAP = 'bootstrap',
 }
 
-export enum ComponentLibraryOptions {
-  STORYBOOK = 'storybook',
-  PATTERN_LAB = 'pattern_lab',
-}
-
 export enum FrontendFrameworkOptions {
-  TWIG = 'twig',
   REACT = 'react',
   WEBCOMPONENTS = 'webcomponents',
 }
 
-export enum ConfigOptions {
-  MODERN_REACT = 'modern_react',
-  DRUPAL = 'drupal',
-  CUSTOM = 'custom',
-}
-
 export interface Naming {
-  projectName: string
-  componentLibraryName: string
   componentLibraryPath: string
   drupalRootPath: string
+  projectName: string
+  themeName: string
 }
 
 export enum TestingLibraryOptions {
@@ -36,18 +24,26 @@ export enum TestingLibraryOptions {
   SELENIUM = 'selenium',
 }
 
-export interface ConfigurationAnswers extends Naming {
-  config: ConfigOptions
+export interface DesignTheme {
+  frontendFramework: FrontendFrameworkOptions,
+  themeName: string,
+  themePath: string,
 }
 
 export interface CustomAnswers {
-  cssLibrary: CSSLibraryOptions
-  componentLibraryTypes: ComponentLibraryOptions[]
-  frontendFramework: FrontendFrameworkOptions[]
+  clientAbbreviation: string
+  hasDrupal: boolean
   hasSVG: boolean
   hasTypescript: boolean
+  projectName: string
   testingLibraries: TestingLibraryOptions[]
+  drupalRootPath?: string
   typescriptEsm?: boolean
+}
+
+export interface ConfigurationAnswers {
+  config: CustomAnswers
+  designThemes: DesignTheme[]
 }
 
 export interface Answers extends Naming {
