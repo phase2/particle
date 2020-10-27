@@ -3,7 +3,9 @@ import merge from 'lodash.merge'
 import fs from 'fs'
 
 import {
+  CustomAnswers,
   ConfigurationAnswers,
+  DesignTheme,
 } from '@phase2/particle-types'
 
 import {
@@ -85,15 +87,12 @@ module.exports = class extends Generator {
   }
 
   async _promptUser() {
-    // const configuration: CustomAnswers = await this.prompt(propOptions)
+    const config: CustomAnswers = await this.prompt(propOptions)
+    config.designThemes = await generatorLoop()
 
-    const results: ConfigurationAnswers = {
-      config: await this.prompt(propOptions),
-      designThemes: await generatorLoop()
-    }
+    this.configuration.config = config
 
-    this.configuration = results;
-    this.packageJson.name = results.config.projectName
+    this.packageJson.name = config.projectName
   }
 
   /**
