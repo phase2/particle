@@ -1,9 +1,3 @@
-export enum CSSLibraryOptions {
-  TAILWIND = 'tailwind',
-  SASS = 'sass',
-  BOOTSTRAP = 'bootstrap',
-}
-
 export enum FrontendFrameworkOptions {
   REACT = 'react',
   WEBCOMPONENTS = 'webcomponents',
@@ -32,6 +26,7 @@ export interface DesignTheme {
 
 export interface CustomAnswers {
   clientAbbreviation: string
+  designThemes: DesignTheme[]
   hasDrupal: boolean
   hasSVG: boolean
   hasTypescript: boolean
@@ -43,7 +38,6 @@ export interface CustomAnswers {
 
 export interface ConfigurationAnswers {
   config: CustomAnswers
-  designThemes: DesignTheme[]
 }
 
 export interface Answers extends Naming {
