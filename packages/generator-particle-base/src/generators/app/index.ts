@@ -3,22 +3,17 @@ import merge from 'lodash.merge'
 import fs from 'fs'
 
 import {
-  Answers,
   ConfigurationAnswers,
-  ConfigOptions,
-  FrontendFrameworkOptions,
 } from '@phase2/particle-types'
 
 import {
-  configurationPrompt,
-  customPromptOptions,
-  drupalRootOptions,
-  options as configOptions,
+  propOptions,
+  generatorLoop
 } from './generatePromptOptions'
 
 module.exports = class extends Generator {
   // configuration will come from the constructor argument
-  configuration: Answers
+  configuration: ConfigurationAnswers
   packageJson: Record<string, any>
   cliVersion = ''
 
@@ -78,7 +73,7 @@ module.exports = class extends Generator {
    * Creeate a particle config file
    */
 
-  _writeParticleConfig() {
+  async _writeParticleConfig() {
     fs.writeFileSync(
       '.particlerc',
       JSON.stringify(
@@ -90,33 +85,15 @@ module.exports = class extends Generator {
   }
 
   async _promptUser() {
-    // Initialize storybook
-    const results: ConfigurationAnswers = await this.prompt(configurationPrompt)
+    // const configuration: CustomAnswers = await this.prompt(propOptions)
 
-    // if custom exit here
-    if (results.config === ConfigOptions.CUSTOM) {
-      const customOptions = await this.prompt(customPromptOptions)
-
-      this.configuration = {
-        ...results,
-        options: customOptions,
-      }
-    } else if (results.config === ConfigOptions.DRUPAL) {
-      const root = await this.prompt(drupalRootOptions)
-
-      this.configuration = {
-        ...results,
-        ...root,
-        options: configOptions[results.config]
-      }
-      // ADD DRUPAL LOCATION PROMPT HERE
-    } else {
-      this.configuration = {
-        ...results,
-        options: configOptions[results.config],
-      }
+    const results: ConfigurationAnswers = {
+      config: await this.prompt(propOptions),
+      designThemes: await generatorLoop()
     }
-    this.packageJson.name = results.projectName
+
+    this.configuration = results;
+    this.packageJson.name = results.config.projectName
   }
 
   /**
@@ -125,20 +102,20 @@ module.exports = class extends Generator {
   async initializing() {
     await this._promptUser()
 
-    // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
-    if (
-      this.configuration.options.frontendFramework.includes(
-        FrontendFrameworkOptions.REACT
-      )
-    ) {
-      this.composeWith(
-        require.resolve('@phase2/generator-particle-storybook'),
-        {
-          configuration: this.configuration,
-          updatePackageJson: this._updatePackageJson,
-        }
-      )
-    }
+    // // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
+    // if (
+    //   this.configuration.options.frontendFramework.includes(
+    //     FrontendFrameworkOptions.REACT
+    //   )
+    // ) {
+    //   this.composeWith(
+    //     require.resolve('@phase2/generator-particle-storybook'),
+    //     {
+    //       configuration: this.configuration,
+    //       updatePackageJson: this._updatePackageJson,
+    //     }
+    //   )
+    // }
     // Add other subgenerators here
   }
 
