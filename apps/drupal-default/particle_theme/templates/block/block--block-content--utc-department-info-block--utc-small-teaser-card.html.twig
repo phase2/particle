@@ -79,27 +79,3 @@
 		{% endblock %}
 	</ul>
 </div>
-
-
-{# <div{{ attributes }}>
-  {{ title_prefix }}
-    {% if label %}
-      <h2{{ title_attributes }}>
-         <span class="title-text">{{ label }}</span>
-      </h2>
-    {% endif %}
-  {{ title_suffix }}
-  {% block content %}
-  {{ devel_breakpoint() }} #}
-{#    <div{{ content_attributes }}>{{ content }}</div>#}
-    {# <h2>{{content.["#block_content"].values.field_utc_department_building}}</h2> #}
-     {# <h2>{{dump(content.field_utc_department_building.0)}}</h2> #}
-     {# <h2>{{dump(content.field_utc_department_mail_code|field_value)}}</h2> #}
-     {# <h2>{{content.field_utc_department_mail_code|field_value}}</h2>
-     <h2>{{content.field_utc_department_building|field_value}}</h2>
-     <h2>{{content.field_utc_department_phone|field_value}}</h2>
-     <h2>{{field_utc_department_fax_number|field_value}}</h2>
-     <h2>{{content.field_utc_department_hours|field_value}}</h2>
-     <h2>{{content.field_utc_department_street_addr|field_value}}</h2>
-  {% endblock %}
-</div> #}
