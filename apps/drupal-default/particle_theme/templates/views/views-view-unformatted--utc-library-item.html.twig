@@ -28,7 +28,8 @@
 <div class="utc-item-card__view-two-col">
 {% for key,row in rows %}
 	{% set content = {
-	card_link: view.style_plugin.getField(key, 'field_utclib_item_link'),
+    card_mobile_stack: view.style_plugin.getField(key, 'field_utclib_mobile_stack'),
+	  card_link: view.style_plugin.getField(key, 'field_utclib_item_link'),
     card_image: view.style_plugin.getField(key, 'field_utclib_item_image'),
     card_title: view.style_plugin.getField(key, 'field_utclib_item_title'),
     card_text: view.style_plugin.getField(key, 'field_utclib_item_body')|raw,  
@@ -37,7 +38,8 @@
     card_divider: view.style_plugin.getField(key, 'field_utclib_item_divider')|render|striptags|clean_class,
  } %}
 
-	{% embed 'block--utc-library-item-base.html.twig' with content %}
+
+{% embed 'block--utc-library-item-base.html.twig' with content %}
 {% block badges %}
 	{% if content.card_badges %}
 		<div class="utc-item-card__badges">
