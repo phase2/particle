@@ -35,7 +35,7 @@
 ] | sort | join(' ') | trim %}
 
 	{% set content = {
-    card_mobile_stack: content.field_utclib_mobile_stack[0]|render == 'On',
+    card_mobile_stack: content.field_utclib_mobile_stack[0]|render == 'On' ? 'utc-item-card--mobile-stack' ,
 	  card_link: content.field_utclib_item_link.0['#url'],
     card_image: content.field_utclib_item_image|field_value,
     card_title: content.field_utclib_item_title|field_value,

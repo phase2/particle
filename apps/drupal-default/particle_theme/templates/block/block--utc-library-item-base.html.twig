@@ -32,7 +32,7 @@
   'utc-item-card',
   'h-100',
   card_link ? 'utc-item-card--card-link',
-  card_mobile_stack ? 'utc-item-card--mobile-stack',
+  content.card_mobile_stack,
 ] | sort | join(' ') | trim %}
 
 
@@ -51,7 +51,7 @@
 				<div class="utc-item-card__content">
 
 					{% if content.card_title %}
-						<h3 class="utc-item-card__title">{{ content.card_title }}
+						<h3 class="utc-item-card__title">{{ content.card_title }} 
 						</h3>
 					{% endif %}
 
