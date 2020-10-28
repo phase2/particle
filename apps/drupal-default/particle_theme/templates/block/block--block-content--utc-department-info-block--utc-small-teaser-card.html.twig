@@ -25,7 +25,63 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes }}>
+<div{{attributes}}>
+	{{ title_prefix }}
+	{% if label %}
+		<h2{{title_attributes}}>
+			<span class="title-text">{{ label }}</span>
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{% block content %}
+			{%
+  			set classes = [
+    		'department-info--' ~ view_mode|clean_class,
+  			]
+ 			%}
+			<div{{content_attributes.addClass(classes)}}>
+				<h2 style="text-align: center;">{{label}}</h2>
+				<div>
+					<address class="flex-list">
+						<ul>
+							{% if content.field_utc_department_building|field_value is not empty %}
+								<li>{{content.field_utc_department_building|field_value}}</li>
+							{% endif %}
+							{% if content.field_utc_department_mail_code|field_value  is not empty %}
+								<li>Dept&nbsp;{{content.field_utc_department_mail_code|field_value }}</li>
+							{% endif %}
+							{% if content.field_utc_department_street_addr|field_value is not empty %}
+								<li>{{content.field_utc_department_street_addr|field_value}}</li>
+							{% endif %}
+							{% if content.field_utc_department_phone|field_value is not empty %}
+								<li style="display: flex;"><i class="fa-inverse fas fa-phone" style="color:#011a3a; margin-right: 6px;"></i> 
+								{{content.field_utc_department_phone|field_value }}</li>
+							{% endif %}
+							{% if content.field_utc_department_fax_number|field_value is not empty %}
+								<li style="display: flex;"> <i class="fa-inverse fas fa-fax" style="color:#011a3a; margin-right: 6px;"></i>
+								{{content.field_utc_department_fax_number|field_value}}</li>
+							{% endif %}
+							{% if content.field_utc_department_email|field_value is not empty %}
+								{% set mail = 'mailto:' ~ content.field_utc_department_email|field_value|render %}
+								<li>
+									<a href="{{mail}}">{{content.field_utc_department_email|field_value}}</a>
+								</li>
+							{% endif %}
+						</address>
+
+						{% if content.field_utc_department_hours|field_value is not empty %}
+							<div class="department--hours">
+								{{content.field_utc_department_hours}}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+		{% endblock %}
+	</ul>
+</div>
+
+
+{# <div{{ attributes }}>
   {{ title_prefix }}
     {% if label %}
       <h2{{ title_attributes }}>
@@ -34,16 +90,16 @@
     {% endif %}
   {{ title_suffix }}
   {% block content %}
-  {{ devel_breakpoint() }}
+  {{ devel_breakpoint() }} #}
 {#    <div{{ content_attributes }}>{{ content }}</div>#}
     {# <h2>{{content.["#block_content"].values.field_utc_department_building}}</h2> #}
      {# <h2>{{dump(content.field_utc_department_building.0)}}</h2> #}
      {# <h2>{{dump(content.field_utc_department_mail_code|field_value)}}</h2> #}
-     <h2>{{content.field_utc_department_mail_code|field_value}}</h2>
+     {# <h2>{{content.field_utc_department_mail_code|field_value}}</h2>
      <h2>{{content.field_utc_department_building|field_value}}</h2>
      <h2>{{content.field_utc_department_phone|field_value}}</h2>
      <h2>{{field_utc_department_fax_number|field_value}}</h2>
      <h2>{{content.field_utc_department_hours|field_value}}</h2>
      <h2>{{content.field_utc_department_street_addr|field_value}}</h2>
   {% endblock %}
-</div>
+</div> #}
