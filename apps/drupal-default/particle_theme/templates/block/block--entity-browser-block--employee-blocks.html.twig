@@ -28,33 +28,33 @@
 #}
 
 {% block content %}
-{{content.0.field_employee_picture}}
-{{content.field_employee_picture}}
+{# {{content.0.field_employee_picture}}
+{{content.field_employee_picture}} #}
 {{attribute(content, 3).field_employee_picture}}
 {{content|length}}
 	<div class="row">
 
 		{# {{content.0.field_employee_picture}} #}
 		{% for i in 0..content|length %}
-  				{# {{ content.i.field_employee_picture }} #}
-				  {{attribute(content, i).field_employee_picture}}
-				  inside the loop
-		{% endfor %}
 
-		{% for key,element in content %}
-		{{ dump(loop.index0)}}
-		{% set demo =0 %}
 			{% set variables = {
-    			employee_first: content.0.field_employee_first_name,
-				employee_last: field_employee_last_name[key],
-				employee_image: content.field_employee_picture[key],
-				employee_website: field_employee_website[key]|field_value,
-				employee_title: field_employee_title[key],
-				employee_email: field_employee_email[key],
-				employee_telephone: field_employee_telephone[key],
-				employee_office: field_employee_office_location[key],	
-				view_field: field_view_mode[key],
- 		   } %}
+				employee_image: attribute(content, i).field_employee_picture,
+				employee_first: attribute(content, i).field_employee_first_name,
+				employee_last: attribute(content, i).field_employee_last_name,
+				employee_website: attribute(content, i).field_employee_website|field_value,
+				employee_title: attribute(content, i).field_employee_title,
+				employee_email: attribute(content, i).field_employee_email,
+				view_field: content.0["#view_mode"],
+			} %}
+
+			{# <h2>{{content.0["#view_mode"]}}</h2> #}
+			<h2>{{dump(view_field)}}</h2>
+           {# $content[$index]['#view_mode'] #}
+			{# {{variables.employee_image}} #}
+			{# {{ dump(loop.index0)}} #}
+  				{# {{ content.i.field_employee_picture }} #}
+				  {# {{attribute(content, i).field_employee_picture}} #}
+				  inside the loop
 
 			{% if variables.view_field != "default" and variables.view_field != "full" and variables.view_field != "utc_small_teaser_card" 
 			and variables.view_field != "utc_original_size"%}
