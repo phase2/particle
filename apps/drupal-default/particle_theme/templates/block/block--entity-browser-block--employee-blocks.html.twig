@@ -33,7 +33,6 @@
 {# {{attribute(content, 3).field_employee_picture}} #}
 {# {{content|length}} #}
 	<div class="row">
-
 		{# {{content.0.field_employee_picture}} #}
 		{% for i in 0..content|length %}
 
@@ -47,14 +46,6 @@
 				employee_email: attribute(content, i).field_employee_email,
 				view_field: content.0["#view_mode"],
 			} %}
-
-			{# <h2>{{content.0["#view_mode"]}}</h2> #}
-			{# <h2>{{dump(view_field)}}</h2> #}
-           {# $content[$index]['#view_mode'] #}
-			{# {{variables.employee_image}} #}
-			{# {{ dump(loop.index0)}} #}
-  				{# {{ content.i.field_employee_picture }} #}
-				  {# {{attribute(content, i).field_employee_picture}} #}
 
 			{% if variables.view_field != "default" and variables.view_field != "full" and variables.view_field != "utc_small_teaser_card" 
 			and variables.view_field != "utc_original_size"%}
@@ -92,9 +83,7 @@
 								<hr/>
 								{% if variables.employee_email %}
 									<p>
-										<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ variables.employee_email }}">
-											{{ variables.employee_email }}
-										</a>
+										<i class="fas fa-envelope fa-fw"></i>{{ variables.employee_email }}
 									</p>
 								{% endif %}
 								{% if variables.employee_office %}
@@ -104,10 +93,8 @@
 								{% endif %}
 								{% if variables.employee_telephone %}
 									<p>
-										<i class="fas fa-phone-alt fa-fw"></i>
-										<a href={{ "tel:" ~ field_employee_telephone[key]}}>
-											{{ variables.employee_telephone }}
-										</a>
+										<i class="fas fa-phone-alt fa-fw"></i>{{ variables.employee_telephone }}
+										
 									</p>
 								{% endif %}
 							</div>
@@ -176,7 +163,7 @@
 					</div>
 				</div>
 			{% endif %}
-			{{devel_breakpoint()}}
+			{# {{devel_breakpoint()}} #}
 		{% endfor %}
 	</div>
 	{# {% endif %} #}
