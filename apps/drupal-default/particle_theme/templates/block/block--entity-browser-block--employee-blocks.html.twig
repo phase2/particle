@@ -30,8 +30,8 @@
 {% block content %}
 {# {{content.0.field_employee_picture}}
 {{content.field_employee_picture}} #}
-{{attribute(content, 3).field_employee_picture}}
-{{content|length}}
+{# {{attribute(content, 3).field_employee_picture}} #}
+{# {{content|length}} #}
 	<div class="row">
 
 		{# {{content.0.field_employee_picture}} #}
@@ -41,6 +41,7 @@
 				employee_image: attribute(content, i).field_employee_picture,
 				employee_first: attribute(content, i).field_employee_first_name,
 				employee_last: attribute(content, i).field_employee_last_name,
+				employee_telephone: attribute(content, i).field_employee_telephone,
 				employee_website: attribute(content, i).field_employee_website|field_value,
 				employee_title: attribute(content, i).field_employee_title,
 				employee_email: attribute(content, i).field_employee_email,
@@ -48,13 +49,12 @@
 			} %}
 
 			{# <h2>{{content.0["#view_mode"]}}</h2> #}
-			<h2>{{dump(view_field)}}</h2>
+			{# <h2>{{dump(view_field)}}</h2> #}
            {# $content[$index]['#view_mode'] #}
 			{# {{variables.employee_image}} #}
 			{# {{ dump(loop.index0)}} #}
   				{# {{ content.i.field_employee_picture }} #}
 				  {# {{attribute(content, i).field_employee_picture}} #}
-				  inside the loop
 
 			{% if variables.view_field != "default" and variables.view_field != "full" and variables.view_field != "utc_small_teaser_card" 
 			and variables.view_field != "utc_original_size"%}
