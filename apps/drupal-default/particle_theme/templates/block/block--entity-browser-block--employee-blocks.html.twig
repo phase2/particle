@@ -28,24 +28,30 @@
 #}
 
 {% block content %}
+{# {{content.0.field_employee_picture}}
+{{content.field_employee_picture}} #}
+{# {{attribute(content, 3).field_employee_picture}} #}
+{# {{content|length}} #}
 	<div class="row">
-		{% for key,element in employeeimages %}
+		{# {{content.0.field_employee_picture}} #}
+		{% for i in 0..(content|length) - 1 %}
+
 			{% set variables = {
-    			employee_first: field_employee_first_name[key],
-				employee_last: field_employee_last_name[key],
-				employee_image: element|image_style('utc_employee_small_310x450_'),
-				employee_website: field_employee_website[key]|field_value,
-				employee_title: field_employee_title[key],
-				employee_email: field_employee_email[key],
-				employee_telephone: field_employee_telephone[key],
-				employee_office: field_employee_office_location[key],	
-				view_field: field_view_mode[key],
- 		   } %}
+				employee_image: attribute(content, i).field_employee_picture,
+				employee_first: attribute(content, i).field_employee_first_name,
+				employee_last: attribute(content, i).field_employee_last_name,
+				employee_telephone: attribute(content, i).field_employee_telephone,
+				employee_website: attribute(content, i).field_employee_website|field_value,
+				employee_title: attribute(content, i).field_employee_title,
+				employee_office: attribute(content, i).field_employee_office_location,
+				employee_email: attribute(content, i).field_employee_email,
+				view_field: content.0["#view_mode"],
+			} %}
 
 			{% if variables.view_field != "default" and variables.view_field != "full" and variables.view_field != "utc_small_teaser_card" 
 			and variables.view_field != "utc_original_size"%}
 				<h3>
-					Only default, full and original views mode are supported
+					Only default, full and utc_small_teaser_card, and wide card are supported
 				</h3>
 				<h3>
 					The employee block for
@@ -59,7 +65,8 @@
 						{% if variables.employee_website is not empty %}
 							<a href={{ variables.employee_website }}>
 							{% endif %}
-							<img class="h-auto" src="{{ variables.employee_image }}"/>
+							{{variables.employee_image}}
+							{# <img class="h-auto" src="{{ variables.employee_image }}"/> #}
 							{% if variables.employee_website is not empty %}
 							</a>
 						{% endif %}
@@ -67,32 +74,26 @@
 						<div class="employee-card__body">
 							<div class="employee-card__info">
 								<h3 class="employee-card__name">
-									{{ variables.employee_first }}
-									{{ variables.employee_last }}
+									{{ variables.employee_first}}
+									{{ variables.employee_last}}
 								</h3>
 								<p class="employee-card__title">
 									{{ variables.employee_title }}
 								</p>
-
-								<hr/>
 								{% if variables.employee_email %}
 									<p>
-										<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ variables.employee_email }}">
-											{{ variables.employee_email }}
-										</a>
+										<i class="fas fa-envelope fa-fw"></i>{{ variables.employee_email }}
 									</p>
 								{% endif %}
 								{% if variables.employee_office %}
 									<p>
-										<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ variables.employee_office }}
+										<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ variables.employee_office|raw }}
 									</p>
 								{% endif %}
 								{% if variables.employee_telephone %}
 									<p>
-										<i class="fas fa-phone-alt fa-fw"></i>
-										<a href={{ "tel:" ~ field_employee_telephone[key]}}>
-											{{ variables.employee_telephone }}
-										</a>
+										<i class="fas fa-phone-alt fa-fw"></i> {{ variables.employee_telephone }}
+										
 									</p>
 								{% endif %}
 							</div>
@@ -107,13 +108,14 @@
 				</div>
 			{% endif %}
 
-
+			{# TODO Adjust the folling to add Wide version #}
 			{% if variables.view_field == "utc_original_size" %}
 				<div class="col-lg-4 col-md-6 employee-card__container">
 					<div class="employee-card h-100">
 						{% if variables.employee_website is not empty %}
 							<a href={{ variables.employee_website }}>
 							{% endif %}
+							{{variables.employee_image}}
 							{# <img class="h-auto" src="{{ variables.employee_image }}"/> #}
 							{% if variables.employee_website is not empty %}
 							</a>
@@ -132,9 +134,7 @@
 								<hr/>
 								{% if variables.employee_email %}
 									<p>
-										<i class="fas fa-envelope fa-fw"></i>&nbsp;<a href="mailto:{{ variables.employee_email }}">
-											{{ variables.employee_email }}
-										</a>
+										<i class="fas fa-envelope fa-fw"></i>{{ variables.employee_email }}
 									</p>
 								{% endif %}
 								{% if variables.employee_office %}
@@ -144,10 +144,8 @@
 								{% endif %}
 								{% if variables.employee_telephone %}
 									<p>
-										<i class="fas fa-phone-alt fa-fw"></i>
-										<a href={{ "tel:" ~ field_employee_telephone[key]}}>
-											{{ variables.employee_telephone }}
-										</a>
+										<i class="fas fa-phone-alt fa-fw"></i> {{ variables.employee_telephone }}
+										
 									</p>
 								{% endif %}
 							</div>
@@ -161,7 +159,7 @@
 					</div>
 				</div>
 			{% endif %}
-
+			{# {{devel_breakpoint()}} #}
 		{% endfor %}
 	</div>
 	{# {% endif %} #}

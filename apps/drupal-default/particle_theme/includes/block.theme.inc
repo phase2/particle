@@ -51,27 +51,6 @@ function particle_theme_suggestions_block_alter(&$suggestions, $variables)
 
 function particle_preprocess_block(&$variables)
 {
-    if ($variables['plugin_id'] == 'entity_browser_block:employee_blocks') {
-        $content = $variables['elements']['content'];
-
-        $mediaId=$content[0]['#block_content']->get('field_employee_picture')->target_id;
-        for ($index = 0; $index <= sizeof($content)-1; $index++) {
-            $employee_picture_id=$content[$index]['#block_content']->get('field_employee_picture')->target_id;
-            $load_media_entity = Media::load($employee_picture_id);
-            $employee_picture_uri = $load_media_entity->field_image->entity->getFileUri();
-            $variables['employeeimages'][$index] = $employee_picture_uri;
-            $variables['field_view_mode'][$index] = $content[$index]['#view_mode'];
-            $variables['field_employee_department'][$index] = $content[$index]['#block_content']->get('field_employee_department')->value;
-            $variables['field_employee_email'][$index] = $content[$index]['#block_content']->get('field_employee_email')->value;
-            $variables['field_employee_title'][$index] = $content[$index]['#block_content']->get('field_employee_title')->value;
-            $variables['field_employee_first_name'][$index] = $content[$index]['#block_content']->get('field_employee_first_name')->value;
-            $variables['field_employee_last_name'][$index] = $content[$index]['#block_content']->get('field_employee_last_name')->value;
-            $variables['field_employee_office_location'][$index] = $content[$index]['#block_content']->get('field_employee_office_location')->value;
-            $variables['field_employee_telephone'][$index] = $content[$index]['#block_content']->get('field_employee_telephone')->value;
-            $variables['field_employee_website'][$index] = $content[$index]['#block_content']->get('field_employee_website')->view('url');
-        }
-    }
-
     if ($variables['plugin_id'] == 'entity_browser_block:department_info') {
         $content = $variables['elements']['content'];
         for ($index = 0; $index <= sizeof($content)-1; $index++) {
