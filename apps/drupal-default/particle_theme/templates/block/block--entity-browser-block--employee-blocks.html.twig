@@ -34,7 +34,7 @@
 {# {{content|length}} #}
 	<div class="row">
 		{# {{content.0.field_employee_picture}} #}
-		{% for i in 0..content|length %}
+		{% for i in 0..(content|length) - 1 %}
 
 			{% set variables = {
 				employee_image: attribute(content, i).field_employee_picture,
