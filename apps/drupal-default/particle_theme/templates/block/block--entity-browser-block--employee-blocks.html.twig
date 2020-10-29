@@ -28,12 +28,26 @@
 #}
 
 {% block content %}
+{{content.0.field_employee_picture}}
+{{content.field_employee_picture}}
+{{attribute(content, 3).field_employee_picture}}
+{{content|length}}
 	<div class="row">
-		{% for key,element in employeeimages %}
+
+		{# {{content.0.field_employee_picture}} #}
+		{% for i in 0..content|length %}
+  				{# {{ content.i.field_employee_picture }} #}
+				  {{attribute(content, i).field_employee_picture}}
+				  inside the loop
+		{% endfor %}
+
+		{% for key,element in content %}
+		{{ dump(loop.index0)}}
+		{% set demo =0 %}
 			{% set variables = {
-    			employee_first: field_employee_first_name[key],
+    			employee_first: content.0.field_employee_first_name,
 				employee_last: field_employee_last_name[key],
-				employee_image: element|image_style('utc_employee_small_310x450_'),
+				employee_image: content.field_employee_picture[key],
 				employee_website: field_employee_website[key]|field_value,
 				employee_title: field_employee_title[key],
 				employee_email: field_employee_email[key],
@@ -59,7 +73,8 @@
 						{% if variables.employee_website is not empty %}
 							<a href={{ variables.employee_website }}>
 							{% endif %}
-							<img class="h-auto" src="{{ variables.employee_image }}"/>
+							{{variables.employee_image}}
+							{# <img class="h-auto" src="{{ variables.employee_image }}"/> #}
 							{% if variables.employee_website is not empty %}
 							</a>
 						{% endif %}
@@ -161,7 +176,7 @@
 					</div>
 				</div>
 			{% endif %}
-
+			{{devel_breakpoint()}}
 		{% endfor %}
 	</div>
 	{# {% endif %} #}
