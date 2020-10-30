@@ -49,8 +49,6 @@
       {# need to fix this once we get other events #}
       {% set badgecolor = "lib-events-box__item-badge--event" %}
       {# force color change - may be better to set a class #}
-      {# get today's date #}
-      {% set nowDate = ("now"|date("Y-m-d")) %}
     {% endif %}
 
     <a href="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|render|striptags }}" target="_blank" class="lib-events-box__link">
@@ -62,7 +60,8 @@
         </div>
 
         <div class="lib-events-box__event-details">
-
+          {# get today's date #}
+          {% set nowDate = ("now"|date("Y-m-d")) %}
           {% set comparedates = view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_3')|render|striptags %}
           {% set comparearray = comparedates|split(" ; ") %}
           {% if nowDate >= comparearray[0]|trim and nowDate <= comparearray[1]|trim %}
