@@ -38,13 +38,13 @@
 
 			{% set variables = {
 				employee_image: attribute(content, i).field_employee_picture,
-				employee_first: attribute(content, i).field_employee_first_name,
-				employee_last: attribute(content, i).field_employee_last_name,
-				employee_telephone: attribute(content, i).field_employee_telephone,
+				employee_first: attribute(content, i).field_employee_first_name|field_value,
+				employee_last: attribute(content, i).field_employee_last_name|field_value,
+				employee_telephone: attribute(content, i).field_employee_telephone|field_value,
 				employee_website: attribute(content, i).field_employee_website|field_value,
-				employee_title: attribute(content, i).field_employee_title,
-				employee_office: attribute(content, i).field_employee_office_location,
-				employee_email: attribute(content, i).field_employee_email,
+				employee_title: attribute(content, i).field_employee_title|field_value,
+				employee_office: attribute(content, i).field_employee_office_location|field_value,
+				employee_email: attribute(content, i).field_employee_email|field_value,
 				view_field: content.0["#view_mode"],
 			} %}
 
@@ -82,17 +82,17 @@
 								</p>
 								{% if variables.employee_email %}
 									<p>
-										<i class="fas fa-envelope fa-fw"></i>{{ variables.employee_email }}
+										<i class="fas fa-envelope fa-fw"></i>&nbsp;{{ variables.employee_email }}
 									</p>
 								{% endif %}
 								{% if variables.employee_office %}
 									<p>
-										<i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ variables.employee_office|raw }}
+										<i class="fas fa-map-marker fa-fw"></i>{{ variables.employee_office|raw }}
 									</p>
 								{% endif %}
 								{% if variables.employee_telephone %}
 									<p>
-										<i class="fas fa-phone-alt fa-fw"></i> {{ variables.employee_telephone }}
+										<i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ variables.employee_telephone }}
 										
 									</p>
 								{% endif %}
