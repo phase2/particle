@@ -3,13 +3,6 @@ export enum FrontendFrameworkOptions {
   WEBCOMPONENTS = 'webcomponents',
 }
 
-export interface Naming {
-  componentLibraryPath: string
-  drupalRootPath: string
-  projectName: string
-  themeName: string
-}
-
 export enum TestingLibraryOptions {
   CYPRESS = 'cypress',
   JEST = 'jest',
@@ -18,28 +11,38 @@ export enum TestingLibraryOptions {
   SELENIUM = 'selenium',
 }
 
-export interface DesignTheme {
-  frontendFramework: FrontendFrameworkOptions,
-  themeName: string,
-  themePath: string,
+export interface Dist {
+  dist?: string
+}
+
+export interface Bundle {
+  name: string
+  frontendFramework?: FrontendFrameworkOptions,
+  storybook?: Dist
+  drupal?: Dist
+}
+
+export interface BundleAnswers {
+  frontendFramework: FrontendFrameworkOptions
+  name: string
+  storybook: string
+  consuming?: boolean
+  drupal?: string
 }
 
 export interface CustomAnswers {
-  clientAbbreviation: string
-  designThemes: DesignTheme[]
-  hasDrupal: boolean
-  hasSVG: boolean
+  bundles: Bundle[]
+  designRoot: string
   hasTypescript: boolean
+  nameSpace: string
   projectName: string
   testingLibraries: TestingLibraryOptions[]
-  drupalRootPath?: string
   typescriptEsm?: boolean
+  hasDrupal?: boolean
+  drupal?: string
+  cliVersion?: string
 }
 
 export interface ConfigurationAnswers {
   config: CustomAnswers
-}
-
-export interface Answers extends Naming {
-  options: CustomAnswers
 }
