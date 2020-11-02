@@ -16,7 +16,7 @@ const fontFamily = require('./tokens/font-family.tailwind');
 module.exports = {
   // Purge CSS from Tailwind Only.
   purge: {
-    content: [path.resolve(__dirname, '_patterns/**/*.*')],
+    content: [path.resolve(__dirname, '_patterns/**/*.*'), path.resolve(__dirname, '../../apps/drupal-default/particle_theme/templates/**/*.*')],
     options: {
       // Whitelist Non-DS Dependent Patterns.
       whitelistPatterns: [/^bg/, /^text/, /:?-?m[xy]?-/, /:?p[xy]?-/],
