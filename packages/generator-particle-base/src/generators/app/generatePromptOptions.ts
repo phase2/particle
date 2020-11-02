@@ -4,126 +4,159 @@ import {
   CustomAnswers,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
-  DesignTheme,
+  Bundle,
+  BundleAnswers
 } from '@phase2/particle-types'
 
 const minMaxOptionsValidate = ({ min, max }: { min: number; max?: number }) => (
   answer: Record<string, string>[]
 ) => {
   if (answer.length < min || (!max ? false : answer.length > max)) {
-    return `You must choose a minimum of ${min} option(s)${
-      max ? ` and a maximum of ${max} option(s).` : ''
-    }`
+    const maxText = max? `and a maximum of ${max} options.` : ' option(s).'
+    return `You must choose a minimum of ${min}${maxText}`
   }
   return true
 }
 
-export const designThemePrompt = () => [
-  {
-    type: 'list',
-    message: 'What frontend framework are you using with Storybook?',
-    name: 'frontendFramework',
-    choices: [
-      {
-        name: 'Webcomponents',
-        checked: true,
-        value: FrontendFrameworkOptions.WEBCOMPONENTS
-      },
-      {
-        name: 'React',
-        value: FrontendFrameworkOptions.REACT
-      }
-    ],
-  },
-  {
-    type: 'input',
-    message: 'Choose a design theme name using kebab case. (min 4 chars) Ex: "alpha".',
-    name: 'themeName',
-    default: 'default',
-    validate: (name: string) => {
-      if (!name || name.length < 4) {
-        return 'Please enter a project name of more than 4 characters length'
-      }
-      if (name.indexOf(' ') > 0) {
-        return 'Please enter a two word project name with no spaces'
-      }
-      return true
-    }
-  },
-  {
-    type: 'input',
-    message:
-      'Where does your design theme exist relative to the root of the project',
-    default: (answers: DesignTheme) =>
-      `./source/design/${answers.themeName}/`,
-    name: 'themePath'
+const validateString = (length: number) => (
+  answer: string
+) => {
+  if (!answer || answer.length < length) {
+    return `Please enter a name of at least ${length} characters length`
   }
-]
-
-const compileThemes = async (prev: DesignTheme[]) => {
-  return [...prev, await inquirer.prompt(designThemePrompt())]
+  if (answer.indexOf(' ') > 0) {
+    return 'Please enter a two word name with no spaces'
+  }
+  return true
 }
 
-const rerun = [{
-  type: 'confirm',
-  name: 'generateTheme',
-  message: 'Do you want to add another theme?',
-  default: true
-}]
+export const bundlePrompt = (designRoot: string, usingDrupal: boolean) =>
+[
+    {
+      type: 'input',
+      message: 'Choose a design theme name using kebab case. (min 4 chars) Ex: "alpha".',
+      name: 'name',
+      default: 'default',
+      validate: validateString(4)
+    },
+    {
+      type: 'list',
+      message: 'What frontend framework are you using with Storybook?',
+      name: 'frontendFramework',
+      choices: [
+        {
+          name: 'Webcomponents',
+          checked: true,
+          value: FrontendFrameworkOptions.WEBCOMPONENTS
+        },
+        {
+          name: 'React',
+          value: FrontendFrameworkOptions.REACT
+        }
+      ]
+    },
+    {
+      type: 'input',
+      message: 'Where does this theme\'s storybook compile to?',
+      name: 'storybook',
+      default: (answers: BundleAnswers) =>
+        `${designRoot}/${answers.name}/dist/`
+    },
+    {
+      type: 'confirm',
+      message: 'Will Drupal use this theme?',
+      name: 'consuming',
+      default: true,
+      when: usingDrupal
+    },
+    {
+      type: 'input',
+      message: 'Where should your Drupal theme compile to?',
+      default: `./themes/particle/dist/`,
+      name: 'drupal',
+      when: (answers: BundleAnswers) => {
+        return answers.consuming
+      }
+    }
+  ]
 
-export const generatorLoop = async() => {
-  let loop = true;
-  let themesArray:DesignTheme[] = []
+const generateBundle = async (prev: Bundle[], root: string, usingDrupal: boolean) => {
+  const res: BundleAnswers = await inquirer.prompt(bundlePrompt(root, usingDrupal))
+  const { frontendFramework, consuming, name, storybook, drupal } = res
+  if (consuming) {
+    const curr: Bundle = {
+      name: name,
+      frontendFramework: frontendFramework,
+      storybook: {
+        dist: storybook
+      },
+      drupal: {
+        dist: drupal
+      }
+    }
+    return [...prev, curr]
+
+  }
+  const curr: Bundle = {
+    name: name,
+    frontendFramework: frontendFramework,
+    storybook: {
+      dist: storybook
+    }
+  }
+
+  return [...prev, curr]
+}
+
+export const bundleLoop = async (designRoot: string, hasDrupal: boolean) => {
+  let loop = true
+  let bundlesArray: any[] = [{name: 'base'}]
+  const rerun = [{
+    type: 'confirm',
+    name: 'generateTheme',
+    message: 'Do you want to add another theme?',
+    default: true
+  }]
   do {
-      themesArray = await compileThemes(themesArray)
-      loop = await inquirer.prompt(rerun).then(answers => answers.generateTheme)
-    } while (loop)
+    bundlesArray = await generateBundle(bundlesArray, designRoot, hasDrupal)
+    loop = await inquirer.prompt(rerun).then(answers => answers.generateTheme)
+  } while (loop)
 
-  return themesArray;
+  return bundlesArray
 }
 
 export const propOptions = [
   {
     type: 'input',
     message: 'Choose a abbreviation for your/client\'s name. (min 3 chars)',
-    name: 'clientAbbreviation',
-    validate: (name: string) => {
-      if (!name || name.length < 3) {
-        return 'Please enter a project name of more than 4 characters length.'
-      }
-      if (name.indexOf(' ') > 0) {
-        return 'Please enter a two word project name with no spaces.'
-      }
-      return true
-    }
+    name: 'nameSpace',
+    validate: validateString(3)
   },
   {
     type: 'input',
     message: 'Choose a name for the overall project using kebab case. (min 4 chars) Ex: "website", or "saphire-dagger"',
     name: 'projectName',
-    validate: (name: string) => {
-      if (!name || name.length < 4) {
-        return 'Please enter a project name of more than 4 characters length.'
-      }
-      if (name.indexOf(' ') > 0) {
-        return 'Please enter a two word project name with no spaces.'
-      }
-      return true
-    },
+    validate: validateString(4)
+  },
+  {
+    type: 'input',
+    message: 'Where would you like to place your design system?',
+    name: 'designRoot',
+    default: './project/frontend'
   },
   {
     type: 'confirm',
     message: 'Will you be using Drupal?',
     name: 'hasDrupal',
-    default: false,
+    default: false
   },
   {
     type: 'input',
     message: 'Where should your Drupal root exist?',
-    default: `./source/drupal/`,
-    name: 'drupalRootPath',
+    default: `./drupal/`,
+    name: 'drupal',
     when: (answer: CustomAnswers) => {
-     return answer.hasDrupal
+      return answer.hasDrupal
     }
   },
   {
@@ -142,10 +175,6 @@ export const propOptions = [
       }
       return false
     }
-  },
-  {
-    type: 'confirm',
-    name: 'Are you using SVGs?'
   },
   {
     type: 'checkbox',
