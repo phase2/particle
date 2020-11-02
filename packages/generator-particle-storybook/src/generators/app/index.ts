@@ -3,7 +3,7 @@ import Generator from 'yeoman-generator'
 import { white } from 'chalk'
 import fs from 'fs'
 
-import { Answers, FrontendFrameworkOptions } from '@phase2/particle-types'
+import { CustomAnswers, FrontendFrameworkOptions } from '@phase2/particle-types'
 import { main } from './templates/main'
 
 export const storybookAddons: string[] = [
@@ -23,7 +23,7 @@ const storiesRoot: string[] = ['./stories/**/*.story.tsx']
  * Currently only supports react
  */
 module.exports = class extends Generator {
-  configuration: Answers
+  configuration: CustomAnswers
   updatePackageJson: (newJson: Record<string, any>) => void
   constructor(args: any, opts: any) {
     super(args, opts)
@@ -61,14 +61,14 @@ module.exports = class extends Generator {
     fs.mkdirSync(`${process.cwd()}/${storybookPath}/`, { recursive: true })
 
     // create the files
-    fs.writeFileSync(
-      this.destinationPath(`${storybookPath}/main.js`),
-      main({
-        addons: storybookAddons,
-        componentLibraryPath: `../../${this.configuration.componentLibraryPath}`,
-        storiesRoot,
-      })
-    )
+    // fs.writeFileSync(
+    //   this.destinationPath(`${storybookPath}/main.js`),
+    //   main({
+    //     addons: storybookAddons,
+    //     componentLibraryPath: `../../${this.configuration.componentLibraryPath}`,
+    //     storiesRoot,
+    //   })
+    // )
     fs.writeFileSync(
       this.destinationPath(`${storybookPath}/preview.js`),
       preview({
