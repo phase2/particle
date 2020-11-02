@@ -1,4 +1,19 @@
 /* // UTC Styles for employees */
+.employee-card__grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.employee-card__container {
+  width: 30%;
+  margin: .75rem;
+}
+
+.employee-card__container--wide {
+  width: 46%;
+  margin: .75rem;
+}
+
 
 .employee-card {
   @apply bg-white;
@@ -15,16 +30,21 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.employee-card__container {
-  margin-bottom: 30px;
+.employee-card--wide {
+  flex-direction: row;
 }
-
-.employee-card img {
+/* makes images stretch to full size of container in automated field classes */
+.employee-card img, 
+.employee-card--wide .employee-image .field, 
+.employee-card--wide .employee-image .field__item   {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
+.employee-card--wide .employee-image {
+  flex: 0 1 45%;
+}
 
 .employee-card__body {
   padding: .5rem;
