@@ -81,7 +81,7 @@
 								</div>
 							</div>
 					{% if variables.employee_website is not empty %}
-						</a>ß
+						</a>
 					{% endif %}
 				</div>
 			{# template for default, utc_wide, and utc_business_card #}
@@ -91,11 +91,11 @@
 					<div class="employee-card h-100 {{ variables.view_field ? 'employee-card--' ~ variables.view_field|clean_class }}">
 					{% if variables.view_field != 'utc_business_card' %}
 						<div class="employee-image">
-							{% if variables.employee_website is not empty %}
+							{% if variables.view_field != 'full' and variables.employee_website is not empty %}
 								<a href={{ variables.employee_website }}>
 							{% endif %}
 									{{variables.employee_image}}
-							{% if variables.employee_website is not empty %}
+							{% if variables.view_field != 'full' and variables.employee_website is not empty %}
 								</a>
 							{% endif %}
 						</div>
@@ -127,9 +127,13 @@
 									</p>
 								{% endif %}
 							</div>
-							<div class="employee-card__button">
-								<a class="btn btn-light" href={{ variables.employee_website }}>More info</a>	
-							</div>
+								{# full view for use on profile pages (no links) #}
+							{% if variables.view_field != 'full' and variables.employee_website is not empty %}
+								<div class="employee-card__button">
+									<a class="btn btn-light" href={{ variables.employee_website }}>More info</a>	
+								</div>
+							{% endif %}
+
 						</div>
 					</div>
 				</div>
