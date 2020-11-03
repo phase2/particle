@@ -4,24 +4,45 @@
   flex-wrap: wrap;
 }
 
-.employee-card__container {
+.employee-card__container--default {
   width: 30%;
-  margin: .75rem;
+  margin: 0.75rem;
 }
 
-.employee-card__container--wide {
-  width: 46%;
-  margin: .75rem;
+.employee-card__container--utc-wide,
+.employee-card__container--utc-business-card,
+.employee-card__container--utc_small_teaser_card {
+  width: 45%;
+  margin: 0.75rem;
 }
 
+@media (max-width: 767px) {
+  .employee-card__container--utc-wide,
+  .employee-card__container--utc-business-card,
+  .employee-card__container--utc_small_teaser_card {
+    width: 100%;
+  }
+  .employee-card__container--default {
+    width: 45%;
+  }
+}
 
+@media (max-width: 449px) {
+  .employee-card__container--default {
+    width: 100%;
+  }
+}
+/* hover state for teaser cards if linked */
+a .employee-card--utc_small_teaser_card:hover {
+  @apply bg-gray-200;
+  box-shadow: 0 10px 15px -3px rgba(#000, 0.2), 0 4px 6px -2px rgba(#000, 0.05);
+}
 .employee-card {
   @apply bg-white;
   position: relative;
   box-sizing: border-box;
   display: flex;
   flex: 0 0 auto;
-  flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
   border: 0;
@@ -30,24 +51,41 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.employee-card--wide {
+.employee-card--default {
+  flex-direction: column;
+}
+
+.employee-card--utc-wide {
   flex-direction: row;
 }
+
+.employee-card--utc_small_teaser_card {
+  flex-direction: row;
+  align-items: center;
+}
+
+.employee-card--utc-wide .employee-image {
+  flex: 0 1 35%;
+}
 /* makes images stretch to full size of container in automated field classes */
-.employee-card img, 
-.employee-card--wide .employee-image .field, 
-.employee-card--wide .employee-image .field__item   {
+.employee-card--utc-wide img,
+.employee-card--utc-wide .employee-image .field,
+.employee-card--utc-wide .employee-image .field__item {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-.employee-card--wide .employee-image {
-  flex: 0 1 45%;
+.employee-card--utc_small_teaser_card img {
+  height: 6rem;
+  width: 6rem;
+  object-fit: cover;
+  border-radius: 100px;
+  margin: 1rem 0.5rem 1rem 1rem;
 }
 
 .employee-card__body {
-  padding: .5rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -55,33 +93,30 @@
   flex: 1 0;
 }
 
-.employee-card__info {
-
-}
 .employee-card__name {
   font-weight: 400;
 }
 
 .employee-card__button a {
-  margin-bottom: .5rem;
-  margin-left: .5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .utc-custom-blocks h2.block__title {
-	display: none;
+  display: none;
 }
 
 .utc-custom-blocks .block__content {
-	padding: 1rem 0;
+  padding: 1rem 0;
 }
 
 /* not sure what else this is impacting, would need to explore before removing */
-@media (min-width: 992px){
+@media (min-width: 992px) {
   .themag-layout .block:not(:last-child) {
     margin-bottom: 0px;
   }
 }
 /* used by aggregator feed */
 .card-body {
-  margin-top:-18px;
+  margin-top: -18px;
 }
