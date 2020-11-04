@@ -29,6 +29,7 @@ import './legacy/css/components/UTC-custom-blocks/_utclib_item_card.css';
 import './legacy/css/components/UTC-custom-blocks/_utclib_primo_search.css';
 import './legacy/css/components/UTC-custom-blocks/_utclib_help_btn.css';
 import './legacy/css/components/UTC-custom-blocks/_utclib_events_feed.css';
+import './legacy/css/components/UTC-custom-blocks/_utclib_guides.css';
 import './legacy/css/components/navigation/_breadcrumb.css';
 import './legacy/css/components/navigation/_footer-menu.css';
 
