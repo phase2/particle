@@ -1,0 +1,53 @@
+.view-utclib-guides .view-grouping-header {
+    margin-top: 1.5rem;
+    font-family: 'Exo','Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    @apply text-utc-new-blue-500;
+    
+}
+
+.view-utclib-guides h3 {
+    display: none;
+  }
+  
+
+.view-utclib-guides .view-grouping-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-utclib-guides .utclib-guide {
+  width: 48%;
+  
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  min-width: 0;
+  word-wrap: break-word;
+  
+}
+
+.view-utclib-guides .utclib-guide--link {
+    width: 100%;
+    @apply bg-white;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 6px 8px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+    border-left: 5px solid #112e51;
+    margin: 5px 8px;
+    padding: 4px 12px;
+    border-radius: 0;
+}
+
+.view-utclib-guides .utclib-guide--link:hover {
+    @apply text-utc-new-blue-500;
+    border: 1px solid #edf2f7;
+    border-left: 5px solid #FDB736;
+    @apply bg-gray-100;
+    font-weight: 600;
+  }
+
+
+.view-utclib-guides .utclib-guide--link {
+}
