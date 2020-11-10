@@ -12,10 +12,10 @@
   margin-top: auto;
   margin-bottom: auto;
   display: inline-flex;
-  min-width: 100%;
+  width: 100%;
   box-sizing: border-box;
   justify-content: center;
   text-align: center;
   align-items: center;
   vertical-align: middle;
-}
+} 
