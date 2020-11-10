@@ -40,9 +40,6 @@
 ] | sort | join(' ') | trim %}
 
 
-
-{# could use include statements for items like images and buttons in design system #}
-
 {% block content %}
 <div class="{{ card_classes }}">
   {% if card_heading %}
