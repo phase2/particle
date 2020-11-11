@@ -36,14 +36,6 @@
     width: 100%;
   }
 }
-
-/* fix card layout for cards placed in side columns */
-.themag-layout--twocol-section
-  .themag-layout__region--first
-  .employee-card__container--default {
-  width: 100%;
-  margin: .75rem 0;
-}
 /* hover state for teaser cards if linked */
 a .employee-card--utc-small-teaser-card:hover {
   @apply bg-gray-200;
@@ -73,7 +65,7 @@ a .employee-card--utc-small-teaser-card:hover {
 }
 
 .employee-card--utc-wide,
-.employee-card--full {
+.employee-card--full, {
   flex-direction: row;
 }
 
@@ -85,10 +77,12 @@ a .employee-card--utc-small-teaser-card:hover {
   flex: 0 1 35%;
 }
 /* makes images stretch to full size of container in automated field classes */
-.employee-card img,
-.employee-card .employee-image .field,
-.employee-card .employee-image .field__item
- {
+.employee-card--utc-wide img,
+.employee-card--utc-wide .employee-image .field,
+.employee-card--utc-wide .employee-image .field__item,
+.employee-card--full img,
+.employee-card--full .employee-image .field,
+.employee-card--full .employee-image .field__item {
   height: 100%;
   width: 100%;
   object-fit: cover;
