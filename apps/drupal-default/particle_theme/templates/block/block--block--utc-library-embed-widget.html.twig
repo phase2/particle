@@ -28,11 +28,12 @@
 {# hack to fix select box on EndNote embed - this will be fixed if this is approved to push to Prod #}
 <style>
   .utclib-embed-content select{
-    width: 100%;
+    width: 100%; 
   }
 </style>
 
 <div{{attributes}}>
+<div class="utclib-embed--{{ label|clean_class }}">
 	{{ title_prefix }}
 	{% if label %}
 		<h2{{title_attributes}}>
@@ -47,5 +48,5 @@
       {% endautoescape %}
     </div>
 	{% endblock %}
-
+</div>
 </div>
