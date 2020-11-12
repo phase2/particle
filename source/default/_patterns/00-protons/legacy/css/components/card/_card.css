@@ -3,7 +3,7 @@ possibly look at padding and margin of layout blocks
 across site to determine whether all padding/margin should be dictated by block type vs.
 in the layout
 
-this class should be moved to a card grid scss file
+this class should be moved to a card grid css file
 in particle */
 .utc-card-grid__container {
   margin-bottom: 30px;
@@ -24,6 +24,7 @@ in particle */
   min-width: 0;
 }
 
+/* make image span full width and height and crop to fit regardless of container sizing */
 .utc-card-2 img {
   height: 100%;
   width: 100%;
@@ -34,6 +35,7 @@ in particle */
   padding: 1.25rem;
 }
 
+/* alter margin if there is a card button */
 .utc-card-2__body--with-action {
   margin-bottom: 2.5rem;
 }
@@ -43,6 +45,7 @@ in particle */
   font-weight: 600;
 }
 
+/* container for button */
 .utc-card-2__action-container {
   position: absolute;
   bottom: 0;
@@ -61,7 +64,7 @@ in particle */
   right: 4%;
 }
 
-/* card width */
+/* card width, applies to single cards */
 
 .utc-card-2--w-100 {
   width: 100%;
@@ -128,6 +131,8 @@ in particle */
 .utc-card-2--none.utc-card-2--card-link:hover {
   filter: drop-shadow(#fdb736 0px 0px 0.75rem);
 }
+
+/* icon styles */
 
 .utc-card-2__icon .fontawesome-icons {
   text-align: center;

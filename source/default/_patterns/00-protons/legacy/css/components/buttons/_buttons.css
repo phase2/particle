@@ -15,7 +15,6 @@
 }
 
 /* Button Colors */
-/* if we rework how the overall link styles are applied, may no longer need the a. in these classes */
 .btn--navy,
 .btn-primary,
 .btn-dark {
