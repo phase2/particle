@@ -4,6 +4,8 @@
   flex-wrap: wrap;
 }
 
+/* container handles the width of the cards in the flex-wrap */
+
 .employee-card__container--default {
   width: 30%;
   margin: 0.75rem;
@@ -42,13 +44,15 @@
   .themag-layout__region--first
   .employee-card__container--default {
   width: 100%;
-  margin: .75rem 0;
+  margin: 0.75rem 0;
 }
 /* hover state for teaser cards if linked */
 a .employee-card--utc-small-teaser-card:hover {
   @apply bg-gray-200;
   box-shadow: 0 10px 15px -3px rgba(#000, 0.2), 0 4px 6px -2px rgba(#000, 0.05);
 }
+
+/* base for all employee card types */
 .employee-card {
   @apply bg-white;
   position: relative;
@@ -87,8 +91,7 @@ a .employee-card--utc-small-teaser-card:hover {
 /* makes images stretch to full size of container in automated field classes */
 .employee-card img,
 .employee-card .employee-image .field,
-.employee-card .employee-image .field__item
- {
+.employee-card .employee-image .field__item {
   height: 100%;
   width: 100%;
   object-fit: cover;
