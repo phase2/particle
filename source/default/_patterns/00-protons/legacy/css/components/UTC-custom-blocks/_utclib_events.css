@@ -1,0 +1,59 @@
+.qtip {
+  max-width: 400px;
+  min-width: 200px;
+}
+
+.qtip .qtip-title {
+    line-height: 1.5rem;
+    font-weight: 600;
+}
+
+.qtip-bootstrap {
+  border-radius: 0;
+}
+
+.qtip-bootstrap .qtip-content {
+  padding: 0px;
+}
+
+.qtip-bootstrap .qtip-titlebar {
+  font-size: 1rem;
+}
+
+.qtip-bootstrap .btn {
+  display: block;
+}
+
+.qtip-bootstrap .event-overview {
+  display: flex;
+  flex-direction: row;
+}
+
+.qtip-bootstrap .event-overview .event-info {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem .5rem;
+    flex: 0 1 60%;
+    font-size: 16px;
+    justify-content: center;
+}
+
+.qtip-bootstrap .event-overview .event-image {
+  flex: 0 1 40%;
+}
+
+.qtip-bootstrap .event-overview .event-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.qtip-bootstrap .event-description {
+  @apply bg-gray-200;
+  margin: 0;
+  padding: .5rem 1rem;
+}
+
+.qtip-bootstrap .event-description .btn {
+    margin-top: 1rem;
+}
