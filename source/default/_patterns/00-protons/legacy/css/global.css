@@ -110,3 +110,16 @@
   @apply text-blue-500;
   border-bottom: 1.5px solid #4299e1;
 }
+
+/* Stable theme align techniques targetting img tags due to image blocks*/
+.align-center img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.align-right img{
+  float: right;
+}
+.align-left img {
+  float: left;
+}
