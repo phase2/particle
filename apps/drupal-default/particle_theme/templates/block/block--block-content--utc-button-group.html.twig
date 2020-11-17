@@ -60,6 +60,8 @@
 					{{ button_group.title }}
 				</h2>
 			{% endif %}
+		{# if two rows is "on", counts number of button fields w/ url content 
+		uses number to loop through and separate into rows #}
 			{% if "On" in content.field_two_rows.0 %}
 				{% set btn_count = 0 %}
 				{% for button in content.field_button_link if button['#url'] is not empty %}

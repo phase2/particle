@@ -1,4 +1,6 @@
 /* styles for research guide list */
+
+/* filter styles */
 #views-exposed-form-utclib-guides-block-1 .form-select,
 #views-exposed-form-utclib-guides-block-1 input[type='text'] {
   height: 50px;
@@ -17,6 +19,7 @@
   margin-bottom: 0.5rem;
   @apply text-utc-new-blue-500;
 }
+/* guide type header */
 .view-utclib-guides .view-grouping-header {
   margin-top: 1.5rem;
   font-family: 'Exo', 'Helvetica Neue', sans-serif;
@@ -33,6 +36,7 @@
   flex-wrap: wrap;
 }
 
+/* guide container */
 .view-utclib-guides .utclib-guide {
   width: 48%;
   position: relative;
@@ -50,6 +54,7 @@
   }
 }
 
+/* guide link style */
 .view-utclib-guides .utclib-guide--link {
   width: 100%;
   @apply bg-white;

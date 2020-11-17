@@ -83,6 +83,8 @@
   @apply border-gray-400;
 }
 
+/* two column layout */
+
 @media (min-width: 1024px) {
   .utc-item-two-col .utc-item-card__view-two-col {
     display: flex;
@@ -96,6 +98,8 @@
 .utc-item-card__container {
   margin-bottom: 30px;
 }
+
+/* card styles */
 
 .utc-item-card {
   @apply bg-white;
@@ -172,7 +176,7 @@ h2:first-child {
 .utc-item-card__content {
   margin-bottom: 0rem;
 }
-
+/* bottom content styles */
 .utc-item-card__action-container--line {
   border-top: 1px solid #c0c9d0;
   padding-top: 0.75rem;
@@ -191,7 +195,7 @@ h2:first-child {
 .utc-item-card__action .btn {
   margin-bottom: 0;
 }
-
+/* badges */
 .utc-item-card__badges ul {
   list-style: none;
   display: inline-block;
