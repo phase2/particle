@@ -4,7 +4,7 @@ import fs from 'fs'
 
 import {
   CustomAnswers,
-  ConfigurationAnswers,
+  ConfigurationAnswers, StorybookConfig
 } from '@phase2/particle-types'
 
 import {
@@ -113,21 +113,29 @@ module.exports = class extends Generator {
    */
   async initializing() {
     await this._promptUser()
+    // const { bundles, designRoot, drupal, nameSpace, projectName } = this.configuration.config
 
     // // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
-    // if (
-    //   this.configuration.options.frontendFramework.includes(
-    //     FrontendFrameworkOptions.REACT
-    //   )
-    // ) {
-    //   this.composeWith(
-    //     require.resolve('@phase2/generator-particle-storybook'),
-    //     {
-    //       configuration: this.configuration,
-    //       updatePackageJson: this._updatePackageJson,
+    // bundles.map(bundle => {
+    //   if (bundle.storybook) {
+    //     const { frontendFramework, storybook, name } = bundle;
+    //     const sbConfig: StorybookConfig = {
+    //       frameWork: frontendFramework,
+    //       name: name,
+    //       root: designRoot,
+    //     // @ts-ignore
+    //       dist: storybook.dist,
     //     }
-    //   )
-    // }
+    //     this.composeWith(
+    //       require.resolve('@phase2/generator-particle-storybook'),
+    //       {
+    //         configuration: sbConfig,
+    //         updatePackageJson: this._updatePackageJson,
+    //       }
+    //       )
+    //   }
+    // })
+
     // Add other subgenerators here
   }
 

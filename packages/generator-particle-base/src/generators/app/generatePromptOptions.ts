@@ -1,11 +1,11 @@
-import inquirer from 'inquirer'
+import inquirer from 'inquirer';
+import chalk from 'chalk';
 
 import {
   CustomAnswers,
   FrontendFrameworkOptions,
   TestingLibraryOptions,
   Bundle,
-  BundleAnswers
 } from '@phase2/particle-types'
 
 const minMaxOptionsValidate = ({ min, max }: { min: number; max?: number }) => (
@@ -18,72 +18,67 @@ const minMaxOptionsValidate = ({ min, max }: { min: number; max?: number }) => (
   return true
 }
 
-const validateString = (length: number) => (
+const validateString = (length: number, defaultVal?:string ) => (
   answer: string
 ) => {
+  const defaultText = defaultVal ? `\n Recommended: ${defaultVal}` : ''
   if (!answer || answer.length < length) {
-    return `Please enter a name of at least ${length} characters length`
+    return `Please enter a value of at least ${length} characters length.${defaultText}`
   }
   if (answer.indexOf(' ') > 0) {
-    return 'Please enter a two word name with no spaces'
+    return 'Please enter a value name with no spaces'
   }
   return true
 }
 
-export const bundlePrompt = (designRoot: string, usingDrupal: boolean) =>
-[
-    {
-      type: 'input',
-      message: 'Choose a design theme name using kebab case. (min 4 chars) Ex: "alpha".',
-      name: 'name',
-      default: 'default',
-      validate: validateString(4)
-    },
-    {
-      type: 'list',
-      message: 'What frontend framework are you using with Storybook?',
-      name: 'frontendFramework',
-      choices: [
-        {
-          name: 'Webcomponents',
-          checked: true,
-          value: FrontendFrameworkOptions.WEBCOMPONENTS
-        },
-        {
-          name: 'React',
-          value: FrontendFrameworkOptions.REACT
-        }
-      ]
-    },
-    {
-      type: 'input',
-      message: 'Where does this theme\'s storybook compile to?',
-      name: 'storybook',
-      default: (answers: BundleAnswers) =>
-        `${designRoot}/${answers.name}/dist/`
-    },
-    {
-      type: 'confirm',
-      message: 'Will Drupal use this theme?',
-      name: 'consuming',
-      default: true,
-      when: usingDrupal
-    },
-    {
-      type: 'input',
-      message: 'Where should your Drupal theme compile to?',
-      default: `./themes/particle/dist/`,
-      name: 'drupal',
-      when: (answers: BundleAnswers) => {
-        return answers.consuming
+const nameWork = [
+  {
+    type: 'input',
+    message:'Enter a component library name using kebab case. (min 4 chars) Ex: "alpha".',
+    name: 'name',
+    default: 'default',
+    validate: validateString(4)
+  },
+  {
+    type: 'list',
+    message: 'What frontend framework are you using with Storybook?',
+    name: 'frontendFramework',
+    choices: [
+      {
+        name: 'Webcomponents',
+        checked: true,
+        value: FrontendFrameworkOptions.WEBCOMPONENTS
+      },
+      {
+        name: 'React',
+        value: FrontendFrameworkOptions.REACT
       }
-    }
-  ]
+    ]
+  },
+]
+
+const dists = (designRoot: string, usingDrupal: boolean, name: string) => [
+  {
+    type: 'input',
+    message: `Where does ${chalk.blue(name)}\'s storybook compile to?`,
+    name: 'storybook',
+    default:`${designRoot}/${name}/dist/`,
+    validate: validateString(5)
+  },
+  {
+    type: 'input',
+    message: `Where should Drupal compile ${chalk.blue(name)} to?`,
+    default: './themes/particle/dist/',
+    name: 'drupal',
+    validate: validateString(5),
+    when: usingDrupal
+  }
+]
 
 const generateBundle = async (prev: Bundle[], root: string, usingDrupal: boolean) => {
-  const res: BundleAnswers = await inquirer.prompt(bundlePrompt(root, usingDrupal))
-  const { frontendFramework, consuming, name, storybook, drupal } = res
-  if (consuming) {
+  const {name, frontendFramework } = await inquirer.prompt(nameWork)
+  const { storybook, drupal } = await inquirer.prompt(dists(root, usingDrupal, name))
+  if (drupal) {
     const curr: Bundle = {
       name: name,
       frontendFramework: frontendFramework,
@@ -130,7 +125,7 @@ export const propOptions = [
     type: 'input',
     message: 'Choose a abbreviation for your/client\'s name. (min 3 chars)',
     name: 'nameSpace',
-    validate: validateString(3)
+    validate: validateString(2)
   },
   {
     type: 'input',
@@ -142,39 +137,24 @@ export const propOptions = [
     type: 'input',
     message: 'Where would you like to place your design system?',
     name: 'designRoot',
-    default: './project/frontend'
+    default: './project/design',
+    validate: validateString(5, './project/design')
   },
   {
     type: 'confirm',
     message: 'Will you be using Drupal?',
     name: 'hasDrupal',
-    default: false
+    default: true
   },
   {
     type: 'input',
     message: 'Where should your Drupal root exist?',
-    default: `./drupal/`,
+    default: `./project/`,
     name: 'drupal',
     when: (answer: CustomAnswers) => {
       return answer.hasDrupal
-    }
-  },
-  {
-    type: 'confirm',
-    message: 'Do you want to use typescript?',
-    name: 'hasTypescript'
-  },
-  {
-    type: 'confirm',
-    message: 'Do you want ESModule support for typescript?',
-    name: 'typescriptEsm',
-    when: (answer: CustomAnswers) => {
-      // Checks to see if we enabled typescript previously then asks the prompt
-      if (answer.hasTypescript) {
-        return true
-      }
-      return false
-    }
+    },
+    validate: validateString(5,`./project/`)
   },
   {
     type: 'checkbox',
@@ -183,12 +163,6 @@ export const propOptions = [
     choices: [
       { name: 'Jest', value: TestingLibraryOptions.JEST },
       { name: 'Cypress', value: TestingLibraryOptions.CYPRESS },
-      { name: 'Selenium', value: TestingLibraryOptions.SELENIUM },
-      {
-        name: 'Loki (Storybook only VRT)',
-        value: TestingLibraryOptions.LOKI
-      },
-      { name: 'Pa11y', value: TestingLibraryOptions.PA11Y }
     ],
     validate: minMaxOptionsValidate({ min: 1 })
   }

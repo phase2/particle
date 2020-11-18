@@ -3,7 +3,10 @@ import Generator from 'yeoman-generator'
 import { white } from 'chalk'
 import fs from 'fs'
 
-import { CustomAnswers, FrontendFrameworkOptions } from '@phase2/particle-types'
+import {
+  FrontendFrameworkOptions,
+  StorybookConfig,
+} from '@phase2/particle-types'
 import { main } from './templates/main'
 
 export const storybookAddons: string[] = [
@@ -12,6 +15,7 @@ export const storybookAddons: string[] = [
   '@storybook/addon-links',
   '@storybook/addon-viewport',
   '@storybook/addon-a11y',
+  '@storybook/preset-typescript'
 ]
 
 const storybookSupportedVersion = '^5.3.19'
@@ -23,7 +27,7 @@ const storiesRoot: string[] = ['./stories/**/*.story.tsx']
  * Currently only supports react
  */
 module.exports = class extends Generator {
-  configuration: CustomAnswers
+  configuration: StorybookConfig
   updatePackageJson: (newJson: Record<string, any>) => void
   constructor(args: any, opts: any) {
     super(args, opts)
@@ -61,14 +65,14 @@ module.exports = class extends Generator {
     fs.mkdirSync(`${process.cwd()}/${storybookPath}/`, { recursive: true })
 
     // create the files
-    // fs.writeFileSync(
-    //   this.destinationPath(`${storybookPath}/main.js`),
-    //   main({
-    //     addons: storybookAddons,
-    //     componentLibraryPath: `../../${this.configuration.componentLibraryPath}`,
-    //     storiesRoot,
-    //   })
-    // )
+    fs.writeFileSync(
+      this.destinationPath(`${storybookPath}/main.js`),
+      main({
+        addons: storybookAddons,
+        componentLibraryPath: `../../${this.configuration.root}/${this.configuration.name}`,
+        storiesRoot,
+      })
+    )
     fs.writeFileSync(
       this.destinationPath(`${storybookPath}/preview.js`),
       preview({

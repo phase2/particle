@@ -11,6 +11,10 @@ export interface MainConfig {
  * @TODO require('../../particle) is a placeholder until we have proper base config
  */
 export const main = (config: MainConfig) => `const path = require('path')
+const fs = require('fs');
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 const APP_COMPONENT_LIBRARY = path.resolve(__dirname, '${
   config.componentLibraryPath

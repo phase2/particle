@@ -24,7 +24,6 @@ TBD
 1. `npm run test:watch` to start jest in watch mode (recommended)
 
 ### Installing A Dependency
-
 1. Run `npm run build`, build will fire off the `tsc` build script for all typescript repos in order of dependency chain. Example: `particle-types` has 0 internal dependencies but other typescript packages depend on it. We would need to run the compiler first on particle-types in order to be able to compile for other typescript packages.
 1. Cd into `package/<PACKAGE_NAME>` and run `npm link`, this will link the **lib/bin** or `main/index.js` alias as an alias in your terminal. Example the bin is named (or aliased) `@phase2/particle-cli` therefore running `npx @phase2/particle-cli -v` will invoke the binary file `particle-cli`.
 1. Alternatively use `node` to test out a dependency in lib. Example `node packages/particle-cli/lib/bin/particle-cli.js -V`

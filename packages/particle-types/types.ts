@@ -6,9 +6,6 @@ export enum FrontendFrameworkOptions {
 export enum TestingLibraryOptions {
   CYPRESS = 'cypress',
   JEST = 'jest',
-  LOKI = 'loki',
-  PA11Y = 'pa11y',
-  SELENIUM = 'selenium',
 }
 
 export interface Dist {
@@ -26,18 +23,15 @@ export interface BundleAnswers {
   frontendFramework: FrontendFrameworkOptions
   name: string
   storybook: string
-  consuming?: boolean
   drupal?: string
 }
 
 export interface CustomAnswers {
   bundles: Bundle[]
   designRoot: string
-  hasTypescript: boolean
   nameSpace: string
   projectName: string
   testingLibraries: TestingLibraryOptions[]
-  typescriptEsm?: boolean
   hasDrupal?: boolean
   drupal?: string
   cliVersion?: string
@@ -46,3 +40,11 @@ export interface CustomAnswers {
 export interface ConfigurationAnswers {
   config: CustomAnswers
 }
+
+export interface StorybookConfig {
+  root: string
+  name: string
+  dist: string
+  frontendFramework: string
+}
+
