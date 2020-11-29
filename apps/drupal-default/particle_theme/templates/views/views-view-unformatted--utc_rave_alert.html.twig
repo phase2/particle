@@ -50,7 +50,6 @@
   {{ attachment_before }}
 
   {% if rows -%}
-  {{ devel_breakpoint() }}
     <div class="bg-red-600 p-12">
     <h2 class="text-white"> {{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_title') }} </h2>
       <p class="text-white">{{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_body') }}<br>
