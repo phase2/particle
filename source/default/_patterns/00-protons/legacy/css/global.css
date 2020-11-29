@@ -112,6 +112,7 @@
 }
 
 /* Stable theme align techniques targetting img tags due to image blocks*/
+/* this is used by the image block and the image ckeditor embed */
 .align-center img {
   display: block;
   margin-right: auto;
@@ -122,4 +123,18 @@
 }
 .align-left img {
   float: left;
+}
+
+/* Site alert module css overwrite */
+div.site-alert div.severity-high {
+  background: #fdb736;
+  border: 1px solid none;
+  background-image: none;
+  background-repeat: no-repeat;
+  margin-bottom: 0em;
+}
+div.site-alert div.text {
+  padding: 10px 10px 10px 10px;
+  margin: 0px;
+  font-size: 18px;
 }

@@ -4,7 +4,21 @@
  * Page - Layout builder enabled.
 #}
 <div class="layout-builder-powered-page">
-  {% include '@themag/base-layout/header/header.html.twig' %}
+  {# {% include '@themag/base-layout/header/header.html.twig' %} #}
+  {% block top_bar %}
+  {% if page.top_bar_first or page.top_bar_second %}
+    <div class="utc-top-bar">
+          {% if page.top_bar_first %}
+            <div>{{ page.top_bar_first }}</div>
+          {% endif %}
+          {% if page.top_bar_second %}
+          <div>{{ page.top_bar_second }}</div>
+          {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}
+
+  {% include '@particle/layout/header/custom-header.html.twig' %} 
     {{ page.offcanvas_sidebar }}
     {{ page.content_administration }}
     {{ page.content }}
