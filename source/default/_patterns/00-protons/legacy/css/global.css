@@ -134,7 +134,7 @@ div.site-alert div.severity-high {
   margin-bottom: 0em;
 }
 div.site-alert div.text {
-  padding: 10px 10px 10px 10px;
+  padding: 0.3rem;
   margin: 0px;
   font-size: 18px;
 }
