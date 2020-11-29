@@ -51,11 +51,12 @@
 
   {% if rows -%}
   {{ devel_breakpoint() }}
-    {# {{ dump(rows.0.0['#rows'].0.0['#row']._entity.field_utc_rss_feed_item_body.value)}} #}
-    {# {{ dump(rows.0.content['#row']._entity.field_utc_rss_feed_item_body.value)}} #}
-    <h3> {{rows.0.content['#row']._entity.field_utc_rss_feed_item_title.value}} </h3>
-    <h3> {{rows.0.content['#row']._entity.field_utc_rss_feed_item_body.value}} </h3>
-    <h3> {{dump(rows.0.content['#row']._entity.field_utc_rss_feed_item_link.label)}} </h3>
+    <div class="bg-red-600 p-12">
+    <h2 class="text-white"> {{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_title') }} </h2>
+      <p class="text-white">{{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_body') }}<br>
+      {{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_pubdate') }}</p><br>
+      <button class="btn btn--navy-outline btn--regular" onclick="location.href='{{view.style_plugin.getField(0, 'field_utc_rss_feed_item_link')|striptags|trim}}'" type="button">More information</button>
+    </div>
   {% elseif empty -%}
     {{ empty }}
   {% endif %}
