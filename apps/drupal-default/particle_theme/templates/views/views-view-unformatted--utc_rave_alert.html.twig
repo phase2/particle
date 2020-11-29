@@ -52,7 +52,10 @@
   {% if rows -%}
   {{ devel_breakpoint() }}
     {# {{ dump(rows.0.0['#rows'].0.0['#row']._entity.field_utc_rss_feed_item_body.value)}} #}
-    {{ dump(rows.0.content['#row']._entity.field_utc_rss_feed_item_body.value)}}
+    {# {{ dump(rows.0.content['#row']._entity.field_utc_rss_feed_item_body.value)}} #}
+    <h3> {{rows.0.content['#row']._entity.field_utc_rss_feed_item_title.value}} </h3>
+    <h3> {{rows.0.content['#row']._entity.field_utc_rss_feed_item_body.value}} </h3>
+    <h3> {{dump(rows.0.content['#row']._entity.field_utc_rss_feed_item_link.label)}} </h3>
   {% elseif empty -%}
     {{ empty }}
   {% endif %}
