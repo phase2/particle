@@ -1,7 +1,6 @@
 import { stringifyAndSingleQuote } from '../../../utils/helpers'
 
 export interface MainConfig {
-  componentLibraryPath: string // this will have to be resolved based off storybook location in apps/storybook and the path of the component_library
   addons: string[]
   storiesRoot: string[]
 }
@@ -10,47 +9,17 @@ export interface MainConfig {
  * app/storybook/main.js
  * @TODO require('../../particle) is a placeholder until we have proper base config
  */
-export const main = (config: MainConfig) => `const path = require('path')
-const fs = require('fs');
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
-
-const APP_COMPONENT_LIBRARY = path.resolve(__dirname, '${
-  config.componentLibraryPath
-}')
-// TODO Needs to be replaced with proper base config object. TBD at later date
-const particle = require('../../particle')
-
-const dev = {}
-const prod = {}
-
-const cssMode = process.env.NODE_ENV === 'production' ? 'extract' : 'hot'
-
+export const main = (config: MainConfig) => `
 module.exports = {
   addons: ${stringifyAndSingleQuote(config.addons)},
   stories: ${stringifyAndSingleQuote(config.storiesRoot)},
-  webpackFinal: (config) => {
-    /**
-     * Delete the CSS management rules from Storybook.
-     * Also delete the file-loader ruleset from Storybook in favor of Particle
-     * Particle.js owns that process.
-     */
-    // eslint-disable-next-line no-param-reassign
-    config.module.rules.splice(2, 2)
-    /**
-     * Delete the ProgressPlugin from Storybook for CI to remove
-     * log file spam.
-     */
-    if (process.env.CI === 'true') {
-      // eslint-disable-next-line no-param-reassign
-      config.plugins.splice(4, 1)
-    }
-    return particle(
-      { shared: config, dev, prod },
-      { APP_COMPONENT_LIBRARY },
-      { cssMode }
-    )
+   webpackFinal: async config => {
+    config.module.rules.push({
+      test: /\\.(ts|tsx)$/,
+      loader: require.resolve('babel-loader'),
+    });
+    config.resolve.extensions.push('.ts', '.tsx');
+    return config;
   },
 }
 `
