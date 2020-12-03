@@ -32,9 +32,13 @@ module.exports = class extends Generator {
     this.updateJason = opts.updateJason
   }
 
+
+  /**
+   * Update package.json scripts
+  */
   _addStorybookDependencies() {
     // TODO to add support for other frameworks
-    console.log(green('adding storybook dependencies to the packageJson'))
+    console.log(green('adding storybook dependencies to the package.json'))
     const packageJsonPath = `${this.projectNamespace}/package.json`
 
     const newPackageData = {
@@ -46,7 +50,7 @@ module.exports = class extends Generator {
     }
 
     this.updateJason(newPackageData, packageJsonPath);
-    this.npmInstall(storybookAddons, { 'save-dev': true })
+    this.npmInstall([...storybookAddons], { 'save-dev': true }, {cwd: this.projectNamespace})
   }
 
   writing() {

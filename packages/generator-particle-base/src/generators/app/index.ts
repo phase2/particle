@@ -10,11 +10,6 @@ import {
   propOptions
 } from './generatePromptOptions'
 
-
-/**
- * List of Dependencies to be installed
- */
-
 module.exports = class extends Generator {
   // configuration will come from the constructor argument
   configuration: ConfigurationAnswers
@@ -64,6 +59,9 @@ module.exports = class extends Generator {
     this.packageJson = merge(this.packageJson, newValues)
   }
 
+  /**
+   *  Helper function passed to sub-generators
+   */
   _updateSubGeneratorPackageJson(newValues: Record<string, any>, jsonPath: string) :void {
     const currentJson = JSON.parse(fs.readFileSync(jsonPath).toString());
     const mergedJson = JSON.stringify(merge(currentJson, newValues))
@@ -111,6 +109,7 @@ module.exports = class extends Generator {
     const projectNamespace = `${nameSpace}-${projectName}`
 
     // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
+
     this.composeWith(
       require.resolve('@phase2/generator-particle-components'),
       {
@@ -127,10 +126,9 @@ module.exports = class extends Generator {
       }
     );
   }
-
   // Add other subgenerators here
 
-  writing() {
+  configuring() {
     this._createPackageJson()
     this._writeParticleConfig()
   }

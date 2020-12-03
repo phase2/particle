@@ -1,12 +1,12 @@
 import { config } from './templates/config'
 import Generator from 'yeoman-generator'
-import { blueBright } from 'chalk'
+import { blueBright, green } from 'chalk'
 import fs from 'fs'
 
-const deps = ['typescript', '@stencil/core'];
+/**
+* Required dev-dependencies.
+*/
 const devDeps = ['wait-on', 'concurrently']
-
-
 
 module.exports = class extends Generator {
   projectNamespace: string
@@ -17,16 +17,22 @@ module.exports = class extends Generator {
     this.updateJason = opts.updateJason
   }
 
+  /**
+   * Replaces vanilla stencil.config.ts with templates/config.ts
+   **/
   _overwriteStencilConfig() {
+    console.log('overwrite stencil config')
     fs.writeFileSync(
       this.destinationPath(`./${this.projectNamespace}/stencil.config.ts`),
       config()
     )
   }
 
+  /**
+   * Update package.json and dev-dependencies
+   **/
   _addStencilDependencies() {
-    // TODO to add support for other frameworks
-    console.log(blueBright('adding stencil dependencies to the packageJson'))
+    console.log(blueBright('adding stencil dependencies to the package.json'))
 
     const packageJsonPath = `${this.projectNamespace}/package.json`
 
@@ -46,11 +52,14 @@ module.exports = class extends Generator {
     }
 
     this.updateJason(newPackageData, packageJsonPath)
-    this.npmInstall(deps, {},{cwd: `${this.projectNamespace}`})
-    this.npmInstall(devDeps, { 'save-dev': true }, {cwd: `${this.projectNamespace}`})
+    this.npmInstall([...devDeps], { 'save-dev': true }, {cwd: `${this.projectNamespace}`})
   }
 
-  writing() {
+  /**
+   * Running in default to be sure to preemptively install typescript
+   * for proper storybook initialization.
+  */
+  default() {
     console.log(blueBright(`building stencil project at${process.cwd()}/${this.projectNamespace}`))
     this.spawnCommandSync('npm', [
       'init',
@@ -58,9 +67,13 @@ module.exports = class extends Generator {
       'component',
       `${this.projectNamespace}`
     ])
-
-    this._addStencilDependencies()
-    this._overwriteStencilConfig()
+    console.log(green('Installing Typescript'))
+    this.spawnCommandSync('npm', [
+      'i',
+      'typescript',
+    ], {cwd: `${this.projectNamespace}`})
+   this._addStencilDependencies()
+   this._overwriteStencilConfig()
   }
 
 };
