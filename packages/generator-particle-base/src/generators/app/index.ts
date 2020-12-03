@@ -96,8 +96,6 @@ module.exports = class extends Generator {
 
   async _promptUser() {
     this.configuration.config = await this.prompt(propOptions)
-    this.packageJson.client = this.configuration.config.nameSpace
-    this.packageJson.name = this.configuration.config.projectName
   }
 
   /**
@@ -107,6 +105,8 @@ module.exports = class extends Generator {
     await this._promptUser()
     const { nameSpace, projectName } = this.configuration.config
     const projectNamespace = `${nameSpace}-${projectName}`
+    this.packageJson.client = nameSpace
+    this.packageJson.name = projectName
 
     // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
 

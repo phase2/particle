@@ -8,12 +8,9 @@ import { main } from './templates/main'
 
 export const storybookAddons: string[] = [
   '@storybook/addon-knobs',
-  '@storybook/addon-actions',
   '@storybook/addon-links',
-  '@storybook/addon-viewport',
   '@storybook/addon-a11y',
-  '@storybook/preset-typescript',
-  '@storybook/web-components'
+  '@storybook/addon-essentials'
 ]
 
 const storiesRoot: string[] = ['../src/**/*.stories.tsx']

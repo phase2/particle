@@ -37,6 +37,7 @@ module.exports = class extends Generator {
     const packageJsonPath = `${this.projectNamespace}/package.json`
 
     const newPackageData = {
+      repository:{},
       distDirs: {
         "stencil": "dist-stencil",
         "storybook": "dist-storybook"
