@@ -3,21 +3,16 @@ import merge from 'lodash.merge'
 import fs from 'fs'
 
 import {
-  Answers,
-  ConfigurationAnswers,
-  ConfigOptions,
-  FrontendFrameworkOptions,
+  ConfigurationAnswers
 } from '@phase2/particle-types'
 
 import {
-  configurationPrompt,
-  customPromptOptions,
-  options as configOptions,
+  propOptions
 } from './generatePromptOptions'
 
 module.exports = class extends Generator {
   // configuration will come from the constructor argument
-  configuration: Answers
+  configuration: ConfigurationAnswers
   packageJson: Record<string, any>
   cliVersion = ''
 
@@ -34,7 +29,7 @@ module.exports = class extends Generator {
     // makes config a required argument
     this.option('configuration', {
       type: String,
-      description: 'stringified configuration object from particle-cli',
+      description: 'stringified configuration object from particle-cli'
     })
 
     this.configuration = opts.configuration
@@ -42,11 +37,12 @@ module.exports = class extends Generator {
       : {}
 
     this.packageJson = {
+      client: 'client-abbreviation',
       name: 'project-name',
       version: '1.0.0',
       main: 'index.js',
       scripts: {
-        test: 'echo "Error: no test specified" && exit 1',
+        test: 'echo "Error: no test specified" && exit 1'
       },
       keywords: [],
       author: '',
@@ -54,13 +50,23 @@ module.exports = class extends Generator {
       description: 'Particle boilerplate project',
       repository: {},
       dependencies: {},
-      devDependencies: {},
+      devDependencies: {}
     }
     this._updatePackageJson = this._updatePackageJson.bind(this)
   }
 
   _updatePackageJson(newValues: Record<string, any>) {
     this.packageJson = merge(this.packageJson, newValues)
+  }
+
+  /**
+   *  Helper function passed to sub-generators
+   */
+  _updateSubGeneratorPackageJson(newValues: Record<string, any>, jsonPath: string) :void {
+    const currentJson = JSON.parse(fs.readFileSync(jsonPath).toString());
+    const mergedJson = JSON.stringify(merge(currentJson, newValues))
+
+    fs.writeFileSync(jsonPath, mergedJson )
   }
 
   /**
@@ -74,14 +80,14 @@ module.exports = class extends Generator {
   }
 
   /**
-   * Creeate a particle config file
+   * Create a particle config file
    */
 
-  _writeParticleConfig() {
+  async _writeParticleConfig() {
     fs.writeFileSync(
       '.particlerc',
       JSON.stringify(
-        { ...this.configuration, ...{ 'cli-version': this.cliVersion } },
+        { ...{ 'cli-version': this.cliVersion }, ...this.configuration },
         null,
         2
       )
@@ -89,24 +95,7 @@ module.exports = class extends Generator {
   }
 
   async _promptUser() {
-    // Initialize storybook
-    const results: ConfigurationAnswers = await this.prompt(configurationPrompt)
-
-    // if custom exit here
-    if (results.config === ConfigOptions.CUSTOM) {
-      const customOptions = await this.prompt(customPromptOptions)
-
-      this.configuration = {
-        ...results,
-        options: customOptions,
-      }
-    } else {
-      this.configuration = {
-        ...results,
-        options: configOptions[results.config],
-      }
-    }
-    this.packageJson.name = results.projectName
+    this.configuration.config = await this.prompt(propOptions)
   }
 
   /**
@@ -114,29 +103,33 @@ module.exports = class extends Generator {
    */
   async initializing() {
     await this._promptUser()
+    const { nameSpace, projectName } = this.configuration.config
+    const projectNamespace = `${nameSpace}-${projectName}`
+    this.packageJson.client = nameSpace
+    this.packageJson.name = projectName
 
     // All composed generators must be imported following this syntax https://yeoman.io/authoring/composability.html
-    if (
-      this.configuration.options.frontendFramework.includes(
-        FrontendFrameworkOptions.REACT
-      )
-    ) {
-      this.composeWith(
-        require.resolve('@phase2/generator-particle-storybook'),
-        {
-          configuration: this.configuration,
-          updatePackageJson: this._updatePackageJson,
-        }
-      )
-    }
-    // Add other subgenerators here
-  }
 
-  writing() {
+    this.composeWith(
+      require.resolve('@phase2/generator-particle-components'),
+      {
+        projectNamespace: projectNamespace,
+        updateJason: this._updateSubGeneratorPackageJson
+      }
+    );
+
+    this.composeWith(
+      require.resolve('@phase2/generator-particle-storybook'),
+      {
+        projectNamespace: projectNamespace,
+        updateJason: this._updateSubGeneratorPackageJson
+      }
+    );
+  }
+  // Add other subgenerators here
+
+  configuring() {
     this._createPackageJson()
     this._writeParticleConfig()
-
-    // Installs all dependencies
-    this.npmInstall()
   }
 }

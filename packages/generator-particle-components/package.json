@@ -1,14 +1,16 @@
 {
-  "name": "@phase2/generator-particle-base",
+  "name": "@phase2/generator-particle-components",
   "version": "0.0.1",
-  "description": "Generates the file structure for particle",
+  "description": "Generates the file structure for stencil web components",
   "files": [
     "lib/generators"
   ],
   "keywords": [
     "yeoman-generator",
-    "particle"
+    "particle",
+    "stencil"
   ],
+  "main": "lib/generators/app/index.js",
   "homepage": "https://github.com/phase2/particle#readme",
   "repository": {
     "type": "git",
@@ -16,18 +18,14 @@
     "directory": "packages/particle-cli"
   },
   "dependencies": {
-    "@phase2/generator-particle-components": "^0.0.1",
-    "@phase2/generator-particle-storybook": "^0.0.1",
-    "@phase2/particle-types": "^0.0.1",
     "chalk": "^4.1.0",
-    "inquirer": "^7.3.3",
-    "lodash.merge": "^4.6.2",
-    "yeoman-generator": "^4.11.0"
+    "yeoman-generator": "^4.11.0",
+    "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
     "@types/inquirer": "^7.3.0",
-    "@types/lodash.merge": "^4.6.6",
     "@types/yeoman-generator": "^4.11.0",
+    "@types/lodash.merge": "^4.6.6",
     "typescript": "^3.9.7"
   },
   "scripts": {
@@ -37,7 +35,6 @@
   "bugs": {
     "url": "https://github.com/phase2/particle/issues"
   },
-  "main": "lib/generators/app/index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
