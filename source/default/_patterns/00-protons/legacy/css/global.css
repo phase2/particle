@@ -5,7 +5,9 @@
 #search-form * #edit-keys {
   background: #fff !important;
 }
-
+.table .thead-dark th .label{
+  color: #FFF;
+}
 /* removes title lines coming from the parent mag */
 .block--region-content-header.block--page-title-block:after,
 .block--region-content-header.block--page-title-block:before,
