@@ -1,11 +1,9 @@
-.gsc-cursor-page {
-  background: transparent !important;
-  /* color: $utc-blue !important; */
-  @apply text-blue-600;
+/* custom override for gsc module */
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+  color: #000000 !important;
 }
-
-#search-form > #edit-basic > #edit-keys {
-  background: rgb(255, 255, 255) !important;
+#search-form * #edit-keys {
+  background: #fff !important;
 }
 
 /* removes title lines coming from the parent mag */
