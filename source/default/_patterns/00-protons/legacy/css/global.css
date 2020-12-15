@@ -1,6 +1,7 @@
 /* custom override for gsc module */
 .gsc-results .gsc-cursor-box .gsc-cursor-page {
   color: #000000 !important;
+  background-color: #FFF !important;
 }
 #search-form * #edit-keys {
   background: #fff !important;
