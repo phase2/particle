@@ -91,4 +91,16 @@ function particle_preprocess_block(&$variables)
         }
         $variables['embed_content'] = file_get_contents_curl($php_url);
     }
+
+  if ($variables['plugin_id'] == 'inline_block:utc_library_chat_widget') {
+    $content = $variables['elements']['content'];
+    $chat_id = $content['#block_content']->get('field_utclib_chat_id')->value;
+    $variables['#attached'] = [
+      'drupalSettings' => [
+        'myLibrary' => [
+          'chat_id' => $chat_id,
+        ],
+      ],
+    ];
+  }
 }

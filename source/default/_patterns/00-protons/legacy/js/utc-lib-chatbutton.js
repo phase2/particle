@@ -3,10 +3,9 @@
 
   Drupal.behaviors.chatbutton = {
     attach: function(context, settings) {
-
       if ($('#utc-library-chat-widget').length){
         $('#sliderVertical').hide();
-        $.getScript( "https://libraryh3lp.com/js/libraryh3lp.js?14392" );
+        $.getScript( "https://libraryh3lp.com/js/libraryh3lp.js?" + settings.myLibrary.chat_id );
       }else{
         $('#sliderVertical').show();
         $.getScript( "https://libraryh3lp.com/js/libraryh3lp.js?15293" );
