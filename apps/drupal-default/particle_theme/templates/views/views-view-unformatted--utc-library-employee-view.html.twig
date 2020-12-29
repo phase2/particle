@@ -1,0 +1,87 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for key,row in rows %}
+  {%
+    set row_classes = [
+    default_row_class ? 'views-row lib-events-box__item',
+  ]
+  %}
+  {% set profile_url = '' %} {# declare empty variable re/set #}
+  {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
+  {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
+  {% endif %}
+<div class="employee-card__container--full w-auto">
+  <div class="employee-card h-100 employee-card--utc-small-teaser-card">
+    {% if profile_url %}
+    <a href="{{ profile_url }}" tabindex="-1">
+      {% endif %}
+    <div class="employee-image">
+      <div class="field field--name-field-image field--type-image field--label-visually_hidden">
+        <div class="field__label visually-hidden">Image</div>
+        <div class="field__item">
+          <picture>
+            {{ view.style_plugin.getField(key, 'field_employee_picture') }}
+          </picture>
+        </div>
+      </div>
+    </div>
+      {% if profile_url != '#' %}
+      </a>
+        {% endif %}
+    <div class="employee-card__body">
+      <div class="employee-card__info">
+        {% if profile_url %}
+        <a href="{{ profile_url }}" tabindex="-1">
+          {% endif %}
+      <h3 class="employee-card__name">
+        {{ view.style_plugin.getField(key, 'field_employee_first_name') }} {{ view.style_plugin.getField(key, 'field_employee_last_name') }}
+      </h3>
+          {% if profile_url %}
+          </a>
+            {% endif %}
+      <p class="employee-card__title">
+        {{ view.style_plugin.getField(key, 'field_employee_title') }}
+      </p>
+      </div>
+    </div>
+    <div class="employee-card__body">
+      <div class="employee-card__info">
+        <p>
+          <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_email') }}
+        </p>
+        <p>
+          <i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_office_location') }}
+        </p>
+        <p>
+          <i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_telephone') }}
+        </p>
+        {% if profile_url %}
+          <p>
+            <a href="{{ profile_url }}">
+              <i class="fas fa-info-circle fa-fw"></i>
+              More info <i class="fas fa-chevron-right fa-fw"></i>
+            </a></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
