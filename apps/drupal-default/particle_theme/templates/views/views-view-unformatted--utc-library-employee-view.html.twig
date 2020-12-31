@@ -21,13 +21,18 @@
 {% for key,row in rows %}
   {%
     set row_classes = [
-    default_row_class ? 'views-row lib-events-box__item',
+    default_row_class ? 'views-row employee-card__grid',
   ]
   %}
   {% set profile_url = '' %} {# declare empty variable re/set #}
-  {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
-  {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
+  {# one option would be to check for body and render with a view
+    {% if view.style_plugin.getField(key, 'body')|render|striptags|trim is not empty %}
+    {% set profile_url = site_url|render ~ '?utcid=' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim ~ '&dept=' ~ view.style_plugin.getField(key, 'field_utc_department_3')|render|striptags|trim %}
+  #}
+  {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim is not empty %}
+    {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
   {% endif %}
+  {% if view.storage.executable.args[0] == 'all' %}{# used to check for indvidual view #}
 <div class="employee-card__container--full w-auto">
   <div class="employee-card h-100 employee-card--utc-small-teaser-card">
     {% if profile_url %}
@@ -84,4 +89,45 @@
     </div>
   </div>
 </div>
+    {# this additional logic could be used for indidual views #}
+  {% else %}
+    {# this utcid could be passed to DM script
+        {{ view.storage.executable.args[0] }}
+    #}
+    <div class="employee-card__container--full">
+      <div class="employee-card h-100 employee-card--full">
+        <div class="employee-image">
+          <div class="field field--name-field-image field--type-image field--label-visually_hidden">
+            <div class="field__label visually-hidden">Image</div>
+            <div class="field__item">
+              <picture>
+                {{ view.style_plugin.getField(key, 'field_employee_picture') }}
+              </picture>
+            </div>
+          </div>
+        </div>
+        <div class="employee-card__body">
+          <div class="employee-card__info">
+            <h3 class="employee-card__name">
+              {{ view.style_plugin.getField(key, 'field_employee_first_name') }} {{ view.style_plugin.getField(key, 'field_employee_last_name') }}
+            </h3>
+            <p class="employee-card__title">
+              {{ view.style_plugin.getField(key, 'field_employee_title') }}
+            </p>
+            <hr>
+            <p>
+              <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_email') }}
+            </p>
+            <p>
+              <i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_office_location') }}
+            </p>
+            <p>
+              <i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_telephone') }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ view.style_plugin.getField(key, 'body') }}
+  {% endif %}
 {% endfor %}
