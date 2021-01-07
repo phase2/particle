@@ -1,0 +1,162 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for key,row in rows %}
+  {%
+    set row_classes = [
+    default_row_class ? 'views-row employee-card__grid',
+  ]
+  %}
+{% set employee_body = '' %}
+  {% set profile_url = '' %} {# declare empty variable re/set #}
+{% if view.total_rows > 1 %}
+{# {% if view.storage.executable.args[0] == 'all' %}  #}
+  {# one option would be to check for body and render with a view #}
+    {% if (view.style_plugin.getField(key, 'body')|render|striptags|trim is not empty) or (view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On") %}
+    {% set profile_url = '/directory/' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim %}
+     {# ~ '&dept=' ~ view.style_plugin.getField(key, 'field_utc_department_3')|render|striptags|trim %} #}
+  {#
+  {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim is not empty %}
+    {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
+    #}
+  {% endif %}
+    <div class="employee-card__container--full w-auto">
+  <div class="employee-card h-100 employee-card--utc-small-teaser-card">
+    {% else %}
+    {# test render DM#}
+    {%  if view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On" %}
+  <link rel="stylesheet" type="text/css" href="https://cfcdn.digitalmeasures.com/dm-web-profiles/v1/css/main.css" />
+    {# <link rel="stylesheet" type="text/css" href="https://cfcdn.digitalmeasures.com/dm-web-profile-themes/themes/tabbed/v1/tabbed.css" /> #}
+    <script src="https://cfcdn.digitalmeasures.com/dm-web-profiles/v1/js/main.js"></script>
+    <script src="https://cfcdn.digitalmeasures.com/dm-web-profile-themes/themes/tabbed/v1/tabbed.js"></script>
+
+    <script>
+      var utcid = '{{ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim }}';
+      window.dmWebProfiles.showProfile({
+        container: '#dm-web-profile-root',
+        clientId: 'a5d4dff3-be11-5bce-9475-27ed6865247e',
+        reportId: '4fb7e575-4757-11ea-9315-07cd0c59d5ca',
+        username: utcid,
+        theme: 'tabbed',
+        excludeEmptyPrimaryContentSections:true
+      });
+    </script>
+
+    <div id="dm-web-profile-root"></div>
+    <style>
+      .employee-card__container--full{
+        display: none;
+      }
+    </style>
+      {% endif %}
+    <style>
+      #views-exposed-form-utc-directory-page-1{
+        display: none;
+      }
+    </style>
+    <script>
+      var newPageTitle = "{{ view.style_plugin.getField(key, 'field_employee_first_name')|render|striptags|trim }} {{ view.style_plugin.getField(key, 'field_employee_last_name')|render|striptags|trim }} | {{ drupal_config('system.site', 'name') }}";
+      var newBreadCrumbDept = "<a href='/directory?dept={{ view.style_plugin.getField(key, 'field_utc_organizational_section_1')|render|striptags|trim }}'> {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }} </a>";
+      var newBreadCrumbName = "{{ view.style_plugin.getField(key, 'field_employee_first_name')|render|striptags|trim }} {{ view.style_plugin.getField(key, 'field_employee_last_name')|render|striptags|trim }}";
+      document.title = newPageTitle;
+      document.addEventListener('DOMContentLoaded', function() {
+        jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol').append(jQuery('<li>').html(newBreadCrumbDept)).append(jQuery('<li>').text(newBreadCrumbName));
+      }, false);
+    </script>
+    <div class="employee-card__container--full">
+      <div class="employee-card h-100 employee-card--full">
+        {%  set employee_body = view.style_plugin.getField(key, 'body') %}
+    {% endif %}
+    {% if profile_url %}
+    <a href="{{ profile_url }}" tabindex="-1">
+      {% endif %}
+    <div class="employee-image">
+      <div class="field field--name-field-image field--type-image field--label-visually_hidden">
+        <div class="field__label visually-hidden">Image</div>
+        <div class="field__item">
+          <picture>
+            {{ view.style_plugin.getField(key, 'field_employee_picture') }}
+          </picture>
+        </div>
+      </div>
+    </div>
+      {% if profile_url != '#' %}
+      </a>
+        {% endif %}
+    <div class="employee-card__body">
+      <div class="employee-card__info">
+        {% if profile_url %}
+        <a href="{{ profile_url }}" tabindex="-1">
+          {% endif %}
+      <h3 class="employee-card__name">
+        {{ view.style_plugin.getField(key, 'field_employee_first_name') }} {{ view.style_plugin.getField(key, 'field_employee_last_name') }}
+      </h3>
+          {% if profile_url %}
+          </a>
+            {% endif %}
+      <p class="employee-card__title">
+        {{ view.style_plugin.getField(key, 'field_employee_title') }}
+      </p>
+        <p>
+          <i class="fas fa-building fa-fw"></i>&nbsp
+          <a href='/directory?dept={{ view.style_plugin.getField(key, 'field_utc_organizational_section_1')|render|striptags|trim }}'>
+          {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>
+        </p>
+        {% if view.total_rows > 1 %}
+        {# if view.storage.executable.args[0] == 'all' #}
+      </div>
+    </div>
+    <div class="employee-card__body">
+      <div class="employee-card__info">
+        {%  endif %}
+        {% if view.style_plugin.getField(key, 'field_employee_email')|render|striptags|trim %}
+        <p>
+          <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_email') }}
+        </p>
+        {% endif %}
+        {% if view.style_plugin.getField(key, 'field_employee_office_location')|render|striptags|trim %}
+        <p>
+          <i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_office_location') }}
+        </p>
+        {% endif %}
+        {% if view.style_plugin.getField(key, 'field_employee_telephone')|render|striptags|trim %}
+        <p>
+          <i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_telephone') }}
+        </p>
+        {% endif %}
+        {% if profile_url %}
+          <p>
+            <a href="{{ profile_url }}">
+              <i class="fas fa-info-circle fa-fw"></i>
+              More info <i class="fas fa-chevron-right fa-fw"></i>
+            </a></p>
+        {% endif %}
+
+      </div>
+    </div>
+    </div>
+</div>
+    {% if employee_body %}
+      {{ employee_body }}
+    {# this utcid could be used for DM script
+        {{ view.storage.executable.args[0] }}
+         #}
+    {% endif %}
+{% endfor %}
