@@ -41,12 +41,12 @@
             <script src="https://cfcdn.digitalmeasures.com/dm-web-profile-themes/themes/tabbed/v1/tabbed.js"></script>
 
             <script>
-            var foo = '{{content[0]['#context']['value']}}';
+            var foo = '{{content[0]['#context']['value']}}'.split(' ');
             window.dmWebProfiles.showProfile({
                 container: '#dm-web-profile-root',
                 clientId: 'a5d4dff3-be11-5bce-9475-27ed6865247e',
                 reportId: '4fb7e575-4757-11ea-9315-07cd0c59d5ca',
-                username: foo,
+                username: foo[0],
                 theme: 'tabbed',
                 excludeEmptyPrimaryContentSections:true
             });
