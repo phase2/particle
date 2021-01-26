@@ -128,6 +128,7 @@ a .employee-card--utc-small-teaser-card:hover {
   pointer-events: none;
   cursor: default;
   margin-right: 0.3rem;
+  white-space: pre;
 }
 
 .employee-card__button a {
