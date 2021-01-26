@@ -25,6 +25,8 @@
  * @see template_preprocess_block()
  */
 #}
+{{ attach_library('utccloud/utc-digitalmeasures') }}
+
 <div{{ attributes }}>
   {{ title_prefix }}
     {% if label %}
@@ -35,25 +37,7 @@
   {{ title_suffix }}
   {% block content %}
     <div{{ content_attributes }} style="margin-top: 4rem;">
-            <link rel="stylesheet" type="text/css" href="https://cfcdn.digitalmeasures.com/dm-web-profiles/v1/css/main.css" />
-            {# <link rel="stylesheet" type="text/css" href="https://cfcdn.digitalmeasures.com/dm-web-profile-themes/themes/tabbed/v1/tabbed.css" /> #}
-            <script src="https://cfcdn.digitalmeasures.com/dm-web-profiles/v1/js/main.js"></script>
-            <script src="https://cfcdn.digitalmeasures.com/dm-web-profile-themes/themes/tabbed/v1/tabbed.js"></script>
-
-            <script>
-            var mocsid = '{{content[0]['#context']['value']}}'.split('-');
-            window.dmWebProfiles.showProfile({
-                container: '#dm-web-profile-root',
-                clientId: 'a5d4dff3-be11-5bce-9475-27ed6865247e',
-                reportId: '4fb7e575-4757-11ea-9315-07cd0c59d5ca',
-                username: mocsid[0],
-                theme: 'tabbed',
-                excludeEmptyPrimaryContentSections:true
-            });
-            </script>
-
             <div id="dm-web-profile-root"></div>
-     {# <h1 class="utcpage-title">{{ content[0]['#context']['value'] }}</h1> #}
     </div>
   {% endblock %}
 </div>
