@@ -4,7 +4,7 @@
  * https://fontawesome.com/how-to-use/with-the-api/setup/getting-started
  */
 
-import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { library, dom, config } from '@fortawesome/fontawesome-svg-core';
 
 // Import specific icons required. This format applies tree-shaking
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons/faUserAstronaut';
@@ -14,7 +14,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 
 // Add specific icons required
 library.add(faUserAstronaut, faRocket, faSpaceShuttle, faUser);
-
+config.showMissingIcons = false;
 // Replace any existing <i> tags with <svg> and set up a MutationObserver to
 // continue doing this as the DOM changes.
 export default () => dom.watch();
