@@ -171,6 +171,7 @@
 }
 
 /* Button Types */
+.btn-block,
 .btn--block {
   display: block;
   width: 100%;
