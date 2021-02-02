@@ -63,44 +63,5 @@ function particle_preprocess_block(&$variables)
             $variables['field_utc_department_phone'][$index] = $content[$index]['#block_content']->get('field_utc_department_phone')->view('url');
         }
     }
-    if ($variables['plugin_id'] == 'inline_block:utc_library_embed_widget') {
-        $content = $variables['elements']['content'];
 
-        $embed_widget = "https://liblab.utc.edu/".$content['#block_content']->get('field_utclib_embed_source')->value;
-        $append_date =  date("YmdH");
-        if (strpos($embed_widget, '?') !== false) {
-            $php_url = $embed_widget."&v=".$append_date;
-        } else {
-            $php_url = $embed_widget."?v=".$append_date;
-        }
-        $variables['#attached']['drupalSettings']['utclibEmbedSource'] = "none";
-        if (!function_exists("file_get_contents_curl")) {
-            function file_get_contents_curl($url)
-            {
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_URL, $url);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                curl_setopt($ch, CURLOPT_TIMEOUT, 10); //timeout in seconds
-                $data = curl_exec($ch);
-                curl_close($ch);
-                return $data;
-            }
-        }
-        $variables['embed_content'] = file_get_contents_curl($php_url);
-    }
-
-  if ($variables['plugin_id'] == 'inline_block:utc_library_chat_widget') {
-    $content = $variables['elements']['content'];
-    $chat_id = $content['#block_content']->get('field_utclib_chat_id')->value;
-    $variables['#attached'] = [
-      'drupalSettings' => [
-        'myLibrary' => [
-          'chat_id' => $chat_id,
-        ],
-      ],
-    ];
-  }
 }
