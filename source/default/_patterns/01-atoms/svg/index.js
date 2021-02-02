@@ -22,7 +22,7 @@ import './_svg--sprite.twig';
 require.context('./icons', false, /\.svg$/);
 
 // Enable Fontawesome immediately, comment this out if not using FontAwesome
-fontawesome();
+// fontawesome();
 
 export const name = 'svg';
 
