@@ -72,10 +72,8 @@
       }
     </style>
     <script>
-      var newPageTitle = "{{ view.style_plugin.getField(key, 'field_employee_first_name')|render|striptags|trim }} {{ view.style_plugin.getField(key, 'field_employee_last_name')|render|striptags|trim }} | UTC "; {# need to replace 'UTC' with something like {{ drupal_token('site:name') }} #}
       var newBreadCrumbDept = "<a href='/directory?dept={{ view.style_plugin.getField(key, 'field_utc_organizational_section_1')|render|striptags|trim }}'> {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }} </a>";
       var newBreadCrumbName = "{{ view.style_plugin.getField(key, 'field_employee_first_name')|render|striptags|trim }} {{ view.style_plugin.getField(key, 'field_employee_last_name')|render|striptags|trim }}";
-      document.title = newPageTitle;
       document.addEventListener('DOMContentLoaded', function() {
         jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol').append(jQuery('<li>').html(newBreadCrumbDept)).append(jQuery('<li>').text(newBreadCrumbName));
       }, false);
