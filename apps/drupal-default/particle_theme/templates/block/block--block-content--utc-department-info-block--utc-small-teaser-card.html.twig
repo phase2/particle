@@ -71,12 +71,17 @@
 						{% endif %}
 					</ul>
 				</address>
-
+				{% if content.field_utc_department_socialmedia %}
+					<div style="text-align: center;">
+						{{content.field_utc_department_socialmedia}}
+					</div>
+				{% endif %}
 				{% if content.field_utc_department_hours|field_value is not empty %}
 					<div class="department--hours">
 						{{content.field_utc_department_hours}}
 					</div>
 				{% endif %}
+
 			</div>
 		</div>
 	{% endblock %}
