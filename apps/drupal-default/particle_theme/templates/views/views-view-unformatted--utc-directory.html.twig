@@ -15,6 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
+
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
@@ -42,23 +43,11 @@
     {% else %}
     {# test render DM#}
     {%  if view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On" %}
-  <link rel="stylesheet" type="text/css" href="https://cfcdn.digitalmeasures.com/dm-web-profiles/v1/css/main.css" />
-    {# <link rel="stylesheet" type="text/css" href="https://cfcdn.digitalmeasures.com/dm-web-profile-themes/themes/tabbed/v1/tabbed.css" /> #}
-    <script src="https://cfcdn.digitalmeasures.com/dm-web-profiles/v1/js/main.js"></script>
-    <script src="https://cfcdn.digitalmeasures.com/dm-web-profile-themes/themes/tabbed/v1/tabbed.js"></script>
 
     <script>
       var utcid = '{{ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim }}';
-      window.dmWebProfiles.showProfile({
-        container: '#dm-web-profile-root',
-        clientId: 'a5d4dff3-be11-5bce-9475-27ed6865247e',
-        reportId: '4fb7e575-4757-11ea-9315-07cd0c59d5ca',
-        username: utcid,
-        theme: 'tabbed',
-        excludeEmptyPrimaryContentSections:true
-      });
     </script>
-
+    {{ attach_library('utccloud/utc-digitalmeasures2') }}
     <div id="dm-web-profile-root"></div>
     <style>
       .employee-card__container--full{
