@@ -25,13 +25,15 @@
     default_row_class ? 'views-row employee-card__grid',
   ]
   %}
+{%  set dept_url = view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim|lower|replace({" ":"-"}) %}
+
 {% set employee_body = '' %}
   {% set profile_url = '' %} {# declare empty variable re/set #}
 {% if view.total_rows > 1 %}
 {# {% if view.storage.executable.args[0] == 'all' %}  #}
   {# one option would be to check for body and render with a view #}
     {% if (view.style_plugin.getField(key, 'body')|render|striptags|trim is not empty) or (view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On") %}
-    {% set profile_url = '/directory/' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim %}
+    {% set profile_url = '/directory/' ~  dept_url  ~ '/' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim %}
      {# ~ '&dept=' ~ view.style_plugin.getField(key, 'field_utc_department_3')|render|striptags|trim %} #}
   {#
   {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim is not empty %}
@@ -56,13 +58,15 @@
         display: none;
       }
     </style>
+
     <script>
-      var newBreadCrumbDept = "<a href='/directory?dept={{ view.style_plugin.getField(key, 'field_utc_organizational_section_1')|render|striptags|trim }}'> {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }} </a>";
+      var newBreadCrumbDept = "<a href='/directory/{{ dept_url }}'> {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>";
       var newBreadCrumbName = "{{ view.style_plugin.getField(key, 'field_employee_first_name')|render|striptags|trim }} {{ view.style_plugin.getField(key, 'field_employee_last_name')|render|striptags|trim }}";
       document.addEventListener('DOMContentLoaded', function() {
         jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol').append(jQuery('<li>').html(newBreadCrumbDept)).append(jQuery('<li>').text(newBreadCrumbName));
       }, false);
     </script>
+
     <div class="employee-card__container--full">
       <div class="employee-card h-100 employee-card--full">
         {%  set employee_body = view.style_plugin.getField(key, 'body') %}
@@ -99,7 +103,7 @@
       </p>
         <p>
           <i class="fas fa-building fa-fw"></i>&nbsp
-          <a href='/directory?dept={{ view.style_plugin.getField(key, 'field_utc_organizational_section_1')|render|striptags|trim }}'>
+          <a href='/directory/{{ dept_url }}'>
           {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>
         </p>
         {% if view.total_rows > 1 %}
