@@ -15,7 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-
+{{ attach_library('utccloud/utc-digitalmeasures2') }}
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
@@ -44,10 +44,6 @@
     {# test render DM#}
     {%  if view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On" %}
 
-    <script>
-      var utcid = '{{ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim }}';
-    </script>
-    {{ attach_library('utccloud/utc-digitalmeasures2') }}
     <div id="dm-web-profile-root"></div>
     <style>
       .employee-card__container--full{
