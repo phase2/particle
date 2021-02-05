@@ -33,107 +33,113 @@
 {%
   set classes = [
     'w-full',
-    'flex',
     'flex-row',
     'flex-no-wrap',
+    'table-striped',
     'sm:bg-white',
     'overflow-hidden',
     'sm:shadow-lg',
     'my-5'
   ]
 %}
-<table{{ attributes.addClass(classes) }}>
-  {% if caption_needed %}
-    <caption>
-    {% if caption %}
-      {{ caption }}
-    {% else %}
-      {{ title }}
-    {% endif %}
-    {% if (summary is not empty) or (description is not empty) %}
-      <details>
-        {% if summary is not empty %}
-          <summary>{{ summary }}</summary>
+<div class="flex items-center justify-center">
+  <div class="container">
+    <table{{ attributes.addClass(classes) }}>
+      {% if caption_needed %}
+        <caption>
+        {% if caption %}
+          {{ caption }}
+        {% else %}
+          {{ title }}
         {% endif %}
-        {% if description is not empty %}
-          {{ description }}
+        {% if (summary is not empty) or (description is not empty) %}
+          <details>
+            {% if summary is not empty %}
+              <summary>{{ summary }}</summary>
+            {% endif %}
+            {% if description is not empty %}
+              {{ description }}
+            {% endif %}
+          </details>
         {% endif %}
-      </details>
-    {% endif %}
-    </caption>
-  {% endif %}
-  {% if header %}
-    <thead class="text-white">
-      <tr class="flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-        {% for key, column in header %}
-          {% if column.default_classes %}
-            {%
-              set column_classes = [
-                'p-3',
-                'text-left',
-              ]
-            %}
-          {% endif %}
-          <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
-            {%- if column.wrapper_element -%}
-              <{{ column.wrapper_element }}>
-                {%- if column.url -%}
-                  <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+        </caption>
+      {% endif %}
+      {% if header %}
+        <thead class="text-white ">
+          <tr class="flex flex-col flex-no-wrap bg-utc-new-blue-500 sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+            {% for key, column in header %}
+              {% if column.default_classes %}
+                {%
+                  set column_classes = [
+                    'p-3',
+                    'text-left',
+                  ]
+                %}
+              {% endif %}
+              <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
+                {%- if column.wrapper_element -%}
+                  <{{ column.wrapper_element }}>
+                    {%- if column.url -%}
+                      <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                    {%- else -%}
+                      {{ column.content }}{{ column.sort_indicator }}
+                    {%- endif -%}
+                  </{{ column.wrapper_element }}>
                 {%- else -%}
-                  {{ column.content }}{{ column.sort_indicator }}
+                  {%- if column.url -%}
+                    <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                  {%- else -%}
+                    {{- column.content }}{{ column.sort_indicator }}
+                  {%- endif -%}
                 {%- endif -%}
-              </{{ column.wrapper_element }}>
-            {%- else -%}
-              {%- if column.url -%}
-                <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
-              {%- else -%}
-                {{- column.content }}{{ column.sort_indicator }}
-              {%- endif -%}
-            {%- endif -%}
-          </th>
-        {% endfor %}
-      </tr>
-    </thead>
-  {% endif %}
-  <tbody class="flex-1 sm:flex-none">
-  {%
-              set row_classes = [
-                'flex',
-                'flex-col',
-                'flex-nowrap',
-                'sm:table-row',
-                'mb-2',
-                'sm:mb-0'
-              ]
-            %}
-    {% for row in rows %}
-      <tr{{ row.attributes.addClass(row_classes) }}>
-        {% for key, column in row.columns %}
-          {% if column.default_classes %}
-            {%
-              set column_classes = [
-                'views-field'
-              ]
-            %}
-            {% for field in column.fields %}
-              {% set column_classes = column_classes|merge(['views-field-' ~ field]) %}
+              </th>
             {% endfor %}
-          {% endif %}
-          <td{{ column.attributes.addClass(column_classes) }}>
-            {%- if column.wrapper_element -%}
-              <{{ column.wrapper_element }}>
-              {% for content in column.content %}
-                {{ content.separator }}{{ content.field_output }}
-              {% endfor %}
-              </{{ column.wrapper_element }}>
-            {%- else -%}
-              {% for content in column.content %}
-                {{- content.separator }}{{ content.field_output -}}
-              {% endfor %}
-            {%- endif %}
-          </td>
+          </tr>
+        </thead>
+      {% endif %}
+      <tbody class="flex-1 sm:flex-none">
+      {%
+                  set row_classes = [
+                    'flex',
+                    'flex-col',
+                    'flex-nowrap',
+                    'sm:table-row',
+                    'mb-2',
+                    'sm:mb-0'
+                  ]
+                %}
+        {% for row in rows %}
+          <tr{{ row.attributes.addClass(row_classes) }}>
+            {% for key, column in row.columns %}
+              {% if column.default_classes %}
+                {%
+                  set column_classes = [
+                      'hover:bg-gray-100',
+                      'p-3',
+                      'text-sm'
+                  ]
+                %}
+                {% for field in column.fields %}
+                  {% set column_classes = column_classes|merge(['views-' ~ field]) %}
+                {% endfor %}
+              {% endif %}
+              <td{{ column.attributes.addClass(column_classes) }}>
+                {%- if column.wrapper_element -%}
+                  <{{ column.wrapper_element }}>
+                  {% for content in column.content %}
+                    {{ content.separator }}{{ content.field_output }}
+                  {% endfor %}
+                  </{{ column.wrapper_element }}>
+                {%- else -%}
+                  {% for content in column.content %}
+                    {{- content.separator }}{{ content.field_output -}}
+                  {% endfor %}
+                {%- endif %}
+              </td>
+            {% endfor %}
+          </tr>
         {% endfor %}
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+</div>
