@@ -15,7 +15,18 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-
+{# NOTES
+   related files:
+  docroot/modules/custom/utccloud/utccloud.module
+   - (preprocess for both twig files)
+  docroot/themes/custom/particle/apps/drupal-default/particle_theme/templates/views/views-exposed-form--utc-directory.html.twig
+  - this shows/hides the exposed filters based on variables in URL
+  docroot/themes/custom/particle/apps/drupal-default/particle_theme/templates/views/views-view-unformatted--utc-directory.html.twig
+  - this file - renders view content
+#}
+<br />
+{{ profile }}
+<br />
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
@@ -25,125 +36,119 @@
     default_row_class ? 'views-row employee-card__grid',
   ]
   %}
-{%  set dept_url = view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim|lower|replace({" ":"-"}) %}
+  {%  set dept_url = view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim|lower|replace({" ":"-"}) %}
 
-{% set employee_body = '' %}
   {% set profile_url = '' %} {# declare empty variable re/set #}
-{% if view.total_rows > 1 %}
-{# {% if view.storage.executable.args[0] == 'all' %}  #}
-  {# one option would be to check for body and render with a view #}
+  {% if view.total_rows > 1 %}
+    {# {% if view.storage.executable.args[0] == 'all' %}  #}
+    {# one option would be to check for body and render with a view #}
     {% if (view.style_plugin.getField(key, 'body')|render|striptags|trim is not empty) or (view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On") %}
-    {% set profile_url = '/directory/' ~  dept_url  ~ '/' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim %}
-     {# ~ '&dept=' ~ view.style_plugin.getField(key, 'field_utc_department_3')|render|striptags|trim %} #}
-  {#
-  {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim is not empty %}
-    {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
-    #}
-  {% endif %}
+      {% set profile_url = '/directory/' ~  dept_url  ~ '/' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim %}
+      {# ~ '&dept=' ~ view.style_plugin.getField(key, 'field_utc_department_3')|render|striptags|trim %} #}
+      {#
+      {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim is not empty %}
+        {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
+      #}
+    {% endif %}
     <div class="employee-card__container--full w-auto">
-  <div class="employee-card h-100 employee-card--utc-small-teaser-card">
-    {% else %}
-    {# test render DM#}
-    {%  if view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On" %}
+    <div class="employee-card h-100 employee-card--utc-small-teaser-card">
+  {% else %}
+      {%  set employee_body = view.style_plugin.getField(key, 'body') %}
+      {# test render DM#}
+  {%  if view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On" %}
     {{ attach_library('utccloud/utc-digitalmeasures2') }}
     <div id="dm-web-profile-root"></div>
-    <style>
-      .employee-card__container--full{
-        display: none;
-      }
-    </style>
-      {% endif %}
-    <style>
-      #views-exposed-form-utc-directory-page-1{
-        display: none;
-      }
-    </style>
-
+      {%  set employee_body = '' %}
+      {% set hide_profile = 'hidden' %}
+  {% endif %}
+    {#  need to move this JS to external + add functionality to handle dept breadcrumb #}
     <script>
       var newBreadCrumbDept = "<a href='/directory/{{ dept_url }}'> {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>";
       var newBreadCrumbName = "{{ view.style_plugin.getField(key, 'field_employee_first_name')|render|striptags|trim }} {{ view.style_plugin.getField(key, 'field_employee_last_name')|render|striptags|trim }}";
       document.addEventListener('DOMContentLoaded', function() {
+        jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol li:last').remove();
         jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol').append(jQuery('<li>').html(newBreadCrumbDept)).append(jQuery('<li>').text(newBreadCrumbName));
       }, false);
     </script>
 
-    <div class="employee-card__container--full">
-      <div class="employee-card h-100 employee-card--full">
-        {%  set employee_body = view.style_plugin.getField(key, 'body') %}
+    <div class="employee-card__container--full {% if hide_profile %}{{ hide_profile }}{% endif %}">
+    <div class="employee-card h-100 employee-card--full">
+  {% endif %}
+  {% if profile_url %}
+  <a href="{{ profile_url }}" tabindex="-1">
+  {% endif %}
+  <div class="employee-image">
+    <div class="field field--name-field-image field--type-image field--label-visually_hidden">
+      <div class="field__label visually-hidden">Image</div>
+      <div class="field__item">
+        <picture>
+          {{ view.style_plugin.getField(key, 'field_employee_picture') }}
+        </picture>
+      </div>
+    </div>
+  </div>
+  {% if profile_url != '#' %}
+  </a>
+  {% endif %}
+  <div class="employee-card__body">
+  <div class="employee-card__info">
+  {% if profile_url %}
+  <a href="{{ profile_url }}" tabindex="-1">
     {% endif %}
+    <h3 class="employee-card__name">
+      {{ view.style_plugin.getField(key, 'field_employee_first_name') }} {{ view.style_plugin.getField(key, 'field_employee_last_name') }}
+    </h3>
     {% if profile_url %}
-    <a href="{{ profile_url }}" tabindex="-1">
-      {% endif %}
-    <div class="employee-image">
-      <div class="field field--name-field-image field--type-image field--label-visually_hidden">
-        <div class="field__label visually-hidden">Image</div>
-        <div class="field__item">
-          <picture>
-            {{ view.style_plugin.getField(key, 'field_employee_picture') }}
-          </picture>
-        </div>
-      </div>
-    </div>
-      {% if profile_url != '#' %}
+  </a>
+  {% endif %}
+  <p class="employee-card__title">
+    {{ view.style_plugin.getField(key, 'field_employee_title') }}
+  </p>
+  <p>
+    <i class="fas fa-building fa-fw"></i>&nbsp
+    <a href='/directory/{{ dept_url }}'>
+      {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>
+  </p>
+  {% if view.total_rows > 1 %}
+  {# if view.storage.executable.args[0] == 'all' #}
+  </div>
+  </div>
+  <div class="employee-card__body">
+  <div class="employee-card__info">
+  {%  endif %}
+  {% if view.style_plugin.getField(key, 'field_employee_email')|render|striptags|trim %}
+    <p>
+      <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_email') }}
+    </p>
+  {% endif %}
+  {% if view.style_plugin.getField(key, 'field_employee_office_location')|render|striptags|trim %}
+    <p>
+      <i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_office_location') }}
+    </p>
+  {% endif %}
+  {% if view.style_plugin.getField(key, 'field_employee_telephone')|render|striptags|trim %}
+    <p>
+      <i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_telephone') }}
+    </p>
+  {% endif %}
+  {% if profile_url %}
+    <p>
+      <a href="{{ profile_url }}">
+        <i class="fas fa-info-circle fa-fw"></i>
+        More info <i class="fas fa-chevron-right fa-fw"></i>
       </a>
-        {% endif %}
-    <div class="employee-card__body">
-      <div class="employee-card__info">
-        {% if profile_url %}
-        <a href="{{ profile_url }}" tabindex="-1">
-          {% endif %}
-      <h3 class="employee-card__name">
-        {{ view.style_plugin.getField(key, 'field_employee_first_name') }} {{ view.style_plugin.getField(key, 'field_employee_last_name') }}
-      </h3>
-          {% if profile_url %}
-          </a>
-            {% endif %}
-      <p class="employee-card__title">
-        {{ view.style_plugin.getField(key, 'field_employee_title') }}
-      </p>
-        <p>
-          <i class="fas fa-building fa-fw"></i>&nbsp
-          <a href='/directory/{{ dept_url }}'>
-          {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>
-        </p>
-        {% if view.total_rows > 1 %}
-        {# if view.storage.executable.args[0] == 'all' #}
-      </div>
-    </div>
-    <div class="employee-card__body">
-      <div class="employee-card__info">
-        {%  endif %}
-        {% if view.style_plugin.getField(key, 'field_employee_email')|render|striptags|trim %}
-        <p>
-          <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_email') }}
-        </p>
-        {% endif %}
-        {% if view.style_plugin.getField(key, 'field_employee_office_location')|render|striptags|trim %}
-        <p>
-          <i class="fas fa-map-marker fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_office_location') }}
-        </p>
-        {% endif %}
-        {% if view.style_plugin.getField(key, 'field_employee_telephone')|render|striptags|trim %}
-        <p>
-          <i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_telephone') }}
-        </p>
-        {% endif %}
-        {% if profile_url %}
-          <p>
-            <a href="{{ profile_url }}">
-              <i class="fas fa-info-circle fa-fw"></i>
-              More info <i class="fas fa-chevron-right fa-fw"></i>
-            </a></p>
-        {% endif %}
+    </p>
+  {% endif %}
 
-      </div>
-    </div>
-    </div>
-</div>
-    {% if employee_body %}
-      {{ employee_body }}
+  </div>
+  </div>
+  </div>
+  </div>
+{% if employee_body %}
+
+    {{ employee_body }}
     {# this utcid could be used for DM script
         {{ view.storage.executable.args[0] }}
-         #}
-    {% endif %}
+    #}
+{% endif %}
 {% endfor %}
