@@ -23,10 +23,8 @@
   - this shows/hides the exposed filters based on variables in URL
   docroot/themes/custom/particle/apps/drupal-default/particle_theme/templates/views/views-view-unformatted--utc-directory.html.twig
   - this file - renders view content
-#}
-<br />
-{{ profile }}
-<br />
+ #}
+    {{ attach_library('utccloud/utc-directory') }}
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
@@ -39,10 +37,14 @@
   {%  set dept_url = view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim|lower|replace({" ":"-"}) %}
 
   {% set profile_url = '' %} {# declare empty variable re/set #}
-  {% if view.total_rows > 1 %}
+  {% if profile != 'individual' %}
     {# {% if view.storage.executable.args[0] == 'all' %}  #}
     {# one option would be to check for body and render with a view #}
-    {% if (view.style_plugin.getField(key, 'body')|render|striptags|trim is not empty) or (view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On") %}
+    {% if
+      (view.style_plugin.getField(key, 'body')|render|striptags|trim is not empty)
+      or
+      (view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On")
+    %}
       {% set profile_url = '/directory/' ~  dept_url  ~ '/' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim %}
       {# ~ '&dept=' ~ view.style_plugin.getField(key, 'field_utc_department_3')|render|striptags|trim %} #}
       {#
@@ -70,7 +72,6 @@
         jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol').append(jQuery('<li>').html(newBreadCrumbDept)).append(jQuery('<li>').text(newBreadCrumbName));
       }, false);
     </script>
-
     <div class="employee-card__container--full {% if hide_profile %}{{ hide_profile }}{% endif %}">
     <div class="employee-card h-100 employee-card--full">
   {% endif %}
@@ -109,7 +110,7 @@
     <a href='/directory/{{ dept_url }}'>
       {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>
   </p>
-  {% if view.total_rows > 1 %}
+  {% if profile != 'indvidual' %}
   {# if view.storage.executable.args[0] == 'all' #}
   </div>
   </div>
@@ -139,16 +140,35 @@
       </a>
     </p>
   {% endif %}
-
   </div>
   </div>
   </div>
   </div>
 {% if employee_body %}
-
     {{ employee_body }}
     {# this utcid could be used for DM script
         {{ view.storage.executable.args[0] }}
     #}
 {% endif %}
+      {% if ( profile != 'all') and ( profile != 'individual') and ( key == 0 ) %}
+        {#  need to move this JS to external + add functionality to handle dept breadcrumb #}
+      {% set dept_name = view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim %}
+      <script>
+          //var newBreadCrumbDept = "<a href='/directory/{{ dept_url }}'> {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>";
+          var newBreadCrumbName = "{{ dept_name }}";
+          document.addEventListener('DOMContentLoaded', function() {
+            // jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol li:last').remove();
+            jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol').append(jQuery('<li>').text(newBreadCrumbName));
+          }, false);
+        </script>
+      {% endif %}
 {% endfor %}
+      {% if profile == 'all' %}
+        {#  need to move this JS to external + add functionality to handle dept breadcrumb #}
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            //jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol li:last').remove();
+            jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol').append(jQuery('<li>').text('UTC Faculty & Staff'));
+          }, false);
+        </script>
+      {% endif %}

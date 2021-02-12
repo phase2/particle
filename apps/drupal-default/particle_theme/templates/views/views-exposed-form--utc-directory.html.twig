@@ -27,8 +27,13 @@
   #}
 {{ q }}
 {% endif %}
-{% if profile == "all" %}
+{% if argument_count < 3 %}
 <div class="form--inline clearfix">
   {{ form }}
 </div>
 {% endif %}
+<style>
+  #edit-alpha{
+    color:red;
+  }
+</style>
