@@ -36,7 +36,7 @@
     {% endif %}
   {{ title_suffix }}
   {% block content %}
-    <div{{ content_attributes }} style="margin-top: 4rem;">
+    <div{{ content_attributes.addClass('mt-16') }}>
             <div id="dm-web-profile-root"></div>
     </div>
   {% endblock %}
