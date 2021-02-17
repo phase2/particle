@@ -24,7 +24,8 @@
   docroot/themes/custom/particle/apps/drupal-default/particle_theme/templates/views/views-view-unformatted--utc-directory.html.twig
   - this file - renders view content
  #}
-    {{ attach_library('utccloud/utc-directory') }}
+{{ attach_library('utccloud/utc-directory') }}
+{{ attach_library('particle/utc-directory') }}
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}

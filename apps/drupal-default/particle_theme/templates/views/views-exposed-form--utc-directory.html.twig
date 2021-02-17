@@ -18,8 +18,8 @@
   docroot/themes/custom/particle/apps/drupal-default/particle_theme/templates/views/views-view-unformatted--utc-directory.html.twig
   renders view content
 #}
-{#  testing variable being passed from preprocess #}
-{{ argument_count }}
+{#  testing variable being passed from preprocess
+{{ argument_count }} #}
 {% if q is not empty %}
   {#
     This ensures that, if clean URLs are off, the 'q' is added first,
@@ -29,7 +29,10 @@
 {% endif %}
 {% if argument_count < 3 %}
 <div class="form--inline clearfix">
-  {{ form }}
 
+  <a class="btn btn-danger float-right" href="/directory">
+    <i style="word-spacing: -1em;" class="fa fa-icon-left fas fa-redo-alt">&nbsp;</i> <span class="text">RESET</span>
+  </a>
+  {{ form }}
 </div>
 {% endif %}
