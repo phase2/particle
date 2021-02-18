@@ -15,12 +15,14 @@
 }
 #edit-alpha{
   display: flex;
+  flex-wrap: wrap;
 }
 #edit-alpha .form-item-alpha:first-child{
-  display: none;
+  display: none; 
 }
 #edit-alpha input[type="radio"]:checked + label {
   background-color:#fdb736;
+  flex: 1 1 auto;
 }
 #edit-alpha label:hover {
   background-color: #fdb736;
