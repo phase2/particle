@@ -13,6 +13,12 @@
   border: 2px solid #444;
   border-radius: 4px;
 }
+#edit-alpha{
+  display: flex;
+}
+#edit-alpha .form-item-alpha:first-child{
+  display: none;
+}
 #edit-alpha input[type="radio"]:checked + label {
   background-color:#fdb736;
 }
@@ -25,4 +31,13 @@
 }
 .view-utc-directory .view-content{
   width: 100% !important;
+}
+.view-utc-directory .form-actions {
+  display: inline-grid !important;
+}
+.view-utc-directory #edit-reset{
+  margin-top: 3rem;
+}
+.view-utc-directory .lib-item-form .js-form-item-combine {
+  flex-grow: 10;
 }
