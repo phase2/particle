@@ -20,7 +20,7 @@
   width: 45%;
   margin: 0.75rem;
 }
-
+ 
 @media (max-width: 767px) {
   .employee-card__container--full,
   .employee-card__container--utc-wide,
@@ -120,15 +120,12 @@ a .employee-card--utc-small-teaser-card:hover {
 .employee-card__suffix {
   font-weight: 400;
 }
-.employee-card__suffix a:not(:empty):not(:last-child):after{
-  content: ",";
+.employee-card__suffix .field {
+  display: inline-block;
 }
-.employee-card__suffix a{
-  /* Removes the pointer event to tha tag */
-  pointer-events: none;
-  cursor: default;
-  margin-right: 0.3rem;
-  white-space: pre;
+
+.employee-card__suffix .field:not(:empty):not(:last-child):after{
+  content: ",";
 }
 
 .employee-card__button a {

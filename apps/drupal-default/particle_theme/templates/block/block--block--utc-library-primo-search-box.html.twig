@@ -54,11 +54,8 @@ There are many issues including but not limited to:
 
 		<div class="container"> <div class="lib-search__card {{ search_top_margin }} {{ search_bottom_margin }}">
 			{%  if "On" in content.field_include_search_help.0 %}
-				<a aria-label="search help" class="lib-search__info" href="{% if content.field_search_help_link %} {{ content.field_search_help_link[0] }} {% else %} /library/help/tutorials/reseach-basics {% endif %} " target="_blank">
-					<span class="fa-layers fa-fw fa-2x">
-						<i class="fas fa-circle"></i>
-						<i class="fa-inverse fas fa-question" data-fa-transform="shrink-8" style="color:#011a3a;"></i>
-					</span>
+				<a aria-label="search help" class="float-right" href="{% if content.field_search_help_link %} {{ content.field_search_help_link[0] }} {% endif %} ">
+						<i class="fas fa-2x fa-question-circle" data-fa-transform="shrink-8"></i>
 				</a>
 			{% endif %}
 			<div{{container_attribute.addClass(container_classes)}}>
