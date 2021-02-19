@@ -30,6 +30,7 @@
  * @see template_preprocess_views_view_table()
  */
 #}
+
 {%
   set classes = [
     'border-collapse',
@@ -64,10 +65,11 @@
                     {%
                       set column_classes = [
                         'p-3', 
-                        'font-bold',
+                        'font-semibold',
                         'uppercase',
                         'bg-utc-new-blue-100',
                         'text-utc-new-blue-500',
+                        'tracking-wider',
                         'border-0',
                         'hidden',
                         'xl:table-cell'
@@ -80,14 +82,18 @@
                         {%- if column.url -%}
                           <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
                         {%- else -%}
+                        {%- if column is not empty -%}
                           {{ column.content }}{{ column.sort_indicator }}
+                          {% endif %}
                         {%- endif -%}
                       </{{ column.wrapper_element }}>
                     {%- else -%}
                       {%- if column.url -%}
                         <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
                       {%- else -%}
+                      {%- if column.content is not empty -%}
                         {{- column.content }}{{ column.sort_indicator }}
+                        {% endif %}
                       {%- endif -%}
                     {%- endif -%}
                   </th>
@@ -99,7 +105,6 @@
           {%
                       set row_classes = [
                         'bg-white',
-                        'xl:hover:bg-gray-100',
                         'font-medium',
                         'flex',
                         'xl:table-row',
@@ -109,7 +114,8 @@
                         'xl:flex-no-wrap',
                         'mb-5', 
                         'xl:mb-0',
-                        'shadow-lg',
+                        'shadow',
+                        'xl:shadow-lg',
                       ]
                     %}
             {% for row in rows %}
@@ -118,16 +124,17 @@
                   {% if column.default_classes %}
                     {%
                       set column_classes = [
-                          'xl:w-auto',
-                          'xl:my-3',
                           'text-gray-800',
+                          'block',
+                          'text-sm',
+                          'my-3',
+                          'xl:w-auto',
+                          'xl:table-cell',
+                          'xl:border-b',
                           'xl:border-l-0',
                           'xl:border-r-0',
-                          'xl:border-b',
-                          'block',
-                          'xl:table-cell',
-                          'text-sm',
-                          'my-5'
+                          'xl:my-8',
+                          'xl:p-1',
                       ]
                     %}
                     {% for field in column.fields %}
@@ -135,26 +142,35 @@
                     {% endfor %}
                   {% endif %}
                   {% if loop.first %}
-                    {%
-                      set column_classes = [
-                          'w-full',
-                          'bg-utc-new-blue-100',
-                          'font-semibold',
-                          'xl:bg-white',
+                    {% set column_classes = [
+                          'block',
+                          'w-full', 
+                          'text-white', 
+                          'bg-utc-new-blue-400', 
+                          'font-semibold', 
+                          'text-lg',
+                          'mt-0', 
+                          'mb-3', 
+                          'px-5', 
+                          'py-3', 
                           'xl:w-auto',
-                          'p-3',
-                          'text-gray-800',
+                          'xl:table-cell',
+                          'xl:border-b',
                           'xl:border-l-0',
                           'xl:border-r-0',
-                          'xl:border-b',
-                          'block',
-                          'xl:table-cell',
-                          'text-lg',
-                          'xl:text-sm'
-                      ]
-                    %}
+                          'xl:text-gray-800', 
+                          'xl:bg-white',
+                          'xl:text-sm',
+                          'xl:w-auto',
+                          'xl:my-8',
+                          'xl:p-3'
+                        ] %}
                   {% endif %}
+                  {% if loop.last %}
+                    {% set column_classes = column_classes|merge(['w-full', 'bg-gray-100', 'font-semibold', 'xl:bg-white', 'xl:w-auto', 'mt-3', 'mb-0', 'xl:my-8']) %}
+                  {% endif %} 
                   <td{{ column.attributes.addClass(column_classes) }}>
+                    {{ header.content }}
                     {%- if column.wrapper_element -%}
                       <{{ column.wrapper_element }}>
                       {% for content in column.content %}
@@ -163,6 +179,7 @@
                       </{{ column.wrapper_element }}>
                     {%- else -%}
                       {% for content in column.content %}
+                    
                         {{- content.separator }}{{ content.field_output -}}
                       {% endfor %}
                     {%- endif %}
