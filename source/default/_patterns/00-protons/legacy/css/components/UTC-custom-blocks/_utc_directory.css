@@ -18,7 +18,7 @@
   flex-wrap: wrap;
 }
 #edit-alpha .form-item-alpha:first-child{
-  display: none; 
+  display: none;
 }
 #edit-alpha input[type="radio"]:checked + label {
   background-color:#fdb736;
@@ -42,4 +42,42 @@
 }
 .view-utc-directory .lib-item-form .js-form-item-combine {
   flex-grow: 10;
+}
+.view-utc-directory .pager {
+  width: 100%;
+}
+.view-utc-directory .view-empty{
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .view-utc-directory .js-form-item-dept{
+    min-width: 50%;
+  }
+}
+.view-utc-directory .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 50px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 2rem;
+}
+.view-utc-directory .select2-container .select2-selection--single {
+  height: 50px;
+}
+.view-utc-directory #select2-edit-dept-container{
+  line-height: 2.25rem;
+  height: 50px;
+  width: 100%;
+  border: 2px solid;
+  border-radius: 0;
+  --bg-opacity: 1;
+  background-color: #fff;
+  background-color: rgba(255,255,255,var(--bg-opacity));
+  --border-opacity: 1;
+  border-color: #112e51;
+  border-color: rgba(17,46,81,var(--border-opacity));
+  --text-opacity: 1;
+  color: #112e51;
+  color: rgba(17,46,81,var(--text-opacity));
+  font-size: 1rem;
 }
