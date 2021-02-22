@@ -72,7 +72,9 @@
                         'tracking-wider',
                         'border-0',
                         'hidden',
-                        'xl:table-cell'
+                        'lg:table-cell',
+                        'lg:text-small',
+                        'xl:text-base'
                       ]
                     %}
                   {% endif %}
@@ -107,15 +109,15 @@
                         'bg-white',
                         'font-medium',
                         'flex',
-                        'xl:table-row',
+                        'lg:table-row',
                         'flex-row',
-                        'xl:flex-row',
+                        'lg:flex-row',
                         'flex-wrap',
-                        'xl:flex-no-wrap',
+                        'lg:flex-no-wrap',
                         'mb-5', 
-                        'xl:mb-0',
+                        'lg:mb-0',
                         'shadow',
-                        'xl:shadow-lg',
+                        'lg:shadow-lg',
                       ]
                     %}
             {% for row in rows %}
@@ -128,13 +130,15 @@
                           'block',
                           'text-sm',
                           'my-3',
-                          'xl:w-auto',
-                          'xl:table-cell',
-                          'xl:border-b',
-                          'xl:border-l-0',
-                          'xl:border-r-0',
-                          'xl:my-8',
-                          'xl:p-1',
+                          'lg:w-auto',
+                          'lg:table-cell',
+                          'lg:border-b',
+                          'lg:border-l-0',
+                          'lg:border-r-0',
+                          'lg:my-8',
+                          'lg:p-0',
+                          'lg:text-xs',
+                          'xl:text-sm'
                       ]
                     %}
                     {% for field in column.fields %}
@@ -153,21 +157,21 @@
                           'mb-3', 
                           'px-5', 
                           'py-3', 
+                          'lg:w-5',
+                          'lg:table-cell',
+                          'lg:border-b',
+                          'lg:border-l-0',
+                          'lg:border-r-0',
+                          'lg:text-gray-800', 
+                          'lg:bg-white',
+                          'lg:text-sm',
+                          'lg:my-8',
+                          'lg:p-3',
                           'xl:w-auto',
-                          'xl:table-cell',
-                          'xl:border-b',
-                          'xl:border-l-0',
-                          'xl:border-r-0',
-                          'xl:text-gray-800', 
-                          'xl:bg-white',
-                          'xl:text-sm',
-                          'xl:w-auto',
-                          'xl:my-8',
-                          'xl:p-3'
                         ] %}
                   {% endif %}
                   {% if loop.last %}
-                    {% set column_classes = column_classes|merge(['w-full', 'bg-gray-100', 'font-semibold', 'xl:bg-white', 'xl:w-auto', 'mt-3', 'mb-0', 'xl:my-8']) %}
+                    {% set column_classes = column_classes|merge(['w-full', 'bg-gray-100', 'font-semibold', 'lg:bg-white', 'lg:w-auto', 'mt-3', 'mb-0', 'lg:my-8']) %}
                   {% endif %} 
                   <td{{ column.attributes.addClass(column_classes) }}>
                     {{ header.content }}
