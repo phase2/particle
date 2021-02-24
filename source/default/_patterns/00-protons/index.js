@@ -33,7 +33,7 @@ import './legacy/css/components/UTC-custom-blocks/_utclib_guides.css';
 import './legacy/css/components/UTC-custom-blocks/_utclib_events.css';
 import './legacy/css/components/navigation/_breadcrumb.css';
 import './legacy/css/components/navigation/_footer-menu.css';
-
+import './legacy/css/components/UTC-custom-blocks/_utc_directory.css';
 import './legacy/css/information-technology/_header.css';
 import './legacy/css/information-technology/_midpagewidget.css';
 import './legacy/css/digital_measures/tabbed.css'
