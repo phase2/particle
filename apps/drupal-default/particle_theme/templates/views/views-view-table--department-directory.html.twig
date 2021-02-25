@@ -72,8 +72,7 @@
                         'tracking-wider',
                         'border-0',
                         'hidden',
-                        'lg:table-cell',
-                        'lg:text-small',
+                        'xl:table-cell',
                         'xl:text-base'
                       ]
                     %}
@@ -109,15 +108,15 @@
                         'bg-white',
                         'font-medium',
                         'flex',
-                        'lg:table-row',
+                        'xl:table-row',
                         'flex-row',
-                        'lg:flex-row',
+                        'xl:flex-row',
                         'flex-wrap',
-                        'lg:flex-no-wrap',
+                        'xl:flex-no-wrap',
                         'mb-5', 
-                        'lg:mb-0',
+                        'xl:mb-0',
                         'shadow',
-                        'lg:shadow-lg',
+                        'xl:shadow-lg',
                       ]
                     %}
             {% for row in rows %}
@@ -130,14 +129,14 @@
                           'block',
                           'text-sm',
                           'my-3',
-                          'lg:w-auto',
-                          'lg:table-cell',
-                          'lg:border-b',
-                          'lg:border-l-0',
-                          'lg:border-r-0',
-                          'lg:my-8',
-                          'lg:p-0',
-                          'lg:text-xs',
+                          'xl:w-auto',
+                          'xl:table-cell',
+                          'xl:border-b',
+                          'xl:border-l-0',
+                          'xl:border-r-0',
+                          'xl:my-8',
+                          'xl:p-0',
+                          'xl:text-xs',
                    
                       ]
                     %}
@@ -157,21 +156,20 @@
                           'mb-3', 
                           'px-5', 
                           'py-3', 
-                          'lg:w-1/5',
-                          'lg:table-cell',
-                          'lg:border-b',
-                          'lg:border-l-0',
-                          'lg:border-r-0',
-                          'lg:text-gray-800', 
-                          'lg:bg-white',
-                          'lg:text-sm',
-                          'lg:my-8',
-                          'lg:p-3',
-                          'xl:w-80',
+                          'xl:w-1/5',
+                          'xl:table-cell',
+                          'xl:border-b',
+                          'xl:border-l-0',
+                          'xl:border-r-0',
+                          'xl:text-gray-800', 
+                          'xl:bg-white',
+                          'xl:text-sm',
+                          'xl:my-8',
+                          'xl:p-3',
                         ] %}
                   {% endif %}
                   {% if loop.last %}
-                    {% set column_classes = column_classes|merge(['w-full', 'bg-gray-100', 'font-semibold', 'lg:bg-white', 'lg:w-auto', 'mt-3', 'mb-0', 'lg:my-8']) %}
+                    {% set column_classes = column_classes|merge(['w-full', 'bg-gray-100', 'font-semibold', 'xl:bg-white', 'xl:w-auto', 'mt-3', 'mb-0', 'xl:my-8']) %}
                   {% endif %} 
                   <td{{ column.attributes.addClass(column_classes) }}>
                     {{ header.content }}
