@@ -27,12 +27,13 @@
 {% set employee_body = '' %}
   {% set profile_url = '' %} {# declare empty variable re/set #}
   {% if view.storage.executable.args[0] == 'all' %}{# could use to check for indvidual view if utcid not set #}
-  {# one option would be to check for body and render with a view
+  {# one option would be to check for body and render with a view #}
     {% if view.style_plugin.getField(key, 'body')|render|striptags|trim is not empty %}
     {% set profile_url = site_url|render ~ '?utcid=' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim ~ '&dept=' ~ view.style_plugin.getField(key, 'field_utc_department_3')|render|striptags|trim %}
-  #}
+  {#
   {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim is not empty %}
     {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
+    #}
   {% endif %}
     <div class="employee-card__container--full w-auto">
   <div class="employee-card h-100 employee-card--utc-small-teaser-card">
