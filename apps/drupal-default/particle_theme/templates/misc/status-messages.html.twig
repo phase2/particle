@@ -34,7 +34,8 @@
     {% embed '@atoms/alert/_alert.twig' %}
       {% block alert_header %}
         <a href="#" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}">
-          <span aria-hidden="true">&times;</span>
+          {# Not used as this action requires javascript #}
+          {# <span aria-hidden="true">&times;</span> #}
         </a>
         {% if status_headings[type] %}
           <h2 class="visually-hidden">

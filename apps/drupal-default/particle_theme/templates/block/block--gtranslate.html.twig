@@ -25,19 +25,34 @@
  * @see template_preprocess_block()
  */
 #}
-{{ attach_library('utccloud/utc-digitalmeasures') }}
+{%
+  set classes = [
+    'container',
+    'pt-6',
+    'px-6',
+    'pb-0',
+    'flex',
+    'flex-row-reverse',
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
 
-<div{{ attributes }}>
+<style>.gtranslate > select { 
+  padding: 0 1rem;
+  outline: 1rem white solid;
+  filter: drop-shadow(0 3px 3px #ccc);
+  }
+</style>
+
+<div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
-    {% if label %}
-      <h2{{ title_attributes }}>
-         <span class="title-text">{{ label }}</span>
-      </h2>
-    {% endif %}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
   {{ title_suffix }}
   {% block content %}
-    <div{{ content_attributes.addClass('mt-16') }}>
-            <div id="dm-web-profile-root"></div>
-    </div>
+    {{ content }}
   {% endblock %}
 </div>
