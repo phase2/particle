@@ -40,6 +40,7 @@
 .btn-primary:focus,
 .btn-dark:focus {
   box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+  border: 0;
 }
 
 .btn--yellow,
@@ -155,6 +156,7 @@
 .btn-light {
   @apply bg-gray-300;
   @apply text-utc-new-blue-500;
+  border: 0;
 }
 
 .btn--lightblue:hover,
