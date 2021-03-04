@@ -139,30 +139,3 @@ div.site-alert div.text {
   margin: 0px;
   font-size: 18px;
 }
-
-/* For use in views where : (colon) is not accepted. */
-
-
-@media (min-width: 640px) {
-  .hide-sm {
-    display: none !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .hide-md {
-    display: none !important;
-  }
-}
-  
-@media (min-width: 1024px) {
-.hide-lg {
-  display: none !important;
-  }
-}
-
-@media (min-width: 1280px) {
-.hide-xl { 
-  display: none !important;
- }
-}
