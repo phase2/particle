@@ -24,7 +24,7 @@
       <div class="col-12 col-lg-9">
         <h1>{{ user.getDisplayName }}</h1>
         {{ content|without('user_picture', 'field_facebook', 'field_twitter', 'field_google_plus', 'field_instagram', 'field_linkedin', 'field_pinterest') }}
-        <div class="mt-4 mt-lg-0">
+        <div class="mt-6 mt-lg-0">
           {{ include('@themag/user/components/user-social-pages.html.twig') }}
         </div>
       </div>

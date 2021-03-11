@@ -1,0 +1,193 @@
+{#
+/**
+ * @file
+ * Theme override for displaying a view as a table.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ *   - class: HTML classes that can be used to style contextually through CSS.
+ * - title : The title of this group of rows.
+ * - header: The table header columns.
+ *   - attributes: Remaining HTML attributes for the element.
+ *   - content: HTML classes to apply to each header cell, indexed by
+ *   the header's key.
+ *   - default_classes: A flag indicating whether default classes should be
+ *     used.
+ * - caption_needed: Is the caption tag needed.
+ * - caption: The caption for this table.
+ * - accessibility_description: Extended description for the table details.
+ * - accessibility_summary: Summary for the table details.
+ * - rows: Table row items. Rows are keyed by row number.
+ *   - attributes: HTML classes to apply to each row.
+ *   - columns: Row column items. Columns are keyed by column number.
+ *     - attributes: HTML classes to apply to each column.
+ *     - content: The column content.
+ *   - default_classes: A flag indicating whether default classes should be
+ *     used.
+ * - responsive: A flag indicating whether table is responsive.
+ * - sticky: A flag indicating whether table header is sticky.
+ *
+ * @see template_preprocess_views_view_table()
+ */
+#}
+
+{%
+  set classes = [
+    'border-collapse',
+    'w-full',
+  ]
+%}
+        <table{{ attributes.addClass(classes) }}>
+          {% if caption_needed %}
+            <caption>
+            {% if caption %}
+              {{ caption }}
+            {% else %}
+              {{ title }}
+            {% endif %}
+            {% if (summary is not empty) or (description is not empty) %}
+              <details>
+                {% if summary is not empty %}
+                  <summary>{{ summary }}</summary>
+                {% endif %}
+                {% if description is not empty %}
+                  {{ description }}
+                {% endif %}
+              </details>
+            {% endif %}
+            </caption>
+          {% endif %}
+          {% if header %}
+            <thead>
+              <tr>
+                {% for key, column in header %}
+                  {% if column.default_classes %}
+                    {%
+                      set column_classes = [
+                        'p-3', 
+                        'font-semibold',
+                        'uppercase',
+                        'bg-utc-new-blue-100',
+                        'text-utc-new-blue-500',
+                        'tracking-wider',
+                        'border-0',
+                        'hidden',
+                        'xl:table-cell',
+                        'xl:text-base'
+                      ]
+                    %}
+                  {% endif %}
+                  <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
+                    {%- if column.wrapper_element -%}
+                      <{{ column.wrapper_element }}>
+                        {%- if column.url -%}
+                          <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                        {%- else -%}
+                        {%- if column is not empty -%}
+                          {{ column.content }}{{ column.sort_indicator }}
+                          {% endif %}
+                        {%- endif -%}
+                      </{{ column.wrapper_element }}>
+                    {%- else -%}
+                      {%- if column.url -%}
+                        <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                      {%- else -%}
+                      {%- if column.content is not empty -%}
+                        {{- column.content }}{{ column.sort_indicator }}
+                        {% endif %}
+                      {%- endif -%}
+                    {%- endif -%}
+                  </th>
+                {% endfor %}
+              </tr>
+            </thead>
+          {% endif %}
+          <tbody>
+          {%
+                      set row_classes = [
+                        'bg-white',
+                        'font-medium',
+                        'flex',
+                        'xl:table-row',
+                        'flex-row',
+                        'xl:flex-row',
+                        'flex-wrap',
+                        'xl:flex-no-wrap',
+                        'mb-5', 
+                        'xl:mb-0',
+                        'shadow',
+                        'xl:shadow-lg',
+                      ]
+                    %}
+            {% for row in rows %}
+              <tr{{ row.attributes.addClass(row_classes) }}>
+                {% for key, column in row.columns %}
+                  {% if column.default_classes %}
+                    {%
+                      set column_classes = [
+                          'text-gray-800',
+                          'block',
+                          'text-sm',
+                          'my-3',
+                          'xl:w-auto',
+                          'xl:table-cell',
+                          'xl:border-b',
+                          'xl:border-l-0',
+                          'xl:border-r-0',
+                          'xl:my-8',
+                          'xl:p-0',
+                          'xl:text-xs',
+                   
+                      ]
+                    %}
+                    {% for field in column.fields %}
+                      {% set column_classes = column_classes|merge(['views-' ~ field]) %}
+                    {% endfor %}
+                  {% endif %}
+                  {% if loop.first %}
+                    {% set column_classes = [
+                          'block',
+                          'w-full', 
+                          'text-white', 
+                          'bg-utc-new-blue-400', 
+                          'font-semibold', 
+                          'text-lg',
+                          'mt-0', 
+                          'mb-3', 
+                          'px-5', 
+                          'py-3', 
+                          'xl:w-1/5',
+                          'xl:table-cell',
+                          'xl:border-b',
+                          'xl:border-l-0',
+                          'xl:border-r-0',
+                          'xl:text-gray-800', 
+                          'xl:bg-white',
+                          'xl:text-sm',
+                          'xl:my-8',
+                          'xl:p-3',
+                        ] %}
+                  {% endif %}
+                  {% if loop.last %}
+                    {% set column_classes = column_classes|merge(['w-full', 'bg-gray-100', 'font-semibold', 'xl:bg-white', 'xl:w-auto', 'mt-3', 'mb-0', 'xl:my-8']) %}
+                  {% endif %} 
+                  <td{{ column.attributes.addClass(column_classes) }}>
+                    {{ header.content }}
+                    {%- if column.wrapper_element -%}
+                      <{{ column.wrapper_element }}>
+                      {% for content in column.content %}
+                        {{ content.separator }}{{ content.field_output }}
+                      {% endfor %}
+                      </{{ column.wrapper_element }}>
+                    {%- else -%}
+                      {% for content in column.content %}
+                    
+                        {{- content.separator }}{{ content.field_output -}}
+                      {% endfor %}
+                    {%- endif %}
+                  </td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
