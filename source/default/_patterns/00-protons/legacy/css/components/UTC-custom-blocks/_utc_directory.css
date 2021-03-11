@@ -1,4 +1,14 @@
 /* UTC Styles for directory */
+/* relies on flex at the template level in apps/drupal-default/particle_theme/templates/views/views-exposed-form--utc-directory.html.twig */
+
+.utc-directory .form-item {
+  flex: 1 1 auto;
+}
+
+.utc-directory input#edit-reset {
+width: auto;
+}
+
 #edit-alpha input[type="radio"]{
   opacity: 0;
   position: fixed;
@@ -34,12 +44,6 @@
 .view-utc-directory .view-content{
   width: 100% !important;
 }
-.view-utc-directory .form-actions {
-  display: inline-grid !important;
-}
-.view-utc-directory #edit-reset{
-  margin-top: 3rem;
-}
 .view-utc-directory .lib-item-form .js-form-item-combine {
   flex-grow: 10;
 }
@@ -62,7 +66,7 @@
   width: 2rem;
 }
 .view-utc-directory .select2-container .select2-selection--single {
-  height: 50px;
+  height: 50px; 
 }
 .view-utc-directory #select2-edit-dept-container{
   line-height: 2.25rem;
