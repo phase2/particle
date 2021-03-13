@@ -2,8 +2,25 @@
 /* relies on flex at the template level in apps/drupal-default/particle_theme/templates/views/views-exposed-form--utc-directory.html.twig */
 
 .utc-directory .form-item {
-  flex: 1 1 auto;
+  flex: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
+
+.utc-directory .form-item-alpha {
+  flex-grow: 0;
+}
+
+.utc-directory .form-item-dept{
+  min-width: 100%;
+}
+
+@media (maxß-width: 768px) {
+  .utc-directory .form-item-dept{
+    min-width: 40%;
+  }
+}
+
 
 .utc-directory input#edit-reset {
 width: auto;
@@ -16,12 +33,13 @@ width: auto;
 }
 #edit-alpha label {
   display: inline-block;
-  background-color: #ddd;
-  padding: 5px 10px;
+  @apply bg-utc-new-blue-100;
+  padding: 10px 15px;
+  margin: 2px;
   font-family: sans-serif, Arial;
   font-size: 1em;
-  border: 2px solid #444;
-  border-radius: 4px;
+  border: 0;
+  border-radius: 0;
 }
 #edit-alpha{
   display: flex;
@@ -53,11 +71,7 @@ width: auto;
 .view-utc-directory .view-empty{
   width: 100%;
 }
-@media (min-width: 768px) {
-  .view-utc-directory .js-form-item-dept{
-    min-width: 50%;
-  }
-}
+
 .view-utc-directory .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 50px;
   position: absolute;
