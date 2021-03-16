@@ -1,5 +1,6 @@
 /* UTC Styles for directory */
-/* relies on flex at the template level in apps/drupal-default/particle_theme/templates/views/views-exposed-form--utc-directory.html.twig */
+/* relies on flex and utc-directory 
+at the template level in apps/drupal-default/particle_theme/templates/views/views-exposed-form--utc-directory.html.twig */
 
 .utc-directory .form-item {
   flex: auto;
@@ -7,59 +8,76 @@
   flex-shrink: 1;
 }
 
+.utc-directory label {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.utc-directory .form-item-dept,
+.utc-directory .form-type-textfield {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .utc-directory .form-item-dept {
+    width: 40%;
+  }
+  .utc-directory .form-type-textfield {
+    width: 55%;
+    margin-left:10px;
+  }
+}
+
+/* alphabet menu styles */
+.utc-directory fieldset#edit-alpha--wrapper {
+  width: 100%;
+}
+
 .utc-directory .form-item-alpha {
   flex-grow: 0;
 }
 
-.utc-directory .form-item-dept{
-  min-width: 100%;
+.utc-directory .form-radios {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@media (maxß-width: 768px) {
-  .utc-directory .form-item-dept{
-    min-width: 40%;
-  }
+/* hide 'any' label */
+.utc-directory .form-radios .form-item-alpha:first-child {
+  display: none;
 }
 
-
-.utc-directory input#edit-reset {
-width: auto;
+.utc-directory .form-radios label {
+  display: inline-block;
+  @apply bg-utc-new-blue-100;
+  padding: 10px;
+  margin: 3px;
+  width: 42px;
+  font-weight: bold;
+  font-family: sans-serif, Arial;
+  font-size: 1em;
+  text-align: center;
+  border: 0;
+  border-radius: 0;
 }
 
-#edit-alpha input[type="radio"]{
+.utc-directory .form-radios label:hover {
+  @apply bg-utc-new-gold-300;
+  cursor: pointer;
+}
+
+.utc-directory .form-radios input[type='radio']:checked + label {
+  @apply bg-utc-new-gold-300;
+}
+
+/* hides the radio buttons */
+.utc-directory .form-radios input[type='radio'] {
   opacity: 0;
   position: fixed;
   width: 0;
 }
-#edit-alpha label {
-  display: inline-block;
-  @apply bg-utc-new-blue-100;
-  padding: 10px 15px;
-  margin: 2px;
-  font-family: sans-serif, Arial;
-  font-size: 1em;
-  border: 0;
-  border-radius: 0;
-}
-#edit-alpha{
-  display: flex;
-  flex-wrap: wrap;
-}
-#edit-alpha .form-item-alpha:first-child{
-  display: none;
-}
-#edit-alpha input[type="radio"]:checked + label {
-  background-color:#fdb736;
-  flex: 1 1 auto;
-}
-#edit-alpha label:hover {
-  background-color: #fdb736;
-  cursor: pointer;
-}
-#edit-alpha .form-item-alpha {
-  margin-left: 0px !important;
-}
-.view-utc-directory .view-content{
+
+.view-utc-directory .view-content {
   width: 100% !important;
 }
 .view-utc-directory .lib-item-form .js-form-item-combine {
@@ -68,34 +86,49 @@ width: auto;
 .view-utc-directory .pager {
   width: 100%;
 }
-.view-utc-directory .view-empty{
+.view-utc-directory .view-empty {
   width: 100%;
 }
 
-.view-utc-directory .select2-container--default .select2-selection--single .select2-selection__arrow {
+/* these styles mimics the default style for the input boxes in Drupal coming from _forms. Styling will be global
+  so all select2 dropdown filters in use will look the same */
+.select2-container .select2-selection--single {
+  height: auto;
+  @apply bg-white;
+  padding: 10px 0.5rem;
+  border: 1px solid;
+  border-color: #cfd8dc;
+  border-radius: 0.25rem;
+  box-shadow: inset 0 1px 1px rgb(38 50 56 / 8%);
+  font-size: 0.85rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 50px;
   position: absolute;
   top: 1px;
   right: 1px;
   width: 2rem;
-}
-.view-utc-directory .select2-container .select2-selection--single {
-  height: 50px; 
-}
-.view-utc-directory #select2-edit-dept-container{
   line-height: 2.25rem;
-  height: 50px;
-  width: 100%;
-  border: 2px solid;
-  border-radius: 0;
-  --bg-opacity: 1;
-  background-color: #fff;
-  background-color: rgba(255,255,255,var(--bg-opacity));
-  --border-opacity: 1;
-  border-color: #112e51;
-  border-color: rgba(17,46,81,var(--border-opacity));
-  --text-opacity: 1;
-  color: #112e51;
-  color: rgba(17,46,81,var(--text-opacity));
-  font-size: 1rem;
+}
+
+.select2-dropdown {
+  border: 1px solid;
+  border-color: #cfd8dc;
+  border-radius: 0.25rem;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  @apply bg-utc-new-blue-400;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  @apply bg-utc-new-blue-100;
+}
+
+.utc-directory input#edit-reset {
+ width: 100%;
 }
