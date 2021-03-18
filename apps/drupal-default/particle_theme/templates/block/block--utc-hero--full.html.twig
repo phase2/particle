@@ -25,7 +25,7 @@
     hero_button_url: content.field_hero_button.0['#url'],
     } %}
 
-	<div class="grid grid-rows-3 grid-flow-col gap-4"> 
+	<div class="grid grid-rows-3 grid-flow-col gap-4 bg-gray-100"> 
 
 		{% if utc_hero.hero_title %}
 				<h2 class="col-span-2 text-center mt-32" >
@@ -38,7 +38,7 @@
 				</h3>
 		{% endif %}
 		{% if utc_hero.hero_image %}
-				<div class="row-span-3">{{ utc_hero.hero_image }} </div>
+				<div class="row-span-3 mt-12 -mb-12">{{ utc_hero.hero_image }} </div>
 		{% endif %}
 		{% if utc_hero.hero_button_url %}
 				<a>
