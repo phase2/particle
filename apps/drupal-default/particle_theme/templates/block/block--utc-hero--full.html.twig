@@ -1,0 +1,55 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file Card Grid!
+ * Implements a grid of cards using Bootstrap layout.
+ *
+ * Available variables:
+ */
+ *
+ * This template pulls in the variables to add to the cards. 
+ * References the block--utc-card-base.html.twig to create the individual cards in this grid.
+#}
+ 
+{% block content %}
+	{% set rendered_content = content|render %}
+	{# Sets variable to trigger content render array. #}
+
+	{# set variables for card content based on Drupal input #}
+	{# hero_tag: content.field_hero_tag|field_value, #}
+	{% set utc_hero = {
+    hero_title: content.field_hero_title|field_value,
+    hero_image: content.field_utc_media|field_value,
+    hero_text: content.field_hero_body|field_value,
+    hero_button_text: content.field_hero_button.0['#title'],
+    hero_button_url: content.field_hero_button.0['#url'],
+    } %}
+
+	<div class="utc-card-grid__container"> 
+
+		{% if utc_hero.hero_title %}
+				<h2>
+					{{ utc_hero.hero_title }}
+				</h2>
+		{% endif %}
+		{% if utc_hero.hero_text %}
+				<h3>
+					{{ utc_hero.hero_text}}
+				</h3>
+		{% endif %}
+		{% if utc_hero.hero_image %}
+					{{ utc_hero.hero_image }}
+		{% endif %}
+		{% if utc_hero.hero_button_url %}
+				<a>
+					{{ utc_hero.hero_button_text}}
+					{{ hero_button_url}}
+				</a>
+		{% endif %}
+
+	</div>
+
+
+
+
+{% endblock %}
