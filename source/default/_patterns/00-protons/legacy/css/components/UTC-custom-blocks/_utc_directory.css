@@ -1,53 +1,61 @@
 /* UTC Styles for directory */
 /* relies on flex and utc-directory 
 at the template level in apps/drupal-default/particle_theme/templates/views/views-exposed-form--utc-directory.html.twig */
+.utc-directory-form { 
+  margin-bottom: 20px;
+}
 
-.utc-directory .form-item {
+.utc-directory-form .form-item,
+.utc-directory-form .form-actions {
   flex: auto;
   flex-grow: 1;
   flex-shrink: 1;
 }
 
-.utc-directory label {
+.utc-directory-form label {
   text-transform: uppercase;
   letter-spacing: 2px;
+  @apply text-utc-new-blue-500;
 }
 
-.utc-directory .form-item-dept,
-.utc-directory .form-type-textfield {
+.utc-directory-form .form-item-dept,
+.utc-directory-form .form-type-textfield {
   width: 100%;
+  margin-bottom: 12px;
 }
 
+/* fiters side by side on larger screens */
 @media (min-width: 768px) {
-  .utc-directory .form-item-dept {
+  .utc-directory-form .form-item-dept {
     width: 40%;
   }
-  .utc-directory .form-type-textfield {
+  .utc-directory-form .form-type-textfield {
     width: 55%;
     margin-left:10px;
   }
 }
 
 /* alphabet menu styles */
-.utc-directory fieldset#edit-alpha--wrapper {
-  width: 100%;
-}
+.utc-directory-form fieldset#edit-alpha--wrapper {
+ width: 100%;
+} 
 
-.utc-directory .form-item-alpha {
+.utc-directory-form .form-item-alpha {
   flex-grow: 0;
 }
 
-.utc-directory .form-radios {
+.utc-directory-form .form-radios {
   display: flex;
   flex-wrap: wrap;
+  margin-top:0;
 }
 
 /* hide 'any' label */
-.utc-directory .form-radios .form-item-alpha:first-child {
+.utc-directory-form .form-radios .form-item-alpha:first-child {
   display: none;
 }
 
-.utc-directory .form-radios label {
+.utc-directory-form .form-radios label {
   display: inline-block;
   @apply bg-utc-new-blue-100;
   padding: 10px;
@@ -61,33 +69,20 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   border-radius: 0;
 }
 
-.utc-directory .form-radios label:hover {
+.utc-directory-form .form-radios label:hover {
   @apply bg-utc-new-gold-300;
   cursor: pointer;
 }
 
-.utc-directory .form-radios input[type='radio']:checked + label {
+.utc-directory-form .form-radios input[type='radio']:checked + label {
   @apply bg-utc-new-gold-300;
 }
 
 /* hides the radio buttons */
-.utc-directory .form-radios input[type='radio'] {
+.utc-directory-form .form-radios input[type='radio'] {
   opacity: 0;
   position: fixed;
   width: 0;
-}
-
-.view-utc-directory .view-content {
-  width: 100% !important;
-}
-.view-utc-directory .lib-item-form .js-form-item-combine {
-  flex-grow: 10;
-}
-.view-utc-directory .pager {
-  width: 100%;
-}
-.view-utc-directory .view-empty {
-  width: 100%;
 }
 
 /* these styles mimics the default style for the input boxes in Drupal coming from _forms. Styling will be global
@@ -122,13 +117,59 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  @apply bg-utc-new-blue-400;
+  @apply bg-utc-new-blue-100;
+  @apply text-black;
 }
 
 .select2-container--default .select2-results__option[aria-selected=true] {
   @apply bg-utc-new-blue-100;
+  @apply text-black;
 }
 
-.utc-directory input#edit-reset {
- width: 100%;
+.utc-directory-form input#edit-reset {
+ width: auto;
+ @apply bg-white;
+ border-radius: 0;
+ border: 1px solid;
+ @apply border-utc-new-blue-500;
+}
+
+.view-utc-directory .view-content {
+  width: 100% !important;
+}
+.view-utc-directory .lib-item-form .js-form-item-combine {
+  flex-grow: 10;
+}
+
+/* pager styles - could be global? */
+.view-utc-directory .pager {
+  width: 100%;
+}
+
+.view-utc-directory ul.pager__items li a {
+  display: block;
+  @apply text-utc-new-blue-500;
+  padding: 10px 18px;
+  font-weight: bold;
+  font-family: sans-serif, Arial;
+  font-size: 1em;
+  border: 0;
+}
+
+.view-utc-directory ul.pager__items li {
+  @apply bg-utc-new-blue-100;
+}
+
+.view-utc-directory ul.pager__items li.is-active,
+.view-utc-directory ul.pager__items li a:hover,
+.view-utc-directory ul.pager__items li.is-active a:hover {
+  @apply bg-utc-new-gold-300;
+  border: 0;
+}
+
+.view-utc-directory li.pager__item.pager__item--ellipsis {
+  background-color: transparent !important;
+}
+.view-utc-directory .view-empty {
+  width: 100%;
 }
