@@ -25,20 +25,20 @@
     hero_button_url: content.field_hero_button.0['#url'],
     } %}
 
-	<div class="utc-card-grid__container"> 
+	<div class="grid grid-rows-3 grid-flow-col gap-4"> 
 
 		{% if utc_hero.hero_title %}
-				<h2>
+				<h2 class="col-span-2 text-center mt-32" >
 					{{ utc_hero.hero_title }}
 				</h2>
 		{% endif %}
 		{% if utc_hero.hero_text %}
-				<h3>
+				<h3 class="row-span-2 col-span-2 text-center">
 					{{ utc_hero.hero_text}}
 				</h3>
 		{% endif %}
 		{% if utc_hero.hero_image %}
-					{{ utc_hero.hero_image }}
+				<div class="row-span-3">{{ utc_hero.hero_image }} </div>
 		{% endif %}
 		{% if utc_hero.hero_button_url %}
 				<a>
