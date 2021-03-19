@@ -30,37 +30,43 @@
   <h3>{{ title }}</h3>
 {% endif %}
 {% for key,row in rows %}
+
+{# set variables #}
   {%
     set row_classes = [
     default_row_class ? 'views-row employee-card__grid',
   ]
   %}
-  {%  set dept_url = view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim|lower|replace({" ":"-"}) %}
-
+  {# set urls #}
+  {% set dept_url = view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim|lower|replace({" ":"-"}) %}
   {% set profile_url = '' %} {# declare empty variable re/set #}
   {% if profile != 'individual' %}
-    {# one option would be to check for body and render with a view #}
+    {# one option would be to check for body and render with a view -- creates url if a profile page is needed #}
     {% if
       ((view.style_plugin.getField(key, 'body')|render|striptags|trim is not empty) and (view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim is not empty))
       or
       (view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On")
     %}
       {% set profile_url = '/directory/' ~  dept_url  ~ '/' ~ view.style_plugin.getField(key, 'field_mocs_id')|render|striptags|trim %}
-      {% endif %}
-      {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim is not empty %}
-        {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
     {% endif %}
+    {% if view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim is not empty %}
+      {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
+    {% endif %}
+
+
     <div class="employee-card__container--full w-auto">
-    <div class="employee-card h-100 employee-card--utc-small-teaser-card">
-  {% else %}
-      {%  set employee_body = view.style_plugin.getField(key, 'body') %}
+      <div class="employee-card h-100 employee-card--wide-view-list">
+  {% else %} 
+    {%  set employee_body = view.style_plugin.getField(key, 'body') %}
       {# test render DM#}
-  {%  if view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On" %}
-    {{ attach_library('utccloud/utc-digitalmeasures2') }}
+    {%  if view.style_plugin.getField(key, 'field_use_digital_measures')|render|striptags|trim == "On" %}
+      {{ attach_library('utccloud/utc-digitalmeasures2') }}
     <div id="dm-web-profile-root"></div>
       {%  set employee_body = '' %}
       {% set hide_profile = 'hidden' %}
-  {% endif %}
+    {% endif %}
+
+
     {#  need to move this JS to external + add functionality to handle dept breadcrumb #}
     <script>
       var newBreadCrumbDept = "<a href='/directory/{{ dept_url }}'> {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>";
@@ -71,48 +77,51 @@
       }, false);
     </script>
     <div class="employee-card__container--full {% if hide_profile %}{{ hide_profile }}{% endif %}">
-    <div class="employee-card h-100 employee-card--full">
+      <div class="employee-card h-100 employee-card--full">
   {% endif %}
+
   {% if profile_url %}
   <a href="{{ profile_url }}" tabindex="-1">
   {% endif %}
-  <div class="employee-image">
-    <div class="field field--name-field-image field--type-image field--label-visually_hidden">
-      <div class="field__label visually-hidden">Image</div>
-      <div class="field__item">
-        <picture>
-          {{ view.style_plugin.getField(key, 'field_employee_picture') }}
-        </picture>
+    <div class="employee-image">
+      <div class="field field--name-field-image field--type-image field--label-visually_hidden">
+        <div class="field__label visually-hidden">Image</div>
+          <div class="field__item">
+            <picture>
+              {{ view.style_plugin.getField(key, 'field_employee_picture') }}
+            </picture>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
   {% if profile_url != '#' %}
   </a>
   {% endif %}
   <div class="employee-card__body">
   <div class="employee-card__info">
   {% if profile_url %}
-  <a href="{{ profile_url }}" tabindex="-1">
-    {% endif %}
-    <h3 class="employee-card__name">
-      {{ view.style_plugin.getField(key, 'field_employee_first_name') }} {{ view.style_plugin.getField(key, 'field_employee_last_name') }}
-    </h3>
-    {% if profile_url %}
-  </a>
+    <a href="{{ profile_url }}" tabindex="-1">
+  {% endif %}
+      <p class="employee-card__name">
+        {{ view.style_plugin.getField(key, 'field_employee_first_name') }} {{ view.style_plugin.getField(key, 'field_employee_last_name') }}
+      </p>
+  {% if profile_url %}
+    </a>
   {% endif %}
   <p class="employee-card__title">
     {{ view.style_plugin.getField(key, 'field_employee_title') }}
   </p>
+  {% if profile != 'indvidual' %}
+  {# if view.storage.executable.args[0] == 'all' #}
+  </div>
+  <div class="employee-card__info">
+  {%  endif %}
   <p>
-    <i class="fas fa-building fa-fw"></i>&nbsp
-    <a href='/directory/{{ dept_url }}'>
+    <a class='font-semibold' href='/directory/{{ dept_url }}'>
       {{ view.style_plugin.getField(key, 'field_utc_organizational_section')|render|striptags|trim }}</a>
   </p>
   {% if profile != 'indvidual' %}
   {# if view.storage.executable.args[0] == 'all' #}
   </div>
-  </div>
-  <div class="employee-card__body">
   <div class="employee-card__info">
   {%  endif %}
   {% if view.style_plugin.getField(key, 'field_employee_email')|render|striptags|trim %}
@@ -130,11 +139,15 @@
       <i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ view.style_plugin.getField(key, 'field_employee_telephone') }}
     </p>
   {% endif %}
+    {% if profile != 'indvidual' %}
+  {# if view.storage.executable.args[0] == 'all' #}
+  </div>
+  <div class="employee-card__more_info">
+  {%  endif %}
   {% if profile_url %}
     <p>
-      <a href="{{ profile_url }}">
-        <i class="fas fa-info-circle fa-fw"></i>
-        More info <i class="fas fa-chevron-right fa-fw"></i>
+      <a href="{{ profile_url }}" class="btn btn--navy btn--pill mb-0">
+        More<i class="fas fa-chevron-right fa-fw"></i>
       </a>
     </p>
   {% endif %}

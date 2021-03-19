@@ -16,6 +16,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   text-transform: uppercase;
   letter-spacing: 2px;
   @apply text-utc-new-blue-500;
+  font-size:1rem;
 }
 
 .utc-directory-form .form-item-dept,

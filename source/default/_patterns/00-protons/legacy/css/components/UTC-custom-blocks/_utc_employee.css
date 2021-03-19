@@ -71,7 +71,8 @@ a .employee-card--utc-small-teaser-card:hover {
   flex-direction: column;
 }
 
-.employee-card--utc-small-teaser-card {
+.employee-card--utc-small-teaser-card,
+.employee-card--wide-view-list {
   flex-direction: row;
   align-items: center;
 }
@@ -88,6 +89,8 @@ a .employee-card--utc-small-teaser-card:hover {
 .employee-card--full .employee-image {
   flex: 0 1 35%;
 }
+
+
 /* makes images stretch to full size of container in automated field classes */
 .employee-card img,
 .employee-card .employee-image .field,
@@ -105,6 +108,15 @@ a .employee-card--utc-small-teaser-card:hover {
   margin: 1rem 0.5rem 1rem 1rem;
 }
 
+/* image for directory style lists on mobile */
+.employee-card--wide-view-list img {
+  height: 7rem;
+  width: 7rem;
+  object-fit: cover;
+  border-radius: 100px;
+  margin: 1rem 0.5rem 1rem 1rem;
+  flex: 1 1;
+}
 .employee-card__body {
   padding: 0.5rem;
   display: flex;
@@ -112,6 +124,64 @@ a .employee-card--utc-small-teaser-card:hover {
   justify-content: space-between;
   height: auto;
   flex: 1 0;
+}
+
+/* wide list style cards stack multiple info elements */
+
+.employee-card--wide-view-list .employee-card__body,
+.employee-card--full .employee-card__body {
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  flex: 1 1;
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .employee-card--wide-view-list .employee-card__body {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    flex: 1 1;
+  }
+.employee-card--wide-view-list .employee-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  flex: 1 1;
+  padding: 10px;
+}
+.employee-card--wide-view-list .employee-card__more_info {
+  width: 150px;
+  flex: 0 1 auto;
+  margin-right: 20px
+}
+.employee-card--wide-view-list img {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+  border-radius: 100px;
+  margin: 1rem 0.5rem 1rem 1rem;
+  flex: 1 1;
+}
+}
+.employee-card--wide-view-list .employee-card__name,
+.employee-card--full .employee-card__name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1rem;
+}
+
+.employee-card--wide-view-list p {
+margin: .25rem;
+}
+
+.employee-card--wide-view-list .employee-card__more_info {
+  text-align: right;
 }
 
 .employee-card__name {
