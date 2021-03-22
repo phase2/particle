@@ -25,27 +25,31 @@
     hero_button_url: content.field_hero_button.0['#url'],
     } %}
 
-	<div class="grid grid-rows-utchero grid-flow-col gap-4 bg-gray-100"> 
+	<div class="grid grid-cols-1 md:grid-rows-utchero md:grid-cols-utchero md:gap-4  grid-flow-row bg-gray-400 md:mb-4"> 
+		{% if utc_hero.hero_image %}
+				<div class="md:col-start-1 md:col-end-3 md:row-start-2 md:row-end-5 md:m-auto col-span-1">{{ utc_hero.hero_image }} </div>
+		{% endif %}
 
+
+	<div class="md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4 col-span-1 m-auto"> 	
 		{% if utc_hero.hero_title %}
-				<h2 class="col-span-2 text-center mt-32" >
+				<h2 class="text-center" >
 					{{ utc_hero.hero_title }}
 				</h2>
 		{% endif %}
 		{% if utc_hero.hero_text %}
-				<h3 class="row-span-2 col-span-2 text-center">
+				<h3 class="text-center">
 					{{ utc_hero.hero_text}}
 				</h3>
 		{% endif %}
-		{% if utc_hero.hero_image %}
-				<div class="row-span-3 mt-12 -mb-12">{{ utc_hero.hero_image }} </div>
-		{% endif %}
 		{% if utc_hero.hero_button_url %}
-				<a>
-					{{ utc_hero.hero_button_text}}
-					{{ hero_button_url}}
-				</a>
+		<a>
+		{{ utc_hero.hero_button_text}}
+		{{ hero_button_url}}
+		</a>
 		{% endif %}
+	
+	</div>	
 
 	</div>
 

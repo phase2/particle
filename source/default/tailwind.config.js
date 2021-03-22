@@ -33,6 +33,10 @@ module.exports = {
       gridTemplateRows: {
         // Adds a custom template for the utc hero block
         'utchero': '30px 1fr 1fr 30px',
+      },
+      gridTemplateColumns: {
+        // Adds a custom template for the utc hero block
+        'utchero': '1fr 60vw 30vw 1fr',
       }
     },
   },
