@@ -32,7 +32,7 @@
 		{% endif %}
 
 
-		<div class="2xl:ml-0 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4 col-span-1 m-auto z-30"> 	
+		<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 col-span-1 m-auto z-30"> 	
 			{% if utc_hero.hero_tag %}
 					<h4 class="text-center" >
 						{{ utc_hero.hero_tag }}
@@ -43,7 +43,10 @@
 						{{ utc_hero.hero_title }}
 					</h2>
 			{% endif %}
-			{% if utc_hero.hero_text %}
+		</div>
+
+		<div class="lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 col-span-1 m-auto z-30">
+		{% if utc_hero.hero_text %}
 					<h3 class="text-center">
 						{{ utc_hero.hero_text}}
 					</h3>
@@ -55,9 +58,8 @@
 					 Learn more</a><p>
 				{% endif %}
 			{% endif %}
-		
-		</div>
-		<div class="lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-4 bg-gray-400 h-full w-full z-10"> 	
+		</div>	
+		<div class="lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-3 bg-gray-400 h-full w-full z-10"> 	
 		</div>	
 
 	</div>
