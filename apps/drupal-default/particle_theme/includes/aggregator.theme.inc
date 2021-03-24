@@ -34,7 +34,6 @@ function particle_theme_suggestions_aggregator_feed_alter(array &$suggestions, a
 
   $node = \Drupal::routeMatch()->getParameter('node');
   $nid = NULL;
-  $nid2 = NULL;
   $bundle = NULL;
 
   if ($node) {
@@ -55,7 +54,6 @@ function particle_theme_suggestions_aggregator_item_alter(array &$suggestions, a
 
   $node = \Drupal::routeMatch()->getParameter('node');
   $nid = NULL;
-  $nid2 = NULL;
   $bundle = NULL;
   if ($node) {
     if($node instanceof \Drupal\node\NodeInterface){
