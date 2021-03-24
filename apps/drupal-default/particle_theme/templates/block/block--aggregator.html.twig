@@ -34,9 +34,10 @@
 	{% endif %}
 	{{ title_suffix }}
 	{% block content %}
-		<div class="card-body">
+		<h2 class="ml-0">Latest News</h2>
+		<div class="flex flex-col">
 			 {% for key in content.list["#items"]|keys %}
-					<li><a href={{ content.list["#items"][key]["#url"] }}>{{ content.list["#items"][key]["#title"] }}</a></li>
+					<a class="text-xl hover:bg-gray-100 bg-white mb-2 py-2 px-4 border border-gray-400" href={{ content.list["#items"][key]["#url"] }}>{{ content.list["#items"][key]["#title"] }}</a>
 			{% endfor %}
 		</div>
 	{% endblock %}
