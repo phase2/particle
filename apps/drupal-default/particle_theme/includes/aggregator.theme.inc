@@ -40,6 +40,7 @@ function particle_theme_suggestions_aggregator_feed_alter(array &$suggestions, a
   if ($node) {
     if($node instanceof \Drupal\node\NodeInterface) {
       $nid = $node->id();
+      $bundle = $node->bundle();
     }
   }
   $suggestions[] = ('aggregator_feed__' . $bundle . "_id_" . $nid);
