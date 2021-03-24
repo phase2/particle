@@ -7,7 +7,7 @@ use Drupal\Component\Utility\Html;
  */
 $AggregatorArrayg = NULL;
 
-function themag_st_preprocess_aggregator_item(&$variables, $hook) {
+function particle_preprocess_aggregator_item(&$variables, $hook) {
   // Don't go looking for a manage display tab, there is none as
   // aggregator_items are not being exposed to the field UI
   $timeStamp = $variables['elements']['#aggregator_item']->get('timestamp')->value;
@@ -19,7 +19,7 @@ function themag_st_preprocess_aggregator_item(&$variables, $hook) {
 /**
  * Implements template_preprocess_hook().
  */
-function themag_st_preprocess_aggregator_feed(&$variables) {
+function particle_preprocess_aggregator_feed(&$variables) {
   // sorts based on the key of its elements
   //$AggregatorArray = $variables['content']['items'];
   if ($variables['elements']['#view_mode'] === "utc_summary") {
@@ -30,7 +30,7 @@ function themag_st_preprocess_aggregator_feed(&$variables) {
 /**
  * Implements hook_theme_suggestions_HOOK() for aggregator_feed suggestions
  */
-function themag_st_theme_suggestions_aggregator_feed_alter(array &$suggestions, array $variables) {
+function particle_theme_suggestions_aggregator_feed_alter(array &$suggestions, array $variables) {
 
   $node = \Drupal::routeMatch()->getParameter('node');
   $nid = NULL;
@@ -49,7 +49,7 @@ function themag_st_theme_suggestions_aggregator_feed_alter(array &$suggestions, 
 /**
  * Implements hook_theme_suggestions_HOOK() for aggregator_item suggestions
  */
-function themag_st_theme_suggestions_aggregator_item_alter(array &$suggestions, array $variables) {
+function particle_theme_suggestions_aggregator_item_alter(array &$suggestions, array $variables) {
 
 
   $node = \Drupal::routeMatch()->getParameter('node');
