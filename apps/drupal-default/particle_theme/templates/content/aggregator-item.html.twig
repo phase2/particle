@@ -22,48 +22,47 @@
  * @ingroup themeable
  */
 #}
-
-{%
-  set classes = [
-    'aggregator-item',
-    feed ? 'aggregator-item--' ~ feed|clean_class,
-  ]
-%}
-
 {% block before %}{% endblock %}
 
 {% block item %}
-  <article{{ attributes.addClass(classes) }}>
-    {{ title_prefix }}
+	{% set date = adapted_time | split('-') %}
 
-    {% if title %}
-    {% block title %}
-      <h3>
-        <a href="{{ url }}">{{ title }}</a>
-      </h3>
-    {% endblock %}
-    {% endif %}
+	<article class="lg flex hover:bg-gray-100 bg-white mb-4 py-2 px-4 border border-gray-400">
+    {# flex-initial missing aligment for long text #}
+		<div class="text-center flex flex-col pr-4">
+			<h4 class="month">{{date[0]}}</h4>
+			<h1 class="day">{{date[1]}}</h1>
+		</div>
 
-    {{ title_suffix }}
 
-    {% block content %}
-      {# {{content}} #}
+		{{ title_prefix }}
+		{# {{adapted_time}} #}
+		{% if title %}
+			{% block title %}
+				<h3>
+					<a href="{{ url }}">{{ title }}</a>
+				</h3>
+			{% endblock %}
+		{% endif %}
 
-      {# alternative number one #}
-      {# {% set eventtime = content.description['#markup'] | split('-')[0] %} #}
-      {% set foo = content.description['#markup'] | split('-') %}
-      {% set footwo = foo[1] | split(':') %}
-      {{ foo[0]}}
-      {{ footwo[0]}}
-      {{adapted_time}}
-{#       {{ content.description['#markup']} | split('-', 1);} #}
-        {# {{ dump(content.timestamp['#items'].0.list) }} #}
-{#       {{ elements.['#aggregator_item'] }}#}
-{#       {{ devel_breakpoint() }}#}
+		{{ title_suffix }}
 
-{#      {{ devel_breakpoint() }}#}
-    {% endblock %}
-  </article>
+		{% block content %}
+			{# {{content}} #}
+
+			{# alternative number one #}
+			{# {% set eventtime = content.description['#markup'] | split('-')[0] %} #}
+			{% set foo = content.description['#markup'] | split('-') %}
+		{% set footwo = foo[1] | split(':') %}
+			{# {{ foo[0]}}
+						{{ footwo[0]}}
+					{{adapted_time}} #}
+			{#       {{ content.description['#markup']} | split('-', 1);} #}
+			{# {{ dump(content.timestamp['#items'].0.list) }} #}
+			{#       {{ elements.['#aggregator_item'] }}#}
+			{#       {{ devel_breakpoint() }}#}{#      {{ devel_breakpoint() }}#}
+		{% endblock %}
+	</article>
 {% endblock %}
 
 {% block after %}{% endblock %}
