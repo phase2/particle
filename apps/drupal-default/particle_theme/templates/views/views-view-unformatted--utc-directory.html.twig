@@ -34,7 +34,7 @@
 {# set variables #}
   {%
     set row_classes = [
-    default_row_class ? 'views-row employee-card__grid',
+    default_row_class ? 'views-row employee-profile__grid',
   ]
   %}
   {# set urls #}
@@ -53,9 +53,8 @@
       {% set profile_url = view.style_plugin.getField(key, 'field_employee_website')|render|striptags|trim %}
     {% endif %}
 
-
-    <div class="employee-card__container--full w-auto">
-      <div class="employee-card h-100 employee-card--wide-view-list">
+    <div class="container-profile__container--profile-card">
+      <div class="employee-profile h-100 employee-profile--card">
   {% else %} 
     {%  set employee_body = view.style_plugin.getField(key, 'body') %}
       {# test render DM#}
@@ -76,8 +75,8 @@
         jQuery('#block-breadcrumbs-particle .utcbreadcrumb ol').append(jQuery('<li>').html(newBreadCrumbDept)).append(jQuery('<li>').text(newBreadCrumbName));
       }, false);
     </script>
-    <div class="employee-card__container--full {% if hide_profile %}{{ hide_profile }}{% endif %}">
-      <div class="employee-card h-100 employee-card--full">
+    <div class="employee-profile__container {% if hide_profile %}{{ hide_profile }}{% endif %}">
+      <div class="employee-profile h-100 employee-profile--profile-page">
   {% endif %}
 
   {% if profile_url %}
@@ -96,24 +95,24 @@
   {% if profile_url != '#' %}
   </a>
   {% endif %}
-  <div class="employee-card__body">
-  <div class="employee-card__info">
+  <div class="employee-profile__body">
+  <div class="employee-profile__info">
   {% if profile_url %}
     <a href="{{ profile_url }}" tabindex="-1">
   {% endif %}
-      <p class="employee-card__name">
+      <p class="employee-profile__name">
         {{ view.style_plugin.getField(key, 'field_employee_first_name') }} {{ view.style_plugin.getField(key, 'field_employee_last_name') }}
       </p>
   {% if profile_url %}
     </a>
   {% endif %}
-  <p class="employee-card__title">
+  <p class="employee-profile__title">
     {{ view.style_plugin.getField(key, 'field_employee_title') }}
   </p>
   {% if profile != 'indvidual' %}
   {# if view.storage.executable.args[0] == 'all' #}
   </div>
-  <div class="employee-card__info">
+  <div class="employee-profile__info">
   {%  endif %}
   <p>
     <a class='font-semibold' href='/directory/{{ dept_url }}'>
@@ -122,7 +121,7 @@
   {% if profile != 'indvidual' %}
   {# if view.storage.executable.args[0] == 'all' #}
   </div>
-  <div class="employee-card__info">
+  <div class="employee-profile__info">
   {%  endif %}
   {% if view.style_plugin.getField(key, 'field_employee_email')|render|striptags|trim %}
     <p>
@@ -142,7 +141,7 @@
     {% if profile != 'indvidual' %}
   {# if view.storage.executable.args[0] == 'all' #}
   </div>
-  <div class="employee-card__more_info">
+  <div class="employee-profile__more_info">
   {%  endif %}
   {% if profile_url %}
     <p>

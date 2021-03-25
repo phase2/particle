@@ -174,3 +174,159 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 .view-utc-directory .view-empty {
   width: 100%;
 }
+
+/* employee profiles */
+.employee-profile__grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* container handles the width of the cards in the flex-wrap */
+ 
+.container-profile__container
+  {
+    width: 100%;
+  }
+
+.container-profile__container--profile-card {
+  margin: .75rem
+}
+
+/* base for all employee card types */
+.employee-profile {
+  @apply bg-white;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 0;
+  word-wrap: break-word;
+  border: 0;
+  border-radius: 0;
+
+}
+
+.employee-profile--card {
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+}
+
+
+/* makes images stretch to full size of container in automated field classes */
+.employee-profile img,
+.employee-profile .employee-image .field,
+.employee-profile .employee-image .field__item {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* image for directory style lists on mobile */
+.employee-profile--card img,
+.employee-profile--profile-page img {
+  height: 7rem;
+  width: 7rem;
+  object-fit: cover;
+  border-radius: 500px;
+  margin: 1rem 0.5rem 1rem 1rem;
+  flex: 1 1;
+}
+
+.employee-profile__body {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  flex: 1 0;
+}
+
+/* wide list style cards stack multiple info elements */
+
+.employee-profile .employee-profile__body,
+ {
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  flex: 1 1;
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .employee-profile .employee-profile__body {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    flex: 1 1;
+  }
+.employee-profile--card .employee-profile__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  flex: 1 1;
+  padding: 10px;
+}
+.employee-profile--card .employee-profile__more_info {
+  width: 150px;
+  flex: 0 1 auto;
+  margin-right: 20px
+}
+.employee-profile--card img {
+  height: 5rem;
+  width: 5rem;
+}
+.employee-profile--profile-page img {
+  height:12rem;
+  width: 12rem;
+}
+}
+.employee-profile--card .employee-profile__name,
+.employee-profile--profile-page .employee-profile__name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1rem;
+}
+
+.employee-profile--card p {
+margin: .25rem;
+}
+
+.employee-profile--card .employee-profile__more_info {
+  text-align: right;
+}
+
+.employee-profile__name {
+  font-weight: 400;
+}
+.employee-profile__suffix {
+  font-weight: 400;
+}
+.employee-profile__suffix .field {
+  display: inline-block;
+}
+
+.employee-profile__suffix .field:not(:empty):not(:last-child):after{
+  content: ",";
+}
+
+.employee-profile__button a {
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.view-utc-directory h2 {
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 20px;
+}
