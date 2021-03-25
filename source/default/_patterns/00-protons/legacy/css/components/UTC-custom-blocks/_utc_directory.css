@@ -235,7 +235,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 }
 
 .employee-profile__body {
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -260,7 +260,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   }
   
   .employee-profile .employee-profile__body {
-    padding: 1rem .5rem;
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
