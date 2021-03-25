@@ -208,7 +208,6 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 
 .employee-profile--card {
   flex-direction: row;
-  align-items: center;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
   0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
@@ -256,8 +255,12 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 }
 
 @media (min-width: 1024px) {
+  .employee-profile--card {
+    align-items: center;
+  }
+  
   .employee-profile .employee-profile__body {
-    padding: 0.5rem;
+    padding: 1rem .5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
