@@ -35,40 +35,44 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ title }}
-  {{ title_suffix }}
+<div{{attributes.addClass(classes)}}>
+	{{ title_prefix }}
+	{{ title }}
+	{{ title_suffix }}
 
-  {% if header %}
-    <header>
-      {{ header }}
-    </header>
-  {% endif %}
+	{% if header %}
+		<header>
+			{{ header }}
+		</header>
+	{% endif %}
 
-  {{ exposed }}
-  {{ attachment_before }}
+	{{ exposed }}
+	{{ attachment_before }}
 
-  {% if rows -%}
-    <div class="bg-red-600 p-12">
-    <h2 class="text-white"> {{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_title') }} </h2>
-      <p class="text-white">{{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_body') }}<br>
-      {{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_pubdate') }}</p><br>
-      <button class="btn btn--navy-outline btn--regular" onclick="location.href='{{view.style_plugin.getField(0, 'field_utc_rss_feed_item_link')|striptags|trim}}'" type="button">More information</button>
-    </div>
-  {% elseif empty -%}
-    {{ empty }}
-  {% endif %}
-  {{ pager }}
+	{% if rows -%}
+		<div class="bg-red-600 p-12">
+			<h2 class="text-white">
+				{{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_title') }}
+			</h2>
+			<p class="text-white">{{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_body') }}<br>
+				{{ view.style_plugin.getField(0, 'field_utc_rss_feed_item_pubdate') }}</p><br>
+			{% if view.style_plugin.getField(0, 'field_utc_rss_feed_item_link')|striptags|trim %}
+				<button class="btn btn--navy-outline btn--regular" onclick="location.href='{{view.style_plugin.getField(0, 'field_utc_rss_feed_item_link')|striptags|trim}}'" type="button">More information</button>
+			{% endif %}
+		</div>
+	{% elseif empty -%}
+		{{ empty }}
+	{% endif %}
+	{{ pager }}
 
-  {{ attachment_after }}
-  {{ more }}
+	{{ attachment_after }}
+	{{ more }}
 
-  {% if footer %}
-    <footer>
-      {{ footer }}
-    </footer>
-  {% endif %}
+	{% if footer %}
+		<footer>
+			{{ footer }}
+		</footer>
+	{% endif %}
 
-  {{ feed_icons }}
+	{{ feed_icons }}
 </div>
