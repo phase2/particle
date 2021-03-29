@@ -1,0 +1,70 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file Card Grid!
+ * Implements a grid of cards using Bootstrap layout.
+ *
+ * Available variables:
+ */
+ *
+ * This template pulls in the variables to add to the cards. 
+ * References the block--utc-card-base.html.twig to create the individual cards in this grid.
+#}
+ 
+{% block content %}
+	{% set rendered_content = content|render %}
+	{# Sets variable to trigger content render array. #}
+
+	{# set variables for card content based on Drupal input #}
+	{# hero_button_link: content.field_hero_button|field_value, #}
+	{% set utc_hero = {
+	hero_tag: content.field_hero_tag|field_value,
+    hero_title: content.field_hero_title|field_value,
+    hero_image: content.field_utc_media|field_value,
+    hero_text: content.field_hero_body|field_value,
+    hero_button_text: content.field_hero_button.0['#title'],
+    hero_button_url: content.field_hero_button.0['#url'],
+    } %}
+
+	<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-4  grid-flow-row lg:mb-4 text-center"> 
+		{% if utc_hero.hero_image %}
+				<div class="lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">{{ utc_hero.hero_image }} </div>
+		{% endif %}
+
+
+		<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 col-span-1 m-auto z-30"> 	
+			{% if utc_hero.hero_tag %}
+					<h4 class="text-center" >
+						{{ utc_hero.hero_tag }}
+					</h4>
+			{% endif %}
+			{% if utc_hero.hero_title %}
+					<h2 class="text-center" >
+						{{ utc_hero.hero_title }}
+					</h2>
+			{% endif %}
+		</div>
+
+		<div class="lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 col-span-1 m-auto z-30">
+		{% if utc_hero.hero_text %}
+					<h3 class="text-center">
+						{{ utc_hero.hero_text}}
+					</h3>
+			{% endif %}
+			{% if utc_hero.hero_button_url %}
+				{% if utc_hero.hero_button_text %}
+					<p class="mt-4">
+					<a href="{{ utc_hero.hero_button_url}}" class="text-center hover:bg-white py-2 px-4 border border-gray-400" aria-label="Read the release">
+					 Learn more</a><p>
+				{% endif %}
+			{% endif %}
+		</div>	
+		<div class="lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-3 bg-gray-400 h-full w-full z-10"> 	
+		</div>	
+
+	</div>
+
+
+
+
+{% endblock %}
