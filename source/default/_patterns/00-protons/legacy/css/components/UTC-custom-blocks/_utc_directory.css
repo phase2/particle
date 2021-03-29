@@ -367,7 +367,7 @@ margin: .25rem;
 .view-utc-directory .dm-profile-preamble
 	.dm-profile-section--main-image
 	+ .dm-profile-report-section {
-	padding: 1em 1em 0;
+	padding: 0;
 }
 
 .view-utc-directory .dm-profile-section--main-image {
@@ -395,7 +395,9 @@ margin: .25rem;
 
 .view-utc-directory .dm-profile-preamble .dm-profile-content .dm-profile-activities {
 	text-align: left;
-	margin-left: 15px;
+  margin-left: 15px;
+  background: none;
+  color: black;
 }
 
 /* hides unused components */
@@ -414,18 +416,21 @@ margin: .25rem;
 	margin: 0;
 	padding: 0;
 	position: relative;
-	z-index: 50;
+  z-index: 50;
+  text-align: left;
 	@apply bg-utc-new-blue-100;
 }
 
 /* DM tabs */
 
-.dm-profile-tabs__item {
+.view-utc-directory .dm-profile-tabs__item {
 	border: 0;
 	display: block;
 	padding: .75rem 1rem;
 	position: relative;
-	text-transform: uppercase;
+  text-transform: uppercase;
+  margin: 0;
+  background: none;
 }
 
 .view-utc-directory .dm-profile-tabs__link {
@@ -445,9 +450,8 @@ margin: .25rem;
 .view-utc-directory .dm-profile-tabs__item--active
  {
   border-bottom: 3px solid #112e51;
-  
 }
-.dm-profile-tabs > .dm-profile-tabs__item--active > .dm-profile-tabs__link,
+.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item--active > .dm-profile-tabs__link,
 .view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item:hover > .dm-profile-tabs__link {
 	@apply text-utc-new-blue-500 !important;
 }
@@ -472,16 +476,16 @@ margin: .25rem;
 	width: 100%;
 }
 
-ol.dm-profile-activities {
+.view-utc-directory ol.dm-profile-activities {
   margin: .5rem;
 }
 
-h2.dm-profile-heading {
+.view-utc-directory h2.dm-profile-heading {
   font-size: 1.25rem;
   margin-bottom: 20px;
 }
 
-h3.dm-profile-heading {
+.view-utc-directory h3.dm-profile-heading {
   font-family: 'Open Sans', san-serif;
   font-size: 1.1rem;
   font-weight: 600;
@@ -491,7 +495,7 @@ h3.dm-profile-heading {
 
 
 /* mobile-first media queries */
-@media (min-width: 640px) {
+@media (min-width: 768px) {
 
 	.view-utc-directory .dm-profile-tabs__item {
 		display: inline-block;
@@ -520,8 +524,6 @@ h3.dm-profile-heading {
 		+ .dm-profile-report-section {
 		display: inline-block;
 		vertical-align: top;
-		padding-left: 1.5rem;
-		padding-top: 1.5rem;
 		width: 75%;
 	}
 }
