@@ -226,10 +226,10 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 /* image for directory style lists on mobile */
 .employee-profile--card img,
 .employee-profile--profile-page img {
-  height: 7rem;
-  width: 7rem;
+  height: 10rem;
+  width: 9rem;
   object-fit: cover;
-  border-radius: 500px;
+  border-radius: 0px;
   margin: 1rem 0.5rem 1rem 1rem;
   flex: 1 1;
 }
@@ -282,8 +282,8 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   margin-right: 20px
 }
 .employee-profile--card img {
-  height: 5rem;
-  width: 5rem;
+  height: 10rem;
+  width: 9rem;
 }
 .employee-profile--profile-page img {
   height:12rem;
