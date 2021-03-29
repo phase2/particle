@@ -24,19 +24,11 @@ regions:
   footer_third: 'Footer third'
   footer_bottom_first: 'Footer bottom first'
   footer_bottom_second: 'Footer bottom second'
-component-libraries:
-  protons:
-    paths: []
-  atoms:
-    paths:
-      - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms
-  molecules:
-    paths:
-      - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules
-  organisms:
-    paths:
-      - ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms
-  templates:
-    paths: []
-  pages:
-    paths: []
+components:
+  namespaces:
+    protons: []
+    atoms: ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms
+    molecules: ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules
+    organisms: ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms
+    templates: []
+    pages: []
