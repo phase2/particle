@@ -226,10 +226,10 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 /* image for directory style lists on mobile */
 .employee-profile--card img,
 .employee-profile--profile-page img {
-  height: 7rem;
-  width: 7rem;
+  height: 10rem;
+  width: 9rem;
   object-fit: cover;
-  border-radius: 500px;
+  border-radius: 0px;
   margin: 1rem 0.5rem 1rem 1rem;
   flex: 1 1;
 }
@@ -282,8 +282,8 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   margin-right: 20px
 }
 .employee-profile--card img {
-  height: 5rem;
-  width: 5rem;
+  height: 10rem;
+  width: 9rem;
 }
 .employee-profile--profile-page img {
   height:12rem;
@@ -332,4 +332,198 @@ margin: .25rem;
   letter-spacing: 2px;
   font-family: 'Open Sans', sans-serif;
   margin-top: 20px;
+}
+
+/* Profile Page Styles */
+
+.view-utc-directory .dm-profile-section:not(.dm-profile-section--main-image) img {
+	max-width: 100%;
+	height: auto;
+}
+
+.view-utc-directory .dm-profile-preamble {
+	padding: 1.5rem;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+.view-utc-directory .dm-profile-preamble .dm-profile-heading {
+	background-color: rgb(255, 255, 255);
+	display: inline-block;
+	padding: 0.25rem 1rem;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+
+.view-utc-directory .dm-profile-preamble--with-main-image {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.view-utc-directory .dm-profile-preamble
+	.dm-profile-section--main-image
+	+ .dm-profile-report-section {
+	padding: 0;
+}
+
+.view-utc-directory .dm-profile-section--main-image {
+	box-sizing: border-box;
+	-ms-flex-item-align: center;
+	align-self: center;
+	width: 100%;
+}
+
+.view-utc-directory .dm-profile-main-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-width: 25em;
+	margin: 0 auto;
+	height: auto;
+}
+
+/* adjust name size - this is coming inline from somewhere, can we change in DM? */
+
+.view-utc-directory .dm-profile-activity span {
+	font-size: 20pt !important;
+
+}
+
+.view-utc-directory .dm-profile-preamble .dm-profile-content .dm-profile-activities {
+	text-align: left;
+  margin-left: 15px;
+  background: none;
+  color: black;
+}
+
+/* hides unused components */
+.view-utc-directory .dm-profile-tabs__item--active .dm-profile-tabs__link::after {
+	display: none;
+}
+.view-utc-directory .dm-profile-section--hidden {
+	display: none;
+}
+
+.view-utc-directory .dm-profile-break {
+  display: none;
+  }
+
+.view-utc-directory .dm-profile-tabs {
+	margin: 0;
+	padding: 0;
+	position: relative;
+  z-index: 50;
+  text-align: left;
+	@apply bg-utc-new-blue-100;
+}
+
+/* DM tabs */
+
+.view-utc-directory .dm-profile-tabs__item {
+	border: 0;
+	display: block;
+	padding: .75rem 1rem;
+	position: relative;
+  text-transform: uppercase;
+  margin: 0;
+  background: none;
+}
+
+.view-utc-directory .dm-profile-tabs__link {
+	display: block;
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin: 0 0.25rem;
+	text-decoration: none;
+	letter-spacing: 2px;
+}
+
+.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item > .dm-profile-tabs__link {
+	box-shadow: none;
+	@apply text-utc-new-blue-400;
+}
+
+.view-utc-directory .dm-profile-tabs__item--active
+ {
+  border-bottom: 3px solid #112e51;
+}
+.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item--active > .dm-profile-tabs__link,
+.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item:hover > .dm-profile-tabs__link {
+	@apply text-utc-new-blue-500 !important;
+}
+
+/* DM Profile Content */
+
+.view-utc-directory .dm-profile-section--tabbed {
+	border: 0;
+	padding: 0.25rem 1rem;
+	position: relative;
+  z-index: 10;
+  background: white;
+}
+
+.view-utc-directory .dm-profile-section--tabbed:focus {
+	outline: none;
+	box-shadow: inset 0 0 0 0.15rem lightblue;
+}
+
+.view-utc-directory .dm-profile-preamble .dm-profile-report-section {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.view-utc-directory ol.dm-profile-activities {
+  margin: .5rem;
+}
+
+.view-utc-directory h2.dm-profile-heading {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.view-utc-directory h3.dm-profile-heading {
+  font-family: 'Open Sans', san-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+}
+
+
+
+/* mobile-first media queries */
+@media (min-width: 768px) {
+
+	.view-utc-directory .dm-profile-tabs__item {
+		display: inline-block;
+	}
+
+	.view-utc-directory .dm-profile-tabs__link {
+		display: inline;
+	}
+
+	.view-utc-directory .dm-profile-tabs__item--active .dm-profile-tabs__link::after {
+		content: normal;
+	}
+
+	.view-utc-directory .dm-profile-section--main-image {
+		display: inline-block;
+		width: 20%;
+	}
+
+	.view-utc-directory .dm-profile-main-image {
+		max-width: 100% !important;
+		margin-left: 0px !important;
+	}
+
+	.view-utc-directory .dm-profile-preamble
+		.dm-profile-section--main-image
+		+ .dm-profile-report-section {
+		display: inline-block;
+		vertical-align: top;
+		width: 75%;
+	}
 }
