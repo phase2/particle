@@ -26,15 +26,15 @@
     hero_button_url: content.field_hero_button.0['#url'],
     } %}
 
-	<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-4  grid-flow-row lg:mb-4 text-center"> 
+	<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-4  grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center"> 
 		{% if utc_hero.hero_image %}
-				<div class="lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">{{ utc_hero.hero_image }} </div>
+				<div class="2xl:col-start-2 lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">{{ utc_hero.hero_image }} </div>
 		{% endif %}
 
 
 		<div class="2xl:ml-0 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4 col-span-1 m-auto z-30"> 	
 			{% if utc_hero.hero_tag %}
-					<h4 class="text-center" >
+					<h4 class="text-center uppercase" >
 						{{ utc_hero.hero_tag }}
 					</h4>
 			{% endif %}
