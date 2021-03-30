@@ -28,8 +28,8 @@
 <div{{attributes}}>
 	{{ title_prefix }}
 	{% if label %}
-		<h2{{title_attributes}}>
-			<span class="title-text">{{ label }}</span>
+		{# <h2{{ title_attributes }}>  conflict with https://github.com/bmartinez287/particle/commit/270309ffbaa1101cbb331b3b98a1b00968601929#}
+		<h2 class="title-text">{{ label }}
 		</h2>
 	{% endif %}
 	{{ title_suffix }}
