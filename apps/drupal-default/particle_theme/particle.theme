@@ -15,6 +15,7 @@
 
 include 'includes/admin.theme.inc';
 include 'includes/block.theme.inc';
+include 'includes/aggregator.theme.inc';
 include 'includes/content.theme.inc';
 include 'includes/field.theme.inc';
 include 'includes/form.theme.inc';
