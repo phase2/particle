@@ -25,7 +25,7 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes.addClass('aggregator-feed') }}>
+<div{{ attributes.addClass('aggregator-feed', 'h-96','overflow-auto') }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>
