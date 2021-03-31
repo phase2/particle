@@ -44,7 +44,7 @@
         ]
       %}
       <li{{ item.attributes.addClass(classes) }}>
-        {{ link(item.title, item.url, {'class':['text-sm','uppercase','px-3','pt-3', 'pb-2','hover:bg-utc-new-blue-500','hover:text-utc-new-gold-500']}) }}
+        {{ link(item.title, item.url, {'class':['text-sm','font-bold','uppercase','px-3','pt-3', 'pb-2','hover:bg-utc-new-blue-500','hover:text-utc-new-gold-500']}) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
