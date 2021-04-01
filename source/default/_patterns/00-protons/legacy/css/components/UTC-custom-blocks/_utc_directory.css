@@ -16,7 +16,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   text-transform: uppercase;
   letter-spacing: 2px;
   @apply text-utc-new-blue-500;
-  font-size:1rem;
+  font-size:1rem !important;
 }
 
 .utc-directory-form .form-item-dept,
@@ -245,7 +245,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 
 /* wide list style cards stack multiple info elements */
 
-.employee-profile .employee-profile__body,
+.employee-profile .employee-profile__body
  {
   flex-direction: column;
   justify-content: flex-start;
