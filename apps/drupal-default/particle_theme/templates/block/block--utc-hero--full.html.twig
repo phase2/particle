@@ -10,7 +10,7 @@
  * This template pulls in the variables to add to the cards. 
  * References the block--utc-card-base.html.twig to create the individual cards in this grid.
 #}
- 
+
 {% block content %}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
@@ -18,6 +18,7 @@
 	{# set variables for card content based on Drupal input #}
 	{# hero_button_link: content.field_hero_button|field_value, #}
 	{% set utc_hero = {
+	hero_bg: 'https://www.utc.edu/about/buildings/images/exterior-spaces-header.jpg',
 	hero_tag: content.field_hero_tag|field_value,
     hero_title: content.field_hero_title|field_value,
     hero_image: content.field_utc_media|field_value,
@@ -26,43 +27,46 @@
     hero_button_url: content.field_hero_button.0['#url'],
     } %}
 
-	<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-4  grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center"> 
-		{% if utc_hero.hero_image %}
-				<div class="2xl:col-start-2 lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">{{ utc_hero.hero_image }} </div>
+		<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 lg:gap-x-12  grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center"> {% if utc_hero.hero_image %}
+			<div class="2xl:col-start-2 lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">{{ utc_hero.hero_image }}
+			</div>
 		{% endif %}
 
 
-		<div class="2xl:ml-0 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4 col-span-1 m-auto z-30"> 	
+		<div class="2xl:ml-0 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:m-auto m-2 z-30">
 			{% if utc_hero.hero_tag %}
-					<h4 class="text-center uppercase" >
-						{{ utc_hero.hero_tag }}
-					</h4>
+				<p class="text-left font-semibold tracking-wide uppercase text-lg">
+					{{ utc_hero.hero_tag }}
+				</p>
+				<hr class="border-t-3 border-utc-new-gold-500 my-2 w-20" />
 			{% endif %}
 			{% if utc_hero.hero_title %}
-					<h2 class="text-center" >
-						{{ utc_hero.hero_title }}
-					</h2>
+				<h2 class="text-left">
+					{{ utc_hero.hero_title }}
+				</h2>
 			{% endif %}
 			{% if utc_hero.hero_text %}
-					<h3 class="text-center">
-						{{ utc_hero.hero_text}}
-					</h3>
+				<div class="text-left text-base">
+					{{ utc_hero.hero_text}}
+				</div>
 			{% endif %}
 			{% if utc_hero.hero_button_url %}
 				{% if utc_hero.hero_button_text %}
-					<p class="mt-4">
-					<a href="{{ utc_hero.hero_button_url}}" class="text-center hover:bg-white py-2 px-4 border border-gray-400" aria-label="Read the release">
-					 Learn more</a><p>
+					<p class="mt-5 text-right">
+						<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out hover:bg-white transform hover:scale-105 py-2 px-4 border border-white" aria-label="Read the release">
+							Learn more <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i></a>
+					</p>
+					<p>
+					{% endif %}
 				{% endif %}
-			{% endif %}
-		
+
+			</div>
+			<div class=""></div>
+			<div class="w-full h-full bg-cover bg-center z-10 lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-4" style="background-image: url({{ utc_hero.hero_bg }})">
+				<div class="h-full w-full bg-gray-400 bg-opacity-95"></div>
+			</div>
+
 		</div>
-		<div class="lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-4 bg-gray-400 h-full w-full z-10"> 	
-		</div>	
-
-	</div>
 
 
-
-
-{% endblock %}
+	{% endblock %}
