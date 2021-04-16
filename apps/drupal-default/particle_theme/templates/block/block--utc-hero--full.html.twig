@@ -36,28 +36,28 @@
 	{% else %}
 	{% set title_color = 'text-utc-new-blue-500' %}
 	{% set body_color = 'text-base' %}
-	{% set bg_color = 'bg-gray-400' %}
+	{% set bg_color = 'bg-utc-new-blue-300' %}
 	{% endif %}
 
 
 
 		 
 		{% if utc_hero.hero_align == 'Left' %}
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 lg:gap-x-12 grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
 			{% if utc_hero.hero_image %}
 				<div class="2xl:col-start-2 lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">
 				{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
-				<div class="2xl:ml-0 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:m-auto p-4 z-30">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:mx-8 p-4 z-30">
 		{% else %}
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-8 lg:gap-x-12 grid-flow-row lg:mb-4 2xl:grid-cols-utcherolargeright text-center">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-8 grid-flow-row lg:mb-4 2xl:grid-cols-utcherolargeright text-center">
 			{% if utc_hero.hero_image %}
-				<div class="2xl:ml-0 lg:col-start-3 lg:col-end-5 2xl:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30">
+				<div class="lg:col-start-3 lg:col-end-5 2xl:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30">
 				{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
-				<div class="2xl:col-start-2 lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:m-auto p-4 col-span-1 z-30">
+				<div class="2xl:col-start-2 lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:my-auto lg:mx-8 p-4 col-span-1 z-30">
 		{% endif %}
 			{% if utc_hero.hero_tag %}
 				<p class="text-left font-semibold tracking-wide uppercase text-lg {{ body_color }}">
