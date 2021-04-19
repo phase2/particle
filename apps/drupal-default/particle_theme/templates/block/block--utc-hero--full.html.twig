@@ -43,7 +43,7 @@
 
 		 
 		{% if utc_hero.hero_align == 'Left' %}
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 lg:grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
 			{% if utc_hero.hero_image %}
 				<div class="2xl:col-start-2 lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">
 				{{ utc_hero.hero_image }} 
@@ -77,8 +77,8 @@
 			{% endif %}
 			{% if utc_hero.hero_button_url %}
 				{% if utc_hero.hero_button_text %}
-					<p class="mt-5 text-right">
-						<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out {{ body_color }} hover:text-utc-new-blue-500 hover:bg-white transform hover:scale-105 py-2 px-4 border border-white" aria-label="Read the release">
+					<p class="mt-6 lg:mr-16 text-right">
+						<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out {{ body_color }} hover:text-utc-new-blue-500 hover:bg-white transform hover:scale-105 py-2 px-4 border border-utc-new-blue-500 lg:border-white" aria-label="Read the release">
 							Learn more <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i></a>
 					</p>
 					<p>
