@@ -30,21 +30,28 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('menu') }}>
+      <ul{{ attributes.addClass('flex flex-wrap list-none m-0 p-0') }}>
     {% else %}
-      <ul class="menu">
+      <ul class="flex flex-wrap list-none m-0 p-0">
     {% endif %}
     {% for item in items %}
       {%
-        set classes = [
-          'menu-item',
+        set listitem = [
+          'menu-item ml-0.5 mb-1',
           item.is_expanded ? 'menu-item--expanded',
           item.is_collapsed ? 'menu-item--collapsed',
-          item.in_active_trail ? 'menu-item--active-trail',
+        ]
+      %}
+      {%
+        set menulinktag = [
+          'text-sm font-bold uppercase',
+          'px-2 pt-3 pb-2 hover:bg-utc-new-blue-500',
+          'hover:text-utc-new-gold-500',
+          item.in_active_trail ? 'menu-item--active-trail bg-gray-200',
         ]
       %}
       <li{{ item.attributes.addClass(classes) }}>
-        {{ link(item.title, item.url) }}
+       {{ link(item.title, item.url, item.attributes.removeClass(classes).addClass(menulinktag)) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}

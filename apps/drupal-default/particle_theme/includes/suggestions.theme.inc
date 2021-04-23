@@ -44,12 +44,12 @@ function particle_theme_suggestions_fieldset_alter(array &$suggestions, array $v
 /**
  * Implements hook_theme_suggestions_image_alter().
  */
-function particle_theme_suggestions_image_alter(array &$suggestions, array $variables) {
-  $node = \Drupal::request()->attributes->get('node');
-  if (!empty($node)) {
-    $suggestions[] = 'image__' . $node->getType();
-  }
-}
+// function particle_theme_suggestions_image_alter(array &$suggestions, array $variables) {
+//   $node = \Drupal::request()->attributes->get('node');
+//   if (!empty($node)) {
+//     $suggestions[] = 'image__' . $node->getType();
+//   }
+// }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
