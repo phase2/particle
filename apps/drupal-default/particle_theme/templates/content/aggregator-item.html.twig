@@ -27,33 +27,31 @@
 {% block item %}
 	{% set date = adapted_time | split('-') %}
 <a href="{{ url }}" class="hover:text-utc-new-blue-500">
-	<article class="relative box-border flex flex-none flex-row min-w-0 border-0 rounded-none mt-3 shadow bg-white">
+	<article class="relative box-border flex flex-auto flex-row min-w-0 rounded-none border-b-2 border-gray-300">
     {# flex-initial missing aligment for long text #}
-		<div class="flex flex-35 text-center flex-col items-center justify-center px-4 border-r-2 my-3 border-utc-new-blue-500">
+		<div class="flex text-center flex-col items-center justify-center px-4 border-l-4 my-3 border-utc-new-blue-500">
+			<p class="text-3xl m-0">{{date[1]}}</p>
 			<p class="font-bold text-lg uppercase tracking-wider m-0">{{date[0]}}</p>
-			<p class="text-4xl m-0">{{date[1]}}</p>
 		</div>
-<div class="p-3 h-auto flex-75 justify-center flex flex-col">
+		<div class="p-3 h-auto justify-center w-75 flex flex-col">
+			{{ title_prefix }}
+			{# {{adapted_time}} #} 
+			{% if title %}
+				{% block title %}
+					<span class="font-semibold">
+						{{ title }}
+					</span>
+				{% endblock %}
+			{% endif %}
 
-		{{ title_prefix }}
-		{# {{adapted_time}} #} 
-		{% if title %}
-			{% block title %}
-				<span class="font-semibold">
-					{{ title }}
-				</span>
-			{% endblock %}
-		{% endif %}
-
-		{{ title_suffix }}
-
-		{% block content %}
+			{{ title_suffix }}
+			{% block content %}
 			{# {{content}} #}
 
 			{# alternative number one #}
 			{# {% set eventtime = content.description['#markup'] | split('-')[0] %} #}
 			{% set foo = content.description['#markup'] | split('-') %}
-		{% set footwo = foo[1] | split(':') %}
+			{% set footwo = foo[1] | split(':') %}
 			{# {{ foo[0]}}
 						{{ footwo[0]}}
 					{{adapted_time}} #}
@@ -61,7 +59,10 @@
 			{# {{ dump(content.timestamp['#items'].0.list) }} #}
 			{#       {{ elements.['#aggregator_item'] }}#}
 			{#       {{ devel_breakpoint() }}#}{#      {{ devel_breakpoint() }}#}
-		{% endblock %}
+			{% endblock %}
+		</div>
+		<div class="p-5 my-2 items-end flex flex-col justify-center">
+			<i class="fas fa-angle-right text-2xl"></i>
 		</div>
 	</article>
 	</a>
