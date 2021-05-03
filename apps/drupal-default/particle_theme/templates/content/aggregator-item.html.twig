@@ -27,7 +27,7 @@
 {% block item %}
 	{% set date = adapted_time | split('-') %}
 <a href="{{ url }}" class="hover:text-utc-new-blue-500">
-	<article class="relative box-border flex flex-auto flex-row min-w-0 rounded-none border-b-2 border-gray-300">
+	<article class="relative box-border flex flex-auto flex-row min-w-0 rounded-none border-b-2 border-gray-300 hover:bg-gray-100">
     {# flex-initial missing aligment for long text #}
 		<div class="flex text-center flex-col items-center justify-center px-4 border-l-4 my-3 border-utc-new-blue-500">
 			<p class="text-3xl m-0">{{date[1]}}</p>
