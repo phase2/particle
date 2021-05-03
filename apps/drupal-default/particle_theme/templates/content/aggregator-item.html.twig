@@ -26,22 +26,22 @@
 
 {% block item %}
 	{% set date = adapted_time | split('-') %}
-
-	<article class="lg flex hover:bg-gray-100 bg-white mb-4 py-2 px-4 border border-gray-400">
+<a href="{{ url }}" class="hover:text-utc-new-blue-500">
+	<article class="relative box-border flex flex-none flex-row min-w-0 border-0 rounded-none mt-3 shadow bg-white">
     {# flex-initial missing aligment for long text #}
-		<div class="text-center flex flex-col pr-4">
-			<h4 class="month">{{date[0]}}</h4>
-			<h1 class="day">{{date[1]}}</h1>
+		<div class="flex flex-35 text-center flex-col items-center justify-center px-4 border-r-2 my-3 border-utc-new-blue-500">
+			<p class="font-bold text-lg uppercase tracking-wider m-0">{{date[0]}}</p>
+			<p class="text-4xl m-0">{{date[1]}}</p>
 		</div>
-
+<div class="p-3 h-auto flex-75 justify-center flex flex-col">
 
 		{{ title_prefix }}
-		{# {{adapted_time}} #}
+		{# {{adapted_time}} #} 
 		{% if title %}
 			{% block title %}
-				<h3>
-					<a href="{{ url }}">{{ title }}</a>
-				</h3>
+				<span class="font-semibold">
+					{{ title }}
+				</span>
 			{% endblock %}
 		{% endif %}
 
@@ -62,7 +62,9 @@
 			{#       {{ elements.['#aggregator_item'] }}#}
 			{#       {{ devel_breakpoint() }}#}{#      {{ devel_breakpoint() }}#}
 		{% endblock %}
+		</div>
 	</article>
+	</a>
 {% endblock %}
 
 {% block after %}{% endblock %}
