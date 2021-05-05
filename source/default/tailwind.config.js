@@ -40,7 +40,7 @@ module.exports = {
         'utcheroright': '10px 1fr 1fr 1fr',
         'utcherolarge': '1fr minmax(min-content,120rem) minmax(min-content,50rem) 1fr',
         'utcherolargeright': '1fr minmax(min-content,50rem) minmax(min-content,120rem) 1fr',
-      },
+      }
     },
   },
   variants: {},
