@@ -1,0 +1,76 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+{% if title %}
+	<h3>
+		{{ title }}
+	</h3>
+{% endif %}
+
+{% for key,row in rows %}
+	{% set content = {
+	  news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
+    news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
+    news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
+    news_text: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+ } %}
+
+		<div class="grid grid-cols-1 md:grid-flow-col lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 lg:grid-flow-row grid-flow-col lg:mb-4 2xl:grid-cols-utcherolarge text-center">
+			{% if content.news_image %}
+				<div class="2xl:col-start-2 lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">
+				{{ content.news_image }} 
+				</div>
+			{% endif %}
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:mx-8 p-4 z-30">
+			{# {% if utc_hero.hero_tag %} #}
+				<p class="text-left font-semibold tracking-wide uppercase text-lg {{ body_color }}">
+					Newsroom
+				</p>
+				<hr class="border-t-3 border-utc-new-gold-500 my-2 w-20" />
+			{# {% endif %} #}
+			{% if content.news_title %}
+				<h2 class="text-left">
+					{{ content.news_title }}
+				</h2>
+			{% endif %}
+			{% if utc_hero.hero_text %}
+				<p class="text-left text-lg text-base {{ body_color }}">
+					{{ utc_hero.hero_text}}
+				</p>
+			{% endif %}
+			{% if content.news_link %}
+				{# {% if utc_hero.hero_button_text %} #}
+					<p class="mt-6 xl:mr-16 text-right">
+						<a href="{{content.news_link}}" class="font-semibold transition duration-500 ease-in-out {{ body_color }} hover:text-utc-new-blue-500 hover:bg-white transform hover:scale-105 py-2 px-4 border lg:border-white border-utc-new-blue-500 " aria-label="Read the release">
+							Learn more <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i></a>
+					</p>
+					<p>
+					{# {% endif %} #}
+				{% endif %}
+				</div>
+
+			<div class="w-full h-full bg-cover bg-center z-10 md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-4" style="background-image: url({{ utc_hero.hero_bg }})">
+			
+				<div class="h-full w-full bg-opacity-90 {{ bg_color }}"></div>
+				</div>
+
+
+		</div>
+
+
+		{% endfor %}
