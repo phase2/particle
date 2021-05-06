@@ -27,16 +27,13 @@
 	  news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
     news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
     news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
-    news_text: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+    news_location: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+    news_type: view.style_plugin.getField(key, 'field_utc_rss_feed_item_type'),
+    news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body'),
+    news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
  } %}
-  {# {{ row.content }} #}
-  {# <div class="ml-8">
-  {{ content.news_image }}
-  {{ content.news_title }}
-  </div> #}
-  {# {{ content.news_image }} #}
-    <div class="ml-8 my-4">  
-    <!--Card 1-->
+    <div class="ml-8 my-4">
+    <a href={{content.news_link}}>
     <div class="max-w-xs rounded overflow-hidden shadow-lg">
       {{ content.news_image }}
       {# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
@@ -47,6 +44,7 @@
         </p> #}
       </div>
     </div>
+    </a>
   </div>
 
 

@@ -17,35 +17,34 @@
 #}
 
 {% if title %}
-  <h3>
-    {{ title }}
-  </h3>
+	<h3>
+		{{ title }}
+	</h3>
 {% endif %}
 <div class="flex flex-wrap">
-{% for key,row in rows %}
-	{% set content = {
+	{% for key,row in rows %}
+		{% set content = {
 	  news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
     news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
     news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
-    news_text: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+    news_location: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+    news_type: view.style_plugin.getField(key, 'field_utc_rss_feed_item_type'),
+    news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body')|striptags|trim,
+    news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
  } %}
-  {# {{ row.content }} #}
-  {# <div class="ml-8">
-  {{ content.news_image }}
-  {{ content.news_title }}
-  </div> #}
-  {# {{ content.news_image }} #}
-    <div class="ml-8">  
-    <!--Card 1-->
-      {# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">{{ content.news_title }}</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-        </p>
-      </div>
-    </div>
+		<div class="ml-8">
+			<a
+				href={{content.news_link}}>
+				{# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
+				<div class="px-6 py-4">
+					<div class="font-bold text-xl mb-2">{{ content.news_title }}</div>
+					<p class="text-gray-700 text-base">
+						{{content.news_body}}
+						{# Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil. #}
+					</p>
+				</div>
+			</a>
+		</div>
 
-
-{% endfor %}
+	{% endfor %}
 </div>

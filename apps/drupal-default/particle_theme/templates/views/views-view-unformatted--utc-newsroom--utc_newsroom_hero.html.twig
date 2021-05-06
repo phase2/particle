@@ -27,7 +27,10 @@
 	  news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
     news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
     news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
-    news_text: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+    news_location: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+    news_type: view.style_plugin.getField(key, 'field_utc_rss_feed_item_type'),
+    news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body'),
+    news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
  } %}
 
 		<div class="grid grid-cols-1 md:grid-flow-col lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 lg:grid-flow-row grid-flow-col lg:mb-4 2xl:grid-cols-utcherolarge text-center">
