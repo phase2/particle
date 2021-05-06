@@ -26,34 +26,32 @@
 
 {% block item %}
 	{% set date = adapted_time | split('-') %}
-
-	<article class="lg flex hover:bg-gray-100 bg-white mb-4 py-2 px-4 border border-gray-400">
+<a href="{{ url }}" class="hover:text-utc-new-blue-500">
+	<article class="relative box-border flex flex-auto flex-row min-w-0 rounded-none border-b-2 border-gray-300 hover:bg-gray-100">
     {# flex-initial missing aligment for long text #}
-		<div class="text-center flex flex-col pr-4">
-			<h4 class="month">{{date[0]}}</h4>
-			<h1 class="day">{{date[1]}}</h1>
+		<div class="flex text-center flex-col items-center justify-center px-4 border-l-4 my-3 border-utc-new-blue-500">
+			<p class="text-3xl m-0">{{date[1]}}</p>
+			<p class="font-bold text-lg uppercase tracking-wider m-0">{{date[0]}}</p>
 		</div>
+		<div class="p-3 h-auto justify-center w-75 flex flex-col">
+			{{ title_prefix }}
+			{# {{adapted_time}} #} 
+			{% if title %}
+				{% block title %}
+					<span class="font-semibold">
+						{{ title }}
+					</span>
+				{% endblock %}
+			{% endif %}
 
-
-		{{ title_prefix }}
-		{# {{adapted_time}} #}
-		{% if title %}
-			{% block title %}
-				<h3>
-					<a href="{{ url }}">{{ title }}</a>
-				</h3>
-			{% endblock %}
-		{% endif %}
-
-		{{ title_suffix }}
-
-		{% block content %}
+			{{ title_suffix }}
+			{% block content %}
 			{# {{content}} #}
 
 			{# alternative number one #}
 			{# {% set eventtime = content.description['#markup'] | split('-')[0] %} #}
 			{% set foo = content.description['#markup'] | split('-') %}
-		{% set footwo = foo[1] | split(':') %}
+			{% set footwo = foo[1] | split(':') %}
 			{# {{ foo[0]}}
 						{{ footwo[0]}}
 					{{adapted_time}} #}
@@ -61,8 +59,13 @@
 			{# {{ dump(content.timestamp['#items'].0.list) }} #}
 			{#       {{ elements.['#aggregator_item'] }}#}
 			{#       {{ devel_breakpoint() }}#}{#      {{ devel_breakpoint() }}#}
-		{% endblock %}
+			{% endblock %}
+		</div>
+		<div class="p-5 my-2 items-end flex flex-col justify-center">
+			<i class="fas fa-angle-right text-2xl"></i>
+		</div>
 	</article>
+	</a>
 {% endblock %}
 
 {% block after %}{% endblock %}

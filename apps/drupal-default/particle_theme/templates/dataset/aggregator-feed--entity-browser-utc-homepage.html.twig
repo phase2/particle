@@ -26,12 +26,13 @@
 
 <div>
 	<details>
-		<summary class="card-header_m" id="cardH-{{random(50)}}">
-			<a href="#homepagefeed">
+		<summary class="card-header_m border-2 border-gray-300" id="cardH-{{random(50)}}">
+		{# do we need to keep this? Removing makes accordion open when text is clicked (expected behavior)
+			<a href="#homepagefeed"> #}
 				{{ title }}
-			</a>
+		{#	</a> #}
 		</summary>
-		<div class="mt-1">
+		<div class="bg-white shadow">
 			{{ content }}
 		</div>
 	</details>
