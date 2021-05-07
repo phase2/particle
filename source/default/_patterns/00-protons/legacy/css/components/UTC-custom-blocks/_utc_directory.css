@@ -1,7 +1,7 @@
 /* UTC Styles for directory */
 /* relies on flex and utc-directory 
 at the template level in apps/drupal-default/particle_theme/templates/views/views-exposed-form--utc-directory.html.twig */
-.utc-directory-form { 
+.utc-directory-form {
   margin-bottom: 20px;
 }
 
@@ -16,7 +16,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   text-transform: uppercase;
   letter-spacing: 2px;
   @apply text-utc-new-blue-500;
-  font-size:1rem;
+  font-size: 1rem !important;
 }
 
 .utc-directory-form .form-item-dept,
@@ -30,16 +30,17 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   .utc-directory-form .form-item-dept {
     width: 40%;
   }
+
   .utc-directory-form .form-type-textfield {
     width: 55%;
-    margin-left:10px;
+    margin-left: 10px;
   }
 }
 
 /* alphabet menu styles */
 .utc-directory-form fieldset#edit-alpha--wrapper {
- width: 100%;
-} 
+  width: 100%;
+}
 
 .utc-directory-form .form-item-alpha {
   flex-grow: 0;
@@ -48,7 +49,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 .utc-directory-form .form-radios {
   display: flex;
   flex-wrap: wrap;
-  margin-top:0;
+  margin-top: 0;
 }
 
 /* hide 'any' label */
@@ -102,7 +103,9 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   transition: border-color 0.15s;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__arrow {
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
   height: 50px;
   position: absolute;
   top: 1px;
@@ -117,27 +120,29 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   border-radius: 0.25rem;
 }
 
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected] {
   @apply bg-utc-new-blue-100;
   @apply text-black;
 }
 
-.select2-container--default .select2-results__option[aria-selected=true] {
+.select2-container--default .select2-results__option[aria-selected='true'] {
   @apply bg-utc-new-blue-100;
   @apply text-black;
 }
 
 .utc-directory-form input#edit-reset {
- width: auto;
- @apply bg-white;
- border-radius: 0;
- border: 1px solid;
- @apply border-utc-new-blue-500;
+  width: auto;
+  @apply bg-white;
+  border-radius: 0;
+  border: 1px solid;
+  @apply border-utc-new-blue-500;
 }
 
 .view-utc-directory .view-content {
   width: 100% !important;
 }
+
 .view-utc-directory .lib-item-form .js-form-item-combine {
   flex-grow: 10;
 }
@@ -171,9 +176,12 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 .view-utc-directory li.pager__item.pager__item--ellipsis {
   background-color: transparent !important;
 }
+
 .view-utc-directory .view-empty {
   width: 100%;
 }
+
+/* directory card styles */
 
 /* employee profiles */
 .employee-profile__grid {
@@ -182,18 +190,18 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 }
 
 /* container handles the width of the cards in the flex-wrap */
- 
-.container-profile__container
-  {
-    width: 100%;
-  }
 
-.container-profile__container--profile-card {
-  margin: .75rem
+.container-profile__container {
+  width: 100%;
 }
 
-/* base for all employee card types */
-.employee-profile {
+.container-profile__container--profile-card {
+  margin: 0.75rem;
+}
+
+/* profile cards in directory listing */
+
+.employee-profile--card {
   @apply bg-white;
   position: relative;
   box-sizing: border-box;
@@ -203,16 +211,10 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   word-wrap: break-word;
   border: 0;
   border-radius: 0;
-
-}
-
-.employee-profile--card {
-  flex-direction: row;
+  flex-direction: column;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-  0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
-
 
 /* makes images stretch to full size of container in automated field classes */
 .employee-profile img,
@@ -224,8 +226,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 }
 
 /* image for directory style lists on mobile */
-.employee-profile--card img,
-.employee-profile--profile-page img {
+.employee-profile--card img {
   height: 10rem;
   width: 9rem;
   object-fit: cover;
@@ -234,7 +235,7 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   flex: 1 1;
 }
 
-.employee-profile__body {
+.employee-profile--card .employee-profile__body {
   padding: 1rem 0.5rem;
   display: flex;
   flex-direction: column;
@@ -245,21 +246,24 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
 
 /* wide list style cards stack multiple info elements */
 
-.employee-profile .employee-profile__body,
- {
+.employee-profile .employee-profile__body {
   flex-direction: column;
   justify-content: flex-start;
   height: auto;
   flex: 1 1;
   padding: 1rem;
 }
-
+@media (min-width: 640px) {
+  .employee-profile--card {
+    flex-direction: row;
+  }
+}
 @media (min-width: 1024px) {
   .employee-profile--card {
     align-items: center;
   }
-  
-  .employee-profile .employee-profile__body {
+
+  .employee-profile--card .employee-profile__body {
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: row;
@@ -268,37 +272,36 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
     height: auto;
     flex: 1 1;
   }
-.employee-profile--card .employee-profile__info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: auto;
-  flex: 1 1;
-  padding: 10px;
+
+  .employee-profile--card .employee-profile__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    flex: 1 1;
+    padding: 10px;
+  }
+
+  .employee-profile--card .employee-profile__more_info {
+    width: 150px;
+    flex: 0 1 auto;
+    margin-right: 20px;
+  }
+
+  .employee-profile--card img {
+    height: 10rem;
+    width: 9rem;
+  }
 }
-.employee-profile--card .employee-profile__more_info {
-  width: 150px;
-  flex: 0 1 auto;
-  margin-right: 20px
-}
-.employee-profile--card img {
-  height: 10rem;
-  width: 9rem;
-}
-.employee-profile--profile-page img {
-  height:12rem;
-  width: 12rem;
-}
-}
-.employee-profile--card .employee-profile__name,
-.employee-profile--profile-page .employee-profile__name {
+
+.employee-profile--card .employee-profile__name {
   font-weight: 600;
   font-size: 1.2rem;
   line-height: 1rem;
 }
 
 .employee-profile--card p {
-margin: .25rem;
+  margin: 0.25rem;
 }
 
 .employee-profile--card .employee-profile__more_info {
@@ -308,15 +311,17 @@ margin: .25rem;
 .employee-profile__name {
   font-weight: 400;
 }
+
 .employee-profile__suffix {
   font-weight: 400;
 }
+
 .employee-profile__suffix .field {
   display: inline-block;
 }
 
-.employee-profile__suffix .field:not(:empty):not(:last-child):after{
-  content: ",";
+.employee-profile__suffix .field:not(:empty):not(:last-child):after {
+  content: ',';
 }
 
 .employee-profile__button a {
@@ -324,164 +329,210 @@ margin: .25rem;
   margin-left: 0.5rem;
 }
 
-.view-utc-directory h2 {
-  font-weight: 600;
-  font-size: 1.1rem;
-  line-height: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-family: 'Open Sans', sans-serif;
-  margin-top: 20px;
-}
-
 /* Profile Page Styles */
+/* styles for drupal native profile page view and for DM embeds in view */
 
-.view-utc-directory .dm-profile-section:not(.dm-profile-section--main-image) img {
-	max-width: 100%;
-	height: auto;
+.view-utc-directory .dm-profile-preamble,
+.employee-profile-page {
+  background-color: transparent;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  word-wrap: break-word;
+  border: 0;
+  border-radius: 0;
 }
 
-.view-utc-directory .dm-profile-preamble {
-	padding: 1.5rem;
-	box-sizing: border-box;
-	background-color: white;
+/* container for profile image */
+.view-utc-directory .dm-profile-section--main-image,
+.employee-profile-page__image {
+  height: 300px;
+  width: 60%;
+  object-fit: cover;
+  margin: 1rem 1rem 1rem 1.5rem;
+  align-self: flex-start;
 }
 
-.view-utc-directory .dm-profile-preamble .dm-profile-heading {
-	background-color: rgb(255, 255, 255);
-	display: inline-block;
-	padding: 0.25rem 1rem;
-	margin: 0;
-	text-transform: uppercase;
+.view-utc-directory .dm-profile-section img,
+.employee-profile-page img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0px;
+  margin: 0px;
+  flex: 1 1;
 }
 
-
-.view-utc-directory .dm-profile-preamble--with-main-image {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
+/* main profile details */
+.employee-profile-page__body,
+.view-utc-directory .dm-profile-activities {
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  flex: 1 1;
+  padding: 0rem 1rem 1rem 1rem;
+  margin: 0px;
 }
 
-.view-utc-directory .dm-profile-preamble
-	.dm-profile-section--main-image
-	+ .dm-profile-report-section {
-	padding: 0;
-}
-
-.view-utc-directory .dm-profile-section--main-image {
-	box-sizing: border-box;
-	-ms-flex-item-align: center;
-	align-self: center;
-	width: 100%;
-}
-
-.view-utc-directory .dm-profile-main-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-width: 25em;
-	margin: 0 auto;
-	height: auto;
-}
-
-/* adjust name size - this is coming inline from somewhere, can we change in DM? */
-
-.view-utc-directory .dm-profile-activity span {
-	font-size: 20pt !important;
-
-}
-
-.view-utc-directory .dm-profile-preamble .dm-profile-content .dm-profile-activities {
-	text-align: left;
-  margin-left: 15px;
+.view-utc-directory
+  .dm-profile-preamble
+  .dm-profile-content
+  .dm-profile-activities {
+  text-align: left;
   background: none;
   color: black;
 }
 
-/* hides unused components */
-.view-utc-directory .dm-profile-tabs__item--active .dm-profile-tabs__link::after {
-	display: none;
+.employee-profile-page__body p {
+  margin: 0.1rem;
 }
+
+.view-utc-directory
+  .dm-profile-preamble
+  .dm-profile-section--main-image
+  + .dm-profile-report-section {
+  padding: 0;
+  margin: 1rem;
+  margin-top: 0;
+  width: auto;
+}
+
+/* adjust name size - this is coming inline from somewhere, can we change in DM? */
+
+.view-utc-directory .dm-profile-activity {
+  font-family: 'Open Sans', san-serif;
+}
+.view-utc-directory .dm-profile-activity span,
+.employee-profile-page__name {
+  font-size: 20pt !important;
+  font-weight: 600 !important;
+}
+
+/* hides unused DM components */
+.view-utc-directory
+  .dm-profile-tabs__item--active
+  .dm-profile-tabs__link::after {
+  display: none;
+}
+
 .view-utc-directory .dm-profile-section--hidden {
-	display: none;
+  display: none;
 }
 
 .view-utc-directory .dm-profile-break {
   display: none;
-  }
-
-.view-utc-directory .dm-profile-tabs {
-	margin: 0;
-	padding: 0;
-	position: relative;
-  z-index: 50;
-  text-align: left;
-	@apply bg-utc-new-blue-100;
 }
 
 /* DM tabs */
 
-.view-utc-directory .dm-profile-tabs__item {
-	border: 0;
-	display: block;
-	padding: .75rem 1rem;
-	position: relative;
+.view-utc-directory .dm-profile-tabs,
+.employee-profile-page__divider {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 50;
+  text-align: left;
+  @apply bg-utc-new-blue-100;
+}
+
+.view-utc-directory .dm-profile-tabs__item,
+.employee-profile-page__divider p {
+  border: 2px solid;
+  display: block;
+  padding: 0.75rem 1rem;
+  position: relative;
   text-transform: uppercase;
   margin: 0;
   background: none;
 }
 
-.view-utc-directory .dm-profile-tabs__link {
-	display: block;
-	font-size: 1.1rem;
-	font-weight: 600;
-	margin: 0 0.25rem;
-	text-decoration: none;
-	letter-spacing: 2px;
+.employee-profile-page__divider {
+  height: 2.6rem;
 }
 
-.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item > .dm-profile-tabs__link {
-	box-shadow: none;
-	@apply text-utc-new-blue-400;
+/* unique to DM tabs */
+.view-utc-directory .dm-profile-tabs {
+  background-color: whitesmoke;
 }
 
-.view-utc-directory .dm-profile-tabs__item--active
- {
-  border-bottom: 3px solid #112e51;
+.view-utc-directory .dm-profile-tabs__item {
+  border: 2px solid #112e51;
+  @apply bg-utc-new-blue-100;
+  margin: 0.5rem 0rem;
 }
-.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item--active > .dm-profile-tabs__link,
-.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item:hover > .dm-profile-tabs__link {
-	@apply text-utc-new-blue-500 !important;
+
+.view-utc-directory .dm-profile-tabs__link,
+.employee-profile-page__divider p {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0.25rem;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item
+  > .dm-profile-tabs__link {
+  box-shadow: none;
+  @apply text-utc-new-blue-500;
+}
+
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item--active
+  > .dm-profile-tabs__link,
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item:hover
+  > .dm-profile-tabs__link {
+  @apply text-white !important;
+}
+
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item--active,
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item:hover {
+    @apply bg-utc-new-blue-500;
 }
 
 /* DM Profile Content */
 
-.view-utc-directory .dm-profile-section--tabbed {
-	border: 0;
-	padding: 0.25rem 1rem;
-	position: relative;
+.view-utc-directory .dm-profile-section--tabbed,
+.employee-profile-page__bio {
+  border: 0;
+  padding: 1rem;
+  position: relative;
   z-index: 10;
   background: white;
 }
 
 .view-utc-directory .dm-profile-section--tabbed:focus {
-	outline: none;
-	box-shadow: inset 0 0 0 0.15rem lightblue;
+  outline: none;
+  box-shadow: inset 0 0 0 0.15rem lightblue;
 }
 
 .view-utc-directory .dm-profile-preamble .dm-profile-report-section {
-	box-sizing: border-box;
-	width: 100%;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.view-utc-directory ol.dm-profile-activities {
-  margin: .5rem;
-}
-
-.view-utc-directory h2.dm-profile-heading {
+.view-utc-directory h2.dm-profile-heading,
+.view-utc-directory h2 {
+  font-weight: 600;
   font-size: 1.25rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -489,41 +540,109 @@ margin: .25rem;
   font-family: 'Open Sans', san-serif;
   font-size: 1.1rem;
   font-weight: 600;
-
 }
 
-
+.dm-profile-content ol.dm-profile-activities {
+  padding: 0.5rem;
+}
 
 /* mobile-first media queries */
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .view-utc-directory .dm-profile-preamble,
+  .employee-profile-page {
+    flex-direction: row;
+  }
+  .view-utc-directory .dm-profile-section--main-image,
+  .employee-profile-page__image {
+    height: 300px;
+    width: 40%;
+    object-fit: cover;
+    margin: 1rem 1rem 1rem 1.5rem;
+  }
 
-	.view-utc-directory .dm-profile-tabs__item {
-		display: inline-block;
-	}
+  .employee-profile-page__body,
+.view-utc-directory .dm-profile-activities {
+  padding: 1rem;
+}
 
-	.view-utc-directory .dm-profile-tabs__link {
-		display: inline;
-	}
+  .view-utc-directory
+    .dm-profile-preamble
+    .dm-profile-section--main-image
+    + .dm-profile-report-section {
+    width: auto;
+  }
 
-	.view-utc-directory .dm-profile-tabs__item--active .dm-profile-tabs__link::after {
-		content: normal;
-	}
+.view-utc-directory .dm-profile-preamble,
+.employee-profile-page {
+  background-color: white;
+}
+}
+@media (min-width: 1024px) {
+  .view-utc-directory .dm-profile-section--main-image,
+  .employee-profile-page__image {
+    height: 350px;
+    width: 20%;
+    object-fit: cover;
+    margin: 1rem 1rem 1rem 1.5rem;
+  }
 
-	.view-utc-directory .dm-profile-section--main-image {
-		display: inline-block;
-		width: 20%;
-	}
+  .view-utc-directory .dm-profile-tabs__item {
+    display: inline-block;
+  }
 
-	.view-utc-directory .dm-profile-main-image {
-		max-width: 100% !important;
-		margin-left: 0px !important;
-	}
+  .view-utc-directory .dm-profile-tabs__link {
+    display: inline;
+  }
 
-	.view-utc-directory .dm-profile-preamble
-		.dm-profile-section--main-image
-		+ .dm-profile-report-section {
-		display: inline-block;
-		vertical-align: top;
-		width: 75%;
-	}
+  .view-utc-directory
+    .dm-profile-tabs__item--active
+    .dm-profile-tabs__link::after {
+    content: normal;
+  }
+
+  .view-utc-directory
+    .dm-profile-preamble
+    .dm-profile-section--main-image
+    + .dm-profile-report-section {
+    width: auto;
+  }
+
+  .view-utc-directory .dm-profile-tabs__item {
+    margin: 0;
+    border: 0;
+  }
+  .view-utc-directory .dm-profile-tabs__item--active {
+    border-bottom: 3px solid #112e51;
+  }
+
+  .view-utc-directory .dm-profile-tabs {
+    @apply bg-utc-new-blue-100;
+  }
+
+  .view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item--active
+  > .dm-profile-tabs__link,
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item:hover
+  > .dm-profile-tabs__link {
+  @apply text-utc-new-blue-500 !important;
+}
+
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item
+  > .dm-profile-tabs__link {
+  box-shadow: none;
+  @apply text-utc-new-blue-400;
+}
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item--active,
+.view-utc-directory
+  .dm-profile-tabs
+  > .dm-profile-tabs__item:hover {
+    @apply bg-utc-new-blue-100;
+}
 }
