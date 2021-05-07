@@ -43,7 +43,7 @@
 
 		 
 		{% if utc_hero.hero_align == 'Left' %}
-		<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utchero md:grid-flow-col lg:grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
+		<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utchero lg:grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
 			{% if utc_hero.hero_image %}
 				<div class="2xl:col-start-2 lg:col-start-1 md:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 col-span-1 z-30">
 				{{ utc_hero.hero_image }} 
@@ -52,7 +52,7 @@
 
 				<div class="lg:col-start-3 md:col-start-1 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:mx-8 p-4 pb-0 lg:pb-4 z-30 self-end">
 		{% else %}
-		<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utcheroright lg:grid-flow-row md:grid-flow-col lg:mb-4  2xl:grid-cols-utcherolargeright text-center">
+		<div class="grid grid-cols-1 lg:grid-rows-utchero lg:grid-cols-utcheroright lg:grid-flow-row lg:mb-4  2xl:grid-cols-utcherolargeright text-center">
 			{% if utc_hero.hero_image %}
 				<div class="lg:col-start-3 lg:col-end-5 md:col-start-1 2xl:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 z-30">
 				{{ utc_hero.hero_image }}
