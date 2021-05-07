@@ -40,20 +40,3 @@ blockquote p:after {
     position: absolute;
     margin-top: -.25em
 }
-
-.utc-homepage-quote-bg {
-    background: #eee;
-}
-
-.utc-homepage-quote-bg blockquote {
-    width: 75%;
-    background: none!important;
-}
-
-.utc-homepage-quote-bg blockquote {
-    font-size: 1.25rem;
-}
-
-.utc-homepage-quote-bg blockquote p:after {
-    margin-left: -.5rem;
-}
