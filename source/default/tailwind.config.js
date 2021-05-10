@@ -42,6 +42,9 @@ module.exports = {
         'utcherolargeright': '1fr minmax(min-content,50rem) minmax(min-content,120rem) 1fr',
       }
     },
+    minHeight: {
+      '23': '23rem'
+    }
   },
   variants: {},
   plugins: [tailwindForms],
