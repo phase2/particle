@@ -21,32 +21,29 @@
 		{{ title }}
 	</h3>
 {% endif %}
-<div class="flex flex-wrap justify-center">
+<div class="md:grid md:grid-flow-col md:grid-cols-3 md:grid-rows-3 md:gap-4">
 	{% for key,row in rows %}
 		{% set content = {
-	  news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
+	news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
     news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
     news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
     news_location: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
     news_type: view.style_plugin.getField(key, 'field_utc_rss_feed_item_type'),
-    news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body'),
+    news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body')|striptags|trim,
     news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
+	news_pubdate: view.style_plugin.getField(key, 'field_utc_rss_feed_item_pubdate'),
  } %}
-		<div class="ml-8 my-4 bg-white hover:bg-gray-200">
-			<a href={{content.news_link}}>
-				<div class="max-w-xs rounded overflow-hidden shadow-lg">
-					{{ content.news_image }}
-					{# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
-					<div class="px-6 py-4">
-						<div class="font-bold text-xl text-center mb-2">{{ content.news_title }}</div>
-						{# <p class="text-gray-700 text-base">
-						          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-						        </p> #}
-					</div>
+		<div>
+			<a
+				href={{content.news_link}}>
+				{# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
+				<div class="px-6 py-4 hover:bg-gray-200">
+				    <div class="font-bold text-lg mb-2"> {{content.news_location}} </div>
+					<div class="text-xl mb-2">{{ content.news_title }}</div>
+					{# <p> {{content.news_pubdate}} </p> #}
 				</div>
 			</a>
 		</div>
-
 
 	{% endfor %}
 </div>
