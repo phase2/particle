@@ -21,29 +21,33 @@
 		{{ title }}
 	</h3>
 {% endif %}
-<div class="flex flex-wrap">
+<div class="box-border max-w-4xl mx-auto xl:masonry before:box-inherit after:box-inherit">
 	{% for key,row in rows %}
 		{% set content = {
-	  news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
-    news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
-    news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
-    news_location: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
-    news_type: view.style_plugin.getField(key, 'field_utc_rss_feed_item_type'),
-    news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body')|striptags|trim,
-    news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
- } %}
-		<div class="ml-8">
+			news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
+			news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
+			news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
+			news_location: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+			news_type: view.style_plugin.getField(key, 'field_utc_rss_feed_item_type'),
+			news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body')|striptags|trim,
+			news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
+ 		} %}
+		<div class="group break-inside p-4 my-6 bg-white shadow rounded-lg xl:min-h-23 hover:bg-utc-new-blue-100 transition duration-700">
 			<a
 				href={{content.news_link}}>
 				{# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
-				<div class="px-6 py-4">
-					<div class="font-bold text-xl mb-2">{{ content.news_title }}</div>
+				<div class="p-6">
+					<p class="font-bold text-xl mb-2">{{ content.news_title }}</p>
 					<p class="text-gray-700 text-base">
 						{{content.news_body}}
 						{# Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil. #}
 					</p>
 				</div>
+				<div class="text-right px-8 pb-4 items-end">
+				<i class="fas fa-angle-right text-2xl transition duration-700"></i>
+				</div>
 			</a>
+
 		</div>
 
 	{% endfor %}
