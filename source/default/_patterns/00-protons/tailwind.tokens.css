@@ -18,7 +18,11 @@ Monospace - Google Fonts - Source Code Pro
 
 @layer utilities {
   @variants responsive {
-    .masonry {
+    .masonry-3 {
+      column-count: 3;
+      column-gap: 2rem;
+    }
+    .masonry-2 {
       column-count: 2;
       column-gap: 1.5em;
     }
