@@ -21,7 +21,7 @@
 		{{ title }}
 	</h3>
 {% endif %}
-<div class="md:grid md:grid-flow-col md:grid-cols-3 md:grid-rows-3 md:gap-4">
+<div class="md:grid md:grid-flow-col md:grid-cols-3 md:grid-rows-3 md:gap-8 ml-2">
 	{% for key,row in rows %}
 		{% set content = {
 	news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
@@ -37,9 +37,11 @@
 			<a
 				href={{content.news_link}}>
 				{# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
-				<div class="px-6 py-4 hover:bg-gray-200">
-				    <div class="font-bold text-lg mb-2"> {{content.news_location}} </div>
-					<div class="text-xl mb-2">{{ content.news_title }}</div>
+				<div class="pr-4 my-4 hover:bg-gray-200">
+				<div class="border-l-4 border-utc-new-gold-500 py-1"> 
+				    <div class="text-base my-1 uppercase font-bold tracking-wide pl-3"> {{content.news_location}} </div>
+					<div class="text-xl mb-1 pl-3">{{ content.news_title }}</div>
+					</div>
 					{# <p> {{content.news_pubdate}} </p> #}
 				</div>
 			</a>
