@@ -17,7 +17,8 @@
   margin-top: 1.5rem;
 }
 
-.block--webform .form-type-radio {
+.block--webform .form-type-radio,
+.block--webform .form-type-select {
   margin-top: .25rem;
 }
 .block--webform .form-item label:not(.option),
@@ -46,7 +47,8 @@
 .block--webform input[type='range'],
 .block--webform input[type='month'],
 .block--webform input[type='search'],
-.block--webform textarea {
+.block--webform textarea,
+.block--webform select {
   box-shadow: none;
   border-radius: 0;
   border: 2px solid #e2e8f0;
@@ -69,6 +71,7 @@
 .block--webform input[type='range']:focus,
 .block--webform input[type='month']:focus,
 .block--webform input[type='search']:focus,
+.block--webform select:focus,
 .block--webform input[type='text']:active,
 .block--webform input[type='time']:active,
 .block--webform input[type='url']:active,
@@ -90,7 +93,7 @@
 
 .block--webform textarea:active,
 .block--webform textarea:focus {
-    border: 3px solid #2d3748;
+    border: 2px solid #2d3748;
     transition: 0.5s ease;
     box-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 }
@@ -102,11 +105,17 @@
 [type='checkbox']:checked:focus, [type='radio']:checked:focus,
 [type='checkbox']:checked:hover, [type='radio']:checked:hover,
 [type='checkbox']:checked, [type='radio']:checked {
-  background-color: #2d3748;
+  @apply bg-utc-new-blue-400;
+}
+
+[type='checkbox']:focus, [type='radio']:focus {
+  --tw-ring-color: rgba(196, 203, 212);
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: transparent;
 }
 
 [type='checkbox']:checked:focus, [type='radio']:checked:focus {
-  --tw-ring-offset-width: 2px;
-    --tw-ring-offset-color: #fff;
-    --tw-ring-color: #2d3748;
+  --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: transparent;
+    --tw-ring-color: rgba(196, 203, 212);
 }
