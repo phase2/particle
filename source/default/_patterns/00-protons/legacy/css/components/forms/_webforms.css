@@ -19,7 +19,7 @@
 
 .block--webform .form-type-radio,
 .block--webform .form-type-select {
-  margin-top: .25rem;
+  margin-top: 0.25rem;
 }
 .block--webform .form-item label:not(.option),
 .block--webform .form-composite > legend {
@@ -52,9 +52,9 @@
   box-shadow: none;
   border-radius: 0;
   border: 2px solid #e2e8f0;
-  font-size: .9rem;
-  color:#2d3748;
-  padding: .5rem; 
+  font-size: 0.9rem;
+  color: #2d3748;
+  padding: 0.5rem;
 }
 
 .block--webform input[type='text']:focus,
@@ -85,37 +85,68 @@
 .block--webform input[type='datetime-local']:active,
 .block--webform input[type='range']:active,
 .block--webform input[type='month']:active,
-.block--webform input[type='search']:active
- {
-    border: 2px solid #2d3748;
-    transition: 0.5s;
+.block--webform input[type='search']:active {
+  border: 2px solid #2d3748;
+  transition: 0.5s;
 }
 
 .block--webform textarea:active,
 .block--webform textarea:focus {
-    border: 2px solid #2d3748;
-    transition: 0.5s ease;
-    box-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  border: 2px solid #2d3748;
+  transition: 0.5s ease;
+  box-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width))
+    var(--tw-ring-color);
 }
 
-[type='checkbox'], [type='radio'] {
+/* radio and checkbox edits */
+
+.block--webform [type='checkbox'],
+.block--webform [type='radio'] {
   margin-right: 2px;
 }
 
-[type='checkbox']:checked:focus, [type='radio']:checked:focus,
-[type='checkbox']:checked:hover, [type='radio']:checked:hover,
-[type='checkbox']:checked, [type='radio']:checked {
+.block--webform [type='checkbox']:checked:focus,
+.block--webform [type='radio']:checked:focus,
+.block--webform [type='checkbox']:checked:hover,
+.block--webform [type='radio']:checked:hover,
+.block--webform [type='checkbox']:checked,
+.block--webform [type='radio']:checked {
   @apply bg-utc-new-blue-400;
 }
 
-[type='checkbox']:focus, [type='radio']:focus {
+.block--webform [type='checkbox']:focus,
+.block--webform [type='radio']:focus {
   --tw-ring-color: rgba(196, 203, 212);
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: transparent;
 }
 
-[type='checkbox']:checked:focus, [type='radio']:checked:focus {
+.block--webform [type='checkbox']:checked:focus,
+.block--webform [type='radio']:checked:focus {
   --tw-ring-offset-width: 0px;
-    --tw-ring-offset-color: transparent;
-    --tw-ring-color: rgba(196, 203, 212);
+  --tw-ring-offset-color: transparent;
+  --tw-ring-color: rgba(196, 203, 212);
+}
+
+/* toggle edits */
+
+.toggle-light .toggle-slide {
+  box-shadow: 0 0 0 1px #e2e8f0
+}
+
+.toggle-light .toggle-off {
+  background: white;
+}
+
+.toggle-light .toggle-on {
+  @apply bg-utc-new-blue-200;
+  box-shadow: none;
+}
+
+.toggle-light .toggle-blob,
+.toggle-light .toggle-blob:hover {
+  box-shadow: none;
+  background: none;
+  @apply bg-utc-new-blue-400;
+
 }
