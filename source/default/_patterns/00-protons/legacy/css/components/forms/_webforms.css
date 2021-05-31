@@ -17,9 +17,10 @@
   margin-top: 1.5rem;
 }
 
+/* less margin on listed answer options */
 .block--webform .form-type-radio,
-.block--webform .form-type-select {
-  margin-top: 0.25rem;
+.block--webform .form-type-webform-toggle {
+  margin-top: 0.3rem;
 }
 .block--webform .form-item label:not(.option),
 .block--webform .form-composite > legend {
@@ -29,8 +30,8 @@
 }
 
 .block--webform .description {
-  color: #2d3748;
-  font-size: 1rem;
+  @apply text-utc-new-blue-500;
+  font-size: .85rem;
 }
 
 .block--webform input[type='text'],
@@ -50,11 +51,31 @@
 .block--webform textarea,
 .block--webform select {
   box-shadow: none;
-  border-radius: 0;
-  border: 2px solid #e2e8f0;
+  border: 2px solid;
+  @apply border-utc-new-blue-200;
+  border-radius: 0.25rem;
   font-size: 0.9rem;
-  color: #2d3748;
+  @apply text-utc-new-blue-500;
   padding: 0.5rem;
+}
+
+.block--webform input[type='text']::placeholder,
+.block--webform input[type='time']::placeholder,
+.block--webform input[type='url']::placeholder,
+.block--webform input[type='password']::placeholder,
+.block--webform input[type='color']::placeholder,
+.block--webform input[type='week']::placeholder,
+.block--webform input[type='date']::placeholder,
+.block--webform input[type='tel']::placeholder,
+.block--webform input[type='email']::placeholder,
+.block--webform input[type='number']::placeholder,
+.block--webform input[type='datetime-local']::placeholder,
+.block--webform input[type='range']::placeholder,
+.block--webform input[type='month']::placeholder,
+.block--webform input[type='search']::placeholder,
+.block--webform select::placeholder,
+.block--webform textarea::placeholder {
+  @apply text-utc-new-blue-400;
 }
 
 .block--webform input[type='text']:focus,
@@ -86,19 +107,29 @@
 .block--webform input[type='range']:active,
 .block--webform input[type='month']:active,
 .block--webform input[type='search']:active {
-  border: 2px solid #2d3748;
-  transition: 0.5s;
+  border: 2px solid;
+  @apply border-utc-new-blue-500;
+  transition: 0.25s;
+  --tw-ring-offset-width: 2px;
+  --tw-ring-color: rgba(196, 203, 212, 0.4);
+  --tw-ring-offset-color: transparent;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    0 0 rgba(0, 0, 0, 0);
 }
 
 .block--webform textarea:active,
 .block--webform textarea:focus {
-  border: 2px solid #2d3748;
-  transition: 0.5s ease;
-  box-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width))
-    var(--tw-ring-color);
+  border: 2px solid;
+  @apply border-utc-new-blue-400;
+  transition: 0.25s;
+  --tw-ring-offset-width: 2px;
+  --tw-ring-color: rgba(196, 203, 212, 0.4);
+  --tw-ring-offset-color: transparent;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    0 0 rgba(0, 0, 0, 0);
 }
 
-/* radio and checkbox edits */
+/* radio and checkbox */
 
 .block--webform [type='checkbox'],
 .block--webform [type='radio'] {
@@ -128,10 +159,11 @@
   --tw-ring-color: rgba(196, 203, 212);
 }
 
-/* toggle edits */
+/* toggle */
 
 .toggle-light .toggle-slide {
-  box-shadow: 0 0 0 1px #e2e8f0
+  box-shadow: 0 0 0 1px rgba(196, 203, 212);
+  
 }
 
 .toggle-light .toggle-off {
@@ -148,5 +180,19 @@
   box-shadow: none;
   background: none;
   @apply bg-utc-new-blue-400;
+}
 
+/* rating scale */
+.webform-scale-options input + label {
+  border: 2px solid;
+  @apply border-utc-new-blue-200;
+  line-height: 33px;
+}
+
+.webform-scale-options input:hover + label,
+.webform-scale-options input:focus + label,
+.webform-scale-options input:checked + label {
+  @apply border-utc-new-blue-400;
+  @apply bg-utc-new-blue-100;
+  font-weight: 600;
 }
