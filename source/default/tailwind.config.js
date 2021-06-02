@@ -46,6 +46,10 @@ module.exports = {
       '23': '23rem'
     }
   },
-  variants: {},
+  variants: {
+    extend: {
+     margin: ['first'],
+    }
+  },
   plugins: [tailwindForms],
 };
