@@ -20,7 +20,7 @@
 
 /* no margin at top of fieldset */
 
-.fieldset-wrapper > .form-item:first-child {
+.block--webform .fieldset-wrapper > .form-item:first-child {
   margin-top: 0;
 }
 
@@ -165,37 +165,37 @@
 
 /* toggle */
 
-.toggle-light .toggle-slide {
+.block--webform .toggle-light .toggle-slide {
   box-shadow: 0 0 0 1px rgba(196, 203, 212);
   
 }
 
-.toggle-light .toggle-off {
+.block--webform .toggle-light .toggle-off {
   background: white;
 }
 
-.toggle-light .toggle-on {
+.block--webform .toggle-light .toggle-on {
   @apply bg-utc-new-blue-200;
   box-shadow: none;
 }
 
-.toggle-light .toggle-blob,
-.toggle-light .toggle-blob:hover {
+.block--webform .toggle-light .toggle-blob,
+.block--webform .toggle-light .toggle-blob:hover {
   box-shadow: none;
   background: none;
   @apply bg-utc-new-blue-400;
 }
 
 /* rating scale */
-.webform-scale-options input + label {
+.block--webform .webform-scale-options input + label {
   border: 2px solid;
   @apply border-utc-new-blue-200;
   line-height: 33px;
 }
 
-.webform-scale-options input:hover + label,
-.webform-scale-options input:focus + label,
-.webform-scale-options input:checked + label {
+.block--webform .webform-scale-options input:hover + label,
+.block--webform .webform-scale-options input:focus + label,
+.block--webform .webform-scale-options input:checked + label {
   @apply border-utc-new-blue-400;
   @apply bg-utc-new-blue-100;
   font-weight: 600;
