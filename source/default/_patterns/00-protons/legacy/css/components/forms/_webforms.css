@@ -12,16 +12,18 @@
   margin-left: 0;
 }
 
+/* more top margin on form items */
 .block--webform .form-item,
 .block--webform .form-actions {
-  margin-top: 1.5rem;
+  margin-top: .75rem;
 }
 
-/* less margin on listed answer options */
-.block--webform .form-type-radio,
-.block--webform .form-type-webform-toggle {
-  margin-top: 0.3rem;
+/* no margin at top of fieldset */
+
+.fieldset-wrapper > .form-item:first-child {
+  margin-top: 0;
 }
+
 .block--webform .form-item label:not(.option),
 .block--webform .form-composite > legend {
   font-size: 1rem;
@@ -32,6 +34,8 @@
 .block--webform .description {
   @apply text-utc-new-blue-500;
   font-size: .85rem;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .block--webform input[type='text'],
@@ -56,7 +60,6 @@
   border-radius: 0.25rem;
   font-size: 0.9rem;
   @apply text-utc-new-blue-500;
-  padding: 0.5rem;
 }
 
 .block--webform input[type='text']::placeholder,
@@ -128,12 +131,13 @@
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
     0 0 rgba(0, 0, 0, 0);
 }
-
+/* select alignment */
 /* radio and checkbox */
 
 .block--webform [type='checkbox'],
 .block--webform [type='radio'] {
   margin-right: 2px;
+  margin-left: 2px;
 }
 
 .block--webform [type='checkbox']:checked:focus,
