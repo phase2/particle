@@ -11,7 +11,7 @@ table .form-actions:last-child {
 
 .form-item label:not(.option) {
   margin-bottom: 0;
-  font-size: 0.778rem;
+  font-size: .85rem;
   font-weight: bold;
 }
 
@@ -76,7 +76,7 @@ input[type='search'] {
 select {
   background-color: #fff;
   display: block;
-  padding: 10px 1rem;
+  padding: 10px 2rem 10px 1rem;
   border: 1px solid;
   border-color: #cfd8dc;
   border-radius: 0;
@@ -87,7 +87,7 @@ select {
   box-sizing: border-box;
   transition: border-color 0.15s;
   width: auto;
-  height: 40px;
+  height: 50px;
 }
 
 textarea {
