@@ -15,7 +15,7 @@
 /* more top margin on form items */
 .webform-submission-form .form-item,
 .webform-submission-form .form-actions {
-  margin-top: .75rem;
+  margin-top: 0.75rem;
 }
 
 /* no margin at top of fieldset */
@@ -33,7 +33,7 @@
 
 .webform-submission-form .description {
   @apply text-utc-new-blue-500;
-  font-size: .85rem;
+  font-size: 0.85rem;
   margin-bottom: 10px;
   margin-top: 5px;
 }
@@ -131,7 +131,7 @@
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
     0 0 rgba(0, 0, 0, 0);
 }
-/* select alignment */
+
 /* radio and checkbox */
 
 .webform-submission-form [type='checkbox'],
@@ -167,7 +167,6 @@
 
 .webform-submission-form .toggle-light .toggle-slide {
   box-shadow: 0 0 0 1px rgba(196, 203, 212);
-  
 }
 
 .webform-submission-form .toggle-light .toggle-off {
