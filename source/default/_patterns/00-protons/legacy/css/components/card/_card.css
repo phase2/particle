@@ -29,9 +29,14 @@ in particle */
 /* make image span full width and height and crop to fit regardless of container sizing */
 
 .utc-card-2 img {
-    height: auto;
+    height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.utc-card-2--img-no-fill img {
+    height: auto;
+    padding: 15px
 }
 
 .utc-card-2__body {
