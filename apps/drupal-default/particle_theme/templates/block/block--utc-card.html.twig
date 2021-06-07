@@ -23,6 +23,7 @@
 	{% set card_count = content["#block_content"].field_card_count.0.value %}
 	{% set card_width = content.field_single_card_width|field_value|render %}
 	{% set card_type = content["#block_content"].field_card_type.0.value %}
+	{% set card_img_fill = content.field_card_image_fill[0]|render == 'On' ? 'utc-card-2--img-no-fill' %}
 
 	{# set variables for card content based on Drupal input #}
 	{% set item_card_1 = {
