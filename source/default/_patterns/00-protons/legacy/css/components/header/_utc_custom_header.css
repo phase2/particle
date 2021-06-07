@@ -114,6 +114,9 @@
         width: 37px !important;
         margin-left: 0.3rem;
     }
+    .region-logo {
+        padding-left: .75rem;
+    }
     .header a.site-logo {
         position: absolute;
         width: 240px !important;
@@ -122,8 +125,8 @@
 }
 
 @media screen and (max-width: 360px) {
-    /*We no longer need Drupal 8. We are using Superfish instead.
-    .we-mega-menu-ul {
+    /*Drupal 8 mega menu is no longer used. Superfish is now in play.*/
+    /*.we-mega-menu-ul {
         max-width: 175px;
         margin-left: 6px;
     }
@@ -184,6 +187,9 @@
 }
 
 @media screen and (max-width: 280px) {
+    .header__main {
+        flex-wrap: wrap;
+    }
     .block--region-logo {
         position: relative;
         width: fit-content !important;
@@ -192,12 +198,16 @@
     .header--custom-header .header__main {
         padding-bottom: 3rem;
     }
+    /***** code to accommodate Superfish *****/
     .header__container {
         padding-right: 0;
         padding-top: .5rem;
     }
     .header__main {
         flex-wrap: wrap;
+    }
+    .header--custom-header .header__main {
+        padding-bottom: 3rem;
     }
     .header__main__right {
         width: 100%;
