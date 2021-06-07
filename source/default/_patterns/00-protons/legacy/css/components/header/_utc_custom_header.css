@@ -122,11 +122,15 @@
         width: 240px !important;
         height: 30px !important;
     }
+    ul.sf-menu ul li a {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 360px) {
     /*Drupal 8 mega menu is no longer used. Superfish is now in play.*/
     /*.we-mega-menu-ul {
+    .we-mega-menu-ul {
         max-width: 175px;
         margin-left: 6px;
     }
@@ -136,7 +140,10 @@
     }
     .navbar-we-mega-menu.navbar .we-mega-menu-ul>li.we-mega-menu-li[data-submenu='1']>a:after {
         margin-left: 4px;
+
     }*/
+    /*TODO The code above can be removed later.*/
+    
     .header__toggleable-account-menu {
         display: none;
     }
@@ -197,6 +204,7 @@
     }
     .header--custom-header .header__main {
         padding-bottom: 3rem;
+        width: 37px !important;
     }
     /***** code to accommodate Superfish *****/
     .header__container {
