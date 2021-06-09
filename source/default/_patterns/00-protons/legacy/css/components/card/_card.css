@@ -62,6 +62,7 @@ in particle */
     position: absolute;
     bottom: 0;
     margin-bottom: 0.25rem;
+    margin-left: .5rem;
 }
 
 .utc-card-2--align-center {
