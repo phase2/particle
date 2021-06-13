@@ -41,28 +41,24 @@ in particle */
 
 .utc-card-2__body {
     padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
-
-/* alter margin if there is a card button */
-
-.utc-card-2__body--with-action {
-    margin-bottom: 2.5rem;
-}
+.utc-card-2__content {
+    margin-bottom: 0rem;
+  }
 
 .utc-card-2__title {
     font-size: 1.25rem;
     font-weight: 600;
 }
 
-
-/* container for button */
-
-.utc-card-2__action-container {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 0.25rem;
-    margin-left: .5rem;
+.utc-card-2__action-container > .btn {
+    width: auto;
+    margin-bottom: 0;
 }
 
 .utc-card-2--align-center {
@@ -71,10 +67,6 @@ in particle */
 
 .utc-card-2--align-right {
     text-align: right;
-}
-
-.utc-card-2--align-right .utc-card-2__action-container {
-    right: 4%;
 }
 
 
@@ -184,11 +176,6 @@ in particle */
 
 .utc-card-2--thumbnail.utc-card-2--align-center {
     text-align: center;
-}
-
-.utc-card-2--thumbnail.utc-card-2--align-center .utc-card-2__action-container {
-    left: 0;
-    width: 100%;
 }
 
 .utc-card-2--thumbnail.utc-card-2--align-center .btn {
