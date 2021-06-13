@@ -58,7 +58,7 @@ in particle */
 
 .utc-card-2__action-container > .btn {
     width: auto;
-    margin-bottom: 0;
+    margin: 0 .5rem;
 }
 
 .utc-card-2--align-center {
