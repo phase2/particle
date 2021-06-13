@@ -59,12 +59,7 @@
     {% endif %}
 
     {% block card_body %}
-
-      {% if (card_link is empty) and card_button_url %}
-        <div class="utc-card-2__body utc-card-2__body--with-action">
-      {% else %}
         <div class="utc-card-2__body">
-      {% endif %}
           <div class="utc-card-2__content">
             {% if card_title %}
               <h3 class="utc-card-2__title">{{ card_title }}
