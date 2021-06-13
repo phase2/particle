@@ -34,6 +34,11 @@ in particle */
     object-fit: cover;
 }
 
+.utc-card-2--img-no-fill img {
+    height: auto;
+    padding: 15px
+}
+
 .utc-card-2__body {
     padding: 1.25rem;
 }
@@ -57,6 +62,7 @@ in particle */
     position: absolute;
     bottom: 0;
     margin-bottom: 0.25rem;
+    margin-left: .5rem;
 }
 
 .utc-card-2--align-center {

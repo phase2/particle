@@ -23,7 +23,7 @@
  *   displayed after the main title tag that appears in the template.
  *
  * @see template_preprocess_block()
- *
+ * 
  * Base used by block--utc-card.html.twig
  */
 #}
@@ -38,6 +38,7 @@
   card_width ? 'utc-card-2--w-' ~ card_width,
   text_alignment ? 'utc-card-2--align-' ~ text_alignment,
   card_link ? 'utc-card-2--card-link',
+  card_img_fill ? card_img_fill
 ] | sort | join(' ') | trim %}
 
 {# could use include statements for items like images and buttons in design system #}
