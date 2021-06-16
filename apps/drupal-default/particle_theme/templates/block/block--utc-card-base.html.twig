@@ -59,23 +59,18 @@
     {% endif %}
 
     {% block card_body %}
-
-      {% if (card_link is empty) and card_button_url %}
-        <div class="utc-card-2__body utc-card-2__body--with-action">
-      {% else %}
         <div class="utc-card-2__body">
-      {% endif %}
+          <div class="utc-card-2__content">
+            {% if card_title %}
+              <h3 class="utc-card-2__title">{{ card_title }}
+              </h3>
+            {% endif %}
 
-        {% if card_title %}
-          <h3 class="utc-card-2__title">{{ card_title }}
-          </h3>
-        {% endif %}
-
-        {% if card_text %}
-         <div class="utc-card-2__text">{{ card_text }}
-         </div>
-        {% endif %}
-
+            {% if card_text %}
+            <div class="utc-card-2__text">{{ card_text }}
+            </div>
+            {% endif %}
+          </div>
         {% if (card_link is empty) and card_button_url %}
           <div class="utc-card-2__action-container">
             <a href="{{ card_button_url }}" class="{{ button_style }}" target="{{ card_button_target }}">
@@ -83,7 +78,6 @@
            </a>
          </div>
         {% endif %}
-      
        </div>
       {% endblock card_body %}
 
