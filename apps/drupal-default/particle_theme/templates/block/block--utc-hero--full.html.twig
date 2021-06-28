@@ -38,26 +38,23 @@
 	{% set body_color = 'text-base' %}
 	{% set bg_color = 'bg-utc-new-blue-300' %}
 	{% endif %}
-
-
-
 		 
 		{% if utc_hero.hero_align == 'Left' %}
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 lg:grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
+		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-8 lg:grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="2xl:col-start-2 lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">
+				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto col-span-1 z-30">
 				{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:mx-8 p-4 z-30">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:ml-8 p-4 z-30">
 		{% else %}
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-8 grid-flow-row lg:mb-4 2xl:grid-cols-utcherolargeright text-center">
+		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-8 grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-5 2xl:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30">
 				{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
-				<div class="2xl:col-start-2 lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:my-auto lg:mx-8 py-4 px-6 col-span-1 z-30">
+				<div class="2xl:col-start-2 lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:my-auto lg:mr-8 py-4 px-6 col-span-1 z-30">
 		{% endif %}
 			{% if utc_hero.hero_tag %}
 				<p class="text-left font-semibold tracking-wide uppercase text-lg {{ body_color }}">
@@ -77,8 +74,8 @@
 			{% endif %}
 			{% if utc_hero.hero_button_url %}
 				{% if utc_hero.hero_button_text %}
-					<p class="mt-6 xl:mr-16 text-right">
-						<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out {{ body_color }} hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4 border lg:border-white border-utc-new-blue-500 " aria-label="Read the release">
+					<p class="my-6 text-right">
+						<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out {{ body_color }} hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4 border lg:border-white border-utc-new-blue-500" aria-label="Read the release">
 							Learn more <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i></a>
 					</p>
 					<p>

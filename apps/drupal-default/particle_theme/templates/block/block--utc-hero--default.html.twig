@@ -38,28 +38,26 @@
 	{% set body_color = 'text-base' %}
 	{% set bg_color = 'bg-utc-new-blue-300' %}
 	{% endif %}
-
-
-
 		 
 		{% if utc_hero.hero_align == 'Left' %}
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
+
+		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="2xl:col-start-2 lg:col-start-1 md:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 col-span-1 z-30">
+				<div class="lg:col-start-2 md:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 col-span-1 z-30">
 				{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
 
-				<div class="lg:col-start-3 md:col-start-1 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:mx-8 p-4 pb-0 lg:pb-4 z-30 self-end">
+				<div class="lg:col-start-3 md:col-start-1 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:ml-8 p-4 pb-0 lg:pb-4 z-30 self-end">
 		{% else %}
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:grid-flow-row lg:mb-4  2xl:grid-cols-utcherolargeright text-center">
+		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-5 md:col-start-1 2xl:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 z-30">
+				<div class="lg:col-start-3 lg:col-end-4 md:col-start-1 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 z-30">
 				{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
 		
-				<div class="2xl:col-start-2 lg:col-start-2 md:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:mx-8 pt-4 px-6 pb-0 lg:pb-4 col-span-1 z-30 self-end">
+				<div class="lg:col-start-2 md:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:mr-8 pt-4 px-6 pb-0 lg:pb-4 col-span-1 z-30 self-end">
 		{% endif %}
 			{% if utc_hero.hero_tag %}
 				<p class="text-left font-semibold tracking-wide uppercase text-lg {{ body_color }}">
@@ -74,18 +72,18 @@
 			{% endif %}
 			</div>
 			{% if utc_hero.hero_align == 'Left' %}
-			<div class="lg:col-start-3 md:col-start-1 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:mx-8 p-4 z-30 pt-0 lg:pt-4">
+			<div class="lg:col-start-3 md:col-start-1 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:ml-8 p-6 z-30 pt-0 lg:pt-4">
 			{% else %}
-			<div class="2xl:col-start-2 lg:col-start-2 md:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4 lg:mx-8 p-4 col-span-1 z-30 pt-0 lg:pt-4">
+			<div class="lg:col-start-2 md:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4 lg:mr-8 p-6 col-span-1 z-30 pt-0 lg:pt-4">
 			{% endif %}
 			{% if utc_hero.hero_text %}
 				<p class="text-left text-lg text-base">
-					{{ utc_hero.hero_text}}
+					{{ utc_hero.hero_text }}
 				</p>
 			{% endif %}
 			{% if utc_hero.hero_button_url %}
 				{% if utc_hero.hero_button_text %}
-					<p class="mt-6 xl:mr-16 text-right">
+					<p class="mt-6 text-right">
 						<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out text-base hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4 border border-utc-new-blue-500" aria-label="Read the release">
 							Learn more <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i></a>
 					</p>
