@@ -32,18 +32,20 @@
 	{% if utc_hero.hero_color == 'Dark Blue' %}
 	{% set title_color = 'lg:text-white' %}
 	{% set body_color = 'lg:text-white' %}
-	{% set bg_color = 'bg-utc-new-blue-500' %}
+	{% set bg1_opacity = '' %}
+	{% set bg2_opacity = 'bg-opacity-90' %}
 	{% else %}
 	{% set title_color = 'text-utc-new-blue-500' %}
 	{% set body_color = 'text-base' %}
-	{% set bg_color = 'bg-utc-new-blue-300' %}
+	{% set bg1_opacity = 'bg-opacity-15' %}
+	{% set bg2_opacity = 'bg-opacity-20' %}
 	{% endif %}
 
 
 
 		 
 		{% if utc_hero.hero_align == 'Left' %}
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
+		<div class="utc-hero-wrapper-left lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:grid-flow-row lg:mb-4 2xl:grid-cols-utcherolarge text-center">
 			{% if utc_hero.hero_image %}
 				<div class="2xl:col-start-2 lg:col-start-1 md:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 col-span-1 z-30">
 				{{ utc_hero.hero_image }} 
@@ -52,14 +54,14 @@
 
 				<div class="lg:col-start-3 md:col-start-1 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:mx-8 p-4 pb-0 lg:pb-4 z-30 self-end">
 		{% else %}
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:grid-flow-row lg:mb-4  2xl:grid-cols-utcherolargeright text-center">
+		<div class="utc-hero-wrapper-right lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:grid-flow-row lg:mb-4  2xl:grid-cols-utcherolargeright text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-5 md:col-start-1 2xl:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 z-30">
+				<div class="lg:col-start-4 xl:col-start-3 lg:col-end-5 2xl:col-end-4 lg:row-start-1 xl:row-start-2 lg:row-end-5 lg:mt-8 xl:m-auto z-30">
 				{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
 		
-				<div class="2xl:col-start-2 lg:col-start-2 md:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:mx-8 pt-4 px-6 pb-0 lg:pb-4 col-span-1 z-30 self-end">
+				<div class="2xl:col-start-2 lg:col-start-2 md:col-start-1 lg:col-end-4 xl:col-end-2 lg:row-start-2 lg:row-end-3 lg:mx-8 pt-4 px-6 pb-0 lg:pb-4 col-span-1 z-30 self-end">
 		{% endif %}
 			{% if utc_hero.hero_tag %}
 				<p class="text-left font-semibold tracking-wide uppercase text-lg {{ body_color }}">
@@ -94,9 +96,9 @@
 
 				</div>
 
-			<div class="w-full h-full bg-cover bg-center z-10 md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-3" style="background-image: url({{ utc_hero.hero_bg }})">
+			<div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-3" style="background-image: url({{ utc_hero.hero_bg }})">
 			
-				<div class="h-full w-full bg-opacity-90 {{ bg_color }}"></div>
+				<div class="h-full w-full {{ bg2_opacity }} bg-utc-new-blue-500"></div>
 				</div>
 		
 

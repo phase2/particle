@@ -90,3 +90,23 @@ p.small-head-hr {
         width: 100%;
     }
 }
+
+
+/**augment tailwinds bg-opacity-20**/
+
+.bg-opacity-20 {
+    opacity: .2!important
+}
+
+.bg-opacity-15 {
+    opacity: .15!important
+}
+
+@media screen and (min-width:1024px) {
+    .themag-layout--onecol-section .container .utc-hero-wrapper-right .field--name-field-image {
+        margin-left: -2rem;
+    }
+    .themag-layout--onecol-section .container .utc-hero-wrapper-right .field--name-field-image img {
+        max-width: 95%;
+    }
+}
