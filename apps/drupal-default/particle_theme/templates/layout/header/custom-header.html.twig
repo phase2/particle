@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Custom Header.
+ */
+#}
+<header class="header header--{{ themag.header_style|clean_class }}">
+
+  <div class="header__container-wrapper--header__main js-sticky-header-element">
+    <div class="header__container header__container--boxed">
+      <div class="header__main">
+        <div class="header__main__left">
+          {{ page.logo }}
+        </div>
+        <div class="header__main__right">
+          {{ page.header_secondary_menu }}
+          {% include '@themag/base-layout/header/components/user-action-menu.html.twig' %}
+        </div>
+      </div>
+    </div>
+
+      {{ page.search }}
+
+    <div class="header__container header__container--boxed">
+      <div class="header__main">
+        <div class="header__main__left">
+          {{ page.header_primary_menu }}
+        </div>
+        <div class="header__main__right">
+          {% include '@themag/base-layout/header/components/social-media-pages-menu.html.twig' %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</header>
