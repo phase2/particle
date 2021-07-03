@@ -28,78 +28,76 @@
     hero_button_text: content.field_hero_button.0['#title'],
     hero_button_url: content.field_hero_button.0['#url'],
     } %}
+
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_hero.hero_color == 'Dark Blue' %}
-	{% set title_color = 'lg:text-white' %}
-	{% set body_color = 'lg:text-white' %}
-	{% set bg_color = 'bg-utc-new-blue-500' %}
+		{% set title_color = 'lg:text-white' %}
+		{% set body_color = 'lg:text-white' %}
+		{% set btn_border_color = "lg:border-white" %}
+		{% set bg_color = 'background-color:#112e51' %}
+		{% set bg1_opacity = '' %}
+    	{% set bg2_opacity = 'opacity-90' %}
 	{% else %}
-	{% set title_color = 'text-utc-new-blue-500' %}
-	{% set body_color = 'text-base' %}
-	{% set bg_color = 'bg-utc-new-blue-300' %}
+		{% set title_color = 'text-utc-new-blue-500' %}
+		{% set body_color = 'text-base' %}
+		{% set btn_border_color = "lg:border-utc-new-blue-500" %}
+		{% set bg_color = 'background-color:#104dd4' %}
+		{% set bg1_opacity = 'opacity-20' %}
+    	{% set bg2_opacity = 'opacity-20' %}
 	{% endif %}
 		 
-		{% if utc_hero.hero_align == 'Left' %}
-
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:grid-flow-row lg:mb-4 text-center">
+	{% if utc_hero.hero_align == 'Left' %}
+		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-2 md:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 col-span-1 z-30">
-				{{ utc_hero.hero_image }} 
+				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30">
+					{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
-
-				<div class="lg:col-start-3 md:col-start-1 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:ml-8 p-4 pb-0 lg:pb-4 z-30 self-end">
-		{% else %}
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:grid-flow-row lg:mb-4 text-center">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:ml-8 p-4 z-30 self-end">
+	{% else %}
+		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-4 md:col-start-1 lg:row-start-2 lg:row-end-5 lg:m-auto lg:mt-8 z-30">
-				{{ utc_hero.hero_image }}
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30">
+					{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
-		
-				<div class="lg:col-start-2 md:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:mr-8 pt-4 px-6 pb-0 lg:pb-4 col-span-1 z-30 self-end">
-		{% endif %}
-			{% if utc_hero.hero_tag %}
-				<p class="text-left font-semibold tracking-wide uppercase text-lg {{ body_color }}">
-					{{ utc_hero.hero_tag }}
-				</p>
-				<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20" />
-			{% endif %}
-			{% if utc_hero.hero_title %}
-				<h2 class="text-left {{ title_color }}">
-					{{ utc_hero.hero_title }}
-				</h2>
-			{% endif %}
-			</div>
-			{% if utc_hero.hero_align == 'Left' %}
-			<div class="lg:col-start-3 md:col-start-1 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:ml-8 p-6 z-30 pt-0 lg:pt-4">
-			{% else %}
-			<div class="lg:col-start-2 md:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4 lg:mr-8 p-6 col-span-1 z-30 pt-0 lg:pt-4">
-			{% endif %}
-			{% if utc_hero.hero_text %}
-				<p class="text-left text-lg text-base">
-					{{ utc_hero.hero_text }}
-				</p>
-			{% endif %}
-			{% if utc_hero.hero_button_url %}
-				{% if utc_hero.hero_button_text %}
-					<p class="mt-6 text-right">
-						<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out text-base hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4 border border-utc-new-blue-500" aria-label="Read the release">
-							Learn more <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i></a>
+				<div class="lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:mr-8 p-4 pt-0 col-span-1 z-30 self-end">
+	{% endif %}
+					{% if utc_hero.hero_tag %}
+					<p class="text-left font-semibold tracking-wide uppercase text-lg {{ body_color }}">
+						{{ utc_hero.hero_tag }}
+					</p>
+					<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20" />
+					{% endif %}
+					{% if utc_hero.hero_title %}
+					<h2 class="text-left {{ title_color }}">
+						{{ utc_hero.hero_title }}
+					</h2>
+					{% endif %}
+					</div>
+					{% if utc_hero.hero_align == 'Left' %}
+					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:mr-8 lg:ml-8 p-4 pt-0 col-span-1 z-30">
+					{% else %}
+					<div class="lg:col-start-2 lg:col-end-3 lg:row-start-3 lg:row-end-4 lg:mr-8 p-4 pt-0 col-span-1 z-30">
+					{% endif %}
+					{% if utc_hero.hero_text %}
+					<p class="text-left text-lg text-base">
+						{{ utc_hero.hero_text}}
 					</p>
 					{% endif %}
+				{% if utc_hero.hero_button_url %}
+				{% if utc_hero.hero_button_text %}
+					<p class="my-6 text-right">
+						<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out text-base hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4 border border-utc-new-blue-500" aria-label="Read the release">
+							Learn more <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
+						</a>
+					</p>
+					</div>
 				{% endif %}
-
-				</div>
-
-			<div class="w-full h-full bg-cover bg-center z-10 md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-3" style="background-image: url({{ utc_hero.hero_bg }})">
-			
-				<div class="h-full w-full bg-opacity-90 {{ bg_color }}"></div>
-				</div>
-		
-
-
+				{% endif %}
+				
+			<div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-3" style="background-image: url({{ utc_hero.hero_bg }})">
+				<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
+			</div>
 		</div>
-
-
 	{% endblock %}
