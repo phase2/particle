@@ -32,12 +32,12 @@ module.exports = {
     extend: {
       gridTemplateRows: {
         // Adds a custom template for the utc hero block
-        'utchero': '30px 1fr 1fr 30px',
+        'utchero': '40px 1fr 1fr 70px',
       },
       gridTemplateColumns: {
         // Adds a custom template for the utc hero block
-        'utchero': '1fr minmax(min-content,55%) minmax(min-content,40%) 1fr',
-        'utcheroright': '1fr minmax(min-content,40%) minmax(min-content,55%) 1fr',
+        'utchero': '1fr 60% 35% 1fr',
+        'utcheroright': '1fr 35% 60% 1fr',
       }
     },
     minHeight: {
