@@ -28,18 +28,19 @@ module.exports = {
   theme: {
     colors,
     customForms,
-    fontFamily,
+    fontFamily, 
     extend: {
       gridTemplateRows: {
         // Adds a custom template for the utc hero block
-        'utchero': '30px 1fr 1fr 30px',
+        'utchero': '40px 1fr 1fr 70px',
+        'utcheroreverse': '70px 1fr 1fr 40px',
+        'utcherocenter': '25px 1fr 1fr 25px',
       },
       gridTemplateColumns: {
         // Adds a custom template for the utc hero block
-        'utchero': '1fr 1fr 1fr',
-        'utcheroright': '10px 1fr 1fr 1fr',
-        'utcherolarge': '1fr minmax(min-content,120rem) minmax(min-content,50rem) 1fr',
-        'utcherolargeright': '1fr minmax(min-content,50rem) minmax(min-content,120rem) 1fr',
+        'utchero': '1fr 60% 35% 1fr',
+        'utcheroright': '1fr 35% 60% 1fr',
+        'utcherocenter': '1fr 45% 45% 1fr',
       }
     },
     minHeight: {
