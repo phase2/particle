@@ -25,7 +25,36 @@
  * @see template_preprocess_block()
  */
 #}
-{% set video_alignment_val = content["#block_content"].field_image_alignment.0.value %}
+{% set image = {
+	alignment: content["#block_content"].field_image_alignment.0.value,
+	top_margin: content["#block_content"].field_utc_img_margin_top.0.value, 
+	bottom_margin: content["#block_content"].field_utc_img_margin_bottom.0.value,
+	}
+%}
+
+{% if image.bottom_margin == 'small' %}
+	{% set bottom_margin = 'mb-4' %}
+{% endif %}
+
+{% if image.bottom_margin == 'medium' %}
+	{% set bottom_margin = 'mb-8' %}
+{% endif %}
+
+{% if image.bottom_margin == 'large' %}
+	{% set bottom_margin = 'mb-12' %}
+{% endif %}
+
+{% if image.top_margin == 'small' %}
+	{% set top_margin = 'mt-4' %}
+{% endif %}
+
+{% if image.top_margin == 'medium' %}
+	{% set top_margin = 'mt-8' %}
+{% endif %}
+
+{% if image.top_margin == 'large' %}
+	{% set top_margin = 'mt-12' %}
+{% endif %}
 
 <div{{attributes}}>
 	{{ title_prefix }}
@@ -36,18 +65,18 @@
 	{% endif %}
 	{{ title_suffix }}
 	{% block content %}
-		<div class="container">
-			{% if video_alignment_val  == 'center' %}
+		<div class="container {{ top_margin }} {{ bottom_margin }}">
+			{% if image.alignment  == 'center' %}
 				<div class="align-center">
 						<div {{content_attributes}}>{{ content.field_utc_media}}
 						</div>
 				</div>
-			{% elseif video_alignment_val == 'left' %}
+			{% elseif image.alignment == 'left' %}
 				<div style="display:grid; justify-content: left;">
 						<div {{content_attributes}}>{{ content.field_utc_media}}
 					</div>
 				</div>
-			{% elseif video_alignment_val == 'right' %}
+			{% elseif image.alignment == 'right' %}
 				<div style="display:grid; justify-content: right;">
 						<div {{content_attributes}}>{{ content.field_utc_media}}
 					</div>
