@@ -8,6 +8,8 @@
   {# {% include '@particle/layout/header/custom-header.html.twig' %}  #}
     {{ page.offcanvas_sidebar }}
     {{ page.content_administration }}
-    {{ page.content }}
+    <main role="main" id="main-content" tabindex="-1">
+      {{ page.content }}
+    </main>
   {% include '@particle/layout/footer/footer.html.twig' %}
 </div>
