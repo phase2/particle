@@ -15,7 +15,6 @@
 #drupal-off-canvas .layout-builder-configure-section .form-item .description,
 #drupal-off-canvas .layout-builder-configure-section .details-description,
 #drupal-off-canvas .layout-builder-configure-section *, 
-#drupal-off-canvas .layout-builder-configure-section *:not(div),
 #drupal-off-canvas .layout-selection .description,
 #drupal-off-canvas .layout-selection .form-item .description,
 #drupal-off-canvas .layout-selection .details-description,
@@ -23,6 +22,21 @@
 #drupal-off-canvas .layout-selection *:not(div)
  {
   color: white !important;
+}
+
+#drupal-off-canvas .form-select,
+#drupal-off-canvas .form-text,
+#drupal-off-canvas .form-tel,
+#drupal-off-canvas .form-email,
+#drupal-off-canvas .form-url,
+#drupal-off-canvas .form-search,
+#drupal-off-canvas .form-number,
+#drupal-off-canvas .form-color,
+#drupal-off-canvas .form-file,
+#drupal-off-canvas .form-textarea,
+#drupal-off-canvas .form-date,
+#drupal-off-canvas .form-time {
+  color: #333 !important;
 }
 
 #drupal-off-canvas .layout-builder-configure-section label {
