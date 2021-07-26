@@ -20,6 +20,7 @@
 		highlight_bg: drupal_field('field_image_url', 'taxonomy_term', highlight_image_select)["#object"].field_image_url.value,
 		bg_color: content["#block_content"].field_highlight_background_color.0.value,
 		title: content.field_highlighted_info_title|field_value,
+		rows: content.field_info_rows|field_value|render,
 		info_1: content.field_highlight_info_1|field_value,
 		info_2: content.field_highlight_info_2|field_value,
 		info_3: content.field_highlight_info_3|field_value,
@@ -58,8 +59,8 @@
 	{% endif %}
 
 	{% set description_classes = [
-  		'p-12',
-		'w-96',
+		'w-full',
+		'flex-none',
 		'text-xl',
 		description_color,
 	] | sort | join(' ') | trim %}
@@ -74,12 +75,12 @@
 
 
 <div class="grid grid-cols-utchero grid-rows-utchero gap-y-4 grid-flow-row">
-			<div class="col-start-2 col-end-4 row-start-2 row-end-4 my-10 z-10">
+			<div class="col-start-2 col-end-4 row-start-2 row-end-4 z-10">
 				{% if utc_highlight.title %}
 					<h2 class="pl-10 {{ description_color }}">{{ utc_highlight.title }}</h2>
-					<hr class="border-t-3 border-utc-new-gold-500 mt-3 mb-6 ml-12 w-20" />
+					<hr class="border-t-3 border-utc-new-gold-500 mt-3 ml-12 w-20" />
 				{% endif %}
-					<ul class="grid grid-flow-col grid-rows-1 list-none pl-0 mb-0">
+					<ul class="grid col-auto auto-cols-fr lg:grid-flow-col md:{{ utc_highlight.rows }} list-none gap-14 ml-12 pl-0 mt-8 mb-2">
 						{% if utc_highlight.info_1 %}
 							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_1 }}</span>{{ utc_highlight.description_1 }}</li>
 						{% endif %}
@@ -92,8 +93,6 @@
 						{% if utc_highlight.info_4 %}
 							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_4 }}</span>{{ utc_highlight.description_4 }}</li>
 						{% endif %}
-					</ul>
-					<ul class="grid grid-flow-col grid-rows-1 list-none pl-0 mb-0"> 
 						{% if utc_highlight.info_5 %}
 							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_5 }}</span>{{ utc_highlight.description_5 }}</li>
 						{% endif %}
