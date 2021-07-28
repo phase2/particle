@@ -18,8 +18,8 @@
       $('.menu-btn').click(function () {
         $('nav').toggleClass('menu-open');
       });
-      $('.menu-item--active-trail').each(function () {
-        $(this).toggleClass('open');
+      $('.sidebar-menu .menu-item--active-trail').each(function () {
+        $(this).addClass('open');
       });
            
     }
