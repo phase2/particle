@@ -65,12 +65,12 @@
 
 .utc-sidebar .menu-open,
 .utc-sidebar .sidebar-menu .open>ul,
-.utc-sidebar .sidebar-menu .show-sub>ul {
+.user-logged-in .utc-sidebar .sidebar-menu .show-sub>ul {
     max-height: 2000px;
 }
 
 .utc-sidebar .sidebar-menu .open>.more i,
-.utc-sidebar .sidebar-menu .show-sub>.more i {
+.user-logged-in .utc-sidebar .sidebar-menu .show-sub>.more i {
     transform: rotate(-135deg);
 }
 
