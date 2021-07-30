@@ -60,7 +60,7 @@
 .utc-sidebar .more {
   float: right;
   min-width: 8%;
-  cursor: move;
+  cursor: pointer;
 }
 .menu-item-sidemenu a {
   @apply bg-white;
