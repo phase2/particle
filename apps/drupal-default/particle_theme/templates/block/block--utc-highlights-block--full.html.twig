@@ -58,17 +58,24 @@
     	{% set bg2_opacity = 'opacity-20' %}
 	{% endif %}
 
-	{% set description_classes = [
+	{% set item_classes = [
 		'w-full',
-		'flex-none',
+		'flex',
+		'flex-column',
+		'items-center',
+		'content-start',
+		'px-6',
+	] | sort | join(' ') | trim %}
+
+	{% set description_classes = [
 		'text-xl',
+		'text-center',
 		description_color,
 	] | sort | join(' ') | trim %}
 
 	{% set info_classes = [
-  		'block',
 		'pb-2',
-  		'text-4xl',
+  		'text-5xl',
 		'font-bold',
 		info_color,
 	] | sort | join(' ') | trim %}
@@ -78,32 +85,56 @@
 			<div class="col-start-2 col-end-4 row-start-2 row-end-4 z-10">
 				{% if utc_highlight.title %}
 					<h2 class="pl-10 {{ description_color }}">{{ utc_highlight.title }}</h2>
-					<hr class="border-t-3 border-utc-new-gold-500 mt-3 ml-12 w-20" />
+					<hr class="border-t-3 border-utc-new-gold-500 mt-3 ml-12 w-20 mb-10" />
 				{% endif %}
-					<ul class="grid col-auto auto-cols-fr lg:grid-flow-col md:{{ utc_highlight.rows }} list-none gap-14 ml-12 pl-0 mt-8 mb-2">
+					<ul class="grid col-auto auto-cols-fr lg:grid-flow-col md:{{ utc_highlight.rows }} list-none gap-14 px-0 mt-8 mb-2 justify-items-center">
 						{% if utc_highlight.info_1 %}
-							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_1 }}</span>{{ utc_highlight.description_1 }}</li>
+							<li class="{{ item_classes }}">
+								<div class="{{ info_classes }}">{{ utc_highlight.info_1 }}</div>
+								<div class="{{ description_classes }}">{{ utc_highlight.description_1 }}</div>
+							</li>
 						{% endif %}
 						{% if utc_highlight.info_2 %}
-							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_2 }}</span>{{ utc_highlight.description_2 }}</li>
+							<li class="{{ item_classes }}">
+								<div class="{{ info_classes }}">{{ utc_highlight.info_2 }}</div>
+								<div class="{{ description_classes }}">{{ utc_highlight.description_2 }}</div>
+							</li>
 						{% endif %}
 						{% if utc_highlight.info_3 %}
-							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_3 }}</span>{{ utc_highlight.description_3 }}</li>
+							<li class="{{ item_classes }}">	
+								<div class="{{ info_classes }}">{{ utc_highlight.info_3 }}</div>
+								<div class="{{ description_classes }}">{{ utc_highlight.description_3 }}</div>
+							</li>						
 						{% endif %}
 						{% if utc_highlight.info_4 %}
-							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_4 }}</span>{{ utc_highlight.description_4 }}</li>
+							<li class="{{ item_classes }}">	
+								<div class="{{ info_classes }}">{{ utc_highlight.info_4 }}</div>
+								<div class="{{ description_classes }}">{{ utc_highlight.description_3 }}</div>
+							</li>							
 						{% endif %}
 						{% if utc_highlight.info_5 %}
-							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_5 }}</span>{{ utc_highlight.description_5 }}</li>
+							<li class="{{ item_classes }}">	
+								<div class="{{ info_classes }}">{{ utc_highlight.info_5 }}</div>
+								<div class="{{ description_classes }}">{{ utc_highlight.description_3 }}</div>
+							</li>							
 						{% endif %}
 						{% if utc_highlight.info_6 %}
-							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_6 }}</span>{{ utc_highlight.description_6 }}</li>
+							<li class="{{ item_classes }}">	
+								<div class="{{ info_classes }}">{{ utc_highlight.info_6 }}</div>
+								<div class="{{ description_classes }}">{{ utc_highlight.description_3 }}</div>
+							</li>						
 						{% endif %}
 						{% if utc_highlight.info_7 %}
-							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_7 }}</span>{{ utc_highlight.description_7 }}</li>
+							<li class="{{ item_classes }}">	
+								<div class="{{ info_classes }}">{{ utc_highlight.info_7 }}</div>
+								<div class="{{ description_classes }}">{{ utc_highlight.description_3 }}</div>
+							</li>							
 						{% endif %}
 						{% if utc_highlight.info_8 %}
-							<li class="{{ description_classes }}"><span class="{{ info_classes }}">{{ utc_highlight.info_8 }}</span>{{ utc_highlight.description_8 }}</li>
+							<li class="{{ item_classes }}">	
+								<div class="{{ info_classes }}">{{ utc_highlight.info_8 }}</div>
+								<div class="{{ description_classes }}">{{ utc_highlight.description_3 }}</div>
+							</li>							
 						{% endif %}
 					</ul>
 			</div>
