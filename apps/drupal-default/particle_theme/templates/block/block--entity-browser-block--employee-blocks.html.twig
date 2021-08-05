@@ -29,7 +29,7 @@
 
 {% block content %}
 	{# {{content.0.field_employee_picture}}
-	{{content.field_employee_picture}} #}
+			{{content.field_employee_picture}} #}
 	{# {{attribute(content, 3).field_employee_picture}} #}
 	{# {{content|length}} #}
 
@@ -56,96 +56,99 @@
 					Only default, full, utc_business_card, utc_wide, and utc_small_teaser_card, and wide card are supported
 				</h3>
 				<p>
-					The employee block for {{variables.employee_first}}
-					{{variables.employee_last}} needs to be updated
+					The employee block for
+					{{variables.employee_first}}
+					{{variables.employee_last}}
+					needs to be updated
 				</p>
-			{# small_teaser_card has circular image w/ name and title only #}
+				{# small_teaser_card has circular image w/ name and title only #}
 			{% elseif variables.view_field == "utc_small_teaser_card" %}
 				<div class="{{ variables.view_field ? 'employee-card__container--' ~ variables.view_field|clean_class }}">
 					{% if variables.employee_website is not empty %}
 						<a href={{ variables.employee_website }}>
-					{% endif %}
-							<div class="employee-card h-100 {{ variables.view_field ? 'employee-card--' ~ variables.view_field|clean_class }}">
-								<div class="employee-image">
-									{{variables.employee_image}}
-								</div>
-								<div class="employee-card__body">
-									<div class="employee-card__info">
-										<h3 class="employee-card__name">
-											{{ variables.employee_first}}
-											{{ variables.employee_last}}
-										</h3>
-										<h4 class="employee-card__suffix">
-											{{ variables.employee_suffix}}
-										</h4>
-										<p class="employee-card__title">
-											{{ variables.employee_title }}
-										</p>
-									</div>
+						{% endif %}
+						<div class="employee-card h-100 {{ variables.view_field ? 'employee-card--' ~ variables.view_field|clean_class }}">
+							<div class="employee-image">
+								{{variables.employee_image}}
+							</div>
+							<div class="employee-card__body">
+								<div class="employee-card__info">
+									<h3 class="employee-card__name">
+										{{ variables.employee_first}}
+										{{ variables.employee_last}}
+									</h3>
+								{% if variables.employee_suffix is not empty %}
+									<h4 class="employee-card__suffix">
+										{{ variables.employee_suffix}}
+									</h4>
+								{% endif %}
+									<p class="employee-card__title">
+										{{ variables.employee_title }}
+									</p>
 								</div>
 							</div>
-					{% if variables.employee_website is not empty %}
-						</a>
-					{% endif %}
-				</div>
+						</div>
+
+					</a>
+				{% endif %}
+			</div>
 			{# template for default, utc_wide, and utc_business_card #}
-			{% else %}
-				{# creates custom container and card classes based on view mode #}
-				<div class="{{ variables.view_field ? 'employee-card__container--' ~ variables.view_field|clean_class }}">
-					<div class="employee-card h-100 {{ variables.view_field ? 'employee-card--' ~ variables.view_field|clean_class }}">
+		{% else %}
+			{# creates custom container and card classes based on view mode #}
+			<div class="{{ variables.view_field ? 'employee-card__container--' ~ variables.view_field|clean_class }}">
+				<div class="employee-card h-100 {{ variables.view_field ? 'employee-card--' ~ variables.view_field|clean_class }}">
 					{% if variables.view_field != 'utc_business_card' %}
 						<div class="employee-image">
 							{% if variables.view_field != 'full' and variables.employee_website is not empty %}
 								<a href={{ variables.employee_website }}>
-							{% endif %}
-									{{variables.employee_image}}
-							{% if variables.view_field != 'full' and variables.employee_website is not empty %}
+								{% endif %}
+								{{variables.employee_image}}
+								{% if variables.view_field != 'full' and variables.employee_website is not empty %}
 								</a>
 							{% endif %}
 						</div>
 					{% endif %}
-						<div class="employee-card__body">
-							<div class="employee-card__info">
-								<h3 class="employee-card__name">
-									{{ variables.employee_first}}
-									{{ variables.employee_last}}
-								</h3>
-								<h4 class="employee-card__suffix">
-											{{ variables.employee_suffix}}
-								</h4>
-								<p class="employee-card__title">
-									{{ variables.employee_title }}
+					<div class="employee-card__body">
+						<div class="employee-card__info">
+							<h3 class="employee-card__name">
+								{{ variables.employee_first}}
+								{{ variables.employee_last}}
+							</h3>
+							<h4 class="employee-card__suffix">
+								{{ variables.employee_suffix}}
+							</h4>
+							<p class="employee-card__title">
+								{{ variables.employee_title }}
+							</p>
+							<hr/>
+							{% if variables.employee_email %}
+								<p>
+									<i class="fas fa-envelope fa-fw"></i>&nbsp;{{ variables.employee_email }}
 								</p>
-								<hr/>
-								{% if variables.employee_email %}
-									<p>
-										<i class="fas fa-envelope fa-fw"></i>&nbsp;{{ variables.employee_email }}
-									</p>
-								{% endif %}
-								{% if variables.employee_office %}
-									<p>
-										<i class="fas fa-map-marker fa-fw"></i>
-										{{ variables.employee_office|raw }}
-									</p>
-								{% endif %}
-								{% if variables.employee_telephone %}
-									<p>
-										<i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ variables.employee_telephone }}
-									</p>
-								{% endif %}
-							</div>
-								{# full view for use on profile pages (no links) #}
-							{% if variables.view_field != 'full' and variables.employee_website is not empty %}
-								<div class="employee-card__button">
-									<a class="btn btn-light" href={{ variables.employee_website }}>More info</a>	
-								</div>
 							{% endif %}
-
+							{% if variables.employee_office %}
+								<p>
+									<i class="fas fa-map-marker fa-fw"></i>
+									{{ variables.employee_office|raw }}
+								</p>
+							{% endif %}
+							{% if variables.employee_telephone %}
+								<p>
+									<i class="fas fa-phone-alt fa-fw"></i>&nbsp;{{ variables.employee_telephone }}
+								</p>
+							{% endif %}
 						</div>
+						{# full view for use on profile pages (no links) #}
+						{% if variables.view_field != 'full' and variables.employee_website is not empty %}
+							<div class="employee-card__button">
+								<a class="btn btn-light" href={{ variables.employee_website }}>More info</a>
+							</div>
+						{% endif %}
+
 					</div>
 				</div>
-			{% endif %}
-		{% endfor %}
-	</div>
-	{# {% endif %} #}
-{% endblock %}
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>
+{# {% endif %} #}{% endblock %}
