@@ -1,0 +1,3 @@
+.page-403, .page-404 {
+    @apply bg-utc-new-blue-200;
+}
