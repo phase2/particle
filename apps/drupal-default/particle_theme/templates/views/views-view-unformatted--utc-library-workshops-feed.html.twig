@@ -28,8 +28,10 @@
       default_row_class ? 'views-row lib-event-card free-faculty-workshop',
     ]
   %}
+  {# check if RSS feed item and render #}
+  {% if view.style_plugin.getField(key, 'field_utc_rss_feed_item_title') %}
 	{% set temptitle = view.style_plugin.getField(key, 'field_utc_rss_feed_item_title')|render|striptags|convert_encoding('UTF-8', 'HTML-ENTITIES') %}
-	{% set titlearray = temptitle|split(':', 2) %}
+  {% set titlearray = temptitle|split(':', 2) %}
 	{% if (titlearray[1] is null) or ('Event' in titlearray[0]) %}
 		{% set badge = "Library Event" %}
 		{% set title = titlearray[0] %}
@@ -88,4 +90,6 @@
 				</a>
 			</div>
 		</div>
+  {% endif %}
+  {# end check for RSS feed item - begin render of view attachement  #}
 	{% endfor %}
