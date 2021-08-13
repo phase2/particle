@@ -91,6 +91,9 @@ h4 {
 a {
   @apply text-utc-new-blue-500;
 }
+a:focus-visible {
+  outline: 4px dashed darkorange;
+}
 p{
   @apply text-gray-800;
 }
