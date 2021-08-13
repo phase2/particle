@@ -16,22 +16,6 @@ Sans-Serif - Google Fonts - Open Sans
 Monospace - Google Fonts - Source Code Pro
 */
 
-@layer utilities {
-  @variants responsive {
-    .masonry-2 {
-      column-count: 2;
-      column-gap: 1.5em;
-    }
-    .masonry-3 {
-      column-count: 3;
-      column-gap: 2em;
-    }
-    .break-inside {
-      break-inside: avoid;
-    }
-  }
-}
-
 @import url(https://fonts.googleapis.com/css?family=OpenSans|Oswald|SourceCodePro&display=swap);
 
 /* Temporary workaround until we refactor spacing into tailwind */
