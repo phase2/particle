@@ -12,7 +12,6 @@
     
     <!-- End Pattern Lab -->
 
-          <link rel="stylesheet" href="../../../assets/app.styles.css?cacheBuster=562058840" />
     
 		<style type="text/css">
 			.spinner {
@@ -199,59 +198,7 @@
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -261,59 +208,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -323,59 +218,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -385,59 +228,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -447,59 +238,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -509,59 +248,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -571,59 +258,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -633,59 +268,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -695,59 +278,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -757,59 +288,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -819,59 +298,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -881,59 +308,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -943,59 +318,7 @@ Array</span>
               </td>
               <td class="text-center border p-3">
                 <span class="text-mono text-pink-500">
-Notice: Array to string conversion in /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
-
-Call Stack:
-    0.0002     444920   1. {main}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:0
-    0.0127    2343504   2. React\EventLoop\StreamSelectLoop->run() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:151
-    0.2709    5375224   3. React\EventLoop\StreamSelectLoop->waitForStreamActivity() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:211
-    0.2710    5390640   4. React\Stream\DuplexResourceStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/event-loop/src/StreamSelectLoop.php:244
-    0.2711    5460672   5. React\Stream\DuplexResourceStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/DuplexResourceStream.php:193
-    0.2711    5460672   6. React\Stream\Util::React\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2711    5461048   7. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/stream/src/Util.php:71
-    0.2711    5461048   8. React\Http\Io\RequestHeaderParser->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530080   9. React\Socket\Connection->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/RequestHeaderParser.php:99
-    0.2716    5530080  10. React\Http\Io\CloseProtectionStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5530456  11. React\Http\Io\CloseProtectionStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/CloseProtectionStream.php:96
-    0.2716    5530456  12. React\Http\Io\LengthLimitedStream->handleData() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  13. React\Http\Io\LengthLimitedStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/LengthLimitedStream.php:87
-    0.2716    5550936  14. React\Http\Io\HttpBodyStream->handleEnd() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2716    5550936  15. React\Http\Io\HttpBodyStream->close() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:179
-    0.2717    5543680  16. React\Http\Io\HttpBodyStream->emit() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/HttpBodyStream.php:80
-    0.2717    5543680  17. React\Promise\Stream\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php:123
-    0.2717    5543680  18. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise-stream/src/functions.php:75
-    0.2717    5543736  19. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5543040  20. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5543040  21. React\Promise\FulfilledPromise->done() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:135
-    0.2717    5543040  22. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:39
-    0.2717    5543096  23. React\Promise\Promise->settle() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:231
-    0.2717    5542000  24. React\Promise\Promise::React\Promise\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:168
-    0.2717    5542000  25. React\Promise\FulfilledPromise->then() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:134
-    0.2717    5542000  26. React\Http\Middleware\RequestBodyBufferMiddleware->React\Http\Middleware\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/FulfilledPromise.php:25
-    0.2717    5562816  27. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyBufferMiddleware.php:58
-    0.2717    5562816  28. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  29. React\Http\Middleware\RequestBodyParserMiddleware->__invoke() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:59
-    0.2717    5563512  30. React\Http\Io\MiddlewareRunner->React\Http\Io\{closure}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Middleware/RequestBodyParserMiddleware.php:34
-    0.2717    5563512  31. React\Http\Io\MiddlewareRunner->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:54
-    0.2717    5563512  32. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:58-137}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/http/src/Io/MiddlewareRunner.php:49
-    0.2720    5641224  33. React\Promise\Promise->__construct() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:122
-    0.2720    5641224  34. React\Promise\Promise->call() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:25
-    0.2720    5643472  35. {closure:/home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:114-122}() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/react/promise/src/Promise.php:245
-    0.2720    5643472  36. BasaltInc\TwigRenderer\TwigRenderer->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/server--async.php:115
-    0.2918    5586832  37. Twig\TemplateWrapper->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/dist/TwigRenderer.php:103
-    0.2918    5586832  38. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->render() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/TemplateWrapper.php:47
-    0.2918    5603344  39. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:434
-    0.2918    5603400  40. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5603400  41. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607168  42. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:33
-    0.2918    5607544  43. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2918    5607544  44. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2918    5607920  45. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->display() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:252
-    0.2919    5608296  46. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayWithErrorHandling() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:422
-    0.2919    5608296  47. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->doDisplay() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:455
-    0.2919    5608296  48. __TwigTemplate_b154c0534c7a267aeda383c24291fd878a7b4917a4b02fe8e7a91dd764f14f6e->displayBlock() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code:45
-    0.2919    5608296  49. __TwigTemplate_ae7757dcc9ac633f5550ed637187c64089852c0ec3d08d5ef500466f0589a8c5___674898632->block_content() /home/travis/build/UTCWeb/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Template.php:216
-
+Notice: Array to string conversion in /Users/brittrich/utccloud/docroot/themes/custom/particle/node_modules/@basalt/twig-renderer/vendor/twig/twig/src/Environment.php(497) : eval()'d code on line 399
 Array</span>
               </td>
             </tr>
@@ -1285,10 +608,10 @@ Array</span>
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1628886263276">
+<script id="pl-js-polyfill-insert-1628971211621">
   (function() {
     if (self != top) {
-      var cb = '1628886263276';
+      var cb = '1628971211621';
       var js = [];
       scriptLoader.run(js,cb,'pl-js-polyfill-insert');
     }
@@ -1301,7 +624,7 @@ Array</span>
   import('../../styleguide/js/patternlab-pattern.modern.js');
 </script>
 
-<script id="pl-js-insert-1628886263276" nomodule>
+<script id="pl-js-insert-1628971211621" nomodule>
   /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
   !function(e){var t=function(t,n){"use strict";var o=e.document.getElementsByTagName("script")[0],r=e.document.createElement("script");return r.src=t,r.async=!0,o.parentNode.insertBefore(r,o),n&&"function"==typeof n&&(r.onload=n),r};"undefined"!=typeof module?module.exports=t:e.loadJS=t}("undefined"!=typeof global?global:this);
 
@@ -1310,7 +633,7 @@ Array</span>
 </script>
 
 
-<script src="../../../assets/app.js?cacheBuster=1017041026"></script>
+<script src="../../../assets/app.js?cacheBuster=982478938"></script>
 
 </body>
 </html>
