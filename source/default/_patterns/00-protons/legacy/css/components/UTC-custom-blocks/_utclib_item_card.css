@@ -87,12 +87,13 @@
 
 @media (min-width: 1024px) {
   .utc-item-two-col .utc-item-card__view-two-col {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    grid-column-gap: 30px;
   }
   .utc-item-two-col .utc-item-card__view-two-col > .utc-item-card__container {
-    width: 49%;
+    width: 100%;
   }
 }
 .utc-item-card__container {
