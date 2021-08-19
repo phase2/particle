@@ -44,7 +44,7 @@
 			<img src="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url')|render|striptags }}" alt="decorative"/>
 {# check for online location as indicator for youtube workshops always avaialable #}
         {% if 'online' in view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|render|striptags %}
-          {% set buttonText = 'Watch Online Now' %}
+          {% set buttonText = 'Watch Now Online' %}
           {% set buttonIcon = 'fa-play-circle' %}
           {% set timeString = "any time" %}
       <a href="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|render|striptags }}" target="_blank">
@@ -72,7 +72,6 @@
 			{% autoescape %}
 				{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_body')|raw }}
 			{% endautoescape %}
-
 			<div class="lib-event-card__event-full-date">
 				<i class="fas fa-calendar fa-fw"></i>
   {% if 'online' in view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|render|striptags %}
@@ -87,9 +86,7 @@
         {% if nowDate >= comparearray[0]|trim and nowDate <= comparearray[1]|trim %}
            | TODAY
         {% endif %}
-
       </div>
-
       <div class="lib-event-card__event-time">
 					<i class="fas fa-clock fa-fw"></i>
 					{{ timeString }}</div>
