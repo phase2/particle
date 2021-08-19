@@ -44,11 +44,25 @@
 	<div{{row.attributes.addClass(row_classes)}}>
 		<div class="lib-event-card__img">
 			<img src="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url')|render|striptags }}" alt="decorative"/>
-			<div class="lib-event-card__event-date">
+{# check for online location as indicator for youtube workshops always avaialable #}
+        {% if 'online' in view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|render|striptags %}
+          {% set buttonText = 'Watch Now Online' %}
+          {% set buttonIcon = 'fa-play-circle' %}
+          {% set timeString = "any time" %}
+      <a href="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|render|striptags }}" target="_blank">
+      <div class="lib-event-card__event-date">
+        <span class="lib-event-card__event-date-day"><i class="fas fa-play-circle"></i></span>
+        <span class="lib-event-card__event-date-month">now</span>
+      </div></a>
+        {% else %}
+          {% set buttonText = 'Register Now' %}
+          {% set buttonIcon = 'fa-ticket-alt' %}
+          {% set timeString = view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_2')|render|striptags %}
+          <div class="lib-event-card__event-date">
 				<span class="lib-event-card__event-date-day">{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_1')|render|striptags }}</span>
 				<span class="lib-event-card__event-date-month">{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime')|render|striptags }}</span>
 			</div>
-
+          {% endif %}
 		</div>
 		<div class="lib-event-card__description">
 			<h2 class="lib-event-card__title">
@@ -60,9 +74,11 @@
 			{% autoescape %}
 				{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_body')|raw }}
 			{% endautoescape %}
-
 			<div class="lib-event-card__event-full-date">
 				<i class="fas fa-calendar fa-fw"></i>
+  {% if 'online' in view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|render|striptags %}
+  any day
+{% endif %}
 				{% set comparedates = view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_4')|render|striptags %}
 				{% set comparearray = comparedates|split(" ; ") %}
 				{% if  comparearray[0]|trim != comparearray[1]|trim %}
@@ -73,10 +89,9 @@
            | TODAY
         {% endif %}
       </div>
-
       <div class="lib-event-card__event-time">
 					<i class="fas fa-clock fa-fw"></i>
-					{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_2')|render|striptags }}</div>
+					{{ timeString }}</div>
 				{% endif %}
       {% set comparedates = view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_3')|render|striptags %}
       {% set comparearray = comparedates|split(" ; ") %}
@@ -85,8 +100,8 @@
 					{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|render|striptags }}</div>
 				<a class="lib-event-card__event-register btn btn-primary" href="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|render|striptags }}" target="_blank">
 					<strong>
-						<i class="fas fa-ticket-alt"></i>
-						Register Now</strong>
+						<i class="fas {{ buttonIcon }}"></i>
+						{{ buttonText }}</strong>
 				</a>
 			</div>
 		</div>
