@@ -30,16 +30,30 @@
 
 {# could be the base card template in a design system #}
 
-{% set card_classes = [
-  'utc-card-2',
-  'h-100',
-  card_type ? 'utc-card-2--' ~ card_type,
-  card_color ? 'utc-card-2--' ~ card_color : 'utc-card-2--white',
-  card_width ? 'utc-card-2--w-' ~ card_width,
-  text_alignment ? 'utc-card-2--align-' ~ text_alignment,
-  card_link ? 'utc-card-2--card-link',
-  card_img_fill ? card_img_fill
-] | sort | join(' ') | trim %}
+{% if card_placeholder %}
+	{% set card_classes = [
+    'utc-card-2',
+    'h-100',
+    card_type ? 'utc-card-2--' ~ card_type,
+    card_color ? 'utc-card-2--none',
+    card_width ? 'utc-card-2--w-' ~ card_width,
+    text_alignment ? 'utc-card-2--align-' ~ text_alignment,
+    card_link ? 'utc-card-2--card-link',
+    card_img_fill ? card_img_fill
+  ] | sort | join(' ') | trim %}
+{% else %}
+	{% set card_classes = [
+    'utc-card-2',
+    'h-100',
+    card_type ? 'utc-card-2--' ~ card_type,
+    card_color ? 'utc-card-2--' ~ card_color : 'utc-card-2--white',
+    card_width ? 'utc-card-2--w-' ~ card_width,
+    text_alignment ? 'utc-card-2--align-' ~ text_alignment,
+    card_link ? 'utc-card-2--card-link',
+    card_img_fill ? card_img_fill
+  ] | sort | join(' ') | trim %}
+{% endif %}
+
 
 {# could use include statements for items like images and buttons in design system #}
   {% if card_link %}
