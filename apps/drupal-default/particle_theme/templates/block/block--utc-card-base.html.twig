@@ -54,7 +54,7 @@
   ] | sort | join(' ') | trim %}
 {% endif %}
 
-
+{% if not card_placeholder %}
 {# could use include statements for items like images and buttons in design system #}
   {% if card_link %}
     <a href="{{ card_link }}" target="{{ card_link_target }}">
@@ -100,3 +100,9 @@
 	{% if card_link %}
      </a>
   {% endif %}
+
+{% else %}
+
+  <div class="{{ card_classes }}"></div>
+  
+{% endif %}
