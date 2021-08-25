@@ -16,6 +16,12 @@ in particle */
   }
 }
 
+@media (max-width: 640px) {
+  .utc-card-grid__container {
+    margin-bottom: 0px !important;
+  }
+}
+
 .utc-card-2 {
   position: relative;
   box-sizing: border-box;
