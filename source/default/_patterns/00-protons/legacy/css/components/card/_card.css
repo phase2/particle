@@ -17,7 +17,7 @@ in particle */
 }
 
 @media (max-width: 640px) {
-  .utc-card-grid__container {
+  .utc-card-placeholder {
     margin-bottom: 0px !important;
   }
 }
