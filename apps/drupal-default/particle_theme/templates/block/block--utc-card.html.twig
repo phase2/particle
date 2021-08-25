@@ -40,7 +40,6 @@
     card_button_url: content.field_card_button.0['#url'],
 	card_button_target: content.field_card_button_target[0]|render == 'On' ? '_blank',
     card_link_target: content.field_card_link_target[0]|render == 'On' ? '_blank',
-    
     } %}
 
 	{% set item_card_2 = {
@@ -69,8 +68,7 @@
     card_button_text: content.field_card_button_3.0['#title'],
     card_button_url: content.field_card_button_3.0['#url'],
 	card_button_target: content.field_card_button_target_3[0]|render == 'On' ? '_blank',
-    card_link_target: content.field_card_link_target_3[0]|render == 'On' ? '_blank',
-      
+    card_link_target: content.field_card_link_target_3[0]|render == 'On' ? '_blank',    
     } %}
 
 	{# there may be a way to loop instead of using if statements 
@@ -82,8 +80,11 @@
 			just couldn't get it working #}
 
 
-		{% if card_count == 1 %}
-			<div class="utc-card-grid__container"> 
+	{% if card_count == 1 %}
+		{% set item_card_1 = {
+			card_placeholder: 'Off',
+		} %}
+		<div class="utc-card-grid__container"> 
 			{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
 			{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 			{% include 'block--utc-card-base.html.twig' with item_card_1 %}
