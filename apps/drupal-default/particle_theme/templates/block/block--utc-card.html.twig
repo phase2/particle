@@ -29,6 +29,7 @@
 
 	{# set variables for card content based on Drupal input #}
 	{% set item_card_1 = {
+	card_placeholder: content.field_card_1_placeholder[0]|render == 'On' ? 'Off',
     card_link: content.field_card_link.0['#url'],
     card_title: content.field_card_title|field_value,
     card_image: content.field_card_image|field_value,
@@ -39,10 +40,10 @@
     card_button_url: content.field_card_button.0['#url'],
 	card_button_target: content.field_card_button_target[0]|render == 'On' ? '_blank',
     card_link_target: content.field_card_link_target[0]|render == 'On' ? '_blank',
-    
     } %}
 
 	{% set item_card_2 = {
+	card_placeholder: content.field_card_2_placeholder[0]|render == 'On' ? 'Off',
     card_link: content.field_card_link_2.0['#url'],
     card_title: content.field_card_title_2|field_value,
     card_image: content.field_card_image_2|field_value,
@@ -57,6 +58,7 @@
     } %}
 
 	{% set item_card_3 = {
+	card_placeholder: content.field_card_3_placeholder[0]|render == 'On' ? 'Off',
     card_link: content.field_card_link_3.0['#url'],
     card_title: content.field_card_title_3|field_value,
     card_image: content.field_card_image_3|field_value,
@@ -66,8 +68,7 @@
     card_button_text: content.field_card_button_3.0['#title'],
     card_button_url: content.field_card_button_3.0['#url'],
 	card_button_target: content.field_card_button_target_3[0]|render == 'On' ? '_blank',
-    card_link_target: content.field_card_link_target_3[0]|render == 'On' ? '_blank',
-      
+    card_link_target: content.field_card_link_target_3[0]|render == 'On' ? '_blank',    
     } %}
 
 	{# there may be a way to loop instead of using if statements 
@@ -79,8 +80,11 @@
 			just couldn't get it working #}
 
 
-		{% if card_count == 1 %}
-			<div class="utc-card-grid__container"> 
+	{% if card_count == 1 %}
+		{% set item_card_1 = {
+			card_placeholder: 'Off',
+		} %}
+		<div class="utc-card-grid__container"> 
 			{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
 			{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 			{% include 'block--utc-card-base.html.twig' with item_card_1 %}
@@ -90,12 +94,21 @@
 	{% if card_count == 2 %}
 		{% set card_width = '100' %}
 		<div class="row utc-card-grid">
+			<div class="row utc-card-grid">
+		{% if item_card_1.card_placeholder %}
+			<div class="col-sm-12 col-lg-6 utc-card-grid__container utc-card-placeholder">
+		{% else %}
 			<div class="col-sm-12 col-lg-6 utc-card-grid__container">
+		{% endif %}
 				{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% include 'block--utc-card-base.html.twig' with item_card_1 %}
 			</div>
+		{% if item_card_2.card_placeholder %}
+			<div class="col-sm-12 col-lg-6 utc-card-grid__container utc-card-placeholder">
+		{% else %}
 			<div class="col-sm-12 col-lg-6 utc-card-grid__container">
+		{% endif %}
 				{% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% include 'block--utc-card-base.html.twig' with item_card_2 %}
@@ -107,19 +120,30 @@
 		{% set card_width = '100' %}
 
 		<div class="row utc-card-grid">
+		{% if item_card_1.card_placeholder %}
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container utc-card-placeholder">
+		{% else %}
 			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
+		{% endif %}
 				{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% set card_link_target = card_link_target.0 == On ? '_blank' %}
 				{% include 'block--utc-card-base.html.twig' with item_card_1 %}
 			</div>
+		{% if item_card_2.card_placeholder %}
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container utc-card-placeholder">
+		{% else %}
 			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
+		{% endif %}
 				{% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% include 'block--utc-card-base.html.twig' with item_card_2 %}
 			</div>
-
+		{% if item_card_3.card_placeholder %}
+			<div class="col-sm-12 col-lg-4 utc-card-grid__container utc-card-placeholder">
+		{% else %}
 			<div class="col-sm-12 col-lg-4 utc-card-grid__container">
+		{% endif %}
 				{% set button_style_select = content["#block_content"].field_card_button_type_3.0.target_id %}
 				{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
 				{% include 'block--utc-card-base.html.twig' with item_card_3 %}
