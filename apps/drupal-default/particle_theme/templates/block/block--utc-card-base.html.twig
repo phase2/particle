@@ -102,7 +102,7 @@
   {% endif %}
 
 {% else %}
-
-  <div class="{{ card_classes }}"></div>
-  
+  {% if not card_count == 1 %}  
+    <div class="{{ card_classes }}"></div>
+  {% endif %}
 {% endif %}
