@@ -28,6 +28,20 @@
 	{% endif %}
 
 	{# set variables for card content based on Drupal input #}
+
+	{% set item_card_1_alone = {
+    card_link: content.field_card_link.0['#url'],
+    card_title: content.field_card_title|field_value,
+    card_image: content.field_card_image|field_value,
+    card_icon: content.field_card_icon|field_value,
+    card_icon_color: content.field_card_icon_color|field_value|render,
+    card_text: content.field_card_body|field_value,
+    card_button_text: content.field_card_button.0['#title'],
+    card_button_url: content.field_card_button.0['#url'],
+    card_button_target: content.field_card_button_target[0]|render == 'On' ? '_blank',
+    card_link_target: content.field_card_link_target[0]|render == 'On' ? '_blank',
+    } %}
+
 	{% set item_card_1 = {
 	card_placeholder: content.field_card_1_placeholder[0]|render == 'On' ? 'Off',
     card_link: content.field_card_link.0['#url'],
@@ -81,13 +95,10 @@
 
 
 	{% if card_count == 1 %}
-		{% set item_card_1 = {
-			card_placeholder: 'Off',
-		} %}
 		<div class="utc-card-grid__container"> 
 			{% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
 			{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
-			{% include 'block--utc-card-base.html.twig' with item_card_1 %}
+			{% include 'block--utc-card-base.html.twig' with item_card_1_alone %}
 		</div>
 	{% endif %}
 
