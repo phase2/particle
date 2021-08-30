@@ -124,6 +124,9 @@
 				{% include 'block--utc-card-base.html.twig' with item_card_2 %}
 			</div>
 		</div>
+		{% if item_card_2.card_placeholder and item_card_1.card_placeholder %}
+		<h2 class="text-center"> Do not hide all the cards</h2>
+		{% endif %}
 	{% endif %}
 
 	{% if card_count == 3 %}
@@ -159,6 +162,9 @@
 				{% include 'block--utc-card-base.html.twig' with item_card_3 %}
 			</div>
 		</div>
+		{% if item_card_3.card_placeholder and item_card_2.card_placeholder and item_card_1.card_placeholder %}
+		<h2 class="text-center"> Do not hide all the cards </h2>
+		{% endif %}
 	{% endif %}
 
 {% endblock %}
