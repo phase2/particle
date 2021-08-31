@@ -47,7 +47,6 @@ import './legacy/css/pages/utc_error_pages.css';
 //Legacy JS
 import './legacy/js/utc-sidebar-menu.js';
 import './legacy/js/slick-custom-arrows.js';
-import './legacy/js/utc-card-placeholder.js';
 // import './legacy/js/ckeditor-jquery.js';
 
 // Export global variables.
