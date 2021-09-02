@@ -41,6 +41,8 @@
 		{% set title = titlearray[1] %}
 		{% set badgecolor = "rgb(120, 30, 30)" %}
 	{% endif %}
+  {# check for '(Cancelled)' in title #}
+  {% if '(Cancelled)' not in temptitle %}
 	<div{{row.attributes.addClass(row_classes)}}>
 		<div class="lib-event-card__img">
 			<img src="{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url')|render|striptags }}" alt="decorative"/>
@@ -107,6 +109,7 @@
 				</a>
 			</div>
 		</div>
+    {% endif %}
   {% endif %}
   {# end check for RSS feed item - begin render of view attachement  #}
 	{% endfor %}
