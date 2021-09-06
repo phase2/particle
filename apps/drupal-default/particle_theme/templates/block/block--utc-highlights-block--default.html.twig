@@ -49,6 +49,8 @@
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_highlight.bg_color == 'dark' %} 
 		{% set info_color = 'text-utc-new-gold-500' %}
+		{% set icon_color = 'text-white' %}
+		{% set icon_color_2 = 'text-utc-new-blue-500' %}
 		{% set info_color_2 = 'text-utc-new-blue-500' %}
 		{% set description_color = 'text-white' %}
 		{% set description_color_2 ='text-utc-new-blue-500' %}
@@ -58,6 +60,8 @@
 		{% set bg_color_2 = 'bg-utc-new-blue-100' %}
 	{% else %}
 		{% set info_color = 'text-utc-new-blue-500' %}
+		{% set icon_color = 'text-utc-new-blue-500' %}
+		{% set icon_color_2 = 'text-utc-new-gold-500' %}
 		{% set info_color_2 = 'text-utc-new-gold-500' %}
 		{% set description_color = 'text-utc-new-blue-500' %}
 		{% set description_color_2 ='text-white' %}
@@ -70,7 +74,7 @@
 
 	{% set description_classes = [
   		'p-10',
-		'md:w-1/2',
+		'xl:w-1/2',
 		'w-full',
 		'text-xl',
 		'text-center',
@@ -100,8 +104,8 @@
 		info_color_2,
 	] | sort | join(' ') | trim %}
 
-	<div class="grid md:grid-cols-utchighlight md:grid-rows-utchighlight gap-y-4 gap-x-10 grid-flow-row">
-			<div class="col-start-1 row-start-1 md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-4 md:mb-10 z-10">
+	<div class="grid grid-cols-1 lg:grid-cols-utchighlight lg:grid-rows-utchighlight lg:gap-y-4 lg:gap-x-10 grid-flow-row">
+			<div class="col-start-1 row-start-1 m-10 mt-20 lg:m-0 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-4 lg:mb-10 z-10">
 				{% if utc_highlight.title %}
 					<h2 class="pl-6 {{ description_color }}">{{ utc_highlight.title }}</h2>
 					<hr class="border-t-3 border-utc-new-gold-500 mt-3 mb-6 ml-8 w-20" />
@@ -110,34 +114,34 @@
 						{% if utc_highlight.info_1 %}
 							<li class="{{ description_classes }}">
 							{% if utc_highlight.icon_1 %}
-							<div class="mb-4 {{ info_color }}">{{ utc_highlight.icon_1 }}</div>
+							<div class="mb-4 {{ icon_color }}">{{ utc_highlight.icon_1 }}</div>
 							{% endif %}
 							<span class="{{ info_classes }}">{{ utc_highlight.info_1 }}</span>
 							{{ utc_highlight.description_1 }}
 							</li>
 						{% endif %}
-						{% if utc_highlight.info_2 %}
+						{% if utc_highlight.icon_2 %}
 							<li class="{{ description_classes }}">
 							{% if utc_highlight.icon_2 %}
-							<div class="mb-4 {{ info_color }}">{{ utc_highlight.icon_2 }}</div>
+							<div class="mb-4 {{ icon_color }}">{{ utc_highlight.icon_2 }}</div>
 							{% endif %}
 							<span class="{{ info_classes }}">{{ utc_highlight.info_2 }}</span>
 							{{ utc_highlight.description_2 }}
 							</li>
 						{% endif %}
-						{% if utc_highlight.info_3 %}
+						{% if utc_highlight.icon_3 %}
 							<li class="{{ description_classes }}">
 							{% if utc_highlight.icon_3 %}
-							<div class="mb-4 {{ info_color }}">{{ utc_highlight.icon_3 }}</div>
+							<div class="mb-4 {{ icon_color }}">{{ utc_highlight.icon_3 }}</div>
 							{% endif %}
 							<span class="{{ info_classes }}">{{ utc_highlight.info_3 }}</span>
 							{{ utc_highlight.description_3 }}
 							</li>
 						{% endif %}
-						{% if utc_highlight.info_4 %}
+						{% if utc_highlight.icon_4 %}
 							<li class="{{ description_classes }}">
 							{% if utc_highlight.icon_4 %}
-							<div class="mb-4 {{ info_color }}">{{ utc_highlight.icon_4 }}</div>
+							<div class="mb-4 {{ icon_color }}">{{ utc_highlight.icon_4 }}</div>
 							{% endif %}
 							<span class="{{ info_classes }}">{{ utc_highlight.info_4 }}</span>
 							{{ utc_highlight.description_4 }}
@@ -148,14 +152,14 @@
 			<div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center col-start-1 col-end-5 row-start-1 row-end-4" style="background-image: url({{ utc_highlight.highlight_bg }})">
 				<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 			</div>
-			<div class="w-full h-full  bg-cover bg-center col-start-1 row-start-2 md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-5 z-20">
+			<div class="w-full h-full  bg-cover bg-center col-start-1 row-start-3 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 z-20">
 				<div class="h-full w-full {{ bg_color_2 }}">
-					<ul class="flex flex-row flex-wrap justify-around list-none pt-10 pl-0 mb-0">
+					<ul class="flex flex-row flex-wrap justify-around list-none pt-10 m-6 pl-0">
 						{% if utc_highlight.info_5 %}
 							<li class="{{ description_classes_2 }}">
 							{% if utc_highlight.icon_5 %}
 							<div class="flex flex-row">
-							<div class="mb-4 mr-4 {{ info_color_2 }}">{{ utc_highlight.icon_5 }}</div>
+							<div class="mb-4 mr-4 {{ icon_color_2 }}">{{ utc_highlight.icon_5 }}</div>
 							{% endif %}
 							{% if utc_highlight.icon_5 %}
 							<div>
@@ -172,7 +176,7 @@
 							<li class="{{ description_classes_2 }}">
 							{% if utc_highlight.icon_6 %}
 							<div class="flex flex-row">
-							<div class="mb-4 mr-4 {{ info_color_2 }}">{{ utc_highlight.icon_6 }}</div>
+							<div class="mb-4 mr-4 {{ icon_color_2 }}">{{ utc_highlight.icon_6 }}</div>
 							{% endif %}
 							{% if utc_highlight.icon_6 %}
 							<div>
@@ -189,7 +193,7 @@
 							<li class="{{ description_classes_2 }}">
 							{% if utc_highlight.icon_7 %}
 							<div class="flex flex-row">
-							<div class="mb-4 mr-4 {{ info_color_2 }}">{{ utc_highlight.icon_7 }}</div>
+							<div class="mb-4 mr-4 {{ icon_color_2 }}">{{ utc_highlight.icon_7 }}</div>
 							{% endif %}
 							{% if utc_highlight.icon_7 %}
 							<div>
@@ -206,7 +210,7 @@
 							<li class="{{ description_classes_2 }}">
 							{% if utc_highlight.icon_8 %}
 							<div class="flex flex-row">
-							<div class="mb-4 mr-4 {{ info_color_2 }}">{{ utc_highlight.icon_8 }}</div>
+							<div class="mb-4 mr-4 {{ icon_color_2 }}">{{ utc_highlight.icon_8 }}</div>
 							{% endif %}
 							{% if utc_highlight.icon_8 %}
 							<div>
