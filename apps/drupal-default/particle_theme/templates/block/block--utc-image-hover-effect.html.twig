@@ -1,17 +1,17 @@
-
+{% extends "block.html.twig" %}
 {#
 /**
- * @file Card Grid!
- * Implements a grid of cards using Bootstrap layout.
+ *
+ * Implements a grid of cards using Tailwinds layout.
  *
  * Available variables:
  */
  *
- * This template pulls in the variables to add to the cards. 
- * References the block--utc-card-base.html.twig to create the individual cards in this grid.
+ * This template pulls in the variables to add to hover image effects. 
+ * References the block--utc-image-hover-effect-base.html.twig to create the individual cards in this grid.
 #}
 
-
+{% block content %}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
 
@@ -102,3 +102,5 @@
 				</div>
 			</div>
 		{% endif %}
+		
+{% endblock %}
