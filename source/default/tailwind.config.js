@@ -41,6 +41,9 @@ module.exports = {
         'utchero': '1fr 60% 35% 1fr',
         'utcheroright': '1fr 35% 60% 1fr',
         'utcherocenter': '1fr 45% 45% 1fr',
+      },
+      width: {
+        '95per': '95%',
       }
     },
     minHeight: {
