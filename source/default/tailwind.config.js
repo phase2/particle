@@ -42,7 +42,7 @@ module.exports = {
         'utcheroright': '1fr 35% 60% 1fr',
         'utcherocenter': '1fr 45% 45% 1fr',
       },
-      width: {
+	  width: {
         '95per': '95%',
       }
     },
