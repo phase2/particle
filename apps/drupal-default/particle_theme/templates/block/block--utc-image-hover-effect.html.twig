@@ -1,0 +1,104 @@
+
+{#
+/**
+ * @file Card Grid!
+ * Implements a grid of cards using Bootstrap layout.
+ *
+ * Available variables:
+ */
+ *
+ * This template pulls in the variables to add to the cards. 
+ * References the block--utc-card-base.html.twig to create the individual cards in this grid.
+#}
+
+
+	{% set rendered_content = content|render %}
+	{# Sets variable to trigger content render array. #}
+
+
+	{# I belive all of these variables defined by Drupal inputs would remain here, but the
+  grid portion would be moved to a different template file if/when a design system is implemented #}
+
+	{% set hover_count = content["#block_content"].field_hover_image_count.0.value %}
+	{% set hover_orientation = content["#block_content"].field_hover_image_orientation.0.value %}
+	
+	{% if hover_count == 1 %}
+		{% set single_hover = [
+			'hover-count-1',
+			'mb-8',
+			'md:mb-0',
+		]%}
+	{% elseif hover_count == 2 %}
+		{% set single_hover = [
+			'hover-count-2',
+			'mb-8',
+			'md:mb-0',
+		]%}
+	{% elseif hover_count == 3  %}
+		{% set single_hover = [
+			'hover-count-3',
+			'mb-8',
+			'md:mb-0',
+		]%}
+	{% endif %}
+
+	{%
+		set hover_classes = [
+			'utc-image-hover',
+			hover_orientation ? hover_orientation,
+		]
+	%}
+
+	{# set variables for card content based on Drupal input #}
+
+	{% set item_hover_1 = {
+		hover_image: content.field_hover_image_one|field_value,
+		hover_title: content.field_hover_image_one_title|field_value,
+		hover_text: content.field_hover_image_one_body|field_value,
+		hover_link: content.field_hover_image_one_link.0['#url'],
+    } %}
+
+	{% set item_hover_2 = {
+		hover_image: content.field_hover_image_two|field_value,
+		hover_title: content.field_hover_image_two_title|field_value,
+		hover_text: content.field_hover_image_two_body|field_value,
+		hover_link: content.field_hover_image_two_link.0['#url'],
+    } %}
+
+	{% set item_hover_3 = {
+		hover_image: content.field_hover_image_three|field_value,
+		hover_title: content.field_hover_image_three_title|field_value,
+		hover_text: content.field_hover_image_three_body|field_value,
+		hover_link: content.field_hover_image_three_link.0['#url'],
+    } %}
+
+		{% if hover_count == 1 %}
+			<div class="utc-image-hover"> 
+				{% include 'block--utc-image-hover-effect-base.html.twig' with item_hover_1 %}
+			</div>
+		{% endif %}
+
+		{% if hover_count == 2 %}
+			<div {{ attributes.addClass(hover_classes) }}>
+				<div {{ attributes.addClass(single_hover) }} >
+					{% include 'block--utc-image-hover-effect-base.html.twig' with item_hover_1 %}
+				</div>
+				<div {{ attributes.addClass(single_hover) }}>
+					{% include 'block--utc-image-hover-effect-base.html.twig' with item_hover_2 %}
+				</div>
+			</div>
+		{% endif %}
+
+		{% if hover_count == 3 %}
+			<div {{ attributes.addClass(hover_classes) }}>
+				<div {{ attributes.addClass(single_hover) }}>
+					{% include 'block--utc-image-hover-effect-base.html.twig' with item_hover_1 %}
+				</div>
+				<div {{ attributes.addClass(single_hover) }}>
+					{% include 'block--utc-image-hover-effect-base.html.twig' with item_hover_2 %}
+				</div>
+				<div {{ attributes.addClass(single_hover) }}>
+					{% include 'block--utc-image-hover-effect-base.html.twig' with item_hover_3 %}
+				</div>
+			</div>
+		{% endif %}
