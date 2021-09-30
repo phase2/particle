@@ -1,4 +1,6 @@
-.utc-image-hover { display:flex!important }
+.utc-image-hover {
+  display: flex !important;
+}
 
 figure.utc-hover-image-effect * {
   @apply box-border;
@@ -9,125 +11,104 @@ figure.utc-hover-image-effect {
 
 figure.utc-hover-image-effect img {
   @apply max-w-full opacity-100 w-full;
-  -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s;
 }
 
-figure.utc-hover-image-effect:hover figcaption { 
+figure.utc-hover-image-effect:hover figcaption {
   @apply p-5;
-}
-.vertical figure.utc-hover-image-effect:hover figcaption { 
-  @apply p-8;
 }
 
 figure.utc-hover-image-effect figcaption::before {
   @apply opacity-0 absolute;
   content: '';
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  -webkit-transition-delay: 0.6s;
   transition-delay: 0.6s;
 }
 
 figure.utc-hover-image-effect figcaption div {
   @apply opacity-0;
   content: '';
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  -webkit-transition-delay: 0s;
   transition-delay: 0s;
 }
 
-figure.utc-hover-image-effect:hover figcaption::before, figure.utc-hover-image-effect:hover figcaption div {
-  @apply opacity-100 ;
-  -webkit-transition-delay: 0s;
+figure.utc-hover-image-effect:hover figcaption::before,
+figure.utc-hover-image-effect:hover figcaption div {
+  @apply opacity-100;
   transition-delay: 0s;
 }
 
 figure.utc-hover-image-effect h2,
 figure.utc-hover-image-effect p {
   @apply opacity-0 mb-0;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s,-webkit-transform 0.35s,-moz-transform 0.35s,-o-transform 0.35s,transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
 }
 figure.utc-hover-image-effect h2 {
-  @apply text-lg lg:text-base;
-  -webkit-transform: translate3d(30%, 0%, 0);
+  @apply text-lg md:text-base lg:text-xl xl:text-2xl md:mb-0 lg:mb-2;
   transform: translate3d(30%, 0%, 0);
-  -webkit-transition-delay: 0s;
   transition-delay: 0s;
-}
-.vertical figure.utc-hover-image-effect h2 {
-  @apply text-lg lg:text-xl xl:text-2xl;
-}
-figure.utc-hover-image-effect p {
-  @apply text-sm;
-  -webkit-transform: translate3d(0%, 30%, 0);
-  transform: translate3d(0%, 30%, 0);
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-}
-.vertical figure.utc-hover-image-effect p {
-  @apply text-base lg:text-lg xl:text-xl;
 }
 
-figure.utc-hover-image-effect a { @apply absolute left-0 right-0 bottom-0 top-0 text-transparent; }
+figure.utc-hover-image-effect p {
+  @apply text-sm lg:text-base;
+  transform: translate3d(0%, 30%, 0);
+  transition-delay: 0s;
+}
+
+figure.utc-hover-image-effect a {
+  @apply absolute left-0 right-0 bottom-0 top-0 text-transparent;
+}
 
 figure.utc-hover-image-effect:hover img {
   @apply opacity-10;
 }
 figure.utc-hover-image-effect:hover figcaption h2 {
   @apply opacity-100;
-  -webkit-transform: translate3d(0%, 0%, 0);
   transform: translate3d(0%, 0%, 0);
-  -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s;
 }
-figure.utc-hover-image-effect:hover figcaption p { 
+figure.utc-hover-image-effect:hover figcaption p {
   @apply opacity-100;
-  -webkit-transform: translate3d(0%, 0%, 0);
   transform: translate3d(0%, 0%, 0);
-  -webkit-transition-delay: 0.6s;
   transition-delay: 0.6s;
 }
 
 @media (max-width: 767px) {
-  .w-95per {width:100%!important}
-  .utc-image-hover { display:inline-block!important }
-  .hover-count-1, .hover-count-2, .hover-count-3 { @apply mb-8; }
+  .utc-image-hover {
+    display: inline-block !important;
+  }
+  /* .hover-count-1,
+  .hover-count-2,
+  .hover-count-3 {
+    @apply mb-8;
+  }*/
   figure.utc-hover-image-effect:hover figcaption {
     @apply p-8;
   }
-  .vertical figure.utc-hover-image-effect:hover figcaption {
-    @apply p-16;
-  }
-  figure.utc-hover-image-effect h2, .vertical figure.utc-hover-image-effect h2 {
+
+  figure.utc-hover-image-effect h2 {
     @apply text-4xl;
   }
-  figure.utc-hover-image-effect p, .vertical figure.utc-hover-image-effect p {
+  figure.utc-hover-image-effect p {
     @apply text-xl pb-6;
   }
-  figure.utc-hover-image-effect a { 
-    @apply opacity-0 relative text-white px-4 py-2 font-bold text-center w-auto h-auto bg-utc-new-blue-500; 
-    top: -9px;  
-    -webkit-transform: translate3d(0%, 30%, 0);  
+  figure.utc-hover-image-effect a {
+    @apply opacity-0 relative text-white px-4 py-2 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
+    top: -9px;
     transform: translate3d(0%, 30%, 0);
-    -webkit-transition-delay: 0s;
     transition-delay: 0s;
   }
-  figure.utc-hover-image-effect:hover a { 
-    @apply opacity-100;  
-    -webkit-transform: translate3d(0%, 0%, 0);
+  figure.utc-hover-image-effect:hover a {
+    @apply opacity-100;
     transform: translate3d(0%, 0%, 0);
-    -webkit-transition-delay: 0.8s;
     transition-delay: 0.8s;
   }
 }
 @media (max-width: 459px) {
-  figure.utc-hover-image-effect h2, .vertical figure.utc-hover-image-effect h2 {
+  figure.utc-hover-image-effect h2 {
     @apply text-2xl;
   }
-  figure.utc-hover-image-effect p, .vertical figure.utc-hover-image-effect p {
+  figure.utc-hover-image-effect p {
     @apply text-lg;
   }
 }

@@ -1,0 +1,29 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ *
+ * Implements a grid of cards using Tailwinds layout.
+ *
+ * Available variables:
+ */
+ *
+ * This template pulls in the variables to add to hover image effects. 
+ * References the block--utc-image-hover-effect-base.html.twig to create the individual cards in this grid.
+#}
+{#
+    A minimum of three twig files are necessary in using paragraphs with blocks. The block-specific twig file, the block-field-specific twig file, and the paragraph-specific twig file.
+    In this file we add more classes to execute functionality.
+#}
+{% block content %}
+	{% set rendered_content = content|render %}
+	{%
+		set hover_classes = [
+            'block',
+            'block--layout-builder',
+            'block--inline-block:utc-image-hover-effect',
+			'utc-image-hover',
+            'mb-0',
+		]
+	%}
+    <div{{ attributes.addClass(hover_classes) }}>{{ content }}</div>
+{% endblock %}
