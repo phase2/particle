@@ -35,15 +35,23 @@ module.exports = {
         'utchero': '40px 1fr 1fr 70px',
         'utcheroreverse': '70px 1fr 1fr 40px',
         'utcherocenter': '25px 1fr 1fr 25px',
+        // Adds a custom template for the highlight block
+        'utchighlight': '40px 1fr 1fr 40px 40px',
+        
       },
       gridTemplateColumns: {
         // Adds a custom template for the utc hero block
         'utchero': '1fr 60% 35% 1fr',
         'utcheroright': '1fr 35% 60% 1fr',
         'utcherocenter': '1fr 45% 45% 1fr',
+<<<<<<< HEAD
       },
       width: {
         '95per': '95%',
+=======
+        // Adds a custom template for the highlight block
+        'utchighlight': '1fr 50% 45% 1fr',
+>>>>>>> c8f947cf9d89296657f6ec5f46a1a7be92f83834
       }
     },
     minHeight: {
