@@ -46,9 +46,14 @@ module.exports = {
         'utcherocenter': '1fr 45% 45% 1fr',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       },
       width: {
         '95per': '95%',
+=======
+        // Adds a custom template for the highlight block
+        'utchighlight': '1fr 50% 45% 1fr',
+>>>>>>> c8f947cf9d89296657f6ec5f46a1a7be92f83834
 =======
         // Adds a custom template for the highlight block
         'utchighlight': '1fr 50% 45% 1fr',
