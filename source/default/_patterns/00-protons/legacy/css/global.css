@@ -204,3 +204,20 @@ div.site-alert div.text {
         display: none !important;
     }
 }
+
+/****Add zoom effect to an image by class****/
+/* The Image container */
+.utc-zoom-image .field__item {
+    overflow: hidden; /* Removing this will break the effects */
+}
+/* Quick-zoom Container */
+.utc-zoom-image img {
+  transform-origin: 50% 65%;
+  transition: transform 2s, filter 2s ease-in-out;
+  filter: brightness(100%);
+}
+/* The Transformation */
+.utc-zoom-image:hover img {
+  filter: brightness(115%);
+  transform: scale(1.15);
+}
