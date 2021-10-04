@@ -204,3 +204,11 @@ div.site-alert div.text {
         display: none !important;
     }
 }
+
+.block--search form input[type='submit'] {
+    @apply bg-utc-new-blue-500 border-utc-new-blue-500;
+}
+
+.block--search form input[type='submit']:hover {
+    @apply text-utc-new-gold-500;
+}
