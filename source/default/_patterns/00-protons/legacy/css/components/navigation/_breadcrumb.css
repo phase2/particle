@@ -29,8 +29,10 @@
 .simple-breadcrumb li:last-child:after {
 	display: none;
 }
-
-@media (max-width: 991px) {
+.block--system-breadcrumb-block {
+    margin-top: -2rem;
+}
+@media (max-width: 768px) {
 	.breadcrumb ol,
   .simple-breadcrumb ol {
 		display: grid;

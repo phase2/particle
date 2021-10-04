@@ -47,6 +47,8 @@
     position: relative;
     z-index: 5;
     line-height: 1.1;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 @media screen and (max-width: 640px) {
