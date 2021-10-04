@@ -221,3 +221,11 @@ div.site-alert div.text {
   filter: brightness(115%);
   transform: scale(1.15);
 }
+
+.block--search form input[type='submit'] {
+    @apply bg-utc-new-blue-500 border-utc-new-blue-500;
+}
+
+.block--search form input[type='submit']:hover {
+    @apply text-utc-new-gold-500;
+}
