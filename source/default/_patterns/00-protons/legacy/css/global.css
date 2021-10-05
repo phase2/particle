@@ -213,7 +213,7 @@ div.site-alert div.text {
 /* Quick-zoom Container */
 .utc-zoom-image img {
   transform-origin: 50% 65%;
-  transition: transform 2s, filter 2s ease-in-out;
+  transition: transform 4s, filter 4s ease-in-out;
   filter: brightness(100%);
 }
 /* The Transformation */
