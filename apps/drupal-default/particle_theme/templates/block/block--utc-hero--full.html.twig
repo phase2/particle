@@ -32,6 +32,7 @@
 	{% if utc_hero.hero_color == 'Dark Blue' %}
 		{% set title_color = 'lg:text-white' %}
 		{% set body_color = 'lg:text-white' %}
+		{% set tag_color = 'lg:text-white' %}
 		{% set btn_border_color = "lg:border-white" %}
 		{% set bg_color = 'background-color:#112e51' %}
 		{% set bg1_opacity = '' %}
@@ -39,6 +40,7 @@
 	{% else %}
 		{% set title_color = 'text-utc-new-blue-500' %}
 		{% set body_color = 'text-base' %}
+		{% set tag_color = 'text-base' %}
 		{% set btn_border_color = "lg:border-utc-new-blue-500" %}
 		{% set bg_color = 'background-color:#104dd4' %}
 		{% set bg1_opacity = 'opacity-20' %}
@@ -66,7 +68,7 @@
 				{% block herocontent %}
 					{% block herotagtitle %}
 					{% if utc_hero.hero_tag %}
-						<p class="text-left font-semibold tracking-wide uppercase text-lg {{ body_color }}">
+						<p class="text-left font-semibold tracking-wide uppercase text-lg {{ tag_color }}">
 							{{ utc_hero.hero_tag }}
 						</p>
 						<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20" />
@@ -87,7 +89,7 @@
 						{% if utc_hero.hero_button_text %}
 							<p class="my-6 text-right">
 								<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out {{ body_color }} hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4 border {{ btn_border_color }} border-utc-new-blue-500" aria-label="Read the release">
-									Learn more <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
+									{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
 								</a>
 							</p>
 
