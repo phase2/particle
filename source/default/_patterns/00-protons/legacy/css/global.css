@@ -205,6 +205,23 @@ div.site-alert div.text {
     }
 }
 
+/****Add zoom effect to an image by class****/
+/* The Image container */
+.utc-zoom-image .field__item {
+    overflow: hidden; /* Removing this will break the effects */
+}
+/* Quick-zoom Container */
+.utc-zoom-image img {
+  transform-origin: 50% 65%;
+  transition: transform 4s, filter 4s ease-in-out;
+  filter: brightness(100%);
+}
+/* The Transformation */
+.utc-zoom-image:hover img {
+  filter: brightness(115%);
+  transform: scale(1.15);
+}
+
 .block--search form input[type='submit'] {
     @apply bg-utc-new-blue-500 border-utc-new-blue-500;
 }

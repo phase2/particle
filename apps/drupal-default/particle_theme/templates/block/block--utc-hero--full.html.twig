@@ -24,10 +24,17 @@
 		hero_tag: content.field_hero_tag|field_value,
 		hero_title: content.field_hero_title|field_value,
 		hero_image: content.field_utc_media|field_value,
+		hero_zoom: content.field_zoom_image[0]|render == 'On' ? '_blank',
 		hero_text: content.field_hero_text|field_value,
 		hero_button_text: content.field_hero_button.0['#title'],
 		hero_button_url: content.field_hero_button.0['#url'],
     } %}
+	{# Add zoom class if zoom is checked. #}
+	{% if utc_hero.hero_zoom %}
+		{% set utc_zoom = 'utc-zoom-image' %}
+	{% else %}
+		{% set utc_zoom = '' %}
+	{% endif %}
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_hero.hero_color == 'Dark Blue' %}
 		{% set title_color = 'lg:text-white' %}
@@ -50,7 +57,7 @@
 	{% if utc_hero.hero_align == 'Left' %}
 		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30">
+				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }}">
 					{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
@@ -59,7 +66,7 @@
 	{# image on right #}	
 		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }}">
 					{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
@@ -86,14 +93,11 @@
 							</p>
 						{% endif %}
 						{% if utc_hero.hero_button_url %}
-						{% if utc_hero.hero_button_text %}
 							<p class="my-6 text-right">
 								<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out {{ body_color }} hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4 border {{ btn_border_color }} border-utc-new-blue-500" aria-label="Read the release">
 									{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
 								</a>
 							</p>
-
-						{% endif %}
 						{% endif %}
 					{% endblock herotextbutton %}
 				{% endblock herocontent %}
