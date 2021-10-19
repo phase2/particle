@@ -20,7 +20,9 @@
 		highlight_bg: drupal_field('field_image_url', 'taxonomy_term', highlight_image_select)["#object"].field_image_url.value,
 		bg_color: content["#block_content"].field_highlight_background_color.0.value,
 		title: content.field_highlighted_info_title|field_value,
-    } %} #}
+    } %}
+	{% set info_1 = content.field_highlighted_info_1|field_value %}
+	{% set info_2 = content.field_highlighted_info_2|field_value %}
 
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_highlight.bg_color == 'dark' %} 
@@ -87,13 +89,13 @@
 					<hr class="border-t-3 border-utc-new-gold-500 mt-3 mb-6 ml-8 w-20" />
 				{% endif %}
 					<ul class="flex flex-row flex-wrap list-none pl-0 mb-0">
-						{% for content in content.field_highlighted_icon if content['#name'] is not empty %}
+						{% for content in info_1 if content['#icons'][0]['#info']is not empty %}
 							<li class="{{ description_classes }}">
-							{% if content['#name'] %}
-							<div class="mb-4 {{ icon_color }}">{{ content['#name'] }}</div>
+							{% if content['#icons'][0]['#name'] %}
+								<div class="mb-4 {{ icon_color }}"><span class="fas fa-3x {{ content['#icons'][0]['#name'] }}" ></span></div>
 							{% endif %}
-							<span class="{{ info_classes }}">{{ content['#info'] }}</span>
-							{{ content['#description'] }}
+							<span class="{{ info_classes }}">{{ content['#icons'][0]['#info'] }}</span>
+							{{ content['#icons'][0]['#description'] }}
 							</li>
 						{% endfor %}
 					</ul>
@@ -104,74 +106,19 @@
 			<div class="w-full h-full  bg-cover bg-center col-start-1 row-start-3 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 z-20">
 				<div class="h-full w-full {{ bg_color_2 }}">
 					<ul class="flex flex-row flex-wrap justify-around list-none pt-10 m-6 pl-0">
-						{% if utc_highlight.info_5 %}
+					{% for content in info_2 if content['#icons'][0]['#info']is not empty %}
 							<li class="{{ description_classes_2 }}">
-							{% if utc_highlight.icon_5 %}
 							<div class="flex flex-row">
-							<div class="mb-4 mr-4 {{ icon_color_2 }}">{{ utc_highlight.icon_5 }}</div>
+							{% if content['#icons'][0]['#name'] %}
+								<div class="mb-4 mr-4 {{ icon_color_2 }}"><span class="fas fa-3x {{ content['#icons'][0]['#name'] }}" ></span></div>
 							{% endif %}
-							{% if utc_highlight.icon_5 %}
 							<div>
-							{% endif %}
-							<span class="{{ info_classes_2 }}">{{ utc_highlight.info_5 }}</span>
-							{{ utc_highlight.description_5 }}
-							{% if utc_highlight.icon_5 %}
+							<span class="{{ info_classes_2 }}">{{ content['#icons'][0]['#info'] }}</span>
+							{{ ontent['#icons'][0]['#description'] }}
 							</div>
 							</div>
-							{% endif %}
 							</li>
-						{% endif %}
-						{% if utc_highlight.info_6 %}
-							<li class="{{ description_classes_2 }}">
-							{% if utc_highlight.icon_6 %}
-							<div class="flex flex-row">
-							<div class="mb-4 mr-4 {{ icon_color_2 }}">{{ utc_highlight.icon_6 }}</div>
-							{% endif %}
-							{% if utc_highlight.icon_6 %}
-							<div>
-							{% endif %}
-							<span class="{{ info_classes_2 }}">{{ utc_highlight.info_6 }}</span>
-							{{ utc_highlight.description_6 }}
-							{% if utc_highlight.icon_6 %}
-							</div>
-							</div>
-							{% endif %}
-							</li>
-						{% endif %}
-						{% if utc_highlight.info_7 %}
-							<li class="{{ description_classes_2 }}">
-							{% if utc_highlight.icon_7 %}
-							<div class="flex flex-row">
-							<div class="mb-4 mr-4 {{ icon_color_2 }}">{{ utc_highlight.icon_7 }}</div>
-							{% endif %}
-							{% if utc_highlight.icon_7 %}
-							<div>
-							{% endif %}
-							<span class="{{ info_classes_2 }}">{{ utc_highlight.info_7 }}</span>
-							{{ utc_highlight.description_7 }}
-							{% if utc_highlight.icon_7 %}
-							</div>
-							</div>
-							{% endif %}
-							</li>
-						{% endif %}
-						{% if utc_highlight.info_8 %}
-							<li class="{{ description_classes_2 }}">
-							{% if utc_highlight.icon_8 %}
-							<div class="flex flex-row">
-							<div class="mb-4 mr-4 {{ icon_color_2 }}">{{ utc_highlight.icon_8 }}</div>
-							{% endif %}
-							{% if utc_highlight.icon_8 %}
-							<div>
-							{% endif %}
-							<span class="{{ info_classes_2 }}">{{ utc_highlight.info_8 }}</span>
-							{{ utc_highlight.description_8 }}
-							{% if utc_highlight.icon_8 %}
-							</div>
-							</div>
-							{% endif %}
-							</li>
-						{% endif %}
+					{% endfor %}
 					</ul>
 				</div>
 			</div>
