@@ -23,6 +23,7 @@
     } %}
 	{% set info_1 = content.field_highlighted_info_1|field_value %}
 	{% set info_2 = content.field_highlighted_info_2|field_value %}
+	{% set card_iconinfo = info_1.0['#icons'][0]['#info'] %}
 
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_highlight.bg_color == 'dark' %} 
@@ -84,20 +85,21 @@
 
 	<div class="grid grid-cols-1 lg:grid-cols-utchighlight lg:grid-rows-utchighlight lg:gap-y-4 lg:gap-x-10 grid-flow-row">
 			<div class="col-start-1 row-start-1 m-10 mt-20 lg:m-0 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-4 lg:mb-10 z-10">
+				
 				{% if utc_highlight.title %}
 					<h2 class="pl-6 {{ description_color }}">{{ utc_highlight.title }}</h2>
 					<hr class="border-t-3 border-utc-new-gold-500 mt-3 mb-6 ml-8 w-20" />
 				{% endif %}
 					<ul class="flex flex-row flex-wrap list-none pl-0 mb-0">
-						{% for content in info_1 if content['#icons'][0]['#info']is not empty %}
-							<li class="{{ description_classes }}">
-							{% if content['#icons'][0]['#name'] %}
-								<div class="mb-4 {{ icon_color }}"><span class="fas fa-3x {{ content['#icons'][0]['#name'] }}" ></span></div>
+					{% for content in info_1.0['#icons'] %}
+						<li class="{{ description_classes }}">
+							{% if info_1.0['#icons'][loop.index0]['#name'] %}
+							<div class="mb-4 {{ icon_color }}"><span class="fas fa-3x {{ info_1.0['#icons'][loop.index0]['#name'] }}" ></span></div>
 							{% endif %}
-							<span class="{{ info_classes }}">{{ content['#icons'][0]['#info'] }}</span>
-							{{ content['#icons'][0]['#description'] }}
-							</li>
-						{% endfor %}
+							<span class="{{ info_classes }}">{{ info_1.0['#icons'][loop.index0]['#info'] }}</span>
+							{{ info_1.0['#icons'][loop.index0]['#description'] }}
+						</li>
+					{% endfor %}
 					</ul>
 			</div>
 			<div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center col-start-1 col-end-5 row-start-1 row-end-4" style="background-image: url({{ utc_highlight.highlight_bg }})">
@@ -114,7 +116,7 @@
 							{% endif %}
 							<div>
 							<span class="{{ info_classes_2 }}">{{ content['#icons'][0]['#info'] }}</span>
-							{{ ontent['#icons'][0]['#description'] }}
+							{{ content['#icons'][0]['#description'] }}
 							</div>
 							</div>
 							</li>
