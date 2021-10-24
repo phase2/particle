@@ -23,7 +23,6 @@
     } %}
 	{% set info_1 = content.field_highlighted_info_1|field_value %}
 	{% set info_2 = content.field_highlighted_info_2|field_value %}
-	{% set card_iconinfo = info_1.0['#icons'][0]['#info'] %}
 
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_highlight.bg_color == 'dark' %} 
@@ -40,7 +39,7 @@
 	{% else %}
 		{% set info_color = 'text-utc-new-blue-500' %}
 		{% set icon_color = 'text-utc-new-blue-500' %}
-		{% set icon_color_2 = 'text-utc-new-gold-500' %}
+		{% set icon_color_2 = 'text-white' %}
 		{% set info_color_2 = 'text-utc-new-gold-500' %}
 		{% set description_color = 'text-utc-new-blue-500' %}
 		{% set description_color_2 ='text-white' %}
@@ -82,19 +81,19 @@
 		'font-bold',
 		info_color_2,
 	] | sort | join(' ') | trim %}
-
+{% set view_mode = element['#view_mode'] %}
 	<div class="grid grid-cols-1 lg:grid-cols-utchighlight lg:grid-rows-utchighlight lg:gap-y-4 lg:gap-x-10 grid-flow-row">
 			<div class="col-start-1 row-start-1 m-10 mt-20 lg:m-0 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-4 lg:mb-10 z-10">
 				
 				{% if utc_highlight.title %}
-					<h2 class="pl-6 {{ description_color }}">{{ utc_highlight.title }}</h2>
-					<hr class="border-t-3 border-utc-new-gold-500 mt-3 mb-6 ml-8 w-20" />
+					<h2 class="pl-6 {{ description_color }}">{{ utc_highlight.title }}{{ view_mode }}</h2>
+					<hr class="border-t-4 border-utc-new-gold-500 mt-3 mb-6 ml-8 w-20" />
 				{% endif %}
 					<ul class="flex flex-row flex-wrap list-none pl-0 mb-0">
-					{% for content in info_1.0['#icons'] %}
+					{% for content in info_1.0['#icons'] if info_1.0['#icons'] is not empty %}
 						<li class="{{ description_classes }}">
 							{% if info_1.0['#icons'][loop.index0]['#name'] %}
-							<div class="mb-4 {{ icon_color }}"><span class="fas fa-3x {{ info_1.0['#icons'][loop.index0]['#name'] }}" ></span></div>
+							<div class="mb-4 {{ icon_color }}"><span class="fas fa-2x {{ info_1.0['#icons'][loop.index0]['#name'] }}" ></span></div>
 							{% endif %}
 							<span class="{{ info_classes }}">{{ info_1.0['#icons'][loop.index0]['#info'] }}</span>
 							{{ info_1.0['#icons'][loop.index0]['#description'] }}
@@ -106,19 +105,19 @@
 				<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 			</div>
 			<div class="w-full h-full  bg-cover bg-center col-start-1 row-start-3 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 z-20">
-				<div class="h-full w-full {{ bg_color_2 }}">
-					<ul class="flex flex-row flex-wrap justify-around list-none pt-10 m-6 pl-0">
-					{% for content in info_2 if content['#icons'][0]['#info']is not empty %}
+				<div class="h-full w-full {{ bg_color_2 }} border-l-4 border-utc-new-gold-500 border-solid">
+					<ul class="flex flex-row flex-wrap justify-around list-none m-6 pt-10 pl-0">
+					{% for content in info_2.0['#icons'] if info_2.0['#icons'] is not empty %}
 							<li class="{{ description_classes_2 }}">
-							<div class="flex flex-row">
-							{% if content['#icons'][0]['#name'] %}
-								<div class="mb-4 mr-4 {{ icon_color_2 }}"><span class="fas fa-3x {{ content['#icons'][0]['#name'] }}" ></span></div>
-							{% endif %}
-							<div>
-							<span class="{{ info_classes_2 }}">{{ content['#icons'][0]['#info'] }}</span>
-							{{ content['#icons'][0]['#description'] }}
-							</div>
-							</div>
+								<div class="flex flex-row">
+								{% if info_2.0['#icons'][loop.index0]['#name'] %}
+									<div class="mb-4 mr-4 {{ icon_color_2 }}"><span class="fas fa-2x {{ info_2.0['#icons'][loop.index0]['#name'] }}" ></span></div>
+								{% endif %}
+								<div>
+									<span class="{{ info_classes_2 }}">{{ info_2.0['#icons'][loop.index0]['#info'] }}</span>
+									{{ info_2.0['#icons'][loop.index0]['#description'] }}
+								</div>
+								</div>
 							</li>
 					{% endfor %}
 					</ul>
