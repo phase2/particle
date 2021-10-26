@@ -1,0 +1,235 @@
+.utc-image-hover {
+  display: flex !important;
+  
+}
+
+figure.utc-hover-image-effect * {
+  @apply box-border;
+}
+figure.utc-hover-image-effect {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
+}
+
+figure.utc-hover-image-effect img {
+  @apply max-w-full opacity-100 w-full;
+  transition: opacity 0.35s;
+}
+
+figure.utc-hover-image-effect:hover figcaption {
+  @apply p-5;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+figure.utc-hover-image-effect figcaption::before {
+  @apply opacity-0 absolute;
+  content: '';
+  transition: all 0.5s;
+  transition-delay: 0.6s;
+}
+
+figure.utc-hover-image-effect figcaption div {
+  @apply opacity-0;
+  content: '';
+  transition: all 0.5s;
+  transition-delay: 0.5s;
+}
+
+figure.utc-hover-image-effect:hover figcaption::before,
+figure.utc-hover-image-effect:hover figcaption div {
+  @apply opacity-100;
+  transition-delay: 0.5s;
+}
+
+figure.utc-hover-image-effect h2,
+figure.utc-hover-image-effect p {
+  @apply opacity-0 mb-0;
+  transition: opacity 0.35s, transform 0.35s;
+}
+figure.utc-hover-image-effect h2 {
+  @apply text-lg md:text-base lg:text-xl xl:text-2xl md:mb-0 lg:mb-2;
+  transform: translate3d(30%, 0%, 0);
+  transition-delay: 0s;
+}
+
+figure.utc-hover-image-effect .count-4-plus h2 {
+  @apply text-base md:text-sm lg:text-lg xl:text-xl md:mb-0 lg:mb-2;
+}
+
+figure.utc-hover-image-effect p {
+  @apply text-sm lg:text-base;
+  transform: translate3d(0%, 30%, 0);
+  transition-delay: 0s;
+}
+
+figure.utc-hover-image-effect .count-4-plus p {
+  @apply text-xs lg:text-sm;
+}
+
+figure.utc-hover-image-effect a {
+  @apply absolute left-0 right-0 bottom-0 top-0 text-transparent;
+}
+
+figure.utc-hover-image-effect:hover img {
+  @apply opacity-10;
+}
+figure.utc-hover-image-effect:hover figcaption h2 {
+  @apply opacity-100;
+  transform: translate3d(0%, 0%, 0);
+  transition-delay: 0.4s;
+}
+figure.utc-hover-image-effect:hover figcaption p {
+  @apply opacity-100;
+  transform: translate3d(0%, 0%, 0);
+  transition-delay: 0.6s;
+}
+
+@media (max-width: 767px) {
+  .utc-image-hover {
+    display: inline-block !important;
+  }
+  figure.utc-hover-image-effect:hover figcaption {
+    @apply p-8;
+  }
+
+  figure.utc-hover-image-effect h2 {
+    @apply text-4xl;
+  }
+  figure.utc-hover-image-effect p {
+    @apply text-xl pb-6;
+  }
+  figure.utc-hover-image-effect a {
+    @apply opacity-0 relative text-white px-4 py-2 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
+    top: -9px;
+    transform: translate3d(0%, 30%, 0);
+    transition-delay: 0s;
+  }
+  figure.utc-hover-image-effect:hover a {
+    @apply opacity-100;
+    transform: translate3d(0%, 0%, 0);
+    transition-delay: 0.8s;
+  }
+}
+@media (max-width: 459px) {
+  figure.utc-hover-image-effect h2 {
+    @apply text-2xl;
+  }
+  figure.utc-hover-image-effect p {
+    @apply text-lg;
+  }
+}
+
+/*.utc-image-hover {
+  display: flex !important;
+}
+figure.utc-hover-image-effect {
+  font-family: 'Raleway', Arial, sans-serif;
+  color: #fff;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 220px;
+  max-width: 310px;
+  max-height: 220px;
+  width: 100%;
+  background: #000000;
+  text-align: left;
+}
+figure.utc-hover-image-effect * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+figure.utc-hover-image-effect img {
+  max-width: 100%;
+  opacity: 1;
+  width: 100%;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.utc-hover-image-effect figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px 3em;
+  width: 100%;
+  height: 100%;
+}
+figure.utc-hover-image-effect figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 100%;
+  border-left: 4px solid rgba(255, 255, 255, 0.8);
+  content: '';
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+figure.utc-hover-image-effect h2,
+figure.utc-hover-image-effect p {
+  margin: 0 0 5px;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s,-webkit-transform 0.35s,-moz-transform 0.35s,-o-transform 0.35s,transform 0.35s;
+}
+figure.utc-hover-image-effect h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+  text-transform: uppercase;
+  -webkit-transform: translate3d(30%, 0%, 0);
+  transform: translate3d(30%, 0%, 0);
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+figure.utc-hover-image-effect h2 span {
+  font-weight: 800;
+}
+figure.utc-hover-image-effect p {
+  font-weight: 200;
+  -webkit-transform: translate3d(0%, 30%, 0);
+  transform: translate3d(0%, 30%, 0);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+figure.utc-hover-image-effect a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  color: #ffffff;
+}
+figure.utc-hover-image-effect:hover img {
+  opacity: 0.3;
+}
+figure.utc-hover-image-effect:hover figcaption h2 {
+  opacity: 1;
+  -webkit-transform: translate3d(0%, 0%, 0);
+  transform: translate3d(0%, 0%, 0);
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+figure.utc-hover-image-effect:hover figcaption p {
+  opacity: 0.9;
+  -webkit-transform: translate3d(0%, 0%, 0);
+  transform: translate3d(0%, 0%, 0);
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+figure.utc-hover-image-effect:hover figcaption::before {
+  background: rgba(255, 255, 255, 0);
+  left: 30px;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+*/
