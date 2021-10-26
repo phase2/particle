@@ -34,9 +34,10 @@ module.exports = {
         // Adds a custom template for the utc hero block
         'utchero': '40px 1fr 1fr 70px',
         'utcheroreverse': '70px 1fr 1fr 40px',
-        'utcherocenter': '25px 1fr 1fr 25px',       
+        'utcherocenter': '25px 1fr 1fr 25px',
         // Adds a custom template for the highlight block
         'utchighlight': '40px 1fr 1fr 40px 40px',
+
       },
       gridTemplateColumns: {
         // Adds a custom template for the utc hero block
