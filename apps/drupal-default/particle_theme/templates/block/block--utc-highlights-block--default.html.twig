@@ -21,7 +21,7 @@
 		highlight_bg: drupal_field('field_image_url', 'taxonomy_term', highlight_image_select)["#object"].field_image_url.value,
 		style: content["#block_content"].field_highlight_info_style.0.value,
 		bg_color: content["#block_content"].field_highlight_background_color.0.value,
-		title: content.field_highlighted_info_title|field_value,
+		title: content.field_highlight_info_title|field_value,
     } %}
 	{% set info_1 = content.field_highlighted_info_1|field_value %}
 	{% set info_2 = content.field_highlighted_info_2|field_value %}
