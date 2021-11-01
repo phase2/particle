@@ -53,16 +53,8 @@
   ]
 %}
 #}
-{% set count = 0 %}
 
 {% for item in items %}
-  {% set count = items|length %}
-  {% set figure_classes = [
-    'utc-hover-image-effect',
-    'image-count-' ~ count
-  ] | sort | join(' ') | trim %}
-
-    <figure class="{{ figure_classes }}">{{ item.content }}</figure>
-
+    <div class="hidden">{{ item.content }}</div>
 {% endfor %}
 

@@ -1,79 +1,161 @@
-.utc-image-hover {
-  display: flex !important;
-  
-}
-
+/*NOTE: 
+The responsive variances in this css file accommodates the following circumstances:
+---1-5 images in a row
+---horizontal and vertical orientations
+---resizing hz and vt images when user combines them in a row
+---addition of button links for mobile devices.
+*/
 figure.utc-hover-image-effect * {
   @apply box-border;
 }
 figure.utc-hover-image-effect {
-  position: relative;
-  float: left;
-  overflow: hidden;
+  @apply relative float-left overflow-hidden;
   margin: 10px 1%;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
 }
-
+figure.image-count-1 {
+  @apply float-none;
+  min-width: 98%;
+}
 figure.utc-hover-image-effect img {
   @apply max-w-full opacity-100 w-full;
   transition: opacity 0.35s;
 }
-
+/*figcaption, text*/
 figure.utc-hover-image-effect:hover figcaption {
-  @apply p-5;
+  @apply p-5 md:p-4 lg:p-5 max-h-full;
   top: 50%;
   transform: translateY(-50%);
 }
-
+figure.image-count-1:hover figcaption {
+  @apply md:p-20;
+}
+figure.image-count-2:hover figcaption {
+  @apply md:p-5 lg:p-8;
+}
+.image-output-vertical figure.utc-hover-image-effect:hover figcaption {
+  @apply p-16 md:p-8 lg:p-8;
+}
+.image-output-horizontal figure.image-count-4:hover figcaption {
+  @apply md:p-6 lg:p-3;
+}
+.image-output-horizontal figure.image-count-3:hover figcaption,
+.image-output-horizontal figure.image-count-5:hover figcaption {
+  @apply md:p-4;
+}
 figure.utc-hover-image-effect figcaption::before {
   @apply opacity-0 absolute;
   content: '';
   transition: all 0.5s;
   transition-delay: 0.6s;
 }
-
 figure.utc-hover-image-effect figcaption div {
   @apply opacity-0;
   content: '';
   transition: all 0.5s;
   transition-delay: 0.5s;
 }
-
 figure.utc-hover-image-effect:hover figcaption::before,
 figure.utc-hover-image-effect:hover figcaption div {
   @apply opacity-100;
   transition-delay: 0.5s;
 }
-
+/*yellow borders*/
+figure.utc-hover-image-effect:hover .utc-border-wrapper {
+  @apply sm:ml-auto sm:mr-auto border-l-4 border-utc-new-gold-500 pl-4 lg:pl-2 xl:pl-4 
+} 
+.image-output-horizontal figure.image-count-4:hover .utc-border-wrapper {
+  @apply lg:border-0 lg:border-transparent lg:p-0 xl:border-l-4 xl:border-utc-new-gold-500 xl:pl-4;
+}
+.image-output-horizontal figure.image-count-3:hover .utc-border-wrapper, 
+.image-output-horizontal figure.image-count-5:hover .utc-border-wrapper {
+  @apply border-l-4 border-utc-new-gold-500 pl-4 md:border-0 md:border-transparent md:p-0 lg:border-l-4 lg:border-utc-new-gold-500 lg:pl-4;
+}
+.image-output-horizontal figure.image-count-5 h2 {
+  margin-bottom:0!important;
+}
+/*headlines*/
 figure.utc-hover-image-effect h2,
 figure.utc-hover-image-effect p {
   @apply opacity-0 mb-0;
   transition: opacity 0.35s, transform 0.35s;
 }
 figure.utc-hover-image-effect h2 {
-  @apply text-lg md:text-base lg:text-xl xl:text-2xl md:mb-0 lg:mb-2;
+  @apply text-lg md:text-base lg:text-xl xl:text-2xl lg:mb-2;
   transform: translate3d(30%, 0%, 0);
   transition-delay: 0s;
 }
-
-figure.utc-hover-image-effect .count-4-plus h2 {
-  @apply text-base md:text-sm lg:text-lg xl:text-xl md:mb-0 lg:mb-2;
+.image-output-horizontal figure.utc-hover-image-effect h2 {
+  @apply md:mb-0;
 }
-
+figure.image-count-1  h2 {
+  @apply md:text-4xl;
+}
+figure.image-count-2  h2 {
+  @apply md:text-xl lg:text-2xl;
+}
+figure.image-count-4  h2 {
+  @apply md:text-lg lg:text-xl md:mb-0 lg:mb-2;
+}
+figure.image-count-5  h2 {
+  @apply md:text-base lg:text-lg xl:text-xl md:mb-0 lg:mb-2;
+}
+.image-output-horizontal figure.image-count-3  h2 {
+  @apply md:mb-0;
+}
+.image-output-horizontal figure.image-count-4  h2 {
+  @apply lg:text-base xl:text-lg 2xl:text-xl md:mb-0 xl:mb-2;
+}
+.image-output-horizontal figure.image-count-5  h2 {
+  @apply lg:text-base 2xl:text-lg md:mb-0;
+}
+.image-output-vertical figure.utc-hover-image-effect h2 {
+  @apply sm:text-xl lg:text-2xl pb-2;
+}
+.image-output-vertical figure.image-count-5  h2 {
+  @apply sm:text-xl lg:text-lg pb-2;
+}
+/*body*/
 figure.utc-hover-image-effect p {
-  @apply text-sm lg:text-base;
+  @apply text-sm md:text-base;
   transform: translate3d(0%, 30%, 0);
   transition-delay: 0s;
 }
-
-figure.utc-hover-image-effect .count-4-plus p {
-  @apply text-xs lg:text-sm;
+figure.image-count-1 p {
+  @apply md:text-2xl;
 }
-
+figure.image-count-2 p {
+  @apply lg:text-xl;
+}
+.image-output-horizontal figure.image-count-3 p {
+  @apply md:text-xs lg:text-base xl:text-base;
+}
+/*figure.image-count-4 p {
+  @apply md:text-base;
+}*/
+figure.image-count-5 p {
+  @apply md:text-xs lg:text-sm;
+}
+.image-output-horizontal figure.image-count-4 p
+{
+  @apply lg:text-xs xl:text-base;
+}
+.image-output-horizontal figure.image-count-5 p {
+  @apply lg:hidden xl:inline-block xl:text-xs;
+}
+.image-output-vertical figure.utc-hover-image-effect p {
+  @apply text-lg;
+}
+.image-output-vertical figure.image-count-3 p{
+  @apply md:text-base lg:text-lg;
+} 
+.image-output-vertical figure.image-count-5 p {
+  @apply md:text-base lg:text-base;
+}
+/*hover effects*/
 figure.utc-hover-image-effect a {
-  @apply absolute left-0 right-0 bottom-0 top-0 text-transparent;
+  @apply absolute left-0 right-0 bottom-0 top-0 text-transparent text-base;
 }
-
 figure.utc-hover-image-effect:hover img {
   @apply opacity-10;
 }
@@ -87,20 +169,87 @@ figure.utc-hover-image-effect:hover figcaption p {
   transform: translate3d(0%, 0%, 0);
   transition-delay: 0.6s;
 }
-
+.hover-image-space {
+  @apply mt-0 h-0;
+  font-size: 1px;
+}
+.image-output-horizontal figure.image-count-5 p.hover-image-space {
+  @apply lg:hidden;
+}
+/*mixed orientation fixes*/
+    .image-output-horizontal .input-vertical {
+      aspect-ratio: 3/2!important;
+    }
+    /*center the vertical image*/
+    .image-output-horizontal .input-vertical img {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .image-output-vertical .input-horizontal {
+      aspect-ratio: 2/3!important;
+    }
+    /*center the horizontal image*/
+    .image-output-vertical .input-horizontal img {
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: unset;
+      width: unset;
+      height: 100%;
+    }
+/*additional reponsive styles*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2,minmax(0,1fr))!important;
+  }
+  .grid-cols-5 {
+    grid-template-columns: repeat(3,minmax(0,1fr))!important;
+  }
+  figure.utc-hover-image-effect a {
+    @apply opacity-0 relative text-white px-4 py-2 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
+    top: -9px;
+    transform: translate3d(0%, 30%, 0);
+    transition-delay: 0s;
+  }
+  .image-output-horizontal figure.image-count-3 a, 
+  .image-output-horizontal figure.image-count-5 a {
+    @apply px-3 py-1; 
+  }
+  figure.utc-hover-image-effect:hover a {
+    @apply opacity-100;
+    transform: translate3d(0%, 0%, 0);
+    transition-delay: 0.8s;
+  }
+  figure.utc-hover-image-effect:hover figcaption p,
+  .image-output-horizontal figure.image-count-4 p.hover-image-space {
+    @apply mt-8 block;
+  }
+  .image-output-horizontal figure.image-count-3 p.hover-image-space,
+  .image-output-horizontal figure.image-count-5 p.hover-image-space {
+    @apply mt-6;
+  }
+}
 @media (max-width: 767px) {
   .utc-image-hover {
-    display: inline-block !important;
+    display: block!important;
+    @apply text-center;
+  }
+  figure.utc-hover-image-effect {
+    @apply my-8 mx-auto float-none;
+  }
+  figure.input-horizontal {
+    @apply max-w-max;
   }
   figure.utc-hover-image-effect:hover figcaption {
-    @apply p-8;
+    @apply text-left;
   }
-
   figure.utc-hover-image-effect h2 {
-    @apply text-4xl;
+    @apply text-4xl pb-3;
   }
   figure.utc-hover-image-effect p {
-    @apply text-xl pb-6;
+    @apply text-xl ;
+  }
+  .image-output-horizontal figure.image-count-5 p {
+    @apply block;
   }
   figure.utc-hover-image-effect a {
     @apply opacity-0 relative text-white px-4 py-2 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
@@ -113,6 +262,9 @@ figure.utc-hover-image-effect:hover figcaption p {
     transform: translate3d(0%, 0%, 0);
     transition-delay: 0.8s;
   }
+  .hover-image-space {
+    @apply mt-12;
+  }
 }
 @media (max-width: 459px) {
   figure.utc-hover-image-effect h2 {
@@ -121,115 +273,44 @@ figure.utc-hover-image-effect:hover figcaption p {
   figure.utc-hover-image-effect p {
     @apply text-lg;
   }
+  .hover-image-space {
+    @apply mt-0 h-0;
+  }
 }
-
-/*.utc-image-hover {
-  display: flex !important;
+@media (max-width: 420px) {
+  figure.image-count-1:hover figcaption {
+    @apply p-8;
+  }
+  .hover-image-space {
+    @apply mt-10;
+  }
 }
-figure.utc-hover-image-effect {
-  font-family: 'Raleway', Arial, sans-serif;
-  color: #fff;
-  position: relative;
-  float: left;
-  overflow: hidden;
-  margin: 10px 1%;
-  min-width: 220px;
-  max-width: 310px;
-  max-height: 220px;
-  width: 100%;
-  background: #000000;
-  text-align: left;
+@media (max-width: 320px) {
+  figure.utc-hover-image-effect:hover figcaption,
+  figure.image-count-1:hover figcaption,
+  figure.image-count-2:hover figcaption {
+    @apply p-4;
+  }
+  figure.image-count-4:hover figcaption,
+  figure.image-count-5:hover figcaption {
+    @apply p-8;
+  }
+  figure.utc-hover-image-effect h2 {
+    @apply pb-0;
+  }
 }
-figure.utc-hover-image-effect * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+@media (max-width: 280px) {
+  figure.utc-hover-image-effect p {
+    @apply text-sm;
+  }
+  figure.image-count-4 p, 
+  figure.image-count-5 p {
+    @apply text-xs;
+  }
+  .image-output-horizontal .hover-image-space {
+    @apply mt-6;
+  }
+  .image-output-vertical figure.utc-hover-image-effect:hover figcaption {
+    @apply p-12;
+  }
 }
-figure.utc-hover-image-effect img {
-  max-width: 100%;
-  opacity: 1;
-  width: 100%;
-  -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s;
-}
-figure.utc-hover-image-effect figcaption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 30px 3em;
-  width: 100%;
-  height: 100%;
-}
-figure.utc-hover-image-effect figcaption::before {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  bottom: 30px;
-  left: 100%;
-  border-left: 4px solid rgba(255, 255, 255, 0.8);
-  content: '';
-  opacity: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  -webkit-transition-delay: 0.6s;
-  transition-delay: 0.6s;
-}
-figure.utc-hover-image-effect h2,
-figure.utc-hover-image-effect p {
-  margin: 0 0 5px;
-  opacity: 0;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s,-webkit-transform 0.35s,-moz-transform 0.35s,-o-transform 0.35s,transform 0.35s;
-}
-figure.utc-hover-image-effect h2 {
-  word-spacing: -0.15em;
-  font-weight: 300;
-  text-transform: uppercase;
-  -webkit-transform: translate3d(30%, 0%, 0);
-  transform: translate3d(30%, 0%, 0);
-  -webkit-transition-delay: 0.3s;
-  transition-delay: 0.3s;
-}
-figure.utc-hover-image-effect h2 span {
-  font-weight: 800;
-}
-figure.utc-hover-image-effect p {
-  font-weight: 200;
-  -webkit-transform: translate3d(0%, 30%, 0);
-  transform: translate3d(0%, 30%, 0);
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-}
-figure.utc-hover-image-effect a {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  color: #ffffff;
-}
-figure.utc-hover-image-effect:hover img {
-  opacity: 0.3;
-}
-figure.utc-hover-image-effect:hover figcaption h2 {
-  opacity: 1;
-  -webkit-transform: translate3d(0%, 0%, 0);
-  transform: translate3d(0%, 0%, 0);
-  -webkit-transition-delay: 0.4s;
-  transition-delay: 0.4s;
-}
-figure.utc-hover-image-effect:hover figcaption p {
-  opacity: 0.9;
-  -webkit-transform: translate3d(0%, 0%, 0);
-  transform: translate3d(0%, 0%, 0);
-  -webkit-transition-delay: 0.6s;
-  transition-delay: 0.6s;
-}
-figure.utc-hover-image-effect:hover figcaption::before {
-  background: rgba(255, 255, 255, 0);
-  left: 30px;
-  opacity: 1;
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-}
-*/
