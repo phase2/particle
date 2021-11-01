@@ -3,7 +3,7 @@
    //Adds slick arrows 
     Drupal.behaviors.slickcustomarrows = {
         attach: function(context, settings) {
-
+        //Find out whether the image that is being placed (inputed) is horizontal or vertical.
         function imageInputOrientation() {
             $('.utc-hover-image-effect img').each(function(){
                 var hoverOrientationW = $(this).width();
@@ -26,7 +26,7 @@
             });
             location.reload(true/false);
         });
-
+        //Tell the grid how many columns to apply based on number of children.
         $('.image-count-1:first-child').each(function(){
             $(this).parent().addClass('grid-cols-1');
         });
@@ -42,7 +42,6 @@
         $('.image-count-5:first-child').each(function(){
             $(this).parent().addClass('grid-cols-5');
         });
-
       }
     };
   }(jQuery, Drupal, drupalSettings));
