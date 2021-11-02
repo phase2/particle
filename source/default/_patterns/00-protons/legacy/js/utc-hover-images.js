@@ -1,7 +1,7 @@
 (function($, Drupal, drupalSettings) {
     "use strict";
-   //Adds slick arrows 
-    Drupal.behaviors.slickcustomarrows = {
+   //Handles hover image effects to custom blocks 
+    Drupal.behaviors.hoverimages = {
         attach: function(context, settings) {
         //Find out whether the image that is being placed (inputed) is horizontal or vertical.
         function imageInputOrientation() {
