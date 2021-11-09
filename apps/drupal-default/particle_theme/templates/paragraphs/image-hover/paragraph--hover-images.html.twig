@@ -53,16 +53,15 @@
           {% if image_link is null %}
             <figcaption class="absolute block left-0 right-0 w-full cursor-default">
               <div class="utc-border-wrapper">
-                <h2 class="m-0 lg:mb-2 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ content.field_hover_title.0 }}</h2>
-                <p class="m-0 mb-2 text-utc-new-blue-500 leading-tight">{{ content.field_hover_text.0 }}</p>
+                <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ content.field_hover_title.0 }}</h2>
+                <p class="text-utc-new-blue-500 leading-tight">{{ content.field_hover_text.0 }}</p>
               </div>
             </figcaption>
           {% else %}
             <figcaption class="absolute block left-0 right-0 w-full cursor-pointer">
               <div class="utc-border-wrapper">
-                <h2 class="m-0 lg:mb-2 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ content.field_hover_title.0 }}</h2>
-                <p class="m-0 mb-2 text-utc-new-blue-500 leading-tight">{{ content.field_hover_text.0 }}</p>
-                <p class="hover-image-space">&nbsp;</p>
+                <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ content.field_hover_title.0 }}</h2>
+                <p class="text-utc-new-blue-500 leading-tight">{{ content.field_hover_text.0 }}</p>
                 <a href="{{ content.field_hover_link.0['#url'] }}" title="Go to {{ content.field_hover_link.0['#title'] }}" >{{ content.field_hover_link.0['#title'] }}</a>
               </div>
             </figcaption>

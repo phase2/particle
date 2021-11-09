@@ -39,9 +39,6 @@
         $('.image-count-4:first-child').each(function(){
             $(this).parent().addClass('grid-cols-4');
         });
-        $('.image-count-5:first-child').each(function(){
-            $(this).parent().addClass('grid-cols-5');
-        });
       }
     };
   }(jQuery, Drupal, drupalSettings));

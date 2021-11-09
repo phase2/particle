@@ -1,10 +1,13 @@
 /*NOTE: 
 The responsive variances in this css file accommodates the following circumstances:
----1-5 images in a row
+---1-4 images in a row
 ---horizontal and vertical orientations
 ---resizing hz and vt images when user combines them in a row
 ---addition of button links for mobile devices.
+---Default css is based on homepage, full-width layout, 4 images across, horizontal, iphone x
 */
+
+/****Horizontal****/
 figure.utc-hover-image-effect * {
   @apply box-border;
 }
@@ -13,169 +16,165 @@ figure.utc-hover-image-effect {
   margin: 10px 1%;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
 }
-figure.image-count-1 {
-  @apply float-none;
-  min-width: 98%;
-}
 figure.utc-hover-image-effect img {
   @apply max-w-full opacity-100 w-full;
   transition: opacity 0.35s;
 }
 /*figcaption, text*/
-figure.utc-hover-image-effect:hover figcaption {
-  @apply p-5 md:p-4 lg:p-5 max-h-full;
-  top: 50%;
-  transform: translateY(-50%);
+figure.utc-hover-image-effect figcaption {
+  @apply p-8 max-h-full;
 }
-figure.image-count-1:hover figcaption {
-  @apply md:p-20;
-}
-figure.image-count-2:hover figcaption {
-  @apply md:p-5 lg:p-8;
-}
-.image-output-vertical figure.utc-hover-image-effect:hover figcaption {
-  @apply p-16 md:p-8 lg:p-8;
-}
-.image-output-horizontal figure.image-count-4:hover figcaption {
-  @apply md:p-6 lg:p-3;
-}
-.image-output-horizontal figure.image-count-3:hover figcaption,
-.image-output-horizontal figure.image-count-5:hover figcaption {
-  @apply md:p-4;
-}
-figure.utc-hover-image-effect figcaption::before {
-  @apply opacity-0 absolute;
-  content: '';
-  transition: all 0.5s;
-  transition-delay: 0.6s;
-}
-figure.utc-hover-image-effect figcaption div {
-  @apply opacity-0;
-  content: '';
-  transition: all 0.5s;
-  transition-delay: 0.5s;
-}
-figure.utc-hover-image-effect:hover figcaption::before,
-figure.utc-hover-image-effect:hover figcaption div {
-  @apply opacity-100;
-  transition-delay: 0.5s;
-}
-/*yellow borders*/
-figure.utc-hover-image-effect:hover .utc-border-wrapper {
-  @apply sm:ml-auto sm:mr-auto border-l-4 border-utc-new-gold-500 pl-4 lg:pl-2 xl:pl-4 
+figure.utc-hover-image-effect .utc-border-wrapper {
+  @apply opacity-0 sm:ml-auto sm:mr-auto border-l-4 border-utc-new-gold-500 pl-4;
+  transition: opacity 0.25s, transform 0.25s;
 } 
-.image-output-horizontal figure.image-count-4:hover .utc-border-wrapper {
-  @apply lg:border-0 lg:border-transparent lg:p-0 xl:border-l-4 xl:border-utc-new-gold-500 xl:pl-4;
-}
-.image-output-horizontal figure.image-count-3:hover .utc-border-wrapper, 
-.image-output-horizontal figure.image-count-5:hover .utc-border-wrapper {
-  @apply border-l-4 border-utc-new-gold-500 pl-4 md:border-0 md:border-transparent md:p-0 lg:border-l-4 lg:border-utc-new-gold-500 lg:pl-4;
-}
-.image-output-horizontal figure.image-count-5 h2 {
-  margin-bottom:0!important;
-}
-/*headlines*/
 figure.utc-hover-image-effect h2,
 figure.utc-hover-image-effect p {
-  @apply opacity-0 mb-0;
+  @apply opacity-0;
   transition: opacity 0.35s, transform 0.35s;
 }
 figure.utc-hover-image-effect h2 {
-  @apply text-lg md:text-base lg:text-xl xl:text-2xl lg:mb-2;
+  @apply mx-0 text-2xl;
+}
+figure.utc-hover-image-effect p {
+  @apply mx-0 mb-0 text-base;
+}
+figure.utc-hover-image-effect h2 {
+  @apply opacity-0;
   transform: translate3d(30%, 0%, 0);
   transition-delay: 0s;
 }
-.image-output-horizontal figure.utc-hover-image-effect h2 {
-  @apply md:mb-0;
-}
-figure.image-count-1  h2 {
-  @apply md:text-4xl;
-}
-figure.image-count-2  h2 {
-  @apply md:text-xl lg:text-2xl;
-}
-figure.image-count-4  h2 {
-  @apply md:text-lg lg:text-xl md:mb-0 lg:mb-2;
-}
-figure.image-count-5  h2 {
-  @apply md:text-base lg:text-lg xl:text-xl md:mb-0 lg:mb-2;
-}
-.image-output-horizontal figure.image-count-3  h2 {
-  @apply md:mb-0;
-}
-.image-output-horizontal figure.image-count-4  h2 {
-  @apply lg:text-base xl:text-lg 2xl:text-xl md:mb-0 xl:mb-2;
-}
-.image-output-horizontal figure.image-count-5  h2 {
-  @apply lg:text-base 2xl:text-lg md:mb-0;
-}
-.image-output-vertical figure.utc-hover-image-effect h2 {
-  @apply sm:text-xl lg:text-2xl pb-2;
-}
-.image-output-vertical figure.image-count-5  h2 {
-  @apply sm:text-xl lg:text-lg pb-2;
-}
-/*body*/
 figure.utc-hover-image-effect p {
-  @apply text-sm md:text-base;
+  @apply opacity-0;
   transform: translate3d(0%, 30%, 0);
   transition-delay: 0s;
 }
-figure.image-count-1 p {
-  @apply md:text-2xl;
-}
-figure.image-count-2 p {
-  @apply lg:text-xl;
-}
-.image-output-horizontal figure.image-count-3 p {
-  @apply md:text-xs lg:text-base xl:text-base;
-}
-/*figure.image-count-4 p {
-  @apply md:text-base;
-}*/
-figure.image-count-5 p {
-  @apply md:text-xs lg:text-sm;
-}
-.image-output-horizontal figure.image-count-4 p
-{
-  @apply lg:text-xs xl:text-base;
-}
-.image-output-horizontal figure.image-count-5 p {
-  @apply lg:hidden xl:inline-block xl:text-xs;
-}
-.image-output-vertical figure.utc-hover-image-effect p {
-  @apply text-lg;
-}
-.image-output-vertical figure.image-count-3 p{
-  @apply md:text-base lg:text-lg;
-} 
-.image-output-vertical figure.image-count-5 p {
-  @apply md:text-base lg:text-base;
-}
-/*hover effects*/
 figure.utc-hover-image-effect a {
-  @apply absolute left-0 right-0 bottom-0 top-0 text-transparent text-base;
+  @apply lg:absolute mt-4 lg:left-0 lg:right-0 lg:bottom-0 lg:top-0 text-transparent;
+}
+
+/*hover effects*/
+figure.utc-hover-image-effect:hover figcaption {
+  top: 50%;
+  transform: translateY(-50%);
 }
 figure.utc-hover-image-effect:hover img {
   @apply opacity-10;
 }
-figure.utc-hover-image-effect:hover figcaption h2 {
+figure.utc-hover-image-effect:hover .utc-border-wrapper  {
+  @apply opacity-100;
+  transform: translate3d(0%, 0%, 0);
+  transition-delay: 0.2s;
+}
+figure.utc-hover-image-effect:hover h2 {
   @apply opacity-100;
   transform: translate3d(0%, 0%, 0);
   transition-delay: 0.4s;
 }
-figure.utc-hover-image-effect:hover figcaption p {
+figure.utc-hover-image-effect:hover p {
   @apply opacity-100;
   transform: translate3d(0%, 0%, 0);
   transition-delay: 0.6s;
 }
-.hover-image-space {
-  @apply mt-0 h-0;
-  font-size: 1px;
+
+/****1 image***/
+figure.image-count-1 {
+  @apply float-none;
+  margin: 10px;
 }
-.image-output-horizontal figure.image-count-5 p.hover-image-space {
-  @apply lg:hidden;
+figure.image-count-1 figcaption {
+  @apply lg:p-20;
 }
+figure.image-count-1 .utc-border-wrapper {
+  @apply lg:pl-6;
+} 
+figure.image-count-1 h2 {
+  @apply lg:text-4xl;
+}
+figure.image-count-1 p {
+  @apply lg:text-2xl;
+}
+
+/****2 images***/
+figure.image-count-2 figcaption {
+  @apply lg:p-12;
+}
+figure.image-count-2 .utc-border-wrapper {
+  @apply lg:pl-4;
+} 
+figure.image-count-2 h2 {
+  @apply lg:text-2xl;
+}
+
+/***3 images***/
+figure.image-count-3 figcaption {
+  @apply md:p-4 md:pt-3 lg:p-8;
+}
+figure.image-count-3 .utc-border-wrapper {
+  @apply xl:pl-4;
+}
+figure.image-count-3 h2 {
+  @apply md:text-base lg:text-2xl
+}
+figure.image-count-3 p {
+  @apply pb-0 mb-4 md:m-0 lg:mt-2 md:text-xs lg:text-sm xl:text-base;
+}
+figure.image-count-3 a {
+  @apply md:mt-1 lg:mt-4;
+}
+
+/***4 images***/
+figure.image-count-4 figcaption {
+  @apply md:p-3 lg:p-4;
+}
+figure.image-count-4 h2 {
+  @apply mb-0 pb-0 md:text-base lg:text-lg;
+}
+figure.image-count-4 p {
+  @apply md:hidden lg:inline-block lg:text-xs mx-0;
+}
+
+/****Vertical****/
+.image-output-vertical figure.utc-hover-image-effect figcaption {
+  @apply p-16 lg:p-20;
+}
+.image-output-vertical figure.utc-hover-image-effect .utc-border-wrapper {
+  @apply md:border-l-4 md:border-utc-new-gold-500 md:pl-4 lg:mb-0;
+}
+.image-output-vertical figure.utc-hover-image-effect h2 {
+  @apply text-3xl;
+}
+.image-output-vertical figure.utc-hover-image-effect p {
+  @apply text-lg;
+}
+.image-output-vertical figure.utc-hover-image-effect a {
+  @apply text-lg mt-6;
+}
+.image-output-vertical figure.image-count-3 figcaption {
+  @apply md:p-8;
+}
+.image-output-vertical figure.image-count-3 h2 {
+  @apply md:text-2xl ;
+}
+.image-output-vertical figure.image-count-3  p {
+  @apply md:text-base;
+}
+.image-output-vertical figure.image-count-3  a {
+  @apply md:text-base;
+}
+.image-output-vertical figure.image-count-4 figcaption {
+  @apply md:p-4 lg:p-8 lg:pb-0;
+}
+.image-output-vertical figure.image-count-4 h2 {
+  @apply md:text-lg lg:text-2xl ;
+}
+.image-output-vertical figure.image-count-4 p {
+  @apply md:inline-block md:text-xs lg:text-sm xl:text-base;
+}
+.image-output-vertical figure.image-count-4 a {
+  @apply md:text-xs lg:text-base md:mt-2 lg:mt-6;
+}
+
 /*mixed orientation fixes*/
     .image-output-horizontal .input-vertical {
       aspect-ratio: 3/2!important;
@@ -196,36 +195,21 @@ figure.utc-hover-image-effect:hover figcaption p {
       width: unset;
       height: 100%;
     }
+
 /*additional reponsive styles*/
 @media (min-width: 768px) and (max-width: 1024px) {
-  .grid-cols-4 {
-    grid-template-columns: repeat(2,minmax(0,1fr))!important;
-  }
-  .grid-cols-5 {
-    grid-template-columns: repeat(3,minmax(0,1fr))!important;
-  }
   figure.utc-hover-image-effect a {
-    @apply opacity-0 relative text-white px-4 py-2 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
-    top: -9px;
+    @apply opacity-0 inline-block relative text-white px-4 py-1 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
     transform: translate3d(0%, 30%, 0);
     transition-delay: 0s;
-  }
-  .image-output-horizontal figure.image-count-3 a, 
-  .image-output-horizontal figure.image-count-5 a {
-    @apply px-3 py-1; 
   }
   figure.utc-hover-image-effect:hover a {
     @apply opacity-100;
     transform: translate3d(0%, 0%, 0);
     transition-delay: 0.8s;
   }
-  figure.utc-hover-image-effect:hover figcaption p,
-  .image-output-horizontal figure.image-count-4 p.hover-image-space {
-    @apply mt-8 block;
-  }
-  .image-output-horizontal figure.image-count-3 p.hover-image-space,
-  .image-output-horizontal figure.image-count-5 p.hover-image-space {
-    @apply mt-6;
+  .grid-cols-4 {
+    @apply grid-cols-2;
   }
 }
 @media (max-width: 767px) {
@@ -239,36 +223,26 @@ figure.utc-hover-image-effect:hover figcaption p {
   figure.input-horizontal {
     @apply max-w-max;
   }
-  figure.utc-hover-image-effect:hover figcaption {
+  figure.utc-hover-image-effect figcaption {
     @apply text-left;
   }
-  figure.utc-hover-image-effect h2 {
-    @apply text-4xl pb-3;
-  }
-  figure.utc-hover-image-effect p {
-    @apply text-xl ;
-  }
-  .image-output-horizontal figure.image-count-5 p {
-    @apply block;
-  }
   figure.utc-hover-image-effect a {
-    @apply opacity-0 relative text-white px-4 py-2 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
-    top: -9px;
+    @apply opacity-0 inline-block mt-4 relative text-white px-4 py-1 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
     transform: translate3d(0%, 30%, 0);
     transition-delay: 0s;
+  }
+  .image-output-vertical figure.utc-hover-image-effect a {
+    @apply py-2;
   }
   figure.utc-hover-image-effect:hover a {
     @apply opacity-100;
     transform: translate3d(0%, 0%, 0);
     transition-delay: 0.8s;
   }
-  .hover-image-space {
-    @apply mt-12;
-  }
 }
 @media (max-width: 459px) {
   figure.utc-hover-image-effect h2 {
-    @apply text-2xl;
+    @apply text-xl;
   }
   figure.utc-hover-image-effect p {
     @apply text-lg;
@@ -313,4 +287,55 @@ figure.utc-hover-image-effect:hover figcaption p {
   .image-output-vertical figure.utc-hover-image-effect:hover figcaption {
     @apply p-12;
   }
+}
+
+
+/****Internal pages treatment***/
+.themag-layout--twocol-section--3-9 figure.utc-hover-image-effect figcaption {
+  @apply lg:p-8;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-3 figcaption,
+.themag-layout--twocol-section--3-9 figure.image-count-4 figcaption {
+  @apply lg:p-4;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-4 figcaption {
+  @apply xl:pt-3;
+}
+.themag-layout--twocol-section--3-9 figure.utc-hover-image-effect .utc-border-wrapper {
+  @apply lg:pl-2;
+} 
+.themag-layout--twocol-section--3-9 figure.image-count-1 {
+  @apply mx-0;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-1 figcaption {
+  @apply p-20;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-3 h2 {
+  @apply lg:pb-0 lg:mb-0 lg:text-base;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-3 p {
+  @apply lg:pb-0 lg:mb-0 lg:text-xs;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-4 h2 {
+  @apply lg:text-base;
+} 
+.themag-layout--twocol-section--3-9 figure.image-count-4 p {
+  @apply lg:hidden xl:inline-block xl:mt-0;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-1 figcaption
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 figcaption
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption {
+  @apply p-12;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 h2 {
+  @apply lg:text-lg ;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 p {
+  @apply lg:text-base;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2 {
+  @apply lg:text-lg ;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p {
+  @apply lg:inline-block xl:text-sm;
 }
