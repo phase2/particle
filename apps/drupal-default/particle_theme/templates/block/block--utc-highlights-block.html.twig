@@ -22,6 +22,8 @@
     style: content["#block_content"].field_highlight_info_style.0.value,
     bg_color: content["#block_content"].field_highlight_background_color.0.value,
     title: content.field_highlight_info_title|field_value,
+    button_text: content.field_highlight_button.0['#title'],
+    button_url: content.field_highlight_button.0['#url'],
   } %}
   {% set info_1 = content.field_highlight_info_1|field_value %}
   {% set info_2 = content.field_highlight_info_2|field_value %}
@@ -31,6 +33,7 @@
     {% set info_color = 'text-utc-new-gold-500' %}
     {% set info_color_2 = 'text-utc-new-blue-500' %}
     {% set icon_color = 'text-white' %}
+    {% set btn_border = 'border-white' %}
     {% set icon_color_2 = 'text-utc-new-blue-500' %}
     {% set description_color = 'text-white' %}
     {% set description_color_2 ='text-utc-new-blue-500' %}
@@ -38,10 +41,12 @@
     {% set bg1_opacity = '' %}
     {% set bg2_opacity = 'opacity-90' %}
     {% set bg_color_2 = 'rgba(226, 232, 240, 0.9)' %}
+    {% set bg_img = 'asfalt-dark.png' %}
   {% else %}
     {% set info_color = 'text-utc-new-blue-500' %}
     {% set info_color_2 = 'text-utc-new-gold-500' %}
     {% set icon_color = 'text-utc-new-blue-500' %}
+    {% set btn_border = 'border-utc-new-blue-500' %}
     {% set icon_color_2 = 'text-white' %}
     {% set description_color = 'text-utc-new-blue-500' %}
     {% set description_color_2 ='text-white' %}
@@ -49,6 +54,7 @@
     {% set bg1_opacity = 'opacity-20' %}
     {% set bg2_opacity = 'opacity-20' %}
     {% set bg_color_2 = 'rgba(17, 46, 81, 0.9)' %}
+    {% set bg_img = 'asfalt-light.png' %}
   {% endif %}
 
   {% if utc_highlight.style == 'Side Box' %}
@@ -74,11 +80,15 @@
             </li>
           {% endfor %}
         </ul>
-        <div class="grid justify-items-center mt-10">
-          <a class="btn btn-secondary btn-lg" href="https://mocsyncorgs.utc.edu/events">
-            For More Information Visit Here
-          </a>
-        </div>
+        {% if utc_highlight.button_text %}
+          <div class="grid justify-items-center mt-10">
+            <a href="{{ utc_highlight.button_url }}"
+               class="font-semibold transition duration-700 ease-in-out {{ icon_color }} btn-lg hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4">
+              {{ utc_highlight.button_text }} <i
+                class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
+            </a>
+          </div>
+        {% endif %}
       </div>
       <div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center col-start-1 col-end-5 row-start-1 row-end-5"
            style="background-image: url({{ utc_highlight.highlight_bg }})">
@@ -86,7 +96,7 @@
       </div>
       <div
         class="w-full h-full bg-cover bg-center col-start-1 row-start-3 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4 z-20 "
-        style="background-image: url(/{{ directory }}/images/feather-texture.png); box-shadow:inset 0 0 0 2000px {{ bg_color_2 }};">
+        style="background-image: url(/{{ directory }}/images/{{ bg_img }}); box-shadow:inset 0 0 0 2000px {{ bg_color_2 }};">
         <div class="h-full w-full border-l-4 border-utc-new-gold-500 border-solid p-6 flex">
           <ul class="flex flex-row flex-wrap justify-around list-none m-0 pt-0 pl-0">
             {% for content in info_2.0['#icons'] if info_2.0['#icons'] is not empty %}
@@ -122,7 +132,7 @@
         <ul
           class="grid col-auto auto-cols-fr lg:grid-flow-col md:grid-rows-1 list-none gap-14 px-0 mt-12 mb-2 justify-items-center">
           {% for content in info_1.0['#icons'] if info_1.0['#icons'] is not empty %}
-            <li class="p-10 text-lg text-center w-full {{ description_color }}">
+            <li class="p-8 text-lg text-center w-full {{ description_color }}">
               {% if info_1.0['#icons'][loop.index0]['#name'] %}
                 <div class="mb-4 {{ icon_color }}">
                   <span
@@ -151,9 +161,15 @@
             </li>
           {% endfor %}
         </ul>
-        <div class="grid justify-items-center mt-10">
-          <a class="btn btn-secondary btn-lg"
-             href="https://mocsyncorgs.utc.edu/events">For More Information Visit Here</a></div>
+        {% if utc_highlight.button_text %}
+          <div class="grid justify-items-center mt-10">
+            <a href="{{ utc_highlight.button_url }}"
+               class="font-semibold transition duration-700 ease-in-out {{ icon_color }} btn-lg hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4">
+              {{ utc_highlight.button_text }} <i
+                class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
+            </a>
+          </div>
+        {% endif %}
       </div>
       <div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center col-start-1 col-end-5 row-start-1 row-end-5"
            style="background-image: url({{ utc_highlight.highlight_bg }})">
