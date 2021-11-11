@@ -40,7 +40,7 @@
     {% set bg_color = 'background-color:#112e51' %}
     {% set bg1_opacity = '' %}
     {% set bg2_opacity = 'opacity-90' %}
-    {% set bg_color_2 = 'rgba(226, 232, 240, 0.9)' %}
+    {% set bg_color_2 = 'bg-utc-new-blue-100' %}
     {% set bg_img = 'asfalt-dark.png' %}
   {% else %}
     {% set info_color = 'text-utc-new-blue-500' %}
@@ -53,7 +53,7 @@
     {% set bg_color = 'background-color:#104dd4' %}
     {% set bg1_opacity = 'opacity-20' %}
     {% set bg2_opacity = 'opacity-20' %}
-    {% set bg_color_2 = 'rgba(17, 46, 81, 0.9)' %}
+    {% set bg_color_2 = 'bg-utc-new-blue-500' %}
     {% set bg_img = 'asfalt-light.png' %}
   {% endif %}
 
@@ -95,8 +95,8 @@
         <div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
       </div>
       <div
-        class="w-full h-full bg-cover bg-center col-start-1 row-start-3 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4 z-20 "
-        style="background-image: url(/{{ directory }}/images/{{ bg_img }}); box-shadow:inset 0 0 0 2000px {{ bg_color_2 }};">
+        class="w-full h-full bg-cover bg-center col-start-1 row-start-3 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4 z-20 {{ bg_color_2 }} opacity-90"
+        style="background-image: url(/{{ directory }}/images/{{ bg_img }})">
         <div class="h-full w-full border-l-4 border-utc-new-gold-500 border-solid p-6 flex">
           <ul class="flex flex-row flex-wrap justify-around list-none m-0 pt-0 pl-0">
             {% for content in info_2.0['#icons'] if info_2.0['#icons'] is not empty %}
