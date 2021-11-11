@@ -16,21 +16,9 @@
 #}
 
 {% block content %}
-	{% set rendered_content = content|render %}
     {% set hover_image_orientation = content.field_image_orientation|field_value|render %}
-	{%
-		set hover_classes = [
-            'block',
-            'block--layout-builder',
-            'block--inline-block:utc-image-hover-effect',
-            'utc-image-hover',
-            'mb-0',
-            'grid',
-            'gap-4',
-            'image-output-' ~ hover_image_orientation,
-		]
-	%}
-    
-    <div{{ attributes.addClass(hover_classes) }}>{{ content }}</div>
+    {% set image_orientation = 'image-output-' ~ hover_image_orientation %}
+
+    <div class="block__content utc-image-hover mb-0 grid gap-4 {{ image_orientation }}" >{{ content }}</div>
 
 {% endblock %}
