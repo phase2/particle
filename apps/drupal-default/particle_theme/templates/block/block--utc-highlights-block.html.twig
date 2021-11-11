@@ -81,11 +81,11 @@
           {% endfor %}
         </ul>
         {% if utc_highlight.button_text %}
-          <div class="grid justify-items-end mt-10">
+          <div class="grid justify-items-center mt-10">
             <a href="{{ utc_highlight.button_url }}"
-               class="font-semibold transition duration-700 ease-in-out {{ icon_color }} btn-lg hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4">
+               class="font-semibold btn {{ icon_color }} btn--hover-slide text-xl hover:text-utc-new-blue-500">
               {{ utc_highlight.button_text }} <i
-                class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
+                class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-2"></i>
             </a>
           </div>
         {% endif %}
@@ -163,11 +163,11 @@
           {% endfor %}
         </ul>
         {% if utc_highlight.button_text %}
-          <div class="grid justify-items-end mt-10">
+          <div class="grid justify-items-center mt-10">
             <a href="{{ utc_highlight.button_url }}"
-               class="font-semibold transition duration-700 ease-in-out {{ icon_color }} btn-lg hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4">
+               class="font-semibold btn {{ icon_color }} btn--hover-slide text-xl hover:text-utc-new-blue-500">
               {{ utc_highlight.button_text }} <i
-                class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
+                class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-2"></i>
             </a>
           </div>
         {% endif %}
