@@ -75,13 +75,13 @@
                 </div>
               {% endif %}
               <span
-                class="block pb-2 text-3xl font-bold {{ info_color }}">{{ info_1.0['#icons'][loop.index0]['#info'] }}</span>
+                class="block pb-2 {{ info_1.0['#icons'][loop.index0]['#name'] != 'fa-' ? 'text-3xl' : 'text-4xl' }} font-bold {{ info_color }}">{{ info_1.0['#icons'][loop.index0]['#info'] }} {{ icon_name }}</span>
               {{ info_1.0['#icons'][loop.index0]['#description'] }}
             </li>
           {% endfor %}
         </ul>
         {% if utc_highlight.button_text %}
-          <div class="grid justify-items-center mt-10">
+          <div class="grid justify-items-end mt-10">
             <a href="{{ utc_highlight.button_url }}"
                class="font-semibold transition duration-700 ease-in-out {{ icon_color }} btn-lg hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4">
               {{ utc_highlight.button_text }} <i
@@ -108,7 +108,8 @@
                     </div>
                   {% endif %}
                   <div>
-                    <span class="block pb-2 text-3xl font-bold {{ info_color_2 }}">
+                    <span
+                      class="block pb-2 {{ info_2.0['#icons'][loop.index0]['#name'] != 'fa-' ? 'text-3xl' : 'text-4xl' }} font-bold {{ info_color_2 }}">
                                     {{ info_2.0['#icons'][loop.index0]['#info'] }}</span>
                     {{ info_2.0['#icons'][loop.index0]['#description'] }}
                   </div>
@@ -140,7 +141,7 @@
                 </div>
               {% endif %}
               <span
-                class="block pb-2 text-3xl font-bold {{ info_color }}">{{ info_1.0['#icons'][loop.index0]['#info'] }}</span>
+                class="block pb-2 {{ info_1.0['#icons'][loop.index0]['#name'] != 'fa-' ? 'text-3xl' : 'text-4xl' }} font-bold {{ info_color }}">{{ info_1.0['#icons'][loop.index0]['#info'] }}</span>
               {{ info_1.0['#icons'][loop.index0]['#description'] }}
             </li>
           {% endfor %}
@@ -156,13 +157,13 @@
                 </div>
               {% endif %}
               <span
-                class="block pb-2 text-3xl font-bold {{ info_color }}">{{ info_2.0['#icons'][loop.index0]['#info'] }}</span>
+                class="block pb-2 {{ info_2.0['#icons'][loop.index0]['#name'] != 'fa-' ? 'text-3xl' : 'text-4xl' }} font-bold {{ info_color }}">{{ info_2.0['#icons'][loop.index0]['#info'] }}</span>
               {{ info_2.0['#icons'][loop.index0]['#description'] }}
             </li>
           {% endfor %}
         </ul>
         {% if utc_highlight.button_text %}
-          <div class="grid justify-items-center mt-10">
+          <div class="grid justify-items-end mt-10">
             <a href="{{ utc_highlight.button_url }}"
                class="font-semibold transition duration-700 ease-in-out {{ icon_color }} btn-lg hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4">
               {{ utc_highlight.button_text }} <i
