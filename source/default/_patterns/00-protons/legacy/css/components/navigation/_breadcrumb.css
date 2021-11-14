@@ -29,12 +29,7 @@
 .simple-breadcrumb li:last-child:after {
 	display: none;
 }
-.page-node-type-utc-academic-homepage .block--system-breadcrumb-block,
-.page-node-type-utc-academic-internal-page .block--system-breadcrumb-block,
-.page-node-type-utc-admin-homepage .block--system-breadcrumb-block,
-.page-node-type-utc-admin-internal-page .block--system-breadcrumb-block {
-    margin-top: -2rem;
-}
+
 @media (max-width: 768px) {
 	.breadcrumb ol,
   .simple-breadcrumb ol {
