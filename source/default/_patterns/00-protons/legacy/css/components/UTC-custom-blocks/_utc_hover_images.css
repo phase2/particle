@@ -175,27 +175,6 @@ figure.image-count-4 p {
   @apply md:text-xs lg:text-base md:mt-2 lg:mt-6;
 }
 
-/*mixed orientation fixes*/
-    .image-output-horizontal .input-vertical {
-      aspect-ratio: 3/2!important;
-    }
-    /*center the vertical image*/
-    .image-output-horizontal .input-vertical img {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .image-output-vertical .input-horizontal {
-      aspect-ratio: 2/3!important;
-    }
-    /*center the horizontal image*/
-    .image-output-vertical .input-horizontal img {
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: unset;
-      width: unset;
-      height: 100%;
-    }
-
 /*additional reponsive styles*/
 @media (min-width: 768px) and (max-width: 1024px) {
   figure.utc-hover-image-effect a {
@@ -339,3 +318,6 @@ figure.image-count-4 p {
 .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p {
   @apply lg:inline-block xl:text-sm;
 }
+
+/*Remove later
+.grid-cols-3	{grid-template-columns: repeat(3, minmax(0, 1fr));}*/
