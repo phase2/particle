@@ -2,18 +2,14 @@
 {#
 /**
  *
- * Implements a grid of cards using Tailwinds layout.
+ * Implements a grid of hover images and caption effects using Tailwinds layout.
  *
  * Available variables:
  */
  *
- * This template pulls in the variables to add to hover image effects.
- * References the block--utc-image-hover-effect-base.html.twig to create the individual cards in this grid.
+ *This template is the sole custom template for this component. It uses Custom Block with Paragraph integration. Vertical and horizontal detection are built in through Media Type > Image > UTC Hover Images.
 #}
-{#
-    A minimum of three twig files are necessary in using paragraphs with blocks. The block-specific twig file, the block-field-specific twig file, and the paragraph-specific twig file.
-    In this file we add more classes to execute functionality.
-#}
+
 
 {% block content %}
     {# block fields #}
@@ -27,11 +23,11 @@
     {% for item in content.field_hover_image_block['#items'] %}
 
         {# paragraph fields #}  
-        {% set paragraph_title = item.entity.field_hover_title.value %}
+        {% set paragraph_title = item.entity.field_hover_title_30.value %}
         {% set paragraph_text = item.entity.field_hover_text.value %}
         {% set paragraph_media_id = item.entity.field_hover_image.target_id %}
-        {% set paragraph_url = item.entity.field_hover_link.0['#url'] %}
-        {% set paragraph_url_title = item.entity.field_hover_link.0['#title'] %}
+        {% set paragraph_url = item.entity.field_hover_link.0.url %}
+        {% set paragraph_url_title = item.entity.field_hover_link.0.title %}
         {% set figure_classes  = [
             'utc-hover-image-effect',
             'image-count-' ~ paragraph_count,
@@ -44,19 +40,19 @@
                     {{ drupal_entity('media', paragraph_media_id, 'utc_hover_image_vertical') }}
                 {% endif %}
 
-                {% if item.entity.field_hover_link.0['#url'] is null %}
-                     <figcaption class="absolute block left-0 right-0 w-full cursor-default">
-                        <div class="utc-border-wrapper">
-                            <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ paragraph_title }}</h2>
-                            <p class="text-utc-new-blue-500 leading-tight">{{ paragraph_text }}</p>
-                        </div>
-                    </figcaption>
-                {% else %}
-                    <figcaption class="absolute block left-0 right-0 w-full cursor-pointer">
+                {% if paragraph_url_title %}
+                     <figcaption class="absolute block left-0 right-0 w-full cursor-pointer">
                         <div class="utc-border-wrapper">
                             <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ paragraph_title }}</h2>
                             <p class="text-utc-new-blue-500 leading-tight">{{ paragraph_text }}</p>
                             <a href="{{ paragraph_url }}" title="Go to {{ paragraph_url_title }}" >{{ paragraph_url_title }}</a>
+                        </div>
+                    </figcaption>
+                {% else %}
+                    <figcaption class="absolute block left-0 right-0 w-full cursor-default">
+                        <div class="utc-border-wrapper">
+                            <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ paragraph_title }}</h2>
+                            <p class="text-utc-new-blue-500 leading-tight">{{ paragraph_text }}</p>
                         </div>
                     </figcaption>
                 {% endif %}
