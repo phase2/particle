@@ -1,0 +1,506 @@
+/*NOTE: 
+The responsive variances in this css file accommodates the following circumstances:
+---1-4 images in a row
+---horizontal and vertical orientations
+---resizing hz and vt images when user combines them in a row
+---addition of button links for mobile devices.
+---special css for 3-9 and 9-3 columnizations.
+---Default css is based on homepage, full-width layout, 4 images across, horizontal, iphone x
+*/
+
+/****Horizontal****/
+figure.utc-hover-image-effect * {
+  @apply box-border;
+}
+figure.utc-hover-image-effect {
+  @apply relative float-left overflow-hidden;
+  margin: 10px 1%;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
+}
+figure.utc-hover-image-effect img {
+  @apply max-w-full opacity-100 w-full;
+  transition: opacity 0.35s;
+}
+/*figcaption, text*/
+figure.utc-hover-image-effect figcaption {
+  @apply p-8 max-h-full;
+}
+figure.utc-hover-image-effect .utc-border-wrapper {
+  @apply opacity-0 sm:ml-auto sm:mr-auto border-l-4 border-utc-new-gold-500 pl-4;
+  transition: opacity 0.25s, transform 0.25s;
+} 
+figure.utc-hover-image-effect h2,
+figure.utc-hover-image-effect p {
+  @apply opacity-0;
+  transition: opacity 0.35s, transform 0.35s;
+}
+figure.utc-hover-image-effect h2 {
+  @apply mx-0 text-2xl;
+}
+figure.utc-hover-image-effect p {
+  @apply mx-0 mb-0 text-base;
+}
+figure.utc-hover-image-effect h2 {
+  @apply opacity-0;
+  transform: translate3d(30%, 0%, 0);
+  transition-delay: 0s;
+}
+figure.utc-hover-image-effect p {
+  @apply opacity-0;
+  transform: translate3d(0%, 30%, 0);
+  transition-delay: 0s;
+}
+figure.utc-hover-image-effect a {
+  @apply lg:absolute mt-4 lg:left-0 lg:right-0 lg:bottom-0 lg:top-0 text-transparent;
+}
+
+/*hover effects*/
+figure.utc-hover-image-effect:hover figcaption {
+  top: 50%;
+  transform: translateY(-50%);
+}
+figure.utc-hover-image-effect:hover img {
+  @apply opacity-10;
+}
+figure.utc-hover-image-effect:hover .utc-border-wrapper  {
+  @apply opacity-100;
+  transform: translate3d(0%, 0%, 0);
+  transition-delay: 0.2s;
+}
+figure.utc-hover-image-effect:hover h2 {
+  @apply opacity-100;
+  transform: translate3d(0%, 0%, 0);
+  transition-delay: 0.4s;
+}
+figure.utc-hover-image-effect:hover p {
+  @apply opacity-100;
+  transform: translate3d(0%, 0%, 0);
+  transition-delay: 0.6s;
+}
+
+/****1 image***/
+figure.image-count-1 {
+  @apply float-none;
+  margin: 10px;
+}
+figure.image-count-1 figcaption {
+  @apply lg:p-20;
+}
+figure.image-count-1 .utc-border-wrapper {
+  @apply lg:pl-6;
+} 
+figure.image-count-1 h2 {
+  @apply lg:text-4xl;
+}
+figure.image-count-1 p {
+  @apply lg:text-2xl;
+}
+
+/****2 images***/
+figure.image-count-2 figcaption {
+  @apply lg:p-12;
+}
+figure.image-count-2 .utc-border-wrapper {
+  @apply lg:pl-4;
+} 
+figure.image-count-2 h2 {
+  @apply lg:text-2xl;
+}
+
+/***3 images***/
+figure.image-count-3 figcaption {
+  @apply md:p-4 md:pt-3 lg:p-8;
+}
+figure.image-count-3 .utc-border-wrapper {
+  @apply xl:pl-4;
+}
+figure.image-count-3 h2 {
+  @apply md:text-base lg:text-2xl
+}
+figure.image-count-3 p {
+  @apply pb-0 mb-4 md:m-0 lg:mt-2 md:text-xs lg:text-sm xl:text-base;
+}
+figure.image-count-3 a {
+  @apply md:mt-1 lg:mt-4;
+}
+
+/***4 images***/
+figure.image-count-4 figcaption {
+  @apply md:p-3 lg:p-4;
+}
+figure.image-count-4 h2 {
+  @apply mb-0 pb-0 md:text-base lg:text-lg;
+}
+figure.image-count-4 p {
+  @apply md:hidden lg:inline-block lg:text-xs mx-0;
+}
+
+/****Vertical****/
+.image-output-vertical figure.utc-hover-image-effect figcaption {
+  @apply p-16 lg:p-20;
+}
+.image-output-vertical figure.utc-hover-image-effect .utc-border-wrapper {
+  @apply md:border-l-4 md:border-utc-new-gold-500 md:pl-4 lg:mb-0;
+}
+.image-output-vertical figure.utc-hover-image-effect h2 {
+  @apply text-3xl;
+}
+.image-output-vertical figure.utc-hover-image-effect p {
+  @apply text-lg;
+}
+.image-output-vertical figure.utc-hover-image-effect a {
+  @apply text-lg mt-6;
+}
+.image-output-vertical figure.image-count-3 figcaption {
+  @apply md:p-8;
+}
+.image-output-vertical figure.image-count-3 h2 {
+  @apply md:text-2xl ;
+}
+.image-output-vertical figure.image-count-3  p {
+  @apply md:text-base;
+}
+.image-output-vertical figure.image-count-3  a {
+  @apply md:text-base;
+}
+.image-output-vertical figure.image-count-4 figcaption {
+  @apply md:p-4 lg:p-8 lg:pb-0;
+}
+.image-output-vertical figure.image-count-4 h2 {
+  @apply md:text-lg lg:text-2xl ;
+}
+.image-output-vertical figure.image-count-4 p {
+  @apply md:inline-block md:text-xs lg:text-sm xl:text-base;
+}
+.image-output-vertical figure.image-count-4 a {
+  @apply md:text-xs lg:text-base md:mt-2 lg:mt-6;
+}
+
+/****Internal pages treatment***/
+.themag-layout--twocol-section--3-9 figure.utc-hover-image-effect figcaption,
+.themag-layout--twocol-section--9-3 figure.utc-hover-image-effect figcaption {
+  @apply lg:p-8;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-3 figcaption,
+.themag-layout--twocol-section--9-3 figure.image-count-3 figcaption {
+  @apply lg:p-6;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-4 figcaption,
+.themag-layout--twocol-section--9-3 figure.image-count-4 figcaption {
+  @apply lg:p-4;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 figcaption {
+  @apply md:p-8;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertica figure.image-count-4 figcaption,
+.themag-layout--twocol-section--9-3 .image-output-vertica figure.image-count-4 figcaption {
+  @apply xl:p-6;
+}
+.themag-layout--twocol-section--3-9 figure.utc-hover-image-effect .utc-border-wrapper,
+.themag-layout--twocol-section--9-3 figure.utc-hover-image-effect .utc-border-wrapper {
+  @apply lg:pl-2;
+} 
+.themag-layout--twocol-section--3-9 figure.image-count-1,
+.themag-layout--twocol-section--9-3 figure.image-count-1  {
+  @apply mx-0;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-1 figcaption,
+.themag-layout--twocol-section--9-3 figure.image-count-1 figcaption {
+  @apply p-20;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-3 h2,
+.themag-layout--twocol-section--9-3 figure.image-count-3 h2 {
+  @apply lg:pb-0 lg:mb-0 lg:text-base;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-3 p,
+.themag-layout--twocol-section--9-3 figure.image-count-3 p {
+  @apply lg:pb-0 lg:mb-0 lg:mt-0 lg:text-xs xl:mt-2;
+}
+.themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 .utc-border-wrapper, 
+.themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 .utc-border-wrapper {
+  @apply border-0 pl-0;
+}
+.themag-layout--twocol-section--3-9 figure.image-count-4 h2,
+.themag-layout--twocol-section--9-3 figure.image-count-4 h2 {
+  @apply lg:text-sm;
+} 
+.themag-layout--twocol-section--3-9 figure.image-count-4 p,
+.themag-layout--twocol-section--9-3 figure.image-count-4 p {
+  @apply lg:hidden xl:inline-block xl:mt-0;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-1 figcaption,
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 figcaption,
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-1 figcaption,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-2 figcaption,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 figcaption {
+  @apply p-12 md:p-8 xl:p-12;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 figcaption,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 figcaption {
+  @apply xl:p-8;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 h2,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 h2 {
+  @apply lg:text-lg ;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 p,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 p {
+  @apply md:text-sm lg:text-base mt-2;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 a,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 a  {
+  @apply md:mt-2 md:text-sm lg:mt-0 lg:text-base;
+}
+
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
+  @apply lg:text-lg ;
+}
+.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
+.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
+  @apply lg:inline-block xl:text-sm;
+}
+
+/*Remove later
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }*/
+
+
+/*Additional reponsive styles*/
+
+@media (min-width: 1200px) and (max-width: 1280px){
+  .themag-layout--twocol-section--3-9 figure.image-count-3 figcaption,
+  .themag-layout--twocol-section--9-3 figure.image-count-3 figcaption {
+    @apply lg:p-4;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2, 
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
+    @apply text-base;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
+    @apply text-xs;
+  }
+}
+/*The side menu shows at 991px, affecting the layout 3-9 col layout, but we don't have a breakpoint set there. 
+At some point we may want to show the side menu at 1024px, not 991px, showing the mobile dropdown menu at 991px.*/
+
+@media (min-width: 991px) and (max-width: 1023px) {
+  /***begin horizontal***/
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 figcaption,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 figcaption {
+    @apply p-5;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 h2,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 h2 {
+    @apply text-base;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 p,
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 a,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 p,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 a {
+    @apply text-xs;
+  }  
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 p,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 p {
+    @apply my-0;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-3 p,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-3 p,
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 p,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 p {
+    @apply hidden;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-3 a,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-3 a {
+    @apply text-xs;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-3 .utc-border-wrapper,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-3 .utc-border-wrapper {
+    @apply pl-2;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 .utc-border-wrapper,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 .utc-border-wrapper {
+    @apply border-0 pl-0;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 h2,
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 a,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 h2,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 a {
+    @apply text-xs mt-1;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 a,
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 a{
+    @apply py-1 px-2;
+  }
+
+  /***begin vertical***/
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 h2,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-2 h2 {
+    @apply text-2xl;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 p,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-2 p {
+    @apply text-base;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 figcaption {
+    @apply p-4;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 h2,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 h2 {
+    @apply text-lg;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 p,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 p {
+    @apply text-xs mt-0;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
+    @apply hidden;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 .utc-border-wrapper,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 .utc-border-wrapper {
+    @apply pl-2;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
+    @apply text-base;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 a,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 a {
+    @apply pl-1 text-xs;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  figure.utc-hover-image-effect a {
+    @apply opacity-0 inline-block relative text-white px-4 py-1 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
+    transform: translate3d(0%, 30%, 0);
+    transition-delay: 0s;
+  }
+  figure.utc-hover-image-effect:hover a {
+    @apply opacity-100;
+    transform: translate3d(0%, 0%, 0);
+    transition-delay: 0.8s;
+  }
+  figure.image-count-1 p {
+    @apply text-xl;
+  }
+  figure.image-count-2 p {
+    @apply text-sm;
+  }
+  figure.image-count-3 .utc-border-wrapper {
+    @apply pl-2;
+  }
+  figure.image-count-3 a {
+    @apply text-xs;
+  }
+  .grid-cols-4 {
+    @apply grid-cols-2;
+  }
+}
+@media (max-width: 767px) {
+  .utc-image-hover {
+    display: block!important;
+    @apply text-center;
+  }
+  figure.utc-hover-image-effect {
+    @apply my-8 mx-auto float-none;
+  }
+  figure.input-horizontal {
+    @apply max-w-max;
+  }
+  figure.utc-hover-image-effect figcaption {
+    @apply text-left;
+  }
+  figure.utc-hover-image-effect a {
+    @apply opacity-0 inline-block mt-4 relative text-white px-4 py-1 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
+    transform: translate3d(0%, 30%, 0);
+    transition-delay: 0s;
+  }
+  .image-output-vertical figure.utc-hover-image-effect a {
+    @apply py-2;
+  }
+  figure.utc-hover-image-effect:hover a {
+    @apply opacity-100;
+    transform: translate3d(0%, 0%, 0);
+    transition-delay: 0.8s;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 .utc-border-wrapper, 
+  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 .utc-border-wrapper {
+    @apply border-l-4 border-utc-new-gold-500 pl-4;
+  }
+}
+@media (max-width: 459px) {
+  .themag-layout--twocol-section--3-9 figure.image-count-1 figcaption, 
+  .themag-layout--twocol-section--9-3 figure.image-count-1 figcaption {
+    @apply p-4;
+  }
+  figure.utc-hover-image-effect h2 {
+    @apply text-xl;
+  }
+  figure.utc-hover-image-effect p {
+    @apply text-lg;
+  }
+  .hover-image-space {
+    @apply mt-0 h-0;
+  }
+}
+@media (max-width: 420px) {
+  figure.image-count-1 figcaption {
+    @apply p-8;
+  }
+  .hover-image-space {
+    @apply mt-10;
+  }
+}
+@media (max-width: 320px) {
+  figure.utc-hover-image-effect p {
+    @apply my-1 text-base;
+  }
+  figure.utc-hover-image-effect a {
+    @apply mt-1;
+  }
+  figure.utc-hover-image-effect figcaption,
+  figure.image-count-1:hover figcaption,
+  figure.image-count-2:hover figcaption {
+    @apply p-4;
+  }
+  figure.image-count-4:hover figcaption {
+    @apply p-8;
+  }
+  figure.utc-hover-image-effect h2 {
+    @apply pb-0;
+  }
+  .image-output-horizontal figure.image-count-4 p {
+    @apply text-sm;
+  }
+}
+@media (max-width: 280px) {
+  figure.utc-hover-image-effect p {
+    @apply text-sm;
+  }
+  figure.image-count-4 p {
+    @apply text-xs;
+  }
+  .image-output-horizontal .hover-image-space {
+    @apply mt-6;
+  }
+  .image-output-vertical figure.utc-hover-image-effect figcaption {
+    @apply p-12;
+  }
+  figure.image-count-4:hover figcaption {
+    @apply p-4;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-1 figcaption, 
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 figcaption, 
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption, 
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 figcaption,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-1 figcaption, 
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-2 figcaption, 
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 figcaption,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 figcaption {
+    @apply p-8;
+  }
+}
