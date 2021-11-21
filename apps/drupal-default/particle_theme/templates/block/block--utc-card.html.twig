@@ -177,9 +177,9 @@
           {% set card_width = '100' %}
           <div class="row utc-card-grid">
             {% if item_card_1.card_placeholder %}
-            <div class="col-sm-12 col-lg-3 utc-card-grid__container utc-card-placeholder">
+            <div class="col-sm-12 col-lg-6 col-xl-3 utc-card-grid__container utc-card-placeholder">
               {% else %}
-              <div class="col-sm-12 col-lg-3 utc-card-grid__container">
+              <div class="col-sm-12 col-lg-6 col-xl-3 utc-card-grid__container">
                 {% endif %}
                 {% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
                 {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
@@ -187,27 +187,27 @@
                 {% include 'block--utc-card-base.html.twig' with item_card_1 %}
               </div>
               {% if item_card_2.card_placeholder %}
-              <div class="col-sm-12 col-lg-3 utc-card-grid__container utc-card-placeholder">
+              <div class="col-sm-12 col-lg-6 col-xl-3 utc-card-grid__container utc-card-placeholder">
                 {% else %}
-                <div class="col-sm-12 col-lg-3 utc-card-grid__container">
+                <div class="col-sm-12 col-lg-6 col-xl-3 utc-card-grid__container">
                   {% endif %}
                   {% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
                   {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
                   {% include 'block--utc-card-base.html.twig' with item_card_2 %}
                 </div>
                 {% if item_card_3.card_placeholder %}
-                <div class="col-sm-12 col-lg-3 utc-card-grid__container utc-card-placeholder">
+                <div class="col-sm-12 col-lg-6 col-xl-3 utc-card-grid__container utc-card-placeholder">
                   {% else %}
-                  <div class="col-sm-12 col-lg-3 utc-card-grid__container">
+                  <div class="col-sm-12 col-lg-6 col-xl-3 utc-card-grid__container">
                     {% endif %}
                     {% set button_style_select = content["#block_content"].field_card_button_type_3.0.target_id %}
                     {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
                     {% include 'block--utc-card-base.html.twig' with item_card_3 %}
                   </div>
                   {% if item_card_4.card_placeholder %}
-                  <div class="col-sm-12 col-lg-3 utc-card-grid__container utc-card-placeholder">
+                  <div class="col-sm-12 col-lg-6 col-xl-3 utc-card-grid__container utc-card-placeholder">
                     {% else %}
-                    <div class="col-sm-12 col-lg-3 utc-card-grid__container">
+                    <div class="col-sm-12 col-lg-6 col-xl-3 utc-card-grid__container">
                       {% endif %}
                       {% set button_style_select = content["#block_content"].field_card_button_type_4.0.target_id %}
                       {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
