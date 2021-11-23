@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+
+<div>
+  {% for key,row in rows %}
+    {% set content = {
+      card_mobile_stack: view.style_plugin.getField(key, 'field_utclib_mobile_stack'),
+      card_link: view.style_plugin.getField(key, 'field_utclib_item_link')|render|striptags|clean_class,
+      card_title: view.style_plugin.getField(key, 'field_utclib_item_title'),
+      card_text: view.style_plugin.getField(key, 'field_utclib_item_body')|raw,
+    } %}
+
+    <div class="utc-card-grid__container">
+        <div class="utc-card-2 utc-card-2--thumbnail utc-card-2--w-100 utc-card-2--white">
+          <div class="utc-card-2__body">
+                {% if content.card_link|length > 0 %}
+                <h3 class="utc-card-2__title utc-card-2__text">
+                  <a class="utc-item-card--card-link" href="{{ content.card_link }}">{{ content.card_title }}</a>
+                {% else %}
+                  <h3 class="utc-card-2__title">
+                  {{ content.card_title }}
+                {% endif %}
+              </h3>
+            <div class="utc-card-2__text">
+              <p>{{ content.card_text }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  {% endfor %}
+</div>
