@@ -23,7 +23,7 @@
     {% for item in content.field_hover_image_block['#items'] %}
 
         {# paragraph fields #}  
-        {% set paragraph_title = item.entity.field_hover_title_30.value %}
+        {% set paragraph_title = item.entity.field_hover_title.value %}
         {% set paragraph_text = item.entity.field_hover_text.value %}
         {% set paragraph_media_id = item.entity.field_hover_image.target_id %}
         {% set paragraph_url = item.entity.field_hover_link.0.url %}
