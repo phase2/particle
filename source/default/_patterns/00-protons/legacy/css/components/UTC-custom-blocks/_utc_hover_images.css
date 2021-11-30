@@ -185,6 +185,24 @@ figure.image-count-4 p {
 .themag-layout--twocol-section--9-3 figure.image-count-3 figcaption {
   @apply lg:p-6;
 }
+
+@media (min-width: 1200px) and (max-width: 1280px){
+  .image-output-horizontal figure.image-count-3 figcaption {
+    @apply lg:p-4;
+  }
+  .image-output-horizontal figure.image-count-4 p {
+    @apply lg:mt-0;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2, 
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
+    @apply text-base;
+  }
+  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
+  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
+    @apply text-xs;
+  }
+}
+
 .themag-layout--twocol-section--3-9 figure.image-count-4 figcaption,
 .themag-layout--twocol-section--9-3 figure.image-count-4 figcaption {
   @apply lg:p-4;
@@ -269,20 +287,6 @@ figure.image-count-4 p {
 
 /*Additional reponsive styles*/
 
-@media (min-width: 1200px) and (max-width: 1280px){
-  .themag-layout--twocol-section--3-9 figure.image-count-3 figcaption,
-  .themag-layout--twocol-section--9-3 figure.image-count-3 figcaption {
-    @apply lg:p-4;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2, 
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
-    @apply text-base;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
-    @apply text-xs;
-  }
-}
 /*The side menu shows at 991px, affecting the layout 3-9 col layout, but we don't have a breakpoint set there. 
 At some point we may want to show the side menu at 1024px, not 991px, showing the mobile dropdown menu at 991px.*/
 
