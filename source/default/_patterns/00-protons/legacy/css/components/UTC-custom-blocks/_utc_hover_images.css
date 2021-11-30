@@ -237,7 +237,7 @@ figure.image-count-4 p {
 }
 .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 .utc-border-wrapper, 
 .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 .utc-border-wrapper {
-  @apply border-0 pl-0;
+  @apply xl:pl-3;
 }
 .themag-layout--twocol-section--3-9 figure.image-count-4 h2,
 .themag-layout--twocol-section--9-3 figure.image-count-4 h2 {
@@ -323,10 +323,6 @@ At some point we may want to show the side menu at 1024px, not 991px, showing th
   .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-3 .utc-border-wrapper,
   .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-3 .utc-border-wrapper {
     @apply pl-2;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 .utc-border-wrapper,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 .utc-border-wrapper {
-    @apply border-0 pl-0;
   }
   .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 h2,
   .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 a,
