@@ -14,10 +14,6 @@
 {% block content %}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
-
-
-	{# I belive all of these variables defined by Drupal inputs would remain here, but the
-  grid portion would be moved to a different template file if/when a design system is implemented #}
 	{% set card_color = content.field_card_color|field_value|render %}
 	{% set text_alignment = content.field_card_content_alignment|field_value|render %}
 	{% set card_count = content["#block_content"].field_card_count.0.value %}
@@ -98,22 +94,35 @@
   card_button_target: content.field_card_button_target_4[0]|render == 'On' ? '_blank',
   card_link_target: content.field_card_link_target_4[0]|render == 'On' ? '_blank',
 } %}
-
-	{# there may be a way to loop instead of using if statements
-			(which looks like how the particle card grid works),
-			but this was hard to figure out without an example of how to
-			iterate through the UI input using that component template #}
-
-	{# there may also be a way to move button style select info in to the above variabes for item_card_1
-			just couldn't get it working #}
 {% set card_attributes = create_attribute() %}
-	{% if card_count == 2 %}
+{% if card_count == 2 %}
+  {% set classes = [
+    'utc-card-grid__container',
+  ] %}
+  {% if item_card_2.card_placeholder and item_card_1.card_placeholder %}
+    {% set no_hide = "Do not hide all the cards." %}
+  {% endif %}
+{% endif %}
+	{% if card_count == 3 %}
     {% set classes = [
       'utc-card-grid__container',
       'col-sm-12',
-      'col-lg-6',
+      'col-lg-4',
     ] %}
+    {% if item_card_3.card_placeholder and item_card_2.card_placeholder and item_card_1.card_placeholder %}
+      {% set no_hide = "Do not hide all the cards." %}
+    {% endif %}
   {% endif %}
+{% if card_count == 4 %}
+  {% set classes = [
+    'utc-card-grid__container',
+    'col-sm-12',
+    'col-lg-3',
+  ] %}
+  {% if item_card_4.card_placeholder and item_card_3.card_placeholder and item_card_2.card_placeholder and item_card_1.card_placeholder %}
+    {% set no_hide = "Do not hide all the cards." %}
+  {% endif %}
+{% endif %}
 
 	{% if card_count == 1 %}
     <div class="utc-card-grid__container">
@@ -123,11 +132,23 @@
     </div>
   {% endif %}
 
-	{% if card_count == 3 %}
+	{% if card_count > 1 %}
 	{% set card_width = '100' %}
 <div class="row utc-card-grid">
   {% set k = card_count %}
   {% for i in range(1, k) %}
+    {% if i == 1 %}
+      {% set card_number = item_card_1 %}
+    {% endif %}
+    {% if i == 2 %}
+      {% set card_number = item_card_2 %}
+    {% endif %}
+    {% if i == 3 %}
+      {% set card_number = item_card_3 %}
+    {% endif %}
+    {% if i == 4 %}
+      {% set card_number = item_card_3 %}
+    {% endif %}
     {% if item_card_.card_placeholder %}
       <div {{ card_attributes.addClass(classes) }}>
     {% else %}
@@ -135,51 +156,12 @@
     {% endif %}
     {% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
     {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
-    {% include 'block--utc-card-base.html.twig' with i %}
-    <p>{{ i }}</p>
+    {% include 'block--utc-card-base.html.twig' with card_number %}
     </div>
   {% endfor %}
-  {% if item_card_2.card_placeholder and item_card_1.card_placeholder %}
-    <h2 class="text-center"> Do not hide all the cards</h2>
+  {% if no_hide %}
+    <h2 class="text-center">{{ no_hide }}</h2>
   {% endif %}
   {% endif %}
 
-  {% if card_count == 5 %}
-  {% set card_width = '100' %}
-
-  <div class="row utc-card-grid">
-    {% if item_card_1.card_placeholder %}
-    <div class="col-sm-12 col-lg-4 utc-card-grid__container utc-card-placeholder">
-      {% else %}
-      <div class="col-sm-12 col-lg-4 utc-card-grid__container">
-        {% endif %}
-        {% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
-        {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
-        {% set card_link_target = card_link_target.0 == On ? '_blank' %}
-        {% include 'block--utc-card-base.html.twig' with item_card_1 %}
-      </div>
-      {% if item_card_2.card_placeholder %}
-      <div class="col-sm-12 col-lg-4 utc-card-grid__container utc-card-placeholder">
-        {% else %}
-        <div class="col-sm-12 col-lg-4 utc-card-grid__container">
-          {% endif %}
-          {% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
-          {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
-          {% include 'block--utc-card-base.html.twig' with item_card_2 %}
-        </div>
-        {% if item_card_3.card_placeholder %}
-        <div class="col-sm-12 col-lg-4 utc-card-grid__container utc-card-placeholder">
-          {% else %}
-          <div class="col-sm-12 col-lg-4 utc-card-grid__container">
-            {% endif %}
-            {% set button_style_select = content["#block_content"].field_card_button_type_3.0.target_id %}
-            {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
-            {% include 'block--utc-card-base.html.twig' with item_card_3 %}
-          </div>
-        </div>
-        {% if item_card_3.card_placeholder and item_card_2.card_placeholder and item_card_1.card_placeholder %}
-          <h2 class="text-center"> Do not hide all the cards </h2>
-        {% endif %}
-        {% endif %}
-
-        {% endblock %}
+  {% endblock %}
