@@ -15,31 +15,28 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-{# card_link: view.style_plugin.getField(key, 'field_utclib_item_link')|render|striptags, #}
 
 
-{% set card_classes = [
-  'utc-item-card',
-  'h-100',
-  card_link ? 'utc-item-card--card-link',
-] | sort | join(' ') | trim %}
-<div class="utc-item-card__view-two-col">
+<div>
   {% for key,row in rows %}
     {% set content = {
       card_mobile_stack: view.style_plugin.getField(key, 'field_utclib_mobile_stack'),
-      card_link: view.style_plugin.getField(key, 'field_utclib_item_link'),
-      card_image: view.style_plugin.getField(key, 'field_utclib_item_image'),
+      card_link: view.style_plugin.getField(key, 'field_utclib_item_link')|render|striptags|clean_class,
       card_title: view.style_plugin.getField(key, 'field_utclib_item_title'),
       card_text: view.style_plugin.getField(key, 'field_utclib_item_body')|raw,
-      card_badges: view.style_plugin.getField(key, 'field_utclib_item_badges')|raw,
-      card_add_info: view.style_plugin.getField(key, 'field_utclib_item_add_info'),
-      card_divider: view.style_plugin.getField(key, 'field_utclib_item_divider')|render|striptags|clean_class,
     } %}
 
     <div class="utc-card-grid__container">
         <div class="utc-card-2 utc-card-2--thumbnail utc-card-2--w-100 utc-card-2--white">
           <div class="utc-card-2__body">
-            <h3 class="utc-card-2__title">{{ content.card_title }}</h3>
+                {% if content.card_link|length > 0 %}
+                <h3 class="utc-card-2__title utc-card-2__text">
+                  <a class="utc-item-card--card-link" href="{{ content.card_link }}">{{ content.card_title }}</a>
+                {% else %}
+                  <h3 class="utc-card-2__title">
+                  {{ content.card_title }}
+                {% endif %}
+              </h3>
             <div class="utc-card-2__text">
               <p>{{ content.card_text }}</p>
             </div>

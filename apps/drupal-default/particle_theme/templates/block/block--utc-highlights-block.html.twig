@@ -68,7 +68,7 @@
         {% endif %}
         <ul class="flex flex-row flex-wrap list-none pl-0 mb-0">
           {% for content in info_1.0['#icons'] if info_1.0['#icons'] is not empty %}
-            <li class="p-10 text-lg text-center xl:w-1/2 w-full {{ description_color }}">
+            <li class="px-10 py-5 text-lg text-center xl:w-1/2 w-full {{ description_color }}">
               {% if info_1.0['#icons'][loop.index0]['#name'] != 'fa-' %}
                 <div class="mb-4 {{ icon_color }}"><span
                     class="{{ info_1.0['#icons'][loop.index0]['#style'] }} fa-3x {{ info_1.0['#icons'][loop.index0]['#name'] }}"></span>
@@ -100,7 +100,7 @@
         <div class="h-full w-full border-l-4 border-utc-new-gold-500 border-solid p-6 flex">
           <ul class="flex flex-row flex-wrap justify-around list-none m-0 pt-0 pl-0">
             {% for content in info_2.0['#icons'] if info_2.0['#icons'] is not empty %}
-              <li class="p-5 text-lg  w-full {{ description_color_2 }}">
+              <li class="px-5 py-3 text-lg  w-full {{ description_color_2 }}">
                 <div class="flex flex-row">
                   {% if info_2.0['#icons'][loop.index0]['#name'] != 'fa-' %}
                     <div class="mb-4 mr-4 {{ icon_color_2 }}"><span
@@ -133,7 +133,7 @@
         <ul
           class="grid col-auto auto-cols-fr lg:grid-flow-col md:grid-rows-1 list-none gap-14 px-0 mt-12 mb-2 justify-items-center">
           {% for content in info_1.0['#icons'] if info_1.0['#icons'] is not empty %}
-            <li class="p-8 text-lg text-center w-full {{ description_color }}">
+            <li class="px-8 py-4 text-lg text-center w-full {{ description_color }}">
               {% if info_1.0['#icons'][loop.index0]['#name']  != 'fa-' %}
                 <div class="mb-4 {{ icon_color }}">
                   <span
@@ -149,7 +149,7 @@
         <ul
           class="grid col-auto auto-cols-fr lg:grid-flow-col md:grid-rows-1 list-none gap-14 px-0 mt-12 mb-2 justify-items-center">
           {% for content in info_2.0['#icons'] if info_2.0['#icons'] is not empty %}
-            <li class="p-10 text-lg text-center w-full {{ description_color }}">
+            <li class="px-10 py-5 text-lg text-center w-full {{ description_color }}">
               {% if info_2.0['#icons'][loop.index0]['#name'] != 'fa-' %}
                 <div class="mb-4 {{ icon_color }}">
                   <span
