@@ -21,6 +21,7 @@
   {% set card_type = content["#block_content"].field_card_type.0.value %}
   {% if card_type == 'wide' %}
     {% set card_img_fill = content.field_card_image_fill[0]|render == 'On' ? 'utc-card-2--img-no-fill' %}
+    {% set card_stack = content.field_card_stack[0]|render == 'On' ? 'stack' %}
   {% endif %}
 
   {# set variables for card content based on Drupal input #}
@@ -98,6 +99,8 @@
   {% if card_count == 2 %}
     {% set classes = [
       'utc-card-grid__container',
+      'col-sm-12',
+      card_stack ? 'col-lg-12' : 'col-lg-6',
     ] %}
     {% if item_card_2.card_placeholder and item_card_1.card_placeholder %}
       {% set no_hide = "Do not hide all the cards." %}
@@ -107,7 +110,7 @@
     {% set classes = [
       'utc-card-grid__container',
       'col-sm-12',
-      'col-lg-4',
+      card_stack ? 'col-lg-12' : 'col-lg-4',
     ] %}
     {% if item_card_3.card_placeholder and item_card_2.card_placeholder and item_card_1.card_placeholder %}
       {% set no_hide = "Do not hide all the cards." %}
@@ -117,7 +120,7 @@
     {% set classes = [
       'utc-card-grid__container',
       'col-sm-12',
-      'col-lg-3',
+      card_stack ? 'col-lg-12' : 'col-lg-3',
     ] %}
     {% if item_card_4.card_placeholder and item_card_3.card_placeholder and item_card_2.card_placeholder and item_card_1.card_placeholder %}
       {% set no_hide = "Do not hide all the cards." %}
@@ -139,23 +142,27 @@
       {% for i in range(1, k) %}
         {% if i == 1 %}
           {% set card_number = item_card_1 %}
+          {% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
         {% endif %}
         {% if i == 2 %}
           {% set card_number = item_card_2 %}
+          {% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
         {% endif %}
         {% if i == 3 %}
           {% set card_number = item_card_3 %}
+          {% set button_style_select = content["#block_content"].field_card_button_type_3.0.target_id %}
         {% endif %}
         {% if i == 4 %}
-          {% set card_number = item_card_3 %}
+          {% set card_number = item_card_4 %}
+          {% set button_style_select = content["#block_content"].field_card_button_type_4.0.target_id %}
         {% endif %}
         {% if item_card_.card_placeholder %}
           <div {{ card_attributes.addClass(classes) }}>
         {% else %}
           <div {{ card_attributes.addClass(classes) }}">
         {% endif %}
-        {% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
-        {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+        {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object
+  "].field_css_class.value %}
         {% include 'block--utc-card-base.html.twig' with card_number %}
         </div>
       {% endfor %}
