@@ -63,7 +63,6 @@ in particle */
 
 .utc-card-2__action-container > .btn {
   width: auto;
-  margin: 0 0.5rem;
 }
 
 .utc-card-2--align-center {
@@ -110,13 +109,13 @@ in particle */
   border: 0;
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .utc-card-2--white.utc-card-2--card-link:hover {
   @apply bg-gray-200;
   box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
-    0 4px 6px -2px rgba(#000000, 0.05);
+  0 4px 6px -2px rgba(#000000, 0.05);
 }
 
 .utc-card-2--lightblue {
@@ -125,13 +124,13 @@ in particle */
   border: 0;
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .utc-card-2--lightblue.utc-card-2--card-link:hover {
   @apply bg-gray-200;
   box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
-    0 4px 6px -2px rgba(#000000, 0.05);
+  0 4px 6px -2px rgba(#000000, 0.05);
 }
 
 .utc-card-2--none {
@@ -192,22 +191,27 @@ in particle */
   .utc-card-2--wide {
     flex-direction: row;
   }
+
   .utc-card-2--wide .utc-card-2__body {
     flex: 1 0 65%;
   }
+
   .utc-card-2--wide .utc-card-2__icon {
     display: flex;
     flex: 0 1 35%;
     align-items: center;
     justify-content: center;
   }
+
   .utc-card-2--wide .utc-card-2__icon .fontawesome-icons {
     margin: 0 -1.25rem 0 0;
   }
+
   /* image span full width of column container */
   .utc-card-2--wide .media-image {
     height: 100%;
   }
+
   .utc-card-2--wide .field--name-field-image {
     flex: 0 1 35%;
   }
@@ -227,7 +231,7 @@ in particle */
   border: 0;
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 }
 

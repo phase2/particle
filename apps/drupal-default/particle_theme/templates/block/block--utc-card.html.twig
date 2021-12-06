@@ -121,6 +121,7 @@
       'utc-card-grid__container',
       'col-sm-12',
       card_stack ? 'col-lg-12' : 'col-lg-3',
+      card_stack ? 'col-md-12' : 'col-md-6',
     ] %}
     {% if item_card_4.card_placeholder and item_card_3.card_placeholder and item_card_2.card_placeholder and item_card_1.card_placeholder %}
       {% set no_hide = "Do not hide all the cards." %}
@@ -143,26 +144,28 @@
         {% if i == 1 %}
           {% set card_number = item_card_1 %}
           {% set button_style_select = content["#block_content"].field_card_button_type.0.target_id %}
+          {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
         {% endif %}
         {% if i == 2 %}
           {% set card_number = item_card_2 %}
           {% set button_style_select = content["#block_content"].field_card_button_type_2.0.target_id %}
+          {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
         {% endif %}
         {% if i == 3 %}
           {% set card_number = item_card_3 %}
           {% set button_style_select = content["#block_content"].field_card_button_type_3.0.target_id %}
+          {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
         {% endif %}
         {% if i == 4 %}
           {% set card_number = item_card_4 %}
           {% set button_style_select = content["#block_content"].field_card_button_type_4.0.target_id %}
+          {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
         {% endif %}
         {% if item_card_.card_placeholder %}
           <div {{ card_attributes.addClass(classes) }}>
         {% else %}
           <div {{ card_attributes.addClass(classes) }}">
         {% endif %}
-        {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object
-  "].field_css_class.value %}
         {% include 'block--utc-card-base.html.twig' with card_number %}
         </div>
       {% endfor %}
