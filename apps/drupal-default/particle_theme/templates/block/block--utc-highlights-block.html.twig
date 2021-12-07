@@ -1,0 +1,181 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file Card Grid!
+ * Implements a hero block in dark blue
+ *
+ *
+ * Available variables:
+ */
+ *
+ * This template pulls in the variables to add to the cards.
+ * References the block--utc-card-base.html.twig to create the individual cards in this grid.
+#}
+
+{% block content %}
+  {# Sets variable to trigger content render array. #}
+  {% set rendered_content = content|render %}
+
+  {% set highlight_image_select = content["#block_content"].field_highlight_info_bg.0.target_id %}
+  {% set utc_highlight = {
+    highlight_bg: drupal_field('field_image_url', 'taxonomy_term', highlight_image_select)["#object"].field_image_url.value,
+    style: content["#block_content"].field_highlight_info_style.0.value,
+    bg_color: content["#block_content"].field_highlight_background_color.0.value,
+    title: content.field_highlight_info_title|field_value,
+    button_text: content.field_highlight_button.0['#title'],
+    button_url: content.field_highlight_button.0['#url'],
+  } %}
+  {% set info_1 = content.field_highlight_info_1|field_value %}
+  {% set info_2 = content.field_highlight_info_2|field_value %}
+
+  {# Sets colors for hero content depending on selection #}
+  {% if utc_highlight.bg_color == 'dark' %}
+    {% set info_color = 'text-utc-new-gold-500' %}
+    {% set info_color_2 = 'text-utc-new-blue-500' %}
+    {% set icon_color = 'text-white' %}
+    {% set btn_border = 'border-white' %}
+    {% set icon_color_2 = 'text-utc-new-blue-500' %}
+    {% set description_color = 'text-white' %}
+    {% set description_color_2 ='text-utc-new-blue-500' %}
+    {% set bg_color = 'background-color:#112e51' %}
+    {% set bg1_opacity = '' %}
+    {% set bg2_opacity = 'opacity-90' %}
+    {% set bg_color_2 = 'bg-utc-new-blue-100' %}
+    {% set bg_img = 'asfalt-dark.png' %}
+  {% else %}
+    {% set info_color = 'text-utc-new-blue-500' %}
+    {% set info_color_2 = 'text-utc-new-gold-500' %}
+    {% set icon_color = 'text-utc-new-blue-500' %}
+    {% set btn_border = 'border-utc-new-blue-500' %}
+    {% set icon_color_2 = 'text-white' %}
+    {% set description_color = 'text-utc-new-blue-500' %}
+    {% set description_color_2 ='text-white' %}
+    {% set bg_color = 'background-color:#104dd4' %}
+    {% set bg1_opacity = 'opacity-20' %}
+    {% set bg2_opacity = 'opacity-20' %}
+    {% set bg_color_2 = 'bg-utc-new-blue-500' %}
+    {% set bg_img = 'asfalt-light.png' %}
+  {% endif %}
+
+  {% if utc_highlight.style == 'Side Box' %}
+    <div
+      class="grid grid-cols-1 lg:grid-cols-utchighlight lg:grid-rows-utchighlight lg:gap-y-4 lg:gap-x-10 grid-flow-row">
+      <div
+        class="col-start-1 row-start-1 m-10 mt-20 lg:m-0 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-4 lg:mb-10 z-10">
+        {% if utc_highlight.title %}
+          <h2 class="pl-6 {{ description_color }}">{{ utc_highlight.title }}</h2>
+          <hr class="border-t-4 border-utc-new-gold-500 mt-3 mb-6 ml-8 w-20"/>
+        {% endif %}
+        <ul class="flex flex-row flex-wrap list-none pl-0 mb-0">
+          {% for content in info_1.0['#icons'] if info_1.0['#icons'] is not empty %}
+            <li class="px-10 py-5 text-lg text-center xl:w-1/2 w-full {{ description_color }}">
+              {% if info_1.0['#icons'][loop.index0]['#name'] != 'fa-' %}
+                <div class="mb-4 {{ icon_color }}"><span
+                    class="{{ info_1.0['#icons'][loop.index0]['#style'] }} fa-3x {{ info_1.0['#icons'][loop.index0]['#name'] }}"></span>
+                </div>
+              {% endif %}
+              <span
+                class="block pb-2 {{ info_1.0['#icons'][loop.index0]['#name'] != 'fa-' ? 'text-3xl' : 'text-4xl' }} font-bold {{ info_color }}">{{ info_1.0['#icons'][loop.index0]['#info'] }} {{ icon_name }}</span>
+              {{ info_1.0['#icons'][loop.index0]['#description'] }}
+            </li>
+          {% endfor %}
+        </ul>
+        {% if utc_highlight.button_text %}
+          <div class="grid justify-items-center mt-10">
+            <a href="{{ utc_highlight.button_url }}"
+               class="font-semibold btn {{ icon_color }} btn--hover-slide text-xl hover:text-utc-new-blue-500">
+              {{ utc_highlight.button_text }} <i
+                class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-2"></i>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+      <div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center col-start-1 col-end-5 row-start-1 row-end-5"
+           style="background-image: url({{ utc_highlight.highlight_bg }})">
+        <div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
+      </div>
+      <div
+        class="w-full h-full bg-cover bg-center col-start-1 row-start-3 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4 z-20 {{ bg_color_2 }} opacity-90"
+        style="background-image: url(/{{ directory }}/images/{{ bg_img }})">
+        <div class="h-full w-full border-l-4 border-utc-new-gold-500 border-solid p-6 flex">
+          <ul class="flex flex-row flex-wrap justify-around list-none m-0 pt-0 pl-0">
+            {% for content in info_2.0['#icons'] if info_2.0['#icons'] is not empty %}
+              <li class="px-5 py-3 text-lg  w-full {{ description_color_2 }}">
+                <div class="flex flex-row">
+                  {% if info_2.0['#icons'][loop.index0]['#name'] != 'fa-' %}
+                    <div class="mb-4 mr-4 {{ icon_color_2 }}"><span
+                        class="{{ info_2.0['#icons'][loop.index0]['#style'] }} fa-3x fa-fw {{ info_2.0['#icons'][loop.index0]['#name'] }}"></span>
+                    </div>
+                  {% endif %}
+                  <div>
+                    <span
+                      class="block pb-2 {{ info_2.0['#icons'][loop.index0]['#name'] != 'fa-' ? 'text-3xl' : 'text-4xl' }} font-bold {{ info_color_2 }}">
+                                    {{ info_2.0['#icons'][loop.index0]['#info'] }}</span>
+                    {{ info_2.0['#icons'][loop.index0]['#description'] }}
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% else %}
+
+
+    {# full width style #}
+    <div class="grid grid-cols-utchero grid-rows-utchero gap-y-4 grid-flow-row">
+      <div class="col-start-2 col-end-4 row-start-2 row-end-4 z-10">
+        {% if utc_highlight.title %}
+          <h2 class="pl-10 {{ description_color }}">{{ utc_highlight.title }}</h2>
+          <hr class="border-t-4 border-utc-new-gold-500 mt-3 ml-12 w-20 mb-14"/>
+        {% endif %}
+        <ul
+          class="grid col-auto auto-cols-fr lg:grid-flow-col md:grid-rows-1 list-none gap-14 px-0 mt-12 mb-2 justify-items-center">
+          {% for content in info_1.0['#icons'] if info_1.0['#icons'] is not empty %}
+            <li class="px-8 py-4 text-lg text-center w-full {{ description_color }}">
+              {% if info_1.0['#icons'][loop.index0]['#name']  != 'fa-' %}
+                <div class="mb-4 {{ icon_color }}">
+                  <span
+                    class="{{ info_1.0['#icons'][loop.index0]['#style'] }} fa-3x {{ info_1.0['#icons'][loop.index0]['#name'] }}"></span>
+                </div>
+              {% endif %}
+              <span
+                class="block pb-2 {{ info_1.0['#icons'][loop.index0]['#name'] != 'fa-' ? 'text-3xl' : 'text-4xl' }} font-bold {{ info_color }}">{{ info_1.0['#icons'][loop.index0]['#info'] }}</span>
+              {{ info_1.0['#icons'][loop.index0]['#description'] }}
+            </li>
+          {% endfor %}
+        </ul>
+        <ul
+          class="grid col-auto auto-cols-fr lg:grid-flow-col md:grid-rows-1 list-none gap-14 px-0 mt-12 mb-2 justify-items-center">
+          {% for content in info_2.0['#icons'] if info_2.0['#icons'] is not empty %}
+            <li class="px-10 py-5 text-lg text-center w-full {{ description_color }}">
+              {% if info_2.0['#icons'][loop.index0]['#name'] != 'fa-' %}
+                <div class="mb-4 {{ icon_color }}">
+                  <span
+                    class="{{ info_2.0['#icons'][loop.index0]['#style'] }} fa-3x {{ info_2.0['#icons'][loop.index0]['#name'] }}"></span>
+                </div>
+              {% endif %}
+              <span
+                class="block pb-2 {{ info_2.0['#icons'][loop.index0]['#name'] != 'fa-' ? 'text-3xl' : 'text-4xl' }} font-bold {{ info_color }}">{{ info_2.0['#icons'][loop.index0]['#info'] }}</span>
+              {{ info_2.0['#icons'][loop.index0]['#description'] }}
+            </li>
+          {% endfor %}
+        </ul>
+        {% if utc_highlight.button_text %}
+          <div class="grid justify-items-center mt-10">
+            <a href="{{ utc_highlight.button_url }}"
+               class="font-semibold btn {{ icon_color }} btn--hover-slide text-xl hover:text-utc-new-blue-500">
+              {{ utc_highlight.button_text }} <i
+                class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-2"></i>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+      <div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center col-start-1 col-end-5 row-start-1 row-end-5"
+           style="background-image: url({{ utc_highlight.highlight_bg }})">
+        <div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
