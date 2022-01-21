@@ -23,18 +23,18 @@
  *   displayed after the main title tag that appears in the template.
  *
  * @see template_preprocess_block()
- * 
+ *
  * Base used by block--utc-card.html.twig
  */
 #}
 
 {# could be the base card template in a design system #}
 {% if logged_in %}
-{{ attach_library('utccloud/utc-cards') }}
+  {{ attach_library('utccloud/utc-cards') }}
 {% endif %}
 
 {% if card_placeholder %}
-	{% set card_classes = [
+  {% set card_classes = [
     'utc-card-2',
     'h-100',
     card_type ? 'utc-card-2--' ~ card_type,
@@ -45,7 +45,7 @@
     card_img_fill ? card_img_fill
   ] | sort | join(' ') | trim %}
 {% else %}
-	{% set card_classes = [
+  {% set card_classes = [
     'utc-card-2',
     'h-100',
     card_type ? 'utc-card-2--' ~ card_type,
@@ -58,9 +58,9 @@
 {% endif %}
 
 {% if card_placeholder %}
-    <div class="{{ card_classes }}"></div>
-{% else %} 
-{# could use include statements for items like images and buttons in design system #}
+  <div class="{{ card_classes }}"></div>
+{% else %}
+  {# could use include statements for items like images and buttons in design system #}
   {% if card_link %}
     <a href="{{ card_link }}" target="{{ card_link_target }}">
   {% endif %}
@@ -78,32 +78,32 @@
     {% endif %}
 
     {% block card_body %}
-        <div class="utc-card-2__body">
-          <div class="utc-card-2__content">
-            {% if card_title %}
-              <h3 class="utc-card-2__title">{{ card_title }}
-              </h3>
-            {% endif %}
+      <div class="utc-card-2__body">
+        <div class="utc-card-2__content">
+          {% if card_title %}
+            <h3 class="utc-card-2__title">{{ card_title }}
+            </h3>
+          {% endif %}
 
-            {% if card_text %}
+          {% if card_text %}
             <div class="utc-card-2__text">{{ card_text }}
             </div>
-            {% endif %}
-          </div>
+          {% endif %}
+        </div>
         {% if (card_link is empty) and card_button_url %}
-          <div class="utc-card-2__action-container">
+          <div class="utc-card-2__action-container m-2">
             <a href="{{ card_button_url }}" class="{{ button_style }}" target="{{ card_button_target }}">
               {{ card_button_text }}
-           </a>
-         </div>
+            </a>
+          </div>
         {% endif %}
-       </div>
-      {% endblock card_body %}
+      </div>
+    {% endblock card_body %}
 
   </div>
 
-	{% if card_link %}
-     </a>
+  {% if card_link %}
+    </a>
   {% endif %}
 
 {% endif %}
