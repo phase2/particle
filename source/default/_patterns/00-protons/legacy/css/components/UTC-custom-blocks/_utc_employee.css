@@ -20,7 +20,7 @@
   width: 45%;
   margin: 0.75rem;
 }
- 
+
 @media (max-width: 767px) {
   .employee-card__container--full,
   .employee-card__container--utc-wide,
@@ -78,7 +78,8 @@ a .employee-card--utc-small-teaser-card:hover {
 
 .employee-card--utc-wide,
 .employee-card--full {
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
 }
 
 .employee-card--utc-wide .employee-image {
