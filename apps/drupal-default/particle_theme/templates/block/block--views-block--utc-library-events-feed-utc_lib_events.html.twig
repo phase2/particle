@@ -37,7 +37,7 @@
     <div{{ content_attributes }}>
         {{ content }}
     </div>
-  {% if content["#view"].result[2] %}
+  {% if content["#view"].total_rows > 2 %}
     <!--
     <div class="container  ">
       <div class="row">
