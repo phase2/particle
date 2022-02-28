@@ -161,21 +161,6 @@
 
 /* Site alert module css overwrite */
 
-div.site-alert {
-  width: 100%;
-  font-weight: bold;
-}
-
-div.site-alert div.text {
-  padding: 10px 10px 10px 50px;
-  margin: 0px;
-  font-size: 18px;
-}
-
-div.site-alert div.text p {
-  margin: 0;
-}
-
 div.site-alert div.severity-low {
   /* tailwindcss 3.0 esmerald-600 */
   background: #059669;
@@ -202,14 +187,14 @@ div.site-alert div.severity-high {
   margin-bottom: 0em;
   padding: 1rem 2rem;
 }
-div.site-alert div.severity-high * {
-  color: white;
+
+div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .text :is(h1,h2,p,p a)
+{
+    @apply text-white;
 }
-div.site-alert div.severity-medium * {
-  color: white;
-}
-div.site-alert div.severity-low * {
-  color: white;
+div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .text :is(p a:hover)
+{
+    @apply text-indigo-800
 }
 
 /* For use in views where : (colon) is not accepted. */
