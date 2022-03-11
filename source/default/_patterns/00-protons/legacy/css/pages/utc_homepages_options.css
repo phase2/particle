@@ -69,7 +69,7 @@ p.small-head-hr {
 }
 
 .utc-homepage-quote-bg {
-    background: #eee;
+    @apply bg-gray-250
 }
 
 .utc-homepage-quote-bg blockquote {
@@ -82,7 +82,7 @@ p.small-head-hr {
 }
 
 .utc-homepage-quote-bg blockquote p:after {
-    margin-left: -.5rem;
+    margin-left: -1.75rem;
 }
 
 @media screen and (max-width: 640px) {

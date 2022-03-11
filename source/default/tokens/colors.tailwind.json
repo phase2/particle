@@ -6,6 +6,7 @@
   "gray": {
     "100": "#f7fafc",
     "200": "#edf2f7",
+    "250": "#eeeeee",
     "300": "#e2e8f0",
     "400": "#cbd5e0",
     "500": "#a0aec0",
@@ -134,5 +135,14 @@
     "700": "#986E20",
     "800": "#725218",
     "900": "#4C3710"
+  },
+  "utc-links": {
+    "static": "#2196f3",
+    "hover": "#112e51",
+    "hoverFooterIcons": "#0a6ebd"
+  },
+  "utc-bg": {
+    "page": "#f9f9f9",
+    "quoteblock": "#eeeeee"
   }
 }

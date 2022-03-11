@@ -24,10 +24,12 @@
 
 {% if content %}
   <div{{ attributes.addClass(classes) }}>
-    <div id="offcanvas-sidebar" class="sidr" style="display: none;">
-      {{ content }}
+    <div id="offcanvas-sidebar" class="sidr z-10 h-full mb-0 bg-transparent shadow-none fixed" style="display: none;">
+      <div class="menus-wrapper h-full w-full overflow-y-scroll overflow-x-hidden">
+        {{ content }}
+      </div>
     </div>
   </div>
-  <div class="offcanvas-sidebar-overlay"></div>
+  <div class="offcanvas-sidebar-overlay bg-white opacity-9 z-9"></div>
 {% endif %}
 

@@ -1,42 +1,22 @@
 blockquote {
-    width: 100%;
-    margin: 2rem auto;
-    font-style: italic;
-    padding: 2rem 3rem;
-    background: #eee;
-    border: none;
+    @apply w-full my-8 mx-auto italic py-8 pt-12 bg-gray-250 border-0;
 }
 
 blockquote:before {
-    display: none;
+    @apply hidden
 }
 
 blockquote p {
-    border-left: 12px solid #cbd5e0;
-    padding-left: 2rem;
+    @apply pl-16 relative;
+    border-left: 12px solid #C4CBD4;
 }
 
 blockquote p:before {
+    @apply mr-2 -ml-2 text-8xl absolute font-utcquote left-6 -top-5 text-utc-new-blue-200;
     content: '\201C';
-    font-family: Georgia, serif;
-    margin-right: .5rem;
-    margin-left: -.5rem;
-    --tw-text-opacity: 1;
-    color: rgba(203, 213, 224, var(--tw-text-opacity));
-    font-size: 5em;
-    line-height: .1em;
-    vertical-align: -.4em;
 }
 
 blockquote p:after {
+    @apply text-8xl -ml-1 absolute font-utcquote text-utc-new-blue-200;
     content: "\201D";
-    font-family: Georgia, serif;
-    padding-right: 2rem;
-    --tw-text-opacity: 1;
-    color: rgba(203, 213, 224, var(--tw-text-opacity));
-    font-size: 5em;
-    vertical-align: -.5em;
-    margin-left: -.1rem;
-    position: absolute;
-    margin-top: -.25em
 }
