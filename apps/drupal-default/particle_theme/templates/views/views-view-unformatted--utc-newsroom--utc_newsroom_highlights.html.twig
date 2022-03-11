@@ -17,36 +17,34 @@
 #}
 
 {% if title %}
-	<h3>
-		{{ title }}
-	</h3>
+  <h3>
+    {{ title }}
+  </h3>
 {% endif %}
-<div class="flex flex-wrap justify-center">
-	{% for key,row in rows %}
-		{% set content = {
-	  news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
-    news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
-    news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
-    news_location: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
-    news_type: view.style_plugin.getField(key, 'field_utc_rss_feed_item_type'),
-    news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body'),
-    news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
- } %}
-		<div class="sm:ml-8 my-4 bg-white shadow hover:bg-gray-200 border-b-4 border-utc-new-gold-500">
-			<a href={{content.news_link}}>
-				<div class="max-w-xs overflow-hidden">
-					{{ content.news_image }}
-					{# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
-					<div class="px-6 py-4">
-						<div class="font-semibold text-xl text-center mb-2">{{ content.news_title }}</div>
-						{# <p class="text-gray-700 text-base">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+  {% for key,row in rows %}
+    {% set content = {
+      news_link: view.style_plugin.getField(key, 'field_utc_rss_feed_item_link')|striptags|trim,
+      news_image: view.style_plugin.getField(key, 'field_utc_rss_feed_item_image'),
+      news_title: view.style_plugin.getField(key, 'field_utc_rss_feed_item_title'),
+      news_location: view.style_plugin.getField(key, 'field_utc_rss_feed_item_location')|raw,
+      news_type: view.style_plugin.getField(key, 'field_utc_rss_feed_item_type'),
+      news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body'),
+      news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
+    } %}
+    <div class="bg-white shadow hover:bg-gray-200 border-b-4 border-utc-new-gold-500">
+      <a href={{ content.news_link }}>
+        <div class="text-center overflow-hidden">
+          {{ content.news_image }}
+          {# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
+          <div class="px-6 py-4">
+            <div class="font-semibold text-xl text-center mb-2">{{ content.news_title }}</div>
+            {# <p class="text-gray-700 text-base">
 						          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
 						        </p> #}
-					</div>
-				</div>
-			</a>
-		</div>
-
-
-	{% endfor %}
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
 </div>

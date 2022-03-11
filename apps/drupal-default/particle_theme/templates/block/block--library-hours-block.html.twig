@@ -26,7 +26,9 @@
  */
 #}
 
-<div{{ attributes }}>
+{% extends "block.html.twig" %}
+
+{% block content %}
   <div class="utc-card-grid__container">
     <div class="utc-card-2 utc-card-2--thumbnail utc-card-2--w-100 utc-card-2--white">
       <div class="utc-card-2__body">
@@ -54,11 +56,11 @@
           </tr>
           <tr>
             <td style="width: 50%"><strong>24/5</strong></td>
-            <td style="width: 50%"><strong>{{ content['#items'][6] }}</strong></td>
+            <td style="width: 50%"><strong>{{ content['#items'][5] }}</strong></td>
           </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-</div>
+{% endblock %}
