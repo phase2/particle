@@ -248,7 +248,6 @@ div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .t
   @apply text-utc-new-gold-500;
 }
 /****NEW BRANDING SET-UP as of March 18, 2022*****/
-
 :root {
   --utc-transition: all .4s ease-in-out;
 }
@@ -278,7 +277,7 @@ span:target {
   @apply block relative invisible -top-2.5;
 }
 p {
-  @apply text-gray-800 m-0 mb-4 p-0 text-utcbody;
+  @apply text-gray-800 m-0 mb-4 p-0 font-utcbody;
 }
 h1,
 h2,
@@ -286,7 +285,7 @@ h3,
 h4,
 h5,
 h6 {
-@apply font-bold text-utc-new-blue-500 font-utcheadings;
+  @apply font-bold text-utc-new-blue-500 font-utcheadings;
 }
 b, strong {
   @apply font-medium;
@@ -311,14 +310,64 @@ p {
 }
 .department-info-- .field--name-field-utc-department-hours .field__label {@apply font-utcheadings mt-8 mb-4}
 .utc-hero-block a {@apply text-utc-new-blue-500;}
-.utc-hero-block a:hover {@apply text-utc-new-gold-500;
-@media screen and (max-width: 992px) {
-  .themag-layout {@apply px-4;}
+.utc-hero-block a:hover {@apply text-utc-new-gold-500;}
+
+/*search page adjustments*/
+.path-search #block-breadcrumbs-particle.block {
+  display:none!important;
+}
+.search-results h3.search-result__title {@apply text-utc-new-blue-500;}
+.container-full .block--region-content-header.block--page-title-block .page-title {
+  @apply mr-0 pr-0 text-2xl text-utc-new-blue-500 text-center leading-tight;
+}
+ol.search-results li {
+  @apply border-t border-b border-gray-300 px-0 py-2;
+}
+.path-search .header-container {
+  @apply fixed w-full top-0;
+}
+.path-search ul.pager__items{
+  @apply border-0;
+}
+ul.pager__items li.is-active {
+  @apply bg-utc-new-blue-500 border-utc-new-blue-500;
+}
+ul.pager__items li a {
+  @apply border-utc-new-blue-500 text-utc-new-blue-500 px-5
+}
+ul.pager__items li a:hover {
+  @apply bg-utc-new-blue-100;
+}
+.search-results h3.search-result__title a {
+  @apply text-utc-new-blue-500;
+}
+.search-results h3.search-result__title a:hover {
+  @apply text-utc-new-gold-500;
+}
+.path-search {
+  @apply pt-16;
+}
+/*end search page adjustments*/
+
+@media screen and (max-width: 1024px) {
   .section-hero {@apply bg-white pt-6 }
 }
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 768px) {
+  main, .container-full {
+    @apply pt-16;
+  }
+  .container-full {
+    @apply px-4;
+  }
+  .container-full .block--region-content-header.block--page-title-block .page-title {
+    @apply text-lg;
+  }
+}
+@media screen and (max-width: 640px) {
   h1{ font-size:28px!important;line-height:1.2em;}
   .department-info-- address.flex-list li {@apply leading-loose}
   .department-info-- address.flex-list li {@apply border-0}
-  .department-info-- address.flex-list li:first-child {@apply border-r border-gray-500}
+}
+@media screen and (max-width: 280px) {
+  .department-info-- {@apply px-4}
 }
