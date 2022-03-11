@@ -30,6 +30,9 @@ module.exports = {
     customForms,
     fontFamily, 
     extend: {
+      boxShadow: {
+        'utc': '3px 3px 5px 1px rgb(0 0 0 / 15%)',
+      },
       gridTemplateRows: {
         // Adds a custom template for the utc hero block
         'utchero': '40px 1fr 1fr 70px',
@@ -46,6 +49,28 @@ module.exports = {
         'utcherocenter': '1fr 45% 45% 1fr',
         // Adds a custom template for the highlight block
         'utchighlight': '1fr 45% 40% 1fr',
+        //Adds custom template for the footer menu/map columns
+        utcmenufooter1: "1fr 37% 1fr",
+        utcmenufooter2: "1fr 0% 1fr",
+        utcmapfooter: "1fr 30% 1fr", 
+      },
+      zIndex: {
+        less1: "-1",
+        1: "1",
+        98: "98",
+        99: "99",
+        100: "100",
+        999: "999",
+        1000: "1000",
+        1001: "1001",
+        9999: "9999",
+        100000: "100000",
+      },
+      minWidth: {
+        '9': '9rem'
+      },
+      maxWidth: {
+        '18': '18rem'
       }
     },
     minHeight: {

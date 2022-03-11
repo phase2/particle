@@ -4,34 +4,46 @@
  * Custom Header.
  */
 #}
+{{ attach_library('utccloud/utc-brandbar-menus') }}
+
 <header class="header header--{{ themag.header_style|clean_class }}">
 
   <div class="header__container-wrapper--header__main js-sticky-header-element">
-    <div class="header__container header__container--boxed">
+    <div class="header__container py-3 main-navigation-bar" id="utc-main-header">
       <div class="header__main">
         <div class="header__main__left">
           {{ page.logo }}
         </div>
         <div class="header__main__right">
-          {{ page.header_secondary_menu }}
           {% include '@themag/base-layout/header/components/user-action-menu.html.twig' %}
+          <div class="menu-item ribbon-container">
+            <div class="ribbon-wrapper">
+                <a href="https://webapp.utc.edu/apply/" title="Apply Now">
+                  <div id="menuribbon" class="ribbon up">
+                    <div class="ribbon-content up">
+                      <p id="apply-now-ribbon" class="apply-now-ribbon">Apply<br>Now</p>
+                    </div>
+                  </div>
+                </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-      {{ page.search }}
-
-    <div class="header__container header__container--boxed">
-      <div class="header__main">
-        <div class="header__main__left">
-          {{ page.header_primary_menu }}
-        </div>
-        <div class="header__main__right">
-          {% include '@themag/base-layout/header/components/social-media-pages-menu.html.twig' %}
-        </div>
+    <div class="header__container bg-white">
+      <div class="header__main justify-start py-0 font-utcbody" id="utc-main-nav">
+          <div class="wide-nav w-full">
+            {{ page.header_primary_menu }}
+            {{ page.header_secondary_menu }}
+          </div>
       </div>
     </div>
 
+    {{ page.search }}
   </div>
 
 </header>
+
+
+

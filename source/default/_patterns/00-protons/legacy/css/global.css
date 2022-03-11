@@ -227,5 +227,83 @@ div.site-alert div.text {
 }
 
 .block--search form input[type='submit']:hover {
-    @apply text-utc-new-gold-500;
+  @apply text-utc-new-gold-500;
+}
+
+/****NEW BRANDING SET-UP as of March 18, 2022*****/
+
+:root {
+  --utc-transition: all .4s ease-in-out;
+}
+body {
+  font-size: 18px;
+  @apply font-utcbody text-utc-new-blue-500 text-left bg-utc-bg-page text-base font-light m-0 overflow-x-hidden overflow-y-scroll;
+  animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+a {
+  @apply text-utc-links-static outline-none;
+  transition:  var(--utc-transition);
+}
+.department-info-- .social-media-links--platforms a {
+  @apply text-utc-new-blue-500;
+}
+a:hover,
+a:focus,
+.department-info-- .social-media-links--platforms a:hover,
+.department-info-- .social-media-links--platforms a:focus {
+  @apply text-utc-new-gold-500 outline-none;
+}
+span:target {
+  @apply block relative invisible -top-2.5;
+}
+p {
+  @apply text-gray-800 m-0 mb-4 p-0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+@apply font-bold text-utc-new-blue-500 font-utcheadings;
+}
+b, strong {
+  @apply font-medium;
+}
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+  @apply ml-0;
+}
+p {
+  @apply mb-5;
+}
+.UTCtextblock__links p {
+  text-indent:24px;
+}
+.UTCtextblock__links hr {
+  @apply my-6;
+}
+.UTCtextblock__links h2 {
+  @apply mb-5;
+}
+.UTCtextblock__links h2:first-child {
+  @apply mt-0;
+}
+.department-info-- .field--name-field-utc-department-hours .field__label {@apply font-utcheadings mt-8 mb-4}
+.utc-hero-block a {@apply text-utc-new-blue-500;}
+.utc-hero-block a:hover {@apply text-utc-new-gold-500;}
+
+@media screen and (max-width: 992px) {
+  .themag-layout {@apply px-4;}
+  .section-hero {@apply bg-white pt-6 }
+}
+
+@media screen and (max-width: 540px) {
+  h1{ font-size:28px!important;line-height:1.2em;}
+  .department-info-- address.flex-list li {@apply leading-loose}
+  .department-info-- address.flex-list li {@apply border-0}
+  .department-info-- address.flex-list li:first-child {@apply border-r border-gray-500}
 }
