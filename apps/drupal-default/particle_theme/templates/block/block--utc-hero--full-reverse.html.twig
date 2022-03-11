@@ -55,7 +55,7 @@
 	{% endif %}
 		 
 	{% if utc_hero.hero_align == 'Left' %}
-		<div class="lg:grid lg:grid-rows-utcheroreverse lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
+		<div class="utc-hero-block lg:grid lg:grid-rows-utcheroreverse lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
 				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-4 lg:m-auto col-span-1 z-30 {{ utc_zoom }}">
 					{{ utc_hero.hero_image }} 
@@ -63,7 +63,7 @@
 			{% endif %}
 				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:my-auto lg:ml-8 p-4 z-30">
 	{% else %}
-		<div class="lg:grid lg:grid-rows-utcheroreverse lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
+		<div class="utc-hero-block lg:grid lg:grid-rows-utcheroreverse lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
 				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:m-auto z-30 {{ utc_zoom }}">
 					{{ utc_hero.hero_image }}

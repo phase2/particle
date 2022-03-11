@@ -48,9 +48,6 @@
 .sidr ul.sf-menu.sf-expanded, .sidr ul.sf-menu.menu.sf-secondary-menu>li.sf-depth-1.sf-expanded {
     @apply bg-utc-new-blue-100;
 }
-.sidr ul.sf-menu.menu.sf-secondary-menu>li.sf-depth-1.sf-expanded:last-child{
-    @apply mb-14;
-}
 .sidr ul.sf-menu li {
     @apply border-b border-gray-500 py-0 hover:bg-utc-new-blue-100 w-full;
 }
@@ -370,7 +367,16 @@ ul.sf-menu span.sf-sub-indicator {
         @apply hidden;
     }
 }
-
+@media screen and (max-width: 768px) {
+    .sidr {
+        top: 59px;
+    }
+}
+@media screen and (max-height: 850px) {
+    .sidr ul.sf-menu.menu.sf-secondary-menu>li.sf-depth-1.sf-expanded:last-child{
+        @apply mb-14;
+    }
+}
 @media screen and (max-width: 500px) {
     .header__container {
        padding-top:1rem!important;padding-bottom:1rem!important;

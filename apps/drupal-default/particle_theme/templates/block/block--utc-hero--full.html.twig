@@ -55,16 +55,16 @@
 	{% endif %}
 	{# image on left #}	 
 	{% if utc_hero.hero_align == 'Left' %}
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
+		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
 				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }}">
 					{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:ml-8 p-4 z-30">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:ml-8 px-4 py-8 z-30">
 	{% else %}
 	{# image on right #}	
-		<div class="lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
+		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
 				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }}">
 					{{ utc_hero.hero_image }}
@@ -75,13 +75,13 @@
 				{% block herocontent %}
 					{% block herotagtitle %}
 					{% if utc_hero.hero_tag %}
-						<p class="text-left font-semibold tracking-wide uppercase text-lg {{ tag_color }}">
+						<p class="text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }}">
 							{{ utc_hero.hero_tag }}
 						</p>
-						<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20" />
+						<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20 ml-0" />
 					{% endif %}
 					{% if utc_hero.hero_title %}
-						<h2 class="text-left {{ title_color }}">
+						<h2 class="text-left mb-2 {{ title_color }}">
 							{{ utc_hero.hero_title }}
 						</h2>
 					{% endif %}

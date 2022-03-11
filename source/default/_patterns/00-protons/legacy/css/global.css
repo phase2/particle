@@ -1,18 +1,17 @@
 /* custom override for gsc module */
 
 .gsc-results .gsc-cursor-box .gsc-cursor-page {
-    color: #000000 !important;
-    background-color: #FFF !important;
+  color: #000000 !important;
+  background-color: #fff !important;
 }
 
 #search-form * #edit-keys {
-    background: #fff !important;
+  background: #fff !important;
 }
 
 .table .thead-dark th .label {
-    color: #FFF;
+  color: #fff;
 }
-
 
 /* removes title lines coming from the parent mag */
 
@@ -20,195 +19,214 @@
 .block--region-content-header.block--page-title-block:before,
 .block--layout-builder.block--page-title-block:after,
 .block--layout-builder.block--page-title-block:before {
-    content: '';
-    display: none;
-    width: 100%;
-    /* border-top: 1px solid #90a4ae; */
-    position: absolute;
-    bottom: calc(41% + 1.5px);
-    z-index: 0;
+  content: '';
+  display: none;
+  width: 100%;
+  /* border-top: 1px solid #90a4ae; */
+  position: absolute;
+  bottom: calc(41% + 1.5px);
+  z-index: 0;
 }
 
 .hellowordl {
-    background: red;
+  background: red;
 }
 
 .utcpage-title {
-    /* display: inline-block; */
-    background-color: transparent;
-    border-bottom: 9px solid #fdb736;
-    @apply text-utc-new-blue-500 text-6xl font-bold;
-    /* color: $utc-blue; */
-    padding-top: 1em;
-    margin-bottom: 0;
-    padding-bottom: 15px;
-    padding-right: 0;
-    text-align: center;
-    position: relative;
-    z-index: 5;
-    line-height: 1.1;
-    margin-left: 0;
-    margin-right: 0;
+  /* display: inline-block; */
+  background-color: transparent;
+  border-bottom: 9px solid #fdb736;
+  @apply text-utc-new-blue-500 text-6xl font-bold;
+  /* color: $utc-blue; */
+  padding-top: 1em;
+  margin-bottom: 0;
+  padding-bottom: 15px;
+  padding-right: 0;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  line-height: 1.1;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media screen and (max-width: 640px) {
-    .utcpage-title {
-        @apply text-4xl;
-    }
+  .utcpage-title {
+    @apply text-4xl;
+  }
 }
 
 @media screen and (max-width: 280px) {
-    .utcpage-title {
-        @apply text-3xl;
-    }
+  .utcpage-title {
+    @apply text-3xl;
+  }
 }
 
 .utcblock--page-title-block {
-    position: relative;
-    border-top: none;
-    text-align: center;
+  position: relative;
+  border-top: none;
+  text-align: center;
 }
-
 
 /* overrides parent mag and particle conflict */
 
 .button--primary {
-    @apply text-black;
-    color: black;
+  @apply text-black;
+  color: black;
 }
 
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler) {
-    @apply text-blue-500;
-    border-bottom: 1.5px solid #4299e1;
-    text-decoration: none;
+  @apply text-blue-500;
+  border-bottom: 1.5px solid #4299e1;
+  text-decoration: none;
 }
 
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):hover {
-    @apply text-utc-new-blue-500;
-    border-bottom: 1.5px solid #112e51;
-    text-decoration: none;
+  @apply text-utc-new-blue-500;
+  border-bottom: 1.5px solid #112e51;
+  text-decoration: none;
 }
 
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):active,
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):active,
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):active {
-    color: #fdb736;
-    border-bottom: 1.5px solid #fdb736;
-    text-decoration: none;
+  color: #fdb736;
+  border-bottom: 1.5px solid #fdb736;
+  text-decoration: none;
 }
 
-.UTCtextblock__links strong>a {
-    font-weight: normal;
+.UTCtextblock__links strong > a {
+  font-weight: normal;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
-    @apply text-blue-500;
-    border-bottom: 1.5px solid #4299e1;
-    text-decoration: none;
+.UTCtextblock__links
+  a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
+  @apply text-blue-500;
+  border-bottom: 1.5px solid #4299e1;
+  text-decoration: none;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover:not(.ckeditor-accordion-toggler):hover {
-    @apply text-utc-new-blue-500;
-    border-bottom: 1.5px solid #112e51;
-    text-decoration: none;
+.UTCtextblock__links
+  a:not(.btn):not(.dm-profile-tabs__link):hover:not(.ckeditor-accordion-toggler):hover {
+  @apply text-utc-new-blue-500;
+  border-bottom: 1.5px solid #112e51;
+  text-decoration: none;
 }
 
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active:not(.ckeditor-accordion-toggler):active {
-    color: #fdb736;
-    border-bottom: 1.5px solid #fdb736;
-    text-decoration: none;
+.UTCtextblock__links
+  a:not(.btn):not(.dm-profile-tabs__link):active:not(.ckeditor-accordion-toggler):active {
+  color: #fdb736;
+  border-bottom: 1.5px solid #fdb736;
+  text-decoration: none;
 }
-
 
 /* it makes the layout builder background consistent */
 
 .layout-builder {
-    padding: 0;
-    border: none;
-    background-color: inherit;
+  padding: 0;
+  border: none;
+  background-color: inherit;
 }
 
 .header__main {
-    @apply font-utcheadings;
+  @apply font-utcheadings;
 }
 
 .travisandutclib {
-    @apply text-blue-500;
-    border-bottom: 1.5px solid #4299e1;
+  @apply text-blue-500;
+  border-bottom: 1.5px solid #4299e1;
 }
 
-
 /* Stable theme align techniques targetting img tags due to image blocks*/
-
 
 /* this is used by the image block and the image ckeditor embed */
 
 .align-center img {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .align-right img {
-    float: right;
+  float: right;
 }
 
 .align-left img {
-    float: left;
+  float: left;
 }
-
 
 /* Site alert module css overwrite */
 
+div.site-alert div.severity-low {
+  /* tailwindcss 3.0 esmerald-600 */
+  background: #059669;
+  border: 1px solid #bce8f1;
+  color: #31708f;
+  margin-bottom: 0em;
+  padding: 1rem 2rem;
+}
+
+div.site-alert div.severity-medium {
+  /* tailwindcss 3.0 yellow-400 */
+  background: #facc15;
+  border: 1px solid #faebcc;
+  color: #8a6d3b;
+  margin-bottom: 0em;
+  padding: 1rem 2rem;
+}
+
 div.site-alert div.severity-high {
-    background: #fdb736;
-    border: 1px solid none;
-    background-image: none;
-    background-repeat: no-repeat;
-    margin-bottom: 0em;
+  /* tailwindcss red-600 */
+  background: #dc2626;
+  border: 1px solid #ebccd1;
+  color: #a94442;
+  margin-bottom: 0em;
+  padding: 1rem 2rem;
 }
 
-div.site-alert div.text {
-    padding: 0.3rem;
-    margin: 0px;
-    font-size: 18px;
+div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .text :is(h1,h2,p,p a)
+{
+    @apply text-white;
 }
-
+div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .text :is(p a:hover)
+{
+    @apply text-indigo-800
+}
 
 /* For use in views where : (colon) is not accepted. */
 
 @media (min-width: 640px) {
-    .hide-sm {
-        display: none !important;
-    }
+  .hide-sm {
+    display: none !important;
+  }
 }
 
 @media (min-width: 768px) {
-    .hide-md {
-        display: none !important;
-    }
+  .hide-md {
+    display: none !important;
+  }
 }
 
 @media (min-width: 1024px) {
-    .hide-lg {
-        display: none !important;
-    }
+  .hide-lg {
+    display: none !important;
+  }
 }
 
 @media (min-width: 1280px) {
-    .hide-xl {
-        display: none !important;
-    }
+  .hide-xl {
+    display: none !important;
+  }
 }
 
 /****Add zoom effect to an image by class****/
 /* The Image container */
 .utc-zoom-image .field__item {
-    overflow: hidden; /* Removing this will break the effects */
+  overflow: hidden; /* Removing this will break the effects */
 }
 /* Quick-zoom Container */
 .utc-zoom-image img {
@@ -223,13 +241,12 @@ div.site-alert div.text {
 }
 
 .block--search form input[type='submit'] {
-    @apply bg-utc-new-blue-500 border-utc-new-blue-500;
+  @apply bg-utc-new-blue-500 border-utc-new-blue-500;
 }
 
 .block--search form input[type='submit']:hover {
   @apply text-utc-new-gold-500;
 }
-
 /****NEW BRANDING SET-UP as of March 18, 2022*****/
 
 :root {
@@ -261,7 +278,7 @@ span:target {
   @apply block relative invisible -top-2.5;
 }
 p {
-  @apply text-gray-800 m-0 mb-4 p-0;
+  @apply text-gray-800 m-0 mb-4 p-0 text-utcbody;
 }
 h1,
 h2,
@@ -294,13 +311,11 @@ p {
 }
 .department-info-- .field--name-field-utc-department-hours .field__label {@apply font-utcheadings mt-8 mb-4}
 .utc-hero-block a {@apply text-utc-new-blue-500;}
-.utc-hero-block a:hover {@apply text-utc-new-gold-500;}
-
+.utc-hero-block a:hover {@apply text-utc-new-gold-500;
 @media screen and (max-width: 992px) {
   .themag-layout {@apply px-4;}
   .section-hero {@apply bg-white pt-6 }
 }
-
 @media screen and (max-width: 540px) {
   h1{ font-size:28px!important;line-height:1.2em;}
   .department-info-- address.flex-list li {@apply leading-loose}
