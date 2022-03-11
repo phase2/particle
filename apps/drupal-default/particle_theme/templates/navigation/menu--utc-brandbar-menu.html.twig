@@ -37,7 +37,7 @@
     {% for item in items %}
       {%
         set listitem = [
-          'menu-item border-b border-gray-300 py-2 hover:bg-utc-new-blue-100 w-full',
+          'menu-item border-b border-gray-300 py-4 hover:bg-utc-new-blue-100 w-full',
           item.is_expanded ? 'menu-item--expanded',
           item.is_collapsed ? 'menu-item--collapsed',
           item.in_active_trail ? 'menu-item--active-trail bg-utc-new-blue-100',
@@ -45,7 +45,7 @@
       %}
       {%
         set menulinktag = [
-          'text-base border-0 py-2 pl-3 bg-transparent',
+          'text-base border-0 py-4 pl-3 bg-transparent',
           item.in_active_trail ? 'menu-link--active-trail font-bold',
         ]
       %}
