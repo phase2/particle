@@ -30,14 +30,14 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('menu') }}>
+      <ul{{ attributes.addClass('menu pl-6 border-l border-utc-new-gold-500 flex flex-col justify-between mb-0 h-full') }}>
     {% else %}
-      <ul class="menu">
+      <ul class="menu pl-6 border-l border-utc-new-gold-500 flex flex-col justify-between mb-0 h-full">
     {% endif %}
     {% for item in items %}
       {%
         set classes = [
-          'menu-item',
+          'menu-item font-normal text-base list-none leading-loose text-left',
           item.is_expanded ? 'menu-item--expanded',
           item.is_collapsed ? 'menu-item--collapsed',
           item.in_active_trail ? 'menu-item--active-trail',

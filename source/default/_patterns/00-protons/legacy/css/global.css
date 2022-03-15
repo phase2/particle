@@ -268,7 +268,6 @@ div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .t
 body {
   font-size: 18px;
   @apply font-utcbody text-utc-new-blue-500 text-left bg-utc-bg-page text-base font-light m-0 overflow-x-hidden overflow-y-scroll;
-  animation: fadeIn 2s;
 }
 @keyframes fadeIn {
   0% {opacity:0;}

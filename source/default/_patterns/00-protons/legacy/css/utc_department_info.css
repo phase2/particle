@@ -5,7 +5,37 @@
   /* background-color: $utc-lightblue; */
   padding: 2rem 0rem 1rem;
 }
-
+@media screen and (max-width: 640px) {
+  .department-info-- h2 {
+    margin: 1rem 1rem 0 1rem!important;
+  }
+  .department-info-- div .address.flex-list {
+      margin:0!important;
+      margin-top:1em!important;
+    }
+  .department-info-- div .address.flex-list ul {
+      text-align: center!important;
+    }
+  .department-info-- div .address.flex-list ul * {
+      font-family:'Oswald', sans-serif!important;
+      font-weight: 400!important;
+  }
+  .department-info-- div .address.flex-list a {
+      font-family:'Oswald', sans-serif!important;
+      font-weight: 400!important;
+  }
+  .department-info-- div .address.flex-list ul li .fas, 
+  .department-info-- div .address.flex-list ul li i {
+      padding-top:.75rem!important;
+      margin-left:-3px!important;
+      font-size: 1rem!important;
+    }
+    .department-info-- .social-media-links--platforms span.fa-2x,
+    .department-info-- .social-media-links--platforms span.fa,
+    .department-info-- .social-media-links--platforms span {
+      font-size: 1.5rem!important
+    }  
+}
 address.flex-list {
   list-style: none;
   position: relative;
@@ -18,12 +48,14 @@ address.flex-list ul {
   flex-wrap: wrap;
   justify-content: center;
   padding-left: 0;
+  text-align: center;
 }
 address.flex-list li {
   display: inline;
   line-height: 1.2em;
   padding: 0 10px;
   border-left: solid 1px #ADB2B6;
+  align-items: center;
 }
 address.flex-list li:first-child {
   border-left: none;
@@ -68,8 +100,6 @@ address.flex-list li div.field--name-field-utc-department-fax-number .field__ite
 .department--hours .field__label:after {
   content: none;
 }
-
-
 @include media-breakpoint-down(lg) {
   address.flex-list {
     position: relative;
@@ -91,3 +121,4 @@ address.flex-list li div.field--name-field-utc-department-fax-number .field__ite
     border-left: none;
  }
 }
+
