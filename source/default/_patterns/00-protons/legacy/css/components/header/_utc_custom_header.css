@@ -18,7 +18,7 @@
 .top-bar-wrapper {
     height:75px;
 }
-.bottom-bar-wrapper {
+.bottom-bar-wrapper, .region-header-primary-menu {
     height:50px;
 }
 /****/
@@ -38,9 +38,7 @@
 .header__main__left,
 .header__main__right,
 .wide-nav,
-.region-header-primary-menu,
-#block-utcbrandbarmenu-particle,
-.region-header-secondary-menu {
+#block-utcbrandbarmenu-particle {
     height: 100%!important;
 }
 .header__main__right *, .header__main__right *:focus  {
@@ -52,8 +50,8 @@
     width: fit-content;
 }
 .region-header-primary-menu > .block {
-    @apply m-0 inline-block;
-  }
+    @apply m-0;
+}
 ul.sf-menu > li > a, ul.sf-menu span.nolink, .sidr .menu--utc-brandbar-menu a  {
     @apply py-0 my-0 px-3 relative normal-case text-utc-new-blue-500 font-normal font-utcbody;
     font-size: 16px;
@@ -65,10 +63,12 @@ ul.sf-menu.menu {
 ul.sf-menu.menu>li.sf-depth-1 {
     @apply relative pt-4 pb-2 outline-none;
     width:fit-content;
-    animation: fadeIn ease 1s;
+    animation: fadeIn ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
+/*
+ul.sf-menu.menu>li.sf-depth-1
 ul.sf-menu.menu > li.sf-depth-1:focus, 
 ul.sf-menu.menu > li.sf-depth-1 *:focus, 
 ul.sf-menu.menu > li.sf-depth-1:hover, 
@@ -77,11 +77,18 @@ ul.sf-menu.menu > li.sf-depth-1 *:hover,
 .sidr ul.sf-menu.menu.sf-secondary-menu>li.sf-depth-1:hover,
 .sidr ul.sf-menu.menu.sf-secondary-menu>li:focus, 
 .sidr ul.sf-menu.menu.sf-secondary-menu>li.sf-depth-1:focus {
-    @apply outline-none;
+    outline:none!important;
+}
+ul.sf-menu.menu > li.sf-depth-1:visited, 
+ul.sf-menu.menu > li.sf-depth-1 *:visited, 
+ul.sf-menu.menu > li.sf-depth-1:target, 
+ul.sf-menu.menu > li.sf-depth-1 *:target
+{
+    outline:none!important;
 }
 ul.sf-menu.menu>li.sf-depth-1 span:focus, ul.sf-menu.menu>li.sf-depth-1 span:hover {
     outline:none!important;
-}
+}*/
 ul.sf-menu li:hover > ul, ul.sf-menu li.sfHover > ul, ul.sf-menu ul {
     left:unset!important;
 }
