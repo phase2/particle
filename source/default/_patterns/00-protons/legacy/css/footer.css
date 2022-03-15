@@ -76,15 +76,16 @@
     width: 81%;
  }
 }
-
+/***Begin new branded footer March 18, 2022***/
+.page-footer {
+  @apply bg-utc-new-blue-500;
+}
 #block-copyrightnotice-particle {
   @apply p-0 pt-6 text-center;
 }
-
 .block__title {
  @apply hidden;
 }
-
 .block__title:after,
 .block__title:before {
   @apply border-t-0 border-b-0;
@@ -133,11 +134,6 @@
 @media screen and (min-width: 768px) {
   .footer-bottom-wrapper {
       @apply text-sm;
-  }
-}
-@media screen and (max-width: 768px) {
-  #global-footer-map {
-    @apply h-64;
   }
 }
 @media screen and (max-width: 640px) {
