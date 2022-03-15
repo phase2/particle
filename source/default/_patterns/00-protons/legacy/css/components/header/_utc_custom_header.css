@@ -287,6 +287,7 @@ ul.sf-menu span.sf-sub-indicator {
     /***fontawesome fa-bars content***/
     content: "\f0c9";  
     transition: var(--utc-transition); 
+    outline:none!important;
 }
 .sidr-open .js-toggle-offcanvas-sidebar {
     transform: scale(1.5);
