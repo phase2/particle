@@ -154,7 +154,9 @@ ul.sf-menu span.sf-sub-indicator {
     @apply border-r border-gray-500;
 }
 /*****offcanvas responsive menu******/
-
+.offcanvas-sidebar-overlay.active {
+    opacity: .7!important;
+}
 .sidr {
     top: 67px;
 }
