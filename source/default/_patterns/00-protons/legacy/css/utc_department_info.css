@@ -1,7 +1,7 @@
 /* // UTC Styles department info block */
 .department-info--dept-info-light-blue {
   /* bg-blue-100; */
-  @apply bg-gray-300;
+  @apply bg-utc-new-blue-100;
   /* background-color: $utc-lightblue; */
   padding: 2rem 0rem 1rem;
 }
@@ -39,7 +39,7 @@
 address.flex-list {
   list-style: none;
   position: relative;
-  margin: 1em;
+  margin-top: 1.25em;
   overflow: hidden;
 }
 address.flex-list ul {
@@ -49,6 +49,7 @@ address.flex-list ul {
   justify-content: center;
   padding-left: 0;
   text-align: center;
+  align-items: center;
 }
 address.flex-list li {
   display: inline;
