@@ -364,6 +364,10 @@ ul.sf-menu span.sf-sub-indicator {
  ****/
 /***end scrolling sticky menu***/
 
+div.site-alert div.text {
+   @apply p-4;
+}
+
 @media screen and (max-width: 1024px) {
     .header__container-wrapper--header__main {
         @apply shadow-utc;
