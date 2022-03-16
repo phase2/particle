@@ -276,8 +276,9 @@ a:active,
   border-bottom: 1.5px solid #fdb736;
   text-decoration: none;
 }
+
 .department-info-- a {
-  @apply text-utc-links-static font-medium no-underline bg-transparent py-1 px-2;
+  @apply text-utc-links-static font-normal no-underline bg-transparent py-1 px-2;
   transition: background-color 0.4s ease-in-out;
 }
 .department-info-- a:hover {
@@ -297,7 +298,7 @@ span:target {
   @apply block relative invisible -top-2.5;
 }
 p {
-  @apply text-gray-800 m-0 mb-4 p-0 font-utcbody;
+  @apply text-gray-800 m-0 p-0 font-utcbody;
 }
 h1,
 h2,
@@ -314,8 +315,24 @@ blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
   @apply ml-0;
 }
 p {
-  @apply mb-5;
+  @apply my-4;
 }
+p.no-space {
+  @apply my-0;
+}
+p.less-space {
+  @apply my-2;
+}
+p.more-space {
+  @apply my-6;
+}
+h3.blue-bar {
+  @apply bg-utc-new-blue-500 p-3 m-0 mb-6 text-white w-full;
+}
+h3.gold-bar {
+  @apply bg-utc-new-gold-500 p-3 m-0 mb-6 text-utc-new-blue-500 w-full;
+}
+
 /*WAIT ON THIS
 .UTCtextblock__links p {
   text-indent:24px;
@@ -333,7 +350,7 @@ p {
 .UTCtextblock__links h2 {
   @apply mb-5;
 }
-.UTCtextblock__links h2:first-child {
+.UTCtextblock__links h2.first-head {
   @apply mt-0;
 }
 
@@ -410,4 +427,10 @@ ul.pager__items li a:hover {
 }
 @media screen and (max-width: 280px) {
   .department-info-- {@apply px-4}
+}
+
+/****library css helps****/
+foreignObject > div > div {
+  display: flex;
+  align-items: center;
 }
