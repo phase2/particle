@@ -37,23 +37,30 @@
     {% for item in items %}
       {%
         set listitem = [
-          'menu-item ml-0.5 mb-1',
+          'menu-item border-b border-gray-300 py-4 hover:bg-utc-new-blue-100 w-full',
           item.is_expanded ? 'menu-item--expanded',
           item.is_collapsed ? 'menu-item--collapsed',
+          item.in_active_trail ? 'menu-item--active-trail bg-utc-new-blue-100',
         ]
       %}
       {%
         set menulinktag = [
-          'text-sm font-bold uppercase',
-          'px-2 pt-3 pb-2 hover:bg-utc-new-blue-500',
-          'hover:text-utc-new-gold-500',
-          item.in_active_trail ? 'menu-item--active-trail bg-gray-200',
+          'text-base border-0 py-4 pl-3 bg-transparent',
+          item.in_active_trail ? 'menu-link--active-trail font-bold',
         ]
       %}
-      <li{{ item.attributes.addClass(classes) }}>
-       {{ link(item.title, item.url, item.attributes.removeClass(classes).addClass(menulinktag)) }}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+      <li{{ item.attributes.addClass(listitem) }}>
+        {% if item.in_active_trail %}
+          <i class="fa fa-check text-utc-new-gold-500 ml-4 -mr-2"></i>
+          {{ link(item.title, item.url, item.attributes.removeClass(listitem).addClass(menulinktag)) }}
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+        {% else %}
+            {{ link(item.title, item.url, item.attributes.removeClass(listitem).addClass(menulinktag)) }}
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
         {% endif %}
       </li>
     {% endfor %}

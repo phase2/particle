@@ -57,6 +57,7 @@ address.flex-list li {
   padding: 0 10px;
   border-left: solid 1px #ADB2B6;
   align-items: center;
+  font-size:400;
 }
 address.flex-list li:first-child {
   border-left: none;

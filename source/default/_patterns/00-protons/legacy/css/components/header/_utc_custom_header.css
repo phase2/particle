@@ -52,7 +52,7 @@
 .region-header-primary-menu > .block {
     @apply m-0;
 }
-ul.sf-menu > li > a, ul.sf-menu span.nolink, .sidr .menu--utc-brandbar-menu a  {
+ul.sf-menu > li > a, ul.sf-menu span.nolink, .sidr .block--region-offcanvas-sidebar a  {
     @apply py-0 my-0 px-3 relative normal-case text-utc-new-blue-500 font-normal font-utcbody;
     font-size: 16px;
     transition:  var(--utc-transition);
@@ -67,28 +67,6 @@ ul.sf-menu.menu>li.sf-depth-1 {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
-/*
-ul.sf-menu.menu>li.sf-depth-1
-ul.sf-menu.menu > li.sf-depth-1:focus, 
-ul.sf-menu.menu > li.sf-depth-1 *:focus, 
-ul.sf-menu.menu > li.sf-depth-1:hover, 
-ul.sf-menu.menu > li.sf-depth-1 *:hover,
-.sidr ul.sf-menu.menu.sf-secondary-menu>li:hover, 
-.sidr ul.sf-menu.menu.sf-secondary-menu>li.sf-depth-1:hover,
-.sidr ul.sf-menu.menu.sf-secondary-menu>li:focus, 
-.sidr ul.sf-menu.menu.sf-secondary-menu>li.sf-depth-1:focus {
-    outline:none!important;
-}
-ul.sf-menu.menu > li.sf-depth-1:visited, 
-ul.sf-menu.menu > li.sf-depth-1 *:visited, 
-ul.sf-menu.menu > li.sf-depth-1:target, 
-ul.sf-menu.menu > li.sf-depth-1 *:target
-{
-    outline:none!important;
-}
-ul.sf-menu.menu>li.sf-depth-1 span:focus, ul.sf-menu.menu>li.sf-depth-1 span:hover {
-    outline:none!important;
-}*/
 ul.sf-menu li:hover > ul, ul.sf-menu li.sfHover > ul, ul.sf-menu ul {
     left:unset!important;
 }
@@ -261,7 +239,7 @@ ul.sf-menu span.sf-sub-indicator {
 }
 
 /****format search box****/
-.region-search #edit-actions {
+.region-search .block--search form input[type=submit] {
     @apply invisible;
 }
 .header__toggleable-button * {
@@ -364,7 +342,8 @@ ul.sf-menu span.sf-sub-indicator {
 /***end apply now ribbon***/
 
 /**begin scrolling sticky menu***/
-.header {
+/***WAIT UNTIL NOTIFICATION INTEGRATION WITH STICKY IS FIXED
+.apply-now-ribbon {
     width: 100%;
     position:relative;
 }
@@ -382,13 +361,14 @@ ul.sf-menu span.sf-sub-indicator {
        transform: translateY(0);
     }
  } 
-
-
+ ****/
 /***end scrolling sticky menu***/
+
+div.site-alert div.text {
+   @apply p-4;
+}
+
 @media screen and (max-width: 1024px) {
-    .header {
-        height:68px!important;
-    }
     .header__container-wrapper--header__main {
         @apply shadow-utc;
     }
@@ -401,12 +381,12 @@ ul.sf-menu span.sf-sub-indicator {
         @apply mr-28;
     }
     .header-container {
-        @apply fixed w-full top-0 h-auto;
+        /*@apply fixed w-full top-0 h-auto;*/
      }
-     .top-bar-wrapper,.bottom-bar-wrapper,.header--custom-header .header__container-wrapper--header__main {
+     .top-bar-wrapper,.header--custom-header .header__container-wrapper--header__main {
          height:unset;
      }
-    .wide-nav {
+    .bottom-bar-wrapper {
         @apply hidden;
     }
     .toggle-offcanvas-sidebar {
@@ -433,7 +413,7 @@ ul.sf-menu span.sf-sub-indicator {
         top:-1rem!important;
         right:1rem!important;
     }
-    .region-search #edit-actions {
+    .region-search .block--search form input[type=submit] {
         @apply visible mr-6;
     }
 }
@@ -446,7 +426,7 @@ ul.sf-menu span.sf-sub-indicator {
         top: 59px;
     }
     .header-container {
-        @apply fixed w-full top-0;
+       /* @apply fixed w-full top-0;*/
     }
     .header-container.bottom-bar-wrapper {
         @apply p-0 h-0;
@@ -461,7 +441,7 @@ ul.sf-menu span.sf-sub-indicator {
     .sidr ul.sf-menu.sf-accordion li.sf-expanded:last-child>ul {
         @apply mb-16;
     }
-    .region-search #edit-actions {
+    .region-search .block--search form input[type=submit] {
         @apply visible;
     }
     #edit-submit--2 {
