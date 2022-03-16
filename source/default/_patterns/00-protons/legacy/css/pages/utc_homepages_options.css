@@ -81,10 +81,6 @@ p.small-head-hr {
     font-size: 1.25rem;
 }
 
-.utc-homepage-quote-bg blockquote p:after {
-    margin-left: -1.75rem;
-}
-
 @media screen and (max-width: 640px) {
     .utc-homepage-quote-bg blockquote {
         width: 100%;

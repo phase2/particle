@@ -1,4 +1,9 @@
 /* custom override for gsc module */
+:root {
+  --utc-transition: all 0.4s ease-in-out;
+  --utc-color: color 0.4s ease-in-out;
+  --utc-link: color 0.4s ease-in-out, font-weight 0.4s ease-in-out;
+}
 
 .gsc-results .gsc-cursor-box .gsc-cursor-page {
   color: #000000 !important;
@@ -75,55 +80,6 @@
   color: black;
 }
 
-.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
-.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
-.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler) {
-  @apply text-blue-500;
-  border-bottom: 1.5px solid #4299e1;
-  text-decoration: none;
-}
-
-.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):hover,
-.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
-.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):hover {
-  @apply text-utc-new-blue-500;
-  border-bottom: 1.5px solid #112e51;
-  text-decoration: none;
-}
-
-.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):active,
-.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):active,
-.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):active {
-  color: #fdb736;
-  border-bottom: 1.5px solid #fdb736;
-  text-decoration: none;
-}
-
-.UTCtextblock__links strong > a {
-  font-weight: normal;
-}
-
-.UTCtextblock__links
-  a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
-  @apply text-blue-500;
-  border-bottom: 1.5px solid #4299e1;
-  text-decoration: none;
-}
-
-.UTCtextblock__links
-  a:not(.btn):not(.dm-profile-tabs__link):hover:not(.ckeditor-accordion-toggler):hover {
-  @apply text-utc-new-blue-500;
-  border-bottom: 1.5px solid #112e51;
-  text-decoration: none;
-}
-
-.UTCtextblock__links
-  a:not(.btn):not(.dm-profile-tabs__link):active:not(.ckeditor-accordion-toggler):active {
-  color: #fdb736;
-  border-bottom: 1.5px solid #fdb736;
-  text-decoration: none;
-}
-
 /* it makes the layout builder background consistent */
 
 .layout-builder {
@@ -137,8 +93,7 @@
 }
 
 .travisandutclib {
-  @apply text-blue-500;
-  border-bottom: 1.5px solid #4299e1;
+  @apply text-utc-links-static font-normal;
 }
 
 /* Stable theme align techniques targetting img tags due to image blocks*/
@@ -268,24 +223,75 @@ div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .t
 body {
   font-size: 18px;
   @apply font-utcbody text-utc-new-blue-500 text-left bg-utc-bg-page text-base font-light m-0 overflow-x-hidden overflow-y-scroll;
-  animation: fadeIn 2s;
+}
+ol, ul, li {
+  @apply text-utc-new-blue-500;
 }
 @keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
 }
 a {
-  @apply text-utc-links-static outline-none;
-  transition:  var(--utc-transition);
-}
-.department-info-- .social-media-links--platforms a {
-  @apply text-utc-new-blue-500;
+  @apply text-utc-links-static;
 }
 a:hover,
-a:focus,
+a:focus {
+  @apply text-utc-new-gold-500;
+}
+
+.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
+.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler),
+.UTCtextblock__links
+  a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
+  @apply text-utc-links-static font-normal no-underline;
+  transition: var(--utc-link);
+}
+.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
+.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler),
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
+  @apply border-b border-utc-links-static no-underline;
+  transition: var(--utc-link);
+}
+.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):hover,
+.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover:not(.ckeditor-accordion-toggler):hover {
+  @apply text-utc-new-blue-800 border-0 font-medium no-underline;
+}
+a:active,
+.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):active,
+.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):active,
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):active {
+  color: #fdb736;
+  border-bottom: 1.5px solid #fdb736;
+  text-decoration: none;
+}
+.UTCtextblock__links strong > a {
+  font-weight: normal;
+}
+.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active:not(.ckeditor-accordion-toggler):active {
+  color: #fdb736;
+  border-bottom: 1.5px solid #fdb736;
+  text-decoration: none;
+}
+.department-info-- a {
+  @apply text-utc-links-static font-medium no-underline bg-transparent py-1 px-2;
+  transition: background-color 0.4s ease-in-out;
+}
+.department-info-- a:hover {
+  @apply bg-white;
+}
+.department-info-- .social-media-links--platforms a {
+  @apply text-utc-new-blue-500 no-underline;
+}
 .department-info-- .social-media-links--platforms a:hover,
 .department-info-- .social-media-links--platforms a:focus {
-  @apply text-utc-new-gold-500 outline-none;
+  @apply text-utc-new-gold-500 outline-none bg-transparent;
+}
+.department-info-- {
+  @apply bg-utc-new-blue-100 py-6;
 }
 span:target {
   @apply block relative invisible -top-2.5;
@@ -302,7 +308,7 @@ h6 {
   @apply font-bold text-utc-new-blue-500 font-utcheadings;
 }
 b, strong {
-  @apply font-medium;
+  @apply font-bold;
 }
 blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
   @apply ml-0;
@@ -310,12 +316,17 @@ blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
 p {
   @apply mb-5;
 }
+/*WAIT ON THIS
 .UTCtextblock__links p {
   text-indent:24px;
+}
+.UTCtextblock__links p.no-indent {
+  text-indent:0px;
 }
 .UTCtextblock__links p.contains-btn {
   text-indent:unset;
 }
+*/
 .UTCtextblock__links hr {
   @apply my-6;
 }
