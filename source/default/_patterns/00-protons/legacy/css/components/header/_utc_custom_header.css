@@ -454,6 +454,9 @@ div.site-alert div.text {
     .header__container {
        padding-top:1rem!important;padding-bottom:1rem!important;
     }
+    .menus-wrapper {
+        height: 145%;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -482,5 +485,8 @@ div.site-alert div.text {
     }
     .sidr {
         top: 56px;
+    }
+    .menus-wrapper {
+        height: 155%;
     }
 }
