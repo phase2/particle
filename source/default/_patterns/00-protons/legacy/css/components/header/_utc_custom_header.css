@@ -135,9 +135,6 @@ ul.sf-menu span.sf-sub-indicator {
 .offcanvas-sidebar-overlay.active {
     opacity: .7!important;
 }
-.sidr {
-    top: 67px;
-}
 .sidr .block {
     @apply mb-0 h-auto;
 }
@@ -342,28 +339,15 @@ ul.sf-menu span.sf-sub-indicator {
 /***end apply now ribbon***/
 
 /**begin scrolling sticky menu***/
-/***WAIT UNTIL NOTIFICATION INTEGRATION WITH STICKY IS FIXED
-.apply-now-ribbon {
-    width: 100%;
-    position:relative;
-}
-.fadeInDown {
-    animation: fadeInDown .4s;
-    position:fixed;
-}
- @keyframes fadeInDown {
-    0% {
-       opacity: 0;
-       transform: translateY(-70px);
-    }
-    100% {
-       opacity: 1;
-       transform: translateY(0);
-    }
- } 
- ****/
-/***end scrolling sticky menu***/
 
+/*******Sticky header on scroll (this is only when alerts and notifications are present) *******/
+.header-container.affix, .offcanvas-sidebar-open .header-container {
+    position:fixed;
+    top:0;
+    right:0;
+    width:100%;
+}
+/**overrride padding from module css**/
 div.site-alert div.text {
    @apply p-4;
 }
@@ -380,9 +364,9 @@ div.site-alert div.text {
     .header--custom-header .header__main {
         @apply mr-28;
     }
-    .header-container {
-        /*@apply fixed w-full top-0 h-auto;*/
-     }
+    .sidr {
+        top: 59px;
+    }
      .top-bar-wrapper,.header--custom-header .header__container-wrapper--header__main {
          height:unset;
      }
@@ -416,6 +400,15 @@ div.site-alert div.text {
     .region-search .block--search form input[type=submit] {
         @apply visible mr-6;
     }
+    .sidr ul.sf-menu.menu.sf-secondary-menu li {
+        @apply bg-white;
+    }
+    .sidr ul.sf-menu.menu.sf-secondary-menu li:hover {
+        @apply bg-utc-new-blue-100;
+    }
+    .sidr ul.sf-menu.menu.sf-secondary-menu li:first-child ul li:last-child {
+        @apply mb-4;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -423,7 +416,7 @@ div.site-alert div.text {
         @apply hidden;
       }
     .sidr {
-        top: 59px;
+        top: 67px;
     }
     .header-container {
        /* @apply fixed w-full top-0;*/

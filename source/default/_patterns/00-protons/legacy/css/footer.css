@@ -164,7 +164,7 @@
     height:fit-content;
     order:3;
   }
-  .region--footer-second {
+  .region--footer-second, .region-footer-second {
     @apply w-3/4 my-0 mx-auto;
   }
   #global-footer-map {
