@@ -404,7 +404,7 @@ ul.pager__items li a:hover {
 }
 @media screen and (max-width: 768px) {
   main {
-    @apply pt-16;
+    @apply pt-4;
   }
   .container-full, .themag-layout--my-default {
     @apply px-4;
