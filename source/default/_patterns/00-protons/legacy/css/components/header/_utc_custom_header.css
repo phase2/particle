@@ -339,6 +339,7 @@ ul.sf-menu span.sf-sub-indicator {
 /***end apply now ribbon***/
 
 /**begin scrolling sticky menu***/
+
 /*******Sticky header on scroll (this is only when alerts and notifications are present) *******/
 .header-container.affix, .offcanvas-sidebar-open .header-container {
     position:fixed;
@@ -350,7 +351,6 @@ ul.sf-menu span.sf-sub-indicator {
 div.site-alert div.text {
    @apply p-4;
 }
-/***end scrolling sticky menu***/
 
 @media screen and (max-width: 1024px) {
     .header__container-wrapper--header__main {
