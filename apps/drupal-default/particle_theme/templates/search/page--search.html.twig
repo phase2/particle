@@ -55,8 +55,10 @@
 {% extends '@themag/base-layout/page/page.html.twig' %}
 
 {% block page_content %}
-{# Note: my-24 will not apply. #}
-    <div class="container-full" style="margin:6rem auto;">
+{# Note: my-24 will not apply, using inline instead. #}
+<main class="container" role="main" style="margin:6rem auto;">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <div class="container-full" >
       {% block content_top %}
         {% if page.content_top %}
           <div class="row">
@@ -87,4 +89,5 @@
         {% endif %}
       {% endblock %}
     </div>
+  </main>
   {% endblock %}
