@@ -55,7 +55,8 @@
 {% extends '@themag/base-layout/page/page.html.twig' %}
 
 {% block page_content %}
-    <div class="container-full my-6">
+{# Note: my-24 will not apply. #}
+    <div class="container-full" style="margin:6rem auto;">
       {% block content_top %}
         {% if page.content_top %}
           <div class="row">
