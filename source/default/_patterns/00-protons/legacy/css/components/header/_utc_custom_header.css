@@ -179,6 +179,9 @@ ul.sf-menu span.sf-sub-indicator {
 .sidr ul.menu .nolink {
     @apply border-0 py-4 inline-block  pl-3 bg-transparent;
 }
+.sidr ul.menu .nolink {
+    @apply pl-6;
+}
 .sidr ul.sf-menu.menu.sf-secondary-menu>li, 
 .sidr ul.sf-menu li,
 .sidr ul.sf-menu.menu.sf-secondary-menu>li.sf-depth-1 {
@@ -201,12 +204,18 @@ ul.sf-menu span.sf-sub-indicator {
 }
 .menus-wrapper {
     /***This ensures that the looooong mobile is completely scrollable***/
-    height:115%;
+    display:block;
+    padding-bottom:60px;
 }
 .menus-wrapper ul, #superfish-secondary-menu--2-accordion {
     width:12.8rem;
     float:right;
     box-shadow: -3px 3px 5px rgb(0 0 0/15%)!important;
+}
+#block-utcbrandbarmenu-offcanvas, 
+#block-utcsecondarymenu-offcanvas, 
+#block-utclibbrandbarmenu-offcanvas {
+    @apply overflow-hidden;
 }
 
 .sidr ul.sf-menu li.sf-depth-1>ul {
@@ -454,9 +463,6 @@ div.site-alert div.text {
     .header__container {
        padding-top:1rem!important;padding-bottom:1rem!important;
     }
-    .menus-wrapper {
-        height: 145%;
-    }
 }
 
 @media screen and (max-width: 480px) {
@@ -485,8 +491,5 @@ div.site-alert div.text {
     }
     .sidr {
         top: 56px;
-    }
-    .menus-wrapper {
-        height: 155%;
     }
 }
