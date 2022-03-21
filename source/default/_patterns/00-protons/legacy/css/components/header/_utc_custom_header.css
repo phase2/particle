@@ -217,9 +217,12 @@ ul.sf-menu span.sf-sub-indicator {
 #block-utclibbrandbarmenu-offcanvas {
     @apply overflow-hidden;
 }
-
+/****fixes for homepage issue 3/21/22***/
 .sidr ul.sf-menu li.sf-depth-1>ul {
-    @apply bg-white;
+    @apply relative pl-2;
+}
+.sidr ul.sf-menu span.sf-depth-1.sf-clicked {
+    @apply bg-utc-new-blue-100;
 }
 /*****end offcanvas responsive menu****/
 
