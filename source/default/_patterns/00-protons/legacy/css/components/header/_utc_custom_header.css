@@ -217,13 +217,22 @@ ul.sf-menu span.sf-sub-indicator {
 #block-utclibbrandbarmenu-offcanvas {
     @apply overflow-hidden;
 }
-/****fixes for homepage issue 3/21/22***/
-.sidr ul.sf-menu li.sf-depth-1>ul {
-    @apply relative pl-2;
+/****overrides for mobile DOM issue on brand bar rollout 3/21/22**/
+/***hide the toggle button***/
+#block-utcsecondarymenu-offcanvas .sf-accordion-toggle{
+    @apply hidden;
 }
-.sidr ul.sf-menu span.sf-depth-1.sf-clicked {
-    @apply bg-utc-new-blue-100;
+/***Undo .sf-hidden classes on ul and force mobile menus to be always open***/
+.sidr ul.sf-menu.menu.sf-secondary-menu.sf-hidden, 
+.sidr ul.sf-menu.menu.sf-hidden {
+    background: #e7eaee!important;
+    left: auto !important;
+    position: relative!important;
+    top: auto !important;
+    display:block!important;
+    height:auto!important;
 }
+
 /*****end offcanvas responsive menu****/
 
 /*search*/
