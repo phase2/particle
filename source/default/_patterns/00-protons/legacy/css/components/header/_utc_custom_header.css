@@ -217,10 +217,22 @@ ul.sf-menu span.sf-sub-indicator {
 #block-utclibbrandbarmenu-offcanvas {
     @apply overflow-hidden;
 }
-
-.sidr ul.sf-menu li.sf-depth-1>ul {
-    @apply bg-white;
+/****overrides for mobile DOM issue on brand bar rollout 3/21/22**/
+/***hide the toggle button***/
+#block-utcsecondarymenu-offcanvas .sf-accordion-toggle{
+    @apply hidden;
 }
+/***Undo .sf-hidden classes on ul and force mobile menus to be always open***/
+.sidr ul.sf-menu.menu.sf-secondary-menu.sf-hidden, 
+.sidr ul.sf-menu.menu.sf-hidden {
+    background: #e7eaee!important;
+    left: auto !important;
+    position: relative!important;
+    top: auto !important;
+    display:block!important;
+    height:auto!important;
+}
+
 /*****end offcanvas responsive menu****/
 
 /*search*/
