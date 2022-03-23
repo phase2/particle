@@ -161,9 +161,29 @@ div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .t
 {
     @apply text-white;
 }
+
 div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .text :is(p a:hover)
 {
     @apply text-indigo-800
+}
+
+/***new alert link colors with new brand implementation 3/21/22***/
+div.site-alert h2:first-child {
+  @apply mt-0;
+}
+div.site-alert div.severity-high a, div.site-alert div.severity-low a {
+  @apply text-white;
+  transition: var(--utc-transition);
+}
+div.site-alert div.severity-high a:hover, div.site-alert div.severity-low a:hover {
+  @apply text-utc-new-gold-300;
+}
+div.site-alert div.severity-medium a, div.site-alert div.severity-medium p {
+  @apply text-utc-new-blue-500;
+  transition: var(--utc-transition);
+}
+div.site-alert div.severity-medium a:hover {
+  @apply text-utc-new-blue-400;
 }
 
 /* For use in views where : (colon) is not accepted. */
@@ -232,11 +252,11 @@ ol, ul, li {
   100% {opacity:1;}
 }
 a {
-  @apply text-utc-links-static;
+  @apply text-utc-links-static font-normal;
 }
 a:hover,
 a:focus {
-  @apply text-utc-new-gold-500;
+  @apply text-utc-new-blue-800 font-medium no-underline;
 }
 
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
@@ -308,6 +328,12 @@ h5,
 h6 {
   @apply font-bold text-utc-new-blue-500 font-utcheadings;
 }
+h2 a, h3 a, h4 a, h5 a, h6 a, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  @apply font-bold font-utcheadings;
+}
+a:hover p {
+  @apply font-normal font-utcbody;
+}
 b, strong {
   @apply font-bold;
 }
@@ -323,7 +349,7 @@ p.no-space {
 p.less-space {
   @apply my-2;
 }
-p.more-space {
+p.more-space, li.more-space {
   @apply my-6;
 }
 h3.blue-bar {
