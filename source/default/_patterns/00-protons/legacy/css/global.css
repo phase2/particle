@@ -333,6 +333,15 @@ h3.gold-bar {
   @apply bg-utc-new-gold-500 p-3 m-0 mb-6 text-utc-new-blue-500 w-full;
 }
 
+  /****hide extra arrow on iphones***/
+  .sidr ul.sf-menu span.sf-sub-indicator {
+    content: "▼";
+  }
+  .sidr ul.sf-menu span.sf-sub-indicator:after {
+    color:transparent;
+  }
+
+
 /*WAIT ON THIS
 .UTCtextblock__links p {
   text-indent:24px;
