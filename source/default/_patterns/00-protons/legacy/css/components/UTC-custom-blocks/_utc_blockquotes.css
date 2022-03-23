@@ -22,11 +22,11 @@ p.quote-credit {
     @apply -mt-11 text-center bg-utc-bg-quoteblock pl-8 pb-12 text-base;
 }
 blockquote p.quote-credit {
-    @apply mt-6 border-0 not-italic pb-4;
+    @apply mt-5 border-0 not-italic pb-4 pl-16;
 }
 p.quote-credit:before, 
 p.quote-credit:after {
-    @apply font-utcbody text-base relative p-0 text-utc-new-blue-500 mx-0;
+    @apply font-utcbody text-base relative p-0 text-utc-new-blue-500;
     content: "\2014";
     left: unset;
     top: unset;
