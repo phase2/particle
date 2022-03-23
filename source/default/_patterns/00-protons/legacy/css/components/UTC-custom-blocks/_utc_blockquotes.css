@@ -26,7 +26,7 @@ blockquote p.quote-credit {
 }
 p.quote-credit:before, 
 p.quote-credit:after {
-    @apply font-utcbody text-base relative p-0 text-utc-new-blue-500;
+    @apply font-utcbody text-base relative p-0 text-utc-new-blue-500 mx-0;
     content: "\2014";
     left: unset;
     top: unset;
