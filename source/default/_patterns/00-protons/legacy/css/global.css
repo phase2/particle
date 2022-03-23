@@ -406,6 +406,10 @@ ul.pager__items li a:hover {
 .path-search {
   @apply pt-16;
 }
+.user-logged-in.path-search .header-container,
+.user-logged-in.path-search .header-container.affix {
+  @apply relative;
+} 
 /*end search page adjustments*/
 
 @media screen and (max-width: 1024px) {
