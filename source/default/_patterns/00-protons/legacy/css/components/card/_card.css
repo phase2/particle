@@ -118,6 +118,12 @@ in particle */
   box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
   0 4px 6px -2px rgba(#000000, 0.05);
 }
+a .utc-card-2--white.utc-card-2--card-link p {
+  @apply font-normal;
+}
+a .utc-card-2--white.utc-card-2--card-link:hover p {
+  @apply font-normal;
+} 
 
 .utc-card-2--lightblue {
   word-wrap: break-word;
