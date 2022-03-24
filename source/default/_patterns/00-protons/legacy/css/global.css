@@ -242,7 +242,9 @@ div.site-alert div.severity-medium a:hover {
 }
 body {
   font-size: 18px;
-  @apply font-utcbody text-utc-new-blue-500 text-left bg-utc-bg-page text-base font-light m-0 overflow-x-hidden overflow-y-scroll;
+  @apply font-utcbody text-utc-new-blue-500 text-left bg-utc-bg-page text-base font-light m-0;
+  /**in order to implement sticky on the header_container, we must unset the overflows on its ancestor***/
+  overflow: unset;
 }
 ol, ul, li {
   @apply text-utc-new-blue-500;
@@ -331,9 +333,10 @@ h6 {
 h2 a, h3 a, h4 a, h5 a, h6 a, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   @apply font-bold font-utcheadings;
 }
-a:hover p {
+a:hover p:not(#apply-now-ribbon) {
   @apply font-normal font-utcbody;
 }
+
 b, strong {
   @apply font-bold;
 }
@@ -408,9 +411,9 @@ h3.gold-bar {
 ol.search-results li {
   @apply border-t border-b border-gray-300 px-0 py-2;
 }
-.path-search .header-container {
+/*.path-search .header-container {
   @apply fixed w-full top-0;
-}
+}*/
 .path-search ul.pager__items{
   @apply border-0;
 }
@@ -432,10 +435,11 @@ ul.pager__items li a:hover {
 .path-search {
   @apply pt-16;
 }
+/*
 .user-logged-in.path-search .header-container,
 .user-logged-in.path-search .header-container.affix {
   @apply relative;
-} 
+} */
 /*end search page adjustments*/
 
 @media screen and (max-width: 1024px) {
