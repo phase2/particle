@@ -283,6 +283,7 @@ ul.sf-menu span.sf-sub-indicator {
 .block--region-search form {
     @apply bg-white;
 }
+a.close-search-btn, a.close-search-btn:hover, a.close-search-btn:active {border:none!important;}
 /*end search box*/
 
 /****responsive menu icon****/
@@ -376,6 +377,10 @@ ul.sf-menu span.sf-sub-indicator {
     right:0;
     width:100%;
 }
+.header-container a, .header-container a:hover, .header-container a:active {
+    @apply no-underline
+}
+
 /**overrride padding from module css**/
 div.site-alert div.text {
    @apply p-4;
