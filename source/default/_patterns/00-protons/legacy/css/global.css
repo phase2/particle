@@ -260,7 +260,9 @@ a:hover,
 a:focus {
   @apply text-utc-new-blue-800 font-medium no-underline;
 }
-
+a.focus-visible, a:focus-visible {
+  outline: 2px dashed #fdb736;
+}
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler),
@@ -435,11 +437,17 @@ ul.pager__items li a:hover {
 .path-search {
   @apply pt-16;
 }
-/*
+.path-search.notification-alert-on {
+  @apply pt-0;
+}
+.block--region-content-header.block--page-title-block .page-title, 
+.block--layout-builder.block--page-title-block .page-title {
+  @apply text-utc-new-blue-500;
+}
 .user-logged-in.path-search .header-container,
 .user-logged-in.path-search .header-container.affix {
   @apply relative;
-} */
+} 
 /*end search page adjustments*/
 
 @media screen and (max-width: 1024px) {
