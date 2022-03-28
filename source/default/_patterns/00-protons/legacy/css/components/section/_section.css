@@ -5,22 +5,18 @@
     /* background-color: white; */
     @apply bg-white;
   }
-  
   .utc-section-bg--gray {
     /* background-color: gray; */
     @apply bg-gray-450;
   }
-  
   .utc-section-bg--gray-light {
     /* background-color: gray; */
     @apply bg-gray-250;
   }
-  
   .utc-section-bg--blue {
     /* background-color: blue; */
     @apply bg-utc-new-blue-500;
   }
-  
   .utc-section-bg--blue-light {
     /* background-color: lightblue; */
     /* orginal color bg-blue-100; */
