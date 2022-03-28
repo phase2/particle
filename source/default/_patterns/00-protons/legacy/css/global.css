@@ -161,9 +161,29 @@ div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .t
 {
     @apply text-white;
 }
+
 div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .text :is(p a:hover)
 {
     @apply text-indigo-800
+}
+
+/***new alert link colors with new brand implementation 3/21/22***/
+div.site-alert h2:first-child {
+  @apply mt-0;
+}
+div.site-alert div.severity-high a, div.site-alert div.severity-low a {
+  @apply text-white;
+  transition: var(--utc-transition);
+}
+div.site-alert div.severity-high a:hover, div.site-alert div.severity-low a:hover {
+  @apply text-utc-new-gold-300;
+}
+div.site-alert div.severity-medium a, div.site-alert div.severity-medium p {
+  @apply text-utc-new-blue-500;
+  transition: var(--utc-transition);
+}
+div.site-alert div.severity-medium a:hover {
+  @apply text-utc-new-blue-400;
 }
 
 /* For use in views where : (colon) is not accepted. */
@@ -222,7 +242,9 @@ div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .t
 }
 body {
   font-size: 18px;
-  @apply font-utcbody text-utc-new-blue-500 text-left bg-utc-bg-page text-base font-light m-0 overflow-x-hidden overflow-y-scroll;
+  @apply font-utcbody text-utc-new-blue-500 text-left bg-utc-bg-page text-base font-light m-0;
+  /**in order to implement sticky on the header_container, we must unset the overflows on its ancestor***/
+  overflow: unset;
 }
 ol, ul, li {
   @apply text-utc-new-blue-500;
@@ -232,13 +254,15 @@ ol, ul, li {
   100% {opacity:1;}
 }
 a {
-  @apply text-utc-links-static;
+  @apply text-utc-links-static font-normal;
 }
 a:hover,
 a:focus {
-  @apply text-utc-new-gold-500;
+  @apply text-utc-new-blue-800 font-medium no-underline;
 }
-
+a.focus-visible, a:focus-visible {
+  outline: 2px dashed #fdb736;
+}
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler),
@@ -308,6 +332,13 @@ h5,
 h6 {
   @apply font-bold text-utc-new-blue-500 font-utcheadings;
 }
+h2 a, h3 a, h4 a, h5 a, h6 a, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  @apply font-bold font-utcheadings;
+}
+a:hover p:not(#apply-now-ribbon) {
+  @apply font-normal font-utcbody;
+}
+
 b, strong {
   @apply font-bold;
 }
@@ -323,7 +354,7 @@ p.no-space {
 p.less-space {
   @apply my-2;
 }
-p.more-space {
+p.more-space, li.more-space {
   @apply my-6;
 }
 h3.blue-bar {
@@ -332,6 +363,15 @@ h3.blue-bar {
 h3.gold-bar {
   @apply bg-utc-new-gold-500 p-3 m-0 mb-6 text-utc-new-blue-500 w-full;
 }
+
+  /****hide extra arrow on iphones***/
+  .sidr ul.sf-menu span.sf-sub-indicator {
+    content: "▼";
+  }
+  .sidr ul.sf-menu span.sf-sub-indicator:after {
+    color:transparent;
+  }
+
 
 /*WAIT ON THIS
 .UTCtextblock__links p {
@@ -373,9 +413,9 @@ h3.gold-bar {
 ol.search-results li {
   @apply border-t border-b border-gray-300 px-0 py-2;
 }
-.path-search .header-container {
+/*.path-search .header-container {
   @apply fixed w-full top-0;
-}
+}*/
 .path-search ul.pager__items{
   @apply border-0;
 }
@@ -397,6 +437,17 @@ ul.pager__items li a:hover {
 .path-search {
   @apply pt-16;
 }
+.path-search.notification-alert-on {
+  @apply pt-0;
+}
+.block--region-content-header.block--page-title-block .page-title, 
+.block--layout-builder.block--page-title-block .page-title {
+  @apply text-utc-new-blue-500;
+}
+.user-logged-in.path-search .header-container,
+.user-logged-in.path-search .header-container.affix {
+  @apply relative;
+} 
 /*end search page adjustments*/
 
 @media screen and (max-width: 1024px) {

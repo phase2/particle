@@ -1,22 +1,34 @@
 blockquote {
     @apply w-full my-8 mx-auto italic py-8 pt-12 bg-gray-250 border-0;
 }
-
 blockquote:before {
     @apply hidden
 }
-
 blockquote p {
-    @apply pl-16 relative;
+    @apply pl-16 relative text-center my-0 mx-auto text-xl -left-6;
     border-left: 12px solid #C4CBD4;
+    width: fit-content;
 }
-
 blockquote p:before {
     @apply mr-2 -ml-2 text-8xl absolute font-utcquote left-6 -top-5 text-utc-new-blue-200;
     content: '\201C';
 }
-
 blockquote p:after {
     @apply text-8xl -ml-1 absolute font-utcquote text-utc-new-blue-200;
     content: "\201D";
 }
+/***for styles dropdown in the text-editor***/
+p.quote-credit {
+    @apply -mt-11 text-center bg-utc-bg-quoteblock pl-8 pb-12 text-base;
+}
+blockquote p.quote-credit {
+    @apply mt-5 border-0 not-italic pb-4 pl-16;
+}
+p.quote-credit:before, 
+p.quote-credit:after {
+    @apply font-utcbody text-base relative p-0 text-utc-new-blue-500;
+    content: "\2014";
+    left: unset;
+    top: unset;
+}
+

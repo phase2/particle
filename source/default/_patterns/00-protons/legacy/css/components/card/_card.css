@@ -110,6 +110,7 @@ in particle */
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
   0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: var(--utc-transition);
 }
 
 .utc-card-2--white.utc-card-2--card-link:hover {
@@ -117,6 +118,12 @@ in particle */
   box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
   0 4px 6px -2px rgba(#000000, 0.05);
 }
+a .utc-card-2--white.utc-card-2--card-link p {
+  @apply font-normal;
+}
+a .utc-card-2--white.utc-card-2--card-link:hover p {
+  @apply font-normal;
+} 
 
 .utc-card-2--lightblue {
   word-wrap: break-word;
@@ -125,6 +132,7 @@ in particle */
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
   0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: var(--utc-transition);
 }
 
 .utc-card-2--lightblue.utc-card-2--card-link:hover {
@@ -139,6 +147,7 @@ in particle */
   border: 0px;
   border-radius: 0;
   box-shadow: none;
+  transition: var(--utc-transition);
 }
 
 .utc-card-2--none.utc-card-2--card-link:hover {
@@ -157,14 +166,17 @@ in particle */
 
 .utc-card-2__icon--blue .fontawesome-icons {
   @apply text-utc-new-blue-500;
+  transition: var(--utc-transition);
 }
 
 .utc-card-2__icon--yellow .fontawesome-icons {
   @apply text-utc-new-gold-500;
+  transition: var(--utc-transition);
 }
 
 .utc-card-2__icon .utc-card-2:hover {
-  @apply text-black;
+  @apply text-utc-new-blue-500;
+
 }
 
 .utc-card-2__icon--blue .fontawesome-icons:hover {
@@ -173,6 +185,7 @@ in particle */
 
 .utc-card-2__icon--yellow .fontawesome-icons:hover {
   @apply text-utc-new-gold-500;
+
 }
 
 /* ========== Thumbnail Card ========= */

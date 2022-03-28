@@ -32,8 +32,8 @@
       news_body: view.style_plugin.getField(key, 'field_utc_rss_feed_item_body'),
       news_imageurl: view.style_plugin.getField(key, 'field_utc_rss_feed_item_img_url'),
     } %}
-    <div class="bg-white shadow hover:bg-gray-200 border-b-4 border-utc-new-gold-500">
-      <a href={{ content.news_link }}>
+    <div class="bg-white shadow hover:bg-utc-new-blue-100 border-b-4 border-utc-new-gold-500">
+      <a href={{ content.news_link }} class="hover:bg-transparent text-utc-new-blue-500">
         <div class="text-center overflow-hidden">
           {{ content.news_image }}
           {# <img class="w-full" src="/mountain.jpg" alt="Mountain"> #}
