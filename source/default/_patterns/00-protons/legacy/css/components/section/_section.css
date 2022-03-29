@@ -22,3 +22,21 @@
     /* orginal color bg-blue-100; */
     @apply bg-utc-new-blue-100;
   }
+  .utc-section-bg--red {
+    /* background-color: lightblue; */
+    /* orginal color bg-blue-100; */
+    @apply bg-red-800;
+  }
+  .utc-section-bg--gold {
+    /* background-color: lightblue; */
+    /* orginal color bg-blue-100; */
+    @apply bg-utc-new-gold-100;
+  }
+  .utc-section-bg--green {
+    /* background-color: lightblue; */
+    /* orginal color bg-blue-100; */
+    @apply bg-green-800;
+  }
+  .utc-section-bg--red p, .utc-section-bg--green p {
+    @apply text-white;
+  }
