@@ -1,13 +1,17 @@
 blockquote {
-    @apply w-full my-8 mx-auto italic py-8 pt-12 bg-gray-250 border-0;
+    @apply w-full my-8 mx-auto italic py-4 bg-gray-250 border-0;
 }
 blockquote:before {
     @apply hidden
 }
 blockquote p {
-    @apply pl-16 relative text-center my-0 mx-auto text-xl -left-6;
+    @apply pl-16 relative text-center my-0 mx-auto text-xl -mt-4 mb-4;
     border-left: 12px solid #C4CBD4;
     width: fit-content;
+    max-width:90%;
+}
+.themag-layout--onecol-section blockquote p {
+    @apply my-0;
 }
 blockquote p:before {
     @apply mr-2 -ml-2 text-8xl absolute font-utcquote left-6 -top-5 text-utc-new-blue-200;
