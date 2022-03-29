@@ -434,13 +434,6 @@ ul.pager__items li a:hover {
 .search-results h3.search-result__title a:hover {
   @apply text-utc-new-gold-500;
 }
-.path-search {
-  @apply pt-16;
-}
-/***need to remove padding on search page when notification/alert is active***/
-.path-search.notification-alert-on {
-  @apply pt-0;
-}
 .block--region-content-header.block--page-title-block .page-title, 
 .block--layout-builder.block--page-title-block .page-title {
   @apply text-utc-new-blue-500;
