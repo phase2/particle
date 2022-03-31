@@ -30,13 +30,33 @@
   .utc-section-bg--gold {
     /* background-color: lightblue; */
     /* orginal color bg-blue-100; */
-    @apply bg-utc-new-gold-100;
+    @apply bg-utc-new-gold-500;
   }
   .utc-section-bg--green {
     /* background-color: lightblue; */
     /* orginal color bg-blue-100; */
     @apply bg-green-800;
   }
-  .utc-section-bg--red p, .utc-section-bg--green p {
+  .utc-section-bg--red h1, 
+  .utc-section-bg--green h1,
+  .utc-section-bg--blue h1, 
+  .utc-section-bg--red h2, 
+  .utc-section-bg--green h2,
+  .utc-section-bg--blue h2, 
+  .utc-section-bg--red h3, 
+  .utc-section-bg--green h3,
+  .utc-section-bg--blue h3, 
+  .utc-section-bg--red h4, 
+  .utc-section-bg--green h4,
+  .utc-section-bg--blue h4, 
+  .utc-section-bg--red h5, 
+  .utc-section-bg--green h5,
+  .utc-section-bg--blue h5, 
+  .utc-section-bg--red h6, 
+  .utc-section-bg--green h6,
+  .utc-section-bg--blue h6, 
+  .utc-section-bg--red p, 
+  .utc-section-bg--green p,
+  .utc-section-bg--blue p  {
     @apply text-white;
   }
