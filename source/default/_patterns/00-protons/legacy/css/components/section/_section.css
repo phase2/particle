@@ -55,8 +55,8 @@
   .utc-section-bg--red h6, 
   .utc-section-bg--green h6,
   .utc-section-bg--blue h6, 
-  .utc-section-bg--green p
   .utc-section-bg--red p, 
-  .utc-section-bg--blue p {
+  .utc-section-bg--green p,
+  .utc-section-bg--blue p  {
     @apply text-white;
   }
