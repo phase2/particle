@@ -48,6 +48,7 @@ import './legacy/css/components/UTC-custom-blocks/_utc_hover_images.css';
 //Legacy JS
 import './legacy/js/utc-sidebar-menu.js';
 import './legacy/js/slick-custom-arrows.js';
+import './legacy/js/utc-quoteblock.js';
 // import './legacy/js/ckeditor-jquery.js';
 
 // Export global variables.

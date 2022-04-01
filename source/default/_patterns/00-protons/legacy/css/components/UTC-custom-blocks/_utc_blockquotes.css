@@ -1,11 +1,11 @@
 blockquote {
-    @apply w-full my-8 mx-auto italic py-4 bg-gray-250 border-0;
+    @apply w-full my-8 mx-auto italic pt-4 pb-10 bg-gray-250 border-0 pr-8;
 }
 blockquote:before {
     @apply hidden
 }
 blockquote p {
-    @apply pl-16 relative text-center my-0 mx-auto text-xl -mt-4 mb-4;
+    @apply pl-16 relative text-center my-0 mx-auto text-xl mt-8 mb-0;
     border-left: 12px solid #C4CBD4;
     width: fit-content;
     max-width:90%;
@@ -18,15 +18,15 @@ blockquote p:before {
     content: '\201C';
 }
 blockquote p:after {
-    @apply text-8xl -ml-1 absolute font-utcquote text-utc-new-blue-200;
+    @apply text-8xl ml-1 absolute font-utcquote text-utc-new-blue-200;
     content: "\201D";
 }
 /***for styles dropdown in the text-editor***/
 p.quote-credit {
-    @apply -mt-11 text-center bg-utc-bg-quoteblock pl-8 pb-12 text-base;
+    @apply -mt-14 text-center bg-utc-bg-quoteblock pl-8 pb-8 text-base;
 }
 blockquote p.quote-credit {
-    @apply mt-5 border-0 not-italic pb-4 pl-16;
+    @apply mt-5 border-0 not-italic pb-0 pl-16 -mb-2;
 }
 p.quote-credit:before, 
 p.quote-credit:after {
@@ -34,5 +34,8 @@ p.quote-credit:after {
     content: "\2014";
     left: unset;
     top: unset;
+}
+blockquote p.quote-credit:before {
+    @apply mr-1;
 }
 
