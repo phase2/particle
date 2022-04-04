@@ -13,8 +13,11 @@
 }
 .footer-wrapper a{
   @apply text-white;
+  transition: var(--utc-transition);
 }
-
+.footer-wrapper a:hover{
+  @apply text-utc-new-gold-500;
+}
 .footer-bottom-wrapper {
   @apply bg-utc-new-blue-800 text-white;
 
