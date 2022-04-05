@@ -222,15 +222,20 @@ ul.sf-menu span.sf-sub-indicator {
 #block-utcsecondarymenu-offcanvas .sf-accordion-toggle{
     @apply hidden;
 }
-/***Undo .sf-hidden classes on ul and force mobile menus to be always open***/
+.sidr ul.sf-menu span.sf-depth-1.sf-with-ul.sf-clicked {
+    background: #e7eaee;
+}
+/***Undo .sf-hidden classes on ul and force mobile menus (top level) to be always open***/
 .sidr ul.sf-menu.menu.sf-secondary-menu.sf-hidden, 
 .sidr ul.sf-menu.menu.sf-hidden {
-    background: #e7eaee!important;
     left: auto !important;
     position: relative!important;
     top: auto !important;
-    display:block!important;
+    display:flex!important;
+    flex-direction:column;
     height:auto!important;
+    background: #e7eaee!important;
+    padding-left:1rem;
 }
 
 /*****end offcanvas responsive menu****/
@@ -401,6 +406,22 @@ div.site-alert div.text {
     .sidr {
         top: 62px;
     }
+
+    /***Undo site alerts issues with fixed position of mobile menu.****/
+    .notification-alert-on .sidr {
+        @apply opacity-0;
+        transition: right .4s, opacity .2s!important;
+    }
+    .notification-alert-on.offcanvas-sidebar-open .sidr {
+        @apply relative top-0 opacity-100;
+    }
+    /*Since the menu is now scrollable with an alert, let's show the site.*/
+    .notification-alert-on .offcanvas-sidebar-overlay {
+        background:transparent!important;
+        opacity:100%!important;
+    }
+    /***end special alert implementation***/
+
     .top-bar-wrapper,.header--custom-header .header__container-wrapper--header__main {
          height:unset;
      }
