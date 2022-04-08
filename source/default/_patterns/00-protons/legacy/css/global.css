@@ -2,9 +2,11 @@
 :root {
   --utc-transition: all 0.4s ease-in-out;
   --utc-color: color 0.4s ease-in-out;
-  --utc-link: color 0.4s ease-in-out, font-weight 0.4s ease-in-out;
+  --utc-link: color 0.4s ease-in-out;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .gsc-results .gsc-cursor-box .gsc-cursor-page {
   color: #000000 !important;
   background-color: #fff !important;
@@ -265,24 +267,14 @@ a.focus-visible, a:focus-visible {
 }
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
-.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler),
-.UTCtextblock__links
-  a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
-  @apply text-utc-links-static font-normal no-underline;
-  transition: var(--utc-link);
-}
-.utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
-.utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
-.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler),
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):not(.ckeditor-accordion-toggler) {
-  @apply border-b border-utc-links-static no-underline;
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler) {
+  @apply text-utc-links-static font-normal border-0 no-underline;
   transition: var(--utc-link);
 }
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
-.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):hover:not(.ckeditor-accordion-toggler):hover {
-  @apply text-utc-new-blue-800 border-0 font-medium no-underline;
+.utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):hover {
+  @apply text-utc-new-blue-800 font-medium;
 }
 a:active,
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):active,
