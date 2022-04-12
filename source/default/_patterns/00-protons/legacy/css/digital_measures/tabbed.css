@@ -31,6 +31,10 @@
 	color: rgb(255, 255, 255);
 }
 
+.dm-profile-preamble li.dm-profile-activity {
+	color: rgb(255, 255, 255);
+}
+
 .dm-profile-preamble .dm-profile-content .dm-profile-activities {
 	text-align: left;
 }
