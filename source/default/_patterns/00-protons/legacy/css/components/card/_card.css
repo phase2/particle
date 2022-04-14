@@ -211,7 +211,6 @@ a .utc-card-2--white.utc-card-2--card-link:hover p {
 
   .utc-card-2--wide .utc-card-2__body {
     flex: 1 0 65%;
-    max-width: 100%;
   }
 
   .utc-card-2--wide .utc-card-2__icon {
