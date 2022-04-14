@@ -200,6 +200,10 @@ a .utc-card-2--white.utc-card-2--card-link:hover p {
 
 /* ========== Wide Card ========= */
 
+.utc-card-2--wide .utc-card-2__body {
+  max-width: 100%;
+}
+
 @media (min-width: 576px) {
   .utc-card-2--wide {
     flex-direction: row;
