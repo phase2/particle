@@ -355,7 +355,18 @@ h3.blue-bar {
 h3.gold-bar {
   @apply bg-utc-new-gold-500 p-3 m-0 mb-6 text-utc-new-blue-500 w-full;
 }
-
+.white-hz-rule {
+  @apply bg-white w-full;
+  height:1px;
+}
+.gold-hz-rule {
+  @apply bg-utc-new-gold-500 w-full;
+  height:1px;
+}
+.blue-hz-rule {
+  @apply bg-utc-new-blue-500 w-full;
+  height:1px;
+}
   /****hide extra arrow on iphones***/
   .sidr ul.sf-menu span.sf-sub-indicator {
     content: "▼";
