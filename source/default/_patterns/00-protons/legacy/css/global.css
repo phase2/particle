@@ -248,9 +248,6 @@ body {
   /**in order to implement sticky on the header_container, we must unset the overflows on its ancestor***/
   overflow: unset;
 }
-ol, ul, li {
-  @apply text-utc-new-blue-500;
-}
 @keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
