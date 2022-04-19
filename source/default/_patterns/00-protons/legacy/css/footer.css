@@ -15,6 +15,16 @@
   @apply text-white;
   transition: var(--utc-transition);
 }
+
+/*Force footer icons to override latent css load of FA PRO v6 defaults*/
+#block-socialmedialinks .social-media-links--platforms.horizontal li {
+  padding: 0.75em 0.35em 0.2em!important;
+}
+#block-socialmedialinks .social-media-links--platforms a {
+  font-size: .5rem!important;
+}
+/***end force***/
+
 .footer-wrapper a:hover{
   @apply text-utc-new-gold-500;
 }
