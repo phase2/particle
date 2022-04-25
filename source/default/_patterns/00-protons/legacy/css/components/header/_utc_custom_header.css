@@ -208,7 +208,7 @@ ul.sf-menu span.sf-sub-indicator {
     padding-bottom:60px;
 }
 .menus-wrapper ul, #superfish-secondary-menu--2-accordion {
-    width:12.8rem;
+    width:12.8rem!important;
     float:right;
     box-shadow: -3px 3px 5px rgb(0 0 0/15%)!important;
 }
@@ -297,7 +297,7 @@ a.close-search-btn, a.close-search-btn:hover, a.close-search-btn:active {border:
 }
 .js-toggle-offcanvas-sidebar .fas:before {
     /***fontawesome fa-bars content***/
-    content: "\f0c9";  
+    /*content: "\f0c9"; */ 
     transition: var(--utc-transition); 
     outline:none!important;
 }
@@ -306,7 +306,7 @@ a.close-search-btn, a.close-search-btn:hover, a.close-search-btn:active {border:
 }
 .sidr-open .js-toggle-offcanvas-sidebar .fas:before {
     /***fontawesome fa-times content***/
-    content: "\f00d";
+    /*content: "\f00d";*/
 }
 /****end responsive menu icon****/
 
@@ -432,7 +432,10 @@ div.site-alert div.text {
     .sidr {
         top: 62px;
     }
-
+    .menus-wrapper ul, #superfish-secondary-menu--2-accordion {
+        /*allow for left shadow to show*/
+        width:12.8rem!important;
+    }
     /***Undo site alerts issues with fixed position of mobile menu.****/
     .notification-alert-on .sidr {
         @apply opacity-0;
@@ -504,10 +507,7 @@ div.site-alert div.text {
     .sidr.right {
         width:13rem!important;
     }
-    .menus-wrapper ul, #superfish-secondary-menu--2-accordion {
-        /*allow for left shadow to show*/
-        width:12.8rem!important;
-    }
+    
     .sidr ul.sf-menu.sf-accordion li.sf-expanded:last-child>ul {
         @apply mb-16;
     }
