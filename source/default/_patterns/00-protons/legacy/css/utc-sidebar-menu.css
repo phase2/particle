@@ -55,7 +55,6 @@
 }
 .utc-sidebar .sidebar-menu .open > .more i, .utc-sidebar .sidebar-menu .open > .more svg {
   transform: rotate(90deg);
-  top: 6px;
   position: absolute;
 }
 .utc-sidebar .more{
