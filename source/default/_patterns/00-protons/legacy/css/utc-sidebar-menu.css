@@ -70,7 +70,7 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active {
 }
 li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
   @apply mr-2 font-bold text-2xl;
-  content: "›";
+  content: "→";
 }
 
 @media (min-width: 991px) {
