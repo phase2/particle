@@ -11,7 +11,7 @@
             })
             var menux = $('.sidebar-menu li a.parent');
             if ($('.more').length === 0) {
-                $('<div aria-hidden="true" class="more closed"><i class="fas fa-plus"></i></div>').insertBefore(menux);
+                $('<div aria-hidden="true" class="more closed"><i class="fas fa-angle-right"></i></div>').insertBefore(menux);
             };
             $('.menu-btn').click(function() {
                 $('nav').toggleClass('menu-open');

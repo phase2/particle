@@ -27,17 +27,19 @@
   transition: all 0.3s ease;
 }
 .utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a {
-  @apply bg-gray-300;
+  @apply bg-utc-new-blue-100;
 }
 .utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a:hover {
-  @apply bg-gray-800;
-  @apply text-white;
+  @apply bg-utc-new-blue-200 text-utc-new-blue-500;
   /* color: white;
   background-color: darkgray; */
 }
+.utc-sidebar .menu-item-sidemenu.open > a {
+  @apply bg-utc-new-blue-500 text-white
+}
 .utc-sidebar .menu-btn {
   /* background: lightblue; */
-  @apply bg-blue-100;
+  @apply bg-utc-new-blue-100;
   text-align: center;
   cursor: s-resize;
 }
@@ -48,14 +50,23 @@
 .utc-sidebar .menu-open, .utc-sidebar .sidebar-menu .open > ul {
   max-height: 2000px;
 }
-.utc-sidebar .sidebar-menu .open > .more i {
-  transform: rotate(-135deg);
+.utc-sidebar .sidebar-menu .more svg {
+  transition: var(--utc-transition);
+}
+.utc-sidebar .sidebar-menu .open > .more i, .utc-sidebar .sidebar-menu .open > .more svg {
+  transform: rotate(90deg);
+  top: 6px;
+  position: absolute;
 }
 .utc-sidebar .more{
   /* color: gray; */
    /* text-gray-800; */
   @apply text-yellow-500;
-  transition: transform 0.3s;
+  transition: var(--utc-transition);
+  position: absolute;
+  height: 100%;
+  right: 6px;
+  top: 18px;
 }
 .utc-sidebar .more {
   float: right;
