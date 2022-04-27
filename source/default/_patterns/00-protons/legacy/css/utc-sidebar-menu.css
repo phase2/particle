@@ -84,7 +84,7 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
   background: aqua;
   color: #000;
   font-weight: bold;
-  display:block!important;
+  display:block;
   visibility: visible;
 }
 .user-logged-in .themag-layout .block.menu--main.utc-sidebar h2.block__title.visually-hidden {
