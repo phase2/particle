@@ -55,7 +55,11 @@
   <a href ="#bottom-sidenav" class="sr-only">Skip Sidebar</a>
   {# Menu. #}
   {% block content %}
-    {{ content }}
+  {% if content["#items"]|length < 1%}
+    <div class="empty-menu-block"></div>
+  {% endif %}
+  {{ content }}
+
   {% endblock %}
   <div id ="bottom-sidenav"></div>
 </nav>
