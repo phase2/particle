@@ -41,8 +41,10 @@
   ]
 %}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
+  {% if plugin_id != 'menu_block:main' %}
   <input  class='hidden' type="checkbox" id="mobile_menu">
   <label for="mobile_menu" class="section_menu">Section Menu <i class="fas fa-bars" aria-hidden="true"></i></label>
+  {% endif %}
 
 <nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
@@ -55,11 +57,10 @@
   <a href ="#bottom-sidenav" class="sr-only">Skip Sidebar</a>
   {# Menu. #}
   {% block content %}
-  {% if content["#items"]|length < 1%}
-    <div class="empty-menu-block"></div>
-  {% endif %}
-  {{ content }}
-
+    {% if content["#items"]|length < 1 or plugin_id == 'menu_block:main' %}
+      <div class="empty-menu-block"></div>
+    {% endif %}
+    {{ content }}
   {% endblock %}
   <div id ="bottom-sidenav"></div>
 </nav>
