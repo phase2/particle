@@ -106,6 +106,38 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
     @apply right-0;
    }
 }
+
+.user-logged-in .empty-menu-block {
+	min-height: 60px;
+  background: aqua;
+  color: #000;
+  font-weight: bold;
+  display:block;
+  visibility: visible;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+}
+.user-logged-in .empty-menu-block h2.block__title.visually-hidden {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  line-height:1.5rem;
+  clip: unset;
+}
+.user-logged-in .empty-menu-block:before {
+  content: "Placeholder for the Menu_block configure or remove it.";
+  color: #000;
+  height: 24px;
+  font-size: 18px;
+  width:85%;
+  margin:0 auto;
+}
+
+
 /* 
 HR MENU
 .menu-item-topmenu .menu-item--active-trail .open {
