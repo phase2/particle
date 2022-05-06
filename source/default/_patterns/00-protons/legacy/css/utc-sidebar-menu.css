@@ -28,9 +28,10 @@
 }
 .utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a:hover {
   @apply bg-utc-new-blue-200 text-utc-new-blue-500;
+  transition: var(--utc-transition);
 }
 .utc-sidebar .menu-item-sidemenu.open > a {
-  @apply bg-utc-new-blue-500 text-white
+  @apply bg-utc-new-blue-500 text-utc-new-gold-500;
 }
 .utc-sidebar .menu-btn {
   @apply bg-utc-new-blue-100 text-center;
@@ -57,9 +58,10 @@
 }
 .menu-item-sidemenu a {
   @apply bg-white text-utc-new-blue-500 border border-gray-400 font-normal block py-4 px-5;
+  transition: var(--utc-transition);
 }
 .menu-item-sidemenu a:hover {
-  @apply bg-utc-new-blue-500 text-utc-new-gold-500 no-underline;
+  @apply bg-utc-new-blue-500 text-white no-underline;
 }
 .menu-item-sidemenu .is-active {
   @apply bg-utc-new-blue-500 !important text-utc-new-gold-500 no-underline;
@@ -69,7 +71,8 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active {
   @apply bg-utc-new-blue-200 !important text-utc-new-blue-500 !important;
 }
 li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
-  @apply mr-2 font-bold text-2xl;
+  @apply mr-2 font-bold text-base;
+  line-height: 0;
   content: "→";
 }
 
@@ -106,7 +109,6 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
     @apply right-0;
    }
 }
-
 .user-logged-in .empty-menu-block {
 	min-height: 60px;
   background: aqua;
@@ -129,7 +131,7 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
   clip: unset;
 }
 .user-logged-in .empty-menu-block:before {
-  content: "Placeholder for the Menu_block configure or remove it.";
+  content: "Empty menu block. Please remove.";
   color: #000;
   height: 24px;
   font-size: 18px;
