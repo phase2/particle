@@ -23,39 +23,11 @@
   @apply block max-h-0 overflow-hidden;
   transition: var(--utc-transition);
 }
-.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a {
-  @apply bg-utc-new-blue-100;
-}
-.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a:hover {
-  @apply bg-utc-new-blue-200 text-utc-new-blue-500;
-  transition: var(--utc-transition);
-}
-.utc-sidebar .menu-item-sidemenu.open > a {
-  @apply bg-utc-new-blue-500 text-utc-new-gold-500;
-}
-.utc-sidebar .menu-btn {
-  @apply bg-utc-new-blue-100 text-center;
-  cursor: s-resize;
-}
-.utc-sidebar .menu-btn img {
-  @apply align-middle h-16;
-}
 .utc-sidebar .menu-open, .utc-sidebar .sidebar-menu .open > ul {
   max-height: 2000px;
 }
-.utc-sidebar .sidebar-menu .more svg {
-  transition: var(--utc-transition);
-}
-.utc-sidebar .sidebar-menu .open > .more i, .utc-sidebar .sidebar-menu .open > .more svg {
-  @apply absolute;
-  transform: rotate(90deg);
-}
-.utc-sidebar .more{
-  @apply text-yellow-500 absolute right-2 top-0 bottom-0 flex items-center float-right cursor-pointer;
-  transition: var(--utc-transition);
-  min-width: 8%;
-  height: 3.75rem;
-}
+
+/****base menu attributes***/
 .menu-item-sidemenu a {
   @apply bg-white text-utc-new-blue-500 border border-gray-400 font-normal block py-4 px-5;
   transition: var(--utc-transition);
@@ -63,9 +35,69 @@
 .menu-item-sidemenu a:hover {
   @apply bg-utc-new-blue-500 text-white no-underline;
 }
-.menu-item-sidemenu .is-active {
-  @apply bg-utc-new-blue-500 !important text-utc-new-gold-500 no-underline;
+
+/***base chevron/more attributes***/
+.utc-sidebar .more{
+  @apply text-utc-new-blue-500 absolute right-2 top-0 bottom-0 flex items-center float-right cursor-pointer;
+  transition: var(--utc-transition);
+  min-width: 8%;
+  height: 3.75rem;
 }
+.utc-sidebar .more svg {
+  @apply text-utc-new-blue-500;
+  transition: var(--utc-transition);
+}
+.utc-sidebar .open > .more i, .utc-sidebar .more.open svg {
+  transform: rotate(90deg);
+}
+.utc-sidebar .menu-item--expanded:hover>.more svg:hover {
+  @apply text-utc-new-blue-500;
+}
+
+/***base parent hover/open attributes***/
+.utc-sidebar .menu-item-sidemenu.open > a {
+  @apply bg-utc-new-blue-500 text-white;
+}
+.utc-sidebar .menu-item--expanded:hover>.more.closed svg:hover {
+  @apply text-utc-new-blue-500
+}
+.utc-sidebar .menu-item-sidemenu.menu-item--expanded:hover > .more,
+.utc-sidebar .menu-item-sidemenu.open > .more,
+.utc-sidebar .menu-item-sidemenu.open > .more svg,
+.utc-sidebar .menu-item--expanded.open:hover>.more svg:hover,
+.utc-sidebar .menu-item--expanded:hover > .more svg {
+  @apply text-white;
+}
+
+
+/***parent active trail attributes***/
+.menu-item-sidemenu .is-active,
+.menu-item-sidemenu.menu-item--active-trail a,
+.utc-sidebar .menu-item-sidemenu.menu-item--active-trail.open > a {
+  @apply bg-utc-new-blue-500 text-utc-new-gold-500;
+}
+.utc-sidebar .menu-item--active-trail > .more,
+.utc-sidebar .menu-item--active-trail:hover>.more svg,
+.utc-sidebar .menu-item--active-trail > .more svg,
+.utc-sidebar .menu-item--active-trail.open > .more,
+.utc-sidebar .menu-item--active-trail.open > .more svg,
+.utc-sidebar .menu-item--active-trail.open:hover>.more svg:hover {
+  @apply text-utc-new-gold-500;
+}
+
+/***submenu children attributues***/
+.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a {
+  @apply bg-utc-new-blue-100 text-utc-new-blue-500;
+}
+.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu.open a.parent {
+  @apply bg-utc-new-blue-200;
+  transition: var(--utc-transition);
+}
+.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a:hover {
+  @apply bg-utc-new-blue-200 text-utc-new-blue-500;
+  transition: var(--utc-transition);
+}
+
 /**subordinate active buttons in submenus to parent***/
 li.menu-item-sidemenu li.menu-item-sidemenu  .is-active {
   @apply bg-utc-new-blue-200 !important text-utc-new-blue-500 !important;
@@ -74,6 +106,19 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
   @apply mr-2 font-bold text-base;
   line-height: 0;
   content: "→";
+}
+.utc-sidebar .sidebar-menu .sidebar-menu .menu-item--expanded:hover>.more svg,
+.utc-sidebar .sidebar-menu .sidebar-menu .open > .more svg {
+  @apply text-utc-new-blue-500;
+}
+
+/**** other sidebar attributes***/
+.utc-sidebar .menu-btn {
+  @apply bg-utc-new-blue-100 text-center;
+  cursor: s-resize;
+}
+.utc-sidebar .menu-btn img {
+  @apply align-middle h-16;
 }
 
 @media (min-width: 991px) {
