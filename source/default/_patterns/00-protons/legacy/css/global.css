@@ -262,6 +262,14 @@ a:focus {
 a.focus-visible, a:focus-visible {
   outline: 2px dashed #fdb736;
 }
+a:not([href])::before {
+  content: '';
+  display: block;
+  height:      175px;
+  margin-top: -175px;
+  visibility: hidden;
+}
+
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler) {
