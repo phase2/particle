@@ -262,6 +262,14 @@ a:focus {
 a.focus-visible, a:focus-visible {
   outline: 2px dashed #fdb736;
 }
+a:not([href])::before {
+  content: '';
+  display: block;
+  height:      175px;
+  margin-top: -175px;
+  visibility: hidden;
+}
+
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler) {
@@ -463,6 +471,10 @@ ul.pager__items li a:hover {
   }
   .page-search .container {
     margin-top: 1rem!important;
+  }
+  a:not([href]):before {
+      height: 72px;
+      margin-top: -72px;
   }
 }
 @media screen and (max-width: 640px) {
