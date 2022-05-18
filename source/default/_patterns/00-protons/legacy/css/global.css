@@ -472,6 +472,10 @@ ul.pager__items li a:hover {
   .page-search .container {
     margin-top: 1rem!important;
   }
+  a:not([href]):before {
+      height: 72px;
+      margin-top: -72px;
+  }
 }
 @media screen and (max-width: 640px) {
   h1{ font-size:28px!important;line-height:1.2em;}
