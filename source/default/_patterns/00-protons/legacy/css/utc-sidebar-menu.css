@@ -89,10 +89,7 @@
 .utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a {
   @apply bg-utc-new-blue-100 text-utc-new-blue-500;
 }
-.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu.open a.parent {
-  @apply bg-utc-new-blue-200;
-  transition: var(--utc-transition);
-}
+.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu.open a.parent,
 .utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a:hover {
   @apply bg-utc-new-blue-200 text-utc-new-blue-500;
   transition: var(--utc-transition);
