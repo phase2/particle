@@ -14,8 +14,8 @@
                 $(this).removeClass('closed').addClass('open');
                 $(this).parent().addClass('open');
             });
-            
-            $('.menu-item--expanded.menu-item--active-trail.open > .more').click();
+            $('.menu-item--expanded.menu-item--active-trail.open>.more').click();
+            $('.menu-item--expanded.menu-item--active-trail.open>.more .more.open').removeClass('open').addClass('closed');
         }
     };
 }(jQuery, Drupal, drupalSettings));
