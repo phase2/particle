@@ -57,44 +57,6 @@
   .utc-section-bg--blue h6, 
   .utc-section-bg--red p, 
   .utc-section-bg--green p,
-  .utc-section-bg--blue p,
-  .utc-section-bg--red a, 
-  .utc-section-bg--green a,
-  .utc-section-bg--blue a  {
+  .utc-section-bg--blue p  {
     @apply text-white;
-  }
-  .utc-section-bg--red a, 
-  .utc-section-bg--green a,
-  .utc-section-bg--blue a  {
-    @apply underline;
-    transform: var(--utc-transition);
-  }
-  .utc-section-bg--red a:hover, 
-  .utc-section-bg--green a:hover,
-  .utc-section-bg--blue a:hover  {
-    @apply no-underline;
-  }
-  .utc-section-bg--white a, 
-  .utc-section-bg--gray a,
-  .utc-section-bg--gray-light a, 
-  .utc-section-bg--blue-light a,
-  .utc-section-bg--gold a{
-    transform: var(--utc-transition);
-  }
-  .utc-section-bg--white a:hover, 
-  .utc-section-bg--gray a:hover,
-  .utc-section-bg--gray-light a:hover, 
-  .utc-section-bg--blue-light a:hover,
-  .utc-section-bg--gold a:hover{
-    @apply underline;
-  }
-  .utc-section-bg--white strong a, 
-  .utc-section-bg--gray strong a,
-  .utc-section-bg--gray-light strong a, 
-  .utc-section-bg--blue-light strong a,
-  .utc-section-bg--gold strong a,
-  .utc-section-bg--red strong a, 
-  .utc-section-bg--green strong a,
-  .utc-section-bg--blue strong a  {
-    @apply font-bold;
   }
