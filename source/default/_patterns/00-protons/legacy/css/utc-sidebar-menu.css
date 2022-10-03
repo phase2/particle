@@ -47,7 +47,7 @@
   @apply text-utc-new-blue-500;
   transition: var(--utc-transition);
 }
-.utc-sidebar .open > .more i, .utc-sidebar .more.open svg {
+.utc-sidebar .menu-item-sidemenu.open > .more.open svg {
   transform: rotate(90deg);
 }
 
