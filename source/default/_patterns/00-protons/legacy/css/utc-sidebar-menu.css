@@ -47,11 +47,8 @@
   @apply text-utc-new-blue-500;
   transition: var(--utc-transition);
 }
-.utc-sidebar .open > .more i, .utc-sidebar .more.open svg {
+.utc-sidebar .menu-item-sidemenu.open > .more.open svg {
   transform: rotate(90deg);
-}
-.utc-sidebar .menu-item--expanded:hover>.more svg:hover {
-  @apply text-utc-new-blue-500;
 }
 
 /***base parent hover/open attributes***/
@@ -61,10 +58,9 @@
 .utc-sidebar .menu-item--expanded:hover>.more.closed svg:hover {
   @apply text-utc-new-blue-500
 }
-.utc-sidebar .menu-item-sidemenu.menu-item--expanded:hover > .more,
+
 .utc-sidebar .menu-item-sidemenu.open > .more,
 .utc-sidebar .menu-item-sidemenu.open > .more svg,
-.utc-sidebar .menu-item--expanded.open:hover>.more svg:hover,
 .utc-sidebar .menu-item--expanded:hover > .more svg {
   @apply text-white;
 }
@@ -80,8 +76,7 @@
 .utc-sidebar .menu-item--active-trail:hover>.more svg,
 .utc-sidebar .menu-item--active-trail > .more svg,
 .utc-sidebar .menu-item--active-trail.open > .more,
-.utc-sidebar .menu-item--active-trail.open > .more svg,
-.utc-sidebar .menu-item--active-trail.open:hover>.more svg:hover {
+.utc-sidebar .menu-item--active-trail.open > .more svg {
   @apply text-utc-new-gold-500;
 }
 
@@ -89,7 +84,7 @@
 .utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a {
   @apply bg-utc-new-blue-100 text-utc-new-blue-500;
 }
-.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu.open a.parent,
+.utc-sidebar .sidebar-menu li ul .menu-item-sidemenu.open > a.parent,
 .utc-sidebar .sidebar-menu li ul .menu-item-sidemenu a:hover {
   @apply bg-utc-new-blue-200 text-utc-new-blue-500;
   transition: var(--utc-transition);
