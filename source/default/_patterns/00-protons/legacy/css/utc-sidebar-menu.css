@@ -50,9 +50,6 @@
 .utc-sidebar .open > .more i, .utc-sidebar .more.open svg {
   transform: rotate(90deg);
 }
-.utc-sidebar .menu-item--expanded:hover>.more svg:hover {
-  @apply text-utc-new-blue-500;
-}
 
 /***base parent hover/open attributes***/
 .utc-sidebar .menu-item-sidemenu.open > a {
@@ -61,10 +58,9 @@
 .utc-sidebar .menu-item--expanded:hover>.more.closed svg:hover {
   @apply text-utc-new-blue-500
 }
-.utc-sidebar .menu-item-sidemenu.menu-item--expanded:hover > .more,
+
 .utc-sidebar .menu-item-sidemenu.open > .more,
 .utc-sidebar .menu-item-sidemenu.open > .more svg,
-.utc-sidebar .menu-item--expanded.open:hover>.more svg:hover,
 .utc-sidebar .menu-item--expanded:hover > .more svg {
   @apply text-white;
 }
@@ -80,13 +76,8 @@
 .utc-sidebar .menu-item--active-trail:hover>.more svg,
 .utc-sidebar .menu-item--active-trail > .more svg,
 .utc-sidebar .menu-item--active-trail.open > .more,
-.utc-sidebar .menu-item--active-trail.open > .more svg,
-.utc-sidebar .menu-item--active-trail.open:hover>.more svg:hover {
+.utc-sidebar .menu-item--active-trail.open > .more svg {
   @apply text-utc-new-gold-500;
-}
-
-.utc-sidebar .menu-item--active-trail > .more.closed svg {
-  @apply text-utc-new-blue-500;
 }
 
 /***submenu children attributues***/
