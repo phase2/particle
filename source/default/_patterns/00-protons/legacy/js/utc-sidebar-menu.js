@@ -17,7 +17,7 @@
                 $('nav').toggleClass('menu-open');
             });
             $('.menu-item--expanded.menu-item--active-trail').addClass('open');
-            $('.menu-item--expanded.menu-item--active-trail.open .is-active').prev().removeClass('closed').addClass('open');
+            $('.menu-item--expanded.menu-item--active-trail.open > div.more').removeClass('closed').addClass('open');
             $(document).delegate('.more.open', 'click', function(){
                 $(this).removeClass('open').addClass('closed');
                 $(this).parent().removeClass('open');
