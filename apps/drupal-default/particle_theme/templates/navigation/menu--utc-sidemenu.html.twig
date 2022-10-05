@@ -43,7 +43,7 @@
           item.in_active_trail ? 'menu-item--active-trail open',
       ]
       %}
-      {% if item.is_expanded %}
+      {% if item.is_expanded or item.is_collapsed %}
         {% if item.in_active_trail %}
           <li{{ item.attributes.addClass(classes) }} >
             {{ link(item.title, item.url) }}
