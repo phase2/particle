@@ -40,15 +40,35 @@
           'menu-item-sidemenu',
           item.is_expanded ? 'menu-item--expanded',
           item.is_collapsed ? 'menu-item--collapsed',
-          item.in_active_trail ? 'menu-item--active-trail',
+          item.in_active_trail ? 'menu-item--active-trail open',
       ]
       %}
-      <li{{ item.attributes.addClass(classes) }}>
-        {{ link(item.title, item.url) }}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+      {% if item.is_expanded %}
+        {% if item.in_active_trail %}
+          <li{{ item.attributes.addClass(classes) }} >
+            {{ link(item.title, item.url) }}
+            <div aria-hidden="true" class="more open"><i class="fas fa-angle-right text-new-utc-gold-500"></i></div>
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+          </li>
+        {% else %}
+          <li{{ item.attributes.addClass(classes) }} >
+            {{ link(item.title, item.url) }}
+            <div aria-hidden="true" class="more closed"><i class="fas fa-angle-right text-new-utc-blue-500"></i></div>
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+          </li>
         {% endif %}
-      </li>
+      {% else %}
+        <li{{ item.attributes.addClass(classes) }}>
+          {{ link(item.title, item.url) }}
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endif %}
     {% endfor %}
     </ul>
   {% endif %}

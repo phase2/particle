@@ -35,18 +35,26 @@
 .menu-item-sidemenu a:hover {
   @apply bg-utc-new-blue-500 text-white no-underline;
 }
-
+.utc-sidebar .menu-item-sidemenu > .more svg,
+.utc-sidebar .menu-item-sidemenu > .more.closed svg,
+.utc-sidebar .menu-item-sidemenu > .more.open svg {
+  transition: var(--utc-transition);;
+}
 /***base chevron/more attributes***/
 .utc-sidebar .more{
   @apply text-utc-new-blue-500 absolute right-2 top-0 bottom-0 flex items-center float-right cursor-pointer;
   transition: var(--utc-transition);
-  min-width: 8%;
+  min-width: 9%;
   height: 3.75rem;
 }
-.utc-sidebar .more svg {
+.utc-sidebar .menu-item--active-trail > .more svg {
   @apply text-utc-new-blue-500;
   transition: var(--utc-transition);
 }
+.utc-sidebar .menu-item--active-trail > .more, .utc-sidebar .menu-item--active-trail  > .more svg {
+  @apply text-utc-new-gold-500;
+}
+
 .utc-sidebar .menu-item-sidemenu.open > .more.open svg {
   transform: rotate(90deg);
 }
@@ -55,16 +63,10 @@
 .utc-sidebar .menu-item-sidemenu.open > a {
   @apply bg-utc-new-blue-500 text-white;
 }
-.utc-sidebar .menu-item--expanded:hover>.more.closed svg:hover {
-  @apply text-utc-new-blue-500
-}
-
 .utc-sidebar .menu-item-sidemenu.open > .more,
-.utc-sidebar .menu-item-sidemenu.open > .more svg,
-.utc-sidebar .menu-item--expanded:hover > .more svg {
+.utc-sidebar .menu-item-sidemenu.open > .more svg {
   @apply text-white;
 }
-
 
 /***parent active trail attributes***/
 .menu-item-sidemenu .is-active,
@@ -72,11 +74,8 @@
 .utc-sidebar .menu-item-sidemenu.menu-item--active-trail.open > a {
   @apply bg-utc-new-blue-500 text-utc-new-gold-500;
 }
-.utc-sidebar .menu-item--active-trail > .more,
-.utc-sidebar .menu-item--active-trail:hover>.more svg,
-.utc-sidebar .menu-item--active-trail > .more svg,
-.utc-sidebar .menu-item--active-trail.open > .more,
-.utc-sidebar .menu-item--active-trail.open > .more svg {
+.utc-sidebar .menu-item-sidemenu.menu-item--active-trail.open > .more,
+.utc-sidebar .menu-item-sidemenu.menu-item--active-trail.open > .more svg {
   @apply text-utc-new-gold-500;
 }
 
