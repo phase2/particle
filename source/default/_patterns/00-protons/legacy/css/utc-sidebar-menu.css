@@ -31,6 +31,7 @@
 .menu-item-sidemenu a {
   @apply bg-white text-utc-new-blue-500 border border-gray-400 font-normal block py-4 px-5;
   transition: var(--utc-transition);
+  width:96%;
 }
 .menu-item-sidemenu a:hover {
   @apply bg-utc-new-blue-500 text-white no-underline;
@@ -44,7 +45,7 @@
 .utc-sidebar .more{
   @apply text-utc-new-blue-500 absolute right-2 top-0 bottom-0 flex items-center float-right cursor-pointer;
   transition: var(--utc-transition);
-  min-width: 9%;
+  min-width: 10%;
   height: 3.75rem;
 }
 .utc-sidebar .menu-item--active-trail > .more svg {
