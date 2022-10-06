@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\node\NodeInterface;
 /**
  * @file
  * Functions to support theming blocks in the Particle theme.
@@ -23,11 +24,11 @@ function particle_theme_suggestions_block_alter(&$suggestions, $variables)
     $node_url_string = null;
     $node_bundle = null;
     if ($node) {
-        if ($node instanceof \Drupal\node\NodeInterface) {
+        if ($node instanceof NodeInterface) {
             $nid = $node->id();
             $node_bundle = $node->bundle();
         }
-        if ($node instanceof \Drupal\node\NodeInterface) {
+        if ($node instanceof NodeInterface) {
             $node_url_string = $node->toUrl()->toString();
         }
     }

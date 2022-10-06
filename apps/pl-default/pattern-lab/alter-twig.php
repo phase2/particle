@@ -1,17 +1,21 @@
 <?php
+use Twig\Environment;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
+use Twig\Extension\DebugExtension;
 /**
- * @param Twig_Environment $env - The Twig Environment -
+ * @param Twig\Environment $env - The Twig Environment -
  *   https://twig.symfony.com/api/1.x/Twig_Environment.html
  * @param $config - Config of `@basalt/twig-renderer`
  *
  */
-function addFilters(\Twig_Environment &$env, $config) {
+function addFilters(Environment &$env, $config) {
   /**
    * Clean Class
    *
    * @return string
    */
-  $clean_class_filter = new Twig_SimpleFilter('clean_class', function ($string) {
+  $clean_class_filter = new TwigFilter('clean_class', function ($string) {
     return $string;
   });
   $env->addFilter($clean_class_filter);
@@ -21,7 +25,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $clean_id_filter = new Twig_SimpleFilter('clean_id', function ($string) {
+  $clean_id_filter = new TwigFilter('clean_id', function ($string) {
     return $string;
   });
   $env->addFilter($clean_id_filter);
@@ -31,7 +35,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $format_date_filter = new Twig_SimpleFilter('format_date', function ($string) {
+  $format_date_filter = new TwigFilter('format_date', function ($string) {
     return $string;
   });
   $env->addFilter($format_date_filter);
@@ -52,7 +56,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return float
    */
-  $luma_filter = new Twig_SimpleFilter('luma', function ($rgba) {
+  $luma_filter = new TwigFilter('luma', function ($rgba) {
     // Doesn't handle alpha, yet.
     return 0.2126 * $rgba['r'] + 0.7152 * $rgba['g'] + 0.0722 * $rgba['b'];
   });
@@ -66,7 +70,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @param string $color a hex color value with or without leading hash(#)
    */
-  $hex_to_rgba_filter = new Twig_SimpleFilter('hex_to_rgba', function ($color) {
+  $hex_to_rgba_filter = new TwigFilter('hex_to_rgba', function ($color) {
     $default = 'rgba(0,0,0)';
 
     // If "#" is provided, drop it
@@ -108,7 +112,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $placeholder_filter = new Twig_SimpleFilter('placeholder', function ($string) {
+  $placeholder_filter = new TwigFilter('placeholder', function ($string) {
     return $string;
   });
   $env->addFilter($placeholder_filter);
@@ -118,7 +122,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $render_filter = new Twig_SimpleFilter('render', function ($string) {
+  $render_filter = new TwigFilter('render', function ($string) {
     return $string;
   });
   $env->addFilter($render_filter);
@@ -128,7 +132,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $rgba_string_filter = new Twig_SimpleFilter('rgba_string', function ($string) {
+  $rgba_string_filter = new TwigFilter('rgba_string', function ($string) {
     $rgba = trim(str_replace(' ', '', $string));
     if (stripos($rgba, 'rgba') !== FALSE) {
       $res = sscanf($rgba, "rgba(%d, %d, %d, %f)");
@@ -146,7 +150,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $safe_join_filter = new Twig_SimpleFilter('safe_join', function ($string) {
+  $safe_join_filter = new TwigFilter('safe_join', function ($string) {
     return $string;
   });
   $env->addFilter($safe_join_filter);
@@ -156,7 +160,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $t_filter = new Twig_SimpleFilter('t', function ($string) {
+  $t_filter = new TwigFilter('t', function ($string) {
     return $string;
   });
   $env->addFilter($t_filter);
@@ -166,7 +170,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $without_filter = new Twig_SimpleFilter('without', function ($string) {
+  $without_filter = new TwigFilter('without', function ($string) {
     return $string;
   });
   $env->addFilter($without_filter);
@@ -176,7 +180,7 @@ function addFilters(\Twig_Environment &$env, $config) {
    *
    * @return string
    */
-  $attributify_filter = new Twig_SimpleFilter('attributify', function ($attributes) {
+  $attributify_filter = new TwigFilter('attributify', function ($attributes) {
     // if we already have attributes as a renderable string, return.
     if (is_string($attributes)) {
       return $attributes;
@@ -198,12 +202,12 @@ function addFilters(\Twig_Environment &$env, $config) {
   $env->addFilter($attributify_filter);
 }
 
-function addFunctions(\Twig_Environment &$env, $config) {
+function addFunctions(Environment &$env, $config) {
   /**
    * Link
    *
    */
-  $link_function = new Twig_SimpleFunction(
+  $link_function = new TwigFunction(
     'link',
     function ($title, $url, $attributes) {
       if (isset($attributes) && isset($attributes['class'])) {
@@ -222,7 +226,7 @@ function addFunctions(\Twig_Environment &$env, $config) {
    * Path
    *
    */
-  $path_function = new Twig_SimpleFunction('path', function ($string) {
+  $path_function = new TwigFunction('path', function ($string) {
     if ($string === '<front>') {
       return '/';
     }
@@ -237,7 +241,7 @@ function addFunctions(\Twig_Environment &$env, $config) {
    *
    * Https://www.drupal.org/node/2486991.
    */
-  $url_function = new Twig_SimpleFunction('url', function ($string) {
+  $url_function = new TwigFunction('url', function ($string) {
     return '#';
   });
   $env->addFunction($url_function);
@@ -249,10 +253,10 @@ function addFunctions(\Twig_Environment &$env, $config) {
  * To enable Twig Debugging, add this function's name to patternlab-config.json
  * under engines.twig.alterTwigEnv.functions
  *
- * @param Twig_Environment $env - The Twig Environment -
+ * @param Twig\Environment $env - The Twig Environment -
  *   https://twig.symfony.com/api/1.x/Twig_Environment.html
  * @param $config - Config of `@basalt/twig-renderer`
  */
-function addDebug(\Twig_Environment &$env, $config) {
-  $env->addExtension(new \Twig\Extension\DebugExtension());
+function addDebug(Environment &$env, $config) {
+  $env->addExtension(new DebugExtension());
 }

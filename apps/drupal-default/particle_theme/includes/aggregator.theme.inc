@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\node\NodeInterface;
 use Drupal\Component\Utility\Html;
 
 /**
@@ -37,7 +38,7 @@ function particle_theme_suggestions_aggregator_feed_alter(array &$suggestions, a
   $bundle = NULL;
 
   if ($node) {
-    if($node instanceof \Drupal\node\NodeInterface) {
+    if($node instanceof NodeInterface) {
       $nid = $node->id();
       $bundle = $node->bundle();
     }
@@ -56,7 +57,7 @@ function particle_theme_suggestions_aggregator_item_alter(array &$suggestions, a
   $nid = NULL;
   $bundle = NULL;
   if ($node) {
-    if($node instanceof \Drupal\node\NodeInterface){
+    if($node instanceof NodeInterface){
     $nid = $node->id();
     $bundle = $node->bundle();
     }
