@@ -50,7 +50,10 @@
 .utc-sidebar .menu-item-sidemenu > .more.open svg {
   transition: var(--utc-transition);;
 }
-
+.menu-item--expanded li.menu-item-sidemenu.menu-item--expanded.open > a,
+.menu-item--expanded li.menu-item-sidemenu.menu-item--active-trail > a {
+  background-color: rgba(196,203,212,var(--tw-bg-opacity));
+}
 /***base chevron/more attributes***/
 .utc-sidebar .more{
   @apply text-utc-new-blue-500 absolute right-2 top-0 bottom-0 flex items-center float-right cursor-pointer;
