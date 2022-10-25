@@ -109,6 +109,9 @@
   @apply bg-utc-new-blue-200 text-utc-new-blue-500;
   transition: var(--utc-transition);
 }
+.menu-item-sidemenu.menu-item--active-trail .menu-item-sidemenu.menu-item--active-trail a {
+   @apply text-utc-new-blue-500;
+}
 
 /**subordinate active buttons in submenus to parent***/
 li.menu-item-sidemenu li.menu-item-sidemenu  .is-active {
