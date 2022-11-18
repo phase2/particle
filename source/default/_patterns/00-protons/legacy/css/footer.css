@@ -76,7 +76,8 @@
   @apply text-white text-left text-base capitalize leading-loose;
 }
 
-.path-search .footer-bottom-wrapper .row {
+.path-search .footer-bottom-wrapper .row,
+.path-webform .footer-bottom-wrapper .row {
   align-content: unset!important;
   justify-content: unset!important;
   @apply my-0 mx-auto block;
