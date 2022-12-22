@@ -37,10 +37,10 @@
 	{% endif %}
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_hero.hero_color == 'Dark Blue' %}
-		{% set title_color = 'lg:text-white' %}
-		{% set body_color = 'lg:text-white' %}
-		{% set tag_color = 'lg:text-white' %}
-		{% set btn_border_color = "lg:border-white" %}
+		{% set title_color = 'text-white' %}
+		{% set body_color = 'text-white' %}
+		{% set tag_color = 'text-white' %}
+		{% set btn_border_color = "border-white" %}
 		{% set bg_color = 'background-color:#112e51' %}
 		{% set bg1_opacity = '' %}
     	{% set bg2_opacity = 'opacity-90' %}
@@ -48,7 +48,8 @@
 		{% set title_color = 'text-utc-new-blue-500' %}
 		{% set body_color = 'text-base' %}
 		{% set tag_color = 'text-base' %}
-		{% set btn_border_color = "lg:border-utc-new-blue-500" %}
+		{% set btn_border_color = "border-utc-new-blue-500" %}
+		{% set btn_class = "light-gray-hero" %}
 		{% set bg_color = 'background-color:#104dd4' %}
 		{% set bg1_opacity = 'opacity-20' %}
     	{% set bg2_opacity = 'opacity-20' %}
@@ -57,20 +58,20 @@
 	{% if utc_hero.hero_align == 'Left' %}
 		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }}">
+				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }} relative shadow-utcdark ">
 					{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:ml-8 px-4 py-8 z-30">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:ml-8 px-4 py-8 relative z-30">
 	{% else %}
 	{# image on right #}	
 		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }}">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }} relative shadow-utcdark ">
 					{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
-				<div class="lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:mr-8 lg:my-auto py-4 px-6 col-span-1 z-30">
+				<div class="lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:mr-8 lg:my-auto py-4 lg:px-6 col-span-1 z-30 relative">
 	{% endif %}
 				{% block herocontent %}
 					{% block herotagtitle %}
@@ -94,8 +95,8 @@
 						{% endif %}
 						{% if utc_hero.hero_button_url %}
 							<p class="my-6 text-right">
-								<a href="{{ utc_hero.hero_button_url}}" class="font-semibold transition duration-500 ease-in-out {{ body_color }} hover:bg-gray-200 lg:hover:text-utc-new-blue-500 lg:hover:bg-white transform hover:scale-105 py-2 px-4 border {{ btn_border_color }} border-utc-new-blue-500" aria-label="Read the release">
-									{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right text-utc-new-gold-500 font-semibold ml-1"></i>
+								<a href="{{ utc_hero.hero_button_url}}"  class="diagonal {{ btn_class }}" aria-label="Read the release">
+									{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
 								</a>
 							</p>
 						{% endif %}
@@ -103,7 +104,7 @@
 				{% endblock herocontent %}
 				</div>
 				{% block herobackground %}
-					<div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-4" style="background-image: url({{ utc_hero.hero_bg }})">
+					<div class="lg:max-w-95p lg:ml-4 lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-4" style="background-image: url({{ utc_hero.hero_bg }})">
 						<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 					</div>
 				{% endblock herobackground %}
