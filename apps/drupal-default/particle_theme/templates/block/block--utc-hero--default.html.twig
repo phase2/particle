@@ -1,18 +1,19 @@
 {% extends "block--utc-hero--full.html.twig" %}
 {#
 /**
- * @file Card Grid!
- * Implements a hero block in dark blue
+ * @file UTC Hero!
+ * Implements a hero block using an image with zoom effect available.
  *
  *
  * Available variables:
  */
  *
- * This template pulls in the variables to add to the cards. 
- * References the block--utc-card-base.html.twig to create the individual cards in this grid.
+ * This template pulls in the variables to add to the hero. 
+ * References the block--utc-hero--full.html.twig.
 #}
 
 {% block content %}
+	{{ attach_library('utccloud/utc-hero-image') }}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
 	{# hero_button_link: content.field_hero_button|field_value, #}
@@ -49,27 +50,28 @@
 		{% set bg1_opacity = 'opacity-20' %}
     	{% set bg2_opacity = 'opacity-20' %}
 		{% set tag_color ='lg:text-base' %}
+		{% set btn_class = "light-gray-hero" %}
 	{% endif %}
 	{% set body_color = 'text-base' %}
 	{% set btn_border_color = "lg:border-utc-new-blue-500" %}
 	{% set btn_color = "lg:text-base" %} 
 		 
 	{% if utc_hero.hero_align == 'Left' %}
-		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
+		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 lg:pb-8 text-center shadow-utc">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }}">
+				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }} shadow-utcdark relative">
 					{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:ml-8 p-4 z-30 self-end">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:ml-8 p-4 z-30 self-end relative">
 	{% else %}
 		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }}">
+				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }} shadow-utcdark relative">
 					{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
-				<div class="lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:mr-8 p-4 pt-0 col-span-1 z-30 self-end">
+				<div class="lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:mr-8 p-4 pt-0 col-span-1 z-30 self-end relative">
 	{% endif %}
 				{% block herotagtitle %}
 					{{ parent() }}
@@ -84,7 +86,7 @@
 					{{ parent() }}
 				{% endblock herotextbutton %}
 				</div>
-			<div class="w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-3" style="background-image: url({{ utc_hero.hero_bg }})">
+			<div class="lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-3" style="background-image: url({{ utc_hero.hero_bg }})">
 				<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 			</div>
 		</div>
