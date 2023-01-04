@@ -1,10 +1,10 @@
-.video-component-full-screen .field--name-field-media-video-embed-field {
+.video-full-screen .field--name-field-media-video-embed-field {
     width: 100%!important;
     padding-bottom: 55%;
     position: relative;
 }
 
-.video-component-full-screen iframe {
+.video-full-screen iframe {
     width: 100%;
     height: 100%;
     position: absolute;
