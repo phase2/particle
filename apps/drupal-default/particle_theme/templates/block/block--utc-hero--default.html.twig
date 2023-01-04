@@ -13,6 +13,7 @@
 #}
 
 {% block content %}
+	{{ attach_library('utccloud/utc-hero-image') }}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
 	{# hero_button_link: content.field_hero_button|field_value, #}
@@ -38,7 +39,7 @@
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_hero.hero_color == 'Dark Blue' %}
 		{% set title_color = 'lg:text-white' %}
-		{% set bg_color = 'background-color:#112e51' %}
+		{% set bg_color = 'bg-utc-new-blue-500' %}
 		{% set bg1_opacity = '' %}
     	{% set bg2_opacity = 'opacity-90' %}
 		{% set body_color = 'lg:text-white' %}

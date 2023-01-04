@@ -1,17 +1,19 @@
 {% extends "block--utc-hero--full.html.twig" %}
 {#
 /**
- * @file UTC Hero!
- * Implements a hero block using an image with zoom effect available.
+ * @file Card Grid!
+ * Implements a hero block in dark blue
  *
  *
  * Available variables:
  */
  *
- * This template pulls in the variables to add to the hero. 
- * References the block--utc-hero--full.html.twig.
+ * This template pulls in the variables to add to the cards. 
+ * References the block--utc-card-base.html.twig to create the individual cards in this grid.
 #}
+
 {% block content %}
+	{{ attach_library('utccloud/utc-hero-image') }}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
 	{# hero_button_link: content.field_hero_button|field_value, #}
