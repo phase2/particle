@@ -164,22 +164,22 @@
     line-height:1.2rem!important;
     padding-bottom:0;
   }
-  .footer_first.col-12{
+  .footer_first.col-12, .footer-wrapper .col-12:first-child{
     @apply w-1/2 px-0 inline-block;
     order:1;
     max-width:50%;
     min-width:50%;
   }
-  .footer_third.col-12 {
+  .footer_third.col-12, .footer-wrapper .col-12:last-child {
     @apply w-1/2 px-0 inline-block;
     order:2;
     max-width:50%;
     min-width:50%;
   }
-  .footer_third ul.menu {
+  .footer_third ul.menu, .footer-wrapper .col-12:last-child ul.menu{
     border:none!important;
   }
-  .footer_second.col-12 {
+  .footer_second.col-12, .footer-wrapper .col-12:nth-child(2)  {
     @apply w-full max-w-full px-0 absolute bottom-0 inline-block;
     height:fit-content;
     order:3;
