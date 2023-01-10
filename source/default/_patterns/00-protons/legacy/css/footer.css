@@ -151,12 +151,7 @@
       @apply w-auto h-full;
   }
 }
-@media screen and (min-width: 768px) {
-  .footer-bottom-wrapper {
-      @apply text-sm;
-  }
-}
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 991px) {
   .footer-wrapper .row {
     @apply relative pb-72;
   }
@@ -193,5 +188,10 @@
   /*go back to horizontal*/
   #global-footer-map img {
     @apply h-auto w-full;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer-bottom-wrapper {
+      @apply text-sm;
   }
 }
