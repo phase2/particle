@@ -41,8 +41,8 @@
     	{% set bg2_opacity = 'opacity-90' %}
 	{% else %}
 		{% set title_color = 'text-utc-new-blue-500' %}
-		{% set body_color = 'text-base' %}
-		{% set tag_color = 'text-base' %}
+		{% set body_color = 'text-utc-new-blue-500' %}
+		{% set tag_color = 'text-utc-new-blue-500' %}
 		{% set btn_border_color = "border-utc-new-blue-500" %}
 		{% set btn_class = "light-gray-hero" %}
 		{% set bg_color = 'background-color:#104dd4' %}
@@ -84,12 +84,12 @@
 					{% endblock herotagtitle %}
 					{% block herotextbutton %}
 						{% if utc_hero.hero_text %}
-							<p class="text-left text-lg text-base {{ body_color }}">
+							<p class="text-left text-lg {{ body_color }}">
 								{{ utc_hero.hero_text}}
 							</p>
 						{% endif %}
 						{% if utc_hero.hero_button_url %}
-							<p class="my-6 text-right">
+							<p class="my-8 text-right">
 								<a href="{{ utc_hero.hero_button_url}}"  class="diagonal {{ btn_class }}" aria-label="Read the release">
 									{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
 								</a>

@@ -37,7 +37,7 @@
 			hero_color: content["#block_content"].field_hero_color.0.value,
 			hero_tag: content.field_hero_tag_text|field_value,
 			hero_title: content.field_hero_title|field_value,
-			hero_video: content.field_video,
+			hero_video: content.field_video_hero,
 			hero_text: content.field_hero_text|field_value,
 			hero_button_text: content.field_hero_button.0['#title'],
 			hero_button_url: content.field_hero_button.0['#url'],
@@ -142,6 +142,5 @@
 				</div>
 			{% endblock herobackgroundright %}		
 		{% endif %}
-		</div>
 	{% endblock %}
 </div>
