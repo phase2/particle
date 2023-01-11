@@ -38,55 +38,53 @@
 	{% endif %}
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_hero.hero_color == 'Dark Blue' %}
-		{% set title_color = 'lg:text-white' %}
 		{% set bg_color = 'background-color:#112e51' %}
 		{% set bg1_opacity = '' %}
     	{% set bg2_opacity = 'opacity-90' %}
-		{% set body_color = 'lg:text-white' %}
-		{% set tag_color ='lg:text-white' %}
+		{% set title_color = 'text-white' %}
+		{% set body_color = 'text-white' %}
+		{% set tag_color ='text-white' %}
 	{% else %}
 		{% set title_color = 'text-utc-new-blue-500' %}
 		{% set bg_color = 'background-color:#104dd4' %}
 		{% set bg1_opacity = 'opacity-20' %}
     	{% set bg2_opacity = 'opacity-20' %}
-		{% set tag_color ='lg:text-base' %}
+		{% set tag_color ='text-utc-new-blue-500' %}
+		{% set body_color = 'text-utc-new-blue-500' %}
 		{% set btn_class = "light-gray-hero" %}
 	{% endif %}
-	{% set body_color = 'text-base' %}
+
 	{% set btn_border_color = "lg:border-utc-new-blue-500" %}
 	{% set btn_color = "lg:text-base" %} 
 		 
 	{% if utc_hero.hero_align == 'Left' %}
-		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 lg:pb-8 text-center shadow-utc">
+		<div class="utc-hero-block text-center shadow-utc relative p-12">
+			<div class="interior-container flex flex-col lg:grid lg:grid-cols-utcvideohero lg:grid-flow-col lg:gap-10 items-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }} shadow-utcdark relative">
+				<div class="lg:m-auto z-30 {{ utc_zoom }} relative" >
 					{{ utc_hero.hero_image }} 
 				</div>
 			{% endif %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:ml-8 p-4 z-30 self-end relative">
+				<div class=" p-4 z-30 relative">
 	{% else %}
-		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
+		<div class="utc-hero-block .utc-hero-image-default text-center shadow-utc relative p-12">
+			<div class="interior-container flex flex-col lg:grid lg:grid-cols-utcvideoheroright lg:grid-flow-col lg:gap-10 items-center">
 			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }} shadow-utcdark relative">
+				<div class="z-30 {{ utc_zoom }} relative order-last " >
 					{{ utc_hero.hero_image }}
 				</div>
 			{% endif %}
-				<div class="lg:col-start-2 lg:col-end-2 lg:row-start-2 lg:row-end-3 lg:mr-8 p-4 pt-0 col-span-1 z-30 self-end relative">
+				<div class="lg:mr-8 p-4 pt-0 z-30 relative order-first">
 	{% endif %}
 				{% block herotagtitle %}
 					{{ parent() }}
 				{% endblock herotagtitle %}
-				</div>
-			{% if utc_hero.hero_align == 'Left' %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:mr-8 lg:ml-8 p-4 pt-0 col-span-1 z-30">
-			{% else %}
-				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-3 lg:row-end-4 lg:mr-8 p-4 pt-0 col-span-1 z-30">
-			{% endif %}
 				{% block herotextbutton %}
 					{{ parent() }}
 				{% endblock herotextbutton %}
 				</div>
-			<div class="lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-3" style="background-image: url({{ utc_hero.hero_bg }})">
+			</div>
+			<div class="lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0" style="background-image: url({{ utc_hero.hero_bg }})">
 				<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 			</div>
 		</div>
