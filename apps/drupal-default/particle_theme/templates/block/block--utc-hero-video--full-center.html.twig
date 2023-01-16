@@ -72,11 +72,11 @@
 				<div class="video-hero-wrapper left h-full p-12 lg:pl-0 relative">
 					<div class="absolute top-0 right-0 bottom-0 lg:max-w-95p overflow-x-hidden {{ bg1_opacity }} bg-cover bg-center w-full" style="background-image: url({{ utc_hero.hero_bg }})"></div>
 					<div class="absolute right-0 top-0 hero-background-color h-full lg:max-w-95p overflow-x-hidden w-full" style="{{ bg2_opacity }} {{ bg_color }} "></div>
-					<div class="utc-video-hero-container utc-video-hero-block-left w-full flex flex-col-reverse lg:grid lg:gap-10 relative" style="grid-template-columns: 71% 30%!important;">
+					<div class="utc-video-hero-container utc-video-hero-block-left w-full flex flex-col lg:grid lg:gap-10 relative">
 						<div class="flex flex-column justify-center">
 							<div class="video-hero {{ utc_hero.hero_parameters[0] }} {{ utc_hero.hero_parameters[1] }} {{ utc_hero.hero_parameters[2] }} {{ utc_hero.hero_parameters[3] }} ">{{ utc_hero.hero_video }}{{ utc_hero.hero_otherhost }}</div>
 						</div>
-						<div class="flex flex-col justify-center shrink relative pr-16">
+						<div class="flex flex-col justify-center shrink relative">
 							{% if utc_hero.hero_tag %}
 								<p class="text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }}">
 									{{ utc_hero.hero_tag }}
@@ -110,7 +110,7 @@
 				<div class="video-hero-wrapper right h-full p-12 relative">
 					<div class="absolute left-0 top-0 right-0 bottom-0 lg:max-w-95p overflow-x-hidden {{ bg1_opacity }} bg-cover bg-center w-full" style="background-image: url({{ utc_hero.hero_bg }})"></div>
 					<div class="absolute left-0 top-0 hero-background-color h-full lg:max-w-95p overflow-x-hidden w-full" style="{{ bg2_opacity }} {{ bg_color }} "></div>
-					<div class="utc-video-hero-container utc-video-hero-block-right w-full flex flex-col-reverse lg:grid lg:gap-10 relative " style="grid-template-columns: 30% 71%!important;">
+					<div class="utc-video-hero-container utc-video-hero-block-right w-full flex flex-col-reverse lg:grid lg:gap-10 relative ">
 						<div class="flex flex-col justify-center shrink relative">
 							{% if utc_hero.hero_tag %}
 								<p class="text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }} lg:whitespace-nowrap">
