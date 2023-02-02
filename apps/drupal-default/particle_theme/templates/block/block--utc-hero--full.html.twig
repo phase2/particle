@@ -5,7 +5,12 @@
  * Implements a hero block using an image with zoom effect available.
  *
 #}
-
+{%
+  set classes = [
+	'block--utc-image-hero',
+	'block--utc-image-hero-full',
+  ]
+%}
 {% block content %}
 	{{ attach_library('utccloud/utc-hero-image') }}
 	{% set rendered_content = content|render %}
@@ -50,58 +55,60 @@
     	{% set bg2_opacity = 'opacity-20' %}
 	{% endif %}
 	{# image on left #}	 
-	{% if utc_hero.hero_align == 'Left' %}
-		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
-			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }} relative shadow-utcdark ">
-					{{ utc_hero.hero_image }} 
-				</div>
-			{% endif %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:ml-8 px-4 py-8 relative z-30">
-	{% else %}
-	{# image on right #}	
-		<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
-			{% if utc_hero.hero_image %}
-				<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }} relative shadow-utcdark ">
-					{{ utc_hero.hero_image }}
-				</div>
-			{% endif %}
-				<div class="lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:mr-8 lg:my-auto py-4 lg:px-6 col-span-1 z-30 relative">
-	{% endif %}
-				{% block herocontent %}
-					{% block herotagtitle %}
-					{% if utc_hero.hero_tag %}
-						<p class="text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }}">
-							{{ utc_hero.hero_tag }}
-						</p>
-						<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20 ml-0" />
-					{% endif %}
-					{% if utc_hero.hero_title %}
-						<h2 class="text-left mb-2 {{ title_color }}">
-							{{ utc_hero.hero_title }}
-						</h2>
-					{% endif %}
-					{% endblock herotagtitle %}
-					{% block herotextbutton %}
-						{% if utc_hero.hero_text %}
-							<p class="text-left text-lg {{ body_color }}">
-								{{ utc_hero.hero_text}}
-							</p>
-						{% endif %}
-						{% if utc_hero.hero_button_url %}
-							<p class="my-8 text-right">
-								<a href="{{ utc_hero.hero_button_url}}"  class="diagonal {{ btn_class }}" aria-label="Read the release">
-									{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
-								</a>
-							</p>
-						{% endif %}
-					{% endblock herotextbutton %}
-				{% endblock herocontent %}
-				</div>
-				{% block herobackground %}
-					<div class="lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-4" style="background-image: url({{ utc_hero.hero_bg }})">
-						<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
+	<div {{ attributes.addClass(classes) }}>
+		{% if utc_hero.hero_align == 'Left' %}
+			<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
+				{% if utc_hero.hero_image %}
+					<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }} relative shadow-utcdark ">
+						{{ utc_hero.hero_image }} 
 					</div>
-				{% endblock herobackground %}
-		</div>
+				{% endif %}
+					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:ml-8 px-4 py-8 relative z-30">
+		{% else %}
+		{# image on right #}	
+			<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
+				{% if utc_hero.hero_image %}
+					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }} relative shadow-utcdark ">
+						{{ utc_hero.hero_image }}
+					</div>
+				{% endif %}
+					<div class="lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:mr-8 lg:my-auto py-4 lg:px-6 col-span-1 z-30 relative">
+		{% endif %}
+					{% block herocontent %}
+						{% block herotagtitle %}
+						{% if utc_hero.hero_tag %}
+							<p class="text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }}">
+								{{ utc_hero.hero_tag }}
+							</p>
+							<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20 ml-0" />
+						{% endif %}
+						{% if utc_hero.hero_title %}
+							<h2 class="text-left mb-2 {{ title_color }}">
+								{{ utc_hero.hero_title }}
+							</h2>
+						{% endif %}
+						{% endblock herotagtitle %}
+						{% block herotextbutton %}
+							{% if utc_hero.hero_text %}
+								<p class="text-left text-lg {{ body_color }}">
+									{{ utc_hero.hero_text}}
+								</p>
+							{% endif %}
+							{% if utc_hero.hero_button_url %}
+								<p class="my-8 text-right">
+									<a href="{{ utc_hero.hero_button_url}}"  class="diagonal {{ btn_class }}" aria-label="Read the release">
+										{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
+									</a>
+								</p>
+							{% endif %}
+						{% endblock herotextbutton %}
+					{% endblock herocontent %}
+					</div>
+					{% block herobackground %}
+						<div class="lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-4" style="background-image: url({{ utc_hero.hero_bg }})">
+							<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
+						</div>
+					{% endblock herobackground %}
+			</div>
+	</div>
 {% endblock %}
