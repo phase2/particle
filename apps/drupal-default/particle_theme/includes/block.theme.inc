@@ -31,12 +31,12 @@ function particle_theme_suggestions_block_alter(&$suggestions, $variables)
         if ($node instanceof NodeInterface) {
             $node_url_string = $node->toUrl()->toString();
         }
-    }
+    } 
     $word= 'node';
-    if (strpos($node_url_string, $word) !== false) {
+    if (strpos((string) $node_url_string, $word) !== false) {
         $suggestions[] = ('block__' . "_id_" . $nid . "_label_" . preg_replace('/\s+/', '_', $variables['elements']['#configuration']['label']));
     } else {
-        $suggestions[] = ('block__'. str_replace('-', '_', ltrim($node_url_string, '/')) . "_id_" . $nid . "_label_" . preg_replace('/\s+/', '_', $variables['elements']['#configuration']['label']));
+        $suggestions[] = ('block__'. str_replace('-', '_', ltrim((string) $node_url_string, '/')) . "_id_" . $nid . "_label_" . preg_replace('/\s+/', '_', $variables['elements']['#configuration']['label']));
     }
 
     if($variables['elements']['#base_plugin_id'] == 'system_breadcrumb_block'){
