@@ -17,14 +17,6 @@
 	'block--utc-image-default',
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-    {% if label %}
-      <h2{{ title_attributes }}>
-         <span class="title-text">{{ label }}</span>
-      </h2>
-    {% endif %}
-  {{ title_suffix }}
 	{% block content %}
 		{{ attach_library('utccloud/utc-hero-image') }}
 		{% set rendered_content = content|render %}
@@ -103,4 +95,3 @@
 				</div>
 		</div>
 	{% endblock %}
-</div>
