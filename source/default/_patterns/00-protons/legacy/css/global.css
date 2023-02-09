@@ -368,6 +368,7 @@ a.diagonal.light-gray-hero:hover i,
 a.diagonal.light-gray-hero:hover svg{
   @apply text-utc-new-gold-500;
 }
+
 b, strong {
   @apply font-bold;
 }
@@ -486,6 +487,18 @@ ul.pager__items li a:hover {
 
 @media screen and (max-width: 1024px) {
   .section-hero {@apply bg-white pt-6 }
+  .utc-hero-image-default .order-first, .utc-hero-image-default .order-last {
+    order: unset!important;
+  }
+  .utc-hero-image-default .order-first {
+    @apply mt-8;
+  }
+  .node__content > .section-hero:first-child {
+    @apply p-0 -mt-4
+  }
+  .node__content > .section-hero:first-child .themag-layout__region {
+    @apply p-0;
+  }
 }
 @media screen and (max-width: 768px) {
   main {
@@ -493,6 +506,9 @@ ul.pager__items li a:hover {
   }
   .container-full, .themag-layout--my-default {
     @apply px-4;
+  }
+  .section-hero .container-full {
+    @apply px-0;
   }
   .container-full .block--region-content-header.block--page-title-block .page-title {
     @apply text-lg;

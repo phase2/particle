@@ -35,7 +35,7 @@
 			hero_color: content["#block_content"].field_hero_color.0.value,
 			hero_tag: content.field_hero_tag_text|field_value,
 			hero_title: content.field_hero_title|field_value,
-			hero_video: content.field_video,
+			hero_video: content.field_video_hero,
 			hero_text: content.field_hero_text|field_value,
 			hero_button_text: content.field_hero_button.0['#title'],
 			hero_button_url: content.field_hero_button.0['#url'],
@@ -71,7 +71,7 @@
 					<div class="absolute left-0 top-0 hero-background-color h-full w-full " style="{{ bg2_opacity }} {{ bg_color }}"></div>
 					<div class="utc-video-hero-container utc-video-hero-block-left flex flex-col lg:grid lg:grid-cols-utcvideohero lg:gap-10 relative ">
 						<div>
-							<div class="video-hero {{ utc_hero.hero_parameters[0] }} {{ utc_hero.hero_parameters[1] }} {{ utc_hero.hero_parameters[2] }} {{ utc_hero.hero_parameters[3] }} ">{{ utc_hero.hero_video }}{{ utc_hero.hero_otherhost }}</div>
+							<div class="video-hero {{ utc_hero.hero_parameters[0] }} {{ utc_hero.hero_parameters[1] }} {{ utc_hero.hero_parameters[2] }} ">{{ utc_hero.hero_video }}{{ utc_hero.hero_otherhost }}</div>
 						</div>
 						<div class="flex flex-col justify-center shrink relative">
 							{% if utc_hero.hero_tag %}
@@ -134,12 +134,11 @@
 							{% endif %}
 						</div>
 						<div>
-							<div class="video-hero {{ utc_hero.hero_parameters[0] }} {{ utc_hero.hero_parameters[1] }} {{ utc_hero.hero_parameters[2] }} {{ utc_hero.hero_parameters[3] }} ">{{ utc_hero.hero_video }}{{ utc_hero.hero_otherhost }}</div>
+							<div class="video-hero {{ utc_hero.hero_parameters[0] }} {{ utc_hero.hero_parameters[1] }} {{ utc_hero.hero_parameters[2] }} ">{{ utc_hero.hero_video }}{{ utc_hero.hero_otherhost }}</div>
 						</div>
 					</div>
 				</div>
 			{% endblock herobackgroundright %}		
 		{% endif %}
-		</div>
 	{% endblock %}
 </div>

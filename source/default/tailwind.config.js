@@ -32,7 +32,7 @@
      extend: {
        boxShadow: {
          'utc': '3px 3px 5px 1px rgb(0 0 0 / 15%)',
-         'utcdark': '5px 10px 10px hsl(0deg 0% 0% / 0.50)',
+         'utcdark': 'rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.25) 0px 2px 3px',
        },
        gridTemplateRows: {
          // Adds a custom template for the utc hero block
