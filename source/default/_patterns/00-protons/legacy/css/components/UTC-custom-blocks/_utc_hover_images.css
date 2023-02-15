@@ -13,21 +13,28 @@ figure.utc-hover-image-effect * {
   @apply box-border;
 }
 figure.utc-hover-image-effect {
-  @apply relative float-left overflow-hidden;
+  @apply relative overflow-hidden;
   margin: 10px 1%;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
+  z-index: 1;
 }
 figure.utc-hover-image-effect img {
   @apply max-w-full opacity-100 w-full;
   transition: opacity 0.35s;
 }
 /*figcaption, text*/
+figure.utc-hover-image-effect .image-title {
+  z-index: 1;
+}
 figure.utc-hover-image-effect figcaption {
-  @apply p-8 max-h-full;
+  @apply p-4 max-h-full h-full;
 }
 figure.utc-hover-image-effect .utc-border-wrapper {
-  @apply opacity-0 sm:ml-auto sm:mr-auto border-l-4 border-utc-new-gold-500 pl-4;
+  @apply opacity-0 sm:ml-auto sm:mr-auto;
   transition: opacity 0.25s, transform 0.25s;
+} 
+figure.utc-hover-image-effect .hover-inner {
+  @apply border-l-4 border-utc-new-gold-500 pl-4;
 } 
 figure.utc-hover-image-effect h2,
 figure.utc-hover-image-effect p {
@@ -58,6 +65,10 @@ figure.utc-hover-image-effect a {
 figure.utc-hover-image-effect:hover figcaption {
   top: 50%;
   transform: translateY(-50%);
+  display: table!important;
+}
+figure.utc-hover-image-effect:hover .image-title {
+  display:none;
 }
 figure.utc-hover-image-effect:hover img {
   @apply opacity-10;
@@ -66,6 +77,8 @@ figure.utc-hover-image-effect:hover .utc-border-wrapper  {
   @apply opacity-100;
   transform: translate3d(0%, 0%, 0);
   transition-delay: 0.2s;
+  display: table-cell!important;
+  vertical-align: middle;
 }
 figure.utc-hover-image-effect:hover h2 {
   @apply opacity-100;
@@ -81,7 +94,7 @@ figure.utc-hover-image-effect:hover p {
 /****1 image***/
 figure.image-count-1 {
   @apply float-none;
-  margin: 10px;
+  margin:4px;
 }
 figure.image-count-1 figcaption {
   @apply lg:p-20;
@@ -89,7 +102,7 @@ figure.image-count-1 figcaption {
 figure.image-count-1 .utc-border-wrapper {
   @apply lg:pl-6;
 } 
-figure.image-count-1 h2 {
+figure.image-count-1 h2, figure.utc-hover-image-effect .image-title {
   @apply lg:text-4xl;
 }
 figure.image-count-1 p {
@@ -103,22 +116,22 @@ figure.image-count-2 figcaption {
 figure.image-count-2 .utc-border-wrapper {
   @apply lg:pl-4;
 } 
-figure.image-count-2 h2 {
+figure.image-count-2 h2, figure.utc-hover-image-effect .image-title {
   @apply lg:text-2xl;
 }
 
 /***3 images***/
 figure.image-count-3 figcaption {
-  @apply md:p-4 md:pt-3 lg:p-8;
+  @apply md:p-4 md:pt-3 lg:p-4;
 }
 figure.image-count-3 .utc-border-wrapper {
   @apply xl:pl-4;
 }
-figure.image-count-3 h2 {
-  @apply md:text-base lg:text-2xl
+figure.image-count-3 h2, figure.utc-hover-image-effect .image-title {
+  @apply text-2xl
 }
 figure.image-count-3 p {
-  @apply pb-0 mb-4 md:m-0 lg:mt-2 md:text-xs lg:text-sm xl:text-base;
+  @apply pb-0 mb-4 lg:mt-2 text-base;
 }
 figure.image-count-3 a {
   @apply md:mt-1 lg:mt-4;
@@ -128,379 +141,252 @@ figure.image-count-3 a {
 figure.image-count-4 figcaption {
   @apply md:p-3 lg:p-4;
 }
-figure.image-count-4 h2 {
+figure.image-count-4 h2, figure.image-count-4 .image-title {
   @apply mb-0 pb-0 md:text-base lg:text-lg;
 }
 figure.image-count-4 p {
-  @apply md:hidden lg:inline-block lg:text-xs mx-0;
+  @apply lg:inline-block mx-0 lg:mt-2;
+}
+.image-output-horizontal .image-count-4.overlay-true .image-title {
+  bottom: 0!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 100%;
+  height: 100%;
+}
+.image-output-horizontal .image-count-4.overlay-true:hover .image-title {
+  display: none;
 }
 
-/****Vertical****/
-.image-output-vertical figure.utc-hover-image-effect figcaption {
-  @apply p-16 lg:p-20;
-}
-.image-output-vertical figure.utc-hover-image-effect .utc-border-wrapper {
-  @apply md:border-l-4 md:border-utc-new-gold-500 md:pl-4 lg:mb-0;
-}
-.image-output-vertical figure.utc-hover-image-effect h2 {
-  @apply text-3xl;
-}
-.image-output-vertical figure.utc-hover-image-effect p {
-  @apply text-lg;
-}
-.image-output-vertical figure.utc-hover-image-effect a {
-  @apply text-lg mt-6;
-}
-.image-output-vertical figure.image-count-3 figcaption {
-  @apply md:p-8;
-}
-.image-output-vertical figure.image-count-3 h2 {
-  @apply md:text-2xl ;
-}
-.image-output-vertical figure.image-count-3  p {
-  @apply md:text-base;
-}
-.image-output-vertical figure.image-count-3  a {
-  @apply md:text-base;
-}
-.image-output-vertical figure.image-count-4 figcaption {
-  @apply md:p-4 lg:p-8 lg:pb-0;
-}
-.image-output-vertical figure.image-count-4 h2 {
-  @apply md:text-lg lg:text-2xl ;
-}
-.image-output-vertical figure.image-count-4 p {
-  @apply md:inline-block md:text-xs lg:text-sm xl:text-base;
-}
-.image-output-vertical figure.image-count-4 a {
-  @apply md:text-xs lg:text-base md:mt-2 lg:mt-6;
-}
 
-/****Internal pages treatment***/
-.themag-layout--twocol-section--3-9 figure.utc-hover-image-effect figcaption,
-.themag-layout--twocol-section--9-3 figure.utc-hover-image-effect figcaption {
-  @apply lg:p-8;
-}
-.themag-layout--twocol-section--3-9 figure.image-count-3 figcaption,
-.themag-layout--twocol-section--9-3 figure.image-count-3 figcaption {
-  @apply lg:p-6;
-}
 
-@media (min-width: 1200px) and (max-width: 1280px){
-  .image-output-horizontal figure.image-count-3 figcaption {
-    @apply lg:p-4;
-  }
-  .image-output-horizontal figure.image-count-4 p {
-    @apply lg:mt-0;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2, 
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
-    @apply text-base;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
-    @apply text-xs;
-  }
+figure.utc-hover-image-effect figcaption a.hover-button span {
+  @apply text-center text-white bg-utc-new-blue-500 mx-auto py-1 px-4 font-bold;
+  display:none;
+  background-image: -webkit-linear-gradient(257deg, #fdb736 50%, #112e51 50%);
+  background-image: linear-gradient(-257deg, #fdb736 50%, #112e51 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: all 750ms ease-in-out;
+  transition: all 750ms ease-in-out;
 }
-
-.themag-layout--twocol-section--3-9 figure.image-count-4 figcaption,
-.themag-layout--twocol-section--9-3 figure.image-count-4 figcaption {
-  @apply lg:p-4;
-}
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 figcaption {
-  @apply md:p-8;
-}
-.themag-layout--twocol-section--3-9 .image-output-vertica figure.image-count-4 figcaption,
-.themag-layout--twocol-section--9-3 .image-output-vertica figure.image-count-4 figcaption {
-  @apply xl:p-6;
-}
-.themag-layout--twocol-section--3-9 figure.utc-hover-image-effect .utc-border-wrapper,
-.themag-layout--twocol-section--9-3 figure.utc-hover-image-effect .utc-border-wrapper {
-  @apply lg:pl-2;
-} 
-.themag-layout--twocol-section--3-9 figure.image-count-1,
-.themag-layout--twocol-section--9-3 figure.image-count-1  {
-  @apply mx-0;
-}
-.themag-layout--twocol-section--3-9 figure.image-count-1 figcaption,
-.themag-layout--twocol-section--9-3 figure.image-count-1 figcaption {
-  @apply p-20;
-}
-.themag-layout--twocol-section--3-9 figure.image-count-3 h2,
-.themag-layout--twocol-section--9-3 figure.image-count-3 h2 {
-  @apply lg:pb-0 lg:mb-0 lg:text-base;
-}
-.themag-layout--twocol-section--3-9 figure.image-count-3 p,
-.themag-layout--twocol-section--9-3 figure.image-count-3 p {
-  @apply lg:pb-0 lg:mb-0 lg:mt-0 lg:text-xs xl:mt-2;
-}
-.themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 .utc-border-wrapper, 
-.themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 .utc-border-wrapper {
-  @apply xl:pl-3;
-}
-.themag-layout--twocol-section--3-9 figure.image-count-4 h2,
-.themag-layout--twocol-section--9-3 figure.image-count-4 h2 {
-  @apply lg:text-sm;
-} 
-.themag-layout--twocol-section--3-9 figure.image-count-4 p,
-.themag-layout--twocol-section--9-3 figure.image-count-4 p {
-  @apply lg:hidden xl:inline-block xl:mt-0;
-}
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-1 figcaption,
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 figcaption,
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-1 figcaption,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-2 figcaption,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 figcaption {
-  @apply p-12 md:p-8 xl:p-12;
-}
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 figcaption,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 figcaption {
-  @apply xl:p-8;
-}
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 h2,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 h2 {
-  @apply lg:text-lg ;
-}
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 p,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 p {
-  @apply md:text-sm lg:text-base mt-2;
-}
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 a,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 a  {
-  @apply md:mt-2 md:text-sm lg:mt-0 lg:text-base;
+figure.utc-hover-image-effect figcaption a.hover-button:hover span {
+  background-position: 0;
+  @apply text-utc-new-blue-500;
 }
 
 .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2,
 .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
   @apply lg:text-lg ;
 }
+
 .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
 .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
-  @apply lg:inline-block xl:text-sm;
+  @apply lg:inline-block text-base;
 }
 
-/*Remove later
-.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }*/
+/***image & overlay color choices***/
 
+figure.bw-image  img {
+  filter: saturate(0);
+}
+figure.gold-overlay .field--type-image.field__item {
+  background: rgba(253, 183, 54,.8);
+}
+figure.dk-blue-overlay .field--type-image.field__item {
+  background: rgba(17, 46, 81,.8);
+}
+figure.lt-blue-overlay .field--type-image.field__item {
+  background: rgba(231, 234, 238,.1);
+}
+figure.gold-overlay:hover .field--type-image.field__item,
+figure.dk-blue-overlay:hover .field--type-image.field__item,
+figure.lt-blue-overlay :hover .field--type-image.field__item {
+  background: transparent;
+}
+figure.gold-overlay img,
+figure.dk-blue-overlay img,
+figure.lt-blue-overlay img
+{
+  opacity: .4; 
+}
+figure.overlay-true .image-title {
+  font-weight: bold;
+  text-shadow: unset!important;
+  bottom: 18px!important;
+}
+figure.gold-overlay .image-title {
+  background: transparent!important;
+  color: #112e51!important;
+}
+figure.dk-blue-overlay .image-title,
+figure.lt-blue-overlay .image-title {
+  background: transparent!important;
+  color: #fff!important;
+}
+figure.lt-blue-overlay .image-title {
+  color: #112e51!important;
+}
+.overlay-true .image-title {@apply px-4 leading-5;}
+.image-count-1 .image-title {
+  font-size:1.5rem;
+  bottom: 36px!important
+}
+.image-count-2 .image-title {
+  font-size:1.75rem
+}
+.image-count-3 .image-title {
+  font-size:1.5rem
+}
+.image-count-4 .image-title {
+  font-size:1.25rem;
+}
 
-/*Additional reponsive styles*/
+.image-count-1 .larger.image-title {
+  font-size:2.25rem;
+}
+.image-count-2 .larger.image-title {
+  font-size:2rem
+}
+.image-count-3 .larger.image-title {
+  font-size:1.75rem
+}
+.image-count-4 .larger.image-title {
+  font-size:1.5rem;
+}
 
-/*The side menu shows at 991px, affecting the layout 3-9 col layout, but we don't have a breakpoint set there. 
-At some point we may want to show the side menu at 1024px, not 991px, showing the mobile dropdown menu at 991px.*/
+/**fail safe styling of grid-cols-#
+.utc-image-hover.grid-cols-2	{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.utc-image-hover.grid-cols-3	{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.utc-image-hover.grid-cols-4	{ grid-template-columns: repeat(4, minmax(0, 1fr)); } **/
 
-@media (min-width: 991px) and (max-width: 1023px) {
-  /***begin horizontal***/
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 figcaption,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 figcaption {
-    @apply p-5;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 h2,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 h2 {
-    @apply text-base;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 p,
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 a,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 p,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 a {
-    @apply text-xs;
-  }  
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-2 p,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-2 p {
-    @apply my-0;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-3 p,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-3 p,
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 p,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 p {
+@media (min-width: 992px) and (max-width: 1280px) {
+  .themag-layout--twocol-section--3-9 figure.image-count-4 p,
+  .themag-layout--twocol-section--9-3 figure.image-count-4 p {
     @apply hidden;
   }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-3 a,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-3 a {
-    @apply text-xs;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-3 .utc-border-wrapper,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-3 .utc-border-wrapper {
-    @apply pl-2;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 h2,
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 a,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 h2,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 a {
-    @apply text-xs mt-1;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 a,
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 a{
-    @apply py-1 px-2;
-  }
+  
+}
 
-  /***begin vertical***/
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 h2,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-2 h2 {
-    @apply text-2xl;
+/****Particle Issue 510 Solution: Better mobile experience****/
+@media (max-width:991px) {
+  figure.utc-hover-image-effect img {
+    filter: unset;
+    cursor: none;
+    opacity: 1!important;
   }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 p,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-2 p {
-    @apply text-base;
+  figure.utc-hover-image-effect picture:after {
+    display:none!important;
   }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 figcaption {
-    @apply p-4;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 h2,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 h2 {
-    @apply text-lg;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 p,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 p {
-    @apply text-xs mt-0;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
-    @apply hidden;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 .utc-border-wrapper,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 .utc-border-wrapper {
-    @apply pl-2;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
-    @apply text-base;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 a,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 a {
-    @apply pl-1 text-xs;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  figure.utc-hover-image-effect a {
-    @apply opacity-0 inline-block relative text-white px-4 py-1 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
-    transform: translate3d(0%, 30%, 0);
-    transition-delay: 0s;
-  }
-  figure.utc-hover-image-effect:hover a {
-    @apply opacity-100;
-    transform: translate3d(0%, 0%, 0);
-    transition-delay: 0.8s;
-  }
-  figure.image-count-1 p {
-    @apply text-xl;
-  }
-  figure.image-count-2 p {
-    @apply text-sm;
-  }
-  figure.image-count-3 .utc-border-wrapper {
-    @apply pl-2;
-  }
-  figure.image-count-3 a {
-    @apply text-xs;
-  }
-  .grid-cols-4 {
-    @apply grid-cols-2;
-  }
-}
-@media (max-width: 767px) {
-  .utc-image-hover {
-    display: block!important;
-    @apply text-center;
+  figure.utc-hover-image-effect figcaption * {
+    opacity:1;
   }
   figure.utc-hover-image-effect {
-    @apply my-8 mx-auto float-none;
-  }
-  figure.input-horizontal {
-    @apply max-w-max;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+}
+  figure.utc-hover-image-effect:hover,
+  figure.utc-hover-image-effect figcaption,
+  figure.utc-hover-image-effect:hover figcaption,
+  figure.utc-hover-image-effect:hover .utc-border-wrapper,
+  figure.utc-hover-image-effect h2, 
+  figure.utc-hover-image-effect:hover h2,
+  figure.utc-hover-image-effect p,
+  figure.utc-hover-image-effect figcaption a.hover-button
+  {
+    top: unset;
+    transform: unset;
+    transition: unset;
+    transition-delay: unset;
   }
   figure.utc-hover-image-effect figcaption {
-    @apply text-left;
+    background: transparent;
+    padding: 1.5rem!important;
+    transition: all .4s ease-in-out;
+    position: relative !important;
+    display: flex!important;
+    height: 100%!important;
+    margin-bottom: 0!important;
+    opacity: 1;
   }
-  figure.utc-hover-image-effect a {
-    @apply opacity-0 inline-block mt-4 relative text-white px-4 py-1 font-bold text-center w-auto h-auto bg-utc-new-blue-500;
-    transform: translate3d(0%, 30%, 0);
-    transition-delay: 0s;
+  figure.utc-hover-image-effect:hover figcaption {
+    display: flex!important;
   }
-  .image-output-vertical figure.utc-hover-image-effect a {
-    @apply py-2;
+  figure.utc-hover-image-effect .utc-border-wrapper {
+    display: flex!important;
+    opacity:1!important;
+    height: 100% !important;
+    position: relative;
+    width:100%;
   }
-  figure.utc-hover-image-effect:hover a {
-    @apply opacity-100;
-    transform: translate3d(0%, 0%, 0);
-    transition-delay: 0.8s;
+  figure.utc-hover-image-effect .hover-inner {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height:100%;
+    width:100%;
+    justify-content: space-between;
   }
-  .themag-layout--twocol-section--3-9 .image-output-horizontal figure.image-count-4 .utc-border-wrapper, 
-  .themag-layout--twocol-section--9-3 .image-output-horizontal figure.image-count-4 .utc-border-wrapper {
-    @apply border-l-4 border-utc-new-gold-500 pl-4;
+  figure.utc-hover-image-effect figcaption h2 {
+    font-weight:600!important;
+    font-size:1.5rem;
+  }
+  figure.utc-hover-image-effect figcaption p {
+    font-size:.95rem;
+    overflow-x: hidden;
+    margin: 0;
+    margin-top: 6px;
+    margin-bottom: auto!important;
+  }
+  figure.utc-hover-image-effect figcaption a.hover-button {
+    width: fit-content!important;
+    pointer-events: auto;
+    position: relative;
+  }
+  figure.utc-hover-image-effect figcaption a.hover-button span {
+    display:inline-block;
+    font-size: 1rem;
+  }
+  figure.image-count-4 figcaption a.hover-button span {
+    padding-left: 9px;
+    padding-right: 9px;
+    width: 100%;
+  }
+  .image-title, .image-count-4.overlay-true .image-title {
+    display: none;
+  }
+  .utc-image-hover.grid-cols-4	{ grid-template-columns: repeat(2, minmax(0, 1fr))!important; } 
+}
+
+@media screen and (max-width: 768px) {
+  figure.utc-hover-image-effect .utc-border-wrapper {
+    opacity:1!important;
+    height: 100% !important;
+    position: relative;
+  }
+  figure.utc-hover-image-effect figcaption h2 {
+    font-size:1.75rem;
+  }
+  figure.utc-hover-image-effect figcaption p {
+    font-size:1.1rem;
   }
 }
-@media (max-width: 459px) {
-  .themag-layout--twocol-section--3-9 figure.image-count-1 figcaption, 
-  .themag-layout--twocol-section--9-3 figure.image-count-1 figcaption {
-    @apply p-4;
+@media screen and (max-width: 767px) {
+  .utc-image-hover {
+    grid-template-columns: repeat(1, minmax(0, 1fr))!important;
+    gap: 2rem!important;
   }
-  figure.utc-hover-image-effect h2 {
-    @apply text-xl;
+  .utc-image-hover.grid-cols-4	{ grid-template-columns: repeat(1, minmax(0, 1fr))!important; } 
+  figure.utc-hover-image-effect {
+    width: 90%;
+    margin-top: 6px;
+    margin-bottom:6px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  figure.utc-hover-image-effect p {
-    @apply text-lg;
-  }
-  .hover-image-space {
-    @apply mt-0 h-0;
-  }
-}
-@media (max-width: 420px) {
-  figure.image-count-1 figcaption {
-    @apply p-8;
-  }
-  .hover-image-space {
-    @apply mt-10;
-  }
-}
-@media (max-width: 320px) {
-  figure.utc-hover-image-effect p {
-    @apply my-1 text-base;
-  }
-  figure.utc-hover-image-effect a {
-    @apply mt-1;
-  }
-  figure.utc-hover-image-effect figcaption,
-  figure.image-count-1:hover figcaption,
-  figure.image-count-2:hover figcaption {
-    @apply p-4;
-  }
-  figure.image-count-4:hover figcaption {
-    @apply p-8;
-  }
-  figure.utc-hover-image-effect h2 {
-    @apply pb-0;
-  }
-  .image-output-horizontal figure.image-count-4 p {
-    @apply text-sm;
-  }
-}
-@media (max-width: 280px) {
-  figure.utc-hover-image-effect p {
-    @apply text-sm;
-  }
-  figure.image-count-4 p {
-    @apply text-xs;
-  }
-  .image-output-horizontal .hover-image-space {
-    @apply mt-6;
-  }
-  .image-output-vertical figure.utc-hover-image-effect figcaption {
-    @apply p-12;
-  }
-  figure.image-count-4:hover figcaption {
-    @apply p-4;
-  }
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-1 figcaption, 
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-2 figcaption, 
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-3 figcaption, 
-  .themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 figcaption,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-1 figcaption, 
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-2 figcaption, 
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-3 figcaption,
-  .themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 figcaption {
-    @apply p-8;
+  figure.utc-hover-image-effect .utc-border-wrapper {
+    min-height: 150px;
   }
 }

@@ -14,11 +14,15 @@
 {% block content %}
     {# block fields #}
     {% set hover_image_orientation = content.field_image_orientation|field_value|render %}
-    {% set image_orientation = 'image-output-' ~ hover_image_orientation %}
+    {% set block_image_bw = content.field_convert_to_bw|field_value|render %}
+    {% set block_image_overlay = content.field_overlay_color|field_value|render %}
+    {% set block_hide_titles = content.field_hide_initial_title|field_value|render %}
+    {% set block_larger_titles = content.field_larger_titles|field_value|render %}
+    {% set block_image_orientation = 'image-output-' ~ hover_image_orientation %}
     {% set paragraph_count = content.field_hover_image_block['#items']|length %}
     {% set paragraph_count_css = 'grid-cols-' ~ paragraph_count %}
-
-   <div class="block__content utc-image-hover {{ image_orientation }} mb-0 grid gap-4  {{ paragraph_count_css }} " >
+    
+   <div class="block__content utc-image-hover {{ block_image_orientation }} mb-0 grid {{ paragraph_count_css }} gap-4" >
 
     {% for item in content.field_hover_image_block['#items'] %}
 
@@ -28,12 +32,36 @@
         {% set paragraph_media_id = item.entity.field_hover_image.target_id %}
         {% set paragraph_url = item.entity.field_hover_link.0.url %}
         {% set paragraph_url_title = item.entity.field_hover_link.0.title %}
+       {#  {% set paragraph_image_bw = item.entity.field_convert_to_bw.0.value %}
+        {% set paragraph_image_overlay = item.entity.field_overlay_color.0.value %} #} 
+
+        {% if block_image_bw == "On" %}
+            {% set image_color = 'bw-image' %}
+        {% else %}
+            {% set image_color = 'color-image' %}
+        {% endif %}
+
+        {% if block_image_overlay %}
+            {% set overlay_status = 'overlay-true' %}
+        {% else %}
+            {% set overlay_status = '' %}
+        {% endif %}
+
+        {% set overlay_color = block_image_overlay ~ '-overlay' %}
+
+        {% if block_hide_titles == "On" %}
+            {% set title_hide_show = 'hidden' %}
+        {% else %}
+            {% set title_hide_show = '' %}
+        {% endif %}
+
         {% set figure_classes  = [
             'utc-hover-image-effect',
             'image-count-' ~ paragraph_count,
         ] | sort | join(' ') | trim %}
+        {# Add zoom class if zoom is checked. #}
 
-            <figure class="{{ figure_classes }}">
+            <figure class="{{ figure_classes }} {{ image_color }} {{ overlay_color }} {{ overlay_status }}">
                 {% if hover_image_orientation == 'horizontal' %}
                     {{ drupal_entity('media', paragraph_media_id, 'utc_hover_image_horizontal') }}
                 {% else %}
@@ -43,19 +71,24 @@
                 {% if paragraph_url_title %}
                      <figcaption class="absolute block left-0 right-0 w-full cursor-pointer">
                         <div class="utc-border-wrapper">
-                            <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ paragraph_title }}</h2>
-                            <p class="text-utc-new-blue-500 leading-tight">{{ paragraph_text }}</p>
-                            <a href="{{ paragraph_url }}" title="Go to {{ paragraph_url_title }}" >{{ paragraph_url_title }}</a>
+                            <div class="hover-inner">
+                                <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ paragraph_title }}</h2>
+                                <p class="text-utc-new-blue-500 leading-tight">{{ paragraph_text }}</p>
+                                <a class="hover-button" href="{{ paragraph_url }}" title="{{ paragraph_url_title }}" ><span>{{ paragraph_url_title }}</span></a>
+                            </div>
                         </div>
                     </figcaption>
                 {% else %}
                     <figcaption class="absolute block left-0 right-0 w-full cursor-default">
                         <div class="utc-border-wrapper">
-                            <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ paragraph_title }}</h2>
-                            <p class="text-utc-new-blue-500 leading-tight">{{ paragraph_text }}</p>
+                            <div class="hover-inner">
+                                <h2 class="m-0 font-bold capitalize text-utc-new-blue-500 leading-tight">{{ paragraph_title }}</h2>
+                                <p class="text-utc-new-blue-500 leading-tight">{{ paragraph_text }}</p>
+                            </div>
                         </div>
                     </figcaption>
                 {% endif %}
+                <div class=" {{ title_hide_show }} {{  block_larger_titles }} image-title text-white font-utcheadings text-center pt-1 pb-2 absolute w-full" style="background:rgba(17,46,82,.8);bottom:12px;transition:var(--utc-transition);">{{ paragraph_title }}</div>
             </figure>
 
         {% endfor %}
