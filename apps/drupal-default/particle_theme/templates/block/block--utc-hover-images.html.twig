@@ -41,7 +41,7 @@
             {% set image_color = 'color-image' %}
         {% endif %}
 
-        {% if block_image_overlay == "On" %}
+        {% if block_image_overlay %}
             {% set overlay_status = 'overlay-true' %}
         {% else %}
             {% set overlay_status = '' %}
