@@ -256,10 +256,15 @@ figure.lt-blue-overlay .image-title {
   font-size:1.5rem;
 }
 
-/**fail safe styling of grid-cols-#
+/**fail safe styling of grid-cols-# **/
 .utc-image-hover.grid-cols-2	{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .utc-image-hover.grid-cols-3	{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.utc-image-hover.grid-cols-4	{ grid-template-columns: repeat(4, minmax(0, 1fr)); } **/
+.utc-image-hover.grid-cols-4	{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/**Hide captions which adversely affect image height**/
+.utc-image-hover .media-image .field--name-field-description {
+  display: none;
+}
 
 @media (min-width: 992px) and (max-width: 1280px) {
   .themag-layout--twocol-section--3-9 figure.image-count-4 p,
