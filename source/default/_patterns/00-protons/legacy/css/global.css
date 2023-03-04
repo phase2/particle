@@ -487,7 +487,7 @@ ul.pager__items li a:hover {
 /*end search page adjustments*/
 
 @media screen and (max-width: 1024px) {
-  .section-hero {@apply bg-white pt-6 }
+  .section-hero {@apply bg-white pt-6 relative z-1}
   .utc-hero-image-default .order-first, .utc-hero-image-default .order-last {
     order: unset!important;
   }
@@ -509,7 +509,10 @@ ul.pager__items li a:hover {
     @apply px-4;
   }
   .section-hero .container-full {
-    @apply px-0;
+    @apply p-0;
+  }
+  .section-hero .container-full .row {
+    @apply mx-0;
   }
   .container-full .block--region-content-header.block--page-title-block .page-title {
     @apply text-lg;
