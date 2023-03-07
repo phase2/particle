@@ -109,7 +109,7 @@ ul.sf-menu.top-workbench-menu ul {
   background: #e7eaee;
 }
 ul.sf-menu.top-workbench-menu ul li {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #e7eaee;
   word-wrap: normal;
   white-space: normal;
 }
@@ -310,7 +310,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
   ul.sf-menu.top-workbench-menu li.sfHover > ul, ul.sf-menu.top-workbench-menu li:hover > ul {
     left: unset !important;
     top: 0 !important;
-    width: 90%!important;
+    width: 91%!important;
   }
   ul.sf-menu.top-workbench-menu li a {
     font-size: 1rem;
@@ -354,6 +354,10 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
   ul.sf-menu.menu.top-workbench-menu,
   .region-top-workbench-menu .block {
     max-width: 100%!important;
+  }
+  ul.sf-menu.top-workbench-menu li.sfHover > ul, 
+  ul.sf-menu.top-workbench-menu li:hover > ul {
+    width: 93%!important;
   }
   .top-workbench-menu-present .sidr {
     top: 56px;
