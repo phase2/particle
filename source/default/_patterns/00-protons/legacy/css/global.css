@@ -389,10 +389,10 @@ p.more-space, li.more-space {
   @apply my-6;
 }
 h3.blue-bar {
-  @apply bg-utc-new-blue-500 p-3 m-0 mb-6 text-white w-full;
+  @apply bg-utc-new-blue-500 px-2 py-1 m-0 mb-6 text-white w-full;
 }
 h3.gold-bar {
-  @apply bg-utc-new-gold-500 p-3 m-0 mb-6 text-utc-new-blue-500 w-full;
+  @apply bg-utc-new-gold-500 px-2 py-1 m-0 mb-6 text-utc-new-blue-500 w-full;
 }
 .white-hz-rule {
   @apply bg-white w-full;
@@ -487,31 +487,36 @@ ul.pager__items li a:hover {
 /*end search page adjustments*/
 
 @media screen and (max-width: 1024px) {
-  .section-hero {@apply bg-white pt-6 relative z-1}
+  .section-hero {@apply bg-white relative z-1 shadow-utc}
   .utc-hero-image-default .order-first, .utc-hero-image-default .order-last {
     order: unset!important;
   }
   .utc-hero-image-default .order-first {
     @apply mt-8;
   }
-  .node__content > .section-hero:first-child {
+  .node__content > .utc-hero-section:first-child {
     @apply p-0 -mt-4
   }
-  .node__content > .section-hero:first-child .themag-layout__region {
+  .node__content > .utc-hero-section:first-child .themag-layout__region {
     @apply p-0;
   }
 }
 @media screen and (max-width: 768px) {
   main {
-    @apply pt-4;
+    @apply pt-4 z-1 relative;
+  }
+  main.main-reduce-top-margin {
+    @apply pt-0;
   }
   .container-full, .themag-layout--my-default {
     @apply px-4;
   }
-  .section-hero .container-full {
+  .section-hero .container-full, 
+  .utc-hero-section .container-full {
     @apply p-0;
   }
-  .section-hero .container-full .row {
+  .section-hero .container-full .row, 
+  .utc-hero-section .container-full .row  {
     @apply mx-0;
   }
   .container-full .block--region-content-header.block--page-title-block .page-title {

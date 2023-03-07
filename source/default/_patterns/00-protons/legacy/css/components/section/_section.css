@@ -60,3 +60,7 @@
   .utc-section-bg--blue p  {
     @apply text-white;
   }
+  .utc-hero-section .container-full .themag-layout__region {
+    padding-right:0;
+    padding-left:0;
+  }

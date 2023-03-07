@@ -44,6 +44,7 @@ import './legacy/css/components/UTC-custom-blocks/_utc_hover_images.css';
 import './legacy/css/components/field/_field--block-content--field-tags.css';
 import './legacy/css/components/UTC-custom-blocks/_utc_hero_video.css';
 import './legacy/css/components/UTC-custom-blocks/_utc_video_component.css';
+import './legacy/css/components/navigation/_top-workbench-menu.css';
 // import "./legacy/css/components/UTC-custom-blocks/";
 // import "./legacy/css/components/field/";
 
@@ -52,6 +53,7 @@ import './legacy/css/components/UTC-custom-blocks/_utc_video_component.css';
 import './legacy/js/utc-sidebar-menu.js';
 import './legacy/js/slick-custom-arrows.js';
 import './legacy/js/utc-quoteblock.js';
+import './legacy/js/top-workbench-menu.js';
 // import './legacy/js/ckeditor-jquery.js';
 
 // Export global variables.

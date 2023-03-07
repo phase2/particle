@@ -43,9 +43,9 @@
 	{% endif %}
 	{# Sets colors for hero content depending on selection #}
 	{% if utc_hero.hero_color == 'Dark Blue' %}
-		{% set title_color = 'lg:text-white' %}
-		{% set body_color = 'lg:text-white' %}
-		{% set tag_color = 'lg:text-white' %}
+		{% set title_color = 'text-white' %}
+		{% set body_color = 'text-white' %}
+		{% set tag_color = 'text-white' %}
 		{% set btn_border_color = "lg:border-white" %}
 		{% set bg_color = 'background-color:#112e51' %}
 		{% set bg1_opacity = '' %}
@@ -68,11 +68,11 @@
 						{{ utc_hero.hero_image }} 
 					</div>
 				{% endif %}
-					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:my-auto lg:ml-8 p-4 z-30">
+					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:my-auto lg:ml-8 p-4 z-30 relative">
 		{% else %}
 			<div class="utc-hero-block lg:grid lg:grid-rows-utcheroreverse lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
 				{% if utc_hero.hero_image %}
-					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:m-auto z-30 {{ utc_zoom }} shadow-utcdark relative">
+					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:m-auto z-30 {{ utc_zoom }} relative">
 						{{ utc_hero.hero_image }}
 					</div>
 				{% endif %}
@@ -83,11 +83,11 @@
 						{% endblock %}
 					</div>
 		{% if utc_hero.hero_align == 'Left' %}			
-				<div class="lg:max-w-full lg:max-w-full lg:md-0 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-2 md:row-end-5 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 " style="background-image: url({{ utc_hero.hero_bg }})">
+				<div class="lg:max-w-full lg:max-w-full lg:md-0 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-2 md:row-end-5 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 shadow-utcdark" style="background-image: url({{ utc_hero.hero_bg }})">
 					<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 				</div>
 		{% else %}
-				<div class="lg:max-w-full lg:max-w-full lg:md-0 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-2 md:row-end-5 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 " style="background-image: url({{ utc_hero.hero_bg }})">
+				<div class="lg:max-w-full lg:max-w-full lg:md-0 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-2 md:row-end-5 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 shadow-utcdark" style="background-image: url({{ utc_hero.hero_bg }})">
 					<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 				</div>
 		{% endif %}

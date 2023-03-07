@@ -16,6 +16,7 @@ regions:
   header_primary_menu: 'Primary menu'
   search: 'Search'
   offcanvas_sidebar: 'Off-Canvas sidebar'
+  top_workbench_menu: 'Top Workbench Menu'
   content_administration: 'Tabs'
   content_header: 'Content Header'
   content: 'Content'
