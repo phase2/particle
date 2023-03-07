@@ -162,6 +162,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     height: 50px;
     position: relative;
     box-shadow:none;
+    max-width: fit-content;
   }
   .region-top-workbench-menu h2.block__title {
     width: unset;
@@ -319,6 +320,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     width: 100%;
     background: unset;
     -webkit-text-fill-color: unset;
+    white-space: normal;
   }
   ul.sf-menu.top-workbench-menu li a:hover, ul.sf-menu.top-workbench-menu li.sf-expanded a {
     color: #112e51;
@@ -349,7 +351,8 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
   }
 }
 @media (max-width: 640px) {
-  ul.sf-menu.menu.top-workbench-menu {
+  ul.sf-menu.menu.top-workbench-menu,
+  .region-top-workbench-menu .block {
     max-width: 100%!important;
   }
   .top-workbench-menu-present .sidr {
