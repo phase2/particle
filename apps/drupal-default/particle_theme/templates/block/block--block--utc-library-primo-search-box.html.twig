@@ -82,7 +82,7 @@ There are many issues including but not limited to:
 						<input type="hidden" name="mode" value="advanced">
 					{% endif %}
 					<div class="lib-search__button-container">
-						<button class="{{ content.field_search_button_style[0]|render|lower }}" name="primosearchsubmit" id="primosearchsubmit" type="submit" aria-label="search button">
+						<button class="{{ content.field_search_button_style[0]|render|lower }}" id="primosearchsubmit" type="submit" aria-label="search button">
 							{% if content.field_search_button_text[0] is not empty %}
 								{{ content.field_search_button_text[0] }}
 							{% else %}
