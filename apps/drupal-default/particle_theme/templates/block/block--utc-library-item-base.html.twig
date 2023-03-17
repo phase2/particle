@@ -39,6 +39,9 @@
 
 
 	<div class="utc-item-card__container">
+	{% if content.edit_link %}
+	{{ content.edit_link }}
+	{% endif %}
 		{% if content.card_link %}
 			{{ content.card_link }}
 		{% endif %}
