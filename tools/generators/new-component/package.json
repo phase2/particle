@@ -8,7 +8,7 @@
   "dependencies": {
     "gulp-rename": "<=1.2.2",
     "lodash": "^4.17.19",
-    "yeoman-generator": "^4.11.0",
-    "yeoman-test": "^2.7.0"
+    "yeoman-generator": "^5.0.0",
+    "yeoman-test": "^5.0.0"
   }
 }
