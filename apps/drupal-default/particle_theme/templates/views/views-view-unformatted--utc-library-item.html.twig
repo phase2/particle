@@ -15,41 +15,35 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
+
 {# card_link: view.style_plugin.getField(key, 'field_utclib_item_link')|render|striptags, #}
 {% if title %}
-	<h2>{{ title }}</h2>
+  <h2>{{ title }}</h2>
 {% endif %}
 
-{% set card_classes = [
-  'utc-item-card',
-  'h-100',
-  card_link ? 'utc-item-card--card-link',
-] | sort | join(' ') | trim %}
+{% set card_classes = ['utc-item-card', 'h-100', card_link ? 'utc-item-card--card-link']|sort|join(' ')|trim %}
+
 <div class="utc-item-card__view-two-col">
-{% for key,row in rows %}
-	{% set content = {
-    card_mobile_stack: view.style_plugin.getField(key, 'field_utclib_mobile_stack'),
-	  card_link: view.style_plugin.getField(key, 'field_utclib_item_link'),
-    card_image: view.style_plugin.getField(key, 'field_utclib_item_image'),
-    card_title: view.style_plugin.getField(key, 'field_utclib_item_title'),
-    card_text: view.style_plugin.getField(key, 'field_utclib_item_body')|raw,  
-    card_badges: view.style_plugin.getField(key, 'field_utclib_item_badges')|raw, 
-    card_add_info: view.style_plugin.getField(key, 'field_utclib_item_add_info'), 
-    card_divider: view.style_plugin.getField(key, 'field_utclib_item_divider')|render|striptags|clean_class,
- } %}
+  {% for key, row in rows %}
+    {% set content = {
+      edit_link: view.style_plugin.getField(key, 'edit_block_content'),
+      card_mobile_stack: view.style_plugin.getField(key, 'field_utclib_mobile_stack'),
+      card_link: view.style_plugin.getField(key, 'field_utclib_item_link'),
+      card_image: view.style_plugin.getField(key, 'field_utclib_item_image'),
+      card_title: view.style_plugin.getField(key, 'field_utclib_item_title'),
+      card_text: view.style_plugin.getField(key, 'field_utclib_item_body')|raw,
+      card_badges: view.style_plugin.getField(key, 'field_utclib_item_badges')|raw,
+      card_add_info: view.style_plugin.getField(key, 'field_utclib_item_add_info'),
+      card_divider: view.style_plugin.getField(key, 'field_utclib_item_divider')|render|striptags|clean_class
+    } %}
 
-
-{% embed 'block--utc-library-item-base.html.twig' with content %}
-{% block badges %}
-{# had to reference the badges differently for the view, using block to replace the method used in the base template #}
-	{% if content.card_badges %}
-		<div class="utc-item-card__badges">
-				{{ content.card_badges }}
-		</div>
-	{% endif %}
-{% endblock %}
-{% endembed %}
-
-
-{% endfor %}
+    {% embed 'block--utc-library-item-base.html.twig' with content %}
+      {% block badges %}
+        {# had to reference the badges differently for the view, using block to replace the method used in the base template #}
+        {% if content.card_badges %}
+          <div class="utc-item-card__badges">{{ content.card_badges }}</div>
+        {% endif %}
+      {% endblock badges %}
+    {% endembed %}
+  {% endfor %}
 </div>
