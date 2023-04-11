@@ -529,6 +529,9 @@ div.site-alert div.text {
     .menus-wrapper {
         padding-left:0;
     }
+    .top-workbench-menu-present.notification-alert-on .menus-wrapper {
+        padding-bottom:0!important;
+    }
 }
 
 @media screen and (max-width: 480px) {
