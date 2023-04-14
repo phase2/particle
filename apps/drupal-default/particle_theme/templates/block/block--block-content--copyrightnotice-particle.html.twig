@@ -35,7 +35,7 @@
   {{ title_suffix }}
   {% block content %}
     <div{{ content_attributes }}>
-        <p style="color:#FFF;"><a href="https://www.utc.edu/about/contact/" id="legal-questions">Questions?</a> © 2012-{{ 'now'|date('Y') }} University of Tennessee at Chattanooga. All rights reserved.</p>
+        <p><a href="https://www.utc.edu/about/contact/" id="legal-questions" role="link" class="text-utc-new-gold">Questions?</a><span class="text-white"> © 2012-{{ 'now'|date('Y') }} University of Tennessee at Chattanooga. All rights reserved.</span></p>
         {{ content }}
     </div>
   {% endblock %}
