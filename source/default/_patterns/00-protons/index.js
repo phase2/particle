@@ -53,6 +53,8 @@ import './legacy/css/components/navigation/_top-workbench-menu.css';
 import './legacy/js/utc-sidebar-menu.js';
 import './legacy/js/slick-custom-arrows.js';
 import './legacy/js/utc-quoteblock.js';
+import './legacy/js/back-to-top-button.js';
+import './legacy/js/superfish-accessibility-attr.js';
 //import './legacy/js/top-workbench-menu.js'; << now in utccloud custom modules
 // import './legacy/js/ckeditor-jquery.js';
 

@@ -35,6 +35,7 @@
       <ul class="sidebar-menu">
     {% endif %}
     {% for item in items %}
+      {% set counter = ( counter | default(-1) - 1 ) %}
       {%
         set classes = [
           'menu-item-sidemenu',
@@ -43,29 +44,33 @@
           item.in_active_trail ? 'menu-item--active-trail open',
       ]
       %}
+      {% set arialabel = item.link_title|default(item.title)|e %}
+      {% set role = 'link' %}
+      {% set link_title = item.title|clean_class %}
+
       {% if item.is_expanded or item.is_collapsed %}
         {% if item.in_active_trail %}
-          <li{{ item.attributes.addClass(classes) }} >
-            {{ link(item.title, item.url) }}
+          <li{{ item.attributes.addClass(classes).setAttribute('data-title', link_title) }} tabindex="{{ counter }}" >
+            {{ link(item.title, item.url, item.attributes.setAttribute('title', link_title).setAttribute('aria-label', arialabel).setAttribute('role', role)) }}
             <div aria-hidden="true" class="more open"><i class="fas fa-angle-right text-new-utc-gold-500"></i></div>
             {% if item.below %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, item.attributes.setAttribute('title', link_title).setAttribute('aria-label', arialabel).setAttribute('role', role)) }}
             {% endif %}
           </li>
         {% else %}
-          <li{{ item.attributes.addClass(classes) }} >
-            {{ link(item.title, item.url) }}
+          <li{{ item.attributes.addClass(classes).setAttribute('data-title', link_title) }} tabindex="{{ counter }}">
+            {{ link(item.title, item.url, item.attributes.setAttribute('title', link_title).setAttribute('aria-label', arialabel).setAttribute('role', role)) }}
             <div aria-hidden="true" class="more closed"><i class="fas fa-angle-right text-new-utc-blue-500"></i></div>
             {% if item.below %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, item.attributes.setAttribute('title', link_title).setAttribute('aria-label', arialabel).setAttribute('role', role)) }}
             {% endif %}
           </li>
         {% endif %}
       {% else %}
-        <li{{ item.attributes.addClass(classes) }}>
-          {{ link(item.title, item.url) }}
+        <li{{ item.attributes.addClass(classes).setAttribute('data-title', link_title) }} tabindex="{{ counter }}">
+          {{ link(item.title, item.url, item.attributes.setAttribute('title', link_title).setAttribute('aria-label', arialabel).setAttribute('role', role)) }}
           {% if item.below %}
-            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1, item.attributes.setAttribute('title', link_title).setAttribute('aria-label', arialabel).setAttribute('role', role)) }}
           {% endif %}
         </li>
       {% endif %}

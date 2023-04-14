@@ -6,9 +6,9 @@
 <div class="layout-builder-powered-page">
    {% include '@themag/base-layout/header/header.html.twig' %}
   {# {% include '@particle/layout/header/custom-header.html.twig' %}  #}
-    {{ page.offcanvas_sidebar }}
-    {{ page.top_workbench_menu }}
-    {{ page.content_administration }}
+    <section id="mobile-menu" aria-label="mobile menu accordion" style="height:0">{{ page.offcanvas_sidebar }}</section>
+    <section aria-label="organization root menu">{{ page.top_workbench_menu }}</section>
+    <section aria-label="content administrative area">{{ page.content_administration }}</section>
     <main role="main" id="main-content" tabindex="-1">
       {{ page.content }}
     </main>

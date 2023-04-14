@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Default theme implementation of Superfish menu items.
+ *
+ * Available variables:
+ * - html_id: Unique menu item identifier.
+ * - item_class: Menu item classes.
+ * - link: Link element.
+ * - link_menuparent: Link element, when a menu parent.
+ * - children: Menu item children.
+ * - multicolumn_wrapper: Whether the menu item contains a column.
+ * - multicolumn_column: Whether the menu item contains a column.
+ * - multicolumn_content: Whether the menu item contains a column.
+ *
+ * @see template_preprocess_superfish_menu_items()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set classes = [] %}
+{% set arialabel = item.link_title|default(item.title)|e %}
+{% set role = 'link' %}
+{% set link_title = item.title|clean_class %}
+
+
+{% spaceless %}
+{% for item in menu_items %}
+{% set counter = ( counter | default(-1) - 1 ) %}
+
+  {% if item.children is not empty %}
+    {% set item_class = item.item_class ~ ' menuparent' %}
+    {% if item.multicolumn_column %}
+      {% set item_class = item_class ~ ' sf-multicolumn-column' %}
+    {% endif %}
+  {% endif %}
+
+  <li{{ item.attributes }} tabindex="{{ counter }}" >
+    {% if item.multicolumn_column %}
+    <div class="sf-multicolumn-column">
+    {% endif %}
+    {% if item.children is not empty %}
+      {{ item.link_menuparent }}
+    {% else %}
+      {{ item.link }}
+    {% endif %}
+    {% if item.multicolumn_wrapper %}<ul class="sf-multicolumn">
+    <li class="sf-multicolumn-wrapper {{ item.item_class }}" tabindex="{{ counter }}" >
+    {% endif %}
+    {% if item.children is not empty %}
+      {% if item.multicolumn_content %}<ol>{% else %}<ul>{% endif %}
+      {{ item.children }}
+      {% if item.multicolumn_content %}</ol>{% else %}</ul>{% endif %}
+    {% endif %}
+    {% if item.multicolumn_wrapper %}</li></ul>{% endif %}
+    {% if item.multicolumn_column %}</div>{% endif %}
+  </li>
+
+{% endfor %}
+{% endspaceless %}

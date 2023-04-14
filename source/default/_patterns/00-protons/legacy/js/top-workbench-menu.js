@@ -10,7 +10,7 @@
             var twmBlockTitle = document.querySelector('.region-top-workbench-menu .block__title');
             var twmBlockTitleSpan = document.querySelector('.region-top-workbench-menu .block__title .title-text');
             var twmBlockTitleText = twmBlockTitleSpan.textContent;
-            var replacementBlockTitleHTML = '<a href="'+ homepageHref +'" title="'+ twmBlockTitleText +'" class="homepage-link" ><span class="title-text">'+ twmBlockTitleText +'</a>';
+            var replacementBlockTitleHTML = '<a href="'+ homepageHref +'" role="link" aria-label="cecs homepage" title="'+ twmBlockTitleText +'" class="homepage-link" ><span class="title-text">'+ twmBlockTitleText +'</a>';
             twmBlockTitle.innerHTML = replacementBlockTitleHTML ;
 
             /***define the needles***/
@@ -29,7 +29,7 @@
             /***find the needles in the haystack and add social icons***/
             for (i = 0; i < haystack.length; i++) {
                 if(haystack[i].innerHTML == handshake){
-                    haystack[i].insertAdjacentHTML("afterbegin", '<span style="width:21px;display:inline-block"><img src="/sites/default/files/2023-02/handshake.png" style="height:15px;width:auto;display:inline;margin-top:-6px"></span>');
+                    haystack[i].insertAdjacentHTML("afterbegin", '<span style="width:21px;display:inline-block"><img src="/sites/default/files/2023-02/handshake.png" alt="handshake logo" title="handshake logo" style="height:15px;width:auto;display:inline;margin-top:-6px"></span>');
                 }else if(haystack[i].innerHTML == facebook){
                    haystack[i].insertAdjacentHTML("afterbegin", '<span style="width:21px;display:inline-block"><i class="fa-brands fa-facebook-f"></i></span>');
                 }else if(haystack[i].innerHTML == twitter){

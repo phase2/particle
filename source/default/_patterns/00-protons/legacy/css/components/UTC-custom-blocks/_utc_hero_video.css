@@ -64,6 +64,17 @@
     .section-container--utc-video-hero:nth-child(1) {@apply pt-0 -mt-4;}
     .block--utc-video-hero-full-center .utc-video-hero-block-right {@apply ml-0}
 }
+@media (max-width: 768px){
+    .container-full .block--utc-video-hero .video-hero-wrapper, .container .block--utc-video-hero .video-hero-wrapper, .block--utc-video-hero-full .video-hero-wrapper {
+        padding-top: 4rem;
+    }
+    .container .block--utc-video-hero .video-hero-wrapper {
+        margin-top:4rem;
+    }
+    .utc-hero-block {
+        padding: 4rem 2rem 2rem;
+    }
+}
 @media screen and (max-height: 768px) and (orientation:landscape){
     .utc-video-hero-container {
         max-width: 80%!important;

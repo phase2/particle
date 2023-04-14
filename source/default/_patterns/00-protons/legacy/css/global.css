@@ -506,7 +506,7 @@ ul.pager__items li a:hover {
     @apply pt-4 z-1 relative;
   }
   main.main-reduce-top-margin {
-    @apply pt-0;
+    @apply pt-0 -mt-6;
   }
   .container-full, .themag-layout--my-default {
     @apply px-4;
