@@ -35,7 +35,7 @@
       <ul class="flex flex-wrap flex-col list-none m-0 p-0">
     {% endif %}
     {% for item in items %}
-      {% set counter = ( counter | default(-1) - 1 ) %}
+    
       {%
         set listitem = [
           'menu-item border-b border-gray-300 flex items-center hover:bg-utc-new-blue-100 w-full',
@@ -54,7 +54,7 @@
       {% set role = 'link' %}
       {% set link_title = item.title|clean_class %}
       
-      <li {{ item.attributes.addClass(listitem).setAttribute('data-title', link_title) }} tabindex="{{ counter }}" >
+      <li {{ item.attributes.addClass(listitem).setAttribute('data-title', link_title) }}" >
         {% if item.in_active_trail %}
           <i class="fa fa-check text-utc-new-gold-500 ml-4 -mr-2"></i>
           {{ link(item.title, item.url, item.attributes.removeClass(listitem).addClass(menulinktag).setAttribute('title', link_title).setAttribute('aria-label', arialabel).setAttribute('role', role)) }}

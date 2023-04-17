@@ -35,7 +35,6 @@
       <ul class="sidebar-menu">
     {% endif %}
     {% for item in items %}
-      {% set counter = ( counter | default(-1) - 1 ) %}
       {%
         set classes = [
           'menu-item-sidemenu',
@@ -50,7 +49,7 @@
 
       {% if item.is_expanded or item.is_collapsed %}
         {% if item.in_active_trail %}
-          <li{{ item.attributes.addClass(classes).setAttribute('data-title', link_title) }} tabindex="{{ counter }}" >
+          <li{{ item.attributes.addClass(classes).setAttribute('data-title', link_title) }} >
             {{ link(item.title, item.url, item.attributes.setAttribute('title', link_title).setAttribute('aria-label', arialabel).setAttribute('role', role)) }}
             <div aria-hidden="true" class="more open"><i class="fas fa-angle-right text-new-utc-gold-500"></i></div>
             {% if item.below %}
