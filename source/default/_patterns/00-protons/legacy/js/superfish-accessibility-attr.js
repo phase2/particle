@@ -4,7 +4,7 @@
 
     Drupal.behaviors.superfishaccessibilityattributes = {
         attach: function(context, settings) {
-            //console.log("sf accessibility js loaded.")
+            //console.log("sf accessibility js loaded.");
             var getSfLink = document.querySelectorAll(".accessibility-link-attributes");
             var i;
             for (i = 0; i < getSfLink.length; i++) { 
