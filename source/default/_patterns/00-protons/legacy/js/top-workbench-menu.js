@@ -10,7 +10,7 @@
             var twmBlockTitle = document.querySelector('.region-top-workbench-menu .block__title');
             var twmBlockTitleSpan = document.querySelector('.region-top-workbench-menu .block__title .title-text');
             var twmBlockTitleText = twmBlockTitleSpan.textContent;
-            var replacementBlockTitleHTML = '<a href="'+ homepageHref +'" role="link" aria-label="cecs homepage" title="'+ twmBlockTitleText +'" class="homepage-link" ><span class="title-text">'+ twmBlockTitleText +'</a>';
+            var replacementBlockTitleHTML = '<a href="'+ homepageHref +'" role="link" aria-label="organization homepage" title="'+ twmBlockTitleText +'" class="homepage-link" ><span class="title-text">'+ twmBlockTitleText +'</a>';
             twmBlockTitle.innerHTML = replacementBlockTitleHTML ;
 
             /***define the needles***/
