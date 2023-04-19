@@ -46,9 +46,9 @@
   input.attributes
     |default({})
     |merge({
-      class: input_classes
+      class: input_classes,
     })
 %}
 {% block input_content %}
-  <input {{ input_attributes|attributify }} />
+  <input {{ input_attributes|attributify }} aria-label="{{ input.variant }}" />
 {% endblock input_content %}

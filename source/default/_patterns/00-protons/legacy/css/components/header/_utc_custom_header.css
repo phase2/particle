@@ -406,7 +406,7 @@ div.site-alert div.text {
 
 /**override themag styling for accessibility and best practices**/
 .block--region-search .visually-hidden {
-    display: unset;
+    display: unset!important;
 }
 
 /**improve accessibility by hiding mobile menu elements on desktop***/
