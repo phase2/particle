@@ -409,10 +409,16 @@ div.site-alert div.text {
     display: unset!important;
 }
 
+.scroll-to-top-button {
+    bottom:48px;
+}
+
 /**improve accessibility by hiding mobile menu elements on desktop***/
-section#mobile-menu, button#mobile-menu-icon {
+button#mobile-menu-icon {
     display:none;
 }
+
+
 
 @media screen and (max-width: 1024px) {
     .header__container-wrapper--header__main {
@@ -431,7 +437,7 @@ section#mobile-menu, button#mobile-menu-icon {
     }
 }
 @media screen and (max-width: 768px) {
-    section#mobile-menu, button#mobile-menu-icon {
+    button#mobile-menu-icon {
         display:inline-block;
     }
     .header--custom-header .header__main {

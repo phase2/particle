@@ -19,6 +19,23 @@
                 getSfLink2[i].setAttribute("role", "link");
                 getSfLink2[i].setAttribute("aria-label", getSfLink2[i].textContent);
             }
+            var getMobileBtn = document.querySelector("#mobile-menu-icon");
+            var getMobileMenu = document.querySelector("#mobile-menu");
+            
+            function mobileIconAccessibilityAttr(){
+                if (window.matchMedia("(max-width: 768px)").matches) {
+                    getMobileBtn.setAttribute("aria-hidden", "false");
+                    getMobileMenu.setAttribute("aria-hidden", "false");
+                } else {
+                    getMobileBtn.setAttribute("aria-hidden", "true");
+                    getMobileMenu.setAttribute("aria-hidden", "true");
+                }
+            }
+            mobileIconAccessibilityAttr();
+
+            window.addEventListener("resize", function() {
+                mobileIconAccessibilityAttr();
+            });
         }
     };
 }(jQuery, Drupal, drupalSettings));
