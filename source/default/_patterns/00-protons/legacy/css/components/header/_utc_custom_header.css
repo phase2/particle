@@ -410,7 +410,7 @@ div.site-alert div.text {
 }
 
 .scroll-to-top-button {
-    bottom:48px;
+    bottom:48px!important;
 }
 
 /**improve accessibility by hiding mobile menu elements on desktop***/
