@@ -404,6 +404,22 @@ div.site-alert div.text {
    @apply p-4;
 }
 
+/**override themag styling for accessibility and best practices**/
+.block--region-search .visually-hidden {
+    display: unset!important;
+}
+
+.scroll-to-top-button {
+    bottom:48px!important;
+}
+
+/**improve accessibility by hiding mobile menu elements on desktop***/
+button#mobile-menu-icon {
+    display:none;
+}
+
+
+
 @media screen and (max-width: 1024px) {
     .header__container-wrapper--header__main {
         @apply shadow-utc;
@@ -421,6 +437,9 @@ div.site-alert div.text {
     }
 }
 @media screen and (max-width: 768px) {
+    button#mobile-menu-icon {
+        display:inline-block;
+    }
     .header--custom-header .header__main {
         @apply mr-28 h-full;
     }

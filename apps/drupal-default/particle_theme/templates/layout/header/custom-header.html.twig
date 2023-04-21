@@ -6,7 +6,7 @@
 #}
 {{ attach_library('utccloud/utc-brandbar-menus') }}
 
-<header class="header header--{{ themag.header_style|clean_class }}">
+<header role="banner" class="header header--{{ themag.header_style|clean_class }}">
 
   <div class="header__container-wrapper--header__main js-sticky-header-element">
     <div class="header__container py-3 main-navigation-bar top-bar-wrapper" id="utc-main-header">
@@ -15,10 +15,19 @@
           {{ page.logo }}
         </div>
         <div class="header__main__right">
-          {% include '@themag/base-layout/header/components/user-action-menu.html.twig' %}
+          <div class="header__user-nav">
+            <div class="d-flex">
+                  <button class="header__toggleable-button js-toggle-search" aria-label="open search" title="Open search field" role="button" aria-labelledby="searchLabel">
+                    <i class="fas fa-search"></i><span class="sr-only">Open search field</span>
+                  </button>
+            </div>
+            <button id="mobile-menu-icon" aria-hidden="true" title="Open mobile menu" aria-label="menu" role="button" class="header__toggleable-button toggle-offcanvas-sidebar js-toggle-offcanvas-sidebar outline-none focus:outline-none hover:outline-none">
+              <svg id="mainMenuIcon" class="svg-inline--fa fa-bars" aria-hidden="true" focusable="false" data-prefix="fass" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M0 64H448v64H0V64zM0 224H448v64H0V224zM448 384v64H0V384H448z"></path></svg>
+            </button>
+          </div>
           <div class="menu-item ribbon-container">
             <div class="ribbon-wrapper">
-                <a href="https://www.utc.edu/apply" title="Apply Now">
+                <a href="https://www.utc.edu/apply" id="application-link" title="Go to our application page" aria-label="application link" aria-expanded="false" role="button">
                   <div id="menuribbon" class="ribbon up">
                     <div class="ribbon-content up">
                       <p id="apply-now-ribbon" class="apply-now-ribbon">Apply<br>Now</p>
