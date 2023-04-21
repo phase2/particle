@@ -1,7 +1,7 @@
   (function($, Drupal, drupalSettings) {
     "use strict";
    //Adds slick arrows 
-    Drupal.behaviors.slickcustomarrows = {
+    Drupal.behaviors.backtotopbutton = {
         attach: function(context, settings) {
             let scrollButton = document.getElementById("scroll-to-top-btn");
             
