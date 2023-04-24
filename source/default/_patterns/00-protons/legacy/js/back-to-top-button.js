@@ -7,7 +7,7 @@
             
             // When the user scrolls down 1500px from the top of the document, show the button
             window.onscroll = function() {scrollFunction()};
-            
+            scrollButton.style.display = "none";
             function scrollFunction() {
               if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
                 scrollButton.style.display = "flex";
