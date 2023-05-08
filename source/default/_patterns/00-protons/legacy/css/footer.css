@@ -23,6 +23,9 @@
 #block-socialmedialinks .social-media-links--platforms a {
   font-size: .5rem!important;
 }
+#block-socialmedialinks .social-media-links--platforms a:focus-visible {
+  color:#fdb736;
+}
 /***end force***/
 
 .footer-wrapper a:hover{
