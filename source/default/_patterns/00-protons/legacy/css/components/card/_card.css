@@ -112,6 +112,9 @@ in particle */
   0 4px 6px -2px rgba(0, 0, 0, 0.05);
   transition: var(--utc-transition);
 }
+a:focus-visible .utc-card-2--card-link, .view-utc-newsroom a:focus-visible > div {
+  outline: 2px dashed #fdb736;
+}
 
 .utc-card-2--white.utc-card-2--card-link:hover {
   @apply bg-gray-200;

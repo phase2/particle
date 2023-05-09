@@ -286,6 +286,9 @@ svg#mainMenuIcon {
 .header__toggleable-button {
     transition: var(--utc-transition);
 }
+.header__toggleable-button:focus {
+    outline:none!important;
+}
 .header__toggleable-button:focus-visible {
     outline: 2px dashed #fdb736!important;
 }
