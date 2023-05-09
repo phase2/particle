@@ -1,0 +1,9 @@
+.table .thead-dark th {
+    color: #fff;
+    background-color: #112e51;
+    border-color: #112e51;
+  }
+  .table th, .table td {
+    border-top: 1px solid #e7eaee;
+    color: #112e51;
+  }
