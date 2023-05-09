@@ -45,6 +45,7 @@ import './legacy/css/components/field/_field--block-content--field-tags.css';
 import './legacy/css/components/UTC-custom-blocks/_utc_hero_video.css';
 import './legacy/css/components/UTC-custom-blocks/_utc_video_component.css';
 import './legacy/css/components/navigation/_top-workbench-menu.css';
+import './legacy/css/components/UTC-custom-blocks/_utc_table_block.css';
 // import "./legacy/css/components/UTC-custom-blocks/";
 // import "./legacy/css/components/field/";
 
