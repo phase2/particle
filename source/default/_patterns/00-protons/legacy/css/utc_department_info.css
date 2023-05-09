@@ -54,7 +54,7 @@ address.flex-list ul {
 address.flex-list li {
   display: inline;
   line-height: 1.2em;
-  padding: 0 10px;
+  padding: 3px 10px; /* Accessibility fix: Need to make room for the top dash to show. */
   border-left: solid 1px #ADB2B6;
   align-items: center;
   font-size:400;

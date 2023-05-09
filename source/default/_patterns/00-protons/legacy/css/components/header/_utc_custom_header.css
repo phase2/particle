@@ -42,7 +42,7 @@
     height: 100%!important;
 }
 .header__main__right *, .header__main__right *:focus  {
-    @apply outline-none;
+   
 }
 .region-header-primary-menu {
     @apply grid ml-auto;
@@ -61,7 +61,7 @@ ul.sf-menu.menu {
     @apply flex;
 }
 ul.sf-menu.menu>li.sf-depth-1 {
-    @apply relative pt-4 pb-2 outline-none;
+    @apply relative pt-4 pb-2 ;
     width:fit-content;
     animation: fadeIn ease 3s;
     animation-iteration-count: 1;
@@ -269,7 +269,6 @@ ul.sf-menu span.sf-sub-indicator {
     @apply opacity-100;
 }
 .header__toggleable-button {
-    @apply outline-none;
     transition: var(--utc-transition);
 }
 svg#mainMenuIcon {
@@ -284,17 +283,20 @@ svg#mainMenuIcon {
 .region-search .block--search form input[type=submit] {
     @apply invisible;
 }
-.header__toggleable-button * {
-    @apply outline-none;
-}
 .header__toggleable-button {
+    transition: var(--utc-transition);
+}
+.header__toggleable-button:focus {
     outline:none!important;
 }
+.header__toggleable-button:focus-visible {
+    outline: 2px dashed #fdb736!important;
+}
 .header__toggleable-button:hover i:before {
-    @apply outline-none text-utc-new-gold-500;
+    @apply text-utc-new-gold-500;
 }
 .header--custom-header .header__main .fas {
-    @apply text-utc-new-blue-500 text-xl outline-none;
+    @apply text-utc-new-blue-500 text-xl ;
 }
 .block--region-search form {
     @apply bg-white;
@@ -311,6 +313,9 @@ a.close-search-btn, a.close-search-btn:hover, a.close-search-btn:active {border:
     /*content: "\f0c9"; */ 
     transition: var(--utc-transition); 
     outline:none!important;
+}
+.js-toggle-offcanvas-sidebar .fas:before:focus-visible {
+    outline: 2px dashed #fdb736!important;
 }
 
 .sidr-open .js-toggle-offcanvas-sidebar .fas:before {
@@ -375,7 +380,7 @@ a.close-search-btn, a.close-search-btn:hover, a.close-search-btn:active {border:
     @apply text-utc-new-gold-500;
 }
 .header__main__right a {
-    @apply border-0 block font-utcbody font-normal px-5 text-utc-new-blue-500 outline-none;
+    @apply border-0 block font-utcbody font-normal px-5 text-utc-new-blue-500 ;
 }
 .header__main__right a:hover {
     @apply text-utc-new-blue-500;
@@ -417,8 +422,12 @@ div.site-alert div.text {
 button#mobile-menu-icon {
     display:none;
 }
-
-
+a#application-link:focus-visible {
+    outline:none!important;
+}
+a.site-logo:focus-visible img, a#application-link:focus-visible div#menuribbon {
+    outline: 2px dashed #fdb736;
+}
 
 @media screen and (max-width: 1024px) {
     .header__container-wrapper--header__main {
@@ -480,9 +489,11 @@ button#mobile-menu-icon {
         @apply block;
         font-size:2rem;
     }
-    .toggle-offcanvas-sidebar:focus,
     .toggle-offcanvas-sidebar:hover {
         outline:none!important;
+    }
+    .toggle-offcanvas-sidebar:focus {
+        outline: 2px dotted #fdb736!important;
     }
     .sidr.right {
         width:15rem!important;
