@@ -369,6 +369,21 @@ a.diagonal.light-gray-hero:hover i,
 a.diagonal.light-gray-hero:hover svg{
   @apply text-utc-new-gold-500;
 }
+/**** Newsfeed links (not cards) diagonal effects ***/
+.custom-newsfeed-css a > div {
+  background-color:transparent!important;
+  background-image: -webkit-linear-gradient(257deg, #e7eaee 50%, transparent 50%);
+  background-image: linear-gradient(-257deg, #e7eaee 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: all 750ms ease-in-out;
+  transition: all 750ms ease-in-out;
+  font-weight:400;
+}
+.custom-newsfeed-css a > div:hover {
+  background-color:transparent!important;
+  background-position: 0;
+}
 
 b, strong {
   @apply font-bold;
