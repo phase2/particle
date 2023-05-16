@@ -84,6 +84,8 @@ ul.sf-menu.top-workbench-menu > li > a {
   transition: background-position 275ms ease;
   text-decoration: none;
   border-color: #fdb736;
+  padding-bottom:3px;
+  margin-top:-3px;
 }
 ul.sf-menu.top-workbench-menu > li > a:hover {
   background-position: 0 100%;
