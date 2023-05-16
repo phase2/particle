@@ -1,5 +1,5 @@
 blockquote {
-    @apply w-full my-8 mx-auto italic pt-4 pb-10 bg-gray-250 border-0 pr-8;
+    @apply w-full my-8 mx-auto italic pt-9 pb-10 bg-gray-250 border-0 pr-8;
 }
 blockquote:before {
     @apply hidden
