@@ -88,6 +88,9 @@ h3 {
 h4 {
   @apply text-lg;
 }
+h5 {
+  @apply text-lg italic;
+}
 a {
   @apply text-utc-new-blue-500;
 }
