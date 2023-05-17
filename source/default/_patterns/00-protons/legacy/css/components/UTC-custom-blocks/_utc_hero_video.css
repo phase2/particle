@@ -81,3 +81,12 @@
         margin: 0 auto!important;
     }
 }
+/****NOTE: THIS IS TEMPORARY UNTIL WE GET A RESPONSIVE IMAGE TYPE IN THE BACKGROUND FOR BETTER PERFORMANCE****/
+@media (max-width: 768px){
+    .bg-cover {
+        background-image: none!important;
+    }
+    .opacity-20.bg-cover {
+        background: rgba(17,46,81,.6);
+    }
+}
