@@ -10,7 +10,7 @@ in particle */
   margin-bottom: 30px;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 640px) {
   .utc-card-grid__container:last-child {
     margin-bottom: 0px;
   }
