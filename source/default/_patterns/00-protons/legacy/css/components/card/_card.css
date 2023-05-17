@@ -287,3 +287,5 @@ a .utc-card-2--white.utc-card-2--card-link:hover p {
 .utc-sidebar-card h3 {
   font-size: 1.25rem;
 }
+
+img.img-fluid {width:100%; height:auto;}
