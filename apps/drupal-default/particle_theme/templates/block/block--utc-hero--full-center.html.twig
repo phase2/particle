@@ -22,9 +22,10 @@
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
 	{# hero_button_link: content.field_hero_button|field_value, #}
-	{% set hero_image_select = content["#block_content"].field_hero_bg_image.0.target_id %}
+	{# {% set hero_image_select = content["#block_content"].field_hero_bg_image.0.target_id %} #}
+
 	{% set utc_hero = {
-		hero_bg: drupal_field('field_image_url', 'taxonomy_term', hero_image_select)["#object"].field_image_url.value,
+		hero_bg: content.field_hero_bg_image|field_value,
 		hero_align: content["#block_content"].field_hero_align.0.value,
 		hero_color: content["#block_content"].field_hero_color.0.value,
 		hero_tag: content.field_hero_tag|field_value,
@@ -83,11 +84,12 @@
 						{% endblock %}
 					</div>
 			{% if utc_hero.hero_align == 'Left' %}
-				<div class="lg:max-w-full lg:ml-0 absolute top-0 left-0 lg:static md:col-start-2 md:col-end-5 md:row-start-1 md:row-end-5 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10" style="background-image: url({{ utc_hero.hero_bg }})">
+				<div class="lg:max-w-full lg:ml-0 absolute top-0 left-0 lg:relative md:col-start-2 md:col-end-5 md:row-start-1 md:row-end-5 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10" >
 			{% else %}
-				<div class="lg:max-w-full lg:ml-0 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-4 md:row-start-1 md:row-end-5 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10" style="background-image: url({{ utc_hero.hero_bg }})">
+				<div class="lg:max-w-full lg:ml-0 absolute top-0 left-0 lg:relative md:col-start-1 md:col-end-4 md:row-start-1 md:row-end-5 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10" >
 			{% endif %}
-					<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
+					{{ utc_hero.hero_bg }}
+					<div class="h-full w-full absolute top-0 {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 				</div>
 			</div>
 	</div>

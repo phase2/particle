@@ -33,6 +33,7 @@
        boxShadow: {
          'utc': '3px 3px 5px 1px rgb(0 0 0 / 15%)',
          'utcdark': 'rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.25) 0px 2px 3px',
+         'utcbottom': 'rgba(0, 0, 0, 0.20) 0px 2px 2px 1px'
        },
        gridTemplateRows: {
          // Adds a custom template for the utc hero block
@@ -71,6 +72,9 @@
          9999: "9999",
          100000: "100000",
        },
+       width: {
+        '95p': '95%',
+       },
        minWidth: {
          '9': '9rem'
        },
@@ -86,12 +90,14 @@
          '90p': '90%',
          '95p': '95%',
          'full': '100%',
-       }
-       ,
+       },
        margin: {
         '20': '5rem',
         '28': '7rem', 
         '36': '9rem',
+       },
+       opacity: {
+        '85': '.85',
        }
      },
      minHeight: {

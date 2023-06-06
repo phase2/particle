@@ -343,6 +343,7 @@ a.diagonal, .utc-hero-block a.diagonal {
   background-size: 400%;
   -webkit-transition: all 750ms ease-in-out;
   transition: all 750ms ease-in-out;
+  white-space: nowrap;
 }
 a.diagonal:hover, .utc-hero-block a.diagonal:hover {
   background-position: 0;
@@ -487,7 +488,7 @@ ul.pager__items li a:hover {
 /*end search page adjustments*/
 
 @media screen and (max-width: 1024px) {
-  .section-hero {@apply bg-white relative z-1 shadow-utc}
+  .section-hero {@apply relative z-1}
   .utc-hero-image-default .order-first, .utc-hero-image-default .order-last {
     order: unset!important;
   }
@@ -500,17 +501,13 @@ ul.pager__items li a:hover {
   .node__content > .utc-hero-section:first-child .themag-layout__region {
     @apply p-0;
   }
-}
-@media screen and (max-width: 768px) {
+  main.main-reduce-top-margin {
+    @apply pt-0 -mt-4;
+  }
   main {
     @apply pt-4 z-1 relative;
   }
-  main.main-reduce-top-margin {
-    @apply pt-0 -mt-6;
-  }
-  .container-full, .themag-layout--my-default {
-    @apply px-4;
-  }
+
   .section-hero .container-full, 
   .utc-hero-section .container-full {
     @apply p-0;
@@ -518,6 +515,12 @@ ul.pager__items li a:hover {
   .section-hero .container-full .row, 
   .utc-hero-section .container-full .row  {
     @apply mx-0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section-hero {@apply bg-white shadow-utc}
+  .container-full, .themag-layout--my-default {
+    @apply px-4;
   }
   .container-full .block--region-content-header.block--page-title-block .page-title {
     @apply text-lg;
@@ -550,4 +553,10 @@ ul.pager__items li a:hover {
 foreignObject > div > div {
   display: flex;
   align-items: center;
+}
+
+/****blazy styles***/
+.section-hero .b-bg, .utc-hero-section .b-bg {height:100%!important}
+.is-b-loading:not(.is-b-loaded):not([data-animation])::before {
+  background: #166484!important;
 }

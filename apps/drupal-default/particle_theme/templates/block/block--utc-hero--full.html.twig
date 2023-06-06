@@ -15,10 +15,8 @@
 	{{ attach_library('utccloud/utc-hero-image') }}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
-	{# hero_button_link: content.field_hero_button|field_value, #}
-	{% set hero_image_select = content["#block_content"].field_hero_bg_image.0.target_id %}
 	{% set utc_hero = {
-		hero_bg: drupal_field('field_image_url', 'taxonomy_term', hero_image_select)["#object"].field_image_url.value,
+		hero_bg: content.field_hero_bg_image|field_value,
 		hero_align: content["#block_content"].field_hero_align.0.value,
 		hero_color: content["#block_content"].field_hero_color.0.value,
 		hero_tag: content.field_hero_tag|field_value,
@@ -43,7 +41,8 @@
 		{% set btn_border_color = "border-white" %}
 		{% set bg_color = 'background-color:#112e51' %}
 		{% set bg1_opacity = '' %}
-    	{% set bg2_opacity = 'opacity-90' %}
+    	{% set bg2_opacity = 'opacity-85' %}
+		{% set hr_color = 'border-utc-new-gold-500' %}
 	{% else %}
 		{% set title_color = 'text-utc-new-blue-500' %}
 		{% set body_color = 'text-utc-new-blue-500' %}
@@ -53,11 +52,13 @@
 		{% set bg_color = 'background-color:#104dd4' %}
 		{% set bg1_opacity = 'opacity-20' %}
     	{% set bg2_opacity = 'opacity-20' %}
+		{% set hr_color = 'border-utc-new-blue-500' %}
 	{% endif %}
+
 	{# image on left #}	 
 	<div {{ attributes.addClass(classes) }}>
 		{% if utc_hero.hero_align == 'Left' %}
-			<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row lg:mb-4 text-center">
+			<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row text-center">
 				{% if utc_hero.hero_image %}
 					<div class="lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-6 lg:m-auto col-span-1 z-30 {{ utc_zoom }} relative shadow-utcdark ">
 						{{ utc_hero.hero_image }} 
@@ -66,7 +67,7 @@
 					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4 lg:my-auto lg:ml-8 px-4 py-8 relative z-30">
 		{% else %}
 		{# image on right #}	
-			<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row lg:mb-4 text-center">
+			<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utcheroright lg:gap-y-6 grid-flow-row text-center">
 				{% if utc_hero.hero_image %}
 					<div class="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-5 lg:m-auto z-30 {{ utc_zoom }} relative shadow-utcdark ">
 						{{ utc_hero.hero_image }}
@@ -80,7 +81,7 @@
 							<p class="hero-tag text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }}">
 								{{ utc_hero.hero_tag }}
 							</p>
-							<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20 ml-0" />
+							<hr class="border-t-3 {{ hr_color }} mt-2 mb-6 w-20 ml-0" />
 						{% endif %}
 						{% if utc_hero.hero_title %}
 							<h2 class="text-left mb-2 {{ title_color }}">
@@ -105,8 +106,9 @@
 					{% endblock herocontent %}
 					</div>
 					{% block herobackground %}
-						<div class="lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0 lg:static md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-4" style="background-image: url({{ utc_hero.hero_bg }})">
-							<div class="h-full w-full {{ bg2_opacity }}" style="{{ bg_color }}"></div>
+						<div class="overflow-hidden lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0 lg:relative md:col-start-1 md:col-end-5 md:row-start-1 md:row-end-4">
+							{{ utc_hero.hero_bg }}
+							<div class="h-full w-full absolute top-0 {{ bg2_opacity }}" style="{{ bg_color }}"></div>
 						</div>
 					{% endblock herobackground %}
 			</div>

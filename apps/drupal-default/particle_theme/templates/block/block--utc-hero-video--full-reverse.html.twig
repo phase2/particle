@@ -30,9 +30,10 @@
 		{% set rendered_content = content|render %}
 		{# Sets variable to trigger content render array. #}
 		{# hero_button_link: content.field_hero_button|field_value, #}
-		{% set hero_video_select = content["#block_content"].field_hero_bg_image.0.target_id %}
+		{#{% set hero_image_select = content["#block_content"].field_hero_bg_image.0.target_id %}#}
+
 		{% set utc_hero = {
-			hero_bg: drupal_field('field_image_url', 'taxonomy_term', hero_video_select)["#object"].field_image_url.value,
+			hero_bg: content.field_hero_bg_image|field_value,
 			hero_align: content["#block_content"].field_hero_align.0.value,
 			hero_color: content["#block_content"].field_hero_color.0.value,
 			hero_tag: content.field_hero_tag_text|field_value,
@@ -55,6 +56,7 @@
 			{% set btn_class = "default" %}
 			{% set bg1_opacity = '' %}
 			{% set bg2_opacity = 'opacity:.87;' %}
+			{% set hr_color = 'border-utc-new-gold-500' %}
 		{% else %}
 			{% set title_color = 'text-utc-new-blue-500' %}
 			{% set body_color = 'text-base' %}
@@ -64,12 +66,13 @@
 			{% set bg_color = 'background-color:#5c7fb4;' %}
 			{% set bg1_opacity = 'opacity-25' %}
 			{% set bg2_opacity = 'opacity:.12;' %}
+			{% set hr_color = 'border-utc-new-blue-500' %}
 		{% endif %}
 		{# image on left #}
 		{% if utc_hero.hero_align == 'Left' %}
 			{% block herobackgroundleft %}
 				<div class="video-hero-wrapper w-full h-full px-12 pt-12 relative">
-					<span class="absolute left-0 top-0 right-0 bottom-0 {{ bg1_opacity }} bg-cover bg-center" style="background-image: url({{ utc_hero.hero_bg }})"></span>
+					<span class="absolute left-0 top-0 right-0 bottom-0 overflow-hidden {{ bg1_opacity }}">{{ utc_hero.hero_bg }}</span>
 					<div class="absolute left-0 top-0 hero-background-color h-full w-full " style="{{ bg2_opacity }} {{ bg_color }}"></div>
 					<div class="utc-video-hero-container utc-video-hero-block-left flex flex-col lg:grid lg:grid-cols-utcvideohero lg:gap-10 relative ">
 						<div class="lg:-mt-28 lg:mb-20">
@@ -80,7 +83,7 @@
 								<p class="hero-tag text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }}">
 									{{ utc_hero.hero_tag }}
 								</p>
-								<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20 ml-0" />
+								<hr class="border-t-3 {{ hr_color }} mt-2 mb-6 w-20 ml-0" />
 							{% endif %}
 							{% if utc_hero.hero_title %}
 								<h2 class="text-left mb-2 {{ title_color }}">
@@ -107,15 +110,15 @@
 		{# image on right #}	
 			{% block herobackgroundright %}
 				<div class="video-hero-wrapper w-full h-full px-12 pt-12 relative">
-					<span class="absolute left-0 top-0 right-0 bottom-0 {{ bg1_opacity }} bg-cover bg-center" style="background-image: url({{ utc_hero.hero_bg }})"></span>
+					<span class="absolute left-0 top-0 right-0 bottom-0 overflow-hidden {{ bg1_opacity }}">{{ utc_hero.hero_bg }}</span>
 					<div class="absolute left-0 top-0 hero-background-color h-full w-full " style="{{ bg2_opacity }} {{ bg_color }}"></div>
 					<div class="utc-video-hero-container utc-video-hero-block-right flex flex-col-reverse lg:grid lg:grid-cols-utcvideoheroright lg:gap-10 relative ">
 						<div class="flex flex-col justify-center shrink relative">
 							{% if utc_hero.hero_tag %}
-								<p class="hero-tag text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }} lg:whitespace-nowrap">
+								<p class="hero-tag text-left font-semibold tracking-wide uppercase text-lg mb-0 mt-4 {{ tag_color }}">
 									{{ utc_hero.hero_tag }}
 								</p>
-								<hr class="border-t-3 border-utc-new-gold-500 mt-2 mb-6 w-20 ml-0" />
+								<hr class="border-t-3 {{ hr_color }} mt-2 mb-6 w-20 ml-0" />
 							{% endif %}
 							{% if utc_hero.hero_title %}
 								<h2 class="text-left mb-2 {{ title_color }}">
