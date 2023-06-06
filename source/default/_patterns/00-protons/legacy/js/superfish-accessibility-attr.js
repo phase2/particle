@@ -26,10 +26,7 @@
                 if (window.matchMedia("(max-width: 768px)").matches) {
                     getMobileBtn.setAttribute("aria-hidden", "false");
                     getMobileMenu.setAttribute("aria-hidden", "false");
-                } else {
-                    getMobileBtn.setAttribute("aria-hidden", "true");
-                    getMobileMenu.setAttribute("aria-hidden", "true");
-                }
+                } 
             }
             mobileIconAccessibilityAttr();
 
