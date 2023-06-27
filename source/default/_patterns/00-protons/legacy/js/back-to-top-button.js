@@ -1,11 +1,13 @@
-  (function($, Drupal, drupalSettings) {
-    "use strict";
-   //Adds slick arrows 
-    Drupal.behaviors.backtotopbutton = {
-        attach: function(context, settings) {
-            // Get the button:
-            let scrollButton = document.getElementById("scroll-to-top-btn");
+(function($, Drupal, drupalSettings) {
+  "use strict";
+ //Adds slick arrows 
+  Drupal.behaviors.backtotopbutton = {
+      attach: function(context, settings) {
+          // Get the button:
+          let scrollButton = document.getElementById("scroll-to-top-btn");
+          if (scrollButton){
             scrollButton.style.display = "none";
+          
             // When the user scrolls down 1500px from the top of the document, show the button
             window.onscroll = function() {scrollFunction()};
             function scrollFunction() {
@@ -21,7 +23,7 @@
               document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             } 
             scrollButton.addEventListener("click", topFunction);
-        }
-    };
-  }(jQuery, Drupal, drupalSettings));
-  
+          } 
+      }
+  };
+}(jQuery, Drupal, drupalSettings));
