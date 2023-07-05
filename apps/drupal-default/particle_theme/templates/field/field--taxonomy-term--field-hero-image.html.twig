@@ -1,6 +1,6 @@
 {# Need to strip out all field elements and attributes to just get the entity #}
-{% spaceless %}
+{% apply spaceless %}
   {% for item in items %}
     {{ item.content }}
   {% endfor %}
-{% endspaceless %}
+{% endapply %}
