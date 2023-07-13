@@ -482,6 +482,9 @@ a.site-logo:focus-visible img, a#application-link:focus-visible div#menuribbon {
     .header-container, .header--custom-header .header__container-wrapper--header__main,.top-bar-wrapper {
         height: 60px;
     }
+    .header-container {
+        position:sticky;
+    }
     .bottom-bar-wrapper {
         @apply hidden;
     }
@@ -536,7 +539,6 @@ a.site-logo:focus-visible img, a#application-link:focus-visible div#menuribbon {
     .sidr.right {
         width:13rem!important;
     }
-    
     .sidr ul.sf-menu.sf-accordion li.sf-expanded:last-child>ul {
         @apply mb-16;
     }

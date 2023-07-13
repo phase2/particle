@@ -2,7 +2,7 @@
 :root {
     --main-width: 65vw;
 }
-.utc-hero-region {@apply p-0;}
+/*.utc-hero-region {@apply p-0;}*/
 .utc-hero-region .contextual {@apply right-6}
 .block--utc-video-hero {@apply h-full overflow-visible relative;}
 
@@ -38,12 +38,12 @@
     @apply ml-6;
 }
 .block.block--utc-video-hero.block--utc-video-hero-full {
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
 }
 
 @media (max-width:1023px){
     .container .block--utc-video-hero .video-hero-wrapper, .container-full .block--utc-video-hero .video-hero-wrapper {@apply pb-4;}
-    .main-reduce-top-margin-video {margin-top: 1rem;padding-top: 0;}
+    .main-reduce-top-margin-video {padding-top: 0;}
     .utc-video-hero-container{
         padding-top: 2rem;
         padding-bottom: 2rem;
@@ -80,14 +80,14 @@
     .section-container--utc-video-hero:nth-child(1) {@apply pt-0 -mt-4;}
     .block--utc-video-hero-full-center .utc-video-hero-block-right {@apply ml-0}
     .container-full .block--utc-video-hero .video-hero-wrapper, .container .block--utc-video-hero .video-hero-wrapper, .block--utc-video-hero-full .video-hero-wrapper {
-        padding-top: 4rem;
+        padding: 3rem 2rem!important;
     }
     .container .block--utc-video-hero .video-hero-wrapper {
         margin-top:4rem;
     }
-    .utc-hero-block {
+    /*.utc-hero-block {
         padding: 4rem 2rem 2rem;
-    }
+    }*/
 }
 @media screen and (max-height: 768px) and (orientation:landscape){
     .utc-video-hero-container {
