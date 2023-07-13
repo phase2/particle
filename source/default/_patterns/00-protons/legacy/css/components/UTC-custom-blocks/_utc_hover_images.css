@@ -280,6 +280,7 @@ figure.lt-blue-overlay .image-title {
     filter: unset;
     cursor: none;
     opacity: 1!important;
+    width: 100%!important;
   }
   figure.utc-hover-image-effect picture:after {
     display:none!important;
