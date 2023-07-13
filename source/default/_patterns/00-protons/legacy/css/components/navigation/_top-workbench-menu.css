@@ -170,7 +170,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     width: unset;
     height: 50px;
     display: flex;
-    z-index: 501;
+    z-index: 502;
   }
   .region-top-workbench-menu h2.block__title:after {
     display: none;
@@ -200,8 +200,16 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     margin-bottom: 12px;
   }
   .region-top-workbench-menu .sf-accordion-toggle a {
-    display: block !important;
+    display: flex!important;
+    align-items: start;
+    justify-content: start;
+    height: 100%;
   }
+  /**change the outline to red for accessibility (the default gold on gold doesn't work)**/
+  .region-top-workbench-menu .sf-accordion-toggle a.focus-visible, .region-top-workbench-menu .sf-accordion-toggle a:focus-visible {
+    outline: 2px dashed red;
+    max-height: 40px;
+}
   .region-top-workbench-menu .sf-accordion-toggle > a span {
     color: transparent;
   }
@@ -226,16 +234,16 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     font-weight: bold;
     letter-spacing: .05rem;
     color: #112e51;
-    display: block !important;
-    height: 45px;
-    width: 24px;
-    font-size: 55px;
+    font-size: 36px;
     transition: all .4s ease-in-out;
+    transform-origin: 50% 50%;
+    padding-bottom: 12px;
+    line-height:1.05;
   }
   .region-top-workbench-menu .sf-accordion-toggle.sf-style-none .sf-expanded span {
     rotate: 90deg;
-    margin-top: -5px;
     transition: all .4s ease-in-out;
+    transform-origin: 50% 50%;
   }
   ul.sf-menu.menu.top-workbench-menu.sf-horizontal {display:none;}
 
@@ -245,7 +253,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
   ul.sf-menu.top-workbench-menu ul li a:hover {
     background-color: #e7eaee;
   }
-  .region-top-workbench-menu .sf-accordion-toggle a:after {
+  .region-top-workbench-menu .sf-accordion-toggle:after {
     content: '';
     position: absolute;
     top: 0;
@@ -254,7 +262,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     border-right: 25px solid transparent;
     transform: rotate(-90deg);
     height: 50px;
-    margin-left: 23px;
+    margin-left: 82px;
   }
   ul.sf-menu.menu.top-workbench-menu {
     justify-content: start;
@@ -352,6 +360,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     border-bottom: 1px solid #e7eaee;
   }
 }
+
 @media (max-width: 640px) {
   ul.sf-menu.menu.top-workbench-menu,
   .region-top-workbench-menu .block {
