@@ -598,3 +598,8 @@ foreignObject > div > div {
   align-items: center;
 }
 
+/****blazy styles***/
+.section-hero .b-bg, .utc-hero-section .b-bg {height:100%!important}
+.is-b-loading:not(.is-b-loaded):not([data-animation])::before {
+  background: transparent!important;
+}
