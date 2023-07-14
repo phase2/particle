@@ -54,15 +54,15 @@
   display: none;
 }
 .region-top-workbench-menu h2.block__title:after {
-  content: '';
+  content: "";
   position: absolute;
-  right: -50px;
   top: 0;
-  border-top: 25px solid #fdb736;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
+  border-top: 26px solid #fdb736;
+  border-left: 26px solid transparent;
+  border-right: 26px solid transparent;
   transform: rotate(-90deg);
   height: 50px;
+  margin-left: 75px;
 }
 ul.sf-menu.menu.top-workbench-menu {
   justify-content: end;
@@ -201,9 +201,10 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
   }
   .region-top-workbench-menu .sf-accordion-toggle a {
     display: flex!important;
-    align-items: start;
+    align-items: center;
     justify-content: start;
     height: 100%;
+    background: #fdb736;
   }
   /**change the outline to red for accessibility (the default gold on gold doesn't work)**/
   .region-top-workbench-menu .sf-accordion-toggle a.focus-visible, .region-top-workbench-menu .sf-accordion-toggle a:focus-visible {
@@ -254,15 +255,15 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     background-color: #e7eaee;
   }
   .region-top-workbench-menu .sf-accordion-toggle:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
-    border-top: 25px solid #fdb736;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
+    border-top: 26px solid #fdb736;
+    border-left: 26px solid transparent;
+    border-right: 26px solid transparent;
     transform: rotate(-90deg);
     height: 50px;
-    margin-left: 82px;
+    margin-left: 75px;
   }
   ul.sf-menu.menu.top-workbench-menu {
     justify-content: start;
