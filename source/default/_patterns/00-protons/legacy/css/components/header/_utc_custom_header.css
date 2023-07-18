@@ -524,6 +524,40 @@ a.site-logo:focus-visible img, a#application-link:focus-visible div#menuribbon {
     .sidr ul.sf-menu.menu.sf-secondary-menu li:first-child ul li:last-child {
         @apply mb-4;
     }
+    /****FAIL SAFE CSS in case the mobile menu does not pick up the mobile Superfish markup during peak traffic(?)****/
+    #block-utcsecondarymenu-offcanvas {
+        overflow: unset;
+        height: 100% !important;
+    }
+    #block-utcsecondarymenu-offcanvas ul#superfish-secondary-menu {
+        left: auto !important;
+        position: relative !important;
+        top: auto !important;
+        display: flex !important;
+        flex-direction: column;
+        height: auto !important;
+    }
+    #block-utcsecondarymenu-offcanvas ul.sf-menu.sf-horizontal.sf-shadow .sfHover {
+        background: #e7eaee;
+    }
+    #block-utcsecondarymenu-offcanvas ul.sf-menu.sf-horizontal.sf-shadow ul {
+        position: relative;
+        width: 95% !important;
+        margin: 0 auto;
+    }
+    #block-utcsecondarymenu-offcanvas ul.sf-menu span.sf-depth-1.sf-with-ul {
+        margin-bottom: 0;
+    }
+    #block-utcsecondarymenu-offcanvas .sidr ul.sf-menu span.sf-depth-1.sf-with-ul.sf-clicked {
+        background: #e7eaee;
+        border: none;
+    }
+    #block-utcsecondarymenu-offcanvas ul.sf-menu li.sfHover > ul {
+        left: unset !important;
+        top: 100% !important;
+        width: 95% !important;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 640px) {
