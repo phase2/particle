@@ -241,7 +241,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     transform-origin: 50% 50%;
     padding-bottom: 6px;
     line-height:1.05;
-    z-index: 100001;
+    z-index: 10001;
   }
   .region-top-workbench-menu .sf-accordion-toggle.sf-style-none .sf-expanded span {
     rotate: 90deg;
