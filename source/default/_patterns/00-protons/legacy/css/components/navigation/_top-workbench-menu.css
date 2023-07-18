@@ -54,17 +54,15 @@
   display: none;
 }
 .region-top-workbench-menu h2.block__title:after {
-  font-family: Oswald,sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: .05rem;
-  color: #112e51;
-  font-size: 30px;
-  transition: all .4s ease-in-out;
-  transform-origin: 50% 50%;
-  background: #fdb736;
-  height: 28px;
-  line-height: .5;
+  content: "";
+  position: absolute;
+  top: 0;
+  border-top: 26px solid #fdb736;
+  border-left: 26px solid transparent;
+  border-right: 26px solid transparent;
+  transform: rotate(-90deg);
+  height: 50px;
+  margin-left: 75px;
 }
 ul.sf-menu.menu.top-workbench-menu {
   justify-content: end;
