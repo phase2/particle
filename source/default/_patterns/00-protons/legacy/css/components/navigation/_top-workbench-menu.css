@@ -205,6 +205,7 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     justify-content: start;
     height: 100%;
     background: #fdb736;
+    z-index: 10000;
   }
   /**change the outline to red for accessibility (the default gold on gold doesn't work)**/
   .region-top-workbench-menu .sf-accordion-toggle a.focus-visible, .region-top-workbench-menu .sf-accordion-toggle a:focus-visible {
@@ -235,11 +236,12 @@ ul.sf-menu.top-workbench-menu li.sfHover>ul, ul.sf-menu.top-workbench-menu li:ho
     font-weight: bold;
     letter-spacing: .05rem;
     color: #112e51;
-    font-size: 36px;
+    font-size: 28px;
     transition: all .4s ease-in-out;
     transform-origin: 50% 50%;
-    padding-bottom: 12px;
+    padding-bottom: 6px;
     line-height:1.05;
+    z-index: 100001;
   }
   .region-top-workbench-menu .sf-accordion-toggle.sf-style-none .sf-expanded span {
     rotate: 90deg;
