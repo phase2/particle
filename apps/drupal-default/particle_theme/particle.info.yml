@@ -2,7 +2,7 @@ name: Particle
 type: theme
 description: A Theme with Pattern Lab
 base theme: themag
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 libraries:
   - particle/core
   - particle/google-fonts
