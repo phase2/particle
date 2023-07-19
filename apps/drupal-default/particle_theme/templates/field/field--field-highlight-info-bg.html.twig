@@ -1,0 +1,6 @@
+{# Need to strip out all elements and attributes to just get the URL #}
+{% apply spaceless %}
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
+{% endapply %}
