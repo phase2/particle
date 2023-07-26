@@ -68,8 +68,10 @@
 						{% if content.card_badges %}
 							<div class="utc-item-card__badges">
 								<ul>
-									{% for key, item in content.card_badges if key|first != '#' %}
-										<li>{{ item }}</li>
+									{% for key, item in content.card_badges %}
+										{% if key|first != '#'  %}
+											<li>{{ item }}</li>
+										{% endif %}
 									{% endfor %}
 								</ul>
 							</div>

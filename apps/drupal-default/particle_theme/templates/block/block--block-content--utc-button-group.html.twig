@@ -69,35 +69,41 @@
 				{% endfor %}
 
 				<div class="row">
-					{% for button in content.field_button_link if button['#url'] is not empty %}
-						{% if loop.index <= (btn_count / 2) %}
-							<div class="col-md mt-4">
-								<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
-									{{ button['#title']|striptags('<i>')|raw }} 
-								</a>
-							</div>
+					{% for button in content.field_button_link %}
+						{% if button['#url'] is not empty %}
+							{% if loop.index <= (btn_count / 2) %}
+								<div class="col-md mt-4">
+									<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
+										{{ button['#title']|striptags('<i>')|raw }} 
+									</a>
+								</div>
+							{% endif %}
 						{% endif %}
 					{% endfor %}
 				</div>
 				<div class="row">
-					{% for button in content.field_button_link if button['#url'] is not empty %}
-						{% if loop.index > (btn_count / 2) %}
-							<div class="col-md mt-4">
-								<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
-									{{ button['#title']|striptags('<i>')|raw }} 
-								</a>
-							</div>
+					{% for button in content.field_button_link %}
+						{% if button['#url'] is not empty %}
+							{% if loop.index > (btn_count / 2) %}
+								<div class="col-md mt-4">
+									<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
+										{{ button['#title']|striptags('<i>')|raw }} 
+									</a>
+								</div>
+							{% endif %}
 						{% endif %}
 					{% endfor %}
 				</div>
 			{% else %}
 				<div class="row">
-					{% for button in content.field_button_link if button['#url'] is not empty %}
-						<div class="col-md mt-4">
-							<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
-								{{ button['#title']|striptags('<i>')|raw }} 
-							</a>
-						</div>
+					{% for button in content.field_button_link %}
+						{% if button['#url'] is not empty  %}
+							<div class="col-md mt-4">
+								<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
+									{{ button['#title']|striptags('<i>')|raw }} 
+								</a>
+							</div>
+						{% endif %}
 					{% endfor %}
 				</div>
 			{% endif %}

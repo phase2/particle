@@ -128,6 +128,10 @@ a .utc-card-2--white.utc-card-2--card-link:hover p {
   @apply font-normal;
 } 
 
+a .utc-card-2__body, a:hover .utc-card-2__body {
+  @apply font-normal;
+}
+
 .utc-card-2--lightblue {
   word-wrap: break-word;
   @apply bg-gray-300;
