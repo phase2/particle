@@ -40,7 +40,7 @@
 		top_margin: content["#block_content"].field_button_top_margin.0.value, 
 		bottom_margin: content["#block_content"].field_button_bottom_margin.0.value,
 		size:  content.field_button_size|field_value|render,
-		
+
 	}
 	%}
 
@@ -68,36 +68,9 @@
 					{% set btn_count = btn_count + 1 %}
 				{% endfor %}
 
-				<div class="row">
-					{% for button in content.field_button_link %}
-						{% if button['#url'] is not empty %}
-							{% if loop.index <= (btn_count / 2) %}
-								<div class="col-md mt-4">
-									<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
-										{{ button['#title']|striptags('<i>')|raw }} 
-									</a>
-								</div>
-							{% endif %}
-						{% endif %}
-					{% endfor %}
-				</div>
-				<div class="row">
-					{% for button in content.field_button_link %}
-						{% if button['#url'] is not empty %}
-							{% if loop.index > (btn_count / 2) %}
-								<div class="col-md mt-4">
-									<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
-										{{ button['#title']|striptags('<i>')|raw }} 
-									</a>
-								</div>
-							{% endif %}
-						{% endif %}
-					{% endfor %}
-				</div>
-			{% else %}
-				<div class="row">
-					{% for button in content.field_button_link %}
-						{% if button['#url'] is not empty  %}
+				<div class="row two-btn-row row-one">
+					{% for button in content.field_button_link if button['#url'] is not empty %}
+						{% if loop.index <= (btn_count / 2) %}
 							<div class="col-md mt-4">
 								<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
 									{{ button['#title']|striptags('<i>')|raw }} 
@@ -106,8 +79,29 @@
 						{% endif %}
 					{% endfor %}
 				</div>
+				<div class="row two-btn-row row-two">
+					{% for button in content.field_button_link if button['#url'] is not empty %}
+						{% if loop.index > (btn_count / 2) %}
+							<div class="col-md mt-4">
+								<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
+									{{ button['#title']|striptags('<i>')|raw }} 
+								</a>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="row one-button-row">
+					{% for button in content.field_button_link if button['#url'] is not empty %}
+						<div class="col-md mt-4">
+							<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
+								{{ button['#title']|striptags('<i>')|raw }} 
+							</a>
+						</div>
+					{% endfor %}
+				</div>
 			{% endif %}
 		</div>
-	</div>
+</div>
 
 {% endblock %}
