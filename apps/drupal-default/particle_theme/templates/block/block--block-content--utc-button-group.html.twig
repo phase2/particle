@@ -68,7 +68,7 @@
 					{% set btn_count = btn_count + 1 %}
 				{% endfor %}
 
-				<div class="row two-btn-row row-one">
+				<div class="row two-btn-row btn-row-one">
 					{% for button in content.field_button_link if button['#url'] is not empty %}
 						{% if loop.index <= (btn_count / 2) %}
 							<div class="col-md mt-4">
@@ -79,7 +79,7 @@
 						{% endif %}
 					{% endfor %}
 				</div>
-				<div class="row two-btn-row row-two">
+				<div class="row two-btn-row btn-row-two">
 					{% for button in content.field_button_link if button['#url'] is not empty %}
 						{% if loop.index > (btn_count / 2) %}
 							<div class="col-md mt-4">
