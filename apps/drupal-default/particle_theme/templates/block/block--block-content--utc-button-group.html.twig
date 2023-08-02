@@ -68,7 +68,7 @@
 					{% set btn_count = btn_count + 1 %}
 				{% endfor %}
 
-				<div class="row">
+				<div class="row two-btn-row row-one">
 					{% for button in content.field_button_link if button['#url'] is not empty %}
 						{% if loop.index <= (btn_count / 2) %}
 							<div class="col-md mt-4">
@@ -79,7 +79,7 @@
 						{% endif %}
 					{% endfor %}
 				</div>
-				<div class="row">
+				<div class="row two-btn-row row-two">
 					{% for button in content.field_button_link if button['#url'] is not empty %}
 						{% if loop.index > (btn_count / 2) %}
 							<div class="col-md mt-4">
@@ -91,7 +91,7 @@
 					{% endfor %}
 				</div>
 			{% else %}
-				<div class="row">
+				<div class="row one-button-row">
 					{% for button in content.field_button_link if button['#url'] is not empty %}
 						<div class="col-md mt-4">
 							<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
