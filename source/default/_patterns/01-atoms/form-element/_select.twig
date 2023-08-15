@@ -38,7 +38,6 @@
   <select {{ select_attributes|attributify }}>
     {% block select_content %}
       {% for option in select.options %}
-      {% if key|first != '#' %}
           {% if option.type == 'optgroup' %}
             <optgroup label="{{ option.label }}">
               {% for sub_option in option.options %}
@@ -56,7 +55,6 @@
               {{ option.label }}
             </option>
           {% endif %}
-        {% endif %}
       {% endfor %}
     {% endblock select_content %}
   </select>
