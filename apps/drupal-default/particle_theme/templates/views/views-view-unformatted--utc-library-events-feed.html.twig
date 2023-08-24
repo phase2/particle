@@ -58,8 +58,8 @@
         {% set showToday = null %}
       {% endif %}
       {# checks for multi-day starting before today #}
-      {% if nowDate >= comparearray[0]|trim and nowDate < comparearray[1]|trim %}
-        {% set showMulti = "WEEEEK" %}
+			{% if  comparearray[0]|trim != comparearray[1]|trim %}
+        {% set showMulti = "Multi" %}
         {% else %}
         {% set showMulti = null %}
       {% endif %}
@@ -68,7 +68,7 @@
       <div{{row.attributes.addClass(row_classes)}}>
         <div class="lib-events-box__event-date">
         {% if showMulti %}
-        <i class="fa-duotone fa-calendar-range fa-5x"></i>
+        <i class="fa-duotone fa-calendar-range fa-3x"></i>
         {% else %}
           <span class="lib-events-box__event-date-day">{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_1')|render|striptags }}</span>
           <span class="lib-events-box__event-date-month">{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime')|render|striptags }}</span>
@@ -78,7 +78,7 @@
         <div class="lib-events-box__event-details">
             {% if showToday %} TODAY {% endif %}
           <span class="lib-events-box__event-time">
-					{% if  comparearray[0]|trim != comparearray[1]|trim %}
+					{% if showMulti %}
 							<i class="fa-solid fa-calendar"></i>
 							{{ view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_4')|render|striptags }}
 						</span>
