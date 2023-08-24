@@ -48,7 +48,7 @@
       {% set badgecolor = "lib-events-box__item-badge--event" %}
       {# force color change - may be better to set a class #}
     {% endif %}
-    {# get today's date #}
+    {# check event on today's date #}
       {% set nowDate = ("now"|date("Y-m-d")) %}
       {% set comparedates = view.style_plugin.getField(key, 'field_utc_rss_feed_item_datetime_3')|render|striptags %}
       {% set comparearray = comparedates|split(" ; ") %}
@@ -57,7 +57,7 @@
         {% else %}
         {% set showToday = null %}
       {% endif %}
-      {# checks for multi-day starting before today #}
+      {# checks for multi-day event #}
 			{% if  comparearray[0]|trim != comparearray[1]|trim %}
         {% set showMulti = "Multi" %}
         {% else %}
