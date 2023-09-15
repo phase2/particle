@@ -74,9 +74,11 @@ disabled until solution for back to top arrow found.
 }
 
 .lib-help__icon::before {
+  /*
   font-weight: 900;
   content: "\1F5E9";
   margin-right: 0.3rem;
+  */
 }
 
 .lib-help__button-text--vertical {
