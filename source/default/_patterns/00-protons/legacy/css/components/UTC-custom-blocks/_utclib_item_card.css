@@ -46,6 +46,7 @@
 
 /* style checkboxes */
 .lib-item-form .form-item label.option {
+  display: initial;
   font-size: 1rem;
 }
 
