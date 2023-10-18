@@ -18,39 +18,39 @@ function particle_preprocess(&$variables, $hook) {
   $social_media_pages = [
     'facebook' => [
       'name' => 'Facebook',
-      'fa_icon' => 'fab fa-facebook-f',
+      'fa_icon' => 'fabrands fa-facebook-f',
     ],
     'twitter' => [
-      'name' => 'Twitter',
-      'fa_icon' => 'fab fa-twitter',
+      'name' => 'X-Twitter',
+      'fa_icon' => 'fabrands fa-x-twitter',
     ],
     'google-plus' => [
       'namae' => 'Google+',
-      'fa_icon' => 'fab fa-google-plus-g',
+      'fa_icon' => 'fabrands fa-google-plus-g',
     ],
     'youtube' => [
       'name' => 'YouTube',
-      'fa_icon' => 'fab fa-youtube',
+      'fa_icon' => 'fabrands fa-youtube',
     ],
     'instagram' => [
       'name' => 'Instagram',
-      'fa_icon' => 'fab fa-instagram',
+      'fa_icon' => 'fabrands fa-instagram',
     ],
     'pinterest' => [
       'name' => 'Pinterest',
-      'fa_icon' => 'fab fa-pinterest-p',
+      'fa_icon' => 'fabrands fa-pinterest-p',
     ],
     'tumblr' => [
       'name' => 'Tumblr',
-      'fa_icon' => 'fab fa-tumblr',
+      'fa_icon' => 'fabrands fa-tumblr',
     ],
     'linked-in' => [
       'name' => 'LinkedIn',
-      'fa_icon' => 'fab fa-linkedin-in',
+      'fa_icon' => 'fabrands fa-linkedin-in',
     ],
     'snapchat' => [
       'name' => 'Snapchat',
-      'fa_icon' => 'fab fa-snapchat-ghost',
+      'fa_icon' => 'fabrands fa-snapchat-ghost',
     ],
   ];
 
