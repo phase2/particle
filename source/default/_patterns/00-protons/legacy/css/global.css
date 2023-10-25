@@ -260,7 +260,7 @@ a {
 }
 a:hover,
 a:focus {
-  @apply text-utc-new-blue-800 font-medium no-underline;
+  @apply text-utc-new-blue-800 no-underline;
 }
 a.focus-visible, a:focus-visible {
   outline: 2px dashed #fdb736;
