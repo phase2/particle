@@ -335,7 +335,7 @@ h2 a, h3 a, h4 a, h5 a, h6 a, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6
   @apply font-bold font-utcheadings;
 }
 a:hover p:not(#apply-now-ribbon) {
-  @apply font-normal font-utcbody;
+  @apply font-utcbody;
 }
 a.diagonal, .utc-hero-block a.diagonal {
   @apply border border-white text-white bg-transparent mx-auto py-3 px-4 font-bold;
