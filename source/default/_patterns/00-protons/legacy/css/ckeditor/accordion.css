@@ -66,3 +66,5 @@
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
   @apply bg-gray-700;
 }
+
+
