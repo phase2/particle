@@ -17,6 +17,7 @@
   color: #112e51!important;
   border-bottom: 2px solid rgba(226,232,240,1)!important;
 }
+
 .ckeditor-accordion-container > dl dt > a:hover {
   @apply bg-gray-300;
   @apply border-utc-new-blue-500;
@@ -66,3 +67,4 @@
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
   @apply bg-gray-700;
 }
+
