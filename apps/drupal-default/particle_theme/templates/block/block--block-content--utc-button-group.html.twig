@@ -71,7 +71,7 @@
           {% endfor %}
 
 				<div class="row two-btn-row btn-row-one">
-					{% for button in content.field_button_link %}
+		  {% for button in content.field_button_link %}
             {% if button['#url'] is not empty %}
               {% if loop.index <= (btn_count / 2) %}
                 <div class="col-md mt-4">
@@ -111,5 +111,4 @@
 			{% endif %}
 		</div>
 </div>
-
 {% endblock %}
