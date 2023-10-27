@@ -57,6 +57,9 @@ html {
   margin-left: 0;
   margin-right: 0;
 }
+.page-node-type-utc-library .utcpage-title {
+  margin-bottom:-2.6rem;
+}
 
 @media screen and (max-width: 640px) {
   .utcpage-title {
@@ -258,7 +261,7 @@ a {
 }
 a:hover,
 a:focus {
-  @apply text-utc-new-blue-800 font-medium no-underline;
+  @apply text-utc-new-blue-800 no-underline;
 }
 a.focus-visible, a:focus-visible {
   outline: 2px dashed #fdb736;
@@ -333,7 +336,7 @@ h2 a, h3 a, h4 a, h5 a, h6 a, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6
   @apply font-bold font-utcheadings;
 }
 a:hover p:not(#apply-now-ribbon) {
-  @apply font-normal font-utcbody;
+  @apply font-utcbody;
 }
 a.diagonal, .utc-hero-block a.diagonal {
   @apply border border-white text-white bg-transparent mx-auto py-3 px-4 font-bold;
@@ -596,6 +599,9 @@ ul.pager__items li a:hover {
 foreignObject > div > div {
   display: flex;
   align-items: center;
+}
+.fc-list-item-time, .fc-list-item-title a {
+  font-weight:400;
 }
 
 /****blazy styles***/
