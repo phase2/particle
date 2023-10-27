@@ -57,9 +57,11 @@ html {
   margin-left: 0;
   margin-right: 0;
 }
-.page-node-type-utc-library .utcpage-title{
+
+.page-node-type-utc-library .utcpage-title {
   margin-bottom:-2.6rem;
 }
+
 @media screen and (max-width: 640px) {
   .utcpage-title {
     @apply text-4xl;
@@ -602,6 +604,7 @@ foreignObject > div > div {
 .fc-list-item-time, .fc-list-item-title a {
   font-weight:400;
 }
+
 
 /****blazy styles***/
 .section-hero .b-bg, .utc-hero-section .b-bg {height:100%!important}
