@@ -29,87 +29,77 @@
 {# removes bottom margin standard with block class #}
 {% set attributes = attributes.removeClass('block') %}
 {% set btn_attribute = create_attribute() %}
-	{% block content %}
-	{% set button_style_select = content["#block_content"].field_button_type.0.target_id %}
-	{% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+    {% block content %}
+    {% set button_style_select = content["#block_content"].field_button_type.0.target_id %}
+    {% set button_style = drupal_field('field_css_class', 'taxonomy_term', button_style_select)["#object"].field_css_class.value %}
+    {% set button_group = {
+        title: content.field_button_group_title|field_value,
+        title_align: content["#block_content"].field_button_group_align_title.0.value,
+        title_color: button_style == 'btn btn--white-outline' ? 'btn-group__title--white',
+        top_margin: content["#block_content"].field_button_top_margin.0.value,
+        bottom_margin: content["#block_content"].field_button_bottom_margin.0.value,
+        size:  content.field_button_size|field_value|render,
 
-	{% set button_group = {
-		title: content.field_button_group_title|field_value,
-		title_align: content["#block_content"].field_button_group_align_title.0.value,
-		title_color: button_style == 'btn btn--white-outline' ? 'btn-group__title--white',
-		top_margin: content["#block_content"].field_button_top_margin.0.value,
-		bottom_margin: content["#block_content"].field_button_bottom_margin.0.value,
-		size:  content.field_button_size|field_value|render,
-
-	}
-	%}
-
-	{%
-  set btn_classes = [
-    'btn-block',
-	button_style,
-	'btn--' ~ button_group.size,
-	'btn-group__btn',
-  ]
-%}
-
-		<div{{content_attributes}}>
-			<div class="container {{ button_group.top_margin }} {{ button_group.bottom_margin }}">
-			{% if button_group.title %}
-				<h2 class="btn-group__title {{ button_group.title_color }} {{ button_group.title_align }}">
-					{{ button_group.title }}
-				</h2>
-			{% endif %}
-		{# if two rows is "on", counts number of button fields w/ url content
-		uses number to loop through and separate into rows #}
-			{% if "On" in content.field_two_rows.0 %}
-				{% set btn_count = 0 %}
-          {% for button in content.field_button_link %}
-            {% if button['#url'] is not empty %}
-              {% set btn_count = btn_count + 1 %}
+    }
+    %}
+    {%
+    set btn_classes = [
+        'btn-block',
+        button_style,
+        'btn--' ~ button_group.size,
+        'btn-group__btn',
+    ]
+    %}
+    <div{{content_attributes}}>
+        <div class="container {{ button_group.top_margin }} {{ button_group.bottom_margin }}">
+            {% if button_group.title %}
+                <h2 class="btn-group__title {{ button_group.title_color }} {{ button_group.title_align }}">
+                    {{ button_group.title }}
+                </h2>
             {% endif %}
-          {% endfor %}
+            {# if two rows is "on", counts number of button fields w/ url content uses number to loop through and separate into rows #}
+            {% if "On" in content.field_two_rows.0 %}
 
-				<div class="row two-btn-row btn-row-one">
+                {% set btn_count = 0 %}
+                {% for button in content.field_button_link %}
+                    {% if button['#url'] is not empty %}
+                    	{% set btn_count = btn_count + 1 %}
+                    {% endif %}
+                {% endfor %}
+
+				{% set btn_count_half = btn_count / 2 %}
+				{%
+				set end_count_class = [
+					'mt-4',
+					'half-of-the-btns--' ~ btn_count_half
+				]
+				%}
+
+                <div {{ attributes.addClass(end_count_class) }}>
 					{% for button in content.field_button_link %}
-            {% if button['#url'] is not empty %}
-              {% if loop.index <= (btn_count / 2) %}
-                <div class="col-md mt-4">
-                  <a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
-                    {{ button['#title']|striptags('<i>')|raw }}
-                  </a>
+						{% if button['#url'] is not empty %}
+							<div class="button-wrapper">
+								<a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
+									{{ button['#title']|striptags('<i>')|raw }}
+								</a>
+							</div>
+						{% endif %}
+					{% endfor %}
                 </div>
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-				</div>
-				<div class="row two-btn-row btn-row-two">
-					{% for button in content.field_button_link %}
-            {% if button['#url'] is not empty %}
-              {% if loop.index > (btn_count / 2) %}
-                <div class="col-md mt-4">
-                  <a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
-                    {{ button['#title']|striptags('<i>')|raw }}
-                  </a>
+            {% else %}
+                <div class="row one-row-of-buttons">
+                    {% for button in content.field_button_link %}
+                        {% if button['#url'] is not empty %}
+                        <div class="col-md mt4">
+                            <a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
+                                {{ button['#title']|striptags('<i>')|raw }}
+                            </a>
+                        </div>
+                        {% endif %}
+                {% endfor %}
                 </div>
-              {% endif %}
             {% endif %}
-          {% endfor %}
-				</div>
-			{% else %}
-				<div class="row one-button-row">
-					{% for button in content.field_button_link %}
-            {% if button['#url'] is not empty %}
-              <div class="col-md mt-4">
-                <a{{btn_attribute.addClass(btn_classes)}} href="{{ button['#url'] }}">
-                  {{ button['#title']|striptags('<i>')|raw }}
-                </a>
-              </div>
-            {% endif %}
-          {% endfor %}
-				</div>
-			{% endif %}
-		</div>
-</div>
-
+        </div>
+    </div>
 {% endblock %}
+
