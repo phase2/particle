@@ -280,4 +280,36 @@ a.btn--hover-slide:hover::after {
   gap: 1rem;
 }
 
+@media (max-width: 420px) {
+  .half-of-the-btns--1,
+  .half-of-the-btns--1\.5,
+  .half-of-the-btns--2,
+  .half-of-the-btns--2\.5,
+  .half-of-the-btns--3 {
+    display:block!important;
+  } 
+  .button-wrapper{
+    margin-top:1rem;
+  } 
+  .half-of-the-btns--1\.5 .button-wrapper:nth-child(-1n + 3) {
+    grid-column: unset;
+  }
+  .half-of-the-btns--1\.5 .button-wrapper:nth-last-child(1) {
+    grid-row-start: unset;
+    grid-column: unset;
+  }
+  .half-of-the-btns--2\.5 .button-wrapper:nth-child(-1n + 3) {
+    grid-column: unset;
+  }
+  .half-of-the-btns--2\.5 .button-wrapper:nth-last-child(2) {
+    grid-row-start: unset;
+    grid-column: unset;
+  }
+  .half-of-the-btns--2\.5 .button-wrapper:nth-last-child(1) {
+    grid-row-start: unset;
+    grid-column: unset;
+  }
+
+}
+
 
