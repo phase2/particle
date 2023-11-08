@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Error 404 page.
+ */
+#}
+{% extends '@particle/layout/page/page-particle.html.twig' %}
+
+  {% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mt-12 mx-auto error-wrapper">
+
+          {{ page.content }}
+
+          <a href="{{ front_page }}" class="d-block mt-2">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+

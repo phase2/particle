@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Error 404 page.
+ */
+#}
+{% extends '@themag/base-layout/page/page.html.twig' %}
+  {% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mt-12 mx-auto error-wrapper">
+          {{ page.content }}
+          <a href="{{ front_page }}" class="btn btn-primary d-block mt-0 mx-auto">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
