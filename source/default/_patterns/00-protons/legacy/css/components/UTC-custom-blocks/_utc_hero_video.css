@@ -25,7 +25,7 @@
 .container-full .block--utc-video-hero-full-center .video-hero.responsive-video embed { top:0!important;}
 
 
-.container-full .block--utc-video-hero .video-hero-wrapper {@apply pb-0;}
+.container-full .block--utc-video-hero .video-hero-wrapper {@apply pb-0;margin-bottom: 10rem;}
 .container .block--utc-video-hero .video-hero-wrapper {@apply pb-8;}
 
 .block--utc-video-hero-full {@apply mb-24;}
