@@ -68,14 +68,9 @@
                 {% endfor %}
 
 				{% set btn_count_half = btn_count / 2 %}
-				{%
-				set end_count_class = [
-					'mt-4',
-					'half-of-the-btns--' ~ btn_count_half
-				]
-				%}
+                {% set halfClass = 'half-of-the-btns--' ~ btn_count_half %}
 
-                <div {{ attributes.addClass(end_count_class) }}>
+                <div class="mt-4 {{ halfClass }}">
 					{% for button in content.field_button_link %}
 						{% if button['#url'] is not empty %}
 							<div class="button-wrapper">
