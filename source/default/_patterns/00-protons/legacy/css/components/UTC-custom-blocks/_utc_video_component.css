@@ -30,7 +30,7 @@
     display: grid;
     gap: 24px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(auto, auto);
     margin:0 auto;
   }
 
@@ -39,7 +39,7 @@
     display: grid;
     gap: 24px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat(auto, auto);
     margin:0 auto;
   }
 
