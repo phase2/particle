@@ -38,9 +38,11 @@
     @apply ml-6;
 }
 .block.block--utc-video-hero.block--utc-video-hero-full {
-    margin-bottom: 2rem;
+    margin-bottom: 8rem;
 }
-
+.block--utc-video-hero p, .block--utc-image-hero p{
+    font-weight:400;
+}
 @media (max-width:1023px){
     .container .block--utc-video-hero .video-hero-wrapper, .container-full .block--utc-video-hero .video-hero-wrapper {@apply pb-4;}
     .main-reduce-top-margin-video {padding-top: 0;}

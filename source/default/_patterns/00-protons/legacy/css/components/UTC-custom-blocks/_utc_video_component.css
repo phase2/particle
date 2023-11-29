@@ -55,6 +55,9 @@
     position: relative;
     margin: 0 auto
 }
+.view-mode-utc-original-size .field__item {
+    margin-bottom: 3rem;
+  }
 
 @media (max-width:768px){
     .view-mode-default .field__items.video-gallery,
