@@ -38,15 +38,15 @@
 	{% block content %}
 		<div class="container">
 			{% if video_alignment_val  == 'center' %}
-				<div class="video-center grid justify-center">
+				<div class="video-center block">
 						<div {{content_attributes}}>{{ content.field_utc_video}}</div>
 				</div>
 			{% elseif video_alignment_val == 'left' %}
-				<div class="video-left grid justify-left">
+				<div class="video-left block">
 						<div {{content_attributes}}>{{ content.field_utc_video}}</div>
 				</div>
 			{% elseif video_alignment_val == 'right' %}
-				<div class="video-right grid float-right">
+				<div class="video-right block">
 						<div {{content_attributes}}>{{ content.field_utc_video}}</div>
 				</div>
 			{% elseif video_alignment_val == 'full-screen' %}
@@ -54,7 +54,7 @@
 						<div {{content_attributes}}>{{ content.field_utc_video}}</div>
 				</div>
 			{% else %}
-				<div class="grid justify-center">
+				<div class="video-center block">
 						<div {{content_attributes}}>{{ content.field_utc_video}}</div>
 				</div>
 			{% endif %}

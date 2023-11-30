@@ -8,18 +8,39 @@
     position: relative;
 }
 
-.video-full-screen iframe,
 .view-mode-default iframe,
 .view-mode-video-grid iframe,
 .view-mode-full iframe,
 .view-mode-original iframe {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     position: absolute;
     top: 0;
     left: 0;
 }
 
+
+.video-full-screen .view-mode-default iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.video-center .view-mode-default iframe,
+.video-center .view-mode-video-grid iframe,
+.video-center .view-mode-full iframe,
+.video-center .view-mode-original iframe {
+    right: 0;
+    margin: 0 auto;
+}
+.video-right .view-mode-default iframe,
+.video-right .view-mode-video-grid iframe,
+.video-right .view-mode-full iframe,
+.video-right .view-mode-original iframe {
+    right: 0;
+    left: auto;
+}
+
+.view-mode-default iframe,
 /*Gallery styles*/
 .block--utc-video-gallery-block:not('view-mode-video-grid') .field--name-field-media-video-embed-field {
     margin-bottom: 2rem!important;
