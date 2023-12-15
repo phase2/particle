@@ -22,10 +22,10 @@ jquery:
       preprocess: false
       weight: -20
 
-#google-fonts:
+#google-fonts: Font imports ARE FOUND IN THE tailwind.tokens.css file.
 #  css:
 #    base:
-#      https://fonts.googleapis.com/css?family=Oswald:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap: { type: external }
+#      https://fonts.googleapis.com/css?family=Oswald:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap: { type: external }
 
 
 #FILE IN app-drupal/assets DOES NOT EXIST. THIS FILE IS CALLED BY THE UTCADMIN MODULEE

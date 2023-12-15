@@ -14,7 +14,7 @@
   padding-right: 6.83335rem;
 }
 .region-top-workbench-menu .block * {
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 .region-top-workbench-menu .block__content {
   width: 100%;
@@ -72,7 +72,7 @@ ul.sf-menu.menu.top-workbench-menu {
 ul.sf-menu.top-workbench-menu > li > a {
   position: relative;
   display: inline-block;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #fff;
   overflow: hidden;
   background: linear-gradient(to right, #fdb736, #fdb736 50%, #fff 50%);
