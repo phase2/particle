@@ -16,7 +16,7 @@ Sans-Serif - Google Fonts - Open Sans
 Monospace - Google Fonts - Source Code Pro
 */
 
-@import url(https://fonts.googleapis.com/css?family=Raleway|Oswald|SourceCodePro&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Oswald|SourceCodePro&display=swap);
 
 /* Temporary workaround until we refactor spacing into tailwind */
 blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
