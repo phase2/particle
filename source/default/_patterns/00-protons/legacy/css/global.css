@@ -338,6 +338,57 @@ h2 a, h3 a, h4 a, h5 a, h6 a, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6
 a:hover p:not(#apply-now-ribbon) {
   @apply font-utcbody;
 }
+.field--name-body a {
+  color: #166484;
+  position: relative;
+	font-weight:400;
+}
+.field--name-body a:after {
+  content: '';
+  height: 1px;
+  background: #116484;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right:0;
+  margin:0 auto;
+  animation-duration: .25s;
+  animation-name: bordershrink;
+  animation-iteration-count: 1;
+}
+.field--name-body a:hover {
+  color: #112e51;
+}
+.field--name-body a:hover:after {
+  width: 15%;
+  animation-duration: .25s;
+  animation-name: bordergrow;
+  animation-iteration-count: 1;
+}
+@keyframes bordershrink {
+  0% {
+    left: 0;
+    width: 15%;
+	right:0;  
+  }
+  100% {
+	left: 0;
+    width: 100%;
+	right:0 
+  }
+}
+@keyframes bordergrow {
+  0% {
+    left: 0;
+    width: 100%;
+	right:0   
+  }
+  100% {
+	left: 0;
+    width: 15%;
+	right:0;
+  }
+}
 a.diagonal, .utc-hero-block a.diagonal {
   @apply border border-white text-white bg-transparent mx-auto py-3 px-4 font-bold;
   background-image: -webkit-linear-gradient(257deg, #fff 50%, transparent 50%);
