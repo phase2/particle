@@ -60,7 +60,11 @@ figure.utc-hover-image-effect p {
 figure.utc-hover-image-effect a {
   @apply lg:absolute mt-4 lg:left-0 lg:right-0 lg:bottom-0 lg:top-0 text-transparent;
 }
-
+/**no bottom border on click of hover**/
+figure.utc-hover-image-effect a:active, 
+figure.utc-hover-image-effect a.active {
+  border:none!important;
+}
 /*hover effects*/
 figure.utc-hover-image-effect:hover figcaption {
   top: 50%;

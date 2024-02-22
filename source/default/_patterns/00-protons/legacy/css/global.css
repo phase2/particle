@@ -272,18 +272,45 @@ a.focus-visible, a:focus-visible {
   height:      175px;
   margin-top: -175px;
 }
-
+/**new special lists**/
+ul.link-list, ul.centered-list {
+  padding-left: 0;
+}
+ul.bullet-leaded li { 
+  margin-top: 18px;
+  margin-bottom: 18px;
+  line-height:1.25;
+}
+ul.link-list li { 
+    list-style: none;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    line-height:1.25;
+}
+/**end new special lists**/
+/**new special effects links**/
+.UTCtextblock__links a:not(.btn),
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler) {
-  @apply text-utc-links-static font-normal border-0 no-underline;
-  transition: var(--utc-link);
+ font-weight:400;
+ color: #116484;
+ border:none;
+ text-decoration: none;
+ background-image: linear-gradient(#116484, #116484);
+ background-position: 50% 100%;
+ background-repeat: no-repeat;
+ background-size: 100% 1px;
+ transition: all .3s;
 }
+.UTCtextblock__links a:not(.btn):hover,
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):hover {
-  @apply text-utc-new-blue-800 font-medium;
+  @apply text-utc-new-blue-800;
+  background-size: 0% 1px;
 }
+/**end new special effects links**/
 a:active,
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):active,
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):active,
@@ -294,11 +321,6 @@ a:active,
 }
 .UTCtextblock__links strong > a {
   font-weight: normal;
-}
-.UTCtextblock__links a:not(.btn):not(.dm-profile-tabs__link):active:not(.ckeditor-accordion-toggler):active {
-  color: #fdb736;
-  border-bottom: 1.5px solid #fdb736;
-  text-decoration: none;
 }
 
 .department-info-- a {
@@ -338,57 +360,7 @@ h2 a, h3 a, h4 a, h5 a, h6 a, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6
 a:hover p:not(#apply-now-ribbon) {
   @apply font-utcbody;
 }
-.field--name-body a {
-  color: #166484;
-  position: relative;
-	font-weight:400;
-}
-.field--name-body a:after {
-  content: '';
-  height: 1px;
-  background: #116484;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right:0;
-  margin:0 auto;
-  animation-duration: .25s;
-  animation-name: bordershrink;
-  animation-iteration-count: 1;
-}
-.field--name-body a:hover {
-  color: #112e51;
-}
-.field--name-body a:hover:after {
-  width: 15%;
-  animation-duration: .25s;
-  animation-name: bordergrow;
-  animation-iteration-count: 1;
-}
-@keyframes bordershrink {
-  0% {
-    left: 0;
-    width: 15%;
-	right:0;  
-  }
-  100% {
-	left: 0;
-    width: 100%;
-	right:0 
-  }
-}
-@keyframes bordergrow {
-  0% {
-    left: 0;
-    width: 100%;
-	right:0   
-  }
-  100% {
-	left: 0;
-    width: 15%;
-	right:0;
-  }
-}
+
 a.diagonal, .utc-hero-block a.diagonal {
   @apply border border-white text-white bg-transparent mx-auto py-3 px-4 font-bold;
   background-image: -webkit-linear-gradient(257deg, #fff 50%, transparent 50%);
