@@ -289,7 +289,7 @@ ul.link-list li {
 }
 /**end new special lists**/
 /**new special effects links**/
-.UTCtextblock__links a:not(.btn),
+.UTCtextblock__links a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler) {
@@ -303,12 +303,16 @@ ul.link-list li {
  background-size: 100% 1px;
  transition: all .3s;
 }
-.UTCtextblock__links a:not(.btn):hover,
+.UTCtextblock__links a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler):hover {
   @apply text-utc-new-blue-800;
   background-size: 0% 1px;
+}
+.ckeditor-accordion-container > dl dt > a, .ckeditor-accordion-container > dl dt > a:not(.button) {
+  font-family: "Oswald", sans-serif!important;
+  font-weight: 600!important;
 }
 /**end new special effects links**/
 a:active,
