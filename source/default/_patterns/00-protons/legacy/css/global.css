@@ -310,6 +310,17 @@ ul.link-list li {
   @apply text-utc-new-blue-800;
   background-size: 0% 1px;
 }
+.localist_widget_container .action_button a {
+  text-decoration: none !important;
+  border: 1px solid #112e51 !important;
+  color: #fff !important;
+  background-image: unset !important;
+  background-position: unset !important;
+}
+
+.localist_widget_container .action_button a:hover {
+  color: #112e51 !important;
+}
 .ckeditor-accordion-container > dl dt > a, .ckeditor-accordion-container > dl dt > a:not(.button) {
   font-family: "Oswald", sans-serif!important;
   font-weight: 600!important;
