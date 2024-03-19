@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override for a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ */
+#}
+{# NOTES
+   related files:
+  docroot/modules/custom/utccloud/utccloud.module
+   - (preprocess for both twig files)
+  docroot/themes/custom/particle/apps/drupal-default/particle_theme/templates/views/views-exposed-form--utc-directory.html.twig
+  - this file - shows/hides the exposed filters based on variables in URL
+  docroot/themes/custom/particle/apps/drupal-default/particle_theme/templates/views/views-view-unformatted--utc-directory.html.twig
+  renders view content
+#}
+{#  testing variable being passed from preprocess
+{{ argument_count }} #}
+
+{% if q is not empty %}
+  {#
+    This ensures that, if clean URLs are off, the 'q' is added first,
+    as a hidden form element, so that it shows up first in the POST URL.
+  #}
+{{ q }}
+{% endif %}
+<div class="utc-academic-programs-form grid clearfix m-3">
+  {{ form }}
+</div>
+
+

@@ -46,6 +46,7 @@ import './legacy/css/components/UTC-custom-blocks/_utc_hero_video.css';
 import './legacy/css/components/UTC-custom-blocks/_utc_video_component.css';
 import './legacy/css/components/navigation/_top-workbench-menu.css';
 import './legacy/css/components/UTC-custom-blocks/_utc_table_block.css';
+import './legacy/css/pages/utc_academic_programs.css';
 // import "./legacy/css/components/UTC-custom-blocks/";
 // import "./legacy/css/components/field/";
 
@@ -56,6 +57,7 @@ import './legacy/js/slick-custom-arrows.js';
 import './legacy/js/utc-quoteblock.js';
 import './legacy/js/back-to-top-button.js';
 import './legacy/js/superfish-accessibility-attr.js';
+import './legacy/js/utc-academic-programs.js';
 //import './legacy/js/top-workbench-menu.js'; << now in utccloud custom modules
 // import './legacy/js/ckeditor-jquery.js';
 

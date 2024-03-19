@@ -1,0 +1,143 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<table class="program-table">
+    <thead>
+        <tr>
+            <td class="program-name" rowspan="2" style="text-align:center;">Program Name<br><span class="smaller-text">Click on a program for more details.</span></td>
+            <td class="degree" colspan="3">Degrees</td>
+            <td class="delivery" colspan="2">Delivery</td>
+        </tr>
+        <tr>
+            <td class="degree">Bachelor</td>
+            <td class="degree">Graduate</td>
+            <td class="degree">Minor</td>
+            <td class="delivery">In Person</td>
+            <td class="delivery">Online</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+            {% set btnID = 'btn-id-' ~ row.content['#row']._entity.id.0.value %}
+            {% set detailID = 'detail-id-' ~ row.content['#row']._entity.id.0.value %}
+            {% set programName = row.content['#row']._entity.field_program_name.value %}
+            {% set programImage = row.content['#row']._entity.field_program_image.target_id %}
+            {% set youtubeurl = row.content['#row']._entity.field_youtube_video_url.value %}
+
+            <tr class="program-btn" data-src="{{ detailID }}">
+                <td id="{{ btnID }}" class="program-name" >{{ row.content['#row']._entity.field_program_name.0.value }}</td>
+
+                <td class="degree bachelor">
+                    {% if row.content['#row']._entity.field_degree_options.0.value  == 'bachelor' %}
+                        <span class="checkmark">&#10003;</span>
+                    {% else %}
+                        <span class="m-dash">&#8212;</span> 
+                    {% endif %}
+                </td>
+                <td class="degree graduate">
+                    {% if row.content['#row']._entity.field_degree_options.0.value  == 'graduate' or 
+                          row.content['#row']._entity.field_degree_options.1.value  == 'graduate' %}
+                        <span class="checkmark">&#10003;</span>
+                    {% else %}
+                        <span class="m-dash">&#8212;</span> 
+                    {% endif %}
+                </td>
+                <td class="degree minor">
+                    {% if row.content['#row']._entity.field_degree_options.0.value  == 'graduate' or 
+                          row.content['#row']._entity.field_degree_options.1.value  == 'graduate' or
+                          row.content['#row']._entity.field_degree_options.2.value  == 'graduate' %}
+                        <span class="checkmark">&#10003;</span> 
+                    {% else %}
+                        <span class="m-dash">&#8212;</span>
+                    {% endif %}
+                </td>
+                <td class="delivery">
+                    {% if row.content['#row']._entity.field_delivery_options.0.value == 'inperson' %}
+                        <span class="checkmark">&#10003;</span> 
+                    {% else %}
+                        <span class="m-dash">&#8212;</span> 
+                    {% endif %}
+                </td>
+                <td  class="delivery">
+                    {% if row.content['#row']._entity.field_delivery_options.0.value == 'online' or
+                          row.content['#row']._entity.field_delivery_options.1.value == 'online' %}
+                        <span class="checkmark">&#10003;</span> 
+                    {% else %}
+                        <span class="m-dash">&#8212;</span>  
+                    {% endif %}
+                </td>
+            </tr>
+                <div id="{{ detailID }}" class="offscreen-program-details">
+                    <div class="close-btn"  >
+                        <i class="fa-sharp fa-light fa-square-xmark"></i>
+                    </div>
+                    {% if programImage is not null %}
+                        <div class="program-image">{{ drupal_entity('media', programImage, 'utc_academic_program_image') }}</div>
+                    {% endif %}
+                    <h2 style="margin-top:24px;margin-bottom:-12px;font-size:1.5rem;">{{ programName }}</h2>
+                    <div class="program-copy">{{ row.content['#row']._entity.field_program_description.value|raw }}</div>
+                    {% if youtubeurl %}
+                        <div class="program-youtube responsive-video">
+                            <iframe class="program-yt-iframe" scrolling="no" type="text/html" src="https://www.youtube.com/embed/{{ youtubeurl }}?modestbranding=1&amp;showinfo=0&amp;rel=0&amp;cc_load_policy=3&amp;iv_load_policy=3&amp;disablekb=0&amp;fs=0&amp;color=red&amp;playlist={{ youtubeurl }}" title="{{ programName }} video" frameborder="0" ></iframe>
+                        <div>
+                    {% endif %}
+                </div>
+        {% endfor %}
+    <tbody>
+</table>
+
+<!--
+<script>
+if (document.location.pathname.indexOf("/academic-affairs/registrar/utc-programs") == 0) {
+    document.body.className = "utc-programs-page";
+}
+
+var programHeadline = document.querySelector(".utc-programs-page .region--content-header");
+var programFilter = document.querySelector(".utc-programs-page .view-filters");
+var programTable = document.querySelector(".utc-programs-page table");
+var programOverlay = document.querySelector(".utc-programs-page .program-overlay");
+
+function ghostMainContent(){
+    programHeadline.style.opacity = ".25";
+    programOverlay.style.zIndex= "2";
+}
+function unghostMainContent(){
+    programHeadline.style.opacity = "1";
+    programOverlay.style.zIndex= "-1";
+}
+
+
+function togglediv(id) {
+  document.querySelectorAll(".offscreen-program-details").forEach(function(div) {
+    if (div.id == id) {
+      // Toggle specified DIV
+      div.style.right = div.style.right == "0" ? "-650px" : "0";
+    } else {
+      // Hide other DIVs
+      div.style.right = "-650px";
+    }
+    ghostMainContent()
+  });
+}
+
+function closediv(parentID) {
+  document.getElementById(parentID).style.right = "-650px";
+  unghostMainContent()
+}
+
+
+</script>-->
