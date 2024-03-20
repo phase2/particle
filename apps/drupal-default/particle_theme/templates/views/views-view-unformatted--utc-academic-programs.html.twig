@@ -17,17 +17,12 @@
 #}
 <table class="program-table">
     <thead>
-        <tr>
-            <td class="program-name" rowspan="2" style="text-align:center;">Program Name<br><span class="smaller-text">Click on a program for more details.</span></td>
-            <td class="degree" colspan="3">Degrees</td>
-            <td class="delivery" colspan="2">Delivery</td>
-        </tr>
-        <tr>
+        <tr style="padding-bottom:6px;">
+            <td class="program-name" style="text-align:center;">Program Name<br><span class="smaller-text">Click on a program for more details.</span></td>
+            <!--<td class="delivery" colspan="2">Delivery</td>-->
             <td class="degree">Bachelor</td>
             <td class="degree">Graduate</td>
             <td class="degree">Minor</td>
-            <td class="delivery">In Person</td>
-            <td class="delivery">Online</td>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +30,7 @@
             {% set btnID = 'btn-id-' ~ row.content['#row']._entity.id.0.value %}
             {% set detailID = 'detail-id-' ~ row.content['#row']._entity.id.0.value %}
             {% set programName = row.content['#row']._entity.field_program_name.value %}
+            {% set programDelivery = row.content['#row']._entity.field_delivery_options.value|raw %}
             {% set programImage = row.content['#row']._entity.field_program_image.target_id %}
             {% set youtubeurl = row.content['#row']._entity.field_youtube_video_url.value %}
 
@@ -65,7 +61,7 @@
                         <span class="m-dash">&#8212;</span>
                     {% endif %}
                 </td>
-                <td class="delivery">
+                <!--<td class="delivery">
                     {% if row.content['#row']._entity.field_delivery_options.0.value == 'inperson' %}
                         <span class="checkmark">&#10003;</span> 
                     {% else %}
@@ -79,7 +75,7 @@
                     {% else %}
                         <span class="m-dash">&#8212;</span>  
                     {% endif %}
-                </td>
+                </td>-->
             </tr>
                 <div id="{{ detailID }}" class="offscreen-program-details">
                     <div class="close-btn"  >
@@ -88,8 +84,25 @@
                     {% if programImage is not null %}
                         <div class="program-image">{{ drupal_entity('media', programImage, 'utc_academic_program_image') }}</div>
                     {% endif %}
-                    <h2 style="margin-top:24px;margin-bottom:-12px;font-size:1.5rem;">{{ programName }}</h2>
+                   
+                    
+                    <h2 style="margin-top:24px;font-size:1.75rem;">{{ programName }}</h2>
+                    
+                    <div class="degree-list">Degrees available: 
+                        {{ row.content['#row']._entity.field_degree_options.0.value|capitalize }}{% if row.content['#row']._entity.field_degree_options.1.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.1.value|capitalize }}{% endif %}{% if row.content['#row']._entity.field_degree_options.2.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.2.value|capitalize }}{% endif %}
+                    </div>
+                    
+                    <div class="program-delivery">
+                        {% if programDelivery == "hybrid" %}
+                            This program is a {{ programDelivery }} of in-person and online.
+                        {% elseif programDelivery == "inperson" %}
+                            This program is in person.
+                        {% else %}
+                            This is an online program.
+                        {% endif %}
+                    </div>
                     <div class="program-copy">{{ row.content['#row']._entity.field_program_description.value|raw }}</div>
+                    
                     {% if youtubeurl %}
                         <div class="program-youtube responsive-video">
                             <iframe class="program-yt-iframe" scrolling="no" type="text/html" src="https://www.youtube.com/embed/{{ youtubeurl }}?modestbranding=1&amp;showinfo=0&amp;rel=0&amp;cc_load_policy=3&amp;iv_load_policy=3&amp;disablekb=0&amp;fs=0&amp;color=red&amp;playlist={{ youtubeurl }}" title="{{ programName }} video" frameborder="0" ></iframe>
