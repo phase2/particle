@@ -3,24 +3,6 @@
 .utc-programs-page .block--region-content-header.block--page-title-block .page-title, 
 .utc-programs-page .block--layout-builder.block--page-title-block .page-title {
     display:none;
-    background-color: transparent;
-    border-bottom: 9px solid #fdb736;
-    font-weight: 700;
-    font-size: 3.75rem;
-    line-height: 1;
-    --tw-text-opacity: 1;
-    color: rgba(17, 46, 81, var(--tw-text-opacity));
-    padding-top: 1em;
-    margin-bottom: 0;
-    padding-bottom: 15px;
-    padding-right: 0;
-    text-align: center;
-    position: relative;
-    z-index: 5;
-    line-height: 1.1;
-    margin-left: 0;
-    margin-right: 0;
-    width:100%;
 }
 .program-subhead {
     display:flex;
@@ -42,6 +24,14 @@
   }
   .utc-academic-programs-page .program-results span {font-weight:bold;}
 
+  .program-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(249, 249, 253, 1);
+    z-index: 2;
+    bottom: 0;
+}
 /****View Filters Styles****/
 
 .utc-academic-programs-form .view-filters {
@@ -117,6 +107,14 @@ input#edit-field-program-name-value:focus {
    background: #112e51;
     color:#fff;
 }
+.utc-academic-programs-form .form-type-checkbox {
+    display: flex;
+    gap: 12px;
+    justify-content: start;
+}
+.utc-academic-programs-form .form-type-checkbox label {
+    margin-top:-3px;
+}
 @media (max-width:1280px){
 .utc-academic-programs-form .form-actions {
     margin-left: 0;
@@ -172,26 +170,26 @@ input#edit-field-program-name-value:focus {
     margin-top: 2rem;
 }
 
-.utc-programs-page .program-table {color:#112e51;width:100%;border:1px solid #112e51;border-collapse: collapse;}
-.utc-programs-page thead {font-size:1.2rem;font-weight:bold;text-align:center;font-family:Oswald, sans-serif;width:100%;margin:24px 0;border-bottom:1px solid #112e51;}
-.utc-programs-page .program-name {width:25%;border-right:1px solid #112e51;}
+.utc-programs-page .program-table {color:#112e51;width:100%;/*border:1px solid #112e51;*/border-collapse: collapse;}
+.utc-programs-page thead {font-size:1.2rem;font-weight:bold;text-align:center;font-family:Oswald, sans-serif;width:100%;margin:24px 0;border-bottom:1px solid #112e51;padding-bottom:9px;}
+.utc-programs-page .program-name {width:25%;/*border-right:1px solid #112e51;*/}
 .utc-programs-page tbody .program-name {font-size:1.1rem;font-weight:bold;text-align:left;}
 .utc-programs-page .degree, 
 .utc-programs-page .delivery {text-align:center;width:15%;font-family:Raleway,sans-serif;font-weight:300;font-size:1rem;}
-
+/*
 .utc-programs-page .degree:first-child, .utc-programs-page .delivery:first-child {border-left:1px solid #112e51;}
 .utc-programs-page .degree:last-child, .utc-programs-page .delivery:last-child {border-right:1px solid #112e51;}
 
-.utc-programs-page thead .degree, .utc-programs-page thead .delivery {border-bottom:1px solid #112e51;border-right:1px solid #112e51;}
+.utc-programs-page thead .degree, .utc-programs-page thead .delivery {border-bottom:1px solid #112e51;border-right:1px solid #112e51;}*/
 .utc-programs-page thead tr:first-child .degree, .utc-programs-page thead tr:first-child .delivery {font-family:Oswald,sans-serif;font-weight:bold}
 
 
 
 .utc-programs-page tbody {margin-top:48px;}
 .utc-programs-page tbody .degree, .utc-programs-page tbody .delivery {color:#112e51;font-weight: bold;font-size:1.2rem;}
-.utc-programs-page td.degree.minor {
+/*.utc-programs-page td.degree.minor {
     border-right: 1px solid #112e51;
-}
+}*/
 
 .utc-programs-page tbody tr:nth-child(even) {background:rgba(231,234,238,.5)}
 
@@ -266,15 +264,13 @@ input#edit-field-program-name-value:focus {
     width:100%;
     height:100%;
 }
-.utc-programs-page .region--content-header{opacity:1}
-.program-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(249, 249, 253, 1);
-    z-index: 2;
-    bottom: 0;
+.program-delivery {
+    font-style:italic;
+    margin-top:12px;
+    width:fit-content
 }
+
+
 @media (max-width:640px){
     .offscreen-program-details {width:100%;}
 }
