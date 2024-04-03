@@ -1,3 +1,5 @@
+
+.utc-programs-page .layout-container > .container {overflow-x:hidden;}
 /****View header****/
 
 .utc-programs-page .block--region-content-header.block--page-title-block .page-title, 
@@ -133,6 +135,7 @@ input#edit-field-program-name-value:focus {
   .utc-academic-programs-form {
       display: flex !important;
       flex-direction: column;
+      margin-bottom:0!important;
   }
   .utc-academic-programs-form details summary {
     font-size: 1.1rem;
@@ -142,7 +145,12 @@ input#edit-field-program-name-value:focus {
     position: relative;
   }
   .utc-academic-programs-form .form-actions {
-    margin-top: 24px;
+    margin-top: 0;
+    margin-bottom:0;
+  }
+  .utc-academic-programs-form .form-actions .button{
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
   .utc-academic-programs-form .form-checkboxes .form-item label.option {
     font-size: 1.1rem;
@@ -172,7 +180,7 @@ input#edit-field-program-name-value:focus {
 
 .utc-programs-page .program-table {color:#112e51;width:100%;/*border:1px solid #112e51;*/border-collapse: collapse;}
 .utc-programs-page thead {font-size:1.2rem;font-weight:bold;text-align:center;font-family:Oswald, sans-serif;width:100%;margin:24px 0;border-bottom:1px solid #112e51;padding-bottom:9px;}
-.utc-programs-page .program-name {width:25%;/*border-right:1px solid #112e51;*/}
+.utc-programs-page .program-name {width:25%;padding-bottom: 6px;}
 .utc-programs-page tbody .program-name {font-size:1.1rem;font-weight:bold;text-align:left;}
 .utc-programs-page .degree, 
 .utc-programs-page .delivery {text-align:center;width:15%;font-family:Raleway,sans-serif;font-weight:300;font-size:1rem;}
@@ -193,10 +201,11 @@ input#edit-field-program-name-value:focus {
 
 .utc-programs-page tbody tr:nth-child(even) {background:rgba(231,234,238,.5)}
 
-.utc-programs-page tr {height: 48px;}
+.utc-programs-page tr {height: 48px;transition:all .2x ease-in-out}
 .utc-programs-page tbody td:first-child {padding-left:12px;}
 .utc-programs-page tbody td {
     cursor:pointer;
+    transition:all .2x ease-in-out
 }
 .utc-programs-page tbody td .m-dash, 
 .utc-programs-page tbody td.degree .m-dash,
@@ -206,7 +215,7 @@ input#edit-field-program-name-value:focus {
 .utc-programs-page tbody tr:hover td, 
 .utc-programs-page tbody tr:hover td.degree,
 .utc-programs-page tbody tr:hover td.delivery
-{color:#fdb736}
+{color:rgba(17,100,132,1);}
 
 /*.utc-programs-page tbody tr td.degree .checkmark,
 .utc-programs-page tbody tr td.delivery .checkmark{ width:fit-content;padding:9px;height:fit-content;}
@@ -250,7 +259,7 @@ input#edit-field-program-name-value:focus {
 .utc-programs-page .close-btn:hover .svg-inline--fa path {
     fill: #fdb736;
 }
-.utc-programs-page .offscreen-program-details .responsive-video { 
+.utc-programs-page .offscreen-program-details .responsive-video, .page-node-type-utc-programs .responsive-video{ 
     position:relative;
     overflow:visible;
     height:0;
@@ -258,7 +267,7 @@ input#edit-field-program-name-value:focus {
     padding-bottom: 56.25%; 
     margin-top:-12px;
 } 
-.utc-programs-page .program-yt-iframe{
+.utc-programs-page .program-yt-iframe, .page-node-type-utc-programs .program-yt-iframe{
     position:absolute;
     left:0;
     width:100%;
@@ -291,11 +300,14 @@ input#edit-field-program-name-value:focus {
 	}
     .utc-programs-page .program-table {
         border:none;
+        margin-top:12px;
     }
     .utc-programs-page thead {
         border: none;
         text-align: center;
         height: 36px;
+        position:relative;
+        top:unset;
     }
     .utc-programs-page thead:before{
         content: "Touch a program to get more details.";
@@ -311,7 +323,12 @@ input#edit-field-program-name-value:focus {
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
+        background: #fff;
 	}
+    .utc-programs-page tbody tr:nth-child(2n) {
+        background: rgba(231, 234, 238, 1);
+    }
+    
 	.utc-programs-page tbody .degree:last-child{border-right:none!important;border-bottom:1px solid #112e51;}
 	.utc-programs-page tr { border: 1px solid #112e51; }
 	.utc-programs-page tr {
@@ -332,9 +349,18 @@ input#edit-field-program-name-value:focus {
         width: 100% !important;
         padding-top: 6px
 	}
+
     .utc-programs-page td:last-child {
         border: none;
     }
+    .utc-programs-page tbody tr:nth-child(2n) td { 
+		/* Behave  like a "row" */
+		border-bottom: 1px solid #fff; 
+	}
+    .utc-programs-page tbody tr:nth-child(2n) td:last-child { 
+		/* Behave  like a "row" */
+		border-bottom: none; 
+	}
     .utc-programs-page tbody td.program-name {
         background: #112e51;
         color: #fdb736;
@@ -354,9 +380,6 @@ input#edit-field-program-name-value:focus {
         width: unset;
         border-right: none;
     }
-    .utc-programs-page td.degree.minor {
-        border-bottom: 1px solid #ccc;
-    }
 	.utc-programs-page td:before { 
 		/* Now like a table header */
 		position: absolute;
@@ -372,23 +395,22 @@ input#edit-field-program-name-value:focus {
         font-family: Oswald, sans-serif;
         font-size:1.15rem!important;
 	}
-	.utc-programs-page tbody tr:hover td:nth-of-type(1):before {
-        color:#fdb736;
-    }
+
 	/*
 	Label the data
 	*/
 	.utc-programs-page td:nth-of-type(1):before { content: "Program Name:"; }
 	.utc-programs-page td:nth-of-type(2):before { content: "Bachelor Degree:"; }
-	.utc-programs-page td:nth-of-type(3):before { content: "Graduate Degree:"; }
-	.utc-programs-page td:nth-of-type(4):before { content: "Minor Degree:"; }
-	.utc-programs-page td:nth-of-type(5):before { content: "Held In Person:"; }
-	.utc-programs-page td:nth-of-type(6):before { content: "Held Online:"; }
+	.utc-programs-page td:nth-of-type(3):before { content: "Minor Degree:"; }
+	.utc-programs-page td:nth-of-type(4):before { content: "Master's Degree:"; }
+	.utc-programs-page td:nth-of-type(5):before { content: "Doctoral:"; }
+	.utc-programs-page td:nth-of-type(6):before { content: "Certificate:"; }
 }
 /****loader****/
 .utcloadingcontainer {
     display: flex;
     height: 100%;
+    margin-top:12px;
   }
   #utcloading {
     width: 2rem;

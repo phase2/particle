@@ -15,14 +15,17 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
+
 <table class="program-table">
-    <thead>
+    <thead style="position: sticky;top: 0;">
         <tr style="padding-bottom:6px;">
             <td class="program-name" style="text-align:center;">Program Name<br><span class="smaller-text">Click on a program for more details.</span></td>
             <!--<td class="delivery" colspan="2">Delivery</td>-->
             <td class="degree">Bachelor</td>
-            <td class="degree">Graduate</td>
             <td class="degree">Minor</td>
+            <td class="degree">Master's</td>
+            <td class="degree">Doctoral</td>
+            <td class="degree">Certificate</td>
         </tr>
     </thead>
     <tbody>
@@ -34,6 +37,7 @@
                 {% set programImage = row.content['#row']._entity.field_program_image.target_id %}
                 {% set youtubeurl = row.content['#row']._entity.field_youtube_video_url.value %}
 
+
                 <tr class="program-btn" data-src="{{ detailID }}">
                     <td id="{{ btnID }}" class="program-name" >{{ row.content['#row']._entity.field_program_name.0.value }}</td>
 
@@ -44,38 +48,45 @@
                             <span class="m-dash">&#8212;</span> 
                         {% endif %}
                     </td>
-                    <td class="degree graduate">
-                        {% if row.content['#row']._entity.field_degree_options.0.value  == 'graduate' or 
-                            row.content['#row']._entity.field_degree_options.1.value  == 'graduate' %}
-                            <span class="checkmark">&#10003;</span>
-                        {% else %}
-                            <span class="m-dash">&#8212;</span> 
-                        {% endif %}
-                    </td>
                     <td class="degree minor">
-                        {% if row.content['#row']._entity.field_degree_options.0.value  == 'graduate' or 
-                            row.content['#row']._entity.field_degree_options.1.value  == 'graduate' or
-                            row.content['#row']._entity.field_degree_options.2.value  == 'graduate' %}
+                        {% if row.content['#row']._entity.field_degree_options.0.value  == 'minor' or 
+                            row.content['#row']._entity.field_degree_options.1.value  == 'minor'  %}
                             <span class="checkmark">&#10003;</span> 
                         {% else %}
                             <span class="m-dash">&#8212;</span>
                         {% endif %}
                     </td>
-                    <!--<td class="delivery">
-                        {% if row.content['#row']._entity.field_delivery_options.0.value == 'inperson' %}
-                            <span class="checkmark">&#10003;</span> 
+                    <td class="degree graduate">
+                        {% if row.content['#row']._entity.field_degree_options.0.value  == 'graduate' or 
+                            row.content['#row']._entity.field_degree_options.1.value  == 'graduate' or
+                            row.content['#row']._entity.field_degree_options.2.value  == 'graduate' %}
+                            <span class="checkmark">&#10003;</span>
                         {% else %}
                             <span class="m-dash">&#8212;</span> 
                         {% endif %}
                     </td>
-                    <td  class="delivery">
-                        {% if row.content['#row']._entity.field_delivery_options.0.value == 'online' or
-                            row.content['#row']._entity.field_delivery_options.1.value == 'online' %}
-                            <span class="checkmark">&#10003;</span> 
+                    <td class="degree doctoral">
+                        {% if row.content['#row']._entity.field_degree_options.0.value  == 'doctoral' or 
+                            row.content['#row']._entity.field_degree_options.1.value  == 'doctoral' or
+                            row.content['#row']._entity.field_degree_options.2.value  == 'doctoral' or
+                            row.content['#row']._entity.field_degree_options.3.value  == 'doctoral'%}
+                            <span class="checkmark">&#10003;</span>
                         {% else %}
-                            <span class="m-dash">&#8212;</span>  
+                            <span class="m-dash">&#8212;</span> 
                         {% endif %}
-                    </td>-->
+                    </td>
+                    <td class="degree certificate">
+                        {% if row.content['#row']._entity.field_degree_options.0.value  == 'certificate' or 
+                            row.content['#row']._entity.field_degree_options.1.value  == 'certificate' or
+                            row.content['#row']._entity.field_degree_options.2.value  == 'certificate' or
+                            row.content['#row']._entity.field_degree_options.3.value  == 'certificate' or
+                            row.content['#row']._entity.field_degree_options.4.value  == 'certificate' %}
+                            
+                            <span class="checkmark">&#10003;</span>
+                        {% else %}
+                            <span class="m-dash">&#8212;</span> 
+                        {% endif %}
+                    </td>
                 </tr>
                     <div id="{{ detailID }}" class="offscreen-program-details">
                         <div class="close-btn"  >
@@ -89,7 +100,19 @@
                         <h2 style="margin-top:24px;font-size:1.75rem;">{{ programName }}</h2>
                         
                         <div class="degree-list">Degrees available: 
-                            {{ row.content['#row']._entity.field_degree_options.0.value|capitalize }}{% if row.content['#row']._entity.field_degree_options.1.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.1.value|capitalize }}{% endif %}{% if row.content['#row']._entity.field_degree_options.2.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.2.value|capitalize }}{% endif %}
+                           {{ row.content['#row']._entity.field_degree_options.0.value|capitalize }}
+                           {% if row.content['#row']._entity.field_degree_options.1.value is not empty %}, 
+                            {{ row.content['#row']._entity.field_degree_options.1.value|capitalize }}
+                           {% endif %}
+                           {% if row.content['#row']._entity.field_degree_options.2.value is not empty %}, 
+                            {{ row.content['#row']._entity.field_degree_options.2.value|capitalize }}
+                           {% endif %}
+                           {% if row.content['#row']._entity.field_degree_options.3.value is not empty %}, 
+                            {{ row.content['#row']._entity.field_degree_options.3.value|capitalize }}
+                           {% endif %}
+                           {% if row.content['#row']._entity.field_degree_options.4.value is not empty %}, 
+                            {{ row.content['#row']._entity.field_degree_options.4.value|capitalize }}
+                           {% endif %}
                         </div>
                         
                         <div class="program-delivery">
