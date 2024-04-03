@@ -99,20 +99,9 @@
                         
                         <h2 style="margin-top:24px;font-size:1.75rem;">{{ programName }}</h2>
                         
-                        <div class="degree-list">Degrees available: 
-                           {{ row.content['#row']._entity.field_degree_options.0.value|capitalize }}
-                           {% if row.content['#row']._entity.field_degree_options.1.value is not empty %}, 
-                            {{ row.content['#row']._entity.field_degree_options.1.value|capitalize }}
-                           {% endif %}
-                           {% if row.content['#row']._entity.field_degree_options.2.value is not empty %}, 
-                            {{ row.content['#row']._entity.field_degree_options.2.value|capitalize }}
-                           {% endif %}
-                           {% if row.content['#row']._entity.field_degree_options.3.value is not empty %}, 
-                            {{ row.content['#row']._entity.field_degree_options.3.value|capitalize }}
-                           {% endif %}
-                           {% if row.content['#row']._entity.field_degree_options.4.value is not empty %}, 
-                            {{ row.content['#row']._entity.field_degree_options.4.value|capitalize }}
-                           {% endif %}
+                        <div class="degree-list"><strong>Degree(s) available: </strong>
+                        <!--keep these in one row to fix spacing issues-->
+                           {{ row.content['#row']._entity.field_degree_options.0.value|replace({'graduate': 'master\'s'})|capitalize|replace({' ': ''}) }}{% if row.content['#row']._entity.field_degree_options.1.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.1.value|replace({'graduate': 'master\'s'})|capitalize|replace({' ': ''}) }}{% endif %}{% if row.content['#row']._entity.field_degree_options.2.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.2.value|replace({'graduate': 'master\'s'})|capitalize|replace({' ': ''}) }}{% endif %}{% if row.content['#row']._entity.field_degree_options.3.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.3.value|capitalize|replace({' ': ''}) }}{% endif %}{% if row.content['#row']._entity.field_degree_options.4.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.4.value|capitalize }}{% endif %}
                         </div>
                         
                         <div class="program-delivery">
