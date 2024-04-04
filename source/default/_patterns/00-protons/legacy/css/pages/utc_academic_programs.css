@@ -67,12 +67,9 @@ input#edit-field-program-name-value:focus {
     font-family:Oswald,sans-serif;
     text-transform: capitalize;
     background: #e7eaee;
-    /***DO NOT ADD A FONT-WEIGHT PROPERTY HERE. IT WILL LOSE THE :BEFORE ARROW ICON IN CHROME***/
+    font-weight:500;
 }
-.utc-academic-programs-form details summary:before {
-    font-family: Font Awesome\ 6 Free!important;
-    margin-left:-1rem;
-}
+
 .utc-academic-programs-form details .details-wrapper {
     display: flex !important;
     z-index: 1;
