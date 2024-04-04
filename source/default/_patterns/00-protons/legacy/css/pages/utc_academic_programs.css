@@ -69,9 +69,35 @@ input#edit-field-program-name-value:focus {
     background: #e7eaee;
     /***DO NOT ADD A FONT-WEIGHT PROPERTY HERE. IT WILL LOSE THE :BEFORE ARROW ICON IN CHROME***/
 }
-.utc-academic-programs-form details summary:before {
-    font-family: Font Awesome\ 6 Free!important;
-    margin-left:-1rem;
+.utc-academic-programs-form details summary[aria-expanded=false]:before {
+    font-family: unset;
+    margin-left: -1rem;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    content: "\276F";
+    font-weight: normal;
+    margin-left: 0;
+    margin-right: 18px;
+    transform: translate(0, 2px) rotate(90deg);
+    transform-origin: center;
+    transition: all .4s ease-in-out;
+}
+.utc-academic-programs-form details summary[aria-expanded=true]:before {
+    font-family: unset;
+    margin-left: -1rem;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    content: "\276F";
+    font-weight: normal;
+    margin-left: 0;
+    margin-right: 18px;
+    transform: translate(0, -6px) rotate(-90deg);
+    transform-origin: center;
+    transition: all .4s ease-in-out;
 }
 .utc-academic-programs-form details .details-wrapper {
     display: flex !important;
