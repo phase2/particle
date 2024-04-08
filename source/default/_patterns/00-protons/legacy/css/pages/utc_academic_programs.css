@@ -1,5 +1,5 @@
 
-.utc-programs-page .layout-container > .container {overflow-x:hidden;}
+/*.utc-programs-page .layout-container > .container {overflow-x:hidden;}*/
 /****View header****/
 
 .utc-programs-page .block--region-content-header.block--page-title-block .page-title, 
@@ -151,8 +151,12 @@ input#edit-field-program-name-value:focus {
   }
   .utc-academic-programs-form .form-checkboxes .form-item label.option {
     font-size: 1.1rem;
-    height: 24px;
     display: inline-block;
+    margin-top: 3px;
+    margin-bottom: 0;
+  }
+  .utc-academic-programs-form .form-type-checkbox {
+    margin-bottom: 9px;
   }
   .utc-academic-programs-form .form-checkboxes input {
     height: 24px;
