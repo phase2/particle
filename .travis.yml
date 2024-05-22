@@ -44,7 +44,8 @@ after_success:
 
 deploy:
   provider: pages
-  edge: true
+  edge: 
+    branch: v2.0.3-beta.4
   target_branch: develop 
   github-token: ${GITHUB_API_KEY}  # Your GitHub token set in Travis CI console
   on:
