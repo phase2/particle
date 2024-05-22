@@ -257,8 +257,12 @@ input#edit-field-program-name-value:focus {
     cursor:pointer;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
-.utc-programs-page .close-btn .svg-inline--fa  {height:2.25rem;}
+.utc-programs-page .close-btn .svg-inline--fa  {
+    height: 2.5rem;
+    margin-top: -3px;
+}
 .utc-programs-page .close-btn:hover .svg-inline--fa path {
     fill: #fdb736;
 }
