@@ -255,6 +255,8 @@ input#edit-field-program-name-value:focus {
     background:#fff;
     transition:all .4s ease-in-out;
     cursor:pointer;
+    position: sticky;
+    top: 0;
 }
 .utc-programs-page .close-btn .svg-inline--fa  {height:2.25rem;}
 .utc-programs-page .close-btn:hover .svg-inline--fa path {
