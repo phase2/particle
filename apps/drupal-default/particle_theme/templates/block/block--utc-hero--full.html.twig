@@ -6,11 +6,21 @@
 #}
 {%
   set classes = [
+    'block',
+	'block--layout-builder', 
+	'block--inline-block:utc-hero',
 	'block--utc-image-hero',
 	'block--utc-image-hero-full',
   ]
 %}
-{% block content %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>
+         <span class="title-text">{{ label }}</span>
+      </h2>
+    {% endif %}
+  {{ title_suffix }}
 	{{ attach_library('utccloud/utc-hero-image') }}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
@@ -55,7 +65,7 @@
 	{% endif %}
 
 	{# image on left #}	 
-	<div {{ attributes.addClass(classes) }}>
+	<div>
 		{% if utc_hero.hero_align == 'Left' %}
 			<div class="utc-hero-block lg:grid lg:grid-rows-utchero lg:grid-cols-utchero lg:gap-y-4 lg:grid-flow-row text-center">
 				{% if utc_hero.hero_image %}
@@ -112,4 +122,4 @@
 					{% endblock herobackground %}
 			</div>
 	</div>
-{% endblock %}
+</div>
