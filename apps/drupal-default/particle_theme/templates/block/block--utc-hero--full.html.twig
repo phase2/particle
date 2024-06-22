@@ -21,6 +21,7 @@
       </h2>
     {% endif %}
   {{ title_suffix }}
+  {% block content %}
 	{{ attach_library('utccloud/utc-hero-image') }}
 	{% set rendered_content = content|render %}
 	{# Sets variable to trigger content render array. #}
@@ -122,4 +123,5 @@
 					{% endblock herobackground %}
 			</div>
 	</div>
+  {% endblock %}
 </div>
