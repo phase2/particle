@@ -45,6 +45,14 @@
     card_link ? 'utc-card-2--card-link',
     card_img_fill ? card_img_fill
   ] | sort | join(' ') | trim %}
+{% elseif (card_title is empty) and (card_text is empty) %}
+  {% set card_classes = [
+    'utc-card-2',
+    card_type ? 'utc-card-2--' ~ card_type,
+    card_width ? 'utc-card-2--w-' ~ card_width,
+    card_link ? 'utc-card-2--card-link',
+    card_img_fill ? card_img_fill
+  ] | sort | join(' ') | trim %}
 {% else %}
   {% set card_classes = [
     'utc-card-2',
