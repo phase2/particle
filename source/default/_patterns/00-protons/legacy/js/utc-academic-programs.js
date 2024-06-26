@@ -1,5 +1,3 @@
-
-
 (function($, Drupal, drupalSettings) {
   "use strict";
   Drupal.behaviors.academicprograms = {
@@ -8,6 +6,13 @@
           if (window.location.href.indexOf("majors-overview") > -1) {
             $('body').addClass('utc-programs-page');
           }
+          $(window).scroll(function(){
+            if ($(this).scrollTop() > 925) {
+               $('.program-table thead').addClass('scrolled');
+            } else {
+               $('.program-table thead').removeClass('scrolled');
+            }
+        });
           var programHeadline = $(".utc-programs-page .program-page-title-and-crumbs");
           var programOverlay = $(".utc-programs-page .program-overlay");
 
@@ -45,6 +50,14 @@
               unghostMainContent();
             });
           });
+          $(document).mouseup(function (e) {
+            if ($(e.target).
+                closest(".offscreen-program-details").
+                length=== 0) {
+                $(".offscreen-program-details").css("right","-650px");
+                unghostMainContent();
+            }
+        }); 
       }
   };
 }(jQuery, Drupal, drupalSettings));
