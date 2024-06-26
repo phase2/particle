@@ -16,14 +16,14 @@
  */
 #}
 
-<table class="program-table">
-    <thead style="position: sticky;top: 0;">
-        <tr style="padding-bottom:6px;">
+<table class="program-table" style="border-collapse: collapse; ">
+    <thead>
+        <tr>
             <td class="program-name" style="text-align:center;">Program Area<br><span class="smaller-text">Click on a program for more details.</span></td>
             <!--<td class="delivery" colspan="2">Delivery</td>-->
             <td class="degree">Bachelor</td>
             <td class="degree">Minor</td>
-            <td class="degree">Master's</td>
+            <td class="degree">Master</td>
             <td class="degree">Doctoral</td>
             <td class="degree">Certificate</td>
         </tr>
@@ -125,44 +125,4 @@
     <tbody>
 </table>
 
-<!--
-<script>
-if (document.location.pathname.indexOf("/academic-affairs/registrar/utc-programs") == 0) {
-    document.body.className = "utc-programs-page";
-}
-
-var programHeadline = document.querySelector(".utc-programs-page .region--content-header");
-var programFilter = document.querySelector(".utc-programs-page .view-filters");
-var programTable = document.querySelector(".utc-programs-page table");
-var programOverlay = document.querySelector(".utc-programs-page .program-overlay");
-
-function ghostMainContent(){
-    programHeadline.style.opacity = ".25";
-    programOverlay.style.zIndex= "2";
-}
-function unghostMainContent(){
-    programHeadline.style.opacity = "1";
-    programOverlay.style.zIndex= "-1";
-}
-
-
-function togglediv(id) {
-  document.querySelectorAll(".offscreen-program-details").forEach(function(div) {
-    if (div.id == id) {
-      // Toggle specified DIV
-      div.style.right = div.style.right == "0" ? "-650px" : "0";
-    } else {
-      // Hide other DIVs
-      div.style.right = "-650px";
-    }
-    ghostMainContent()
-  });
-}
-
-function closediv(parentID) {
-  document.getElementById(parentID).style.right = "-650px";
-  unghostMainContent()
-}
-
-
-</script>-->
+<a href="#top" id="scroll-to-top-btn" title="Scroll to the top" role="button" aria-label="scroll to the top" class="scroll-to-top-button"><i class="fas fa-angle-up"></i><span class="sr-only">Scroll to the top</span></a>
