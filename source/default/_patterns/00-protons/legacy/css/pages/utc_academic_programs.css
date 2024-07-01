@@ -350,16 +350,16 @@ input#edit-field-program-name-value:focus {
   margin-top: 12px;
   width: fit-content;
 }
-thead.scrolled {
+.utc-academic-programs-page .scrolled {
   position: sticky;
-  top: 75px;
+  top: 125px;
   bottom: 0;
   overflow-y: auto;
   background: #f9f9f9;
   height: 5vh;
   box-shadow: inset 0 -1px 0 #112e51;
 }
-thead td {
+.utc-academic-programs-page thead td {
   border-bottom: 1px solid #112e51;
   padding-top: 18px;
   padding-bottom: 12px;
@@ -370,7 +370,7 @@ thead td {
   }
 }
 @media (max-width: 460px) {
-  .scroll-to-top-button {
+  .utc-academic-programs-page .scroll-to-top-button {
     z-index: 1000000000000000;
   }
   .program-subhead {
