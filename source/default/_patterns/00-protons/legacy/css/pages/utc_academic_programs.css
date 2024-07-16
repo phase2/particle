@@ -251,8 +251,9 @@ input#edit-field-program-name-value:focus {
 }
 
 .utc-programs-page tr {
-  height: 48px;
+  height: 60px;
   transition: all 0.2x ease-in-out;
+  line-height: 1.2;
 }
 .utc-programs-page tbody td:first-child {
   padding-left: 12px;
