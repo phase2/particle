@@ -3,7 +3,7 @@
   Drupal.behaviors.academicprograms = {
       attach: function(context, settings) {
         //console.log("utc-academic-programs.js is loaded.")
-          if (window.location.href.indexOf("majors-overview") > -1) {
+          if (window.location.href.indexOf("degrees-and-programs") > -1) {
             $('body').addClass('utc-programs-page');
           }
           $(window).scroll(function(){

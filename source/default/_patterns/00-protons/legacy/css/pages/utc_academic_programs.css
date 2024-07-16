@@ -1,3 +1,6 @@
+.utc-programs-page .utcpage-title {
+  padding-top: 0.25rem;
+}
 /*.utc-programs-page .layout-container > .container {overflow-x:hidden;}*/
 /****View header****/
 
@@ -163,7 +166,7 @@ input#edit-field-program-name-value:focus {
     margin-top: 3px;
     margin-bottom: 0;
   }
-  .utc-academic-programs-form .form-type-checkbox  {
+  .utc-academic-programs-form .form-type-checkbox {
     margin-bottom: 9px;
   }
   .utc-academic-programs-form .form-checkboxes input {
@@ -350,7 +353,7 @@ input#edit-field-program-name-value:focus {
   margin-top: 12px;
   width: fit-content;
 }
-.utc-academic-programs-page .scrolled {
+.utc-academic-programs-page thead.scrolled {
   position: sticky;
   top: 125px;
   bottom: 0;
@@ -364,9 +367,23 @@ input#edit-field-program-name-value:focus {
   padding-top: 18px;
   padding-bottom: 12px;
 }
+@media (max-width: 991px) {
+  .utc-programs-page .program-table {
+    border: 1px solid #ddd;
+  }
+  .utc-programs-page .program-name {
+    padding-left: 18px !important;
+  }
+  .utc-programs-page tr {
+    height: 100px;
+  }
+}
 @media (max-width: 640px) {
   .offscreen-program-details {
     width: 100%;
+  }
+  .utc-academic-programs-page thead.scrolled {
+    position: relative;
   }
 }
 @media (max-width: 460px) {
@@ -409,6 +426,10 @@ input#edit-field-program-name-value:focus {
     height: 36px;
     position: relative;
     top: unset;
+    min-width: 100%;
+    display: block;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
   .utc-programs-page thead:before {
     content: 'Touch a program to get more details.';
@@ -484,7 +505,8 @@ input#edit-field-program-name-value:focus {
     display: flex;
     align-items: center;
     line-height: 1.1;
-    padding-top: 0;
+    padding-top: 3px;
+    padding-left: 115px !important;
   }
   .utc-programs-page tbody td.program-name:before {
     color: #fff;
