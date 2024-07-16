@@ -350,7 +350,7 @@ input#edit-field-program-name-value:focus {
   margin-top: 12px;
   width: fit-content;
 }
-.utc-academic-programs-page .scrolled {
+.utc-academic-programs-page thead.scrolled {
   position: sticky;
   top: 125px;
   bottom: 0;
