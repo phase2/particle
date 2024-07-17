@@ -20,9 +20,9 @@ matrix:
 #   - npm install -g npm@latest
 before_install:
   # Disable xdebug.
-  - nvm install v16.20.2
-  - nvm use v16.20.2
-  - npm install -g npm@8.19.4
+  - nvm install v14.7.0
+  - nvm use v14.7.0
+  - npm install -g npm@7.15.0
 install:
   - npm install
   - npm run setup
