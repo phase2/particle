@@ -82,14 +82,18 @@ h1 {
 h2 {
   @apply text-4xl;
 }
+/***size overrides requested by MarCom: 07/24***/
 h3 {
-  @apply text-xl;
+  font-size: 2rem;
 }
 h4 {
-  @apply text-lg;
+  font-size: 1.75rem;
 }
 h5 {
-  @apply text-lg italic;
+  font-size: 1.5rem;
+}
+h6 {
+  font-size: 1.25rem;
 }
 a {
   @apply text-utc-new-blue-500;

@@ -3,7 +3,7 @@
   --utc-transition: all 0.4s ease-in-out;
   --utc-color: color 0.4s ease-in-out;
   --utc-link: color 0.4s ease-in-out;
-  --utc-text-shadow: 3px 4px 7px rgba(81,67,21,0.8);
+  --utc-text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8);
 }
 html {
   scroll-behavior: smooth;
@@ -58,7 +58,7 @@ html {
   margin-right: 0;
 }
 .page-node-type-utc-library .utcpage-title {
-  margin-bottom:-2.6rem;
+  margin-bottom: -2.6rem;
 }
 
 @media screen and (max-width: 640px) {
@@ -163,28 +163,35 @@ div.site-alert div.severity-high {
   margin-bottom: 0em;
   padding: 1rem 2rem;
 }
-div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .text :is(h1,h2,p,p a)
-{
-    @apply text-white;
+div.site-alert
+  :where(div.severity-medium, div.severity-high, div.severity-low)
+  .text
+  :is(h1, h2, p, p a) {
+  @apply text-white;
 }
 
-div.site-alert :where(div.severity-medium,div.severity-high,div.severity-low) .text :is(p a:hover)
-{
-    @apply text-indigo-800
+div.site-alert
+  :where(div.severity-medium, div.severity-high, div.severity-low)
+  .text
+  :is(p a:hover) {
+  @apply text-indigo-800;
 }
 
 /***new alert link colors with new brand implementation 3/21/22***/
 div.site-alert h2:first-child {
   @apply mt-0;
 }
-div.site-alert div.severity-high a, div.site-alert div.severity-low a {
+div.site-alert div.severity-high a,
+div.site-alert div.severity-low a {
   @apply text-white;
   transition: var(--utc-transition);
 }
-div.site-alert div.severity-high a:hover, div.site-alert div.severity-low a:hover {
+div.site-alert div.severity-high a:hover,
+div.site-alert div.severity-low a:hover {
   @apply text-utc-new-gold-300;
 }
-div.site-alert div.severity-medium a, div.site-alert div.severity-medium p {
+div.site-alert div.severity-medium a,
+div.site-alert div.severity-medium p {
   @apply text-utc-new-blue-500;
   transition: var(--utc-transition);
 }
@@ -244,7 +251,7 @@ div.site-alert div.severity-medium a:hover {
 
 /****NEW BRANDING SET-UP as of March 18, 2022*****/
 :root {
-  --utc-transition: all .4s ease-in-out;
+  --utc-transition: all 0.4s ease-in-out;
 }
 body {
   font-size: 18px;
@@ -253,8 +260,12 @@ body {
   overflow: unset;
 }
 @keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 a {
   @apply text-utc-links-static font-normal;
@@ -263,29 +274,31 @@ a:hover,
 a:focus {
   @apply text-utc-new-blue-800 no-underline;
 }
-a.focus-visible, a:focus-visible {
+a.focus-visible,
+a:focus-visible {
   outline: 2px dashed #fdb736;
 }
 .field--type-text-with-summary a:not([href]):before {
   @apply block invisible;
   content: '';
-  height:      175px;
+  height: 175px;
   margin-top: -175px;
 }
 /**new special lists**/
-ul.link-list, ul.centered-list {
+ul.link-list,
+ul.centered-list {
   padding-left: 0;
 }
-ul.bullet-leaded li { 
+ul.bullet-leaded li {
   margin-top: 18px;
   margin-bottom: 18px;
-  line-height:1.25;
+  line-height: 1.25;
 }
-ul.link-list li { 
-    list-style: none;
-    margin-top: 18px;
-    margin-bottom: 18px;
-    line-height:1.25;
+ul.link-list li {
+  list-style: none;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  line-height: 1.25;
 }
 /**end new special lists**/
 /**new special effects links**/
@@ -293,15 +306,15 @@ ul.link-list li {
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-sidebar-card a:not(.btn):not(.ckeditor-accordion-toggler),
 .utc-item-card a:not(.btn):not(.ckeditor-accordion-toggler) {
- font-weight:400;
- color: #116484;
- border:none;
- text-decoration: none;
- background-image: linear-gradient(#116484, #116484);
- background-position: 50% 100%;
- background-repeat: no-repeat;
- background-size: 100% 1px;
- transition: all .3s;
+  font-weight: 400;
+  color: #116484;
+  border: none;
+  text-decoration: none !important;
+  background-image: linear-gradient(#116484, #116484);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: all 0.3s;
 }
 .UTCtextblock__links a:not(.btn):not(.ckeditor-accordion-toggler):hover,
 .utc-card-2__text a:not(.btn):not(.ckeditor-accordion-toggler):hover,
@@ -321,9 +334,10 @@ ul.link-list li {
 .localist_widget_container .action_button a:hover {
   color: #112e51 !important;
 }
-.ckeditor-accordion-container > dl dt > a, .ckeditor-accordion-container > dl dt > a:not(.button) {
-  font-family: "Oswald", sans-serif!important;
-  font-weight: 600!important;
+.ckeditor-accordion-container > dl dt > a,
+.ckeditor-accordion-container > dl dt > a:not(.button) {
+  font-family: 'Oswald', sans-serif !important;
+  font-weight: 600 !important;
 }
 /**end new special effects links**/
 a:active,
@@ -369,14 +383,24 @@ h5,
 h6 {
   @apply font-bold text-utc-new-blue-500 font-utcheadings;
 }
-h2 a, h3 a, h4 a, h5 a, h6 a, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
   @apply font-bold font-utcheadings;
 }
 a:hover p:not(#apply-now-ribbon) {
   @apply font-utcbody;
 }
 
-a.diagonal, .utc-hero-block a.diagonal {
+a.diagonal,
+.utc-hero-block a.diagonal {
   @apply border border-white text-white bg-transparent mx-auto py-3 px-4 font-bold;
   background-image: -webkit-linear-gradient(257deg, #fff 50%, transparent 50%);
   background-image: linear-gradient(-257deg, #fff 50%, transparent 50%);
@@ -386,55 +410,111 @@ a.diagonal, .utc-hero-block a.diagonal {
   transition: all 750ms ease-in-out;
   white-space: nowrap;
 }
-a.diagonal:hover, .utc-hero-block a.diagonal:hover {
+a.diagonal:hover,
+.utc-hero-block a.diagonal:hover {
   background-position: 0;
   @apply text-utc-new-blue-500;
 }
-a.diagonal i, 
+a.diagonal i,
 a.diagonal svg {
   @apply text-utc-new-gold-500;
   transition: all 750ms ease-in-out;
 }
 a.diagonal.light-gray-hero {
   @apply border-utc-new-blue-500 text-utc-new-blue-500;
-  background-image: -webkit-linear-gradient(257deg, #112e51 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(
+    257deg,
+    #112e51 50%,
+    transparent 50%
+  );
   background-image: linear-gradient(-257deg, #112e51 50%, transparent 50%);
 }
 a.diagonal.light-gray-hero:hover {
   @apply text-white;
 }
-a.diagonal.light-gray-hero i, 
+a.diagonal.light-gray-hero i,
 a.diagonal.light-gray-hero svg {
   @apply text-utc-new-blue-500;
 }
 a.diagonal.light-gray-hero:hover i,
-a.diagonal.light-gray-hero:hover svg{
+a.diagonal.light-gray-hero:hover svg {
   @apply text-utc-new-gold-500;
 }
+
+.UTCtextblock__links a.diagonal-blue:not(.btn):not(.ckeditor-accordion-toggler),
+.UTCtextblock__links
+  a.diagonal-white:not(.btn):not(.ckeditor-accordion-toggler),
+.UTCtextblock__links
+  a.diagonal-gold:not(.btn):not(.ckeditor-accordion-toggler) {
+  border: 1px solid #112e51;
+  color: #fff;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  margin-left: 0;
+  margin-right: 0;
+  background-image: linear-gradient(-257deg, #fff 50%, #112e51 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: all 750ms ease-in-out;
+  transition: all 750ms ease-in-out;
+  white-space: nowrap;
+  display: inline-block;
+  width: fit-content;
+}
+.UTCtextblock__links
+  a.diagonal-blue:not(.btn):not(.ckeditor-accordion-toggler):hover {
+  color: #112e51;
+  background-position: 0;
+}
+.UTCtextblock__links
+  a.diagonal-white:not(.btn):not(.ckeditor-accordion-toggler) {
+  color: #112e51;
+  background-color: transparent;
+  background-image: linear-gradient(-257deg, #112e51 50%, transparent 50%);
+}
+.UTCtextblock__links
+  a.diagonal-gold:not(.btn):not(.ckeditor-accordion-toggler) {
+  color: #112e51;
+  background-color: transparent;
+  background-image: linear-gradient(-257deg, #112e51 50%, #fdb736 0);
+}
+.UTCtextblock__links
+  a.diagonal-white:not(.btn):not(.ckeditor-accordion-toggler):hover,
+  .UTCtextblock__links
+  a.diagonal-gold:not(.btn):not(.ckeditor-accordion-toggler):hover {
+  color: #fff;
+  background-position: 0;
+}
+
 /**** Newsfeed links (not cards) diagonal effects ***/
 .custom-newsfeed-css a > div {
-  background-color:transparent!important;
-  background-image: -webkit-linear-gradient(257deg, #e7eaee 50%, transparent 50%);
+  background-color: transparent !important;
+  background-image: -webkit-linear-gradient(
+    257deg,
+    #e7eaee 50%,
+    transparent 50%
+  );
   background-image: linear-gradient(-257deg, #e7eaee 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   -webkit-transition: all 750ms ease-in-out;
   transition: all 750ms ease-in-out;
-  font-weight:400;
+  font-weight: 400;
 }
 .custom-newsfeed-css a > div:hover {
-  background-color:transparent!important;
+  background-color: transparent !important;
   background-position: 0;
 }
 #utcitsveltewordpressnewsapp a > div {
-  transition: all .4s ease-in-out;
-  background-color: transparent!important;
-  background-image: linear-gradient(-257deg,#e7eaee 50%,transparent 0);
+  transition: all 0.4s ease-in-out;
+  background-color: transparent !important;
+  background-image: linear-gradient(-257deg, #e7eaee 50%, transparent 0);
   background-position: 100%;
   background-size: 400%;
-  transition: all .75s ease-in-out;
+  transition: all 0.75s ease-in-out;
   font-weight: 400;
-margin-right:1rem;
+  margin-right: 1rem;
 }
 #utcitsveltewordpressnewsapp a > div:hover {
   background-position: 0;
@@ -444,10 +524,23 @@ margin-right:1rem;
   visibility: hidden;
 }
 
-b, strong {
+b,
+strong {
   @apply font-bold;
 }
-blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
   @apply ml-0;
 }
 p {
@@ -459,35 +552,47 @@ p.no-space {
 p.less-space {
   @apply my-2;
 }
-p.more-space, li.more-space {
+p.more-space,
+li.more-space {
   @apply my-6;
 }
 h3.blue-bar {
-  @apply bg-utc-new-blue-500 px-2 py-1 m-0 mb-6 text-white w-full;
+  @apply bg-utc-new-blue-500 px-2 py-2 m-0 mb-6 text-white w-full;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 h3.gold-bar {
-  @apply bg-utc-new-gold-500 px-2 py-1 m-0 mb-6 text-utc-new-blue-500 w-full;
+  @apply bg-utc-new-gold-500 px-2 py-2 m-0 mb-6 text-utc-new-blue-500 w-full;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.UTCtextblock__links h3.blue-bar a:not(.btn):not(.ckeditor-accordion-toggler) {
+  background-image: linear-gradient(#fff, #fff);
+}
+.UTCtextblock__links h3.gold-bar a:not(.btn):not(.ckeditor-accordion-toggler) {
+  background-image: linear-gradient(#112e51, #112e51);
 }
 .white-hz-rule {
   @apply bg-white w-full;
-  height:1px;
+  height: 1px;
 }
 .gold-hz-rule {
   @apply bg-utc-new-gold-500 w-full;
-  height:1px;
+  height: 1px;
 }
 .blue-hz-rule {
   @apply bg-utc-new-blue-500 w-full;
-  height:1px;
+  height: 1px;
 }
-  /****hide extra arrow on iphones***/
-  .sidr ul.sf-menu span.sf-sub-indicator {
-    content: "▼";
-  }
-  .sidr ul.sf-menu span.sf-sub-indicator:after {
-    color:transparent;
-  }
-
+/****hide extra arrow on iphones***/
+.sidr ul.sf-menu span.sf-sub-indicator {
+  content: '▼';
+}
+.sidr ul.sf-menu span.sf-sub-indicator:after {
+  color: transparent;
+}
 
 /*WAIT ON THIS
 .UTCtextblock__links p {
@@ -510,9 +615,15 @@ h3.gold-bar {
   @apply mt-0;
 }
 
-.department-info-- .field--name-field-utc-department-hours .field__label {@apply font-utcheadings mt-8 mb-4}
-.utc-hero-block a {@apply text-utc-new-blue-500;}
-.utc-hero-block a:hover {@apply text-utc-new-gold-500;}
+.department-info-- .field--name-field-utc-department-hours .field__label {
+  @apply font-utcheadings mt-8 mb-4;
+}
+.utc-hero-block a {
+  @apply text-utc-new-blue-500;
+}
+.utc-hero-block a:hover {
+  @apply text-utc-new-gold-500;
+}
 
 /***COB and CECP video headline fixes***/
 .title-overlay h1 {
@@ -520,10 +631,14 @@ h3.gold-bar {
 }
 /*search page adjustments*/
 .path-search #block-breadcrumbs-particle.block {
-  display:none!important;
+  display: none !important;
 }
-.search-results h3.search-result__title {@apply text-utc-new-blue-500;}
-.container-full .block--region-content-header.block--page-title-block .page-title {
+.search-results h3.search-result__title {
+  @apply text-utc-new-blue-500;
+}
+.container-full
+  .block--region-content-header.block--page-title-block
+  .page-title {
   @apply mr-0 pr-0 text-2xl text-utc-new-blue-500 text-center leading-tight;
 }
 ol.search-results li {
@@ -532,14 +647,14 @@ ol.search-results li {
 /*.path-search .header-container {
   @apply fixed w-full top-0;
 }*/
-.path-search ul.pager__items{
+.path-search ul.pager__items {
   @apply border-0;
 }
 ul.pager__items li.is-active {
   @apply bg-utc-new-blue-500 border-utc-new-blue-500;
 }
 ul.pager__items li a {
-  @apply border-utc-new-blue-500 text-utc-new-blue-500 px-5
+  @apply border-utc-new-blue-500 text-utc-new-blue-500 px-5;
 }
 ul.pager__items li a:hover {
   @apply bg-utc-new-blue-100;
@@ -550,26 +665,32 @@ ul.pager__items li a:hover {
 .search-results h3.search-result__title a:hover {
   @apply text-utc-new-gold-500;
 }
-.block--region-content-header.block--page-title-block .page-title, 
+.block--region-content-header.block--page-title-block .page-title,
 .block--layout-builder.block--page-title-block .page-title {
   @apply text-utc-new-blue-500;
 }
 .user-logged-in.path-search .header-container,
 .user-logged-in.path-search .header-container.affix {
   @apply relative;
-} 
+}
 /*end search page adjustments*/
 
 /****blazy styles***/
-.section-hero .b-bg, .utc-hero-section .b-bg {height:100%!important}
+.section-hero .b-bg,
+.utc-hero-section .b-bg {
+  height: 100% !important;
+}
 .is-b-loading:not(.is-b-loaded):not([data-animation])::before {
-  background: #166484!important;
+  background: #166484 !important;
 }
 
 @media screen and (max-width: 1024px) {
-  .section-hero {@apply relative z-1}
-  .utc-hero-image-default .order-first, .utc-hero-image-default .order-last {
-    order: unset!important;
+  .section-hero {
+    @apply relative z-1;
+  }
+  .utc-hero-image-default .order-first,
+  .utc-hero-image-default .order-last {
+    order: unset !important;
   }
   .utc-hero-image-default .order-first {
     @apply mt-8;
@@ -598,39 +719,54 @@ ul.pager__items li a:hover {
   .utc-hero-section .container-full .row  {
     @apply mx-0;
   }*/
-
 }
 @media screen and (max-width: 768px) {
-  .section-hero {@apply bg-white shadow-utc}
-  main {overflow-x:hidden;}
+  .section-hero {
+    @apply bg-white shadow-utc;
+  }
+  main {
+    overflow-x: hidden;
+  }
   /*.container-full, .themag-layout--my-default {
     @apply px-4;
   }*/
-  .container-full .block--region-content-header.block--page-title-block .page-title {
+  .container-full
+    .block--region-content-header.block--page-title-block
+    .page-title {
     @apply text-lg;
   }
-  .btn--large, .btn-lg {
-    font-size: .875rem!important;
-    line-height: 1.2!important;
+  .btn--large,
+  .btn-lg {
+    font-size: 0.875rem !important;
+    line-height: 1.2 !important;
   }
   .page-search .container {
-    margin-top: 1rem!important;
+    margin-top: 1rem !important;
   }
   .field--type-text-with-summary a:not([href]):before {
-      height: 72px;
-      margin-top: -72px;
+    height: 72px;
+    margin-top: -72px;
   }
 }
 @media screen and (max-width: 640px) {
-  h1{ font-size:28px!important;line-height:1.2em;}
-  .department-info-- address.flex-list li {@apply leading-loose}
-  .department-info-- address.flex-list li {@apply border-0}
+  h1 {
+    font-size: 28px !important;
+    line-height: 1.2em;
+  }
+  .department-info-- address.flex-list li {
+    @apply leading-loose;
+  }
+  .department-info-- address.flex-list li {
+    @apply border-0;
+  }
   .title-overlay h1 {
     line-height: 1.2;
   }
 }
 @media screen and (max-width: 280px) {
-  .department-info-- {@apply px-4}
+  .department-info-- {
+    @apply px-4;
+  }
 }
 
 /****library css helps****/
@@ -638,12 +774,16 @@ foreignObject > div > div {
   display: flex;
   align-items: center;
 }
-.fc-list-item-time, .fc-list-item-title a {
-  font-weight:400;
+.fc-list-item-time,
+.fc-list-item-title a {
+  font-weight: 400;
 }
 
 /****blazy styles***/
-.section-hero .b-bg, .utc-hero-section .b-bg {height:100%!important}
+.section-hero .b-bg,
+.utc-hero-section .b-bg {
+  height: 100% !important;
+}
 .is-b-loading:not(.is-b-loaded):not([data-animation])::before {
-  background: transparent!important;
+  background: transparent !important;
 }
