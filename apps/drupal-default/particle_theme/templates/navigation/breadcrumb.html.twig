@@ -7,7 +7,8 @@
  * - breadcrumb: Breadcrumb trail items.
  */
 #}
-{% if app.request.requestUri == '/degrees-and-programs' %}
+{% set url = url('<current>') %}
+{% if '/enrollment-management-and-student-affairs/advisement/degrees-and-programs' not in url|render|render %}
   {% if breadcrumb %}
     <nav class="simple-breadcrumb utcbreadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
       <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
