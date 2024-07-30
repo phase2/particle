@@ -28,8 +28,8 @@ regions:
 components:
   namespaces:
     protons: []
-    atoms: ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms
-    molecules: ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules
-    organisms: ../../../dist/app-drupal/assets/atomic/_patterns/03-organisms
+    atoms: ../../../dist/assets/atomic/_patterns/01-atoms
+    molecules: ../../../dist/assets/atomic/_patterns/02-molecules
+    organisms: ../../../dist/assets/atomic/_patterns/03-organisms
     templates: []
     pages: []
