@@ -1,9 +1,0 @@
-svg_demo_block:
-  title: 'SVG Component'
-  content:
-    lead: 'Implements our SVG and SVG Icons.'
-    summary:
-      'Store your SVG files in the icons/ subdirectory to have them made
-      available via the <code>_svg.twig</code>. <strong>See this
-      <code>svgs.twig</code> demo file code comments for implmentation details
-      and examples.</strong>'

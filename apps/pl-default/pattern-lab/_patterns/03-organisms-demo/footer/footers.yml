@@ -1,9 +1,0 @@
-footers_demo:
-  title: 'Footer'
-  content:
-    lead: 'Demonstration of our Particle Footer.'
-    summary: 'Provide a simple footer to display inside a container.'
-
-footer_1:
-  slogan:
-    'Powered by <a href="http://patternlab.io/" target="_blank">Pattern Lab</a>'
