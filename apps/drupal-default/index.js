@@ -9,8 +9,6 @@ import 'regenerator-runtime/runtime';
 
 import { enableAllComponents } from '../../source/default';
 
-console.log('Particle Drupal behaviors ran.');
-
 Drupal.behaviors.designSystem = {
   attach($context, settings) {
     // Let's pretend we have a Drupal module called customCarouselModule that
