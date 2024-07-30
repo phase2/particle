@@ -1,4 +1,8 @@
+os: linux
+version: ~> 1.0
 language: php
+dist: jammy
+
 php:
   - 8.0
 # env:
@@ -24,7 +28,6 @@ before_install:
   - nvm use v20.16.0
 install:
   - npm install
-  - npm run setup
 cache:
   directories:
     - '$HOME/.npm'
