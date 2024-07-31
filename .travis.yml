@@ -1,4 +1,8 @@
+os: linux
+version: ~> 1.0
 language: php
+dist: jammy
+
 php:
   - 8.0
 # env:
@@ -20,12 +24,10 @@ matrix:
 #   - npm install -g npm@latest
 before_install:
   # Disable xdebug.
-  - nvm install v14.7.0
-  - nvm use v14.7.0
-  - npm install -g npm@7.15.0
+  - nvm install v20.16.0
+  - nvm use v20.16.0
 install:
   - npm install
-  - npm run setup
 cache:
   directories:
     - '$HOME/.npm'
@@ -35,7 +37,6 @@ before_script:
   - npm --version
 script:
   - npm run build:drupal --if-present
-  - npm run build:pl --if-present
 
 after_success: 
    - git add .
