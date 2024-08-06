@@ -8,7 +8,7 @@ core:
         minified: true
   js:
     ../../../dist/assets/app.js:
-      preprocess: false
+      minified: true
   # See all in Drupal's `core/core.libraries.yml`
   dependencies:
     - particle/jquery
@@ -19,8 +19,8 @@ core:
 jquery:
   js:
     ../../../dist/assets/drupal-jquery.js:
-      preprocess: false
       weight: -20
+      minified: true
 
 #google-fonts: Font imports ARE FOUND IN THE tailwind.tokens.css file.
 #  css:

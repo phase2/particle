@@ -1,3 +1,0 @@
-/*! jQuery v3.5.1 | (c) JS Foundation and other contributors | jquery.org/license */
-
-/*! svg4everybody v2.1.9 | github.com/jonathantneal/svg4everybody */
