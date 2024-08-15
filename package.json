@@ -17,8 +17,8 @@
         "prototyping"
     ],
     "scripts": {
-        "dev:drupal": "cross-env-shell NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider \"webpack --watch --config ./apps/drupal-default/webpack.config.js\"",
-        "build:drupal": "cross-env-shell NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider \"webpack --hide-modules --config ./apps/drupal-default/webpack.config.js\"",
+        "dev:drupal": "./node_modules/.bin/cross-env-shell NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider \"webpack --watch --config ./apps/drupal-default/webpack.config.js\"",
+        "build:drupal": "./node_modules/.bin/cross-env-shell NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider \"webpack --hide-modules --config ./apps/drupal-default/webpack.config.js\"",
         "lint:js": "eslint --ext .js,.vue ./",
         "lint:css": "stylelint '**/*.css'",
         "lint": "npm run lint:js; npm run lint:css;",
