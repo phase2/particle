@@ -1,12 +1,12 @@
-.utc-offcanvas-sidebar-menu{
+.utc-offcanvas-sidebar-menu {
   padding: 15px 20px;
   list-style: none;
 }
-.utc-offcanvas-sidebar-menu > li{
+.utc-offcanvas-sidebar-menu > li {
   border-bottom: 1px solid rgba(144, 164, 174, 0.2);
 }
-.utc-offcanvas-sidebar-menu > li > a{
-  color: #FFF;
+.utc-offcanvas-sidebar-menu > li > a {
+  color: #fff;
   display: block;
   font-weight: bold;
   padding: 15px 20px;

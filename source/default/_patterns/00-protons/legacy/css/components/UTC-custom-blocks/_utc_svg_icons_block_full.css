@@ -1,87 +1,83 @@
-
 #iconsRow ul li {
-flex-wrap: wrap;
-flex: 1 0 0;
-margin-top: 24px;
-margin-bottom: 24px;
-list-style-type: none;
-/* font-family: $utc-headings; */
-text-transform: uppercase;
-font-weight: bold;
-font-size: 18px;
-line-height: 18px;
+  flex-wrap: wrap;
+  flex: 1 0 0;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  list-style-type: none;
+  /* font-family: $utc-headings; */
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 18px;
 }
-.icon-Container{
-    display:flex;
+.icon-Container {
+  display: flex;
 }
 
 #iconsRow ul {
-    text-align: center;
-    list-style: none;
-    -ms-box-orient: horizontal;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0;
-    padding-left: 0px;
+  text-align: center;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding-left: 0px;
 }
 .svg.icon-home.wide {
-    width: 200px !important;
+  width: 200px !important;
 }
 #iconsRow ul li .icon-home {
-    width: 120px;
-    height: 120px;
+  width: 120px;
+  height: 120px;
 }
 #iconsRow ul li .icon-home {
-    width: 120px;
-    height: 120px;
+  width: 120px;
+  height: 120px;
 }
-  #iconsRow ul li a:hover img {
-    filter: drop-shadow(yellow 0px 0px 0.75rem);
-  }
-  #iconsRow ul li a:active img {
-    filter: drop-shadow(darkyellow 0px 0px 0.75rem);
-  }
+#iconsRow ul li a:hover img {
+  filter: drop-shadow(yellow 0px 0px 0.75rem);
+}
+#iconsRow ul li a:active img {
+  filter: drop-shadow(darkyellow 0px 0px 0.75rem);
+}
 
-  @media (max-width: 960px) {
-    #iconsRow ul li {
-      flex: 1 100px;
-      margin-top: 18px;
-      margin-bottom: 18px;
-      font-size: 14px;
-      line-height: 14px;
-    }
-    #iconsRow ul li .icon-home {
-      width: 100px;
-      height: 100px;
-    }
+@media (max-width: 960px) {
+  #iconsRow ul li {
+    flex: 1 100px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 14px;
   }
-  @media (max-width: 600px) {
-    #iconsRow ul li {
-      flex: 1 100px;
-      margin-top: 14px;
-      margin-bottom: 14px;
-      font-size: 12px;
-      line-height: 12px;
-    }
-    #iconsRow ul li .icon-home {
-      width: 88px;
-      height: 88px;
-    }
+  #iconsRow ul li .icon-home {
+    width: 100px;
+    height: 100px;
   }
+}
+@media (max-width: 600px) {
+  #iconsRow ul li {
+    flex: 1 100px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+  #iconsRow ul li .icon-home {
+    width: 88px;
+    height: 88px;
+  }
+}
 
-
-
-  @media (max-width: 767px) {
-    
-    #programsRow {
-      margin-top: 24px;
-    }
+@media (max-width: 767px) {
+  #programsRow {
+    margin-top: 24px;
+  }
 }

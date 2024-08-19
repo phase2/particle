@@ -1,49 +1,35 @@
 .information-technologyparallax1 {
-	background-image: url(https://www.utc.edu/information-technology/images/market-street-bridge.jpg);
+  background-image: url(https://www.utc.edu/information-technology/images/market-street-bridge.jpg);
   /* min-height: 460px; */
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	width: 100vw;
-	position: relative;
-	left: 50%;
-	right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-	background-blend-mode: multiply;
-  /* margin-bottom: 20px; */;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-blend-mode: multiply;
+  /* margin-bottom: 20px; */
 }
 
 .information-technologyparallaxbuttons {
-	display: flex;
-	justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 @media all and (max-width: 768px) {
-	.information-technologyparallaxbuttons {
-		display: contents;
-	}
+  .information-technologyparallaxbuttons {
+    display: contents;
+  }
 }
 
 #information-technologystudent_type_wrapper h1 {
-	color: white;
-	font-size: 2.4em;
+  color: white;
+  font-size: 2.4em;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* 
 @import "../../variables";

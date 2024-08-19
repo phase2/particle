@@ -12,10 +12,11 @@
   margin: 5px 0px 0px;
 }
 
-.ckeditor-accordion-container > dl dt > a, .ckeditor-accordion-container > dl dt > a:not(.button) {
-  background-color: #fff!important;
-  color: #112e51!important;
-  border-bottom: 2px solid rgba(226,232,240,1)!important;
+.ckeditor-accordion-container > dl dt > a,
+.ckeditor-accordion-container > dl dt > a:not(.button) {
+  background-color: #fff !important;
+  color: #112e51 !important;
+  border-bottom: 2px solid rgba(226, 232, 240, 1) !important;
 }
 
 .ckeditor-accordion-container > dl dt > a:hover {
@@ -24,7 +25,7 @@
   text-decoration: none;
   font-weight: 400;
   background: #e7eaee !important;
-  border-bottom: 2px solid #112e51 !important
+  border-bottom: 2px solid #112e51 !important;
 }
 
 .ckeditor-accordion-container > dl dt.active > a {
@@ -54,7 +55,7 @@
   border: 2px solid;
   @apply border-utc-new-blue-500;
   border-top: 0;
-  font-weight:400;
+  font-weight: 400;
 }
 
 .ckeditor-accordion-container > dl {
@@ -67,4 +68,3 @@
 .ckeditor-accordion-container > dl dt > a > .ckeditor-accordion-toggle::after {
   @apply bg-gray-700;
 }
-

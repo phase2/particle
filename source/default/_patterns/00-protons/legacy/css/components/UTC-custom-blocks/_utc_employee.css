@@ -125,8 +125,8 @@ a .employee-card--utc-small-teaser-card:hover {
   display: inline-block;
 }
 
-.employee-card__suffix .field:not(:empty):not(:last-child):after{
-  content: ",";
+.employee-card__suffix .field:not(:empty):not(:last-child):after {
+  content: ',';
 }
 
 .employee-card__button a {

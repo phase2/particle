@@ -204,7 +204,7 @@ h2:first-child {
   display: inline-block;
   padding: 0;
   margin-bottom: 0;
-} 
+}
 
 .utc-item-card__badges ul li {
   @apply bg-gray-300;

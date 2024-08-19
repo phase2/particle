@@ -1,5 +1,6 @@
 @media screen and (max-width: 640px) {
-    .field--name-field-tags .field__items, .field--name-field-mg-tags .field__items {
-        flex-wrap: wrap;
-    }
+  .field--name-field-tags .field__items,
+  .field--name-field-mg-tags .field__items {
+    flex-wrap: wrap;
+  }
 }

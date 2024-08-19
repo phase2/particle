@@ -1,4 +1,3 @@
-
 .aggregator-feed {
   overflow-y: overlay;
   height: 346.708px;
@@ -12,7 +11,7 @@
   @apply bg-utc-new-blue-500;
 }
 
-summary[id^="cardH-"] > a {
+summary[id^='cardH-'] > a {
   /* color: whitesmoke; */
   @apply text-gray-200;
   font-weight: 600;
@@ -31,15 +30,15 @@ summary[id^="cardH-"] > a {
   border-radius: 0;
 }
 
-details[open=""] summary::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f107";
+details[open=''] summary::before {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f107';
   margin-right: 10px;
 }
 
-details:not([open=""]) summary::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f106";
+details:not([open='']) summary::before {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f106';
   margin-right: 10px;
 }
 /* // .themag-layout .block:not(:last-child) {

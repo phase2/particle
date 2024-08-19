@@ -1,19 +1,25 @@
-.utc-sidebar ol, .utc-sidebar ul {
+.utc-sidebar ol,
+.utc-sidebar ul {
   @apply list-none pl-0;
 }
-.utc-sidebar ol li, .utc-sidebar ul li {
+.utc-sidebar ol li,
+.utc-sidebar ul li {
   @apply mb-1;
 }
-.utc-sidebar ol li ul li, .utc-sidebar ul li ul li {
+.utc-sidebar ol li ul li,
+.utc-sidebar ul li ul li {
   @apply my-1 mx-auto;
 }
-.utc-sidebar ol li ul li:first-child, .utc-sidebar ul li ul li:first-child {
+.utc-sidebar ol li ul li:first-child,
+.utc-sidebar ul li ul li:first-child {
   @apply border-t-0;
 }
-.utc-sidebar ol li ul li ul li, .utc-sidebar ul li ul li ul li {
+.utc-sidebar ol li ul li ul li,
+.utc-sidebar ul li ul li ul li {
   @apply my-1 mx-auto;
 }
-.utc-sidebar ol li ul li ul li:first-child, .utc-sidebar ul li ul li ul li:first-child {
+.utc-sidebar ol li ul li ul li:first-child,
+.utc-sidebar ul li ul li ul li:first-child {
   @apply border-t-0;
 }
 .utc-sidebar .sidebar-menu li {
@@ -23,7 +29,8 @@
   @apply block max-h-0 overflow-hidden;
   transition: var(--utc-transition);
 }
-.utc-sidebar .menu-open, .utc-sidebar .sidebar-menu .open > ul {
+.utc-sidebar .menu-open,
+.utc-sidebar .sidebar-menu .open > ul {
   max-height: 2000px;
 }
 
@@ -31,7 +38,7 @@
 .menu-item-sidemenu a {
   @apply bg-white text-utc-new-blue-500 border border-gray-400 font-normal block py-4 pl-5 pr-8;
   transition: var(--utc-transition);
-  width:96%;
+  width: 96%;
 }
 .menu-item-sidemenu a:hover {
   @apply bg-utc-new-blue-500 text-white no-underline;
@@ -48,14 +55,14 @@
 .utc-sidebar .menu-item-sidemenu > .more svg,
 .utc-sidebar .menu-item-sidemenu > .more.closed svg,
 .utc-sidebar .menu-item-sidemenu > .more.open svg {
-  transition: var(--utc-transition);;
+  transition: var(--utc-transition);
 }
 .menu-item--expanded li.menu-item-sidemenu.menu-item--expanded.open > a,
 .menu-item--expanded li.menu-item-sidemenu.menu-item--active-trail > a {
-  background-color: rgba(196,203,212,var(--tw-bg-opacity));
+  background-color: rgba(196, 203, 212, var(--tw-bg-opacity));
 }
 /***base chevron/more attributes***/
-.utc-sidebar .more{
+.utc-sidebar .more {
   @apply text-utc-new-blue-500 absolute right-2 top-0 bottom-0 flex items-center float-right cursor-pointer;
   transition: var(--utc-transition);
   min-width: 10%;
@@ -66,13 +73,14 @@
 }
 .utc-sidebar .menu-item--expanded a + .more,
 .utc-sidebar .menu-item--collapsed a + .more {
-  transition:unset;
+  transition: unset;
 }
 .utc-sidebar .menu-item--expanded a:hover + .more,
 .utc-sidebar .menu-item--collapsed a:hover + .more {
   @apply text-white;
 }
-.utc-sidebar .menu-item--active-trail > .more, .utc-sidebar .menu-item--active-trail  > .more svg {
+.utc-sidebar .menu-item--active-trail > .more,
+.utc-sidebar .menu-item--active-trail > .more svg {
   @apply text-utc-new-gold-500;
 }
 
@@ -109,20 +117,22 @@
   @apply bg-utc-new-blue-200 text-utc-new-blue-500;
   transition: var(--utc-transition);
 }
-.menu-item-sidemenu.menu-item--active-trail .menu-item-sidemenu.menu-item--active-trail a {
-   @apply text-utc-new-blue-500;
+.menu-item-sidemenu.menu-item--active-trail
+  .menu-item-sidemenu.menu-item--active-trail
+  a {
+  @apply text-utc-new-blue-500;
 }
 
 /**subordinate active buttons in submenus to parent***/
-li.menu-item-sidemenu li.menu-item-sidemenu  .is-active {
+li.menu-item-sidemenu li.menu-item-sidemenu .is-active {
   @apply bg-utc-new-blue-200 !important text-utc-new-blue-500 !important;
 }
-li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
+li.menu-item-sidemenu li.menu-item-sidemenu .is-active:before {
   @apply mr-2 font-bold text-base;
   line-height: 0;
-  content: "→";
+  content: '→';
 }
-.utc-sidebar .sidebar-menu .sidebar-menu .menu-item--expanded:hover>.more svg,
+.utc-sidebar .sidebar-menu .sidebar-menu .menu-item--expanded:hover > .more svg,
 .utc-sidebar .sidebar-menu .sidebar-menu .open > .more svg {
   @apply text-utc-new-blue-500;
 }
@@ -139,42 +149,42 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
 @media (min-width: 991px) {
   input#mobile_menu {
     @apply hidden;
- }
+  }
   .section_menu {
     @apply hidden;
- }
+  }
 }
 @media (max-width: 991px) {
   .menu-content {
     @apply py-0 pr-0 pl-16;
- }
+  }
   .section_menu {
     @apply bg-utc-new-gold-500 py-2 px-10 text-utc-new-blue-500 cursor-pointer select-none;
- }
+  }
   input#mobile_menu {
     @apply hidden;
- }
+  }
   .utc-sidebar {
     @apply max-h-0 overflow-hidden;
- }
+  }
   input:checked ~ .utc-sidebar {
     @apply max-h-full;
- }
- .utc-sidebar .more {
-   @apply -right-6;
+  }
+  .utc-sidebar .more {
+    @apply -right-6;
   }
 }
 @media (max-width: 640px) {
   .utc-sidebar .more {
     @apply right-0;
-   }
+  }
 }
 .user-logged-in .empty-menu-block {
-	min-height: 60px;
+  min-height: 60px;
   background: aqua;
   color: #000;
   font-weight: bold;
-  display:block;
+  display: block;
   visibility: visible;
   text-align: center;
   padding: 1rem;
@@ -187,18 +197,17 @@ li.menu-item-sidemenu li.menu-item-sidemenu  .is-active:before {
   color: transparent;
   font-size: 18px;
   font-weight: bold;
-  line-height:1.5rem;
+  line-height: 1.5rem;
   clip: unset;
 }
 .user-logged-in .empty-menu-block:before {
-  content: "Empty menu block. Please remove.";
+  content: 'Empty menu block. Please remove.';
   color: #000;
   height: 24px;
   font-size: 18px;
-  width:85%;
-  margin:0 auto;
+  width: 85%;
+  margin: 0 auto;
 }
-
 
 /* 
 HR MENU
@@ -206,5 +215,5 @@ HR MENU
   @apply bg-utc-new-blue-500 !important;
   text-decoration: none;
   /* background-color: #112e51 !important; */
-  /* color: #fdb736; */
-/* } */ 
+/* color: #fdb736; */
+/* } */

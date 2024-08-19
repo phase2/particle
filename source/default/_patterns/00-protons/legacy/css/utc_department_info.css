@@ -7,34 +7,34 @@
 }
 @media screen and (max-width: 640px) {
   .department-info-- h2 {
-    margin: 1rem 1rem 0 1rem!important;
+    margin: 1rem 1rem 0 1rem !important;
   }
   .department-info-- div .address.flex-list {
-      margin:0!important;
-      margin-top:1em!important;
-    }
+    margin: 0 !important;
+    margin-top: 1em !important;
+  }
   .department-info-- div .address.flex-list ul {
-      text-align: center!important;
-    }
+    text-align: center !important;
+  }
   .department-info-- div .address.flex-list ul * {
-      font-family:'Oswald', sans-serif!important;
-      font-weight: 400!important;
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 400 !important;
   }
   .department-info-- div .address.flex-list a {
-      font-family:'Oswald', sans-serif!important;
-      font-weight: 400!important;
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 400 !important;
   }
-  .department-info-- div .address.flex-list ul li .fas, 
+  .department-info-- div .address.flex-list ul li .fas,
   .department-info-- div .address.flex-list ul li i {
-      padding-top:.75rem!important;
-      margin-left:-3px!important;
-      font-size: 1rem!important;
-    }
-    .department-info-- .social-media-links--platforms span.fa-2x,
-    .department-info-- .social-media-links--platforms span.fa,
-    .department-info-- .social-media-links--platforms span {
-      font-size: 1.5rem!important
-    }  
+    padding-top: 0.75rem !important;
+    margin-left: -3px !important;
+    font-size: 1rem !important;
+  }
+  .department-info-- .social-media-links--platforms span.fa-2x,
+  .department-info-- .social-media-links--platforms span.fa,
+  .department-info-- .social-media-links--platforms span {
+    font-size: 1.5rem !important;
+  }
 }
 address.flex-list {
   list-style: none;
@@ -55,33 +55,41 @@ address.flex-list li {
   display: inline;
   line-height: 1.2em;
   padding: 3px 10px; /* Accessibility fix: Need to make room for the top dash to show. */
-  border-left: solid 1px #ADB2B6;
+  border-left: solid 1px #adb2b6;
   align-items: center;
-  font-size:400;
+  font-size: 400;
 }
 address.flex-list li:first-child {
   border-left: none;
 }
-address.flex-list li div.field--name-field-utc-department-phone .field__item a:before {
- /* font-family: $utc-icons;
+address.flex-list
+  li
+  div.field--name-field-utc-department-phone
+  .field__item
+  a:before {
+  /* font-family: $utc-icons;
   */
   font-weight: 900;
   /* color: blue; */
   @apply bg-utc-new-blue-500;
- /* font-size: $font-size-xs;
+  /* font-size: $font-size-xs;
   */
   display: inline;
   padding-right: 6px;
   vertical-align: top;
   /* content: "\f095"; */
 }
-address.flex-list li div.field--name-field-utc-department-fax-number .field__item a:before {
- /* font-family: $utc-icons;
+address.flex-list
+  li
+  div.field--name-field-utc-department-fax-number
+  .field__item
+  a:before {
+  /* font-family: $utc-icons;
   */
   font-weight: 900;
   @apply bg-utc-new-blue-500;
   /* color: blue; */
- /* font-size: $font-size-xs;
+  /* font-size: $font-size-xs;
   */
   display: inline;
   padding-right: 6px;
@@ -107,7 +115,7 @@ address.flex-list li div.field--name-field-utc-department-fax-number .field__ite
     position: relative;
     margin: 1em;
     overflow: hidden;
- }
+  }
   address.flex-list ul {
     display: list-item;
     flex-direction: none;
@@ -115,12 +123,11 @@ address.flex-list li div.field--name-field-utc-department-fax-number .field__ite
     justify-content: center;
     text-align: center;
     margin-left: 0;
- }
+  }
   address.flex-list li {
     display: block;
     line-height: 1.8em;
     padding: 0 8px;
     border-left: none;
- }
+  }
 }
-
