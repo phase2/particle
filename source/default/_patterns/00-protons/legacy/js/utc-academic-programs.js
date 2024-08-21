@@ -12,7 +12,7 @@
             } else {
                $('.program-table thead').removeClass('scrolled');
             }
-        });
+          });
           var programHeadline = $(".utc-programs-page .program-page-title-and-crumbs");
           var programOverlay = $(".utc-programs-page .program-overlay");
 
@@ -57,7 +57,10 @@
                 $(".offscreen-program-details").css("right","-650px");
                 unghostMainContent();
             }
-        }); 
+          }); 
+          $('.utc-programs-page').each(function(){
+            $(this).find( ".offscreen-program-details" ).wrapAll( "<div class='program-window'></div>" );
+          })
       }
   };
 }(jQuery, Drupal, drupalSettings));
