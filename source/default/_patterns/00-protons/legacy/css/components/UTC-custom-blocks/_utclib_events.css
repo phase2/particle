@@ -4,8 +4,8 @@
 }
 
 .qtip .qtip-title {
-    line-height: 1.5rem;
-    font-weight: 600;
+  line-height: 1.5rem;
+  font-weight: 600;
 }
 
 .qtip-bootstrap {
@@ -30,12 +30,12 @@
 }
 
 .qtip-bootstrap .event-overview .event-info {
-    display: flex;
-    flex-direction: column;
-    padding: .5rem .5rem;
-    flex: 0 1 60%;
-    font-size: 16px;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.5rem;
+  flex: 0 1 60%;
+  font-size: 16px;
+  justify-content: center;
 }
 
 .qtip-bootstrap .event-overview .event-image {
@@ -51,9 +51,9 @@
 .qtip-bootstrap .event-description {
   @apply bg-gray-200;
   margin: 0;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .qtip-bootstrap .event-description .btn {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }

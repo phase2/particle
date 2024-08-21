@@ -5,15 +5,15 @@
 
 // Off-Canvas base
 // */
-#drupal-off-canvas a, #drupal-off-canvas .link {
+#drupal-off-canvas a,
+#drupal-off-canvas .link {
   color: #85bef4 !important;
-
 }
 #mobile-menu {
-  display:none;
+  display: none;
 }
-@media (max-width:768px){
+@media (max-width: 768px) {
   #mobile-menu {
-    display:block;
+    display: block;
   }
 }

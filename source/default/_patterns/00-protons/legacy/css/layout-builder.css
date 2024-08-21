@@ -1,9 +1,9 @@
-
 /* 
 //overriding style from themag to improve contrast on layout builder off-canvas
 // I think if/when we took themag theme out this */
 
-#drupal-off-canvas .inline-block-create-button, #drupal-off-canvas .inline-block-list__item {
+#drupal-off-canvas .inline-block-create-button,
+#drupal-off-canvas .inline-block-list__item {
   background-color: #1c2429;
 }
 
@@ -14,13 +14,12 @@
 #drupal-off-canvas .layout-builder-configure-section .description,
 #drupal-off-canvas .layout-builder-configure-section .form-item .description,
 #drupal-off-canvas .layout-builder-configure-section .details-description,
-#drupal-off-canvas .layout-builder-configure-section *, 
+#drupal-off-canvas .layout-builder-configure-section *,
 #drupal-off-canvas .layout-selection .description,
 #drupal-off-canvas .layout-selection .form-item .description,
 #drupal-off-canvas .layout-selection .details-description,
-#drupal-off-canvas .layout-selection *, 
-#drupal-off-canvas .layout-selection *:not(div)
- {
+#drupal-off-canvas .layout-selection *,
+#drupal-off-canvas .layout-selection *:not(div) {
   color: white !important;
 }
 
@@ -40,7 +39,7 @@
 }
 
 #drupal-off-canvas .layout-builder-configure-section label {
-  font-size: .85rem;
+  font-size: 0.85rem;
 }
 
 /* //override white background on layout builder blocks in UI */

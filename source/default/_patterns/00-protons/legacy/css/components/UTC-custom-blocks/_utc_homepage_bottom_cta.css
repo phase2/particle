@@ -1,23 +1,23 @@
-@import "../../variables";
+@import '../../variables';
 .cta-caption {
-    width: 500px;
-    /* background-color: $utc-opaque; */
-    /* color: white !important; */
-    @apply text-white;
-    position: absolute;
-    top: auto;
-    right: 0;
-    bottom: 20%;
-    left: 0;
+  width: 500px;
+  /* background-color: $utc-opaque; */
+  /* color: white !important; */
+  @apply text-white;
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: 20%;
+  left: 0;
 }
 .cta-caption h2 {
-    /* color: white; */
-    @apply text-white;
+  /* color: white; */
+  @apply text-white;
 }
 
-@media (max-width: 767px){
-.cta-caption {
+@media (max-width: 767px) {
+  .cta-caption {
     position: relative !important;
     width: 100% !important;
-}
+  }
 }

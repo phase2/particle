@@ -1,122 +1,121 @@
 video {
-	width: 100%;
-	height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .utc-hero-temporary-fix {
-	display: block;
-	width: 100%;
-	margin: 0 auto;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .utc-hero-temporary-fix .menu-overlay-desktop {
-	bottom: 0.5% !important;
-	position: absolute;
-	left: 0;
-	z-index: 1;
-	text-align: center;
-	width: 100%;
+  bottom: 0.5% !important;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
 }
 
 .utc-hero-temporary-fix .menu-overlay-desktop .utc-hero-title {
-	color: white;
-	font-size: 6vw;
-	display: block;
-	margin: 0 auto 6rem auto;
-	position: relative;
-	z-index: 1;
+  color: white;
+  font-size: 6vw;
+  display: block;
+  margin: 0 auto 6rem auto;
+  position: relative;
+  z-index: 1;
 }
 
 .utc-hero-temporary-fix .menu-overlay-desktop .menu-overlay-desktop-items {
-	display: flex;
-	justify-content: center;
-	list-style-type: none;
-	margin: 1em auto;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 1em auto;
 }
 
 .utc-hero-temporary-fix .menu-overlay-desktop .menu-overlay-desktop-items li {
-	display: inline-block;
-	zoom: 1;
-	padding-left: 5px;
-	padding-right: 5px;
+  display: inline-block;
+  zoom: 1;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .utc-hero-temporary-fix .menu-overlay-desktop a {
-	color: white;
-	border: 2px solid white;
-	text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  text-decoration: none;
 }
 
 .utc-hero-big-btn,
 .utc-menu-btn {
-	background-color: transparent;
-	background-image: none;
-	border: 2px solid white;
-	border-radius: 0;
-	transition: 0.3s;
-	color: white;
+  background-color: transparent;
+  background-image: none;
+  border: 2px solid white;
+  border-radius: 0;
+  transition: 0.3s;
+  color: white;
 }
 
 .utc-hero-big-btn {
-	padding: 0.6em 0.9em;
+  padding: 0.6em 0.9em;
   overflow: hidden;
   @apply bg-utc-new-blue-500;
-	transition: all 1.2s;
-	white-space: nowrap;
-	width: 180px;
-	font-size: 1.5em;
+  transition: all 1.2s;
+  white-space: nowrap;
+  width: 180px;
+  font-size: 1.5em;
 }
 
 .utc-hero-big-btn:hover {
   @apply text-utc-new-blue-500;
   @apply bg-utc-new-gold-500;
-	text-indent: 0;
-	width: 210px;
+  text-indent: 0;
+  width: 210px;
 }
 
 .utc-menu-btn:hover {
   @apply text-utc-new-blue-500;
   @apply bg-utc-new-gold-500;
-	text-indent: 0;
+  text-indent: 0;
 }
 
 .menu-overlay-mobile h1 {
-	background-color: transparent;
-	padding-top: 1em;
-	padding-bottom: 15px;
-	padding-right: 0 !important;
-	text-align: center;
+  background-color: transparent;
+  padding-top: 1em;
+  padding-bottom: 15px;
+  padding-right: 0 !important;
+  text-align: center;
 }
 
 .menu-overlay-mobile ul {
-	margin: 3em auto 0 auto;
-	padding: 0;
-	width: 100%;
-	list-style-type: none;
+  margin: 3em auto 0 auto;
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
 }
 
 .menu-overlay-mobile ul li .btn-primary {
-	color: white;
-	width: 100%;
-	border: 0;
+  color: white;
+  width: 100%;
+  border: 0;
 }
 
 @media only screen and (max-width: 1024px) {
-	.menu-overlay-desktop {
-		display: none;
-	}
+  .menu-overlay-desktop {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-	.menu-overlay-mobile {
-		display: none;
-	}
+  .menu-overlay-mobile {
+    display: none;
+  }
 
-	.menu-overlay-desktop .utc-hero-title {
-		font-size: 4.2vw !important;
-	}
+  .menu-overlay-desktop .utc-hero-title {
+    font-size: 4.2vw !important;
+  }
 }
-
 
 /* @import "../../variables";
 

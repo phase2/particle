@@ -30,36 +30,31 @@
 } */
 
 @media (max-width: 991px) {
-	#block-utcinfofor-particle{
-		text-align: center;
-		margin-top: 1rem;
-		padding-left: 0;
-	
-	}
-	
-	#block-utc-shortcuts-particle
-	{
-		text-align: center;
-		margin-top: 1rem;
-		padding-left: 0;
-	
-	}	
+  #block-utcinfofor-particle {
+    text-align: center;
+    margin-top: 1rem;
+    padding-left: 0;
+  }
+
+  #block-utc-shortcuts-particle {
+    text-align: center;
+    margin-top: 1rem;
+    padding-left: 0;
+  }
 }
 
-
-
 .menu--footer ul.menu {
-	text-align: center;
-	margin-top: 1rem;
-	padding-left: 0;
+  text-align: center;
+  margin-top: 1rem;
+  padding-left: 0;
 }
 
 .menu--footer ul.menu li {
-	display: inline-block;
-	margin-left: .5rem;
+  display: inline-block;
+  margin-left: 0.5rem;
 }
 
 .menu--footer ul.menu li a {
-	/* color: #607d8b; */
-	@apply text-gray-500;
+  /* color: #607d8b; */
+  @apply text-gray-500;
 }

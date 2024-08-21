@@ -11,7 +11,7 @@ table .form-actions:last-child {
 
 .form-item label:not(.option) {
   margin-bottom: 0;
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-weight: bold;
 }
 
@@ -45,7 +45,7 @@ input[type='search'] {
   padding: 10px 1rem;
   border: 1px solid;
   border-color: #cfd8dc;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   box-shadow: inset 0 1px 1px rgba(38, 50, 56, 0.075);
   color: #607d8b;
   font-size: 0.85rem;
@@ -153,28 +153,28 @@ details summary:before {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   font: var(--fa-font-solid);
-  content: "\276F";
+  content: '\276F';
   font-weight: normal;
   margin-left: 0;
   margin-right: 18px;
   transform: translate(0, 2px) rotate(90deg);
   transform-origin: center;
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
-details summary[aria-expanded=true]:before {
+details summary[aria-expanded='true']:before {
   font-family: unset;
   margin-left: -1rem;
   display: inline-block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   font: var(--fa-font-solid);
-  content: "\276F";
+  content: '\276F';
   font-weight: normal;
   margin-left: 0;
   margin-right: 18px;
   transform: translate(0, -6px) rotate(-90deg);
   transform-origin: center;
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 details summary:hover {

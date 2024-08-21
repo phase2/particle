@@ -481,7 +481,7 @@ a.diagonal.light-gray-hero:hover svg {
 }
 .UTCtextblock__links
   a.diagonal-white:not(.btn):not(.ckeditor-accordion-toggler):hover,
-  .UTCtextblock__links
+.UTCtextblock__links
   a.diagonal-gold:not(.btn):not(.ckeditor-accordion-toggler):hover {
   color: #fff;
   background-position: 0;

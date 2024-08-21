@@ -1,4 +1,3 @@
-
 .dateicon {
   display: block;
   /* //width: 100px; */
@@ -29,10 +28,10 @@
   /* background: lightblue; */
   @apply bg-blue-100;
   display: block;
- /* // padding: 8px 0; */
+  /* // padding: 8px 0; */
   /* color: blue; */
   @apply text-utc-new-blue-500;
- /* // font-size: 12px; */
+  /* // font-size: 12px; */
   font-weight: bold;
   border-bottom: 2px solid #333;
   box-shadow: inset 0 -1px 0 0 #666;
@@ -48,6 +47,6 @@
   position: relative;
 }
 
-.smallerfont{
+.smallerfont {
   font-size: 0.8em;
 }

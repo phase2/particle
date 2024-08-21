@@ -32,10 +32,10 @@ figure.utc-hover-image-effect figcaption {
 figure.utc-hover-image-effect .utc-border-wrapper {
   @apply opacity-0 sm:ml-auto sm:mr-auto;
   transition: opacity 0.25s, transform 0.25s;
-} 
+}
 figure.utc-hover-image-effect .hover-inner {
   @apply border-l-4 border-utc-new-gold-500 pl-4;
-} 
+}
 figure.utc-hover-image-effect h2,
 figure.utc-hover-image-effect p {
   @apply opacity-0;
@@ -61,27 +61,27 @@ figure.utc-hover-image-effect a {
   @apply lg:absolute mt-4 lg:left-0 lg:right-0 lg:bottom-0 lg:top-0 text-transparent;
 }
 /**no bottom border on click of hover**/
-figure.utc-hover-image-effect a:active, 
+figure.utc-hover-image-effect a:active,
 figure.utc-hover-image-effect a.active {
-  border:none!important;
+  border: none !important;
 }
 /*hover effects*/
 figure.utc-hover-image-effect:hover figcaption {
   top: 50%;
   transform: translateY(-50%);
-  display: table!important;
+  display: table !important;
 }
 figure.utc-hover-image-effect:hover .image-title {
-  display:none;
+  display: none;
 }
 figure.utc-hover-image-effect:hover img {
   @apply opacity-10;
 }
-figure.utc-hover-image-effect:hover .utc-border-wrapper  {
+figure.utc-hover-image-effect:hover .utc-border-wrapper {
   @apply opacity-100;
   transform: translate3d(0%, 0%, 0);
   transition-delay: 0.2s;
-  display: table-cell!important;
+  display: table-cell !important;
   vertical-align: middle;
 }
 figure.utc-hover-image-effect:hover h2 {
@@ -98,15 +98,16 @@ figure.utc-hover-image-effect:hover p {
 /****1 image***/
 figure.image-count-1 {
   @apply float-none;
-  margin:4px;
+  margin: 4px;
 }
 figure.image-count-1 figcaption {
   @apply lg:p-20;
 }
 figure.image-count-1 .utc-border-wrapper {
   @apply lg:pl-6;
-} 
-figure.image-count-1 h2, figure.utc-hover-image-effect .image-title {
+}
+figure.image-count-1 h2,
+figure.utc-hover-image-effect .image-title {
   @apply lg:text-4xl;
 }
 figure.image-count-1 p {
@@ -119,8 +120,9 @@ figure.image-count-2 figcaption {
 }
 figure.image-count-2 .utc-border-wrapper {
   @apply lg:pl-4;
-} 
-figure.image-count-2 h2, figure.utc-hover-image-effect .image-title {
+}
+figure.image-count-2 h2,
+figure.utc-hover-image-effect .image-title {
   @apply lg:text-2xl;
 }
 
@@ -131,8 +133,9 @@ figure.image-count-3 figcaption {
 figure.image-count-3 .utc-border-wrapper {
   @apply xl:pl-4;
 }
-figure.image-count-3 h2, figure.utc-hover-image-effect .image-title {
-  @apply text-2xl
+figure.image-count-3 h2,
+figure.utc-hover-image-effect .image-title {
+  @apply text-2xl;
 }
 figure.image-count-3 p {
   @apply pb-0 mb-4 lg:mt-2 text-base;
@@ -145,14 +148,15 @@ figure.image-count-3 a {
 figure.image-count-4 figcaption {
   @apply md:p-3 lg:p-4;
 }
-figure.image-count-4 h2, figure.image-count-4 .image-title {
+figure.image-count-4 h2,
+figure.image-count-4 .image-title {
   @apply mb-0 pb-0 md:text-base lg:text-lg;
 }
 figure.image-count-4 p {
   @apply lg:inline-block mx-0 lg:mt-2;
 }
 .image-output-horizontal .image-count-4.overlay-true .image-title {
-  bottom: 0!important;
+  bottom: 0 !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,11 +167,9 @@ figure.image-count-4 p {
   display: none;
 }
 
-
-
 figure.utc-hover-image-effect figcaption a.hover-button span {
   @apply text-center text-white bg-utc-new-blue-500 mx-auto py-1 px-4 font-bold;
-  display:none;
+  display: none;
   background-image: -webkit-linear-gradient(257deg, #fdb736 50%, #112e51 50%);
   background-image: linear-gradient(-257deg, #fdb736 50%, #112e51 50%);
   background-position: 100%;
@@ -180,29 +182,41 @@ figure.utc-hover-image-effect figcaption a.hover-button:hover span {
   @apply text-utc-new-blue-500;
 }
 
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 h2,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 h2 {
-  @apply lg:text-lg ;
+.themag-layout--twocol-section--3-9
+  .image-output-vertical
+  figure.image-count-4
+  h2,
+.themag-layout--twocol-section--9-3
+  .image-output-vertical
+  figure.image-count-4
+  h2 {
+  @apply lg:text-lg;
 }
 
-.themag-layout--twocol-section--3-9 .image-output-vertical figure.image-count-4 p,
-.themag-layout--twocol-section--9-3 .image-output-vertical figure.image-count-4 p {
+.themag-layout--twocol-section--3-9
+  .image-output-vertical
+  figure.image-count-4
+  p,
+.themag-layout--twocol-section--9-3
+  .image-output-vertical
+  figure.image-count-4
+  p {
   @apply lg:inline-block text-base;
 }
 
 /***image & overlay color choices***/
 
-figure.bw-image  img {
+figure.bw-image img {
   filter: saturate(0);
 }
 figure.gold-overlay .field--type-image.field__item {
-  background: rgba(253, 183, 54,.8);
+  background: rgba(253, 183, 54, 0.8);
 }
 figure.dk-blue-overlay .field--type-image.field__item {
-  background: rgba(17, 46, 81,.8);
+  background: rgba(17, 46, 81, 0.8);
 }
 figure.lt-blue-overlay .field--type-image.field__item {
-  background: rgba(231, 234, 238,.1);
+  background: rgba(231, 234, 238, 0.1);
 }
 figure.gold-overlay:hover .field--type-image.field__item,
 figure.dk-blue-overlay:hover .field--type-image.field__item,
@@ -211,59 +225,66 @@ figure.lt-blue-overlay :hover .field--type-image.field__item {
 }
 figure.gold-overlay img,
 figure.dk-blue-overlay img,
-figure.lt-blue-overlay img
-{
-  opacity: .4; 
+figure.lt-blue-overlay img {
+  opacity: 0.4;
 }
 figure.overlay-true .image-title {
   font-weight: bold;
-  text-shadow: unset!important;
-  bottom: 18px!important;
+  text-shadow: unset !important;
+  bottom: 18px !important;
 }
 figure.gold-overlay .image-title {
-  background: transparent!important;
-  color: #112e51!important;
+  background: transparent !important;
+  color: #112e51 !important;
 }
 figure.dk-blue-overlay .image-title,
 figure.lt-blue-overlay .image-title {
-  background: transparent!important;
-  color: #fff!important;
+  background: transparent !important;
+  color: #fff !important;
 }
 figure.lt-blue-overlay .image-title {
-  color: #112e51!important;
+  color: #112e51 !important;
 }
-.overlay-true .image-title {@apply px-4 leading-5;}
+.overlay-true .image-title {
+  @apply px-4 leading-5;
+}
 .image-count-1 .image-title {
-  font-size:1.5rem;
-  bottom: 36px!important
+  font-size: 1.5rem;
+  bottom: 36px !important;
 }
 .image-count-2 .image-title {
-  font-size:1.75rem
+  font-size: 1.75rem;
 }
 .image-count-3 .image-title {
-  font-size:1.5rem
+  font-size: 1.5rem;
 }
 .image-count-4 .image-title {
-  font-size:1.25rem;
+  font-size: 1.25rem;
 }
 
 .image-count-1 .larger.image-title {
-  font-size:2.25rem;
+  font-size: 2.25rem;
 }
 .image-count-2 .larger.image-title {
-  font-size:2rem
+  font-size: 2rem;
 }
 .image-count-3 .larger.image-title {
-  font-size:1.75rem
+  font-size: 1.75rem;
 }
 .image-count-4 .larger.image-title {
-  font-size:1.5rem;
+  font-size: 1.5rem;
 }
 
 /**fail safe styling of grid-cols-# **/
-.utc-image-hover.grid-cols-2	{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.utc-image-hover.grid-cols-3	{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.utc-image-hover.grid-cols-4	{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.utc-image-hover.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.utc-image-hover.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.utc-image-hover.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 
 /**Hide captions which adversely affect image height**/
 .utc-image-hover .media-image .field--name-field-description {
@@ -275,37 +296,35 @@ figure.lt-blue-overlay .image-title {
   .themag-layout--twocol-section--9-3 figure.image-count-4 p {
     @apply hidden;
   }
-  
 }
 
 /****Particle Issue 510 Solution: Better mobile experience****/
-@media (max-width:991px) {
+@media (max-width: 991px) {
   figure.utc-hover-image-effect img {
     filter: unset;
     cursor: none;
-    opacity: 1!important;
-    width: 100%!important;
+    opacity: 1 !important;
+    width: 100% !important;
   }
   figure.utc-hover-image-effect picture:after {
-    display:none!important;
+    display: none !important;
   }
   figure.utc-hover-image-effect figcaption * {
-    opacity:1;
+    opacity: 1;
   }
   figure.utc-hover-image-effect {
     pointer-events: none;
     display: flex;
     flex-direction: column;
-}
+  }
   figure.utc-hover-image-effect:hover,
   figure.utc-hover-image-effect figcaption,
   figure.utc-hover-image-effect:hover figcaption,
   figure.utc-hover-image-effect:hover .utc-border-wrapper,
-  figure.utc-hover-image-effect h2, 
+  figure.utc-hover-image-effect h2,
   figure.utc-hover-image-effect:hover h2,
   figure.utc-hover-image-effect p,
-  figure.utc-hover-image-effect figcaption a.hover-button
-  {
+  figure.utc-hover-image-effect figcaption a.hover-button {
     top: unset;
     transform: unset;
     transition: unset;
@@ -313,50 +332,50 @@ figure.lt-blue-overlay .image-title {
   }
   figure.utc-hover-image-effect figcaption {
     background: transparent;
-    padding: 1.5rem!important;
-    transition: all .4s ease-in-out;
+    padding: 1.5rem !important;
+    transition: all 0.4s ease-in-out;
     position: relative !important;
-    display: flex!important;
-    height: 100%!important;
-    margin-bottom: 0!important;
+    display: flex !important;
+    height: 100% !important;
+    margin-bottom: 0 !important;
     opacity: 1;
   }
   figure.utc-hover-image-effect:hover figcaption {
-    display: flex!important;
+    display: flex !important;
   }
   figure.utc-hover-image-effect .utc-border-wrapper {
-    display: flex!important;
-    opacity:1!important;
+    display: flex !important;
+    opacity: 1 !important;
     height: 100% !important;
     position: relative;
-    width:100%;
+    width: 100%;
   }
   figure.utc-hover-image-effect .hover-inner {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
     justify-content: space-between;
   }
   figure.utc-hover-image-effect figcaption h2 {
-    font-weight:600!important;
-    font-size:1.5rem;
+    font-weight: 600 !important;
+    font-size: 1.5rem;
   }
   figure.utc-hover-image-effect figcaption p {
-    font-size:.95rem;
+    font-size: 0.95rem;
     overflow-x: hidden;
     margin: 0;
     margin-top: 6px;
-    margin-bottom: auto!important;
+    margin-bottom: auto !important;
   }
   figure.utc-hover-image-effect figcaption a.hover-button {
-    width: fit-content!important;
+    width: fit-content !important;
     pointer-events: auto;
     position: relative;
   }
   figure.utc-hover-image-effect figcaption a.hover-button span {
-    display:inline-block;
+    display: inline-block;
     font-size: 1rem;
   }
   figure.image-count-4 figcaption a.hover-button span {
@@ -364,35 +383,40 @@ figure.lt-blue-overlay .image-title {
     padding-right: 9px;
     width: 100%;
   }
-  .image-title, .image-count-4.overlay-true .image-title {
+  .image-title,
+  .image-count-4.overlay-true .image-title {
     display: none;
   }
-  .utc-image-hover.grid-cols-4	{ grid-template-columns: repeat(2, minmax(0, 1fr))!important; } 
+  .utc-image-hover.grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
   figure.utc-hover-image-effect .utc-border-wrapper {
-    opacity:1!important;
+    opacity: 1 !important;
     height: 100% !important;
     position: relative;
   }
   figure.utc-hover-image-effect figcaption h2 {
-    font-size:1.75rem;
+    font-size: 1.75rem;
   }
   figure.utc-hover-image-effect figcaption p {
-    font-size:1.1rem;
+    font-size: 1.1rem;
   }
 }
 @media screen and (max-width: 767px) {
   .utc-image-hover {
-    grid-template-columns: repeat(1, minmax(0, 1fr))!important;
-    gap: 2rem!important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
   }
-  .utc-image-hover.grid-cols-4	{ grid-template-columns: repeat(1, minmax(0, 1fr))!important; } 
+  .utc-image-hover.grid-cols-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
   figure.utc-hover-image-effect {
     width: 90%;
     margin-top: 6px;
-    margin-bottom:6px;
+    margin-bottom: 6px;
     margin-left: auto;
     margin-right: auto;
   }

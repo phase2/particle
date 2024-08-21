@@ -111,7 +111,7 @@
 ul.s-lg-link-list li {
   border-bottom: 1px solid lightgrey;
   margin-bottom: 0.5rem;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 ul.s-lg-link-list li a {
@@ -119,12 +119,12 @@ ul.s-lg-link-list li a {
   font-size: 1rem;
   @apply text-utc-new-blue-500;
   line-height: 1.25;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .s-lg-link-desc,
 .s-lg-link-desc a {
-  font-size: .9rem !important;
+  font-size: 0.9rem !important;
 }
 
 ul.s-lg-link-list li:last-child {
