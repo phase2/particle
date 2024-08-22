@@ -2,10 +2,7 @@
   'use strict';
   Drupal.behaviors.academicprograms = {
     attach: function (context, settings) {
-      const programHeadline = $(
-        '.utc-programs-page .program-page-title-and-crumbs'
-      );
-      var programOverlay = $('.utc-programs-page .program-overlay');
+      //console.log("utc-academic-programs.js is loaded.")
 
       if (window.location.href.indexOf('degrees-and-programs') > -1) {
         $('body').addClass('utc-programs-page');
@@ -17,7 +14,11 @@
           $('.program-table thead').removeClass('scrolled');
         }
       });
-      
+      var programHeadline = $(
+        '.utc-programs-page .program-page-title-and-crumbs'
+      );
+      var programOverlay = $('.utc-programs-page .program-overlay');
+
       $(programOverlay).css({ 'z-index': '-1', opacity: '.75' });
       $('.utcloadingcontainer').css('display', 'none');
 
@@ -31,7 +32,7 @@
       }
       function togglediv(getProgramBtnDetailId) {
         $('.offscreen-program-details').each(function () {
-          const detailId = $(this).attr('id');
+          var detailId = $(this).attr('id');
           if (detailId == getProgramBtnDetailId) {
             $('.offscreen-program-details')
               .css('right', '-650px')
@@ -42,7 +43,7 @@
         });
       }
       $('.program-btn').each(function () {
-        const getProgramBtnDetailId = $(this).attr('data-src');
+        var getProgramBtnDetailId = $(this).attr('data-src');
         $(this).on('click', function () {
           togglediv(getProgramBtnDetailId);
         });
@@ -60,6 +61,19 @@
           unghostMainContent();
         }
       });
+      $('.utc-programs-page').each(function () {
+        $(this)
+          .find('.offscreen-program-details')
+          .wrapAll("<div class='program-window'></div>");
+      });
+      //create toggle button
+      $('.form-item-field-online-available-value label').remove();
+      $('.form-item-field-online-available-value input').wrapAll(
+        "<label class='toggle'></label>"
+      );
+      $('<div class="slider"></div>').insertAfter(
+        $('.form-item-field-online-available-value input')
+      );
     },
   };
 })(jQuery, Drupal, drupalSettings);

@@ -43,6 +43,10 @@
   z-index: 2;
   bottom: 0;
 }
+.utc-academic-programs-block .program-overlay {
+  width: 150%;
+  left: -50%;
+}
 /****View Filters Styles****/
 
 .utc-academic-programs-form .view-filters {
@@ -50,7 +54,7 @@
 }
 .utc-academic-programs-form {
   position: relative;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr auto;
   width: 100%;
   margin: 0 !important;
   padding: 0 !important;
@@ -140,13 +144,17 @@ input#edit-field-program-name-value:focus {
   }
 }
 @media (max-width: 768px) {
+  .program-subhead h2.text-lg {
+    font-size: 1.5rem !important;
+  }
   .utc-academic-programs-form {
     display: flex !important;
     flex-direction: column;
     margin-bottom: 0 !important;
   }
   .utc-academic-programs-form details summary {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    text-align: center;
   }
   .utc-academic-programs-form details .details-wrapper {
     z-index: 1;
@@ -193,8 +201,11 @@ input#edit-field-program-name-value:focus {
 
 .utc-programs-page .program-table {
   color: #112e51;
-  width: 100%; /*border:1px solid #112e51;*/
-  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #112e51;
+}
+.utc-programs-block .program-table {
+  border: none;
 }
 .utc-programs-page thead {
   font-size: 1.2rem;
@@ -207,30 +218,34 @@ input#edit-field-program-name-value:focus {
   padding-bottom: 9px;
 }
 .utc-programs-page .program-name {
-  width: 25%;
+  width: 20%;
 }
 .utc-programs-page tbody .program-name {
   font-size: 1.1rem;
   font-weight: bold;
   text-align: left;
 }
+.utc-programs-page tbody .program-name div {
+  display: block;
+}
 .utc-programs-page .degree,
 .utc-programs-page .delivery {
   text-align: center;
-  width: 15%;
+  width: 10%;
   font-family: Raleway, sans-serif;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
-/*
-.utc-programs-page .degree:first-child, .utc-programs-page .delivery:first-child {border-left:1px solid #112e51;}
-.utc-programs-page .degree:last-child, .utc-programs-page .delivery:last-child {border-right:1px solid #112e51;}
 
-.utc-programs-page thead .degree, .utc-programs-page thead .delivery {border-bottom:1px solid #112e51;border-right:1px solid #112e51;}*/
+.utc-programs-page .vert-left {
+  border-left: 1px solid #112e51;
+}
+
 .utc-programs-page thead tr:first-child .degree,
 .utc-programs-page thead tr:first-child .delivery {
   font-family: Oswald, sans-serif;
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .utc-programs-page tbody {
@@ -242,8 +257,8 @@ input#edit-field-program-name-value:focus {
   font-weight: bold;
   font-size: 1.2rem;
 }
-/*.utc-programs-page td.degree.minor {
-    border-right: 1px solid #112e51;
+/*.utc-programs-page td.degree.bachelor {
+  border-left: 1px solid #112e51;
 }*/
 
 .utc-programs-page tbody tr:nth-child(even) {
@@ -252,8 +267,11 @@ input#edit-field-program-name-value:focus {
 
 .utc-programs-page tr {
   height: 60px;
-  transition: all 0.2x ease-in-out;
   line-height: 1.2;
+}
+.utc-programs-page tr.program-block {
+  height: 70px;
+  line-height: 1;
 }
 .utc-programs-page tbody td:first-child {
   padding-left: 12px;
@@ -274,11 +292,12 @@ input#edit-field-program-name-value:focus {
   color: rgba(17, 100, 132, 1);
 }
 
-/*.utc-programs-page tbody tr td.degree .checkmark,
-.utc-programs-page tbody tr td.delivery .checkmark{ width:fit-content;padding:9px;height:fit-content;}
-
-.utc-programs-page tbody tr:hover td.degree .checkmark,
-.utc-programs-page tbody tr:hover td.delivery .checkmark{background: #112e51;}*/
+.utc-programs-page tbody tr td.degree .checkmark,
+.utc-programs-page tbody tr td.delivery .checkmark {
+  width: fit-content;
+  padding: 9px;
+  height: fit-content;
+}
 
 .utc-programs-page tbody tr:hover {
   background: rgba(231, 234, 238, 1);
@@ -363,10 +382,14 @@ input#edit-field-program-name-value:focus {
   height: 5vh;
   box-shadow: inset 0 -1px 0 #112e51;
 }
-.utc-academic-programs-page thead td {
+.user-logged-in .utc-academic-programs-page thead.scrolled {
+  top: 77px;
+}
+.utc-academic-programs-page thead th,
+.utc-programs-block thead th {
   border-bottom: 1px solid #112e51;
-  padding-top: 18px;
-  padding-bottom: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 @media (max-width: 991px) {
   .utc-programs-page .program-table {
@@ -388,6 +411,12 @@ input#edit-field-program-name-value:focus {
   }
 }
 @media (max-width: 460px) {
+  .utc-programs-page .vert-left {
+    border-left: unset;
+  }
+  .utc-programs-page tr.program-block {
+    height: unset;
+  }
   .utc-academic-programs-page .scroll-to-top-button {
     z-index: 1000000000000000;
   }
@@ -432,14 +461,6 @@ input#edit-field-program-name-value:focus {
     padding-bottom: 0;
     margin-bottom: 0;
   }
-  .utc-programs-page thead:before {
-    content: 'Touch a program to get more details.';
-    border: none;
-    font-weight: normal;
-    font-size: 1rem;
-    text-align: center;
-    font-family: Raleway, sans-serif;
-  }
   .utc-programs-page tbody {
     margin: 0;
   }
@@ -466,6 +487,10 @@ input#edit-field-program-name-value:focus {
   .utc-programs-page tr {
     height: unset;
   }
+  .utc-programs-page td.hybrid {
+    border-top: 1px solid #ccc;
+  }
+  .utc-programs-page th,
   .utc-programs-page td {
     /* Behave  like a "row" */
     border: none;
@@ -475,19 +500,22 @@ input#edit-field-program-name-value:focus {
     width: unset;
     border-right: none;
     border-left: none;
-    padding-left: 110px !important;
+    padding-left: 120px !important;
     text-align: center !important;
     height: 48px;
     width: 100% !important;
     padding-top: 12px;
   }
-
+  .utc-programs-block th {
+    border-bottom: 1px solid #112e51;
+  }
   .utc-programs-page td:last-child {
     border: none;
   }
+  .utc-programs-page td.degree.certificate,
   .utc-programs-page tbody tr:nth-child(2n) td {
     /* Behave  like a "row" */
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
   }
   .utc-programs-page tbody tr:nth-child(2n) td:last-child {
     /* Behave  like a "row" */
@@ -496,7 +524,7 @@ input#edit-field-program-name-value:focus {
   .utc-programs-page tbody td.program-name {
     background: #112e51;
     color: #fdb736;
-    font-size: 1rem;
+    font-size: 1.2rem;
     white-space: normal;
     hyphens: auto;
     word-break: normal;
@@ -506,14 +534,20 @@ input#edit-field-program-name-value:focus {
     display: flex;
     align-items: center;
     line-height: 1.1;
-    padding-top: 3px;
-    padding-left: 115px !important;
+    padding-top: 0;
+    padding-left: 120px !important;
+    padding-right: 6px;
   }
   .utc-programs-page tbody td.program-name:before {
     color: #fff;
-    margin-top: 9px;
   }
-
+  .utc-programs-page tbody td.program-name {
+    flex-direction: column;
+    line-height: 2;
+    justify-content: center;
+    padding-top: 6px;
+  }
+  
   .utc-programs-page td.degree.minor,
   .utc-programs-page .delivery:last-child {
     border-right: none;
@@ -528,16 +562,18 @@ input#edit-field-program-name-value:focus {
     /* Top/left values mimic padding */
     top: 12px;
     left: 6px;
-    width: 105px;
+    width: 115px;
     padding-right: 10px;
     white-space: nowrap;
     color: #112e51;
     text-align: right;
     font-weight: 500;
     font-family: Oswald, sans-serif;
-    font-size: 1.15rem !important;
+    font-size: 1.3rem !important;
   }
-
+  .utc-programs-page td.online-100:before {
+    top:15px;
+  }
   /*
 	Label the data
 	*/
@@ -559,6 +595,15 @@ input#edit-field-program-name-value:focus {
   .utc-programs-page td:nth-of-type(6):before {
     content: 'Certificate:';
   }
+  .utc-programs-page td:nth-of-type(7):before {
+    content: 'In Person/Online:';
+  }
+  .utc-programs-page td:nth-of-type(8):before {
+    content: 'In Person Only:';
+  }
+  .utc-programs-page td:nth-of-type(9):before {
+    content: 'Online Only:';
+  }
   input#edit-field-program-name-value {
     border-radius: 0;
     font-size: 1rem;
@@ -569,28 +614,91 @@ input#edit-field-program-name-value:focus {
     width: 90%;
   }
 }
-/****loader****/
-.utcloadingcontainer {
-  display: flex;
-  height: 100%;
-  margin-top: 12px;
+
+/****Toggle button add 8.22.24*****/
+.online-tag {
+  background-color: rgba(253, 183, 54, 0.75);
+  margin-top: 0.2rem;
+  padding: 0.1rem 0.3rem;
+  text-transform: uppercase;
+  font-size: 0.7875rem;
+  font-weight: 500;
+  display: block;
+  width: fit-content;
+  text-decoration: none;
+  color: #112e51;
+  border-radius: 0.2rem;
 }
-#utcloading {
-  width: 2rem;
-  height: 2rem;
-  border: 5px solid #f3f3f3;
-  border-top: 6px solid #fdb736;
-  border-radius: 100%;
-  margin: auto;
-  visibility: initial;
-  /* visibility: hidden; */
-  animation: spin 1s infinite linear;
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 27px;
 }
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+.toggle input {
+  display: none;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 21px;
+  width: 21px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #fdb736;
+}
+input:checked + .slider:before {
+  transform: translateX(32px);
+}
+.utc-academic-programs-form .form-item-field-online-available-value {
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+.utc-academic-programs-form .form-item-field-online-available-value:before {
+  content: '100% Online Available';
+  font-family: Oswald, sans-serif;
+  font-size: 0.9rem;
+}
+@media (max-width:768px){
+  .utc-programs-page thead:before {
+    content: "Touch a program to get more details.";
+    border: none;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
+    font-family: Raleway, sans-serif;
   }
-  to {
-    transform: rotate(360deg);
+  .utc-academic-programs-form .form-item-field-online-available-value:before {
+    font-size: 1.3rem;
+  }
+  .utc-academic-programs-form .form-item-field-online-available-value {
+    gap: 12px;
+  }
+}
+@media (max-width: 460px) {
+  .online-tag {
+    background-color: rgba(253, 183, 54, 1);
+    margin-bottom: 9px;
+    margin-top: -3px;
+    font-weight: bold;
+    padding-left: 9px;
+    padding-right: 9px;
   }
 }
