@@ -31,7 +31,7 @@
         {% set paragraph_degrees = paragraph.entity.field_degree_options %}
         {% set paragraph_delivery_option = paragraph.entity.field_delivery_options %}
         {% set paragraph_interest_option = paragraph.entity.field_interest_options %}
-        {% set paragraph_description = paragraph.entity.field_program_description.value %}
+        {% set paragraph_description = paragraph.entity.field_summary_description.value %}
         {% set paragraph_yturl = paragraph.entity.field_youtube_video_url.value %}
 
         <div>
@@ -65,7 +65,7 @@
                         </li>
                         
                     </ul>
-                    <div class="node__program-description"><span style="font-weight:bold;">Description: </span><br />{{ paragraph_description|raw }}</div>
+                    <div class="node__program-description"><p>Note: For brevity, only the summary is present here.</p><span style="font-weight:bold;">Description: </span><br />{{ paragraph_description|raw }}</div>
                 </div>
             </div>
         </div>

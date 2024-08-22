@@ -16,21 +16,16 @@
  */
 #}
 
+
 <table class="program-table" style="border-collapse: separate; ">
     <thead>
         <tr>
-            <th class="program-name" rowspan="2" style="text-align:center;">Program Area<br><span class="smaller-text">Click on a program for more details.</span></th>
-            <th class="degrees vert-left" colspan="5" style="text-align:center;">Degrees</th>
-            <th class="deliveries vert-left" colspan="3" style="text-align:center;">Delivery</th>
-        <tr>
+            <th class="program-name" style="text-align:center;">Program Area<br><span class="smaller-text">Click on a program for more details.</span></th>
             <th class="degree vert-left">Bachelor</th>
             <th class="degree">Minor</th>
             <th class="degree">Master</th>
             <th class="degree">Doctoral</th>
             <th class="degree">Certificate</th>
-            <th class="delivery vert-left">In Person<br />and Online</th>
-            <th class="delivery">In Person<br />Only</th>
-            <th class="delivery">Online<br />Only</th>
         </tr>
     </thead>
     <tbody>
@@ -38,12 +33,18 @@
                 {% set btnID = 'btn-id-' ~ row.content['#row']._entity.id.0.value %}
                 {% set detailID = 'detail-id-' ~ row.content['#row']._entity.id.0.value %}
                 {% set programName = row.content['#row']._entity.field_program_name.value %}
-                {% set programDelivery = row.content['#row']._entity.field_delivery_options.value|raw %}
+                {% set onlineAvailability = row.content['#row']._entity.field_online_available.value %}
                 {% set programImage = row.content['#row']._entity.field_program_image.target_id %}
                 {% set youtubeurl = row.content['#row']._entity.field_youtube_video_url.value %}
 
                 <tr class="program-btn" data-src="{{ detailID }}">
-                    <td id="{{ btnID }}" class="program-name" >{{ row.content['#row']._entity.field_program_name.0.value }}</td>
+                    {% if  onlineAvailability %}
+                        <td id="{{ btnID }}" class="program-name online-100" >{{ row.content['#row']._entity.field_program_name.0.value }}<br />
+                            <div class="online-tag">100% Online Available</div>
+                        </td>
+                    {% else %}
+                        <td id="{{ btnID }}" class="program-name" >{{ row.content['#row']._entity.field_program_name.0.value }}</td>
+                    {% endif %}
 
                     <td class="degree bachelor vert-left">
                         {% if row.content['#row']._entity.field_degree_options.0.value  == 'bachelor' %}
@@ -91,27 +92,6 @@
                             <span class="m-dash">&#8212;</span> 
                         {% endif %}
                     </td>
-                    <td class="delivery hybrid vert-left">
-                        {% if programDelivery == "hybrid" %}
-                            <span class="checkmark">&#10003;</span>
-                        {% else %}
-                            <span class="m-dash">&#8212;</span> 
-                        {% endif %}
-                    </td>
-                    <td class="delivery in-person">
-                        {% if programDelivery == "inperson" %}
-                            <span class="checkmark">&#10003;</span>
-                        {% else %}
-                            <span class="m-dash">&#8212;</span> 
-                        {% endif %}
-                    </td>
-                    <td class="delivery online">
-                        {% if programDelivery == "online" %}
-                            <span class="checkmark">&#10003;</span>
-                        {% else %}
-                            <span class="m-dash">&#8212;</span> 
-                        {% endif %}
-                    </td>
                 </tr>
                     <div id="{{ detailID }}" class="offscreen-program-details">
                         <div class="close-btn"  >
@@ -128,16 +108,10 @@
                         <!--keep these in one row to fix spacing issues-->
                            {{ row.content['#row']._entity.field_degree_options.0.value|replace({'graduate': 'master'})|capitalize|replace({' ': ''}) }}{% if row.content['#row']._entity.field_degree_options.1.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.1.value|replace({'graduate': 'master'})|capitalize|replace({' ': ''}) }}{% endif %}{% if row.content['#row']._entity.field_degree_options.2.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.2.value|replace({'graduate': 'master'})|capitalize|replace({' ': ''}) }}{% endif %}{% if row.content['#row']._entity.field_degree_options.3.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.3.value|capitalize|replace({' ': ''}) }}{% endif %}{% if row.content['#row']._entity.field_degree_options.4.value is not empty %}, {{ row.content['#row']._entity.field_degree_options.4.value|capitalize }}{% endif %}
                         </div>
-                        
-                        <div class="program-delivery">
-                            {% if programDelivery == "hybrid" %}
-                                This program is a {{ programDelivery }} of in-person and online.
-                            {% elseif programDelivery == "inperson" %}
-                                This program is in person.
-                            {% else %}
-                                This is an online program.
-                            {% endif %}
-                        </div>
+                        {% if  onlineAvailability %}
+                            <div class="online-tag"  style="margin-top: 1rem;margin-bottom: .25rem;">100% Online Available</div>
+                        {% endif %}
+
                         <div class="program-copy">{{row.content['#row']._entity.field_program_description.value|raw }}</div>
                         
                         {% if youtubeurl %}

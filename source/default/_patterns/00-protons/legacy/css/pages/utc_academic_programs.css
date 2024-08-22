@@ -54,7 +54,7 @@
 }
 .utc-academic-programs-form {
   position: relative;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr auto;
   width: 100%;
   margin: 0 !important;
   padding: 0 !important;
@@ -225,6 +225,9 @@ input#edit-field-program-name-value:focus {
   font-weight: bold;
   text-align: left;
 }
+.utc-programs-page tbody .program-name div {
+  display: block;
+}
 .utc-programs-page .degree,
 .utc-programs-page .delivery {
   text-align: center;
@@ -382,7 +385,8 @@ input#edit-field-program-name-value:focus {
 .user-logged-in .utc-academic-programs-page thead.scrolled {
   top: 77px;
 }
-.utc-academic-programs-page thead th, .utc-programs-block thead th {
+.utc-academic-programs-page thead th,
+.utc-programs-block thead th {
   border-bottom: 1px solid #112e51;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -457,14 +461,6 @@ input#edit-field-program-name-value:focus {
     padding-bottom: 0;
     margin-bottom: 0;
   }
-  .utc-programs-page thead:before {
-    content: 'Touch a program to get more details.';
-    border: none;
-    font-weight: normal;
-    font-size: 1rem;
-    text-align: center;
-    font-family: Raleway, sans-serif;
-  }
   .utc-programs-page tbody {
     margin: 0;
   }
@@ -494,7 +490,8 @@ input#edit-field-program-name-value:focus {
   .utc-programs-page td.hybrid {
     border-top: 1px solid #ccc;
   }
-  .utc-programs-page th, .utc-programs-page td {
+  .utc-programs-page th,
+  .utc-programs-page td {
     /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
@@ -510,7 +507,7 @@ input#edit-field-program-name-value:focus {
     padding-top: 12px;
   }
   .utc-programs-block th {
-    border-bottom:1px solid #112e51;
+    border-bottom: 1px solid #112e51;
   }
   .utc-programs-page td:last-child {
     border: none;
@@ -543,21 +540,14 @@ input#edit-field-program-name-value:focus {
   }
   .utc-programs-page tbody td.program-name:before {
     color: #fff;
-    margin-top: 9px;
   }
-  .utc-programs-block tbody td.program-name {
-		flex-direction: column;
-		line-height: 2;
-		justify-content: start;
-		padding-top: 6px;
+  .utc-programs-page tbody td.program-name {
+    flex-direction: column;
+    line-height: 2;
+    justify-content: center;
+    padding-top: 6px;
   }
-  .utc-programs-block .smaller-text {
-    display:block;
-    font-size: 1.2rem;
-  }
-  .utc-programs-block tbody td.program-name:before {
-		margin-top:0;
-  }
+  
   .utc-programs-page td.degree.minor,
   .utc-programs-page .delivery:last-child {
     border-right: none;
@@ -581,7 +571,9 @@ input#edit-field-program-name-value:focus {
     font-family: Oswald, sans-serif;
     font-size: 1.3rem !important;
   }
-
+  .utc-programs-page td.online-100:before {
+    top:15px;
+  }
   /*
 	Label the data
 	*/
@@ -622,28 +614,91 @@ input#edit-field-program-name-value:focus {
     width: 90%;
   }
 }
-/****loader****/
-.utcloadingcontainer {
-  display: flex;
-  height: 100%;
-  margin-top: 12px;
+
+/****Toggle button add 8.22.24*****/
+.online-tag {
+  background-color: rgba(253, 183, 54, 0.75);
+  margin-top: 0.2rem;
+  padding: 0.1rem 0.3rem;
+  text-transform: uppercase;
+  font-size: 0.7875rem;
+  font-weight: 500;
+  display: block;
+  width: fit-content;
+  text-decoration: none;
+  color: #112e51;
+  border-radius: 0.2rem;
 }
-#utcloading {
-  width: 2rem;
-  height: 2rem;
-  border: 5px solid #f3f3f3;
-  border-top: 6px solid #fdb736;
-  border-radius: 100%;
-  margin: auto;
-  visibility: initial;
-  /* visibility: hidden; */
-  animation: spin 1s infinite linear;
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 27px;
 }
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+.toggle input {
+  display: none;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 21px;
+  width: 21px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #fdb736;
+}
+input:checked + .slider:before {
+  transform: translateX(32px);
+}
+.utc-academic-programs-form .form-item-field-online-available-value {
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+.utc-academic-programs-form .form-item-field-online-available-value:before {
+  content: '100% Online Available';
+  font-family: Oswald, sans-serif;
+  font-size: 0.9rem;
+}
+@media (max-width:768px){
+  .utc-programs-page thead:before {
+    content: "Touch a program to get more details.";
+    border: none;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
+    font-family: Raleway, sans-serif;
   }
-  to {
-    transform: rotate(360deg);
+  .utc-academic-programs-form .form-item-field-online-available-value:before {
+    font-size: 1.3rem;
+  }
+  .utc-academic-programs-form .form-item-field-online-available-value {
+    gap: 12px;
+  }
+}
+@media (max-width: 460px) {
+  .online-tag {
+    background-color: rgba(253, 183, 54, 1);
+    margin-bottom: 9px;
+    margin-top: -3px;
+    font-weight: bold;
+    padding-left: 9px;
+    padding-right: 9px;
   }
 }
