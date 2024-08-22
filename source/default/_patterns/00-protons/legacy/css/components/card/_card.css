@@ -109,26 +109,28 @@ in particle */
   border: 0;
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   transition: var(--utc-transition);
 }
-a:focus-visible .utc-card-2--card-link, .view-utc-newsroom a:focus-visible > div {
+a:focus-visible .utc-card-2--card-link,
+.view-utc-newsroom a:focus-visible > div {
   outline: 2px dashed #fdb736;
 }
 
 .utc-card-2--white.utc-card-2--card-link:hover {
   @apply bg-gray-200;
   box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
-  0 4px 6px -2px rgba(#000000, 0.05);
+    0 4px 6px -2px rgba(#000000, 0.05);
 }
 a .utc-card-2--white.utc-card-2--card-link p {
   @apply font-normal;
 }
 a .utc-card-2--white.utc-card-2--card-link:hover p {
   @apply font-normal;
-} 
+}
 
-a .utc-card-2__body, a:hover .utc-card-2__body {
+a .utc-card-2__body,
+a:hover .utc-card-2__body {
   @apply font-normal;
 }
 
@@ -138,14 +140,14 @@ a .utc-card-2__body, a:hover .utc-card-2__body {
   border: 0;
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   transition: var(--utc-transition);
 }
 
 .utc-card-2--lightblue.utc-card-2--card-link:hover {
   @apply bg-gray-200;
   box-shadow: 0 10px 15px -3px rgba(#000000, 0.2),
-  0 4px 6px -2px rgba(#000000, 0.05);
+    0 4px 6px -2px rgba(#000000, 0.05);
 }
 
 .utc-card-2--none {
@@ -188,7 +190,6 @@ a .utc-card-2__body, a:hover .utc-card-2__body {
 
 .utc-card-2__icon .utc-card-2:hover {
   @apply text-utc-new-blue-500;
-
 }
 
 .utc-card-2__icon--blue .fontawesome-icons:hover {
@@ -197,7 +198,6 @@ a .utc-card-2__body, a:hover .utc-card-2__body {
 
 .utc-card-2__icon--yellow .fontawesome-icons:hover {
   @apply text-utc-new-gold-500;
-
 }
 
 /* ========== Thumbnail Card ========= */
@@ -260,7 +260,7 @@ a .utc-card-2__body, a:hover .utc-card-2__body {
   border: 0;
   border-radius: 0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 }
 
@@ -291,4 +291,3 @@ a .utc-card-2__body, a:hover .utc-card-2__body {
 .utc-sidebar-card h3 {
   font-size: 1.25rem;
 }
-

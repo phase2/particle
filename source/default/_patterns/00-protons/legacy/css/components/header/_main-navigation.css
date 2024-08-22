@@ -1,25 +1,25 @@
 .block--region-header-primary-menu > ul.menu > li > a {
-    /* color: blue; */
-    @apply text-utc-new-blue-500;
+  /* color: blue; */
+  @apply text-utc-new-blue-500;
 }
 
 .block--region-header-primary-menu > ul.menu > li > a:hover {
-    text-decoration: none;
-    /* background: blue; */
-    @apply bg-utc-new-blue-500;
-    /* color: yellow; */
-    @apply text-utc-new-gold-500;
+  text-decoration: none;
+  /* background: blue; */
+  @apply bg-utc-new-blue-500;
+  /* color: yellow; */
+  @apply text-utc-new-gold-500;
 }
 
 .block--region-header-primary-menu > ul.menu > li > a {
-    border-radius: 0;
-    padding: 12px;
+  border-radius: 0;
+  padding: 12px;
 }
 
 .block--region-header-primary-menu > ul.menu > li > a:hover {
-    padding: 12px;
+  padding: 12px;
 }
- 
+
 /* // .tb-megamenu .dropdown-menu li > a {
 //  color: blue;
 // }
@@ -34,4 +34,3 @@
 //  background: blue;
 //  color: yellow;
 // } */
-

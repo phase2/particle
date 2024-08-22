@@ -1,68 +1,67 @@
 /* //new background styles for sections, used by themag layout builder plugins
 
   // Background colors */
-  .utc-section-bg--white {
-    /* background-color: white; */
-    @apply bg-white;
-  }
-  .utc-section-bg--gray {
-    /* background-color: gray; */
-    @apply bg-gray-450;
-  }
-  .utc-section-bg--gray-light {
-    /* background-color: gray; */
-    @apply bg-gray-250;
-  }
-  .utc-section-bg--blue {
-    /* background-color: blue; */
-    @apply bg-utc-new-blue-500;
-  }
-  .utc-section-bg--blue-light {
-    /* background-color: lightblue; */
-    /* orginal color bg-blue-100; */
-    @apply bg-utc-new-blue-100;
-  }
-  .utc-section-bg--red {
-    /* background-color: lightblue; */
-    /* orginal color bg-blue-100; */
-    @apply bg-red-800;
-  }
-  .utc-section-bg--gold {
-    /* background-color: lightblue; */
-    /* orginal color bg-blue-100; */
-    @apply bg-utc-new-gold-500;
-  }
-  .utc-section-bg--green {
-    /* background-color: lightblue; */
-    /* orginal color bg-blue-100; */
-    @apply bg-green-800;
-  }
-  .utc-section-bg--red h1, 
-  .utc-section-bg--green h1,
-  .utc-section-bg--blue h1, 
-  .utc-section-bg--red h2, 
-  .utc-section-bg--green h2,
-  .utc-section-bg--blue h2, 
-  .utc-section-bg--red h3, 
-  .utc-section-bg--green h3,
-  .utc-section-bg--blue h3, 
-  .utc-section-bg--red h4, 
-  .utc-section-bg--green h4,
-  .utc-section-bg--blue h4, 
-  .utc-section-bg--red h5, 
-  .utc-section-bg--green h5,
-  .utc-section-bg--blue h5, 
-  .utc-section-bg--red h6, 
-  .utc-section-bg--green h6,
-  .utc-section-bg--blue h6, 
-  .utc-section-bg--red p, 
-  .utc-section-bg--green p,
-  .utc-section-bg--blue p  {
-    @apply text-white;
-  }
+.utc-section-bg--white {
+  /* background-color: white; */
+  @apply bg-white;
+}
+.utc-section-bg--gray {
+  /* background-color: gray; */
+  @apply bg-gray-450;
+}
+.utc-section-bg--gray-light {
+  /* background-color: gray; */
+  @apply bg-gray-250;
+}
+.utc-section-bg--blue {
+  /* background-color: blue; */
+  @apply bg-utc-new-blue-500;
+}
+.utc-section-bg--blue-light {
+  /* background-color: lightblue; */
+  /* orginal color bg-blue-100; */
+  @apply bg-utc-new-blue-100;
+}
+.utc-section-bg--red {
+  /* background-color: lightblue; */
+  /* orginal color bg-blue-100; */
+  @apply bg-red-800;
+}
+.utc-section-bg--gold {
+  /* background-color: lightblue; */
+  /* orginal color bg-blue-100; */
+  @apply bg-utc-new-gold-500;
+}
+.utc-section-bg--green {
+  /* background-color: lightblue; */
+  /* orginal color bg-blue-100; */
+  @apply bg-green-800;
+}
+.utc-section-bg--red h1,
+.utc-section-bg--green h1,
+.utc-section-bg--blue h1,
+.utc-section-bg--red h2,
+.utc-section-bg--green h2,
+.utc-section-bg--blue h2,
+.utc-section-bg--red h3,
+.utc-section-bg--green h3,
+.utc-section-bg--blue h3,
+.utc-section-bg--red h4,
+.utc-section-bg--green h4,
+.utc-section-bg--blue h4,
+.utc-section-bg--red h5,
+.utc-section-bg--green h5,
+.utc-section-bg--blue h5,
+.utc-section-bg--red h6,
+.utc-section-bg--green h6,
+.utc-section-bg--blue h6,
+.utc-section-bg--red p,
+.utc-section-bg--green p,
+.utc-section-bg--blue p {
+  @apply text-white;
+}
 
-  .utc-hero-section {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
+.utc-hero-section {
+  max-width: 100%;
+  overflow-x: hidden;
+}

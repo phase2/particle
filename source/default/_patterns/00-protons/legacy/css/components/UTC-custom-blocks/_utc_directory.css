@@ -494,13 +494,9 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   @apply text-white !important;
 }
 
-.view-utc-directory
-  .dm-profile-tabs
-  > .dm-profile-tabs__item--active,
-.view-utc-directory
-  .dm-profile-tabs
-  > .dm-profile-tabs__item:hover {
-    @apply bg-utc-new-blue-500;
+.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item--active,
+.view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item:hover {
+  @apply bg-utc-new-blue-500;
 }
 
 /* DM Profile Content */
@@ -561,9 +557,9 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   }
 
   .employee-profile-page__body,
-.view-utc-directory .dm-profile-activities {
-  padding: 1rem;
-}
+  .view-utc-directory .dm-profile-activities {
+    padding: 1rem;
+  }
 
   .view-utc-directory
     .dm-profile-preamble
@@ -572,10 +568,10 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
     width: auto;
   }
 
-.view-utc-directory .dm-profile-preamble,
-.employee-profile-page {
-  background-color: white;
-}
+  .view-utc-directory .dm-profile-preamble,
+  .employee-profile-page {
+    background-color: white;
+  }
 }
 @media (min-width: 1024px) {
   .view-utc-directory .dm-profile-section--main-image,
@@ -620,29 +616,25 @@ at the template level in apps/drupal-default/particle_theme/templates/views/view
   }
 
   .view-utc-directory
-  .dm-profile-tabs
-  > .dm-profile-tabs__item--active
-  > .dm-profile-tabs__link,
-.view-utc-directory
-  .dm-profile-tabs
-  > .dm-profile-tabs__item:hover
-  > .dm-profile-tabs__link {
-  @apply text-utc-new-blue-500 !important;
-}
+    .dm-profile-tabs
+    > .dm-profile-tabs__item--active
+    > .dm-profile-tabs__link,
+  .view-utc-directory
+    .dm-profile-tabs
+    > .dm-profile-tabs__item:hover
+    > .dm-profile-tabs__link {
+    @apply text-utc-new-blue-500 !important;
+  }
 
-.view-utc-directory
-  .dm-profile-tabs
-  > .dm-profile-tabs__item
-  > .dm-profile-tabs__link {
-  box-shadow: none;
-  @apply text-utc-new-blue-400;
-}
-.view-utc-directory
-  .dm-profile-tabs
-  > .dm-profile-tabs__item--active,
-.view-utc-directory
-  .dm-profile-tabs
-  > .dm-profile-tabs__item:hover {
+  .view-utc-directory
+    .dm-profile-tabs
+    > .dm-profile-tabs__item
+    > .dm-profile-tabs__link {
+    box-shadow: none;
+    @apply text-utc-new-blue-400;
+  }
+  .view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item--active,
+  .view-utc-directory .dm-profile-tabs > .dm-profile-tabs__item:hover {
     @apply bg-utc-new-blue-100;
-}
+  }
 }

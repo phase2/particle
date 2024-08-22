@@ -35,6 +35,8 @@
 			hero_text: content.field_hero_text|field_value,
 			hero_button_text: content.field_hero_button.0['#title'],
 			hero_button_url: content.field_hero_button.0['#url'],
+			hero_button_2_text: content.field_hero_button_2.0['#title'],
+			hero_button_2_url: content.field_hero_button_2.0['#url'],				
 		} %}
 		{# Add zoom class if zoom is checked. #}
 		{% if utc_hero.hero_zoom %}
@@ -87,7 +89,7 @@
 						{% endblock herotagtitle %}
 						{% block herotextbutton %}
 							{{ parent() }}
-						{% endblock herotextbutton %}
+						{% endblock herotextbutton %}					
 						</div>
 					</div>
 					<div class="lg:max-w-full lg:ml-0 w-full h-full {{ bg1_opacity }} bg-cover bg-center z-10 absolute top-0 left-0">
