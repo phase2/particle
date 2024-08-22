@@ -36,6 +36,8 @@
 		hero_text: content.field_hero_text|field_value,
 		hero_button_text: content.field_hero_button.0['#title'],
 		hero_button_url: content.field_hero_button.0['#url'],
+		hero_button_2_text: content.field_hero_button_2.0['#title'],
+		hero_button_2_url: content.field_hero_button_2.0['#url'],		
     } %}
 	{# Add zoom class if zoom is checked. #}
 	{% if utc_hero.hero_zoom %}
@@ -105,13 +107,18 @@
 									{{ utc_hero.hero_text}}
 								</p>
 							{% endif %}
-							{% if utc_hero.hero_button_url %}
-								<p class="my-8 text-right">
-									<a href="{{ utc_hero.hero_button_url}}"  class="diagonal {{ btn_class }}" aria-label="Read the release">
-										{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
-									</a>
-								</p>
-							{% endif %}
+								{% if utc_hero.hero_button_url %}
+									<p class="my-8 text-right">
+										<a href="{{ utc_hero.hero_button_url}}"  class="diagonal {{ btn_class }} mr-4 mb-4 d-inline-block" aria-label="Read the release">
+											{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
+										</a>
+										{% if utc_hero.hero_button_2_url %}
+											<a href="{{ utc_hero.hero_button_2_url}}"  class="diagonal {{ btn_class }} mr-4 d-inline-block" aria-label="Read the release">
+												{{ utc_hero.hero_button_2_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
+											</a>
+										{% endif %}
+									</p>
+								{% endif %}	
 						{% endblock herotextbutton %}
 					{% endblock herocontent %}
 					</div>

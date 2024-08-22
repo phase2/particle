@@ -42,6 +42,8 @@
 			hero_text: content.field_hero_text|field_value,
 			hero_button_text: content.field_hero_button.0['#title'],
 			hero_button_url: content.field_hero_button.0['#url'],
+			hero_button_2_text: content.field_hero_button_2.0['#title'],
+			hero_button_2_url: content.field_hero_button_2.0['#url'],				
 			hero_parameters: content.field_video_parameters|field_value,
 			hero_otherhost: content.field_cloudflare_or_videodeliver|field_value,
 		} %}
@@ -97,9 +99,14 @@
 							{% endif %}
 							{% if utc_hero.hero_button_url %}
 								<p class="my-6 text-right">
-									<a href="{{ utc_hero.hero_button_url}}" class="diagonal {{ btn_class }}" aria-label="{{ utc_hero.hero_button_text }}">
+									<a href="{{ utc_hero.hero_button_url}}" class="diagonal {{ btn_class }} d-inline-block mb-4 mr-4" aria-label="{{ utc_hero.hero_button_text }}">
 										{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
 									</a>
+									{% if utc_hero.hero_button_2_url %}
+										<a href="{{ utc_hero.hero_button_2_url}}"  class="diagonal {{ btn_class }} d-inline-block mr-4" aria-label="Read the release">
+											{{ utc_hero.hero_button_2_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
+										</a>
+									{% endif %}
 								</p>
 							{% endif %}
 						</div>
@@ -132,9 +139,14 @@
 							{% endif %}
 							{% if utc_hero.hero_button_url %}
 								<p class="my-6 text-right">
-									<a href="{{ utc_hero.hero_button_url}}" class="diagonal {{ btn_class }}" aria-label="{{ utc_hero.hero_button_text }}">
+									<a href="{{ utc_hero.hero_button_url}}" class="diagonal {{ btn_class }} d-inline-block mb-4 mr-4" aria-label="{{ utc_hero.hero_button_text }}">
 										{{ utc_hero.hero_button_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
 									</a>
+									{% if utc_hero.hero_button_2_url %}
+										<a href="{{ utc_hero.hero_button_2_url}}"  class="diagonal {{ btn_class }} d-inline-block mr-4" aria-label="Read the release">
+											{{ utc_hero.hero_button_2_text }} <i class="fas fa-angle-right font-semibold ml-1"></i>
+										</a>
+									{% endif %}
 								</p>
 							{% endif %}
 						</div>
