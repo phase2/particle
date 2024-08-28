@@ -84,12 +84,14 @@ input#edit-field-program-name-value:focus {
   border-color: #112e51;
 }
 .utc-academic-programs-form details summary {
-  padding: 0.65rem 2rem;
+  padding: 0.65rem;
   text-indent: -6px;
   font-family: Oswald, sans-serif;
   text-transform: capitalize;
   background: #e7eaee;
   font-weight: 500;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .utc-academic-programs-form details .details-wrapper {
@@ -135,7 +137,12 @@ input#edit-field-program-name-value:focus {
 }
 .utc-academic-programs-form .form-type-checkbox label {
   margin-top: 0;
-  margin-bottom:0;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+a.bef-toggle.bef-toggle--select-all {
+  margin-bottom: 6px !important;
+  display: block;
 }
 @media (max-width: 1280px) {
   .utc-academic-programs-form .form-actions {
