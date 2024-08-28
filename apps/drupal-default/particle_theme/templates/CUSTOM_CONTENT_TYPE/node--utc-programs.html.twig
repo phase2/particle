@@ -1,75 +1,110 @@
 <style>
-.term-display {
-  text-transform: capitalize;
-  display: inline;
-}
-.no-list-style {list-style:none;}
-.node-program-wrapper {
-  display: flex;
-  column-gap: 24px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid #112e51;
-}
-.node__content {
-  margin-bottom: 60px;
-}
-.node__content > div {
-    padding-top:36px;
-}
-.node-program-wrapper > div:first-child {width:25%;max-width:478px;}
-.node-program-wrapper > div:last-child {width:75%;}
+  .term-display { text-transform: capitalize; display: inline; } .no-list-style {list-style:none;}
+  /* Core accordion styles/functionality */ :root { --primary: #112e51; --secondary: #fdb736; --background: #eee;
+  --highlight: #ffda79; /* Theme color */ --theme: var(--primary); } section { border: 2px solid #e2e8f0 !important;
+  border-bottom: 0px!important; } section:last-child { border-bottom: 2px solid #e2e8f0 !important; } .tab input {
+  position: absolute; opacity: 0; z-index: -1; } .tab__content { height:0; background:#fff; overflow: hidden;
+  transition: all 0.35s; display: grid; gap: 12px;
+
+  grid-template-columns: 1fr 1fr 2fr; } .tab input:checked ~ .tab__content { height:fit-content; padding: 24px; }
+
+  /* Visual styles */ .accordion { color: var(--theme); overflow: hidden; section { border: 2px solid #e2e8f0
+  !important; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: rgb(226, 232, 240);
+  border-bottom: 1px solid #e2e8f0 !important; } } .tab__label, .tab__close { display: flex; color: white; background:
+  var(--theme); cursor: pointer; } .tab__label { padding: 10px 15px; background-color: #fff !important; color: #112e51
+  !important; border-bottom: 2px solid #e2e8f0 !important; font-family: Oswald, sans-serif; font-size: 1.15rem;
+  font-weight: 500; margin-bottom: -2px; } .tab input:checked + .tab__label { background: #e7eaee!important; }
+  .tab__label::before { content: "\276F"; width: 1em; height: 1em; transform-origin: center; text-align: center;
+  transform: rotate(90deg); transition: all 0.35s; font-weight: 300; margin-right: 12px; margin-top: 3px; } .tab
+  input:checked + .tab__label::before { transform: rotate(270deg); } .tab__content p { margin: 0; } .tab__close {
+  justify-content: flex-end; padding: 0.5rem 1rem; font-size: 0.75rem; }
 </style>
 
-    
-   <div class="node__content" >
+{% for paragraph in content.field_utc_programs['#items'] %}
+  {# paragraph fields #}
+  {% set paragraph_title = paragraph.entity.field_program_name.value %}
+  {% set paragraph_image = paragraph.entity.field_program_image.target_id %}
+  {% set paragraph_degrees = paragraph.entity.field_degree_options %}
+  {% set paragraph_interest_option = paragraph.entity.field_interest_options %}
+  {% set onlineAvailability = paragraph.entity.field_online_available.value %}
+  {% set paragraph_description = paragraph.entity.field_summary_description.value %}
+  {% set paragraph_yturl = paragraph.entity.field_youtube_video_url.value %}
+  {% set paragraph_published = paragraph.entity.isPublished() %}
 
-    {% for paragraph in content.field_utc_programs['#items'] %}
-
-        {# paragraph fields #}  
-        {% set paragraph_title = paragraph.entity.field_program_name.value %}
-        {% set paragraph_image = paragraph.entity.field_program_image.target_id %}
-        {% set paragraph_degrees = paragraph.entity.field_degree_options %}
-        {% set paragraph_delivery_option = paragraph.entity.field_delivery_options %}
-        {% set paragraph_interest_option = paragraph.entity.field_interest_options %}
-        {% set paragraph_description = paragraph.entity.field_summary_description.value %}
-        {% set paragraph_yturl = paragraph.entity.field_youtube_video_url.value %}
-
-        <div>
-            <div class="node-program-wrapper">
-                <div style="display:flex;flex-direction:column;">
-                    {% if paragraph_image is not null %}
-                        <div class="program-image" style="margin-bottom:24px;">{{ drupal_entity('media', paragraph_image, 'utc_academic_program_image') }}</div>
-                    {% endif %}
-                    {% if paragraph_yturl %}
-                        <div class="program-youtube responsive-video">
-                            <iframe class="program-yt-iframe" scrolling="no" type="text/html" src="https://www.youtube.com/embed/{{ paragraph_yturl }}?modestbranding=1&amp;showinfo=0&amp;rel=0&amp;cc_load_policy=3&amp;iv_load_policy=3&amp;disablekb=0&amp;fs=0&amp;color=red&amp;playlist={{ paragraph_yturl }}" title="{{ paragraph_title }} video" frameborder="0" ></iframe>
-                        </div>
-                    {% endif %}
-                </div>
-                <div><h2 style="margin-top:0;">{{ paragraph_title }}</h2>
-                    <ul style="padding-left:0;">
-                        <li class="no-list-style"><span style="font-weight:bold;">Category(ies): </span>
-                            {% for item in paragraph_interest_option %}
-                                <div class="term-display">{{ item.value|raw }}{% if not loop.last %}, {% endif %}</div>
-                            {% endfor %}
-                        </li>
-                        <li class="no-list-style"><span style="font-weight:bold;">Degree(s) available: </span>
-                            {% for item in paragraph_degrees %}
-                                <div class="term-display">{{ item.value|raw }}{% if not loop.last %}, {% endif %}</div>
-                            {% endfor %}
-                        </li class="no-list-style">
-                        <li class="no-list-style"><span style="font-weight:bold;">Delivery options: </span>
-                            {% for item in paragraph_delivery_option %}
-                                <div class="term-display">{% if item.value|raw == "inperson"%}In Person{% else %}{{ item.value|raw }}{% endif %}{% if not loop.last %}, {% endif %}</div>
-                            {% endfor %}
-                        </li>
-                        
-                    </ul>
-                    <div class="node__program-description"><p>Note: For brevity, only the summary is present here.</p><span style="font-weight:bold;">Description: </span><br />{{ paragraph_description|raw }}</div>
-                </div>
+{% if paragraph_published %}
+  <section class="accordion">
+    <div class="tab">
+      <input type="checkbox"
+        name="{{ paragraph_title
+          |replace({
+            ' ': ''
+          })
+          |lower }}"
+        id="{{ paragraph_title
+          |replace({
+            ' ': ''
+          })
+          |lower }}" />
+      <label for="{{ paragraph_title
+          |replace({
+            ' ': ''
+          })
+          |lower }}"
+        class="tab__label">
+        {{ paragraph_title }}
+      </label>
+      <div class="tab__content">
+        <div style="display:flex;flex-direction:column;">
+          {% if paragraph_image is not null %}
+            <div class="program-image" style="margin-bottom:24px;">
+              {{ drupal_entity('media', paragraph_image, 'utc_academic_program_image') }}
             </div>
+          {% endif %}
+          {% if paragraph_yturl %}
+            <div class="program-youtube responsive-video">
+              <iframe class="program-yt-iframe"
+                scrolling="no"
+                type="text/html"
+                src="https://www.youtube.com/embed/{{
+                paragraph_yturl
+                }}?modestbranding=1&amp;showinfo=0&amp;rel=0&amp;cc_load_policy=3&amp;iv_load_policy=3&amp;disablekb=0&amp;fs=0&amp;color=red&amp;playlist={{
+                paragraph_yturl
+                }}"
+                title="{{ paragraph_title }} video"
+                frameborder="0"></iframe>
+            </div>
+          {% endif %}
         </div>
-    {% endfor %}
-
-</div>
-
+        <ul style="padding-left:18px;">
+          <li class="no-list-style">
+            <span style="font-weight:bold;">Category(ies):</span>
+            {% for item in paragraph_interest_option %}
+              <div class="term-display">
+                {{ item.value|raw }}{% if not loop.last %}, {% endif %}
+              </div>
+            {% endfor %}
+          </li>
+          <li class="no-list-style">
+            <span style="font-weight:bold;">Degree(s) available:</span>
+            {% for item in paragraph_degrees %}
+              <div class="term-display">
+                {{ item.value|raw }}{% if not loop.last %}, {% endif %}
+              </div>
+            {% endfor %}
+          </li>
+          <li class="no-list-style">
+            {% if onlineAvailability %}
+              <div class="online-tag" style="margin-top:24px;">
+                100% Online Available
+              </div>
+            {% endif %}
+          </li>
+        </ul>
+        <div>
+          <span style="font-weight:bold">Summary Description:</span>{{ paragraph_description|raw }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% endfor %}

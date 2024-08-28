@@ -20,6 +20,14 @@
   margin-bottom: 12px;
   margin-top: 24px;
 }
+.utc-academic-programs-page {
+  width: 90%;
+  margin: 0 auto 6rem;
+}
+.utc-academic-programs-block {
+  width: 100%;
+  margin: 0 auto 2rem;
+}
 .utc-academic-programs-page h3 {
   display: inline;
   margin: 0;
@@ -27,6 +35,7 @@
 .utc-academic-programs-page .program-results {
   text-align: right;
   font-size: 0.85rem;
+  margin-top:3px;
 }
 .utc-academic-programs-page .lead {
   font-size: 1.1rem !important;
@@ -125,7 +134,8 @@ input#edit-field-program-name-value:focus {
   justify-content: start;
 }
 .utc-academic-programs-form .form-type-checkbox label {
-  margin-top: -3px;
+  margin-top: 0;
+  margin-bottom:0;
 }
 @media (max-width: 1280px) {
   .utc-academic-programs-form .form-actions {
@@ -266,10 +276,6 @@ input#edit-field-program-name-value:focus {
 }
 
 .utc-programs-page tr {
-  height: 60px;
-  line-height: 1.2;
-}
-.utc-programs-page tr.program-block {
   height: 70px;
   line-height: 1;
 }
@@ -543,11 +549,10 @@ input#edit-field-program-name-value:focus {
   }
   .utc-programs-page tbody td.program-name {
     flex-direction: column;
-    line-height: 2;
+    line-height: 1.1;
     justify-content: center;
-    padding-top: 6px;
   }
-  
+
   .utc-programs-page td.degree.minor,
   .utc-programs-page .delivery:last-child {
     border-right: none;
@@ -572,13 +577,14 @@ input#edit-field-program-name-value:focus {
     font-size: 1.3rem !important;
   }
   .utc-programs-page td.online-100:before {
-    top:15px;
+    top: 15px;
   }
   /*
 	Label the data
 	*/
   .utc-programs-page td:nth-of-type(1):before {
     content: 'Program Area:';
+    top:18px
   }
   .utc-programs-page td:nth-of-type(2):before {
     content: 'Bachelor:';
@@ -615,10 +621,10 @@ input#edit-field-program-name-value:focus {
   }
 }
 
-/****Toggle button add 8.22.24*****/
+/****Toggle button add 8.22.24***/
 .online-tag {
   background-color: rgba(253, 183, 54, 0.75);
-  margin-top: 0.2rem;
+  margin-top: 6px;
   padding: 0.1rem 0.3rem;
   text-transform: uppercase;
   font-size: 0.7875rem;
@@ -629,56 +635,56 @@ input#edit-field-program-name-value:focus {
   color: #112e51;
   border-radius: 0.2rem;
 }
-.toggle {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 27px;
-}
-.toggle input {
-  display: none;
-}
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: gray;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-.slider:before {
-  position: absolute;
-  content: '';
-  height: 21px;
-  width: 21px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-input:checked + .slider {
-  background-color: #fdb736;
-}
-input:checked + .slider:before {
-  transform: translateX(32px);
-}
-.utc-academic-programs-form .form-item-field-online-available-value {
+.utc-academic-programs-form .form-type-checkbox.form-item-field-online-available-value {
+  justify-content: start;
   flex-direction: column;
   gap: 3px;
+  margin-top: 0px;
   align-items: center;
 }
-.utc-academic-programs-form .form-item-field-online-available-value:before {
+.form-item-field-online-available-value:before {
   content: '100% Online Available';
   font-family: Oswald, sans-serif;
   font-size: 0.9rem;
+  color: #112e51;
 }
-@media (max-width:768px){
+.form-item-field-online-available-value input[type='checkbox'] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.form-item-field-online-available-value label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 60px;
+  height: 30px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+.form-item-field-online-available-value label:after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  height: 24px;
+  width: 24px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.form-item-field-online-available-value input:checked + label {
+  background: #fdb736;
+}
+.form-item-field-online-available-value input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+@media (max-width: 768px) {
   .utc-programs-page thead:before {
-    content: "Touch a program to get more details.";
+    content: 'Touch a program to get more details.';
     border: none;
     font-weight: 400;
     font-size: 1rem;
@@ -689,14 +695,15 @@ input:checked + .slider:before {
     font-size: 1.3rem;
   }
   .utc-academic-programs-form .form-item-field-online-available-value {
-    gap: 12px;
+    margin-top: 18px;
+    margin-bottom: -18px;
   }
+  .utc-academic-programs-form .form-type-checkbox.form-item-field-online-available-value {margin-top:12px;}
 }
 @media (max-width: 460px) {
   .online-tag {
     background-color: rgba(253, 183, 54, 1);
     margin-bottom: 9px;
-    margin-top: -3px;
     font-weight: bold;
     padding-left: 9px;
     padding-right: 9px;

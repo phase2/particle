@@ -66,14 +66,7 @@
           .find('.offscreen-program-details')
           .wrapAll("<div class='program-window'></div>");
       });
-      //create toggle button
-      $('.form-item-field-online-available-value label').remove();
-      $('.form-item-field-online-available-value input').wrapAll(
-        "<label class='toggle'></label>"
-      );
-      $('<div class="slider"></div>').insertAfter(
-        $('.form-item-field-online-available-value input')
-      );
     },
   };
 })(jQuery, Drupal, drupalSettings);
+
