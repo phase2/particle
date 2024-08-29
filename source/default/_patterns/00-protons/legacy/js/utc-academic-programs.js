@@ -7,6 +7,10 @@
       if (window.location.href.indexOf('degrees-and-programs') > -1) {
         $('body').addClass('utc-programs-page');
       }
+      var programBlock = document.getElementsByClassName("utc-programs-block");
+      if(programBlock) {
+        $('body').addClass('utc-programs-page');
+      }
       $(window).scroll(function () {
         if ($(this).scrollTop() > 925) {
           $('.program-table thead').addClass('scrolled');
@@ -20,15 +24,18 @@
       var programOverlay = $('.utc-programs-page .program-overlay');
 
       $(programOverlay).css({ 'z-index': '-1', opacity: '.75' });
-      $('.utcloadingcontainer').css('display', 'none');
 
       function ghostMainContent() {
         $(programHeadline).css('opacity', '.25');
         $(programOverlay).css('z-index', '2');
+        $('.page-footer').css('z-index', '3');
+        $('.utcpage-title').css('z-index', '1');
       }
       function unghostMainContent() {
         $(programHeadline).css('opacity', '1');
         $(programOverlay).css('z-index', '-1');
+        $('.page-footer').css('z-index', 'unset');
+        $('.utcpage-title').css('z-index', '5');
       }
       function togglediv(getProgramBtnDetailId) {
         $('.offscreen-program-details').each(function () {
@@ -66,14 +73,7 @@
           .find('.offscreen-program-details')
           .wrapAll("<div class='program-window'></div>");
       });
-      //create toggle button
-      $('.form-item-field-online-available-value label').remove();
-      $('.form-item-field-online-available-value input').wrapAll(
-        "<label class='toggle'></label>"
-      );
-      $('<div class="slider"></div>').insertAfter(
-        $('.form-item-field-online-available-value input')
-      );
     },
   };
 })(jQuery, Drupal, drupalSettings);
+
