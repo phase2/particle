@@ -787,3 +787,105 @@ foreignObject > div > div {
 .is-b-loading:not(.is-b-loaded):not([data-animation])::before {
   background: transparent !important;
 }
+
+/*** Particle issue #681, needed global css fixes...08/30/24 ***/
+h3.employee-card__name,
+h4.employee-card__suffix {
+  font-size: 1.25rem;
+}
+.localist_widget_container .action_button a {
+  text-decoration: none !important;
+  background-color: #112e51;
+  border: 1px solid #112e51 !important;
+  color: #fff !important;
+  padding: 6px 12px;
+  background-image: unset !important;
+  background-position: unset !important;
+}
+.localist_widget_container .action_button a:hover {
+  color: #112e51 !important;
+}
+button.header__toggleable-button.js-toggle-search {
+  font-size: 1.5rem;
+}
+button.header__toggleable-button.js-toggle-search:hover,
+.close-search-btn.close:hover {
+  transform: scale(1.5);
+  color: #fdb736;
+}
+.utc-card-2__title,
+.utc-sidebar-card h3 {
+  font-size: 1.5rem !important;
+}
+
+/***Image gallery css updated 08.30.24 see particle issue 664***/
+
+@media (max-width: 640px) {
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .blazy
+    .media--blazy
+    img.b-blur,
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .blazy
+    .media--blazy
+    img.media__element,
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .blazy
+    .grid
+    figure,
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images img {
+    margin: 0;
+    height: 100%;
+    max-height: 250px !important;
+    min-height: unset !important;
+    object-fit: unset !important;
+  }
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .blazy
+    .media {
+    display: block;
+    max-height: 250px;
+  }
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .slide__content,
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .grid__content {
+    height: fit-content;
+  }
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .slide__content,
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .grid__content {
+    position: relative;
+    height: fit-content;
+  }
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images.slick--skin--classic
+    .slick__slide {
+    overflow: hidden;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222222;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .slide__caption,
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images
+    .slick--skin--classic
+    .slide__caption {
+    height: auto !important;
+    min-height: 0 !important;
+    text-align: center;
+    padding: 6px 6px 0;
+  }
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images button.slick-prev.slick-arrow {
+    margin-left: -36px;
+    background: rgba(17, 42, 81, 0.5);
+}
+  .slick--field-utc-gallery--flexible-slideshow-accommodates-vertical-images button.slick-next.slick-arrow {
+    margin-right: -36px;
+    background: rgba(17, 42, 81, 0.5);
+  }
+}

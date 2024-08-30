@@ -5,7 +5,7 @@ blockquote:before {
   @apply hidden;
 }
 blockquote p {
-  @apply pl-16 relative text-center my-0 mx-auto text-xl mt-8 mb-0;
+  @apply pl-16 relative text-center my-0 mx-auto text-xl mt-2 mb-0;
   border-left: 12px solid #c4cbd4;
   width: fit-content;
   max-width: 90%;
