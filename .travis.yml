@@ -36,6 +36,7 @@ before_script:
   - php --version
   - node --version
   - npm --version
+  - gem install uri -v '0.13.1'
 script:
   - npm run build:drupal --if-present
 
