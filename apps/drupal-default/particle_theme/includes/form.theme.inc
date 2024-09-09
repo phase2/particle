@@ -4,6 +4,7 @@
  * @file
  * Functions to support theming forms in the Particle theme.
  */
+
 declare(strict_types = 1);
 
 use Drupal\Core\Form\FormStateInterface;

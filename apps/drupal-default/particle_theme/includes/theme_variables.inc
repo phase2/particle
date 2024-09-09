@@ -2,11 +2,10 @@
 
 /**
  * @file
- * Implements hook_preprocess.
  */
 
 /**
- *
+ * Implements hook_preprocess().
  */
 function particle_preprocess(&$variables, $hook) {
 
@@ -63,7 +62,5 @@ function particle_preprocess(&$variables, $hook) {
       $variables['themag']['social_media_pages'][$page_key]['icon'] = '<i class="' . $page['fa_icon'] . '"></i>';
     }
   }
-
-
 
 }
