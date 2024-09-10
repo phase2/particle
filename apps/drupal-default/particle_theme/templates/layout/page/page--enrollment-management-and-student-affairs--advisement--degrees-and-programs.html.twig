@@ -44,90 +44,50 @@
  */
 #}
 
-
-{# Set classes on the main region depending on whether has right sidebar or not. #}
-{% set main_region_classes = ['col-12'] %}
-{% if page.content_right %}
-  {% set main_region_classes = ['col-12', 'col-lg-8', 'mb-6', 'mb-lg-0'] %}
-{% endif %}
-
-<div class="layout-container">
-  {# Include header and header regions #}
-  {% block header %}
-    {% include '@themag/base-layout/header/header.html.twig' %}
-  {% endblock %}
-
-  {% block offcanvas_sidebar %}
-    {{ page.offcanvas_sidebar }}
-  {% endblock %}
-
-  {% block page_content %}
-    <div class="container my-6">
-      {% block content_top %}
-        {% if page.content_top %}
-          <div class="row">
-            <div class="col-12">
-             {{ page.content_top }}
-            </div>
-          </div>
-        {% endif %}
-      {% endblock %}
-
-      {% block content_main %}
-        {% block content_administration %}
-          {{ page.content_administration }}
-        {% endblock %}
-        <div class="row">
-          <div class="{{ main_region_classes | join(' ') }}">
-            {% block content_header %}
-              <div class="program-page-title-and-crumbs">
-                <h1 class="utcpage-title">Degrees and Programs</div>
-                <div id="block-breadcrumbs-particle" class="block block--system block--region-content-header block--system-breadcrumb-block" style="margin-top: 12px;margin-bottom: 36px;">
-                  <div class="block__content">
-                    <nav class="simple-breadcrumb utcbreadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
-                    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
-                      <ol>
-                        <li>
-                          <a href="/enrollment-management-and-student-affairs">Enrollment Management and Student Affairs</a>
-                        </li>
-                        <li>
-                          <a href="/enrollment-management-and-student-affairs/advisement">Advisement</a>
-                        </li>
-                        <li style="color: #37474f;">
-                          Degrees and Programs</a>
-                        </li>
-                      </ol>
-                    </nav>
-                  </div>
-                </div>
+<div class="layout-builder-powered-page">
+   {% include '@themag/base-layout/header/header.html.twig' %}
+  {# {% include '@particle/layout/header/custom-header.html.twig' %}  #}
+    <section id="mobile-menu" aria-label="mobile menu accordion" style="height:0" >{{ page.offcanvas_sidebar }}</section>
+    <section aria-label="organization root menu">{{ page.top_workbench_menu }}</section>
+    <section aria-label="content administrative area">{{ page.content_administration }}</section>
+    <main role="main" id="main-content" tabindex="-1">
+      <div class="container" style="padding:0;">
+          <div class="program-page-title-and-crumbs">
+            <h1 class="utcpage-title mt-12">Degrees and Programs</div>
+            <div id="block-breadcrumbs-particle" class="block block--system block--region-content-header block--system-breadcrumb-block" style="margin-top: 12px;margin-bottom: 36px;">
+              <div class="block__content">
+                <nav class="simple-breadcrumb utcbreadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+                <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+                  <ol>
+                    <li>
+                      <a href="/enrollment-management-and-student-affairs">Enrollment Management and Student Affairs</a>
+                    </li>
+                    <li>
+                      <a href="/enrollment-management-and-student-affairs/advisement">Advisement</a>
+                    </li>
+                    <li style="color: #37474f;">
+                      Degrees and Programs</a>
+                    </li>
+                  </ol>
+                </nav>
               </div>
-            {% endblock %}
-            {% block content %}
-              {{ page.content }}
-            {% endblock %}
-          </div>
-          {% if page.content_right %}
-            <div class="col-12 col-lg-4 js-sticky-container">
-              {{ page.content_right }}
             </div>
-          {% endif %}
+          </div>
+          {{ page.content }}
+          <!-- The Modal -->
+        <div id="dp-modal" class="dp-modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="flex space-between items-center font-bold"><span>Discover how our students selected their majors:</span><span class="close-modal"><i class="fa-sharp fa-regular fa-xmark"></i></span></div>
+            <div class="video-hero responsive-video">
+              <iframe scrolling="no" type="text/html" src="https://www.youtube.com/embed/https://youtu.be/ytPAreirCUU,ytPAreirCUU?modestbranding=1&amp;showinfo=0&amp;rel=0&amp;cc_load_policy=3&amp;iv_load_policy=3&amp;disablekb=0&amp;fs=0&amp;color=red&amp;playlist=https://youtu.be/ytPAreirCUU,ytPAreirCUU" class="hero-iframe left-0 top-0 absolute shadow-utcdark w-full h-full" title="test video" frameborder="0"></iframe>
+            </div>
+          </div>
+
         </div>
-      {% endblock %}
-
-      {% block content_bottom %}
-        {% if page.content_bottom %}
-          <div class="row">
-            <div class="col-12 mt-4 mb-4 mt-lg-9 mb-lg-6">
-              {{ page.content_bottom }}
-            </div>
-          </div>
-        {% endif %}
-      {% endblock %}
-    </div>
-  {% endblock %}
-
-  {# Include footer and footer regions #}
-  {% block footer %}
-    {% include '@themag/base-layout/footer/footer.html.twig' %}
-  {% endblock %}
-</div>{# /.layout-container #}
+      </div>
+    </main>
+  {% include '@particle/layout/footer/footer.html.twig' %}
+  <a href="#top" id="scroll-to-top-btn" title="Scroll to the top" role="button" aria-label="scroll to the top" class="scroll-to-top-button"><i class="fas fa-angle-up"></i><span class="sr-only">Scroll to the top</span></a>
+</div>

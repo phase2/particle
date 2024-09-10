@@ -33,15 +33,26 @@
  */
 #}
 
-{%
-  set classes = [
-    dom_id ? 'js-view-dom-id-' ~ dom_id,
-    'utc-programs-page',
-    'utc-programs-block',
-  ]
-%}
+{% set classes = [dom_id ? 'js-view-dom-id-' ~ dom_id, 'utc-programs-page', 'utc-programs-block'] %}
+<!-- The Modal -->
+<div id="dp-modal" class="dp-modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="flex space-between items-center font-bold">
+      <span>Discover how our students selected their majors:</span><span class="close-modal"><i class="fa-sharp fa-regular fa-xmark"></i></span>
+    </div>
+    <div class="video-hero responsive-video">
+      <iframe scrolling="no"
+        type="text/html"
+        src="https://www.youtube.com/embed/https://youtu.be/ytPAreirCUU,ytPAreirCUU?modestbranding=1&amp;showinfo=0&amp;rel=0&amp;cc_load_policy=3&amp;iv_load_policy=3&amp;disablekb=0&amp;fs=0&amp;color=red&amp;playlist=https://youtu.be/ytPAreirCUU,ytPAreirCUU"
+        class="hero-iframe left-0 top-0 absolute shadow-utcdark w-full h-full"
+        title="test video"
+        frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
 
-<div{{ attributes.addClass(classes) }}>
+<div {{ attributes.addClass(classes) }}>
   <div class="program-overlay"></div>
   {% if header %}
     <header>

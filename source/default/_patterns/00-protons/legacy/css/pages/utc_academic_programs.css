@@ -35,7 +35,7 @@
 .utc-academic-programs-page .program-results {
   text-align: right;
   font-size: 0.85rem;
-  margin-top:3px;
+  margin-top: 3px;
 }
 .utc-academic-programs-page .lead {
   font-size: 1.1rem !important;
@@ -159,9 +159,6 @@ a.bef-toggle.bef-toggle--select-all {
 @media (max-width: 1024px) {
   .utc-academic-programs-form details summary {
     font-size: 1rem;
-  }
-  .utc-academic-programs-form {
-    grid-template-columns: 2fr 1fr 1fr;
   }
 }
 @media (max-width: 768px) {
@@ -408,15 +405,128 @@ a.bef-toggle.bef-toggle--select-all {
   padding-top: 6px;
   padding-bottom: 6px;
 }
+/****Add modal window for video****/
+
+/* The Modal (background) */
+#dp-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100000000;
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(12, 21, 32, 0.75); /* Black w/ opacity */
+  flex-direction: column;
+  transition: display 1s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+#dp-modal .modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 24px;
+  border: 1px solid #888;
+  width: 65%;
+  display: flex;
+  row-gap: 24px;
+  flex-direction: column;
+}
+
+/* The Close Button */
+.close-modal {
+  color: #112e51;
+  float: right;
+  font-size: 27px;
+  font-weight: normal;
+  border: 2px solid #112e51;
+  z-index: 1000000000000;
+  display: block;
+  position: relative;
+  padding: 6px;
+  background: #fff;
+  transition: all 0.4s ease-in-out;
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+  text-align: center;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #fdb736;
+  border: 3px solid #fdb736;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.degrees-video {
+  width: fit-content;
+  text-align: left;
+  margin-left: 0;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+a.degrees-video.degrees-video-online {
+  text-align: left;
+  margin-left: 0;
+  margin-bottom: 24px;
+}
+
+/****Toggle button add 8.22.24***/
+.online-tag {
+  background-color: rgba(253, 183, 54, 0.75);
+  margin-top: 6px;
+  padding: 0.1rem 0.3rem;
+  text-transform: uppercase;
+  font-size: 0.7875rem;
+  font-weight: 500;
+  display: block;
+  width: fit-content;
+  text-decoration: none;
+  color: #112e51;
+  border-radius: 0.2rem;
+}
+
 @media (max-width: 991px) {
-  .utc-programs-page .program-table {
-    border: 1px solid #ddd;
+  .program-page-title-and-crumbs {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .utc-programs-page #block-breadcrumbs-particle {
+    max-width: 90%;
+    margin: 12px auto;
   }
   .utc-programs-page .program-name {
     padding-left: 18px !important;
   }
   .utc-programs-page tr {
     height: 100px;
+  }
+  #dp-modal .modal-content {
+    width: 100%;
+    overflow-y: hidden;
+  }
+  .utc-academic-programs-form details summary {
+    padding: 0.65rem 1.5rem;
+  }
+  .utc-programs-page .smaller-text {
+    display: none;
+  }
+  .utc-programs-page .program-table {
+    margin-top: 24px;
+  }
+}
+@media (max-width: 991px) and (orientation: landscape) {
+  #dp-modal {
+    padding-top: 0;
+  }
+  #dp-modal .modal-content {
+    width: 60%;
+    overflow-y: hidden;
   }
 }
 @media (max-width: 640px) {
@@ -595,7 +705,7 @@ a.bef-toggle.bef-toggle--select-all {
 	*/
   .utc-programs-page td:nth-of-type(1):before {
     content: 'Program Area:';
-    top:18px
+    top: 18px;
   }
   .utc-programs-page td:nth-of-type(2):before {
     content: 'Bachelor:';
@@ -630,23 +740,14 @@ a.bef-toggle.bef-toggle--select-all {
     text-align: center;
     width: 90%;
   }
+  .online-tag {
+    background-color: rgba(253, 183, 54, 1);
+    padding: 0.1rem 0.3rem 0;
+  }
 }
 
-/****Toggle button add 8.22.24***/
-.online-tag {
-  background-color: rgba(253, 183, 54, 0.75);
-  margin-top: 6px;
-  padding: 0.1rem 0.3rem;
-  text-transform: uppercase;
-  font-size: 0.7875rem;
-  font-weight: 500;
-  display: block;
-  width: fit-content;
-  text-decoration: none;
-  color: #112e51;
-  border-radius: 0.2rem;
-}
-.utc-academic-programs-form .form-type-checkbox.form-item-field-online-available-value {
+.utc-academic-programs-form
+  .form-type-checkbox.form-item-field-online-available-value {
   justify-content: start;
   flex-direction: column;
   gap: 3px;
@@ -694,7 +795,7 @@ a.bef-toggle.bef-toggle--select-all {
 }
 
 @media (max-width: 768px) {
-  .utc-programs-page thead:before {
+  .utc-programs-page .form-item-field-online-available-value:after {
     content: 'Touch a program to get more details.';
     border: none;
     font-weight: 400;
@@ -709,14 +810,30 @@ a.bef-toggle.bef-toggle--select-all {
     margin-top: 18px;
     margin-bottom: -18px;
   }
-  .utc-academic-programs-form .form-type-checkbox.form-item-field-online-available-value {margin-top:12px;}
+  .utc-academic-programs-form
+    .form-type-checkbox.form-item-field-online-available-value {
+    margin-top: 12px;
+  }
 }
+
 @media (max-width: 460px) {
-  .online-tag {
-    background-color: rgba(253, 183, 54, 1);
-    margin-bottom: 9px;
-    font-weight: bold;
-    padding-left: 9px;
-    padding-right: 9px;
+  .utc-programs-page .form-item-field-online-available-value:after {
+    display: none;
+  }
+  .utc-programs-page thead:before {
+    content: 'Touch a program to get more details.';
+    border: none;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+  }
+  a.degrees-video {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+  div#edit-actions {
+    text-align: center;
+    margin-top: 24px;
   }
 }
