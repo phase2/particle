@@ -33,7 +33,6 @@
                 {% set btnID = 'btn-id-' ~ row.content['#row']._entity.id.0.value %}
                 {% set detailID = 'detail-id-' ~ row.content['#row']._entity.id.0.value %}
                 {% set programName = row.content['#row']._entity.field_program_name.value %}
-                {#{% set programDelivery = row.content['#row']._entity.field_delivery_options.value|raw %}#}
                 {% set programImage = row.content['#row']._entity.field_program_image.target_id %}
                 {% set youtubeurl = row.content['#row']._entity.field_youtube_video_url.value %}
 
@@ -112,16 +111,7 @@
                         {% if  onlineAvailability %}
                         <div class="online-tag" style="margin-top: 1rem;margin-bottom: .25rem;">100% Online Available</div>
                         {% endif %}
-                       <!-- <div class="program-delivery">
-                            {#{% if programDelivery == "hybrid" %}
-                                This program is a {{ programDelivery }} of in-person and online.
-                            {% elseif programDelivery == "inperson" %}
-                                This program is in person.
-                            {% else %}
-                                This is an online program.
-                            {% endif %}#}
-                        </div>-->
-                        <div class="program-copy">{{ row.content['#row']._entity.field_program_description.value|raw }}</div>
+                        <div class="program-copy">{{ row.content['#row']._entity.field_summary_description.value|raw }}</div>
                         
                         {% if youtubeurl %}
                             <div class="program-youtube responsive-video">

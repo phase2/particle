@@ -39,32 +39,34 @@
   ]
 %}
 <div class="program-overlay"></div>
-<div{{ attributes.addClass(classes) }}>
+<div class="container">
+  <div{{ attributes.addClass(classes) }}>
 
-  {% if header %}
-    <header>
-      {{ header }}
-    </header>
-  {% endif %}
+    {% if header %}
+      <header>
+        {{ header }}
+      </header>
+    {% endif %}
 
-  {{ exposed }}
-  {{ attachment_before }}
+    {{ exposed }}
+    {{ attachment_before }}
 
-  {% if rows -%}
-    {{ rows }}
-  {% elseif empty -%}
-    {{ empty }}
-  {% endif %}
-  {{ pager }}
+    {% if rows -%}
+      {{ rows }}
+    {% elseif empty -%}
+      {{ empty }}
+    {% endif %}
+    {{ pager }}
 
-  {{ attachment_after }}
-  {{ more }}
+    {{ attachment_after }}
+    {{ more }}
 
-  {% if footer %}
-    <footer>
-      {{ footer }}
-    </footer>
-  {% endif %}
+    {% if footer %}
+      <footer>
+        {{ footer }}
+      </footer>
+    {% endif %}
 
-  {{ feed_icons }}
+    {{ feed_icons }}
+  </div>
 </div>
