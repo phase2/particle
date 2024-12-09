@@ -73,7 +73,7 @@
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.11",
     "eslint": "^7.5.0",
-    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-webpack": "^0.12.2",
     "eslint-loader": "^4.0.2",
