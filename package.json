@@ -98,7 +98,7 @@
     "postcss-reporter": "^6.0.1",
     "prettier": "^2.0.5",
     "prettier-plugin-twig-melody": "^0.4.6",
-    "pretty-quick": "^2.0.1",
+    "pretty-quick": "^2.0.2",
     "resolve-url-loader": "^3.1.1",
     "style-loader": "^1.2.1",
     "stylelint": "^13.6.1",
