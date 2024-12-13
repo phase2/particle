@@ -48,7 +48,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "core-js": "^3.6.5",
     "enquire.js": "^2.1.6",
-    "holderjs": "^2.9.7",
+    "holderjs": "^2.9.9",
     "jquery": "^3.5.1",
     "lodash": "^4.17.19",
     "prismjs": "^1.20.0",
