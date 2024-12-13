@@ -52,7 +52,7 @@
     "jquery": "^3.5.1",
     "lodash": "^4.17.21",
     "prismjs": "^1.20.0",
-    "regenerator-runtime": "^0.13.7",
+    "regenerator-runtime": "^0.13.11",
     "svg4everybody": "^2.1.9",
     "tailwindcss": "^1.5.2",
     "vue": "^2.6.11",
