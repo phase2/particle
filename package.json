@@ -59,8 +59,8 @@
     "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
     "@pattern-lab/cli": "^5.11.1",
     "@pattern-lab/core": "^5.11.1",
     "@pattern-lab/engine-twig-php": "^5.11.1",
