@@ -44,7 +44,7 @@
     "postinstall": "cd tools/generators/new-component && npm link"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "core-js": "^3.6.5",
     "enquire.js": "^2.1.6",
