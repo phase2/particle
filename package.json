@@ -55,7 +55,7 @@
     "regenerator-runtime": "^0.13.11",
     "svg4everybody": "^2.1.9",
     "tailwindcss": "^1.5.2",
-    "vue": "^2.6.11",
+    "vue": "^2.6.14",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
@@ -110,7 +110,7 @@
     "url-loader": "^4.1.1",
     "vue-jest": "^3.0.7",
     "vue-loader": "^15.11.1",
-    "vue-template-compiler": "^2.6.11",
+    "vue-template-compiler": "^2.6.14",
     "vue-testing-library": "^0.17.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
